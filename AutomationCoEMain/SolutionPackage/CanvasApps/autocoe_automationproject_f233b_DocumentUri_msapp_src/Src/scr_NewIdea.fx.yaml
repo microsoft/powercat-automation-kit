@@ -1,0 +1,2819 @@
+scr_NewIdea As screen:
+    OnVisible: =If(!IsBlank(Param("ProjectNumber")), Set(varFormMode, FormMode.View), ResetForm(form_Project));
+
+    c_NewIdeaRoot As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =Parent.Width
+        X: =0.00
+        ZIndex: =1
+
+        c_NewIdeaHeader As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            Width: =Parent.Width
+            X: =0.00
+            ZIndex: =1
+
+            cmp_Header_4 As cmp_Header_1:
+                AppTitle: ="AUTOMATION PROJECT"
+                CompanyLogo: =Paw_Light
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                ZIndex: =1
+
+        c_NewIdeaMainSec As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =App.Width
+            ZIndex: =2
+
+            cmp_NavigationControl_2 As cmp_NavigationControl:
+                Height: =Parent.Height
+                Items: =col_MainNav
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Visible: =If(!IsBlank(Param("ProjectNumber")), false, true)
+                Width: =If(cmp_NavigationControl_2.IsExpanded, 200, 60)
+
+            c_NewIdeaMainContent As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =2
+
+                c_NewIdeaFilterHeader As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =10
+                    LayoutJustifyContent: =LayoutJustifyContent.End
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =200
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    FormValidation As label:
+                        Text: |-
+                            =//Used for validation before submition
+                            If(
+                                !IsBlank(DCV_projectname.Text) &&
+                                !IsBlank(DCV_goal.Selected) &&
+                                !IsBlank(DCV_daysperyear.Text) &&
+                                !IsBlank(DCV_errorrate.Text) &&
+                                !IsBlank(DCV_fte.Text) &&
+                                !IsBlank(DCV_fterework.Text) &&
+                                !IsBlank(DCV_steps.Text) &&
+                                !IsBlank(DCV_hourlycost.Text) &&
+                                !IsBlank(DCV_hoursperday.Text) &&
+                                !IsBlank(DCV_processchallenges.Text) &&
+                                !IsBlank(DCV_processfreq.Selected) &&
+                                !IsBlank(DCV_processingpeaks.Selected) &&
+                                !IsBlank(DCV_processingtime.Text) &&
+                                !IsBlank(DCV_reworktime.Text) &&
+                                !IsBlank(DCV_volume.Text) &&
+                                varFormMode <> FormMode.View,
+                                true,
+                                false
+                            )
+                        Visible: =false
+                        ZIndex: =1
+
+                    ico_NewProject As icon.Save:
+                        BorderColor: =ColorFade(ico_NewProject.Fill, -20%)
+                        Color: =PrimaryColor2Value
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =ColorFade(ico_NewProject.Fill, -80%)
+                        DisplayMode: |-
+                            =If(
+                                form_Project.Mode = FormMode.New,
+                                Disabled,
+                                DisplayMode.Edit
+                            )
+                        Height: =45
+                        HoverBorderColor: =ColorFade(ico_NewProject.BorderColor, 20%)
+                        HoverColor: =ColorFade(ico_NewProject.Color, 20%)
+                        HoverFill: =ColorFade(ico_NewProject.Fill, 20%)
+                        Icon: =Icon.Add
+                        OnSelect: |-
+                            =Set(varFormMode, FormMode.New);
+                            UpdateContext({var_BusinessOwnerDisplayName: ""});
+                            UpdateContext({var_BusinessOwnerEmail: ""});
+                            UpdateContext({_SelectedProject: Blank()})
+                            //ResetForm(form_Ideas)
+                        PaddingBottom: =8
+                        PaddingLeft: =8
+                        PaddingRight: =8
+                        PaddingTop: =8
+                        PressedBorderColor: =ColorFade(ico_NewProject.BorderColor, -20%)
+                        PressedColor: =ColorFade(ico_NewProject.Color, -20%)
+                        PressedFill: =ColorFade(ico_NewProject.Fill, -20%)
+                        Tooltip: ="New idea"
+                        Visible: =If(!IsBlank(Param("ProjectNumber")), false, true)
+                        Width: =50
+                        ZIndex: =2
+
+                    ico_EditProject As icon.Save:
+                        BorderColor: =ColorFade(ico_EditProject.Fill, -20%)
+                        Color: =PrimaryColor2Value
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =ColorFade(ico_EditProject.Fill, -80%)
+                        DisplayMode: |-
+                            =If(
+                                _SelectedProject.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Saved,
+                                If(
+                                    form_Project.Mode = FormMode.View,
+                                    DisplayMode.Edit,
+                                    Disabled
+                                ),
+                                Disabled
+                            )
+                        Height: =45
+                        HoverBorderColor: =ColorFade(ico_EditProject.BorderColor, 20%)
+                        HoverColor: =ColorFade(ico_EditProject.Color, 20%)
+                        HoverFill: =ColorFade(ico_EditProject.Fill, 20%)
+                        Icon: =Icon.Edit
+                        OnSelect: =Set(varFormMode, FormMode.Edit)
+                        PaddingBottom: =8
+                        PaddingLeft: =8
+                        PaddingRight: =8
+                        PaddingTop: =8
+                        PressedBorderColor: =ColorFade(ico_EditProject.BorderColor, -20%)
+                        PressedColor: =ColorFade(ico_EditProject.Color, -20%)
+                        PressedFill: =ColorFade(ico_EditProject.Fill, -20%)
+                        Tooltip: ="Edit project details"
+                        Visible: =If(varFormMode = FormMode.Edit, false, true)
+                        Width: =50
+                        ZIndex: =3
+
+                    btn_Submit As button:
+                        DisplayMode: =If( varFormMode = FormMode.New || varFormMode = FormMode.Edit, DisplayMode.Disabled)
+                        Height: =35
+                        HoverBorderColor: =ColorFade(btn_Submit.BorderColor, 20%)
+                        HoverColor: =ColorFade(btn_Submit.Color, 20%)
+                        HoverFill: =ColorFade(btn_Submit.Fill, 20%)
+                        OnSelect: |
+                            =Patch('Automation Projects', _SelectedProject,
+                            {
+                                'Automation Project Status': 'Automation Project Status (Automation Projects)'.Submitted,
+                                'Submitted By': User().FullName,
+                                'Submitted On': Now()
+                            }
+                            );
+                            Set(varFormMode, FormMode.New);
+                            UpdateContext({var_BusinessOwnerDisplayName: ""});
+                            UpdateContext({var_BusinessOwnerEmail: ""});
+                            UpdateContext({_SelectedProject: Blank()});
+                            
+                            Back(ScreenTransition.Fade)
+                        PressedBorderColor: =btn_Submit.Fill
+                        PressedColor: =btn_Submit.Fill
+                        PressedFill: =btn_Submit.Color
+                        Size: =TextEmphasisFontSizeValue 
+                        Text: ="Submit"
+                        Tooltip: ="Save before submitting project idea"
+                        VerticalAlign: =VerticalAlign.Top
+                        Visible: |-
+                            =If(
+                                _SelectedProject.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Saved,
+                                true && DataCardValue17.Selected.Value <> 'Automation Project Status (Automation Projects)'.Submitted && DataCardValue17.Selected.Value <> 'Automation Project Status (Automation Projects)'.Approved && DataCardValue17.Selected.Value <> 'Automation Project Status (Automation Projects)'.Declined && !IsBlank(DCV_projectname.Text) && !IsBlank(DCV_volume.Text) && !IsBlank(DCV_processingpeaks.Selected.Value) && !IsBlank(DCV_steps.Text) && !IsBlank(DCV_fte.Text) && !IsBlank(DCV_errorrate.Text) && !IsBlank(DCV_hourlycost.Text) && !IsBlank(DCV_reworktime.Text) && !IsBlank(DCV_processchallenges.Text) && !IsBlank(DCV_processingtime.Text) && !IsBlank(DataCardValue6.Selected.Name) && !IsBlank(DCV_processfreq.Selected.'Processing Frequency Score') && !IsBlank(DataCardValue8.Selected.'Process Category') && !IsBlank(DataCardValue9.Selected.'Process Sub Category'),
+                                false
+                            )
+                        ZIndex: =4
+
+                    ico_SaveProject As icon.Save:
+                        BorderColor: =ColorFade(ico_SaveProject.Fill, -20%)
+                        Color: =PrimaryColor2Value
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        DisabledFill: =ColorFade(ico_SaveProject.Fill, -80%)
+                        DisplayMode: =If(FormValidation.Text = "true", DisplayMode.Edit, DisplayMode.Disabled)
+                        Height: =45
+                        HoverBorderColor: =ColorFade(ico_SaveProject.BorderColor, 20%)
+                        HoverColor: =ColorFade(ico_SaveProject.Color, 20%)
+                        HoverFill: =ColorFade(ico_SaveProject.Fill, 20%)
+                        Icon: =Icon.Save
+                        OnSelect: |-
+                            =SubmitForm(form_Project);
+                            /*Below code was put on the OnSuccess
+                            Set(varFormMode, FormMode.View);
+                            Set(varSelectedProject, form_Ideas.LastSubmit)*/
+                        PaddingBottom: =8
+                        PaddingLeft: =8
+                        PaddingRight: =8
+                        PaddingTop: =8
+                        PressedBorderColor: =ColorFade(ico_SaveProject.BorderColor, -20%)
+                        PressedColor: =ColorFade(ico_SaveProject.Color, -20%)
+                        PressedFill: =ColorFade(ico_SaveProject.Fill, -20%)
+                        Tooltip: ="Save project as draft"
+                        Visible: =If(!IsBlank(Param("ProjectNumber")), false, true)
+                        Width: =50
+                        ZIndex: =5
+
+                    lbl_ProjectStatus As label:
+                        Align: =Align.Center
+                        Color: |
+                            =ColorValue(
+                                If(
+                                    _SelectedProject.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Approved,
+                                    "#248e5b",//Green
+                                    _SelectedProject.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Declined,
+                                    "#fa0606",//Red
+                                    _SelectedProject.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Saved,
+                                    "#818181",
+                                    _SelectedProject.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Submitted,
+                                    "#1a70a0"
+                            
+                                )
+                            )
+                        FontWeight: =FontWeight.Bold
+                        Text: |-
+                            =If(
+                                varFormMode = FormMode.New,
+                                "New",
+                                _SelectedProject.'Automation Project Status'
+                            )
+                        Tooltip: ="Status of request"
+                        ZIndex: =6
+
+                c_NewIdeaForm As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =App.Width
+                    ZIndex: =2
+
+                    Container10 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        Html_NewProjectForm As htmlViewer:
+                            Height: =Parent.Height
+                            HtmlText: |-
+                                ="<div style='width:" 
+                                & Max(800, Parent.Width-30) & "px; height:" 
+                                & Max(600, Parent.Height-30) & "px; "
+                                & "background: #ffffff;"
+                                & "margin-bottom: 8px;"
+                                & "margin-left: 8px;"
+                                & "margin-top: 2px;"
+                                & "border-radius: 4px;"
+                                & "background-clip: padding-box;"
+                                & "box-shadow: 0 0 3px 1px #d4d3d2;"
+                                &"'></div>"
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                        Container12 As groupContainer.verticalAutoLayoutContainer:
+                            Height: =Parent.Height
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingBottom: =25
+                            PaddingLeft: =25
+                            PaddingRight: =25
+                            PaddingTop: =25
+                            Width: =Parent.Width
+                            ZIndex: =2
+
+                            form_Project As form:
+                                AcceptsFocus: =false
+                                DataSource: ='Automation Projects'
+                                DefaultMode: =varFormMode
+                                Fill: =Transparent
+                                Height: =Parent.Height
+                                Item: =If(!IsBlank(Param("ProjectNumber")), LookUp('Automation Projects', 'Automation Project Number' = Param("ProjectNumber")), _SelectedProject)
+                                LayoutMinHeight: =250
+                                LayoutMinWidth: =400
+                                NumberOfColumns: =12
+                                OnFailure: =Notify("Could not save, there was an error", NotificationType.Error);
+                                OnSuccess: |-
+                                    =UpdateContext({var_Status: 'Automation Project Status (Automation Projects)'.Saved});
+                                    Set(varFormMode, FormMode.View);
+                                    //Set(varSelectedProject, form_Project.LastSubmit);
+                                    //Set(_SelectedProject, form_Project.LastSubmit);
+                                    Notify("Project "& _SelectedProject.'Automation Project Name'& " Saved Successfully", NotificationType.Success);
+                                    Back(ScreenTransition.Fade);
+                                SnapToColumns: =false
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                                DataCard1 As typedDataCard.blankCard:
+                                    BorderStyle: =BorderStyle.Solid
+                                    DisplayMode: =DisplayMode.Edit
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =60
+                                    Width: =1248
+                                    WidthFit: =true
+                                    X: =0
+                                    Y: =0
+                                    ZIndex: =1
+
+                                    lbl_CardHeader As label:
+                                        Fill: =PrimaryColor1Value
+                                        FontWeight: =FontWeight.Bold
+                                        Height: =50
+                                        Size: =TextEmphasisFontSizeValue
+                                        Text: ="Project " & If(!IsBlank(Param("ProjectNumber")), LookUp('Automation Projects', 'Automation Project Number' = Param("ProjectNumber")).'Automation Project Number', _SelectedProject.'Automation Project Number')
+                                        Width: =1256
+                                        ZIndex: =1
+
+                                "'Automation Project Name_DataCard1' As typedDataCard.textualEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_automationproject"
+                                    Default: =ThisItem.'Automation Project Name'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Automation Project Name"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =111
+                                    MaxLength: =DataSourceInfo([@'Automation Projects'], DataSourceInfo.MaxLength, "autocoe_automationproject")
+                                    Required: =true
+                                    Update: =DCV_projectname.Text
+                                    Width: =416
+                                    WidthFit: =false
+                                    X: =0
+                                    Y: =1
+                                    ZIndex: =1
+
+                                    DataCardKey1 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: ="Project Name"
+                                        Tooltip: ="Name of the Automation Project"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =32
+                                        Y: =20
+                                        ZIndex: =1
+
+                                    DCV_projectname As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: |
+                                            =BorderThicknessValue
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        EnableSpellCheck: =true
+                                        Fill: =White
+                                        FocusedBorderThickness: =FocusedBorderThicknessValue
+                                        HintText: ="Name of project"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        MaxLength: =Parent.MaxLength
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =DCV_projectname.HoverBorderColor
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: ="Name of the Automation Project"
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey1.Y + DataCardKey1.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage1 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =96
+                                        ZIndex: =3
+
+                                    StarVisible20_1 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey21.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =20
+                                        ZIndex: =4
+
+                                "'Primary Process Challenges_DataCard1' As typedDataCard.textualMultiLineEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_primaryprocesschallenges"
+                                    Default: =ThisItem.'Primary Process Challenges'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Primary Process Challenges"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =DCV_processchallenges.Text
+                                    Width: =416
+                                    WidthFit: =false
+                                    X: =2
+                                    Y: =1
+                                    ZIndex: =1
+
+                                    DataCardKey3 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: ="Process Challenges"
+                                        Tooltip: ="Explain the current challenges of the proccess"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_processchallenges As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =BorderThicknessValue
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        EnableSpellCheck: =true
+                                        Fill: =White
+                                        Height: =63
+                                        HintText: ="Explain main challenges in process"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        Mode: =TextMode.MultiLine
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: ="Explain the current challenges of the proccess"
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey3.Y + DataCardKey3.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage3 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_processchallenges.Y + DCV_processchallenges.Height
+                                        ZIndex: =3
+
+                                    StarVisible20_2 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey21.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =10
+                                        ZIndex: =4
+
+                                Department_DataCard1 As typedDataCard.comboBoxEditCard:
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_Department"
+                                    Default: =ThisItem.Department
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Department"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =false
+                                    Update: =DataCardValue6.Selected
+                                    Width: =416
+                                    X: =3
+                                    Y: =1
+                                    ZIndex: =1
+
+                                    DataCardKey6 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue6 As combobox:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        ChevronBackground: =Transparent 
+                                        ChevronFill: =PrimaryColor1TextValue
+                                        ChevronHoverBackground: =ColorFade(DataCardValue6.ChevronBackground, 20%)
+                                        ChevronHoverFill: =ColorFade(DataCardValue6.ChevronFill, 20%)
+                                        DefaultSelectedItems: =Parent.Default
+                                        DisplayFields: =["autocoe_name"]
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        InputTextPlaceholder: ="Select a department"
+                                        Items: =Choices([@'Automation Projects'].autocoe_Department)
+                                        MoreItemsButtonColor: =Self.ChevronBackground
+                                        NoSelectionText: =
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        SearchFields: =["autocoe_name"]
+                                        SearchItems: =Search(Choices([@'Automation Projects'].autocoe_Department),DataCardValue6.SearchText,"autocoe_name")
+                                        SelectionFill: =SelectionFillValue
+                                        SelectMultiple: =false
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage6 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardValue6.Y + DataCardValue6.Height
+                                        ZIndex: =3
+
+                                    StarVisible6 As label:
+                                        Align: =Align.Center
+                                        Height: =DataCardKey6.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey6.Y
+                                        ZIndex: =4
+
+                                "'Primary Improvement Driver_DataCard1' As typedDataCard.comboBoxOptionSetMultiEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_primaryimprovementdriver"
+                                    Default: =ThisItem.'Primary Improvement Driver'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Primary Improvement Driver"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =false
+                                    Update: =DataCardValue4.SelectedItems.Value
+                                    Width: =416
+                                    X: =0
+                                    Y: =2
+                                    ZIndex: =1
+
+                                    DataCardKey4 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue4 As combobox:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        ChevronBackground: =Transparent
+                                        ChevronFill: =PrimaryColor1TextValue
+                                        ChevronHoverBackground: =ColorFade(DataCardValue4.ChevronBackground, 20%)
+                                        ChevronHoverFill: =ColorFade(DataCardValue4.ChevronFill, 20%)
+                                        DefaultSelectedItems: =Parent.Default
+                                        DisplayFields: =["Value"]
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        InputTextPlaceholder: ="Select driver that this process relates to"
+                                        IsSearchable: =false
+                                        Items: =Choices('Primary Improvement Driver Options')
+                                        MoreItemsButtonColor: =Self.ChevronBackground
+                                        NoSelectionText: ="Select driver that this process relates to"
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =DataCardValue4.HoverBorderColor
+                                        PressedFill: =PrimaryColor1Value
+                                        SearchFields: =["Value"]
+                                        SearchItems: =[]
+                                        SelectionFill: =SelectionFillValue
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey4.Y + DataCardKey4.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage4 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardValue4.Y + DataCardValue4.Height
+                                        ZIndex: =3
+
+                                    StarVisible4 As label:
+                                        Align: =Align.Center
+                                        Height: =DataCardKey4.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey4.Y
+                                        ZIndex: =4
+
+                                "'Total Processing Time in Minutes_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_totalprocessingtimeinminutes"
+                                    Default: =ThisItem.'Total Processing Time in Minutes'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Total Processing Time in Minutes"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =Value(DCV_processingtime.Text)
+                                    Width: =416
+                                    X: =1
+                                    Y: =2
+                                    ZIndex: =1
+
+                                    DataCardKey5 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: ="Processing Time (minutes)"
+                                        Tooltip: ="How long does the process take currently"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_processingtime As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        FocusedBorderThickness: =FocusedBorderThicknessValue
+                                        Format: =TextFormat.Number
+                                        HintText: ="Total processing time in minutes"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: ="How long does the process take currently"
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                                        ZIndex: =2
+
+                                    StarVisible5 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey5.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey5.Y
+                                        ZIndex: =4
+
+                                "'Process Category_DataCard1' As typedDataCard.comboBoxEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_ProcessCategory"
+                                    Default: =ThisItem.'Process Category'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Process Category"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =false
+                                    Update: =DataCardValue8.Selected
+                                    Width: =416
+                                    X: =2
+                                    Y: =2
+                                    ZIndex: =1
+
+                                    DataCardKey8 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue8 As combobox:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        ChevronBackground: =Transparent
+                                        ChevronFill: =PrimaryColor1TextValue
+                                        ChevronHoverBackground: =ColorFade(DataCardValue8.ChevronBackground, 20%)
+                                        ChevronHoverFill: =ColorFade(DataCardValue8.ChevronFill, 20%)
+                                        DefaultSelectedItems: =Parent.Default
+                                        DisplayFields: =["autocoe_name"]
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        InputTextPlaceholder: ="Select category"
+                                        Items: =Choices([@'Automation Projects'].autocoe_ProcessCategory)
+                                        MoreItemsButtonColor: =Self.ChevronBackground
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        SearchFields: =["autocoe_name"]
+                                        SearchItems: =Search(Choices([@'Automation Projects'].autocoe_ProcessCategory),DataCardValue8.SearchText,"autocoe_name")
+                                        SelectionFill: =SelectionFillValue
+                                        SelectMultiple: =false
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey8.Y + DataCardKey8.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage8 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardValue8.Y + DataCardValue8.Height
+                                        ZIndex: =3
+
+                                    StarVisible8 As label:
+                                        Align: =Align.Center
+                                        Height: =DataCardKey8.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey8.Y
+                                        ZIndex: =4
+
+                                "'Processing Frequency_DataCard1' As typedDataCard.comboBoxEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_ProcessingFrequency"
+                                    Default: =ThisItem.'Processing Frequency'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Processing Frequency"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =DCV_processfreq.Selected
+                                    Width: =416
+                                    X: =0
+                                    Y: =3
+                                    ZIndex: =1
+
+                                    DataCardKey7 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Tooltip: ="When does this process run? Daily, Hourly"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_processfreq As combobox:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        ChevronBackground: =Transparent
+                                        ChevronFill: =PrimaryColor1TextValue
+                                        ChevronHoverBackground: =ColorFade(DCV_processfreq.ChevronBackground, 20%)
+                                        ChevronHoverFill: =ColorFade(DCV_processfreq.ChevronFill, 20%)
+                                        DefaultSelectedItems: =Parent.Default
+                                        DisplayFields: =["autocoe_value"]
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        InputTextPlaceholder: ="Frequency of process "
+                                        Items: =Choices([@'Automation Projects'].autocoe_ProcessingFrequency)
+                                        MoreItemsButtonColor: =Self.ChevronBackground
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        SearchFields: =["autocoe_value"]
+                                        SearchItems: =Search(Choices([@'Automation Projects'].autocoe_ProcessingFrequency),DCV_processfreq.SearchText,"autocoe_value")
+                                        SelectionFill: =SelectionFillValue
+                                        SelectMultiple: =false
+                                        Tooltip: ="When does this process run? Daily, Hourly"
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage7 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_processfreq.Y + DCV_processfreq.Height
+                                        ZIndex: =3
+
+                                    StarVisible7 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey7.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey7.Y
+                                        ZIndex: =4
+
+                                "'Processing Peaks_DataCard1' As typedDataCard.comboBoxEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_ProcessingPeaks"
+                                    Default: =ThisItem.'Processing Peaks'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Processing Peaks"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =DCV_processingpeaks.Selected
+                                    Width: =416
+                                    X: =1
+                                    Y: =3
+                                    ZIndex: =1
+
+                                    DataCardKey11 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Tooltip: |-
+                                            ="Does the process have a peak in the processes.
+                                            If this doesnt apply use the same value as Processing Frequency."
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_processingpeaks As combobox:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        ChevronBackground: =Transparent
+                                        ChevronFill: =PrimaryColor1TextValue
+                                        ChevronHoverBackground: =ColorFade(DCV_processingpeaks.ChevronBackground, 20%)
+                                        ChevronHoverFill: =ColorFade(DCV_processingpeaks.ChevronFill, 20%)
+                                        DefaultSelectedItems: =Parent.Default
+                                        DisplayFields: =["autocoe_value"]
+                                        DisplayMode: =Parent.DisplayMode
+                                        FontWeight: =Normal
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        InputTextPlaceholder: ="When does the process peak - Frequency"
+                                        Items: =Choices([@'Automation Projects'].autocoe_ProcessingPeaks)
+                                        MoreItemsButtonColor: =Self.ChevronBackground
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        SearchFields: =["autocoe_value"]
+                                        SearchItems: =Search(Choices([@'Automation Projects'].autocoe_ProcessingPeaks),DCV_processingpeaks.SearchText,"autocoe_value")
+                                        SelectionFill: =SelectionFillValue
+                                        SelectMultiple: =false
+                                        Tooltip: |-
+                                            ="Does the process have a peak in the processes.
+                                            If this doesnt apply use the same value as Processing Frequency."
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage11 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_processingpeaks.Y + DCV_processingpeaks.Height
+                                        ZIndex: =3
+
+                                    StarVisible11 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey11.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey11.Y
+                                        ZIndex: =4
+
+                                "'Process Sub Category_DataCard1' As typedDataCard.comboBoxEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_ProcessSubCategory"
+                                    Default: =ThisItem.'Process Sub Category'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Process Sub Category"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =false
+                                    Update: =DataCardValue9.Selected
+                                    Width: =416
+                                    X: =2
+                                    Y: =3
+                                    ZIndex: =1
+
+                                    DataCardKey9 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue9 As combobox:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        ChevronBackground: =Transparent
+                                        ChevronFill: =PrimaryColor1TextValue
+                                        ChevronHoverBackground: =ColorFade(DataCardValue9.ChevronBackground, 20%)
+                                        ChevronHoverFill: =ColorFade(DataCardValue9.ChevronFill, 20%)
+                                        DefaultSelectedItems: =Parent.Default
+                                        DisplayFields: =["autocoe_name"]
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        InputTextPlaceholder: ="Select sub category based on category "
+                                        Items: =Filter('Process Sub Categories', 'Process Category'.'Process Category' = DataCardValue8.Selected.'Process Category')
+                                        MoreItemsButtonColor: =Self.ChevronBackground
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        SearchFields: =["autocoe_name"]
+                                        SearchItems: =Search(Filter('Process Sub Categories', 'Process Category'.'Process Category' = DataCardValue8.Selected.'Process Category'),DataCardValue9.SearchText,"autocoe_name")
+                                        SelectionFill: =SelectionFillValue
+                                        SelectMultiple: =false
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage9 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardValue9.Y + DataCardValue9.Height
+                                        ZIndex: =3
+
+                                    StarVisible9 As label:
+                                        Align: =Align.Center
+                                        Height: =DataCardKey9.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey9.Y
+                                        ZIndex: =4
+
+                                "'Volume Per Process Frequency_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_volumeperprocessfrequency"
+                                    Default: =ThisItem.'Volume Per Process Frequency'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Volume Per Process Frequency"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =121
+                                    Required: =true
+                                    Update: =Value(DCV_volume.Text)
+                                    Width: =416
+                                    X: =0
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey10 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Tooltip: |
+                                            ="How many times the process runs, based on Processing Frequency.
+                                            For example: A process runs daily which warranty receipts need to be processed. The Volume Per Process Frequency would be the number of receipts to process daily."
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_volume As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Format: =TextFormat.Number
+                                        HintText: ="The volume per process based on frequency"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: |
+                                            ="How many times the process runs, based on Processing Frequency.
+                                            For example: A process runs daily which warranty receipts need to be processed. The Volume Per Process Frequency would be the number of receipts to process daily."
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage10 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_volume.Y + DCV_volume.Height
+                                        ZIndex: =3
+
+                                    StarVisible10 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey10.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey10.Y
+                                        ZIndex: =4
+
+                                "'Business Owner_DataCard3' As typedDataCard.textualViewCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_businessowner"
+                                    Default: =ThisItem.'Business Owner'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Business Owner"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =96
+                                    Required: =true
+                                    Width: =416
+                                    X: =1
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey20 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Tooltip: ="The business process owner, also the approver of the project when submitted."
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue20 As label:
+                                        AutoHeight: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Height: =27
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =If(varFormMode = FormMode.View, ThisItem.'Business Owner', var_BusinessOwnerDisplayName)
+                                        Tooltip: ="The business process owner, also the approver of the project when submitted."
+                                        Width: =Parent.Width - 100
+                                        X: =35
+                                        Y: =DataCardKey20.Y + DataCardKey20.Height + 5
+                                        ZIndex: =2
+
+                                    Icon5 As icon.People:
+                                        BorderColor: =ColorFade(Icon5.Fill, -20%)
+                                        Color: =PrimaryColor2Value
+                                        DisabledFill: =ColorFade(Icon5.Fill, -80%)
+                                        Height: =40
+                                        HoverBorderColor: =ColorFade(Icon5.BorderColor, 20%)
+                                        HoverColor: =ColorFade(Icon5.Color, 20%)
+                                        HoverFill: =ColorFade(Icon5.Fill, 20%)
+                                        Icon: =Icon.Person
+                                        OnSelect: |-
+                                            =Reset(txt_Project_BusinessOwner);UpdateContext({var_ShowSelectBusinessOwner: true })
+                                        PaddingBottom: =5
+                                        PaddingLeft: =5
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =ColorFade(Icon5.BorderColor, -20%)
+                                        PressedColor: =ColorFade(Icon5.Color, -20%)
+                                        PressedFill: =ColorFade(Icon5.Fill, -20%)
+                                        Visible: =If( varFormMode = FormMode.View, false, true)
+                                        Width: =40
+                                        X: =356
+                                        Y: =55
+                                        ZIndex: =3
+
+                                    Icon1 As icon.Reload:
+                                        BorderColor: =ColorFade(Icon1.Fill, -20%)
+                                        Color: =PrimaryColor2Value
+                                        DisabledColor: =RGBA(166, 166, 166, 1)
+                                        DisabledFill: =ColorFade(Icon1.Fill, -80%)
+                                        DisplayMode: =If( IsBlank(DataCardValue20.Text), DisplayMode.Disabled, DisplayMode.Edit)
+                                        Height: =40
+                                        HoverBorderColor: =ColorFade(Icon1.BorderColor, 20%)
+                                        HoverColor: =ColorFade(Icon1.Color, 20%)
+                                        HoverFill: =ColorFade(Icon1.Fill, 20%)
+                                        Icon: =Icon.Reload
+                                        OnSelect: |-
+                                            =UpdateContext(
+                                                {
+                                                    var_BusinessOwnerDisplayName: Blank(),
+                                                    var_BusinessOwnerEmail: Blank()
+                                                }
+                                            );
+                                        PaddingBottom: =10
+                                        PaddingLeft: =10
+                                        PaddingRight: =10
+                                        PaddingTop: =10
+                                        PressedBorderColor: =ColorFade(Icon1.BorderColor, -20%)
+                                        PressedColor: =ColorFade(Icon1.Color, -20%)
+                                        PressedFill: =ColorFade(Icon1.Fill, -20%)
+                                        Visible: =If( varFormMode = FormMode.View, false, true)
+                                        Width: =40
+                                        X: =356
+                                        ZIndex: =4
+
+                                "'Automation Project Status_DataCard2' As typedDataCard.comboBoxOptionSetSingleEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_automationprojectstatus"
+                                    Default: =ThisItem.'Automation Project Status'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Automation Project Status"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =125
+                                    Required: =false
+                                    Update: =DataCardValue17.Selected.Value
+                                    Visible: =false
+                                    Width: =206
+                                    X: =2
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey17 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: ="Project Status"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue17 As combobox:
+                                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                                        ChevronBackground: =Transparent
+                                        ChevronFill: =PrimaryColor1TextValue
+                                        ChevronHoverBackground: =ColorFade(DataCardValue17.ChevronBackground, 20%)
+                                        ChevronHoverFill: =ColorFade(DataCardValue17.ChevronFill, 20%)
+                                        DefaultSelectedItems: =If(form_Project.Mode = FormMode.New, ['Automation Project Status (Automation Projects)'.Saved],[Parent.Default])
+                                        DisplayFields: =["Value"]
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =ColorFade(DataCardValue17.BorderColor, 20%)
+                                        HoverColor: =ColorFade(DataCardValue17.Color, 20%)
+                                        HoverFill: =ColorFade(DataCardValue17.SelectionFill, 20%)
+                                        IsSearchable: =false
+                                        Items: =Choices('Automation Project Status (Automation Projects)')
+                                        MoreItemsButtonColor: =Self.ChevronBackground
+                                        PaddingBottom: =5
+                                        PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =DataCardValue17.HoverBorderColor
+                                        SearchFields: =["Value"]
+                                        SearchItems: =[]
+                                        SelectionFill: =SelectionFillValue
+                                        SelectMultiple: =false
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey17.Y + DataCardKey17.Height + 5
+                                        ZIndex: =2
+
+                                    StarVisible17 As label:
+                                        Align: =Align.Center
+                                        Height: =DataCardKey17.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey17.Y
+                                        ZIndex: =4
+
+                                "'Business Owner Email_DataCard1' As typedDataCard.textualEditCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_businessowneremail"
+                                    Default: =ThisItem.'Business Owner Email'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Business Owner Email"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =120
+                                    MaxLength: =DataSourceInfo([@'Automation Projects'], DataSourceInfo.MaxLength, "autocoe_businessowneremail")
+                                    Required: =false
+                                    Update: =DataCardValue18.Text
+                                    Visible: =false
+                                    Width: =208
+                                    X: =3
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey18 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue18 As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                                        Default: =var_BusinessOwnerEmail
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =ColorFade(DataCardValue18.BorderColor, 20%)
+                                        HoverColor: =ColorFade(DataCardValue18.Color, 20%)
+                                        HoverFill: =ColorFade(DataCardValue18.Fill, 20%)
+                                        MaxLength: =Parent.MaxLength
+                                        PaddingBottom: =5
+                                        PaddingLeft: =5
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =DataCardValue18.HoverBorderColor
+                                        PressedColor: =DataCardValue18.Color
+                                        PressedFill: =DataCardValue18.Fill
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey18.Y + DataCardKey18.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage18 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardValue18.Y + DataCardValue18.Height
+                                        ZIndex: =3
+
+                                    StarVisible18 As label:
+                                        Align: =Align.Center
+                                        Height: =DataCardKey18.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey18.Y
+                                        ZIndex: =4
+
+                                "'Submitted By_DataCard1' As typedDataCard.textualEditCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_submittedby"
+                                    Default: =ThisItem.'Submitted By'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Submitted By"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    MaxLength: =DataSourceInfo([@'Automation Projects'], DataSourceInfo.MaxLength, "autocoe_submittedby")
+                                    Required: =false
+                                    Update: =DataCardValue27.Text
+                                    Visible: =If(varFormMode = FormMode.View, true, false)
+                                    Width: =416
+                                    X: =4
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey27 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue27 As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                                        Default: =ThisItem.'Submitted By'
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =ColorFade(DataCardValue27.BorderColor, 20%)
+                                        HoverColor: =ColorFade(DataCardValue27.Color, 20%)
+                                        HoverFill: =ColorFade(DataCardValue27.Fill, 20%)
+                                        MaxLength: =Parent.MaxLength
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =DataCardValue27.HoverBorderColor
+                                        PressedColor: =DataCardValue27.Color
+                                        PressedFill: =DataCardValue27.Fill
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey27.Y + DataCardKey27.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage25 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardValue27.Y + DataCardValue27.Height
+                                        ZIndex: =3
+
+                                    StarVisible25 As label:
+                                        Align: =Align.Center
+                                        Height: =DataCardKey27.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey27.Y
+                                        ZIndex: =4
+
+                                "'Business Owner_DataCard6' As typedDataCard.textualEditCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_businessowner"
+                                    Default: =ThisItem.'Business Owner'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Business Owner"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    MaxLength: =DataSourceInfo([@'Automation Projects'], DataSourceInfo.MaxLength, "autocoe_businessowner")
+                                    Required: =false
+                                    Update: =DataCardValue20.Text
+                                    Visible: =false
+                                    Width: =104
+                                    X: =5
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey23 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue23 As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =ColorFade(DataCardValue23.BorderColor, 20%)
+                                        HoverColor: =ColorFade(DataCardValue23.Color, 20%)
+                                        HoverFill: =ColorFade(DataCardValue23.Fill, 20%)
+                                        MaxLength: =Parent.MaxLength
+                                        PaddingBottom: =5
+                                        PaddingLeft: =5
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =DataCardValue23.HoverBorderColor
+                                        PressedColor: =DataCardValue23.Color
+                                        PressedFill: =DataCardValue23.Fill
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: =Parent.DisplayName
+                                        Visible: =false
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey23.Y + DataCardKey23.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage21 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardValue23.Y + DataCardValue23.Height
+                                        ZIndex: =3
+
+                                    StarVisible21 As label:
+                                        Align: =Align.Center
+                                        Height: =DataCardKey23.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey23.Y
+                                        ZIndex: =4
+
+                                DataCard2 As typedDataCard.blankCard:
+                                    BorderStyle: =BorderStyle.Solid
+                                    DisplayMode: =DisplayMode.Edit
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Width: =Parent.Width
+                                    X: =6
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    Label3_1 As label:
+                                        Fill: =PrimaryColor1Value
+                                        FontWeight: =FontWeight.Bold
+                                        Height: =50
+                                        Size: =TextEmphasisFontSizeValue
+                                        Text: ="ROI"
+                                        Width: =1256
+                                        ZIndex: =1
+
+                                "'AVG Number Of Automation Steps_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_avgnumberofautomationsteps"
+                                    Default: =ThisItem.'AVG Number Of Automation Steps'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="AVG Number Of Automation Steps"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =Value(DCV_steps.Text)
+                                    Width: =312
+                                    X: =7
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey12 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: ="Automation Steps"
+                                        Tooltip: ="How many steps would the automation need. Use best judgment"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_steps As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Format: =TextFormat.Number
+                                        HintText: |-
+                                            ="Average # of automation steps "
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: ="How many steps would the automation need. Use best judgment"
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage12 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_steps.Y + DCV_steps.Height
+                                        ZIndex: =3
+
+                                    StarVisible12 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey12.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey12.Y
+                                        ZIndex: =4
+
+                                "'Number Of FTEs Needed_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_numberofftesneeded"
+                                    Default: =ThisItem.'Number Of FTEs Needed'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Number Of FTEs Needed"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =Value(DCV_fte.Text)
+                                    Width: =312
+                                    X: =8
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey13 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Tooltip: ="The number of people who are needed for the process"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_fte As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Format: =TextFormat.Number
+                                        HintText: |-
+                                            ="# of FTEs needed for process"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: ="The number of people who are needed for the process"
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage13 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_fte.Y + DCV_fte.Height
+                                        ZIndex: =3
+
+                                    StarVisible13 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey13.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey13.Y
+                                        ZIndex: =4
+
+                                "'AVG Rework Time in Minutes_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_avgreworktimeinminutes"
+                                    Default: =ThisItem.'AVG Rework Time in Minutes'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="AVG Rework Time in Minutes"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =Value(DCV_reworktime.Text)
+                                    Width: =312
+                                    X: =9
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey16 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: ="Rework Time in Minutes"
+                                        Tooltip: ="The average time it would take to fix and resolve an error"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_reworktime As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Format: =TextFormat.Number
+                                        HintText: ="Average rework time if failed. In minutes"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: ="The average time it would take to fix and resolve an error"
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey16.Y + DataCardKey16.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage16 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_reworktime.Y + DCV_reworktime.Height
+                                        ZIndex: =3
+
+                                    StarVisible16 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey16.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey16.Y
+                                        ZIndex: =4
+
+                                "'AVG Error Rate %_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_avgerrorratepct"
+                                    Default: =ThisItem.'AVG Error Rate %'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="AVG Error Rate %"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =Value(DCV_errorrate.Text)
+                                    Width: =312
+                                    X: =10
+                                    Y: =4
+                                    ZIndex: =1
+
+                                    DataCardKey14 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_errorrate As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Format: =TextFormat.Number
+                                        HintText: ="Average error rate of automation"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage14 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_errorrate.Y + DCV_errorrate.Height
+                                        ZIndex: =3
+
+                                    StarVisible14 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey14.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey14.Y
+                                        ZIndex: =4
+
+                                "'AVG Hourly Cost Per FTE_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderColor: =SelectedColorValue
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_avghourlycostperfte"
+                                    Default: =ThisItem.'AVG Hourly Cost Per FTE'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="AVG Hourly Cost Per FTE"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =Value(DCV_hourlycost.Text)
+                                    Width: =312
+                                    X: =0
+                                    Y: =5
+                                    ZIndex: =1
+
+                                    DataCardKey15 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: ="Hourly Cost Per FTE"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_hourlycost As text:
+                                        BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Format: =TextFormat.Number
+                                        HintText: ="Average hourly cost of FTE"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey15.Y + DataCardKey15.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage15 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_hourlycost.Y + DCV_hourlycost.Height
+                                        ZIndex: =3
+
+                                    StarVisible15 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey15.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey15.Y
+                                        ZIndex: =4
+
+                                "'Working Hours Per Day_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_workinghoursperday"
+                                    Default: =ThisItem.'Working Hours Per Day'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Working Hours Per Day"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =Value(DCV_hoursperday.Text)
+                                    Width: =312
+                                    X: =1
+                                    Y: =5
+                                    ZIndex: =1
+
+                                    DataCardKey24 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_hoursperday As text:
+                                        BorderColor: =BorderColorValue
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Format: =TextFormat.Number
+                                        HintText: |-
+                                            ="# of working hours per day"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey24.Y + DataCardKey24.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage22 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_hoursperday.Y + DCV_hoursperday.Height
+                                        ZIndex: =3
+
+                                    StarVisible22 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey24.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey24.Y
+                                        ZIndex: =4
+
+                                "'Working Days Per Year_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_workingdaysperyear"
+                                    Default: =ThisItem.'Working Days Per Year'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Working Days Per Year"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =Value(DCV_daysperyear.Text)
+                                    Width: =312
+                                    X: =2
+                                    Y: =5
+                                    ZIndex: =1
+
+                                    DataCardKey25 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_daysperyear As text:
+                                        BorderColor: =BorderColorValue
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Format: =TextFormat.Number
+                                        HintText: |-
+                                            ="# of days worked per year"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey25.Y + DataCardKey25.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage23 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_daysperyear.Y + DCV_daysperyear.Height
+                                        ZIndex: =3
+
+                                    StarVisible23 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey25.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey25.Y
+                                        ZIndex: =4
+
+                                "'Number Of FTEs Needed For Review/Rework_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_numberofftesneededforreviewrework"
+                                    Default: =ThisItem.'Number Of FTEs Needed For Review/Rework'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Number Of FTEs Needed For Review/Rework"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =Value(DCV_fterework.Text)
+                                    Width: =312
+                                    X: =3
+                                    Y: =5
+                                    ZIndex: =1
+
+                                    DataCardKey26 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: ="FTEs Needed for Rework"
+                                        Tooltip: ="The number of people who are needed if the process fails"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_fterework As text:
+                                        BorderColor: =BorderColorValue
+                                        BorderThickness: =1
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Format: =TextFormat.Number
+                                        HintText: |-
+                                            ="# of FTEs for review/rework"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: ="The number of people who are needed if the process fails"
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey26.Y + DataCardKey26.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage24 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_fterework.Y + DCV_fterework.Height
+                                        ZIndex: =3
+
+                                    StarVisible24 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey26.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey26.Y
+                                        ZIndex: =4
+
+                                "'Automation Corporate Goals_DataCard1' As typedDataCard.comboBoxEditCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_AutomationCorporateGoals"
+                                    Default: =ThisItem.'Automation Corporate Goals'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Automation Corporate Goals"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =true
+                                    Update: =DCV_goal.Selected
+                                    Width: =312
+                                    X: =5
+                                    Y: =5
+                                    ZIndex: =1
+
+                                    DataCardKey2 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: ="Automation Goal"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DCV_goal As combobox:
+                                        BorderColor: =BorderColorValue
+                                        BorderThickness: =1
+                                        ChevronBackground: =Transparent
+                                        ChevronFill: =PrimaryColor1TextValue
+                                        ChevronHoverBackground: =ColorFade(DCV_goal.ChevronBackground, 20%)
+                                        ChevronHoverFill: =ColorFade(DCV_goal.ChevronFill, 20%)
+                                        DefaultSelectedItems: =Parent.Default
+                                        DisplayFields: =["autocoe_goalname"]
+                                        DisplayMode: =Parent.DisplayMode
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        InputTextPlaceholder: ="Select goal for this project"
+                                        Items: =Choices([@'Automation Projects'].autocoe_AutomationCorporateGoals)
+                                        MoreItemsButtonColor: =Self.ChevronBackground
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        SearchFields: =["autocoe_goalname"]
+                                        SearchItems: =Search(Choices([@'Automation Projects'].autocoe_AutomationCorporateGoals),DCV_goal.SearchText,"autocoe_goalname")
+                                        SelectionColor: =SelectedColorValue
+                                        SelectionFill: =SelectionFillValue
+                                        SelectMultiple: =false
+                                        Tooltip: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage2 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DCV_goal.Y + DCV_goal.Height
+                                        ZIndex: =3
+
+                                    StarVisible2 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey2.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey2.Y
+                                        ZIndex: =4
+
+                                "'Maintenance Overhead %_DataCard1' As typedDataCard.numberEditCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_maintenanceoverhead"
+                                    Default: =ThisItem.'Maintenance Overhead %'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Maintenance Overhead %"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =false
+                                    Update: =Value(DataCardValue19.Text)
+                                    Width: =312
+                                    X: =6
+                                    Y: =5
+                                    ZIndex: =1
+
+                                    DataCardKey19 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Tooltip: ="Estimated overhead maintence "
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue19 As text:
+                                        BorderColor: =BorderColorValue
+                                        BorderThickness: =BorderThicknessValue
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        FocusedBorderThickness: =FocusedBorderThicknessValue
+                                        Format: =TextFormat.Number
+                                        HintText: ="Estimated overhead maintenance %"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: ="Estimated overhead maintence "
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey19.Y + DataCardKey19.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage17 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardValue19.Y + DataCardValue19.Height
+                                        ZIndex: =3
+
+                                    StarVisible19 As label:
+                                        Align: =Align.Center
+                                        Height: =DataCardKey19.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey19.Y
+                                        ZIndex: =4
+
+                                "'Development Costs_DataCard1' As typedDataCard.currencyEditCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_developmentcosts"
+                                    Default: =ThisItem.'Development Costs'
+                                    DisplayMode: =Parent.DisplayMode
+                                    DisplayName: ="Development Costs"
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =false
+                                    Update: =Value(DataCardValue21.Text)
+                                    Width: =312
+                                    X: =7
+                                    Y: =5
+                                    ZIndex: =1
+
+                                    DataCardKey21 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Tooltip: ="Estimated development cost of project"
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue21 As text:
+                                        BorderColor: =BorderColorValue
+                                        BorderThickness: =BorderThicknessValue
+                                        Clear: =false
+                                        Default: =Parent.Default
+                                        DelayOutput: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        FocusedBorderThickness: =FocusedBorderThicknessValue
+                                        Format: =TextFormat.Number
+                                        HintText: ="Estimated devlopment cost"
+                                        HoverBorderColor: =HoverBorderColorValue
+                                        HoverColor: =HoverColorValue
+                                        HoverFill: =HoverFillValue
+                                        PaddingBottom: =5
+                                        PaddingLeft: =10
+                                        PaddingRight: =5
+                                        PaddingTop: =5
+                                        PressedBorderColor: =PressedBorderColorValue
+                                        PressedColor: =PressedColorValue
+                                        PressedFill: =PressedFillValue
+                                        RadiusBottomLeft: =0
+                                        RadiusBottomRight: =0
+                                        RadiusTopLeft: =0
+                                        RadiusTopRight: =0
+                                        Tooltip: ="Estimated development cost of project"
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey21.Y + DataCardKey21.Height + 5
+                                        ZIndex: =2
+
+                                    ErrorMessage19 As label:
+                                        AutoHeight: =true
+                                        Height: =10
+                                        Live: =Live.Assertive
+                                        PaddingBottom: =0
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Error
+                                        Visible: =Parent.DisplayMode=DisplayMode.Edit
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardValue21.Y + DataCardValue21.Height
+                                        ZIndex: =3
+
+                                    StarVisible20 As label:
+                                        Align: =Align.Center
+                                        Color: =DarkRed
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =DataCardKey21.Height
+                                        Text: ="*"
+                                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                                        Width: =30
+                                        Wrap: =false
+                                        Y: =DataCardKey21.Y
+                                        ZIndex: =4
+
+                                DataCard3 As typedDataCard.blankCard:
+                                    BorderStyle: =BorderStyle.Solid
+                                    DisplayMode: =DisplayMode.Edit
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =66
+                                    Width: =1248
+                                    X: =0
+                                    Y: =6
+                                    ZIndex: =1
+
+                                "'ROI Saving Potential_DataCard2' As typedDataCard.USCurrencyViewCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_roisavingpotential"
+                                    Default: =ThisItem.'ROI Saving Potential'
+                                    DisplayMode: =DisplayMode.View
+                                    DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_roisavingpotential")
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =50
+                                    Required: =false
+                                    Visible: =If(varFormMode = FormMode.View, true, false)
+                                    Width: =312
+                                    X: =1
+                                    Y: =6
+                                    ZIndex: =1
+
+                                    DataCardKey29 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue3 As label:
+                                        DisplayMode: =Parent.DisplayMode
+                                        PaddingBottom: =5
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: |-
+                                            =Text(Parent.Default, "$###.##")
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey29.Y + DataCardKey29.Height + 5
+                                        ZIndex: =2
+
+                                "'Complexity Score_DataCard2' As typedDataCard.textualViewCard":
+                                    BorderStyle: =BorderStyle.Solid
+                                    DataField: ="autocoe_complexityscore"
+                                    Default: =ThisItem.'Complexity Score'
+                                    DisplayMode: =DisplayMode.View
+                                    DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_complexityscore")
+                                    Fill: =RGBA(0, 0, 0, 0)
+                                    Height: =107
+                                    Required: =false
+                                    Visible: =If(varFormMode = FormMode.View, true, false)
+                                    Width: =208
+                                    X: =2
+                                    Y: =6
+                                    ZIndex: =1
+
+                                    DataCardKey30 As label:
+                                        AutoHeight: =true
+                                        Height: =34
+                                        Text: =Parent.DisplayName
+                                        Width: =Parent.Width - 60
+                                        Wrap: =false
+                                        X: =30
+                                        Y: =10
+                                        ZIndex: =1
+
+                                    DataCardValue5 As label:
+                                        AutoHeight: =true
+                                        DisplayMode: =Parent.DisplayMode
+                                        Height: =27
+                                        PaddingBottom: =5
+                                        PaddingLeft: =0
+                                        PaddingRight: =0
+                                        PaddingTop: =0
+                                        Text: =Parent.Default
+                                        Width: =Parent.Width - 60
+                                        X: =30
+                                        Y: =DataCardKey30.Y + DataCardKey30.Height + 5
+                                        ZIndex: =2
+
+    grp_SelectBusinessOwner As group:
+        Height: =5
+        Width: =5
+        X: =100
+        Y: =100
+        ZIndex: =9
+
+        shp_BusinessOwner_1 As rectangle:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(255, 255, 255, 0.7)
+            FocusedBorderThickness: =4
+            Height: =768
+            HoverFill: =Self.Fill
+            OnSelect: |-
+                =UpdateContext({var_ShowSelectBusinessOwner: false})
+            PressedFill: =Self.Fill
+            Visible: =var_ShowSelectBusinessOwner
+            Width: =App.Width
+            ZIndex: =2
+
+        shp_BusinessOwner_2 As rectangle:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =1
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =Color.White
+            FocusedBorderThickness: =4
+            Height: =App.Height - 80
+            HoverFill: =Self.Fill
+            PressedFill: =Self.Fill
+            Visible: =var_ShowSelectBusinessOwner
+            Width: =App.Width - 80
+            X: =40
+            Y: =80
+            ZIndex: =3
+
+        gall_BusinessOwner As gallery.PeoplePickerGallerySmallTablet:
+            AccessibleLabel: ="User look up search results"
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =2
+            Fill: =Color.White
+            Height: =463
+            Items: |-
+                =If(
+                    !IsBlank(Trim(txt_Project_BusinessOwner.Text)),
+                    Office365Users.SearchUser(
+                        {
+                            searchTerm: Trim(txt_Project_BusinessOwner.Text),
+                            top: 15
+                        }
+                    )
+                )
+            Layout: =Layout.Vertical
+            TemplatePadding: =0
+            TemplateSize: =104
+            Visible: =var_ShowSelectBusinessOwner
+            Width: =App.Width - 120
+            X: =60
+            Y: =240
+            ZIndex: =4
+
+            lbl_Gall_BusinessOwner_DisplayName As label:
+                BorderColor: =Self.Color
+                Color: =RGBA(51, 51, 51, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Size: =17
+                TabIndex: =0
+                Text: =ThisItem.DisplayName
+                VerticalAlign: =Middle
+                Width: =gall_BusinessOwner.TemplateWidth - 2 * Self.X
+                Wrap: =false
+                X: =16
+                Y: =4
+                ZIndex: =2
+
+            lbl_Gall_BusinessOwner_UPN As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =ColorFade(lbl_Gall_BusinessOwner_DisplayName.Color, 0.20)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                Size: =17
+                Text: =ThisItem.UserPrincipalName
+                VerticalAlign: =Middle
+                Width: =gall_BusinessOwner.TemplateWidth - 2 * Self.X
+                Wrap: =false
+                X: =lbl_Gall_BusinessOwner_DisplayName.X
+                Y: =lbl_Gall_BusinessOwner_DisplayName.Y + lbl_Gall_BusinessOwner_DisplayName.Height + 3
+                ZIndex: =3
+
+            shp_Gall_BusinessOwner_Divider As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =Self.Fill
+                Fill: =RGBA(237, 237, 237, 1)
+                Height: =1
+                HoverFill: =Self.Fill
+                PressedFill: =Self.Fill
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =4
+
+            ico_Gall_BusinessOwner_Select As icon.Add:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =Transparent
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =Transparent
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =83
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =Transparent
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Add
+                OnSelect: |-
+                    =Concurrent(
+                        UpdateContext({var_BusinessOwner: ThisItem}),
+                        UpdateContext({var_BusinessOwnerDisplayName: ThisItem.DisplayName});
+                        UpdateContext({var_BusinessOwnerEmail: ThisItem.Mail}),
+                        Reset(txt_Project_BusinessOwner);
+                        UpdateContext({var_ShowSelectBusinessOwner: false})
+                    )
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =Transparent
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =1246
+                Y: =4
+                ZIndex: =5
+
+        txt_Project_BusinessOwner As text:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =1
+            Color: =RGBA(51, 51, 51, 1)
+            Default: =
+            DelayOutput: =true
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(255, 255, 255, 1)
+            FocusedBorderThickness: =1
+            Font: =Font.'Segoe UI'
+            FontWeight: =Lighter
+            HintText: ="Search for a user"
+            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(255, 255, 255, 1)
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            PressedBorderColor: =RGBA(0, 120, 212, 1)
+            PressedColor: =RGBA(51, 51, 51, 1)
+            PressedFill: =RGBA(255, 255, 255, 1)
+            RadiusBottomLeft: =0
+            RadiusBottomRight: =0
+            RadiusTopLeft: =0
+            RadiusTopRight: =0
+            Size: =13
+            Visible: =var_ShowSelectBusinessOwner
+            Width: =App.Width - 120
+            X: =60
+            Y: =200
+            ZIndex: =5
+
+        lbl_Project_BusinessOwner_1 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Bold
+            Height: =60
+            PaddingBottom: =5
+            PaddingLeft: =25
+            PaddingRight: =5
+            PaddingTop: =5
+            Size: =13
+            Text: ="Business owner"
+            Visible: =var_ShowSelectBusinessOwner
+            Width: =1285
+            X: =40
+            Y: =80
+            ZIndex: =7
+
+        lbl_BusinessOwner_2 As label:
+            BorderColor: =RGBA(0, 0, 0, 1)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =1
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =Semibold
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Size: =13
+            Text: ="Name"
+            Visible: =var_ShowSelectBusinessOwner
+            Width: =App.Width - 120
+            X: =60
+            Y: =160
+            ZIndex: =8
+

@@ -1,0 +1,275 @@
+scr_Console As screen:
+
+    c_Root_5 As groupContainer.verticalAutoLayoutContainer:
+        Height: =768
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =App.Width
+        ZIndex: =1
+
+        c_Header_5 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =1
+
+            cmp_Header_2 As cmp_Header_1:
+                AppTitle: ="AUTOMATION CONSOLE"
+                CompanyLogo: =Paw_Light
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                ZIndex: =1
+
+        c_Main_5 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =Parent.Width
+            ZIndex: =2
+
+            cmp_NavigationControl_8 As cmp_NavigationControl:
+                Items: =colMainNav
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Width: =If(cmp_NavigationControl_8.IsExpanded, 200, 60)
+
+            c_MainBody_5 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                "'c_Fly-inContainer_5' As groupContainer.horizontalAutoLayoutContainer":
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =false
+                    ZIndex: =1
+
+                c_CommandBar_5 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =false
+                    ZIndex: =2
+
+                    c_CommandBarContent_5 As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutGap: =15
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =500
+                        LayoutMode: =LayoutMode.Auto
+                        Visible: =false
+                        ZIndex: =1
+
+                c_MainBodyContent_5 As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    gal_Console As gallery.galleryVertical:
+                        Height: =Parent.Height
+                        Items: =Filter('Console Configs', 'Console Configs (Views)'.'Active Console Configs')
+                        Layout: =Layout.Vertical
+                        LayoutMinHeight: =287
+                        LayoutMinWidth: =320
+                        TemplateSize: =If(Self.Layout = Layout.Horizontal, Min(400, Self.Width - 60), Min(430, Self.Height - 60))
+                        WrapCount: |-
+                            =If(
+                                App.Width < 1280,
+                                2,
+                                App.Width >= 1280 && App.Width < 1800,
+                                3,
+                                App.Width >= 1800 && App.Width < 2250,
+                                4,
+                                5
+                            )
+                        ZIndex: =1
+
+                        html_galAppsConsoleBox_6 As htmlViewer:
+                            Height: =Parent.TemplateHeight
+                            HtmlText: |-
+                                ="<div style='
+                                    width: " & gal_Console.TemplateWidth - 50 & "px;
+                                    height: " & gal_Console.TemplateHeight - 50 & "px;
+                                         box-shadow:
+                                               5px 5px 10px -2px rgba(0,0,0,0.2);
+                                    border-radius: 10px;
+                                    background: #ffffff;'>
+                                </div>"
+                            OnSelect: =
+                            PaddingBottom: =20
+                            PaddingLeft: =20
+                            PaddingRight: =20
+                            PaddingTop: =20
+                            Width: =Parent.TemplateWidth
+                            ZIndex: =1
+
+                        c_GalConsoleRoot As groupContainer.verticalAutoLayoutContainer:
+                            Height: =400
+                            LayoutDirection: =LayoutDirection.Vertical
+                            LayoutMode: =LayoutMode.Auto
+                            Width: =Parent.TemplateWidth - 20
+                            X: =12
+                            Y: =12
+                            ZIndex: =2
+
+                            c_GalConsoleHeader As groupContainer.horizontalAutoLayoutContainer:
+                                FillPortions: =0
+                                Height: =80
+                                LayoutGap: =5
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingBottom: =20
+                                PaddingLeft: =25
+                                PaddingRight: =30
+                                PaddingTop: =20
+                                Width: =Parent.Width
+                                ZIndex: =1
+
+                                lbl_ProjectName As label:
+                                    FillPortions: =1
+                                    FontWeight: =FontWeight.Bold
+                                    Height: =50
+                                    LineHeight: =1
+                                    Size: =TextEmphasisFontSizeValue
+                                    Text: =ThisItem.Name & " App"
+                                    VerticalAlign: =VerticalAlign.Top
+                                    ZIndex: =2
+
+                                ico_Docs As icon.Add:
+                                    BorderColor: =ColorFade(ico_Docs.Fill, -20%)
+                                    Color: =PrimaryColor2Value
+                                    DisabledFill: =ColorFade(ico_Docs.Fill, -80%)
+                                    Height: =40
+                                    HoverBorderColor: =ColorFade(ico_Docs.BorderColor, 20%)
+                                    HoverColor: =ColorFade(ico_Docs.Color, 20%)
+                                    HoverFill: =ColorFade(ico_Docs.Fill, 20%)
+                                    Icon: =Icon.DocumentWithContent
+                                    OnSelect: |-
+                                        =Launch("https://github.com/microsoft/automation-coe/wiki/Table-of-Contents#automation-coe-starter-kit-preview",{}, LaunchTarget.New)
+                                    PaddingBottom: =8
+                                    PaddingLeft: =8
+                                    PaddingRight: =8
+                                    PaddingTop: =8
+                                    PressedBorderColor: =ColorFade(ico_Docs.BorderColor, -20%)
+                                    PressedColor: =ColorFade(ico_Docs.Color, -20%)
+                                    PressedFill: =ColorFade(ico_Docs.Fill, -20%)
+                                    Tooltip: ="Documentation"
+                                    Visible: =If(isProjectAdmin = true || isProjectContributor = true, true, false)
+                                    Width: =40
+                                    X: =423
+                                    Y: =81
+                                    ZIndex: =3
+
+                                ico_OpenApp As icon.Add:
+                                    BorderColor: =ColorFade(ico_OpenApp.Fill, -20%)
+                                    Color: =PrimaryColor2Value
+                                    DisabledFill: =ColorFade(ico_OpenApp.Fill, -80%)
+                                    Height: =40
+                                    HoverBorderColor: =ColorFade(ico_OpenApp.BorderColor, 20%)
+                                    HoverColor: =ColorFade(ico_OpenApp.Color, 20%)
+                                    HoverFill: =ColorFade(ico_OpenApp.Fill, 20%)
+                                    Icon: =Icon.OpenInNewWindow
+                                    OnSelect: =Launch(ThisItem.'App Link',{}, LaunchTarget.New)
+                                    PaddingBottom: =8
+                                    PaddingLeft: =8
+                                    PaddingRight: =8
+                                    PaddingTop: =8
+                                    PressedBorderColor: =ColorFade(ico_OpenApp.BorderColor, -20%)
+                                    PressedColor: =ColorFade(ico_OpenApp.Color, -20%)
+                                    PressedFill: =ColorFade(ico_OpenApp.Fill, -20%)
+                                    Tooltip: ="Open app in new window"
+                                    Visible: =If(isProjectAdmin = true || isProjectContributor = true, true, false)
+                                    Width: =40
+                                    X: =423
+                                    Y: =81
+                                    ZIndex: =4
+
+                            c_GalConsoleBody As groupContainer.verticalAutoLayoutContainer:
+                                FillPortions: =0
+                                Height: =70
+                                LayoutAlignItems: =LayoutAlignItems.Stretch
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutGap: =8
+                                LayoutMinHeight: =100
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingBottom: =20
+                                PaddingLeft: =25
+                                PaddingRight: =25
+                                PaddingTop: =5
+                                Width: =Parent.Width
+                                ZIndex: =2
+
+                                lbl_ProjectDescription As label:
+                                    AutoHeight: =true
+                                    FontWeight: =FontWeight.Semibold
+                                    Size: =TextEmphasisFontSizeValue - 5
+                                    Text: =ThisItem.'App Description'
+                                    ZIndex: =1
+
+                            c_GalConsoleImages As groupContainer.verticalAutoLayoutContainer:
+                                LayoutDirection: =LayoutDirection.Vertical
+                                LayoutMinHeight: =90
+                                LayoutMinWidth: =250
+                                LayoutMode: =LayoutMode.Auto
+                                PaddingBottom: =25
+                                PaddingLeft: =10
+                                PaddingRight: =25
+                                Width: =Parent.Width
+                                ZIndex: =3
+
+                                gal_ConsoleGallery As gallery.galleryHorizontal:
+                                    BorderColor: =Transparent
+                                    Items: =Filter( 'Console Galleries','Console Config'.'Console Config' in ThisItem.'Console Config')
+                                    LayoutMinHeight: =150
+                                    LayoutMinWidth: =200
+                                    ShowNavigation: =true
+                                    ShowScrollbar: =false
+                                    TemplateSize: =Parent.Width - 25
+                                    Width: |
+                                        =300
+                                    ZIndex: =1
+
+                                    img_GalleryImage As image:
+                                        BorderColor: =BorderColorValue
+                                        BorderThickness: =1
+                                        Height: =174
+                                        HoverBorderColor: =ColorFade(img_GalleryImage.BorderColor, 20%)
+                                        HoverFill: =ColorFade(img_GalleryImage.Fill, 20%)
+                                        Image: =ThisItem.ImageFile.Full
+                                        ImagePosition: =ImagePosition.Fill
+                                        OnSelect: =Select(Parent)
+                                        PressedBorderColor: =ColorFade(img_GalleryImage.BorderColor, -20%)
+                                        PressedFill: =ColorFade(img_GalleryImage.Fill, -20%)
+                                        RadiusBottomLeft: =5
+                                        RadiusBottomRight: =5
+                                        RadiusTopLeft: =5
+                                        RadiusTopRight: =5
+                                        Tooltip: =ThisItem.'Image Description'
+                                        Width: =Parent.TemplateWidth - 25
+                                        Y: =31
+                                        ZIndex: =1
+
+                                    lbl_ImageTitle As label:
+                                        Fill: =PrimaryColor1Value
+                                        FontWeight: =FontWeight.Semibold
+                                        Height: =31
+                                        OnSelect: =Select(Parent)
+                                        Text: =ThisItem.Name
+                                        VerticalAlign: =VerticalAlign.Top
+                                        Width: =384
+                                        ZIndex: =2
+
