@@ -24,15 +24,25 @@ variables:
 - group: alm-accelerator-variable-group
 
 steps:
-# Download the artifacts from the latest deployment of CenterofExcellenceAuditComponents to production.
+# Download the artifacts from the latest deployment of Main to production.
 - task: DownloadPipelineArtifact@2
   inputs:
     source: 'specific'
     project: 'Automation CoE Starter Kit'
-    pipeline: '6' #CenterofExcellenceAuditComponents buildId
+    pipeline: '12' #CenterofExcellenceAuditComponents buildId
     runVersion: 'latest'
     patterns: '**/AutomationCoEMain*.zip'
   displayName: 'Download Automation CoE Main solution'
+
+# Download the artifacts from the latest deployment of Main to production.
+- task: DownloadPipelineArtifact@2
+  inputs:
+    source: 'specific'
+    project: 'Automation CoE Starter Kit'
+    pipeline: '15' #CenterofExcellenceAuditComponents buildId
+    runVersion: 'latest'
+    patterns: '**/AutomationCoESatellite*.zip'
+  displayName: 'Download Automation CoE Satellite solution'
 
 - powershell: |
     New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
@@ -40,12 +50,12 @@ steps:
     New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
 
     Copy-Item '$(Pipeline.Workspace)\drop\*managed.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
-    Copy-Item '$(Build.SourcesDirectory)\CreatorKitResources\Release\Collateral\CreatorKit\*.*' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item '$(Build.SourcesDirectory)\AutomationKitResources\Release\Collateral\AutomationKit\*.*' -Destination '$(Pipeline.Workspace)\assetstaging'
 
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
       CompressionLevel = 'Fastest'
-      DestinationPath = '$(Pipeline.Workspace)\releaseassets\CreatorKit.zip'
+      DestinationPath = '$(Pipeline.Workspace)\releaseassets\AutomationStarterKit.zip'
     }
     Compress-Archive @compress
 
@@ -54,12 +64,13 @@ steps:
     Remove-Item $(Pipeline.Workspace)\assetstaging -Recurse -Force -Confirm:$false
     New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
 
-    Copy-Item '$(Pipeline.Workspace)/drop/CreatorKitCore*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoEMain*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoESatellite*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
       CompressionLevel = 'Fastest'
-      DestinationPath = '$(Pipeline.Workspace)/releaseassets/CreatorKit-Unmanaged.zip'
+      DestinationPath = '$(Pipeline.Workspace)/releaseassets/AutomationStarterKit-Unmanaged.zip'
     }
     Compress-Archive @compress
   displayName: 'Prepare release assets'
@@ -67,12 +78,12 @@ steps:
 - template: Pipelines\Templates\create-release-github.yml@PipelineRepo
   parameters:
     gitHubApiUrl: 'https://api.github.com/repos/microsoft/coe-starter-kit'
-    solutionName: 'CreatorKit'
-    solutionDisplayName: 'Creator Kit'
+    solutionName: 'AutomationStarterKit'
+    solutionDisplayName: 'Automation Starter Kit'
     releaseMonth: ${{parameters.ReleaseMonthNumber}}
     releaseYear: ${{parameters.ReleaseYearNumber}}
-    connectionName: 'creator-starter-kit'
-    releaseNotesPath: 'CreatorKitResources/Release/Notes/'
+    connectionName: 'automation-coe-starter-kit'
+    releaseNotesPath: 'AutomationKitResources/Release/Notes/'
     issueClosingComment: 'This has been fixed in the latest release.'
     closeIssues: ${{parameters.CloseMilestoneIssues}}
     isPreRelease: false
