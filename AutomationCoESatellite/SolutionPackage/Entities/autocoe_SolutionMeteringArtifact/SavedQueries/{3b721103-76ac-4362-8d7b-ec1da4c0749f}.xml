@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<savedqueries xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <savedquery>
+    <IsCustomizable>1</IsCustomizable>
+    <CanBeDeleted>0</CanBeDeleted>
+    <isquickfindquery>1</isquickfindquery>
+    <isprivate>0</isprivate>
+    <isdefault>1</isdefault>
+    <savedqueryid>{3b721103-76ac-4362-8d7b-ec1da4c0749f}</savedqueryid>
+    <layoutxml>
+      <grid name="resultset" jump="autocoe_autonumber" select="1" icon="1" preview="1">
+        <row name="result" id="autocoe_solutionmeteringartifactid">
+          <cell name="autocoe_autonumber" width="300" />
+          <cell name="createdon" width="125" />
+        </row>
+      </grid>
+    </layoutxml>
+    <querytype>4</querytype>
+    <fetchxml>
+      <fetch version="1.0" mapping="logical">
+        <entity name="autocoe_solutionmeteringartifact">
+          <attribute name="autocoe_solutionmeteringartifactid" />
+          <attribute name="autocoe_autonumber" />
+          <attribute name="createdon" />
+          <order attribute="autocoe_autonumber" descending="false" />
+          <filter type="and">
+            <condition attribute="statecode" operator="eq" value="0" />
+          </filter>
+          <filter type="or" isquickfindfields="1">
+            <condition attribute="autocoe_autonumber" operator="like" value="{0}" />
+          </filter>
+        </entity>
+      </fetch>
+    </fetchxml>
+    <IntroducedVersion>1.0</IntroducedVersion>
+    <LocalizedNames>
+      <LocalizedName description="Quick Find Active Solution Metering Artifacts" languagecode="1033" />
+    </LocalizedNames>
+  </savedquery>
+</savedqueries>
