@@ -1,0 +1,2375 @@
+"'Template - Project Form_1' As screen":
+
+    ProjectForm_1 As form:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        DataSource: ='Automation Projects'
+        DefaultMode: =FormMode.New
+        Fill: =RGBA(0, 0, 0, 0)
+        Height: =687
+        NumberOfColumns: =2
+        Width: =1288
+        X: =40
+        Y: =40
+        ZIndex: =1
+
+        DataCard5_1 As typedDataCard.blankCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Width: =644
+            X: =0
+            Y: =0
+            ZIndex: =1
+
+            lblProjectNumber As Label:
+                Alignment: =Align.Justify
+                DisplayMode: =DisplayMode.Edit
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                Text: ="Project Number"
+                Width: =127
+                Wrap: =true
+                X: =24
+                Y: =11
+                ZIndex: =1
+
+            Rectangle1_1 As rectangle:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(0, 120, 212, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Height: =4
+                HoverFill: =RGBA(0, 120, 212, 1)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                Width: =lblProjectNumber.Width
+                X: =24
+                Y: =43
+                ZIndex: =2
+
+        DataCard4_1 As typedDataCard.blankCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Width: =644
+            X: =1
+            Y: =0
+            ZIndex: =1
+
+        "'Primary Process Challenges_DataCard2' As typedDataCard.pcfCoreTextualMultiLineEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_primaryprocesschallenges"
+            Default: =ThisItem.'Primary Process Challenges'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Process Challenges"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =120
+            Required: =true
+            Update: =DataCardValue28.Value
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =1
+            ZIndex: =1
+
+            DataCardKey28 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue28 As 'Text box'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                FontSize: =10.5
+                Height: =60
+                Mode: ="Multiline"
+                Placeholder: ="Explain main challenges in process"
+                Required: =Parent.Required
+                Tooltip: =Parent.DisplayName
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey28.Y + DataCardKey28.Height + 4
+                ZIndex: =2
+
+            ErrorMessage27 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue28.Y + DataCardValue28.Height
+                ZIndex: =3
+
+            StarVisible27 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey28.Y
+                ZIndex: =4
+
+        Department_DataCard1_1 As typedDataCard.pcfCoreComboBoxEditCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_Department"
+            Default: =ThisItem.Department
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_Department")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =DataCardValue11.Selected
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =2
+            ZIndex: =1
+
+            DataCardKey11_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue11 As combobox:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayFields: =["autocoe_name"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =32
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: ="Select a Department"
+                Items: =Choices([@'Automation Projects'].autocoe_Department)
+                MoreItemsButtonColor: =Self.ChevronBackground
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                SearchFields: =["autocoe_name"]
+                SearchItems: =Search(Choices([@'Automation Projects'].autocoe_Department),DataCardValue11.SearchText,"autocoe_name")
+                SelectionColor: =RGBA(51, 51, 51, 1)
+                SelectionFill: =RGBA(0, 120, 212, 1)
+                SelectMultiple: =false
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey11_1.Y + DataCardKey11_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage10_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue11.Y + DataCardValue11.Height
+                ZIndex: =3
+
+            StarVisible10_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =20
+                Text: ="*"
+                VerticalAlignment: =VerticalAlign.Bottom
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey11_1.Y
+                ZIndex: =4
+
+        "'Total Processing Time in Minutes_DataCard1_1' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_totalprocessingtimeinminutes"
+            Default: =ThisItem.'Total Processing Time in Minutes'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_totalprocessingtimeinminutes")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =90
+            Required: =true
+            Update: =Value(DataCardValue12.Text)
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey12_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: ="Processing Time (minutes)"
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue12 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: ="Total processing time in minutes"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey12_1.Y + DataCardKey12_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage11_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue12.Y + DataCardValue12.Height
+                ZIndex: =3
+
+            StarVisible11_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey12_1.Y
+                ZIndex: =4
+
+        "'Process Category_DataCard1_1' As typedDataCard.pcfCoreComboBoxEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_ProcessCategory"
+            Default: =ThisItem.'Process Category'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_ProcessCategory")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =DataCardValue13.Selected
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =3
+            ZIndex: =1
+
+            DataCardKey13_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue13 As combobox:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayFields: =["autocoe_name"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =32
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: ="Select Cateogory"
+                Items: =Choices([@'Automation Projects'].autocoe_ProcessCategory)
+                MoreItemsButtonColor: =Self.ChevronBackground
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                SearchFields: =["autocoe_name"]
+                SearchItems: =Search(Choices([@'Automation Projects'].autocoe_ProcessCategory),DataCardValue13.SearchText,"autocoe_name")
+                SelectionColor: =RGBA(51, 51, 51, 1)
+                SelectionFill: =RGBA(0, 120, 212, 1)
+                SelectMultiple: =false
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey13_1.Y + DataCardKey13_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage12_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue13.Y + DataCardValue13.Height
+                ZIndex: =3
+
+            StarVisible12_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =20
+                Text: ="*"
+                VerticalAlignment: =VerticalAlign.Bottom
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey13_1.Y
+                ZIndex: =4
+
+        "'Processing Frequency_DataCard1_1' As typedDataCard.pcfCoreComboBoxEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_ProcessingFrequency"
+            Default: =ThisItem.'Processing Frequency'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_ProcessingFrequency")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =DataCardValue25.Selected
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey25_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue25 As combobox:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayFields: =["autocoe_value"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =32
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: ="Frequency of process"
+                Items: =Choices([@'Automation Projects'].autocoe_ProcessingFrequency)
+                MoreItemsButtonColor: =Self.ChevronBackground
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                SearchFields: =["autocoe_value"]
+                SearchItems: =Search(Choices([@'Automation Projects'].autocoe_ProcessingFrequency),DataCardValue25.SearchText,"autocoe_value")
+                SelectionColor: =RGBA(51, 51, 51, 1)
+                SelectionFill: =RGBA(0, 120, 212, 1)
+                SelectMultiple: =false
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey25_1.Y + DataCardKey25_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage24_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue25.Y + DataCardValue25.Height
+                ZIndex: =3
+
+            StarVisible24_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =20
+                Text: ="*"
+                VerticalAlignment: =VerticalAlign.Bottom
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey25_1.Y
+                ZIndex: =4
+
+        "'Processing Peaks_DataCard1_1' As typedDataCard.pcfCoreComboBoxEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_ProcessingPeaks"
+            Default: =ThisItem.'Processing Peaks'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_ProcessingPeaks")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =DataCardValue26.Selected
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =4
+            ZIndex: =1
+
+            DataCardKey26_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue26 As combobox:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayFields: =["autocoe_value"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =32
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: ="Total processing time in minutes"
+                Items: =Choices([@'Automation Projects'].autocoe_ProcessingPeaks)
+                MoreItemsButtonColor: =Self.ChevronBackground
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                SearchFields: =["autocoe_value"]
+                SearchItems: =Search(Choices([@'Automation Projects'].autocoe_ProcessingPeaks),DataCardValue26.SearchText,"autocoe_value")
+                SelectionColor: =RGBA(51, 51, 51, 1)
+                SelectionFill: =RGBA(0, 120, 212, 1)
+                SelectMultiple: =false
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage25_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue26.Y + DataCardValue26.Height
+                ZIndex: =3
+
+            StarVisible25_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =20
+                Text: ="*"
+                VerticalAlignment: =VerticalAlign.Bottom
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey26_1.Y
+                ZIndex: =4
+
+        "'Process Sub Category_DataCard1_1' As typedDataCard.pcfCoreComboBoxEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_ProcessSubCategory"
+            Default: =ThisItem.'Process Sub Category'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_ProcessSubCategory")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =DataCardValue14.Selected
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey14_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue14 As combobox:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayFields: =["autocoe_name"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =32
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: ="Select sub category based on category "
+                Items: =Choices([@'Automation Projects'].autocoe_ProcessSubCategory)
+                MoreItemsButtonColor: =Self.ChevronBackground
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                SearchFields: =["autocoe_name"]
+                SearchItems: =Search(Choices([@'Automation Projects'].autocoe_ProcessSubCategory),DataCardValue14.SearchText,"autocoe_name")
+                SelectionColor: =RGBA(51, 51, 51, 1)
+                SelectionFill: =RGBA(0, 120, 212, 1)
+                SelectMultiple: =false
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey14_1.Y + DataCardKey14_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage13_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue14.Y + DataCardValue14.Height
+                ZIndex: =3
+
+            StarVisible13_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =20
+                Text: ="*"
+                VerticalAlignment: =VerticalAlign.Bottom
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey14_1.Y
+                ZIndex: =4
+
+        "'Volume Per Process Frequency_DataCard1_1' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_volumeperprocessfrequency"
+            Default: =ThisItem.'Volume Per Process Frequency'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_volumeperprocessfrequency")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =Value(DataCardValue15.Text)
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =5
+            ZIndex: =1
+
+            DataCardKey15_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue15 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: ="The volume per process based on frequency"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey15_1.Y + DataCardKey15_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage14_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue15.Y + DataCardValue15.Height
+                ZIndex: =3
+
+            StarVisible14_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey15_1.Y
+                ZIndex: =4
+
+        DataCard1_1 As typedDataCard.blankCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Width: =644
+            X: =1
+            Y: =6
+            ZIndex: =1
+
+        DataCard2_2 As typedDataCard.blankCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Width: =644
+            X: =0
+            Y: =7
+            ZIndex: =1
+
+            lblROI_1 As Label:
+                Alignment: =Align.Justify
+                DisplayMode: =DisplayMode.Edit
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                Text: ="ROI"
+                Width: =320
+                X: =28
+                Y: =12
+                ZIndex: =1
+
+            Rectangle1 As rectangle:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledFill: =RGBA(166, 166, 166, 1)
+                Fill: =RGBA(0, 120, 212, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Height: =4
+                HoverFill: =RGBA(0, 120, 212, 1)
+                PressedFill: =RGBA(0, 120, 212, 1)
+                Width: =26
+                X: =28
+                Y: =40
+                ZIndex: =2
+
+        DataCard3_1 As typedDataCard.blankCard:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Width: =644
+            X: =1
+            Y: =7
+            ZIndex: =1
+
+        "'AVG Number Of Automation Steps_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_avgnumberofautomationsteps"
+            Default: =ThisItem.'AVG Number Of Automation Steps'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Automation Steps"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =Value(DataCardValue16_1.Text)
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =8
+            ZIndex: =1
+
+            DataCardKey16_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue16_1 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: |-
+                    ="Average # of automation steps "
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey16_2.Y + DataCardKey16_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage15_2 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue16_1.Y + DataCardValue16_1.Height
+                ZIndex: =3
+
+            StarVisible15_2 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey16_2.Y
+                ZIndex: =4
+
+        "'Number Of FTEs Needed_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_numberofftesneeded"
+            Default: =ThisItem.'Number Of FTEs Needed'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Number Of FTEs Needed"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =Value(DataCardValue17_2.Text)
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =8
+            ZIndex: =1
+
+            DataCardKey17_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue17_2 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: |-
+                    ="# of FTEs needed for process"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey17_2.Y + DataCardKey17_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage16_2 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue17_2.Y + DataCardValue17_2.Height
+                ZIndex: =3
+
+            StarVisible16_2 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey17_2.Y
+                ZIndex: =4
+
+        "'AVG Rework Time in Minutes_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_avgreworktimeinminutes"
+            Default: =ThisItem.'AVG Rework Time in Minutes'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Rework Time in Minutes"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =Value(DataCardValue18_2.Text)
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =9
+            ZIndex: =1
+
+            DataCardKey18_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue18_2 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: ="Average rework time if failed. In minutes"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey18_2.Y + DataCardKey18_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage17_2 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue18_2.Y + DataCardValue18_2.Height
+                ZIndex: =3
+
+            StarVisible17_2 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey18_2.Y
+                ZIndex: =4
+
+        "'AVG Error Rate %_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_avgerrorratepct"
+            Default: =ThisItem.'AVG Error Rate %'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_avgerrorratepct")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =Value(DataCardValue19_2.Text)
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =9
+            ZIndex: =1
+
+            DataCardKey19_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue19_2 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: ="Average error rate of automation"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey19_2.Y + DataCardKey19_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage18_2 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue19_2.Y + DataCardValue19_2.Height
+                ZIndex: =3
+
+            StarVisible18_2 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey19_2.Y
+                ZIndex: =4
+
+        "'AVG Hourly Cost Per FTE_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_avghourlycostperfte"
+            Default: =ThisItem.'AVG Hourly Cost Per FTE'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Hourly Cost Per FTE"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =Value(DataCardValue20_2.Text)
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =10
+            ZIndex: =1
+
+            DataCardKey20_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue20_2 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: ="Average hourly cost of FTE"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey20_2.Y + DataCardKey20_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage19_2 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue20_2.Y + DataCardValue20_2.Height
+                ZIndex: =3
+
+            StarVisible19_2 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey20_2.Y
+                ZIndex: =4
+
+        "'Working Hours Per Day_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_workinghoursperday"
+            Default: =ThisItem.'Working Hours Per Day'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_workinghoursperday")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =Value(DataCardValue21_2.Text)
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =10
+            ZIndex: =1
+
+            DataCardKey21_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue21_2 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: |-
+                    ="# of days worked per year"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey21_2.Y + DataCardKey21_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage20_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue21_2.Y + DataCardValue21_2.Height
+                ZIndex: =3
+
+            StarVisible20_4 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey21_2.Y
+                ZIndex: =4
+
+        "'Working Days Per Year_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_workingdaysperyear"
+            Default: =ThisItem.'Working Days Per Year'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_workingdaysperyear")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =true
+            Update: =Value(DataCardValue22_1.Text)
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =11
+            ZIndex: =1
+
+            DataCardKey22_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue22_1 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: |-
+                    ="# of working hours per day"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey22_1.Y + DataCardKey22_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage21_2 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue22_1.Y + DataCardValue22_1.Height
+                ZIndex: =3
+
+            StarVisible21_2 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey22_1.Y
+                ZIndex: =4
+
+        "'Number Of FTEs Needed For Review/Rework_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_numberofftesneededforreviewrework"
+            Default: =ThisItem.'Number Of FTEs Needed For Review/Rework'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="FTEs Needed for Rework"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =90
+            Required: =true
+            Update: =Value(DataCardValue27_2.Text)
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =11
+            ZIndex: =1
+
+            DataCardKey27_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue27_2 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: |-
+                    ="# of FTEs for review/rework"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey27_2.Y + DataCardKey27_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage26_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue27_2.Y + DataCardValue27_2.Height
+                ZIndex: =3
+
+            StarVisible26_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey27_2.Y
+                ZIndex: =4
+
+        "'Automation Corporate Goals_DataCard1_2' As typedDataCard.pcfCoreComboBoxEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_AutomationCorporateGoals"
+            Default: =ThisItem.'Automation Corporate Goals'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: ="Automation Goal"
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =DataCardValue23_2.Selected
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =12
+            ZIndex: =1
+
+            DataCardKey23_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue23_2 As combobox:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayFields: =["autocoe_goalname"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =32
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: ="Select goal for this project"
+                Items: =Choices([@'Automation Projects'].autocoe_AutomationCorporateGoals)
+                MoreItemsButtonColor: =Self.ChevronBackground
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                SearchFields: =["autocoe_goalname"]
+                SearchItems: =Search(Choices([@'Automation Projects'].autocoe_AutomationCorporateGoals),DataCardValue23_2.SearchText,"autocoe_goalname")
+                SelectionColor: =RGBA(51, 51, 51, 1)
+                SelectionFill: =RGBA(0, 120, 212, 1)
+                SelectMultiple: =false
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey23_2.Y + DataCardKey23_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage22_2 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue23_2.Y + DataCardValue23_2.Height
+                ZIndex: =3
+
+            StarVisible22_2 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =20
+                Text: ="*"
+                VerticalAlignment: =VerticalAlign.Bottom
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey23_2.Y
+                ZIndex: =4
+
+        "'ROI Saving Potential_DataCard1' As typedDataCard.pcfCoreCurrencyEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_roisavingpotential"
+            Default: =ThisItem.'ROI Saving Potential'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_roisavingpotential")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =Value(DataCardValue2.Text)
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =13
+            ZIndex: =1
+
+            DataCardKey2_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue2 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =0
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey2_1.Y + DataCardKey2_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage2_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue2.Y + DataCardValue2.Height
+                ZIndex: =3
+
+            StarVisible2_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey2_1.Y
+                ZIndex: =4
+
+        "'Complexity Score_DataCard1' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_complexityscore"
+            Default: =ThisItem.'Complexity Score'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_complexityscore")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =Value(DataCardValue3_1.Text)
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =14
+            ZIndex: =1
+
+            DataCardKey3_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue3_1 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =0
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey3_1.Y + DataCardKey3_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage4_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue3_1.Y + DataCardValue3_1.Height
+                ZIndex: =3
+
+            StarVisible4_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey3_1.Y
+                ZIndex: =4
+
+        "'Automation Project Name_DataCard1_1' As typedDataCard.pcfCoreTextualEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_automationproject"
+            Default: =ThisItem.'Automation Project Name'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_automationproject")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            MaxLength: =DataSourceInfo([@'Automation Projects'], DataSourceInfo.MaxLength, "autocoe_automationproject")
+            Required: =true
+            Update: =DataCardValue1.Value
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =1
+            ZIndex: =2
+
+            DataCardKey1_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: ="Project Name"
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue1 As 'Text box'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                FontSize: =10.5
+                Height: =32
+                Mode: ="SingleLine"
+                Placeholder: ="Name of project"
+                Required: =Parent.Required
+                Tooltip: =Parent.DisplayName
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey1_1.Y + DataCardKey1_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage1_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue1.Y + DataCardValue1.Height
+                ZIndex: =3
+
+            StarVisible1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey1_1.Y
+                ZIndex: =4
+
+        "'Primary Improvement Driver_DataCard1_1' As typedDataCard.pcfCoreComboBoxOptionSetMultiEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_primaryimprovementdriver"
+            Default: =ThisItem.'Primary Improvement Driver'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_primaryimprovementdriver")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =DataCardValue9_1.SelectedItems.Value
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =2
+            ZIndex: =2
+
+            DataCardKey9_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue9_1 As combobox:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                ChevronBackground: =RGBA(255, 255, 255, 1)
+                ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                ChevronFill: =RGBA(33, 33, 33, 1)
+                ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                Color: =RGBA(51, 51, 51, 1)
+                DefaultSelectedItems: =Parent.Default
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayFields: =["Value"]
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =32
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                InputTextPlaceholder: ="Select driver that this process relates to"
+                IsSearchable: =false
+                Items: =Choices('Primary Improvement Driver Options')
+                MoreItemsButtonColor: =Self.ChevronBackground
+                PaddingBottom: =5
+                PaddingLeft: =12
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                PressedColor: =RGBA(255, 255, 255, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                SearchFields: =["Value"]
+                SearchItems: =[]
+                SelectionColor: =RGBA(51, 51, 51, 1)
+                SelectionFill: =RGBA(0, 120, 212, 1)
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey9_1.Y + DataCardKey9_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage8_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue9_1.Y + DataCardValue9_1.Height
+                ZIndex: =3
+
+            StarVisible8_1 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =20
+                Text: ="*"
+                VerticalAlignment: =VerticalAlign.Bottom
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey9_1.Y
+                ZIndex: =4
+
+        "'Business Owner_DataCard1' As typedDataCard.pcfCoreTextualEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_businessowner"
+            Default: =ThisItem.'Business Owner'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_businessowner")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: |
+                =70
+            MaxLength: =DataSourceInfo([@'Automation Projects'], DataSourceInfo.MaxLength, "autocoe_businessowner")
+            Required: =false
+            Update: =DataCardValue4_1.Value
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =6
+            ZIndex: =2
+
+            DataCardKey4_1 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            "DataCardValue4_1 As 'Text box'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                FontSize: =10.5
+                Height: =32
+                Mode: ="SingleLine"
+                Required: =Parent.Required
+                Tooltip: =Parent.DisplayName
+                Value: =Parent.Default
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey4_1.Y + DataCardKey4_1.Height + 4
+                ZIndex: =2
+
+            ErrorMessage3_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue4_1.Y + DataCardValue4_1.Height
+                ZIndex: =3
+
+            StarVisible3 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey4_1.Y
+                ZIndex: =4
+
+        "'Maintenance Overhead %_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_maintenanceoverhead"
+            Default: =ThisItem.'Maintenance Overhead %'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_maintenanceoverhead")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =Value(DataCardValue6_2.Text)
+            Width: =644
+            WidthFit: =true
+            X: =1
+            Y: =12
+            ZIndex: =2
+
+            DataCardKey6_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue6_2 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: ="Edit"
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: ="Estimated overhead maintenance %"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey6_2.Y + DataCardKey6_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage5_1 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue6_2.Y + DataCardValue6_2.Height
+                ZIndex: =3
+
+            StarVisible5_2 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey6_2.Y
+                ZIndex: =4
+
+        "'Development Costs_DataCard1_2' As typedDataCard.pcfCoreCurrencyEditCard":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_developmentcosts"
+            Default: =ThisItem.'Development Costs'
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_developmentcosts")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =70
+            Required: =false
+            Update: =Value(DataCardValue7_1.Text)
+            Width: =644
+            WidthFit: =true
+            X: =0
+            Y: =13
+            ZIndex: =2
+
+            DataCardKey7_2 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =10
+                ZIndex: =1
+
+            DataCardValue7_1 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Format: =TextFormat.Number
+                Height: =32
+                HintText: ="Estimated devlopment cost"
+                HoverBorderColor: =RGBA(166, 166, 166, 1)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(212, 212, 212, 1)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey7_2.Y + DataCardKey7_2.Height + 4
+                ZIndex: =2
+
+            ErrorMessage6_2 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue7_1.Y + DataCardValue7_1.Height
+                ZIndex: =3
+
+            StarVisible6_2 As Label:
+                Alignment: =Align.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =30
+                Text: ="*"
+                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                Width: =30
+                X: =0
+                Y: =DataCardKey7_2.Y
+                ZIndex: =4
+

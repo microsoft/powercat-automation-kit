@@ -1,0 +1,547 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_b3698"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_an_Automation_Project_is_added_or_modified": {
+          "metadata": {
+            "operationMetadataId": "63722dc3-e5f9-43f7-8cce-b187b3b2e9f9"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "autocoe_automationproject",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "autocoe_numberofftesneededforreviewrework,autocoe_volumeperprocessfrequency,autocoe_totalprocessingtimeinminutes,autocoe_avgerrorratepct,autocoe_workinghoursperday,autocoe_avgnumberofautomationsteps,autocoe_avghourlycostperfte,autocoe_avgreworktimeinminutes,autocoe_workingdaysperyear,autocoe_numberofftesneeded,autocoe_maintenanceoverhead,autocoe_totalcostsperyearasis"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "conditions": [
+            {
+              "expression": "@and ( not(equals(triggerbody()?['autocoe_avghourlycostperfte'], null)), not(equals(triggerbody()?['autocoe_avgnumberofautomationsteps'], null)), not(equals(triggerbody()?['autocoe_avgreworktimeinminutes'], null)), not(equals(triggerbody()?['autocoe_developmentcosts'], null)), not(equals(triggerbody()?['autocoe_numberofftesneeded'], null)), not(equals(triggerbody()?['autocoe_numberofftesneededforreviewrework'], null)), not(equals(triggerbody()?['autocoe_workingdaysperyear'], null)), not(equals(triggerbody()?['autocoe_workinghoursperday'], null)), not(equals(triggerbody()?['autocoe_workingdaysperyear'], null)), not(equals(triggerbody()?['autocoe_workinghoursperday'], null)) )"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "Get_full_AutomationProject_record": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c7273f10-1187-4f89-ab80-6181a15ca3aa"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_automationprojects",
+              "recordId": "@triggerOutputs()?['body/autocoe_automationprojectid']",
+              "$expand": "autocoe_ProcessingFrequency"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Calculate_Complexity_Score": {
+          "actions": {
+            "List_Processing_Peaks_Scores": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "72b261d1-c0e7-4069-b349-33c73d6d2985"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "autocoe_processingpeaksscores",
+                  "$orderby": "autocoe_score desc"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "MAX_Processing_Peaks_Score": {
+              "runAfter": {
+                "List_Average_Automation_Steps_Scores": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "79ba00cc-cc0d-4183-a5f1-f8b0c9c25216"
+              },
+              "type": "Compose",
+              "inputs": "@first(outputs('List_Processing_Peaks_Scores')?['body/value'])?['autocoe_score']"
+            },
+            "List_Average_Automation_Steps_Scores": {
+              "runAfter": {
+                "List_Processing_Peaks_Scores": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "0a9909ab-33c6-4e25-80ab-9447e4930df5"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "autocoe_averageautomationstepsscores",
+                  "$orderby": "autocoe_score desc"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "MAX_Average_Automation_Steps_Scores": {
+              "runAfter": {
+                "MAX_Processing_Peaks_Score": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1347b734-d031-4f93-ad46-b4a7a2e4df11"
+              },
+              "type": "Compose",
+              "inputs": "@first(outputs('List_Average_Automation_Steps_Scores')?['body/value'])?['autocoe_score']"
+            },
+            "Complexity_Score_Step_1": {
+              "runAfter": {
+                "MAX_Average_Automation_Steps_Scores": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "fa7a7f95-e7f9-465d-8a51-c71562f8a2f6"
+              },
+              "type": "Compose",
+              "inputs": "@mul(outputs('Processing_Peaks_Score'),outputs('Average_Automation_Steps_Score'))"
+            },
+            "Complexity_Score_Step_2": {
+              "runAfter": {
+                "Complexity_Score_Step_1": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "acd16dea-bb01-4f37-82a6-32cd421a7c35"
+              },
+              "type": "Compose",
+              "inputs": "@mul(outputs('MAX_Processing_Peaks_Score'), outputs('MAX_Average_Automation_Steps_Scores'))"
+            }
+          },
+          "runAfter": {
+            "Average_Automation_Steps_Score": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "27e129f8-3275-4153-b9d9-1d27b26b44eb"
+          },
+          "type": "Scope"
+        },
+        "Processing_Peaks_Score": {
+          "runAfter": {
+            "Processing_Frequency_Score": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d0676413-9504-4a20-b916-7149e8ee8865"
+          },
+          "type": "Compose",
+          "inputs": "@outputs('Get_Processing_Peaks_Score')?['body/autocoe_score']"
+        },
+        "Get_Average_Automation_Steps_Score": {
+          "runAfter": {
+            "Get_Processing_Peaks_Score": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6cdcfb68-7eb3-4e55-98af-f1d1e1630c5c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_averageautomationstepsscores",
+              "$filter": "autocoe_valuefrom le @{outputs('Get_full_AutomationProject_record')?['body/autocoe_avgnumberofautomationsteps']} and autocoe_valueto gt @{outputs('Get_full_AutomationProject_record')?['body/autocoe_avgnumberofautomationsteps']}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Average_Automation_Steps_Score": {
+          "runAfter": {
+            "Processing_Peaks_Score": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "758efc37-6a3b-44a8-be86-3b27bae51c93"
+          },
+          "type": "Compose",
+          "inputs": "@first(outputs('Get_Average_Automation_Steps_Score')?['body/value'])?['autocoe_score']"
+        },
+        "Complexity_Score": {
+          "runAfter": {
+            "Calculate_Total_Cost_Per_Year": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "99b1d831-bf6b-4259-b6d5-daaa875149d2"
+          },
+          "type": "Compose",
+          "inputs": "@int(first(split(string(mul(div( float(outputs('Complexity_Score_Step_1')) , float(outputs('Complexity_Score_Step_2')) ), 100)),'.')))"
+        },
+        "Update_ROI_Calculations": {
+          "runAfter": {
+            "Complexity_Score": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4c56ba36-4674-4a78-854b-bed79ba09752"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_automationprojects",
+              "recordId": "@outputs('Get_full_AutomationProject_record')?['body/autocoe_automationprojectid']",
+              "item/autocoe_complexityscore": "@outputs('Complexity_Score')",
+              "item/autocoe_roisavingpotential": "@outputs('Total_Cost_Per_Year')"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Processing_Frequency_Score": {
+          "runAfter": {
+            "Get_full_AutomationProject_record": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a6694c7c-64c9-4853-aff9-08659a622708"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_processingfrequencyscores",
+              "recordId": "@outputs('Get_full_AutomationProject_record')?['body/_autocoe_processingfrequency_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Processing_Frequency_Score": {
+          "runAfter": {
+            "Error_Rate_Percent": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d21080da-5391-4ffa-a28f-d1794b69e247"
+          },
+          "type": "Compose",
+          "inputs": "@outputs('Get_Processing_Frequency_Score')?['body/autocoe_score']"
+        },
+        "Get_Processing_Peaks_Score": {
+          "runAfter": {
+            "Get_Processing_Frequency_Score": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f4ac7bb5-b691-4dcd-ad4c-053049df313a"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_processingpeaksscores",
+              "recordId": "@outputs('Get_full_AutomationProject_record')?['body/_autocoe_processingpeaks_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Switch": {
+          "runAfter": {
+            "Process_Frequency_Value": [
+              "Succeeded"
+            ]
+          },
+          "cases": {
+            "Daily": {
+              "case": "Daily",
+              "actions": {
+                "Set_Process_Frequency_Daily": {
+                  "runAfter": {},
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Process Frequency Value",
+                    "value": 251
+                  }
+                }
+              }
+            },
+            "Hourly": {
+              "case": "Hourly",
+              "actions": {
+                "Set_Process_Frequency_Hourly": {
+                  "runAfter": {},
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Process Frequency Value",
+                    "value": 2008
+                  }
+                }
+              }
+            },
+            "Weekly": {
+              "case": "Weekly",
+              "actions": {
+                "Set_Process_Frequency_Weekly": {
+                  "runAfter": {},
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Process Frequency Value",
+                    "value": 52
+                  }
+                }
+              }
+            },
+            "Monthly": {
+              "case": "Monthly",
+              "actions": {
+                "Set_Process_Frequency_Monthly": {
+                  "runAfter": {},
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Process Frequency Value",
+                    "value": 12
+                  }
+                }
+              }
+            },
+            "Quarterly": {
+              "case": "Quarterly",
+              "actions": {
+                "Set_Process_Frequency_Quarterly": {
+                  "runAfter": {},
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Process Frequency Value",
+                    "value": 4
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "actions": {
+              "Set_Process_Frequency_CATCH": {
+                "runAfter": {},
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "Process Frequency Value",
+                  "value": 0
+                }
+              }
+            }
+          },
+          "expression": "@outputs('Get_full_AutomationProject_record')?['body/autocoe_processingfrequency/autocoe_value']",
+          "metadata": {
+            "operationMetadataId": "b439cd45-817a-47fc-aef0-96700b26aef9"
+          },
+          "type": "Switch"
+        },
+        "Process_Frequency_Value": {
+          "runAfter": {
+            "Get_Average_Automation_Steps_Score": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e9712a86-e3ff-4ef1-bae6-4ff45c15ed79"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Process Frequency Value",
+                "type": "integer"
+              }
+            ]
+          }
+        },
+        "Calculate_Total_Cost_Per_Year": {
+          "actions": {
+            "Cost_to_complete": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "71c59659-ade4-42b0-b591-823c882a9dce"
+              },
+              "type": "Compose",
+              "inputs": "@mul(\r\n    mul(\r\n        mul(\r\n            div(float(outputs('Get_full_AutomationProject_record')?['body/autocoe_avghourlycostperfte']),60),\r\n            outputs('Get_full_AutomationProject_record')?['body/autocoe_numberofftesneeded']\r\n        ),\r\n        outputs('Get_full_AutomationProject_record')?['body/autocoe_totalprocessingtimeinminutes']\r\n    ),\r\n    variables('Process Frequency Value')\r\n)"
+            },
+            "Round_cost_to_complete": {
+              "runAfter": {
+                "Cost_to_complete": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "ecc6630e-8970-4af2-9c36-233c7d47c256"
+              },
+              "type": "Expression",
+              "kind": "FormatNumber",
+              "inputs": {
+                "number": "@outputs('Cost_to_complete')",
+                "format": "##.##"
+              }
+            },
+            "Cost_to_remediate_part1": {
+              "runAfter": {
+                "Round_cost_to_complete": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "bdc6a906-6b81-4884-a3c4-0ab821411023"
+              },
+              "type": "Compose",
+              "inputs": "@mul(\r\n    mul(variables('Process Frequency Value'),\r\n    outputs('Error_Rate_Percent')),\r\n    outputs('Get_full_AutomationProject_record')?['body/autocoe_avgreworktimeinminutes']\r\n)"
+            },
+            "Cost_to_remediate_part_2": {
+              "runAfter": {
+                "Cost_to_remediate_part1": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "815307e4-2870-494b-b751-5bae50acb8f2"
+              },
+              "type": "Compose",
+              "inputs": "@mul(\r\n   div(float(outputs('Get_full_AutomationProject_record')?['body/autocoe_avghourlycostperfte']),60),\r\n    outputs('Get_full_AutomationProject_record')?['body/autocoe_numberofftesneededforreviewrework']\r\n)"
+            },
+            "Cost_to_remediate_total": {
+              "runAfter": {
+                "Cost_to_remediate_part_2": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "d372f396-b6f9-4be1-9617-a9eb35030e19"
+              },
+              "type": "Compose",
+              "inputs": "@mul(outputs('Cost_to_remediate_part1'),outputs('Cost_to_remediate_part_2'))"
+            },
+            "Round_cost_to_remediate_total": {
+              "runAfter": {
+                "Cost_to_remediate_total": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "91fa1de0-5700-49f4-a0c3-1d7bab936013"
+              },
+              "type": "Expression",
+              "kind": "FormatNumber",
+              "inputs": {
+                "number": "@outputs('Cost_to_remediate_total')",
+                "format": "##.##"
+              }
+            },
+            "Total_Cost_Per_Year": {
+              "runAfter": {
+                "Round_cost_to_remediate_total": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "4a44adcc-9380-4076-8390-bd33aa80df39"
+              },
+              "type": "Compose",
+              "inputs": "@add(\r\n    float(body('Round_cost_to_complete')),\r\n    float(body('Round_cost_to_remediate_total'))\r\n)"
+            }
+          },
+          "runAfter": {
+            "Calculate_Complexity_Score": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7e943f9c-bd7d-4ab0-9c01-d76afef4990f"
+          },
+          "type": "Scope"
+        },
+        "Error_Rate_Percent": {
+          "runAfter": {
+            "Switch": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c9fcd3fb-3722-4ad1-84c3-08754fe709ff"
+          },
+          "type": "Compose",
+          "inputs": "@div(float(outputs('Get_full_AutomationProject_record')?['body/autocoe_avgerrorratepct']),float(100))"
+        }
+      }
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
