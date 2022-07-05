@@ -1,0 +1,1796 @@
+scr_SolutionDetails As screen:
+    LoadingSpinner: =LoadingSpinner.Controls
+    LoadingSpinnerColor: =UIAccentColor
+    OnVisible: |-
+        =If(CountRows(col_SolutionArtifacts)=0,
+            Select(icReload_2)
+        );
+        Select(icReload_2);
+        UpdateContext({_editFlowName: false});
+
+    c_screen_10 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =App.Width
+        ZIndex: =1
+
+        HeaderContainer2_12 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(52, 60, 63, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            cmp_Header_3 As cmp_Header_1:
+                AppTitle: ="AUTOMATION SOLUTION MANAGER"
+                CompanyLogo: =Paw_Light
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                ZIndex: =1
+
+        MainSectionContainer2_12 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Navigation_13 As NavigationControl:
+                Items: =col_MainNav
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Width: =If(Navigation_13.IsExpanded, 200, 60)
+
+            Rectangle2_18 As rectangle:
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Fill: =RGBA(230, 230, 230, 1)
+                FocusedBorderThickness: =4
+                Height: =1
+                Width: =1
+                ZIndex: =2
+
+            c_mainContent_10 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =3
+
+                Container2_3 As groupContainer.horizontalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =UIBGColor
+                    FillPortions: =0
+                    Height: =65
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =10
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =25
+                    PaddingTop: =25
+                    ZIndex: =2
+
+                    Container10_3 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =15
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =500
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =7
+                        PaddingLeft: =10
+                        PaddingTop: =2
+                        ZIndex: =1
+
+                        lbl_SolutionName As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Bold
+                            Size: =13
+                            Text: =galSolutions.Selected.'Display Name'
+                            Width: =287
+                            X: =550
+                            Y: =72
+                            ZIndex: =1
+
+                        txtSolutionArtifact As text:
+                            BorderColor: =RGBA(230, 230, 230, 1)
+                            Color: =RGBA(51, 51, 51, 1)
+                            Default: =""
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            HintText: ="Search artifact list..."
+                            HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverColor: =RGBA(51, 51, 51, 1)
+                            HoverFill: =RGBA(255, 255, 255, 1)
+                            OnChange: =
+                            PaddingLeft: =15
+                            PressedBorderColor: =RGBA(105, 121, 126, 1)
+                            PressedColor: =RGBA(51, 51, 51, 1)
+                            PressedFill: =RGBA(255, 255, 255, 1)
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =13
+                            Width: =400
+                            X: =245
+                            Y: =95
+                            ZIndex: =2
+
+                        icReload_2 As icon.Reload:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Color: =UIAccentColor
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =40
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.Reload
+                            OnSelect: |
+                                =UpdateContext({_isDirty:false});
+                                UpdateContext({_editFlowName:false});
+                                UpdateContext({_cloudFlowName:""});
+                                Set(CurrentObjectType,"All");
+                                Clear(col_SolutionArtifacts);
+                                UpdateContext({_showArtifactShimmer:true});
+                                ClearCollect(col_SolutionArtifacts,GetDataverseSolutionArtifacts.Run(galSolutions.Selected.'Solution Identifier',First(EnvironmentDetails).EnvironmentURL));
+                                UpdateContext({_showArtifactShimmer:false});
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =47
+                            X: =981
+                            Y: =95
+                            ZIndex: =3
+
+                        icReload_3 As icon.Reload:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Color: =UIAccentColor
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =40
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.ArrowLeft
+                            OnSelect: =Back(ScreenTransition.Fade);
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Tooltip: ="Back to solutions"
+                            Width: =47
+                            X: =981
+                            Y: =95
+                            ZIndex: =4
+
+                        MeteredOnly_1 As toggleSwitch:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            FalseFill: =RGBA(36, 42, 44, 1)
+                            FalseHoverFill: =RGBA(33, 33, 33, 1)
+                            FalseText: ="Show all artifacts"
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            HandleFill: =RGBA(255, 255, 255, 1)
+                            Height: =25
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            LabelPaddingRight: |
+                                =5
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            Size: =12
+                            TrueFill: =UIAccentColor
+                            TrueHoverFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            TrueText: ="Metered artifacts only"
+                            Width: =230
+                            ZIndex: =5
+
+                        icNamingConventionWarning As icon.Reload:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Color: =If( varDisableFlowNaming = true, DarkRed, UIAccentColor)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =40
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =If(varDisableFlowNaming = true,  Icon.Warning, Icon.Information)
+                            OnSelect: |
+                                =If(
+                                    
+                                    varDisableFlowNaming = true,
+                                    Set(varDisableFlowNaming, false),
+                                
+                                    //UpdateContext({_showConfirmationBoxEnable:true}),
+                                    UpdateContext({_showConfirmationBoxDisable:true})
+                                )
+                            PaddingBottom: =10
+                            PaddingLeft: |
+                                =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Tooltip: |-
+                                =If(
+                                    varDisableFlowNaming = true,
+                                    "Flow naming convention is Disabled!",
+                                     "Flow naming convention Enabled"
+                                )
+                            Width: =47
+                            X: =981
+                            Y: =95
+                            ZIndex: =7
+
+                        lbl_FlowNamingConvention As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: |-
+                                =If(varDisableFlowNaming = true, DarkRed,
+                                RGBA(51, 51, 51, 1)
+                                )
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            LayoutMinWidth: =260
+                            OnSelect: |
+                                =If(
+                                    
+                                    varDisableFlowNaming = true,
+                                    Set(varDisableFlowNaming, false),
+                                
+                                    //UpdateContext({_showConfirmationBoxEnable:true}),
+                                    UpdateContext({_showConfirmationBoxDisable:true})
+                                )
+                            Size: =12
+                            Text: |
+                                =If(
+                                    varDisableFlowNaming = true,
+                                    "Flow naming convention is Disabled!",
+                                     "Flow naming convention Enabled"
+                                )
+                            Visible: =varDisableFlowNaming
+                            Width: =280
+                            X: =60
+                            Y: =60
+                            ZIndex: =8
+
+                Container23_6 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =UIBGColor
+                    Height: =20
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutGap: =2
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =20
+                    PaddingLeft: =20
+                    PaddingRight: =20
+                    PaddingTop: =10
+                    ZIndex: =3
+
+                    Container2_1 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =13
+
+                        Label1 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"All")
+                            Size: =12
+                            Text: ="All ("& CountRows(If(MeteredOnly_1.Value = false, col_SolutionArtifacts, Filter(col_SolutionArtifacts,'Object id' in 'Solution Metering Artifacts'.'Artifact Object Id'))) &")"
+                            Width: =164
+                            X: =54
+                            Y: =23
+                            ZIndex: =1
+
+                        Label1_1 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Cloud flows")
+                            Size: =12
+                            Text: ="Cloud flows (" & CountRows(Filter(col_SolutionArtifacts,'Workflow category' = 5)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =178
+                            ZIndex: =2
+
+                        Label1_2 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Desktop flows")
+                            Size: =12
+                            Text: ="Desktop flows (" & CountRows(Filter(col_SolutionArtifacts,'Workflow category' = 6)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =271
+                            ZIndex: =3
+
+                        Label1_3 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Connection references")
+                            Size: =12
+                            Text: ="Connection references (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 10049)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =209
+                            ZIndex: =4
+
+                        Label1_4 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Custom connectors")
+                            Size: =12
+                            Text: ="Custom connectors (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 372)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =240
+                            ZIndex: =5
+
+                        Image2 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =24
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml,"&EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M0 640v384h384v-384h-384zM128 896v-128h128v128h-128zM0 1152v384h384v-384h-384zM128 1408v-128h128v128h-128zM0 1664v384h384v-384h-384zM128 1920v-128h128v128h-128zM640 1280v128h1152v-128h-1152zM1536 896v-128h-896v128h896zM640 1920h1408v-128h-1408v128zM0 128v384h384v-384h-384zM128 384v-128h128v128h-128zM640 256v128h1152v-128h-1152z' />
+                                  </g>
+                                
+                                </svg>")
+                            ImagePosition: =ImagePosition.Center
+                            OnSelect: =Set(CurrentObjectType,"All")
+                            PaddingBottom: =3
+                            PaddingLeft: =1
+                            PaddingRight: =3
+                            PaddingTop: =5
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =27
+                            X: =24
+                            Y: =27
+                            ZIndex: =6
+
+                        Image3 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =20
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M1408 1792h640v-640h-640v256h-120l-449 -896h-199v-256h-640v640h640v-256h120l449 896h199v256zM512 384v384h-384v-384h384zM1920 1280v384h-384v-384h384z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =1
+                            PaddingRight: =1
+                            PaddingTop: =1
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =28
+                            X: =21
+                            Y: =184
+                            ZIndex: =7
+
+                        Image4 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =18
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M1408 1664v-448q0 -83 -29 -158.5t-80.5 -134.5t-122 -98.5t-152.5 -51.5v-773h-128v773q-83 12 -153 51.5t-121.5 98.5t-80.5 134.5t-29 158.5v448h128v384h128v-384h384v384h128v-384h128zM1280 1536h-640v-320q0 -66 25 -124.5t68.5 -102t102 -68.5t124.5 -25t124 25t101.5 68.5t69 102t25.5 124.5v320z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =28
+                            X: =22
+                            Y: =217
+                            ZIndex: =8
+
+                        Image5 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =22
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M256 832q0 89 34 171.5t97 145.5l227 226l633 -633l-226 -227q-63 -63 -145.5 -97t-171.5 -34q-73 0 -141.5 22.5t-126.5 66.5l-327 -326l-90 90l326 327q-44 58 -66.5 126.5t-22.5 141.5zM704 512q64 0 122.5 24.5t103.5 69.5l136 136l-452 452l-136 -136q-45 -45 -69.5 -103.5t-24.5 -122.5q0 -66 25 -124.5t68.5 -102t102 -68.5t124.5 -25zM1575 1612q44 -58 66.5 -126.5t22.5 -141.5q0 -89 -34 -171.5t-97 -145.5l-227 -226l-633 633l226 227q63 63 145.5 97t171.5 34q73 0 141.5 -22.5t126.5 -66.5l327 326l90 -90zM1442 1118q45 45 69.5 103.5t24.5 122.5q0 66 -25.5 124t-69 101.5t-101.5 69t-124 25.5q-64 0 -122.5 -24.5t-103.5 -69.5l-136 -136l452 -452z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =2
+                            PaddingLeft: =2
+                            PaddingRight: =2
+                            PaddingTop: =2
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =22
+                            X: =24
+                            Y: =245
+                            ZIndex: =9
+
+                        Image6 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =20
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M1024 1536q150 0 292 -39t272.5 -107.5t246 -162.5t213.5 -203q-98 -110 -213.5 -203.5t-246 -162t-272.5 -107.5t-292 -39t-292 39t-272.5 107.5t-246.5 162t-213 203.5q97 109 213 203t246.5 162.5t272.5 107.5t292 39zM1408 1024q0 79 -30.5 149t-82.5 122t-122 82.5t-149 30.5t-149 -30.5t-122 -82.5t-82.5 -122t-30.5 -149t30.5 -149t82.5 -122t122 -82.5t149 -30.5t149 30.5t122 82.5t82.5 122t30.5 149zM177 1024q94 -91 200 -166.5t227 -126.5q-45 64 -68.5 139.5t-23.5 153.5t23.5 153.5t68.5 139.5q-121 -51 -227 -126.5t-200 -166.5zM1444 731q121 51 227 126.5t200 166.5q-94 91 -200 166.5t-227 126.5q45 -64 68.5 -139.5t23.5 -153.5t-23.5 -153.5t-68.5 -139.5zM1024 896q-27 0 -50 10t-40.5 27.5t-27.5 40.5t-10 50t10 50t27.5 40.5t40.5 27.5t50 10t50 -10t40.5 -27.5t27.5 -40.5t10 -50t-10 -50t-27.5 -40.5t-40.5 -27.5t-50 -10z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =2
+                            PaddingLeft: =2
+                            PaddingRight: =2
+                            PaddingTop: =2
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =37
+                            X: =15
+                            Y: =277
+                            ZIndex: =10
+
+                        Label1_5 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Choices")
+                            Size: =12
+                            Text: ="Choices (" & CountRows(Filter(col_SolutionArtifacts,'Component type name' = "Option Set")) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =147
+                            ZIndex: =11
+
+                        Image3_1 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =21
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M0 768v128h128v-128h-128zM0 1152v128h128v-128h-128zM384 1152v128h1664v-128h-1664zM0 1536v128h128v-128h-128zM384 1664h1664v-128h-1664v128zM384 768v128h1664v-128h-1664zM0 384v128h128v-128h-128zM384 384v128h1664v-128h-1664z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =1
+                            PaddingRight: =1
+                            PaddingTop: =1
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =31
+                            X: =22
+                            Y: =153
+                            ZIndex: =12
+
+                        Label1_6 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Environment variables")
+                            Size: =12
+                            Text: ="Environment variables (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 380)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =302
+                            ZIndex: =13
+
+                        Image6_1 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =20
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M690 701q0 23 15 38t38 15q12 0 23 -6t20 -13t16.5 -13t14.5 -6q10 0 26.5 15.5t35 39.5t38.5 53.5t37 57t29 50t17 33.5q-8 34 -17 67t-17 67q-8 31 -17.5 54.5t-24 39.5t-34 24.5t-47.5 8.5q-10 0 -20.5 -1t-21.5 -3v25l184 33q21 -23 35.5 -46.5t24 -48t16.5 -51t15 -56.5q15 22 37.5 56.5t51 66.5t61 55.5t66.5 23.5q25 0 45 -13.5t20 -40.5q0 -54 -54 -54q-20 0 -37 9t-37 9q-19 0 -40 -19t-40.5 -45t-35.5 -52.5t-26 -41.5l57 -237q1 -7 4 -19.5t8 -25t12 -22t16 -9.5q12 0 27.5 11.5t29.5 27.5t25.5 32.5t15.5 27.5l24 -12q-8 -19 -28 -47t-45.5 -54.5t-52 -45.5t-48.5 -19t-36.5 13t-25.5 30q-9 16 -17 46.5t-15 65t-13.5 67.5t-13.5 53q-11 -20 -26.5 -48t-35.5 -58.5t-43 -61t-48 -54t-50.5 -38.5t-50.5 -15q-26 0 -46.5 17t-20.5 44zM1516 640q54 69 83 149.5t29 168.5q0 90 -29 170t-83 152h94q118 -139 118 -322q0 -91 -28.5 -170t-89.5 -148h-94zM0 1920h2048v-1664h-2048v1664zM1920 384v1024h-1792v-1024h1792zM1920 1536v256h-1792v-256h1792zM438 640q-62 68 -90 147.5t-28 170.5q0 183 118 322h93q-54 -70 -82.5 -151.5t-28.5 -170.5q0 -87 28.5 -168t82.5 -150h-93z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =2
+                            PaddingLeft: =2
+                            PaddingRight: =2
+                            PaddingTop: =2
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =37
+                            X: =15
+                            Y: =309
+                            ZIndex: =14
+
+                        Label1_7 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =28
+                            OnSelect: =Set(CurrentObjectType,"Plug-in assemblies")
+                            Size: =12
+                            Text: ="Plug-in assemblies (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 91)) & ")"
+                            Width: =237
+                            X: =54
+                            Y: =365
+                            ZIndex: =15
+
+                        Label1_8 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Security roles")
+                            Size: =12
+                            Text: ="Security roles (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 1036)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =426
+                            ZIndex: =16
+
+                        Label1_9 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Site maps")
+                            Size: =12
+                            Text: ="Site maps (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 62)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =457
+                            ZIndex: =17
+
+                        Label1_10 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Tables")
+                            Size: =12
+                            Text: ="Tables (" & CountRows(Filter(col_SolutionArtifacts,'Component type name' = "Entity")) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =490
+                            ZIndex: =18
+
+                        Label1_12 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Plug-in steps")
+                            Size: =12
+                            Text: ="Plug-in steps (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 92)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =395
+                            ZIndex: =20
+
+                        Image2_1 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =24
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M1600 1152q-27 0 -50 -10t-40.5 -27.5t-27.5 -40.5t-10 -50t10 -50t27.5 -40.5t40.5 -27.5t50 -10h192v-512h-384v-64q0 -53 -20 -99.5t-55 -81.5t-81.5 -55t-99.5 -20t-99.5 20t-81.5 55t-55 81.5t-20 99.5v64h-384v384h-64q-53 0 -99.5 20t-81.5 55t-55 81.5t-20 99.5t20 99.5t55 81.5t81.5 55t99.5 20h64v384h384v64q0 53 20 99.5t55 81.5t81.5 55t99.5 20t99.5 -20t81.5 -55t55 -81.5t20 -99.5v-64h384v-512h-192zM1600 768q-53 0 -99.5 20t-81.5 55t-55 81.5t-20 99.5t20 99.5t55 81.5t81.5 55t99.5 20h64v256h-384v192q0 27 -10 50t-27.5 40.5t-40.5 27.5t-50 10t-50 -10t-40.5 -27.5t-27.5 -40.5t-10 -50v-192h-384v-384h-192q-27 0 -50 -10t-40.5 -27.5t-27.5 -40.5t-10 -50t10 -50t27.5 -40.5t40.5 -27.5t50 -10h192v-384h384v-192q0 -27 10 -50t27.5 -40.5t40.5 -27.5t50 -10t50 10t40.5 27.5t27.5 40.5t10 50v192h384v256h-64z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            ImagePosition: =ImagePosition.Center
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =3
+                            PaddingLeft: =3
+                            PaddingRight: =3
+                            PaddingTop: =2
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =27
+                            X: =21
+                            Y: =368
+                            ZIndex: =22
+
+                        Image3_2 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =20
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M867 587q65 -33 118 -81t90 -108t57 -128.5t20 -141.5h-128q0 79 -30 149t-82.5 122.5t-122.5 82.5t-149 30q-80 0 -149.5 -30t-122 -82.5t-82.5 -122.5t-30 -149h-128q0 73 20 141.5t57 128.5t90 108t118 81q-74 54 -115.5 135.5t-41.5 173.5q0 79 30 149t82.5 122.5t122 82.5t149.5 30q92 0 173.5 -41.5t135.5 -115.5q38 75 97.5 134.5t134.5 96.5q-74 55 -115.5 136.5t-41.5 173.5q0 79 30 149t82.5 122.5t122 82.5t149.5 30q79 0 149 -30t122.5 -82.5t82.5 -122.5t30 -149q0 -94 -43 -177t-120 -137q47 -25 90 -59.5t78.5 -76.5t62.5 -90.5t43 -99.5h-134q-22 52 -59 98.5t-85 81.5t-103.5 55t-113.5 20q-80 0 -149.5 -30t-122 -82t-82.5 -122t-30 -149q0 -92 -41.5 -173.5t-115.5 -135.5zM1408 1920q-53 0 -99.5 -20t-81.5 -55t-55 -81.5t-20 -99.5t20 -99.5t55 -81.5t81.5 -55t99.5 -20t99.5 20t81.5 55t55 81.5t20 99.5t-20 99.5t-55 81.5t-81.5 55t-99.5 20zM384 896q0 -53 20 -99.5t55 -81.5t81.5 -55t99.5 -20t99.5 20t81.5 55t55 81.5t20 99.5t-20 99.5t-55 81.5t-81.5 55t-99.5 20t-99.5 -20t-81.5 -55t-55 -81.5t-20 -99.5zM2048 512v-512h-640v512h64v128q0 53 20 99.5t55 81.5t81.5 55t99.5 20t99.5 -20t81.5 -55t55 -81.5t20 -99.5v-128h64zM1600 512h256v128q0 27 -10 50t-27.5 40.5t-40.5 27.5t-50 10t-50 -10t-40.5 -27.5t-27.5 -40.5t-10 -50v-128zM1920 384h-384v-256h384v256z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =1
+                            PaddingRight: =1
+                            PaddingTop: =1
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =28
+                            X: =20
+                            Y: =433
+                            ZIndex: =23
+
+                        Image4_1 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =18
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M0 1792h2048v-1408h-2048v1408zM128 1408v-896h384v896h-384zM1920 512v896h-1280v-896h1280zM128 1536h1792v128h-1792v-128z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =28
+                            X: =20
+                            Y: =464
+                            ZIndex: =24
+
+                        Image5_1 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =22
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M128 1792h1664v-1536h-1664v1536zM768 1024v-256h384v256h-384zM1152 1152v256h-384v-256h384zM640 1152v256h-384v-256h384zM256 1024v-256h384v256h-384zM640 384v256h-384v-256h384zM1152 384v256h-384v-256h384zM1664 384v256h-384v-256h384zM1664 768v256h-384v-256h384zM1664 1152v256h-384v-256h384zM256 1536h1408v128h-1408v-128z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =2
+                            PaddingLeft: =2
+                            PaddingRight: =2
+                            PaddingTop: =2
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =22
+                            X: =26
+                            Y: =495
+                            ZIndex: =25
+
+                        Image3_3 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =21
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M1920 1792v-1408h-1792v640h512v384h512v384h768zM1792 1664h-512v-384h-512v-384h-512v-384h1536v1152z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =1
+                            PaddingRight: =1
+                            PaddingTop: =1
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =31
+                            X: =21
+                            Y: =400
+                            ZIndex: =27
+
+                        Label1_14 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Apps")
+                            Size: =12
+                            Text: ="Apps (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 300 || 'Object type code' = 80)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =54
+                            ZIndex: =29
+
+                        Image3_4 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =21
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M0 2048h1920v-1024h-896v-896h-1024v1920zM896 256v768h-768v-768h768zM896 1152v768h-768v-768h768zM1792 1152v768h-768v-768h768z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"Apps")
+                            PaddingBottom: =1
+                            PaddingRight: =1
+                            PaddingTop: =1
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =31
+                            X: =22
+                            Y: =59
+                            ZIndex: =30
+
+                        Label1_15 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Chatbot subcomponents")
+                            Size: =12
+                            Text: ="Chatbot subcomponents (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 10040)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =85
+                            ZIndex: =31
+
+                        Image3_5 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =21
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M2048 1536v-1024q0 -27 -10 -50t-27.5 -40.5t-40.5 -27.5t-50 -10h-1792q-27 0 -50 10t-40.5 27.5t-27.5 40.5t-10 50v1280q0 27 10 50t27.5 40.5t40.5 27.5t50 10h736q37 0 69 -13.5t58.5 -36t48 -51t39.5 -58.5q13 -23 25.5 -41t28 -30.5t35 -19t48.5 -6.5h704q27 0 50 -10t40.5 -27.5t27.5 -40.5t10 -50zM864 1792h-736v-256h736q27 0 45.5 9t35 22t33.5 28.5t39 27.5q-15 17 -31.5 45.5t-35.5 56t-40.5 47.5t-45.5 20zM1920 512v1024h-704q-56 0 -90.5 -9.5t-58 -23.5t-40.5 -31t-37.5 -31t-49.5 -23.5t-76 -9.5h-736v-896h1792z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"Chatbot subcomponents")
+                            PaddingBottom: =1
+                            PaddingRight: =1
+                            PaddingTop: =1
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =31
+                            X: =21
+                            Y: =90
+                            ZIndex: =32
+
+                        Label1_16 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Chatbots")
+                            Size: =12
+                            Text: ="Chatbots (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 10039)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =116
+                            ZIndex: =33
+
+                        Image3_6 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =21
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M768 1024h-128v128h128v-128zM1280 1024h-128v128h128v-128zM1792 1152v-256h-128v-320q0 -40 -15 -75t-41 -61t-61 -41t-75 -15h-264l-440 -376v376h-320q-40 0 -75 15t-61 41t-41 61t-15 75v320h-128v256h128v192q0 40 15 75t41 61t61 41t75 15h448v209q-29 17 -46.5 47t-17.5 64q0 27 10 50t27.5 40.5t40.5 27.5t50 10t50 -10t40.5 -27.5t27.5 -40.5t10 -50q0 -34 -17.5 -64t-46.5 -47v-209h448q40 0 75 -15t61 -41t41 -61t15 -75v-192h128zM1536 1344q0 26 -19 45t-45 19h-1024q-26 0 -45 -19t-19 -45v-768q0 -26 19 -45t45 -19h448v-226l264 226h312q26 0 45 19t19 45v768zM685 882q55 -55 126 -84.5t149 -29.5t149 29.5t126 84.5l90 -91q-73 -73 -167.5 -112t-197.5 -39t-197.5 39t-167.5 112z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =1
+                            PaddingRight: =1
+                            PaddingTop: =1
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =31
+                            X: =22
+                            Y: =121
+                            ZIndex: =34
+
+                        Label1_11 As label:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =If(CurrentObjectType in Self.Text, FontWeight.Bold, FontWeight.Normal)
+                            Height: =29
+                            OnSelect: =Set(CurrentObjectType,"Environment variable values")
+                            Size: =12
+                            Text: ="Environment variable values (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 381)) & ")"
+                            Width: =302
+                            X: =54
+                            Y: =333
+                            ZIndex: =35
+
+                        Image6_2 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =20
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: |-
+                                ="data:image/svg+xml," & 
+                                 EncodeUrl(
+                                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                  <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                   <path fill=''
+                                d='M139 1088q0 -223 59 -430t165 -402h-97q-62 91 -111 191.5t-83.5 206t-53 215.5t-18.5 220q0 230 71 435t195 396h97q-55 -108 -96.5 -205t-70 -195.5t-43 -203.5t-14.5 -228zM1624 1566q0 -48 -25.5 -72t-72.5 -24q-17 0 -34 5t-33.5 11t-33 11t-33.5 5q-21 0 -45 -16t-49.5 -42t-50 -58t-46 -64t-38 -60t-25.5 -45l101 -426q3 -13 8.5 -35.5t14 -45t21 -39t29.5 -16.5q23 0 50.5 20t52.5 48.5t45 58t29 49.5l43 -21q-12 -23 -32.5 -54t-45.5 -64t-54.5 -65t-60.5 -57.5t-61.5 -41.5t-58.5 -16q-39 0 -66 23t-45 55q-8 14 -18 45t-20.5 71t-21.5 85t-20 86.5t-16.5 76t-10.5 53.5q-26 -48 -62.5 -108.5t-78 -121.5t-85.5 -115t-85 -88q-32 -26 -68 -44t-78 -18q-24 0 -45.5 7.5t-38 22t-26.5 34.5t-10 45q0 42 26 69t68 27q22 0 41 -11t35.5 -23.5t31 -23.5t26.5 -11q18 0 47.5 28t63 72t69 97t65.5 103t52.5 90t31.5 59q-10 38 -20 75t-19 75q-8 32 -17 72.5t-22.5 81t-32.5 75t-47 54.5q-31 22 -64.5 28t-70.5 6q-33 0 -66 -3v44l332 59q40 -43 65 -85t42 -85.5t29.5 -91t27.5 -101.5q32 48 64.5 98t69 95.5t80 84t97.5 65.5q18 9 38 14.5t40 5.5q22 0 43.5 -6t37.5 -18t26 -30.5t10 -43.5zM2048 1089q0 -110 -18.5 -220t-53 -215.5t-83.5 -206t-111 -191.5h-97q106 195 165 402t59 430q0 146 -25.5 290.5t-77.5 281.5q-26 67 -57.5 131.5t-63.5 128.5h97q124 -191 195 -396t71 -435z' />
+                                  </g>
+                                
+                                </svg>"
+                                )
+                            OnSelect: =Set(CurrentObjectType,"")
+                            PaddingBottom: =2
+                            PaddingLeft: =2
+                            PaddingRight: =2
+                            PaddingTop: =2
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =37
+                            X: =15
+                            Y: =339
+                            ZIndex: =36
+
+    Container2_4 As groupContainer.manualLayoutContainer:
+        ContentLanguage: =
+        Height: =Parent.Height-130
+        Width: =Parent.Width-400
+        X: =384
+        Y: =129
+        ZIndex: =3
+
+        GridContainerControl_2 As GridContainerControl:
+            HeaderFields: |-
+                ={
+                    Headers: [
+                        {Index: 1, Name: "    Display name", Width: 500, Visible: true},
+                        {Index: 3, Name: "Type", Width: 270, Visible: true},
+                        {Index: 8, Name: "Is metered", Width: 100,Visible: true},
+                        {Index: 9, Name: "Run logs", Width: 100, Visible: true},
+                        
+                        {Index: 7, Name: "Workflow category", Width: 170, Visible: true},
+                        {Index: 4, Name: "Managed", Width: 100, Visible: true},
+                        {Index: 5, Name: "Last modified", Width: 140, Visible: true},
+                        {Index: 6, Name: "Owner", Width: 185, Visible: true},
+                        {Index: 10, Name: "Header 10", Width: 100, Visible: false}
+                    ]
+                }
+            Height: =Parent.Height
+            Width: =Parent.Width
+
+        "galSolutionArtifacts As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+            BorderColor: =RGBA(166, 166, 166, 1)
+            Fill: =Parent.Fill
+            Height: =Parent.Height-90
+            Items: |-
+                =If(
+                    MeteredOnly_1.Value = false,
+                    Search(
+                        Switch(
+                            CurrentObjectType,
+                            "All",
+                            col_SolutionArtifacts,
+                            "Apps",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 80 || 'Object type code' = 300
+                            ),
+                            "Chatbot subcomponents",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 10040
+                            ),
+                            "Chatbots",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 10039
+                            ),
+                            "Choices",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Component type name' = "Option Set"
+                            ),
+                            "Cloud flows",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Workflow category' = 5
+                            ),
+                            "Connection references",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 10049
+                            ),
+                            "Custom connectors",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 372
+                            ),
+                            "Desktop flows",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Workflow category' = 6
+                            ),
+                            "Environment variables",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 380
+                            ),
+                            "Environment variable values",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 381
+                            ),
+                            "Plug-in assemblies",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 91
+                            ),
+                            "Plug-in steps",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 92
+                            ),
+                            "Security roles",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 1036
+                            ),
+                            "Site maps",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Object type code' = 62
+                            ),
+                            "Tables",
+                            Filter(
+                                col_SolutionArtifacts,
+                                'Component type name' = "Entity"
+                            )
+                        ),
+                        txtSolutionArtifact.Text,
+                        "Display name",
+                        "Component type name",
+                        "Description",
+                        "Component logical name",
+                        "Created on",
+                        "Name",
+                        "Object id",
+                        "Owner",
+                        "Solution id",
+                        "Workflow category name",
+                        "Workflow unique id",
+                        "Workflow unique id"
+                    ),
+                    Filter(
+                        col_SolutionArtifacts,
+                        'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id'
+                    )
+                )
+            Layout: =Layout.Vertical
+            TemplateFill: =If(ThisItem.IsSelected,RGBA(243, 242, 241, 1), RGBA(0, 0, 0, 0))
+            TemplatePadding: =0
+            TemplateSize: =42
+            Width: =Parent.Width-25
+            X: =22
+            Y: =58
+            ZIndex: =2
+
+            LineSeparator_3 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                Fill: |-
+                    =ColorValue("#f3f2f1")
+                Height: =1/3
+                OnSelect: =Select(Parent)
+                Width: =Parent.TemplateWidth
+                Y: =Parent.TemplateHeight - 1
+                ZIndex: =1
+
+            IsMetered As image:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =30
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: |-
+                    ="data:image/svg+xml," & 
+                     EncodeUrl(
+                        "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                      <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                       <path fill='"& UIAccentColorText & "'
+                    d='M1639 1548q135 -136 208 -297.5t73 -354.5q0 -124 -32 -238.5t-90.5 -214t-140 -181t-181 -140t-214 -90.5t-238.5 -32t-238.5 32t-214 90.5t-181 140t-140 181t-90.5 214t-32 238.5q0 111 26.5 216t75 198t117.5 172.5t154 141t185 102.5t210 57v137h-256v128h640v-128h-256v-128q139 0 270.5 -41t244.5 -122l208 208l90 -90zM1024 128q159 0 298.5 60.5t244 165t165 244t60.5 298.5t-60.5 298.5t-165 244t-244 165t-298.5 60.5t-298.5 -60.5t-244 -165t-165 -244t-60.5 -298.5t60.5 -298.5t165 -244t244 -165t298.5 -60.5zM1664 1024v-128q0 -133 -50 -249.5t-137 -203.5t-203.5 -137t-249.5 -50t-249.5 50t-203.5 136.5t-137 203t-50 249.5q0 88 23 170t64.5 153t100 129.5t129.5 100.5t152.5 65t170.5 23h128v-512h512zM1024 384q106 0 199.5 40t163 109.5t109.5 163t40 199.5h-512v512q-107 0 -200 -40.5t-162.5 -110t-109.5 -163.5t-40 -200t40.5 -199t110 -162t162.5 -109t199 -40z' />
+                      </g>
+                    
+                    </svg>"
+                    )
+                OnSelect: |-
+                    =UpdateContext({_showConfirmationBox:true}) 
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Tooltip: ="Remove from metering"
+                Visible: =If(ThisItem.'Component type name' = "Process" && ThisItem.'Workflow category' = 5 && !AddFlowToMetered.Visible,true,false)
+                Width: =30
+                X: =GridField_typename.X+15+GridField_typename.Width+15
+                Y: =6
+                ZIndex: =2
+
+            CompTypeIcon As image:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =20
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Image: |-
+                    =Switch(ThisItem.'Object type code', 
+                        80, LookUp(FluentUIIcons, FriendlyName = "Apps").SVG,
+                        300, LookUp(FluentUIIcons, FriendlyName = "Apps").SVG,
+                        10040, LookUp(FluentUIIcons, FriendlyName = "Chatbot subcomponents").SVG,
+                        10039, LookUp(FluentUIIcons, FriendlyName = "Chatbots").SVG,
+                        9, LookUp(FluentUIIcons, FriendlyName = "Choices").SVG,
+                        5, LookUp(FluentUIIcons, FriendlyName = "Cloud flows").SVG,
+                        10049, LookUp(FluentUIIcons, FriendlyName = "Connection references").SVG,
+                        372, LookUp(FluentUIIcons, FriendlyName = "Custom connectors").SVG,
+                        4703, LookUp(FluentUIIcons, FriendlyName = If(ThisItem.'Workflow category' = 6, "Desktop flows", "Cloud flows")).SVG,
+                        380, LookUp(FluentUIIcons, FriendlyName = "Environment variables").SVG,
+                        381, LookUp(FluentUIIcons, FriendlyName = "Environment variable values").SVG,
+                        91, LookUp(FluentUIIcons, FriendlyName = "Plug-in assemblies").SVG,
+                        92, LookUp(FluentUIIcons, FriendlyName = "Plug-in steps").SVG,
+                        1036, LookUp(FluentUIIcons, FriendlyName = "Security roles").SVG,
+                        62, LookUp(FluentUIIcons, FriendlyName = "Site maps").SVG,
+                        If(ThisItem.'Component logical name' = "entity", LookUp(FluentUIIcons, FriendlyName = "Tables").SVG, LookUp(FluentUIIcons, FriendlyName = "Choices").SVG)
+                    )
+                ImagePosition: =ImagePosition.Center
+                OnSelect: =//Set(CurrentObjectType,"")
+                PaddingBottom: =3
+                PaddingLeft: =4
+                PaddingRight: =3
+                PaddingTop: =5
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Width: =22
+                X: =7
+                Y: =10
+                ZIndex: =8
+
+            AddFlowToMetered As icon.CheckBadge:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =UIAccentColor
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: |
+                    =If(
+                        CountRows(
+                            Filter(
+                                'Solution Metering Artifacts',
+                                'Solution Metering'.'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')
+                            )
+                        ) = 0 &&
+                        // RegEx searches for [CloudFlowName]_[AutomationProjectName]-[9digits]_[3digits for Solution Number]
+                     IsMatch(
+                            ThisItem.'Display name',
+                            "_AP-[0-9]{9}_[0-9]{3}\b",
+                            MatchOptions.Contains
+                        ) || varDisableFlowNaming = true && CountRows(
+                            Filter(
+                                'Solution Metering Artifacts',
+                                'Solution Metering'.'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')
+                            )
+                        ) = 0 && RenameCloudFlow.Icon <> Icon.Save,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                    //Test Code
+                    /*If(
+                        CountRows(
+                            Filter(
+                                'Solution Metering Artifacts',
+                                'Solution Metering'.'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')
+                            )
+                        ) <> 5
+                        &&
+                        RenameCloudFlow.Icon <> Icon.Save,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                    */
+                    //Original Code
+                    /*
+                    If(
+                        CountRows(
+                            Filter(
+                                'Solution Metering Artifacts',
+                                'Solution Metering'.'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')
+                            )
+                        ) = 0 && 
+                        // RegEx searches for [CloudFlowName]_[AutomationProjectName]-[9digits]_[3digits for Solution Number]
+                        IsMatch(ThisItem.'Display name',"_AP-[0-9]{9}_[0-9]{3}\b",MatchOptions.Contains) 
+                        &&
+                        RenameCloudFlow.Icon <> Icon.Save,
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                    */
+                FocusedBorderThickness: =4
+                Height: =30
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.Add
+                OnSelect: |-
+                    =UpdateContext({_showConfirmationBoxAdd:true})
+                PaddingBottom: =4
+                PaddingLeft: =4
+                PaddingRight: =4
+                PaddingTop: =4
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Tooltip: ="Add to metering"
+                Visible: |-
+                    =If(
+                        Not(ThisItem.'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id') && 
+                        ThisItem.'Component type name' = "Process" && 
+                        ThisItem.'Workflow category' = 5,
+                    true,false )
+                Width: =30
+                X: =GridField_typename.X+15+GridField_typename.Width+15
+                Y: =6
+                ZIndex: =9
+
+            RunLogs As icon.CheckBadge:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =UIAccentColor
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Height: =30
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =Icon.History
+                OnSelect: =Navigate(scr_SolutionRunLogs,ScreenTransition.Fade)
+                PaddingBottom: =4
+                PaddingLeft: =4
+                PaddingRight: =4
+                PaddingTop: =4
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Tooltip: ="Add to metering"
+                Visible: |-
+                    =If(
+                        ThisItem.'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id' && 
+                        ThisItem.'Component type name' = "Process" && 
+                        ThisItem.'Workflow category' = 5,
+                    true,false )
+                Width: =30
+                X: =AddFlowToMetered.X+AddFlowToMetered.Width+60
+                Y: =4
+                ZIndex: =10
+
+            GridField_typename As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
+                Size: =10
+                Text: =ThisItem.'Component type name'
+                Width: =260
+                X: |-
+                    =GridField_displayname.X+GridField_displayname.Width+5+RenameCloudFlow.Width+10
+                    //RenameCloudFlow.X+RenameCloudFlow.Width+40+AddFlowToMetered.Width+30
+                Y: =7
+                ZIndex: =11
+
+            GridField_displayname As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
+                Size: =10
+                Text: =ThisItem.'Display name'
+                Tooltip: =ThisItem.'Display name'
+                Width: =405
+                X: =35
+                Y: =7
+                ZIndex: =12
+
+            GridField_workflow As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
+                Size: =10
+                Text: =ThisItem.'Workflow category name'
+                Width: =160
+                X: =RunLogs.X+RunLogs.Width+55
+                Y: =7
+                ZIndex: =13
+
+            GridField_managed As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
+                Size: =10
+                Text: =ThisItem.'Is managed'
+                Width: =100
+                X: =GridField_workflow.X+GridField_workflow.Width+10
+                Y: =7
+                ZIndex: =14
+
+            GridField_modified As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
+                Size: =10
+                Text: =Text(DateValue(ThisItem.'Modified on'),DateTimeFormat.ShortDateTime24)
+                Width: =130
+                X: =GridField_managed.X+GridField_managed.Width
+                Y: =7
+                ZIndex: =15
+
+            GridField_owner As label:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(0, 0, 0, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =30
+                OnSelect: =Select(Parent)
+                Overflow: =Overflow.Scroll
+                Size: =10
+                Text: =ThisItem.Owner
+                Width: =190
+                X: =GridField_modified.X+GridField_modified.Width+10
+                Y: =7
+                ZIndex: =16
+
+            RenameCloudFlow As icon.Edit:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                Color: =UIAccentColor
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(220, 220, 220, 1)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                DisplayMode: =If(galSolutions.Selected.'Package Type' = 'Package Type (Solutions)'.Unmanaged && ThisItem.'Component type name' = "Process" && ThisItem.'Workflow category name' = "Modern Flow", DisplayMode.Edit,DisplayMode.Disabled)
+                FocusedBorderThickness: =4
+                Height: =42
+                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverFill: =RGBA(0, 0, 0, 0)
+                Icon: =If(!_editFlowName, Icon.Edit,Icon.Save)
+                OnSelect: |-
+                    =If(
+                        !_editFlowName &&
+                        !IsMatch( ThisItem.'Display name', "_AP-[0-9]{9}_[0-9]{3}\b", MatchOptions.Contains ),
+                        Patch(col_SolutionArtifacts, ThisItem,{
+                            'Display name': ThisItem.'Display name' & "_" & LookUp(
+                                'Solution Meterings',
+                                'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')
+                            ).'Automation Project'.'Automation Project Number' & "_001"
+                        }),
+                        Patch(Processes, 
+                            LookUp(Processes, 
+                                Process = GUID(ThisItem.'Object id')
+                            ),{
+                            'Process Name': CloudFlowName.Text
+                        });
+                        Patch('Solution Metering Artifacts', 
+                            LookUp('Solution Metering Artifacts', 
+                                'Artifact Object Id' = ThisItem.'Object id' && 
+                                'Solution Metering'.'Solution Id' = ThisItem.'Solution id'
+                            ),{
+                            'Artifact Name': CloudFlowName.Text
+                        });
+                        Patch(col_SolutionArtifacts, ThisItem,{
+                            'Display name': CloudFlowName.Text
+                        })
+                    );
+                    
+                    UpdateContext({_editFlowName: !_editFlowName})
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingRight: =10
+                PaddingTop: =10
+                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                PressedFill: =RGBA(0, 0, 0, 0)
+                Tooltip: ="Rename cloud flow to match naming convention. This is only allowed if the solution is of type unmanaged"
+                Visible: =If(galSolutions.Selected.'Package Type' = 'Package Type (Solutions)'.Unmanaged && ThisItem.'Component type name' = "Process" && ThisItem.'Workflow category name' = "Modern Flow" && ThisItem.IsSelected, true,false)
+                X: =GridField_displayname.X+GridField_displayname.Width+10
+                ZIndex: =17
+
+            CloudFlowName As text:
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =ThisItem.'Display name'
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                Height: =38
+                HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =RGBA(255, 255, 255, 1)
+                OnChange: |-
+                    =UpdateContext({_isDirty: true});
+                PressedBorderColor: =RGBA(105, 121, 126, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(255, 255, 255, 1)
+                RadiusBottomLeft: =0
+                RadiusBottomRight: =0
+                RadiusTopLeft: =0
+                RadiusTopRight: =0
+                Size: =10
+                Visible: =If(_editFlowName, true,false)
+                Width: =GridField_displayname.Width
+                X: =GridField_displayname.X
+                Y: =2
+                ZIndex: =18
+
+        ArtifactShimmerImage As image:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Height: =545
+            HoverBorderColor: =RGBA(0, 0, 0, 0)
+            HoverFill: =RGBA(0, 0, 0, 0)
+            Image: =ArtifactShimmer
+            PressedBorderColor: =RGBA(0, 0, 0, 0)
+            PressedFill: =RGBA(0, 0, 0, 0)
+            Visible: =_showArtifactShimmer
+            Width: =Parent.Width-27
+            X: =22
+            Y: =40
+            ZIndex: =3
+
+    ConfirmationDialogControl_Remove As ConfirmationDialogControl:
+        BodyText: ="Are you sure you want to remove this artifact '" & galSolutionArtifacts.Selected.'Display name' & "' from metering? Please note that this will create an audit log entry in our databse."
+        CancelButtonText: ="Cancel"
+        ConfirmButtonText: ="Yes"
+        Fill: |-
+            =If(ConfirmationDialogControl_Remove.SemiTransparentBackground, RGBA(255, 255, 255, 0.4), ColorValue("#F8F8F8"))
+        HeaderText: ="Confirmation"
+        OnCancellation: |-
+            =UpdateContext({_showConfirmationBox:false})
+        OnConfirmation: |-
+            =UpdateContext({_showConfirmationBox:false});
+            Remove('Solution Metering Artifacts', LookUp('Solution Metering Artifacts', 'Artifact Object Id' = galSolutionArtifacts.Selected.'Workflow unique id'));Refresh('Solution Meterings');Refresh('Solution Metering Artifacts');
+        SemiTransparentBackground: =false
+        Visible: =_showConfirmationBox
+        ZIndex: =4
+
+    ConfirmationDialogControl_Add As ConfirmationDialogControl:
+        BodyText: ="Are you sure you want to add this artifact '" & galSolutionArtifacts.Selected.'Display name' & "' to metering? Please note that this will create an audit log entry in our databse."
+        CancelButtonText: ="Cancel"
+        ConfirmButtonText: ="Yes"
+        Fill: |-
+            =If(ConfirmationDialogControl_Add.SemiTransparentBackground, RGBA(255, 255, 255, 0.4), ColorValue("#F8F8F8"))
+        HeaderText: ="Confirmation"
+        OnCancellation: |-
+            =UpdateContext({_showConfirmationBoxAdd:false})
+        OnConfirmation: |
+            =UpdateContext({_showConfirmationBoxAdd:false});
+            
+            Patch('Solution Metering Artifacts',Defaults('Solution Metering Artifacts'),{
+                'Solution Metering': LookUp('Solution Meterings', 'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')),
+                'Artifact Name': galSolutionArtifacts.Selected.'Display name',
+                'Artifact Object Id': galSolutionArtifacts.Selected.'Workflow unique id',
+                'Workflow Id': galSolutionArtifacts.Selected.'Object id',
+                'Arftifact Type': If(galSolutionArtifacts.Selected.'Workflow category' = 6, 'Solution Arftifact Type'.'Desktop flow','Solution Arftifact Type'.'Cloud flow')
+            });
+        SemiTransparentBackground: =false
+        Visible: =_showConfirmationBoxAdd
+        ZIndex: =5
+
+    ConfirmationDialogControl_Disable As ConfirmationDialogControl:
+        BodyText: |-
+            ="Are you sure you want to disable the Flow naming convention?
+            Warning: Multiple flows with the same name in the same environment could break metering."
+        CancelButtonText: ="Cancel"
+        ConfirmButtonText: ="Yes"
+        Fill: |-
+            =If(ConfirmationDialogControl_Disable.SemiTransparentBackground, RGBA(255, 255, 255, 0.4), ColorValue("#F8F8F8"))
+        HeaderText: ="Warning"
+        OnCancellation: |-
+            =UpdateContext({_showConfirmationBoxDisable:false})
+        OnConfirmation: |
+            =UpdateContext({_showConfirmationBoxDisable:false});
+            Set(varDisableFlowNaming, true);
+            /*Patch('Solution Metering Artifacts',Defaults('Solution Metering Artifacts'),{
+                'Solution Metering': LookUp('Solution Meterings', 'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')),
+                'Artifact Name': galSolutionArtifacts.Selected.'Display name',
+                'Artifact Object Id': galSolutionArtifacts.Selected.'Workflow unique id',
+                'Workflow Id': galSolutionArtifacts.Selected.'Object id',
+                'Arftifact Type': If(galSolutionArtifacts.Selected.'Workflow category' = 6, 'Solution Arftifact Type'.'Desktop flow','Solution Arftifact Type'.'Cloud flow')
+            });*/
+        SemiTransparentBackground: =false
+        Visible: =_showConfirmationBoxDisable
+        ZIndex: =6
+
+    ConfirmationDialogControl_Enable As ConfirmationDialogControl:
+        BodyText: |-
+            ="Are you sure you want to disable the Flow naming convention?
+            Warning: Multiple flows with the same name in the same environment could break metering."
+        CancelButtonText: ="Cancel"
+        ConfirmButtonText: ="Yes"
+        Fill: |-
+            =If(ConfirmationDialogControl_Enable.SemiTransparentBackground, RGBA(255, 255, 255, 0.4), ColorValue("#F8F8F8"))
+        HeaderText: ="Warning"
+        OnCancellation: |-
+            =UpdateContext({_showConfirmationBoxEnable:false})
+        OnConfirmation: |
+            =UpdateContext({_showConfirmationBoxEnable:false});
+            Set(varDisableFlowNaming, true);
+            /*Patch('Solution Metering Artifacts',Defaults('Solution Metering Artifacts'),{
+                'Solution Metering': LookUp('Solution Meterings', 'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')),
+                'Artifact Name': galSolutionArtifacts.Selected.'Display name',
+                'Artifact Object Id': galSolutionArtifacts.Selected.'Workflow unique id',
+                'Workflow Id': galSolutionArtifacts.Selected.'Object id',
+                'Arftifact Type': If(galSolutionArtifacts.Selected.'Workflow category' = 6, 'Solution Arftifact Type'.'Desktop flow','Solution Arftifact Type'.'Cloud flow')
+            });*/
+        Visible: =_showConfirmationBoxEnable
+        ZIndex: =7
+

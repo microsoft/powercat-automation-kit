@@ -1,0 +1,285 @@
+GridContainerControl As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    HeaderFields: |-
+        ={
+            Headers: [
+                {Index: 1, Name: "Header 1", Width: 100 , Visible: true},
+                {Index: 2, Name: "Header 2", Width: 100, Visible: true},
+                {Index: 3, Name: "Header 3", Width: 300, Visible: true},
+                {Index: 4, Name: "Header 4", Width: 100, Visible: true},
+                {Index: 5, Name: "Header 5", Width: 100, Visible: true},
+                {Index: 6, Name: "Header 6", Width: 100, Visible: true},
+                {Index: 7, Name: "Header 7", Width: 100, Visible: true},
+                {Index: 8, Name: "Header 8", Width: 100, Visible: true},
+                {Index: 9, Name: "Header 9", Width: 100, Visible: true},
+                {Index: 10, Name: "Header 10", Width: 100, Visible: true}
+            ]
+        }
+    HeaderWidthValues: |-
+        ={
+            HeaderWidth:[
+                {Index: 1, Width: 100},        
+                {Index: 2, Width: 120},
+                {Index: 3, Width: 130},
+                {Index: 4, Width: 140},
+                {Index: 5, Width: 150},
+                {Index: 6, Width: 160},
+                {Index: 7, Width: 170},
+                {Index: 8, Width: 180},
+                {Index: 9, Width: 190},
+                {Index: 10, Width: 100}
+            ]
+        }
+    HeaderXValues: |-
+        ={
+            HeaderX:[
+                {Index: 1, X: Header1.X},        
+                {Index: 2, X: Header2.X},
+                {Index: 3, X: Header3.X},
+                {Index: 4, X: Header4.X},
+                {Index: 5, X: Header5.X},
+                {Index: 6, X: Header6.X},
+                {Index: 7, X: Header7.X},
+                {Index: 8, X: Header8.X},
+                {Index: 9, X: Header9.X},
+                {Index: 10, X: Header10.X}
+            ]
+        }
+    Height: =640
+    Width: =1300
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    HTMLListBox As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width:" 
+            & Max(800, Parent.Width-25) & "px; height:" 
+            & Max(600, Parent.Height-24) & "px; "
+            & "background: #ffffff;"
+            & "margin-bottom: 8px;"
+            & "margin-left: 2px;"
+            & "margin-top: 2px;"
+            & "border-radius: 4px;"
+            & "background-clip: padding-box;"
+            & "box-shadow: 0 0 3px 1px #d4d3d2;"
+            &"'></div>"
+        OnSelect: =
+        PaddingLeft: =15
+        Width: =Parent.Width
+        X: =5
+        ZIndex: =1
+
+    ContentSeparator As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: |-
+            =ColorValue("#edebe9")
+        Height: =1
+        OnSelect: =
+        Width: =HTMLListBox.Width-HTMLListBox.PaddingLeft-HTMLListBox.PaddingRight
+        X: =15
+        Y: =Header1.Y+ Header1.Height+10
+        ZIndex: =2
+
+    Header1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 1)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 1)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 1)).Value.Width
+        X: =35
+        Y: =18
+        ZIndex: =3
+
+    Header2 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 2)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 2)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 2)).Value.Width
+        X: =Header1.X+Header1.Width
+        Y: =18
+        ZIndex: =4
+
+    Header3 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 3)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 3)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 3)).Value.Width
+        X: =Header2.X+Header2.Width
+        Y: =18
+        ZIndex: =5
+
+    Header4 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        OnSelect: =
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 4)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 4)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 4)).Value.Width
+        X: =Header3.X+Header3.Width
+        Y: =18
+        ZIndex: =6
+
+    Header5 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 5)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 5)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 5)).Value.Width
+        X: =Header4.X+Header4.Width
+        Y: =18
+        ZIndex: =7
+
+    Header6 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 6)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 6)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 6)).Value.Width
+        X: =Header5.X+Header5.Width
+        Y: =18
+        ZIndex: =8
+
+    Header7 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 7)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 7)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 7)).Value.Width
+        X: =Header6.X+Header6.Width
+        Y: =18
+        ZIndex: =9
+
+    Header8 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 8)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 8)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 8)).Value.Width
+        X: =Header7.X+Header7.Width
+        Y: =18
+        ZIndex: =10
+
+    Header9 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 9)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 9)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 9)).Value.Width
+        X: =Header8.X+Header8.Width
+        Y: =18
+        ZIndex: =11
+
+    Header10 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =11
+        Text: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 10)).Value.Name
+        Visible: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 10)).Value.Visible
+        Width: =Last(FirstN(GridContainerControl.HeaderFields.Headers, 10)).Value.Width
+        X: =Header9.X+Header9.Width
+        Y: =18
+        ZIndex: =12
+

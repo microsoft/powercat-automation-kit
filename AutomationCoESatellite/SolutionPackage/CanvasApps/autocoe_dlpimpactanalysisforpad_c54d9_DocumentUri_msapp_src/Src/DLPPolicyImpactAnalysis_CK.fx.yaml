@@ -1,0 +1,979 @@
+DLPPolicyImpactAnalysis_CK As screen:
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =UpdateContext({_moduleSource: "All", ctxSortCol: "autocoe_occurrencecount"});
+        Concurrent(
+            Reset(ModuleBox_2),
+            Reset(ActionList_2),
+            Reset(CheckBoxSelectAll_2),
+            Clear(colAllActions),
+            Reset(ModuleSourceRadio_2),
+            Reset(togOnlyDLP_2)
+        );
+        Select(icClearFilter_2);
+        ClearCollect(
+            PADModules,
+            'Desktop Flow Actions'
+        );
+        /*ClearCollect(
+            tempCollection,
+            'Desktop Flow DLP Impact Profiles'
+        );
+        ClearCollect(
+            RPADLPImpactProfiles,
+            AddColumns(
+                tempCollection,
+                "Action",
+                LookUp(
+                    'Desktop Flow Actions',
+                    'Desktop Flow Action' = GUID('Action Record Id')
+                ).'Selector Id',
+                "ProfileOwner",
+                'Desktop Flow Definition'.'Owner Name',
+                "RecordKey",
+                'Desktop Flow Id'
+            )
+        );
+        */
+    Width: =App.Width
+
+    PowerCATHeader_3 As Header:
+        Height: =70
+        RightButtonVisible: =false
+        Styles: |-
+            =Table({Name: "PrimaryColor1Value", Value: "#ffffff"},
+            {Name: "PrimaryColor1TextValue", Value: "#ffffff"},
+            {Name: "PrimaryColor2Value", Value: "#0078d4"},
+            {Name: "PrimaryColor2TextValue", Value: "#ffffff"},
+            {Name: "PrimaryColor3Value", Value: "#303030"},
+            {Name: "PrimaryColor3TextValue", Value: "#080808"},
+            {Name: "PrimaryColor4Value", Value: "#006e7d"},
+            {Name: "defaultLabelColorValue", Value: "#ffffff"},
+            {Name: "RadiusValue", Value: "0"},
+            {Name: "TextBodyFontFaceValue", Value: "Segoe UI" },
+            {Name: "PaddingValue", Value: "20"},
+            {Name: "TextEmphasisFontSizeValue", Value: "16"},
+            {Name: "TextEmphasisFontSizePhoneValue", Value: "24"},
+            {Name: "TextBodyFontSizeValue", Value: "14"},
+            {Name: "TextBodyFontSizePhoneValue", Value: "21"},
+            {Name: "BackgroundColorValue", Value: "#0078d4"},
+            {Name: "BorderThicknessValue", Value: "0"},
+            {Name: "BorderColorValue", Value: "#FFFFFF"},
+            {Name: "FocusedBorderThicknessValue", Value: "0"},
+            {Name: "BackgroundColorValue", Value :"#FFFFFF"},
+            {Name: "FontWeightValue", Value: "600"}
+            )
+        Text: ="PAD DLP IMPACT ANALYSIS"
+        Visible: =true
+
+    RootLayoutContainer_3 As groupContainer.verticalAutoLayoutContainer:
+        Fill: =RGBA(250, 250, 250, 1)
+        Height: =App.Height - PowerCATHeader_3.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        LayoutWrap: =true
+        Width: =DesiredMaxWidth
+        Y: =PowerCATHeader_3.Y + PowerCATHeader_3.Height - 15
+        ZIndex: =1
+
+        HorizontalLayoutContainer_3 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutMinHeight: =0
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowY: =LayoutOverflow.Scroll
+            Width: =Parent.Width
+            ZIndex: =3
+
+            PADModuleTreeContainer_2 As groupContainer.manualLayoutContainer:
+                FillPortions: =0.172
+                LayoutMinHeight: =100
+                LayoutMinWidth: =280
+                Width: =0
+                ZIndex: =1
+
+                ModuleBox_2 As combobox:
+                    BorderColor: =RGBA(242, 242, 242, 1)
+                    BorderThickness: =1
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                    ChevronDisabledFill: =RGBA(242, 242, 242, 1)
+                    ChevronFill: =RGBA(33, 33, 33, 1)
+                    ChevronHoverBackground: =RGBA(242, 242, 242, 1)
+                    ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["Result"]
+                    Font: =Font.'Segoe UI'
+                    Height: =30
+                    HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    HoverColor: =RGBA(51, 51, 51, 1)
+                    HoverFill: =RGBA(212, 212, 212, 1)
+                    Items: |-
+                        =If(_moduleSource = "All",
+                        Distinct(SortByColumns(PADModules,"autocoe_moduledisplayname"), 'Module Display Name'),
+                        Distinct(SortByColumns(Filter(PADModules,'Module Source' = _moduleSource ),"autocoe_moduledisplayname"),  'Module Display Name')
+                        )
+                        /*
+                        
+                        Distinct(SortByColumns(PADModules,"autocoe_moduledisplayname"), Substitute('Module Display Name'," ","")),
+                        Distinct(SortByColumns(Filter(PADModules,'Module Source' = _moduleSource ),"autocoe_moduledisplayname"),  Substitute('Module Display Name'," ","")))
+                        
+                        */
+                    OnChange: =ClearCollect(ActionListSource,SortByColumns(Filter('Desktop Flow Actions','Module Display Name' in ModuleBox_2.SelectedItems.Result),"autocoe_actionname"));Concurrent(Reset(CheckBoxSelectAll_2),Clear(colAllActions))
+                    PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 120, 212, 1)
+                    SearchFields: =["Result"]
+                    SearchItems: |-
+                        =Search(If(_moduleSource = "All",
+                        Distinct(SortByColumns(PADModules,"autocoe_moduledisplayname"), 'Module Display Name'),
+                        Distinct(SortByColumns(Filter(PADModules,'Module Source' = _moduleSource ),"autocoe_moduledisplayname"),  'Module Display Name')
+                        )
+                        /*
+                        
+                        Distinct(SortByColumns(PADModules,"autocoe_moduledisplayname"), Substitute('Module Display Name'," ","")),
+                        Distinct(SortByColumns(Filter(PADModules,'Module Source' = _moduleSource ),"autocoe_moduledisplayname"),  Substitute('Module Display Name'," ","")))
+                        
+                        */,ModuleBox_2.SearchText,"Result")
+                    SelectionColor: =RGBA(0, 0, 0, 1)
+                    SelectionFill: =RGBA(230, 230, 230, 1)
+                    Size: =9
+                    Width: =207
+                    X: =40
+                    Y: =300
+                    ZIndex: =1
+
+                Label2_16 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =55
+                    PaddingTop: =20
+                    Size: =10
+                    Text: ="Only DLP restrictable actions"
+                    Width: =207
+                    X: =40
+                    Y: =40
+                    ZIndex: =2
+
+                togOnlyDLP_2 As toggleSwitch:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    FalseFill: =RGBA(102, 102, 102, 1)
+                    FalseHoverFill: =RGBA(33, 33, 33, 1)
+                    FalseText: ="No"
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Height: =15
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    OnChange: =ClearCollect(PADModules,If(togOnlyDLP_2.Value= true ,Filter('Desktop Flow Actions','DLP Support'='DLP Support (Desktop Flow Actions)'.Yes),'Desktop Flow Actions'));Concurrent(Reset(ModuleBox_2),Reset(ModuleSourceRadio_2),Reset(ActionList_2))
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    Size: =9
+                    TrueFill: =RGBA(0, 120, 212, 1)
+                    TrueHoverFill: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    TrueText: ="Yes"
+                    Width: =72
+                    X: =47
+                    Y: =99
+                    ZIndex: =3
+
+                Label2_18 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =55
+                    PaddingTop: =20
+                    Size: =10
+                    Text: ="Module name"
+                    Width: =183
+                    X: =40
+                    Y: =247
+                    ZIndex: =4
+
+                Label2_19 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =55
+                    PaddingTop: =20
+                    Size: =10
+                    Text: ="Action name"
+                    Width: =183
+                    X: =40
+                    Y: =326
+                    ZIndex: =5
+
+                Label2_17 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    FontWeight: =FontWeight.Bold
+                    Height: =55
+                    PaddingTop: =20
+                    Size: =10
+                    Text: ="Module source"
+                    Width: =183
+                    X: =40
+                    Y: =114
+                    ZIndex: =6
+
+                ModuleSourceRadio_2 As radio:
+                    BorderColor: =RGBA(51, 51, 51, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =RGBA(51, 51, 51, 1)
+                    Default: ="All"
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =109
+                    HoverColor: =RGBA(51, 51, 51, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Items: =["All","Microsoft","3rd Party"]
+                    Layout: =Layout.Horizontal
+                    OnChange: |-
+                        =UpdateContext({_moduleSource: ModuleSourceRadio_2.SelectedText.Value}); Concurrent(Reset(ModuleBox_2), Reset(ActionList_2), Reset(CheckBoxSelectAll_2), Clear(colAllActions))
+                    PaddingBottom: =5
+                    PaddingTop: =5
+                    PressedColor: =RGBA(51, 51, 51, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    RadioBorderColor: =RGBA(51, 51, 51, 1)
+                    RadioSelectionFill: =RGBA(0, 120, 212, 1)
+                    RadioSize: =20
+                    Size: =9
+                    Width: =100
+                    X: =40
+                    Y: =169
+                    ZIndex: =7
+
+                ActionList_2 As listbox:
+                    BorderColor: =RGBA(242, 242, 242, 1)
+                    BorderThickness: =1
+                    Color: =RGBA(51, 51, 51, 1)
+                    Default: =
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =Self.SelectionFill
+                    DisabledSelectionColor: =RGBA(166, 166, 166, 1)
+                    DisabledSelectionFill: =RGBA(220, 220, 220, 1)
+                    DisplayMode: |-
+                        =If(
+                            CheckBoxSelectAll_2.Value = true,
+                            DisplayMode.Disabled,
+                            DisplayMode.Edit
+                        )
+                    Font: =Font.'Segoe UI'
+                    Height: =Parent.Height * 0.2
+                    HoverBorderColor: =ModuleBox_2.BorderColor
+                    HoverColor: =RGBA(51, 51, 51, 1)
+                    HoverFill: =RGBA(212, 212, 212, 1)
+                    Items: =Distinct(ActionListSource,'Action Name')
+                    LineHeight: =0.75
+                    OnChange: =
+                    OnSelect: =
+                    PaddingBottom: =5
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    PaddingTop: =5
+                    PressedBorderColor: =
+                    PressedColor: =RGBA(51, 51, 51, 1)
+                    PressedFill: =RGBA(212, 212, 212, 1)
+                    SelectionColor: =RGBA(51, 51, 51, 1)
+                    SelectionFill: =RGBA(230, 230, 230, 1)
+                    Size: =9
+                    Width: =207
+                    X: =40
+                    Y: =381
+                    ZIndex: =8
+
+                DLPImpactLabel_2 As label:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Color: =If(DLPImpactProfileDetailsList_1.TotalRecords < 2000, RGBA(51, 51, 51, 1),Red)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Lato Black'
+                    Height: =38
+                    Size: =15
+                    Text: ="Action filter"
+                    Width: =240
+                    X: =40
+                    Y: =13
+                    ZIndex: =9
+
+                CheckBoxSelectAll_2 As checkbox:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    CheckboxBorderColor: =RGBA(102, 102, 102, 1)
+                    CheckboxSize: |
+                        =20
+                    CheckmarkFill: =RGBA(0, 120, 212, 1)
+                    Color: =RGBA(51, 51, 51, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    Height: =39
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(51, 51, 51, 1)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    OnCheck: =ForAll(ActionListSource, Collect(colAllActions, ThisRecord.'Action Name')); Reset(ActionList_2);
+                    OnUncheck: =Clear(colAllActions);
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =RGBA(51, 51, 51, 1)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Size: =9
+                    Text: |
+                        =If(
+                            Self.Value = true,
+                            "Remove all",
+                            "Select all"
+                        )
+                    Visible: =If(IsEmpty(ActionListSource), false, true)
+                    Width: =113
+                    X: =169
+                    Y: =340
+                    ZIndex: =10
+
+                FilterColAllActions_2 As combobox:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    ChevronBackground: =RGBA(255, 255, 255, 1)
+                    ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+                    ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+                    ChevronFill: =RGBA(33, 33, 33, 1)
+                    ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+                    ChevronHoverFill: =RGBA(33, 33, 33, 1)
+                    Color: =RGBA(51, 51, 51, 1)
+                    DefaultSelectedItems: =colAllActions.Value
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["Result"]
+                    Font: =Font.'Segoe UI'
+                    HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    HoverColor: =RGBA(51, 51, 51, 1)
+                    HoverFill: =RGBA(212, 212, 212, 1)
+                    IsSearchable: =false
+                    Items: =Distinct(ActionListSource, 'Action Name')
+                    PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =RGBA(0, 120, 212, 1)
+                    SearchFields: =["Result"]
+                    SearchItems: =[]
+                    SelectionFill: =RGBA(0, 120, 212, 1)
+                    Size: =13
+                    Visible: =false
+                    Width: =282
+                    Y: =826
+                    ZIndex: =11
+
+                icClearFilter_2 As icon.Reload:
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    Color: =RGBA(0, 120, 212, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    FocusedBorderThickness: =4
+                    Height: =40
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.Reload
+                    OnSelect: |-
+                        =Concurrent(Reset(ModuleBox_2), Reset(ActionList_2), Reset(CheckBoxSelectAll_2), Clear(colAllActions), Reset(ModuleSourceRadio_2),Reset(togOnlyDLP_2));
+                        ClearCollect(RPADLPImpactProfiles,Blank());
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Tooltip: ="Clear filters"
+                    Width: =40
+                    X: =223
+                    Y: =13
+                    ZIndex: =12
+
+                btnSearch As Button:
+                    ButtonType: ='''Microsoft.CoreControls.Button.ButtonType'''.Standard
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =ColorValue(AppTheme.palette.themePrimary)
+                    Height: =32
+                    HoverFillColor: =ColorValue(AppTheme.palette.themeDarker)
+                    HoverTextColor: =ColorValue(AppTheme.palette.white)
+                    OnSelect: |
+                        =ClearCollect(tempCollection, SortByColumns(
+                            Search(
+                                Filter(
+                                    'Desktop Flow DLP Impact Profiles',
+                                    'Selector Id' in gal_FilterPADActions_2.AllItems.'Selector Id'
+                                ),
+                                SearchBox_3.SearchText,
+                                "autocoe_actionname",
+                                "autocoe_modulename",
+                                "autocoe_desktopflowname"
+                            ),
+                            ctxSortCol,
+                            If(
+                                ctxSortAsc,
+                                SortOrder.Ascending,
+                                SortOrder.Descending
+                            )
+                        ));
+                        
+                        ClearCollect(
+                            RPADLPImpactProfiles,
+                            AddColumns(
+                                tempCollection,
+                                "Action",
+                                LookUp(
+                                    'Desktop Flow Actions',
+                                    'Desktop Flow Action' = GUID('Action Record Id')
+                                ).'Selector Id',
+                                "ProfileOwner",
+                                'Desktop Flow Definition'.'Owner Name',
+                                "RecordKey",
+                                'Desktop Flow Id'
+                            )
+                        );
+                    Text: ="Search"
+                    TextColor: =ColorValue(AppTheme.palette.white)
+                    Width: =129
+                    X: =44
+                    Y: =ActionList_2.Y + ActionList_2.Height + 20
+                    ZIndex: =14
+
+            CenterContainer_3 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                Fill: =White
+                Height: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =10
+                Width: =Parent.Width
+                ZIndex: =2
+
+                SubheaderContainer_3 As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Start
+                    FillPortions: =0
+                    Height: =55
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingRight: =20
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    SearchBox_3 As SearchBox_1:
+                        AlignInContainer: =AlignInContainer.Center
+                        LayoutMinHeight: =45
+                        Styles: |-
+                            =Table({Name: "PrimaryColor1Value", Value: "#ffffff"},
+                            {Name: "PrimaryColor1TextValue", Value: "#292929"},
+                            {Name: "PrimaryColor2Value", Value: "#0078d4"},
+                            {Name: "PrimaryColor2TextValue", Value: "#ffffff"},
+                            {Name: "PrimaryColor3Value", Value: "#303030"},
+                            {Name: "PrimaryColor3TextValue", Value: "#080808"},
+                            {Name: "PrimaryColor4Value", Value: "#006e7d"},
+                            {Name: "defaultLabelColorValue", Value: "#333333"},
+                            {Name: "RadiusValue", Value: "0"},
+                            {Name: "TextBodyFontFaceValue", Value: "Segoe UI" },
+                            {Name: "PaddingValue", Value: "8"},
+                            {Name: "TextEmphasisFontSizeValue", Value: "16"},
+                            {Name: "TextEmphasisFontSizePhoneValue", Value: "24"},
+                            {Name: "TextBodyFontSizeValue", Value: "12"},
+                            {Name: "TextBodyFontSizePhoneValue", Value: "21"},
+                            {Name: "BackgroundColorValue", Value: "#ffffff"},
+                            {Name: "BorderThicknessValue", Value: "0"},
+                            {Name: "BorderColorValue", Value: "#FFFFFF"},
+                            {Name: "FocusedBorderThicknessValue", Value: "0"},
+                            {Name: "BackgroundColorValue", Value :"#FFFFFF"}
+                            )
+
+                    FilterInfo_1 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =If(DLPImpactProfileDetailsList_1.TotalRecords < 2000, RGBA(51, 51, 51, 1),Red)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FillPortions: =1
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Lato Black'
+                        Height: =50
+                        LayoutMinWidth: =200
+                        PaddingLeft: =20
+                        Size: =15
+                        Text: |-
+                            =//Text(DLPImpactProfileDetailsList.TotalRecords)
+                            "Desktop flows that match action filter" & " ("& Text(If(DLPImpactProfileDetailsList_1.TotalRecords = -1, 0,DLPImpactProfileDetailsList_1.TotalRecords )) &")"
+                        ZIndex: =1
+
+                Container1_4 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    Width: =Parent.Width
+                    ZIndex: =3
+
+                    "DLPImpactProfileDetailsList_1 As 'Fluent Details List (0.0.20)'.pcfdataset":
+                        columns_Items: |-
+                            =Table(
+                                {
+                                    ColName: "ProfileOwner",
+                                    ColDisplayName: "Owner",
+                                    ColWidth: Parent.Width * 0.15,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "autocoe_desktopflowname",
+                                    ColDisplayName: "Desktop Flow",
+                                    ColWidth: Parent.Width * 0.15,
+                                    ColCellType: "link",
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "autocoe_modulesource",
+                                    ColDisplayName: "Source",
+                                    ColWidth: Parent.Width * 0.15,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "autocoe_modulename",
+                                    ColDisplayName: "Module",
+                                    ColWidth: Parent.Width * 0.15,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "Action",
+                                    ColDisplayName: "Action",
+                                    ColWidth: Parent.Width * 0.25,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "autocoe_occurrencecount",
+                                    ColDisplayName: "Occurances",
+                                    ColWidth: Parent.Width * 0.15,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                }
+                            )
+                        CurrentSortColumn: =ctxSortCol
+                        CurrentSortDirection: |-
+                            =If(ctxSortAsc,
+                                '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Ascending,
+                                '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Descending) 
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =Parent.Height
+                        Items: |-
+                            =Search(
+                                RPADLPImpactProfiles,
+                                SearchBox_3.SearchText,
+                                "autocoe_actionname",
+                                "autocoe_modulename",
+                                "autocoe_desktopflowname"
+                            )
+                            /*
+                            //Code in use
+                            Search(
+                                    SortByColumns(
+                                        Filter(
+                                            'Desktop Flow DLP Impact Profiles',
+                                            'Selector Id' in colSelectorIdFilter.'Selector Id'
+                                        ),
+                                        "autocoe_occurrencecount",
+                                        Descending
+                                    ),
+                                SearchBox.SearchText,
+                                "autocoe_actionname",
+                                "autocoe_modulename",
+                                "autocoe_desktopflowname"
+                            )
+                            */
+                            /*
+                            If(
+                                CheckBoxSelectAll.Value = true,
+                            //Filter for all actions
+                                Filter(
+                                    'Desktop Flow Actions',
+                                    'Module Display Name' in ModuleBox.SelectedItems,
+                                    'Action Name' in FilterColAllActions.SelectedItems
+                                )
+                                ,
+                            //Filter for only selected actions
+                                Filter(
+                                'Desktop Flow Actions',
+                                'Action Name' in ActionList.SelectedItems,
+                                'Module Display Name' in ModuleBox.SelectedItems
+                                )
+                            )
+                            */
+                            /*
+                            OLD Code
+                            Search(
+                                If(
+                                    CountRows(ActionListSource) > 0,
+                                    SortByColumns(
+                                        Filter(
+                                            'Desktop Flow DLP Impact Profiles',
+                                            'Selector Id' in colSelectorIdFilter.'Selector Id'
+                                        ),
+                                        "autocoe_occurrencecount",
+                                        Descending
+                                    ),
+                                    SortByColumns(
+                                        If(
+                                            _moduleSource = "All",
+                                            Filter(
+                                                'Desktop Flow DLP Impact Profiles',
+                                                'Selector Id' in colSelectorIdFilter.'Selector Id'
+                                            ),
+                                            Filter(
+                                                'Desktop Flow DLP Impact Profiles',
+                                                'Module Source' = _moduleSource && 'Selector Id' in colSelectorIdFilter.'Selector Id'
+                                            )
+                                        ),
+                                        "autocoe_occurrencecount",
+                                        Descending
+                                    )
+                                ),
+                                SearchBox.SearchText,
+                                "autocoe_actionname",
+                                "autocoe_modulename",
+                                "autocoe_desktopflowname"
+                            )
+                            */
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: |
+                            =If(
+                                Self.EventName = "CellAction",
+                                Switch(
+                                    Self.EventColumn,
+                                    "autocoe_desktopflowname",
+                                    Launch(
+                                        Concatenate(
+                                            DesktopFlowBaseURL_Value,
+                                            EnvironmentID,
+                                            "/uiflows/",
+                                            Self.EventRowKey,
+                                            "/details"
+                                        );
+                                    )
+                                )
+                            );
+                            
+                            If(
+                                Self.EventName = "Sort",
+                                UpdateContext(
+                                    {
+                                        ctxSortCol: Self.SortEventColumn,
+                                        ctxSortAsc: If(
+                                            Self.SortEventDirection = '''PowerCAT.FluentDetailsList.SortEventDirection'''.Ascending,
+                                            true,
+                                            false
+                                        )
+                                    }
+                                )
+                            );
+                        PageSize: =150
+                        SelectionType: ='''PowerCAT.FluentDetailsList.SelectionType'''.None
+                        Theme: =AppThemeJson
+                        Width: =Parent.Width
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                        autocoe_desktopflowname1_1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="autocoe_desktopflowname"
+                            FieldName: ="autocoe_desktopflowname"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =3
+                            ZIndex: =13
+
+                        autocoe_modulesource1_1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="autocoe_modulesource"
+                            FieldName: ="autocoe_modulesource"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =5
+                            ZIndex: =14
+
+                        autocoe_occurrencecount1_1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="autocoe_occurrencecount"
+                            FieldName: ="autocoe_occurrencecount"
+                            FieldType: ="n"
+                            FieldVariantName: ="textualColumn"
+                            Order: =7
+                            ZIndex: =17
+
+                        ProfileOwner1_1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="ProfileOwner"
+                            FieldName: ="ProfileOwner"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =2
+                            ZIndex: =18
+
+                        Action1_1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="Action"
+                            FieldName: ="Action"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =6
+                            ZIndex: =19
+
+                        autocoe_modulename1_1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="autocoe_modulename"
+                            FieldName: ="autocoe_modulename"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =6
+                            ZIndex: =20
+
+    gal_FilterPADActions_2 As gallery.galleryVertical:
+        BorderThickness: =5
+        Fill: =RGBA(230, 230, 230, 1)
+        Items: |-
+            =If(
+                CheckBoxSelectAll_2.Value = true,
+            //Filter for all actions
+                Filter(
+                    PADModules,
+                    'Module Display Name' in ModuleBox_2.SelectedItems,
+                    'Action Name' in FilterColAllActions_2.SelectedItems
+                ),
+            //Filter for only selected actions
+                Filter(
+                    PADModules,
+                    'Action Name' in ActionList_2.SelectedItems,
+                    'Module Display Name' in ModuleBox_2.SelectedItems
+                )
+            )
+        Layout: =Layout.Vertical
+        TemplatePadding: =10
+        TemplateSize: =206
+        Visible: =false
+        Width: =1063
+        X: =486
+        Y: =505
+        ZIndex: =4
+
+        Label5_29 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =58
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: =ThisItem.'Action Name'
+            Width: =336
+            X: =489
+            Y: =42
+            ZIndex: =1
+
+        Label5_27 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =58
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: =ThisItem.'Module Name'
+            Width: =336
+            Y: =42
+            ZIndex: =2
+
+        Label5_28 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =58
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: =ThisItem.'Module Display Name'
+            Width: =336
+            X: =205
+            Y: =42
+            ZIndex: =3
+
+        Label5_31 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =49
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: =ThisItem.'Selector Id'
+            Width: =1043
+            Y: =130
+            ZIndex: =4
+
+        Label5_24 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =58
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: ="Module Name"
+            Width: =192
+            ZIndex: =5
+
+        Label5_25 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =58
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: ="Module DisplayName"
+            Width: =232
+            X: =192
+            ZIndex: =6
+
+        Label5_26 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =58
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: ="Action name"
+            Width: =232
+            X: =505
+            ZIndex: =7
+
+        Label5_30 As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            FontWeight: =FontWeight.Semibold
+            Height: =58
+            OnSelect: =Select(Parent)
+            Size: =17
+            Text: ="Selector Id"
+            Width: =192
+            Y: =87
+            ZIndex: =8
+
+    Count_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Size: =13
+        Text: |-
+            ="Count of gallery::  " &  Text(DLPImpactProfileDetailsList_1.TotalRecords) 
+        Visible: =false
+        X: =1254
+        Y: =70
+        ZIndex: =5
+
