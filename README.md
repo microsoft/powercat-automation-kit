@@ -13,7 +13,7 @@ The Automation Kit is an open-source project made available via GitHub, built on
 
 ## Automation Kit Context
 
-
+You can read the [Context](./context.md) page to understand more context on how the kit relates to Automation Center of Excellence and the Automation Maturity Model.
 
 ## About this GitHub repo
 
