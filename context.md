@@ -54,4 +54,6 @@ Use the ALM Accelerator to automate the deployment of RPA solutions so that the 
 
 ## Related Projects
 
-Michal Rok has published a separate open source [EPA Enterprise Toolkit](https://github.com/michalrok/Power-Automate-RPA-Enterprise-Toolkit) on GitHub that currently focuses on testing, queueing and modularity.
+- ALM Accelerator for Power Platform - The ALM Accelerator is released as part of the [CoE Kit](http://www.github.com/microsoft/coe-starter-kit) and provides tools and templates to provide Enterprise scale end to end Application Lifecycle management.
+
+- [RPA Enterprise Toolkit] - Michal Rok has published a separate open source [RPA Enterprise Toolkit](https://github.com/michalrok/Power-Automate-RPA-Enterprise-Toolkit) on GitHub that currently focuses on testing, queueing and modularity.
