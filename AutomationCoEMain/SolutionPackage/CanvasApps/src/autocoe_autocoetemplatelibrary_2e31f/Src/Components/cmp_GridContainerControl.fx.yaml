@@ -1,0 +1,288 @@
+cmp_GridContainerControl As CanvasComponent:
+    Fill: =RGBA(0, 0, 0, 0)
+    GridItems: |-
+        =Table({
+            State: "Active",
+            Online: false,
+            Name: "Process8",
+            StartedOn: "10/10/2021",
+            Duration: 42
+        },
+        {
+            State: "Active",
+            Online: true,
+            Name: "Process1",
+            StartedOn: "10/10/2021",
+            Duration: 78
+        },
+        {
+            State: "Pending",
+            Online: true,
+            Name: "Process4",
+            StartedOn: "10/10/2021",
+            Duration: 04
+        },
+        {
+            State: "Complete",
+            Online: true,
+            Name: "Process2",
+            StartedOn: "10/10/2021",
+            Duration: 16
+        })
+    HeaderFields: |-
+        ={
+            Headers: [
+                {Index: 1, Name: "Header 1", Width: 100, Visible: true},
+                {Index: 2, Name: "Header 2", Width: 100, Visible: true},
+                {Index: 3, Name: "Header 3", Width: 300, Visible: true},
+                {Index: 4, Name: "Header 4", Width: 100, Visible: true},
+                {Index: 5, Name: "Header 5", Width: 100, Visible: true},
+                {Index: 6, Name: "Header 6", Width: 100, Visible: true},
+                {Index: 7, Name: "Header 7", Width: 100, Visible: true},
+                {Index: 8, Name: "Header 8", Width: 100, Visible: true},
+                {Index: 9, Name: "Header 9", Width: 100, Visible: true},
+                {Index: 10, Name: "Header 10", Width: 100, Visible: true}
+            ]
+        }
+    HeaderXValues: |-
+        ={
+            HeaderX:[
+                {Index: 1, X: Header1_1.X},        
+                {Index: 2, X: Header2_1.X},
+                {Index: 3, X: Header3_1.X},
+                {Index: 4, X: Header4_1.X},
+                {Index: 5, X: Header5_1.X},
+                {Index: 6, X: Header6_1.X},
+                {Index: 7, X: Header7_1.X},
+                {Index: 8, X: Header8_1.X},
+                {Index: 9, X: Header9_1.X},
+                {Index: 10, X: Header10_1.X}
+            ]
+        }
+    Height: =640
+    Width: =1300
+    X: =0
+    Y: =0
+    ZIndex: =6
+
+    HTMLListBox_1 As htmlViewer:
+        Height: =Parent.Height
+        HtmlText: |-
+            ="<div style='width:" 
+            & Max(800, Parent.Width-25) & "px; height:" 
+            & Max(600, Parent.Height-24) & "px; "
+            & "background: #ffffff;"
+            & "margin-bottom: 8px;"
+            & "margin-left: 2px;"
+            & "margin-top: 2px;"
+            & "border-radius: 4px;"
+            & "background-clip: padding-box;"
+            & "box-shadow: 0 0 3px 1px #d4d3d2;"
+            &"'></div>"
+        OnSelect: =
+        PaddingLeft: =15
+        Width: =Parent.Width
+        ZIndex: =1
+
+    ContentSeparator_1 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        Fill: |-
+            =ColorValue("#edebe9")
+        Height: =1
+        OnSelect: =
+        Width: =HTMLListBox_1.Width-HTMLListBox_1.PaddingLeft-HTMLListBox_1.PaddingRight
+        X: =15
+        Y: =Header1_1.Y+ Header1_1.Height+10
+        ZIndex: =2
+
+    Header1_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 1)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 1)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 1)).Value.Width
+        X: =35
+        Y: =18
+        ZIndex: =3
+
+    Header2_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 2)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 2)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 2)).Value.Width
+        X: =Header1_1.X+Header1_1.Width
+        Y: =18
+        ZIndex: =4
+
+    Header3_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 3)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 3)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 3)).Value.Width
+        X: =Header2_1.X+Header2_1.Width
+        Y: =18
+        ZIndex: =5
+
+    Header4_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        OnSelect: =
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 4)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 4)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 4)).Value.Width
+        X: =Header3_1.X+Header3_1.Width
+        Y: =18
+        ZIndex: =6
+
+    Header5_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 5)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 5)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 5)).Value.Width
+        X: =Header4_1.X+Header4_1.Width
+        Y: =18
+        ZIndex: =7
+
+    Header6_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 6)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 6)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 6)).Value.Width
+        X: =Header5_1.X+Header5_1.Width
+        Y: =18
+        ZIndex: =8
+
+    Header7_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 7)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 7)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 7)).Value.Width
+        X: =Header6_1.X+Header6_1.Width
+        Y: =18
+        ZIndex: =9
+
+    Header8_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 8)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 8)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 8)).Value.Width
+        X: =Header7_1.X+Header7_1.Width
+        Y: =18
+        ZIndex: =10
+
+    Header9_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 9)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 9)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 9)).Value.Width
+        X: =Header8_1.X+Header8_1.Width
+        Y: =18
+        ZIndex: =11
+
+    Header10_1 As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(50, 49, 48, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =30
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Size: =12
+        Text: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 10)).Value.Name
+        Visible: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 10)).Value.Visible
+        Width: =Last(FirstN(cmp_GridContainerControl.HeaderFields.Headers, 10)).Value.Width
+        X: =Header9_1.X+Header9_1.Width
+        Y: =18
+        ZIndex: =12
+

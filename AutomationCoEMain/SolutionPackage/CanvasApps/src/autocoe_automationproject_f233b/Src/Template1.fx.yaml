@@ -1,0 +1,87 @@
+Template1 As screen:
+    BackgroundImage: =Paw_Light
+
+    c_Root As groupContainer.verticalAutoLayoutContainer:
+        Height: =768
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =1366
+        ZIndex: =1
+
+        c_Header As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =1
+
+        c_Main As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            cmp_NavigationControl_1 As cmp_NavigationControl:
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Width: =If(cmp_NavigationControl_1.IsExpanded, 200, 60)
+
+            c_MainBody As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =2
+
+                "'c_Fly-inContainer' As groupContainer.horizontalAutoLayoutContainer":
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Visible: =false
+                    ZIndex: =1
+
+                c_CommandBar As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    c_CommandBarContent As groupContainer.horizontalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutGap: =15
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =500
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =1
+
+                c_MainBodyContent As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+            c_SideBar As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =180
+                ZIndex: =3
+
+                c_SideBarContent As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =1
+

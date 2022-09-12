@@ -1,0 +1,401 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |+
+        =// Security Check (Role Based)
+        Concurrent(
+            If(
+                LookUp(
+                    [@'Security Roles'],
+                    Name = "Automation Project Admin",
+                    Role
+                ) in Concat(
+                    LookUp(
+                        [@Users],
+                        'Primary Email' = User().Email
+                    ).'Security Roles (systemuserroles_association)',
+                    Role & ";"
+                ),
+                Set(
+                    isProjectAdmin,
+                    true
+                ),
+                Set(
+                    isProjectAdmin,
+                    false
+                )
+            ),
+            If(
+                LookUp(
+                    [@'Security Roles'],
+                    Name = "Automation Project Contributor",
+                    Role
+                ) in Concat(
+                    LookUp(
+                        [@Users],
+                        'Primary Email' = User().Email
+                    ).'Security Roles (systemuserroles_association)',
+                    Role & ";"
+                ),
+                Set(
+                    isProjectContributor,
+                    true
+                ),
+                Set(
+                    isProjectContributor,
+                    false
+                )
+            ),
+            If(
+                LookUp(
+                    [@'Security Roles'],
+                    Name = "Automation Project Viewer",
+                    Role
+                ) in Concat(
+                    LookUp(
+                        [@Users],
+                        'Primary Email' = User().Email
+                    ).'Security Roles (systemuserroles_association)',
+                    Role & ";"
+                ),
+                Set(
+                    isProjectViewer,
+                    true
+                ),
+                Set(
+                    isProjectViewer,
+                    false
+                )        
+            ),
+            Set(
+                PrimaryColor1Value,
+                White
+            ),
+            Set(
+                PrimaryColor1TextValue,
+                RGBA(
+                    51,
+                    51,
+                    51,
+                    1
+                )
+            ),
+            Set(
+                PrimaryColor2Value,
+                ColorValue("#0078d4")
+            ),
+            Set(
+                PrimaryColor2TextValue,
+                White
+            ),
+            Set(
+                PrimaryColor3Value,
+                Black
+            ),
+            Set(
+                PrimaryColor3TextValue,
+                White
+            ),
+            Set(
+                defaultLabelColorValue,
+                Black
+            ),
+            Set(
+                RadiusValue,
+                2
+            ),
+            Set(
+                TextBodyFontFaceValue,
+                'Segoe UI'
+            ),
+            Set(
+                PaddingValue,
+                5
+            ),
+            Set(
+                TextEmphasisFontSizeValue,
+                13
+            ),
+            Set(
+                TextEmphasisFontSizePhoneValue,
+                20
+            ),
+            Set(
+                TextBodyFontSizeValue,
+                11
+            ),
+            Set(
+                TextBodyFontSizePhoneValue,
+                15
+            ),
+            Set(
+                BackgroundColorValue,
+                ColorValue("#FAF9F8")
+            ),
+            Set(
+                BorderThicknessValue,
+                1
+            ),
+            Set(
+                BorderColorValue,
+                RGBA(
+                    230,
+                    230,
+                    230,
+                    1
+                )
+            ),
+            Set(
+                FocusedBorderThicknessValue,
+                4
+            ),
+        //Custom
+            Set(
+                PrimaryFillValue,
+                White
+            ),
+            Set(
+                SelectedColorValue,
+                RGBA(
+                    255,
+                    255,
+                    255,
+                    1
+                )
+            ),
+            Set(
+                SelectionFillValue,
+                RGBA(
+                    105,
+                    121,
+                    126,
+                    1
+                )
+            ),
+            Set(
+                CardSeperatorColorValue,
+                RGBA(
+                    0,
+                    0,
+                    0,
+                    .5
+                )
+            ),
+            Set(
+                HoverFillValue,
+                RGBA(
+                    212,
+                    212,
+                    212,
+                    1
+                )
+            ),
+            Set(
+                PressedFillValue,
+                RGBA(
+                    105,
+                    121,
+                    126,
+                    1
+                )
+            ),
+            Set(
+                PressedColorValue,
+                RGBA(
+                    255,
+                    255,
+                    255,
+                    1
+                )
+            ),
+            Set(
+                PressedBorderColorValue,
+                ColorFade(
+                    RGBA(
+                        105,
+                        121,
+                        126,
+                        1
+                    ),
+                    -30%
+                )
+            ),
+            Set(
+                HoverColorValue,
+                RGBA(
+                    51,
+                    51,
+                    51,
+                    1
+                )
+            ),
+            Set(
+                HoverBorderColorValue,
+                ColorFade(
+                    RGBA(
+                        105,
+                        121,
+                        126,
+                        1
+                    ),
+                    -30%
+                )
+            ),
+        //FluentUI Styles
+            Set(
+                UIColor,
+                RGBA(
+                    51,
+                    51,
+                    51,
+                    1
+                )
+            ),
+            Set(
+                UIAccentColor,
+                ColorValue("#0078d4")
+            ),
+            Set(
+                BTNStandard_Fill,
+                White
+            ),
+            Set(
+                BTNStandard_Color,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNStandard_ColorPressed,
+                ColorValue("#201f1e")
+            ),
+            Set(
+                BTNStandard_Border,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNStandard_Text,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNStandard_Pressed,
+                ColorValue("#edebe9")
+            ),
+            Set(
+                BTNStandard_PressedBorder,
+                ColorValue("#edebe9")
+            ),
+            Set(
+                BTNStandard_HoverFill,
+                ColorValue("#f3f2f1")
+            ),
+            Set(
+                BTNStandard_HoverBorder,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNAccent_Fill,
+                ColorValue("#0078D4")
+            ),
+            Set(
+                BTNAccent_Border,
+                ColorValue("#106EBE")
+            ),
+            Set(
+                BTNAccent_Text,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNAccent_Pressed,
+                ColorValue("#005a9e")
+            ),
+            Set(
+                BTNAccent_PressedBorder,
+                ColorValue("#005a9e")
+            ),
+            Set(
+                BTNAccent_HoverFill,
+                ColorValue("#106ebe")
+            ),
+            Set(
+                BTNAccent_HoverBorder,
+                ColorValue("#106ebe")
+            ),
+            Set(
+                BTNEnabledBtnFill,
+                ColorValue("#c2c2c2")
+            ),
+            Set(
+                appTitle,
+                "AUTOMATION PROJECT"
+            ),
+            Set(
+                AppTheme,
+                {
+                    palette: {
+                        themePrimary: "#0078d4",
+                        themeLighterAlt: "#eff6fc",
+                        themeLighter: "#deecf9",
+                        themeLight: "#c7e0f4",
+                        themeTertiary: "#71afe5",
+                        themeSecondary: "#2b88d8",
+                        themeDarkAlt: "#106ebe",
+                        themeDark: "#005a9e",
+                        themeDarker: "#004578",
+                        neutralLighterAlt: "#faf9f8",
+                        neutralLighter: "#f3f2f1",
+                        neutralLight: "#edebe9",
+                        neutralQuaternaryAlt: "#e1dfdd",
+                        neutralQuaternary: "#d0d0d0",
+                        neutralTertiaryAlt: "#c8c6c4",
+                        neutralTertiary: "#a19f9d",
+                        neutralSecondary: "#605e5c",
+                        neutralPrimaryAlt: "#3b3a39",
+                        neutralPrimary: "#323130",
+                        neutralDark: "#201f1e",
+                        black: "#000000",
+                        white: "#ffffff"
+                    }
+                }
+            )
+        );
+        Set(
+            AppThemeJson,
+            JSON(
+                AppTheme,
+                JSONFormat.IndentFour
+            )
+        );
+        //Navigation
+        ClearCollect(
+            col_MainNav,
+            {
+                Label: "Project Dashboard",
+                Icon: Icon.Tablet,
+                Screen: scr_IdeasDashboard,
+                Notifications: 0,
+                NotificationColor: Color.Red,
+                ChildScreens: [scr_IdeasDashboard]
+            },
+            {
+                Label: "New Project",
+                Icon: Icon.Journal,
+                Screen: scr_NewIdea,
+                Notifications: 0,
+                NotificationColor: Color.Red,
+                ChildScreens: [scr_NewIdea]
+            }
+        );
+        ClearCollect(
+            col_MainNavItems,
+            {
+                Label: "Project Dashboard",
+                Icon: "Tablet",
+                Screen: scr_IdeasDashboard_CK
+            }
+        );
+        // Custom Code
+        Set(
+            varDevMode,
+            false
+        );
+        
+    StartScreen: =
+
