@@ -1,0 +1,419 @@
+scr_SolutionRunLogs As screen:
+    LoadingSpinner: =LoadingSpinner.Controls
+    LoadingSpinnerColor: =UIAccentColor
+    OnVisible: |-
+        =If(CountRows(col_FlowSessionTraces)=0,
+            Select(icReload_5)
+        )
+
+    c_screen_11 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =App.Width
+        ZIndex: =1
+
+        HeaderContainer2_13 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(52, 60, 63, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            cmp_Header_4 As cmp_Header_1:
+                AppTitle: ="AUTOMATION SOLUTION MANAGER"
+                CompanyLogo: =Paw_Light
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                ZIndex: =1
+
+        MainSectionContainer2_13 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Navigation_14 As NavigationControl:
+                Items: =col_MainNav
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Width: =If(Navigation_14.IsExpanded, 200, 60)
+
+            Rectangle2_19 As rectangle:
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Fill: =RGBA(230, 230, 230, 1)
+                FocusedBorderThickness: =4
+                Height: =1
+                Width: =1
+                ZIndex: =2
+
+            c_mainContent_11 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =3
+
+                Container2_5 As groupContainer.horizontalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =UIBGColor
+                    FillPortions: =0
+                    Height: =65
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =10
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =25
+                    PaddingTop: =25
+                    ZIndex: =2
+
+                    Container10_4 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =15
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =500
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingBottom: =7
+                        PaddingLeft: =10
+                        PaddingTop: =2
+                        ZIndex: =1
+
+                        Label2_2 As label:
+                            AutoHeight: =true
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Bold
+                            Size: =13
+                            Text: =galSolutionArtifacts.Selected.'Display name'
+                            Width: =600
+                            X: =550
+                            Y: =72
+                            ZIndex: =1
+
+                        icReload_4 As icon.Reload:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Color: =UIAccentColor
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =40
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.ArrowLeft
+                            OnSelect: =Back(ScreenTransition.Fade)
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =47
+                            X: =981
+                            Y: =95
+                            ZIndex: =4
+
+                        icReload_5 As icon.Reload:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Color: =UIAccentColor
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =40
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.Reload
+                            OnSelect: |-
+                                =UpdateContext({_showArtifactShimmer:true});
+                                Refresh('Flow Session Traces');
+                                ClearCollect(col_FlowSessionTraces,Filter('Flow Session Traces', 'Solution Id' = Text(galSolutions.Selected.'Solution Identifier') && 'Flow Name' = galSolutionArtifacts.Selected.'Display name'));
+                                UpdateContext({_showArtifactShimmer:false});
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =47
+                            X: =981
+                            Y: =95
+                            ZIndex: =5
+
+                        FailedOnly As toggleSwitch:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            Color: =RGBA(51, 51, 51, 1)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            FalseFill: =RGBA(36, 42, 44, 1)
+                            FalseHoverFill: =RGBA(33, 33, 33, 1)
+                            FalseText: ="Show all runs"
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            HandleFill: =RGBA(255, 255, 255, 1)
+                            Height: =25
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            Size: =12
+                            TrueFill: =UIAccentColor
+                            TrueHoverFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            TrueText: ="Failed runs only"
+                            Width: =175
+                            ZIndex: =6
+
+                Container23_7 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =UIBGColor
+                    Height: =20
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutGap: =2
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =20
+                    PaddingLeft: =20
+                    PaddingRight: =20
+                    PaddingTop: =10
+                    ZIndex: =3
+
+                    Container2_7 As groupContainer.manualLayoutContainer:
+                        ContentLanguage: =
+                        Height: =Parent.Height-130
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        Width: =Parent.Width-400
+                        X: =384
+                        Y: =129
+                        ZIndex: =1
+
+                        GridContainerControl_3 As GridContainerControl:
+                            HeaderFields: |-
+                                ={
+                                    Headers: [
+                                        {Index: 1, Name: "    Status", Width: 120, Visible: true},
+                                        {Index: 3, Name: "Started on", Width: 160, Visible: true},
+                                        {Index: 7, Name: "Completed on", Width: 160, Visible: true},
+                                        {Index: 4, Name: "Exception code", Width: 300, Visible: true},
+                                        {Index: 5, Name: "Exception details", Width: 880, Visible: true},
+                                        {Index: 6, Name: "View", Width: 185, Visible: true},
+                                        {Index: 8, Name: "Is metered", Width: 100,Visible: false},
+                                        {Index: 9, Name: "Header 9", Width: 100, Visible: false},
+                                        {Index: 10, Name: "Header 10", Width: 100, Visible: false}
+                                    ]
+                                }
+                            Height: =Parent.Height
+                            Width: =Parent.Width
+
+                        "galFlowSessionTraces As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Parent.Fill
+                            Height: =Parent.Height-90
+                            Items: =If(FailedOnly.Value = true,Filter(col_FlowSessionTraces,'Overall Status' = "Failed"),col_FlowSessionTraces)
+                            Layout: =Layout.Vertical
+                            TemplateFill: =If(ThisItem.IsSelected,RGBA(243, 242, 241, 1), RGBA(0, 0, 0, 0))
+                            TemplatePadding: =0
+                            TemplateSize: =42
+                            Width: =Parent.Width-25
+                            X: =22
+                            Y: =58
+                            ZIndex: =2
+
+                            LineSeparator_4 As rectangle:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                Fill: |-
+                                    =ColorValue("#f3f2f1")
+                                Height: =1/3
+                                OnSelect: =Select(Parent)
+                                Width: =Parent.TemplateWidth
+                                Y: =Parent.TemplateHeight - 1
+                                ZIndex: =1
+
+                            ErrorDesc As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(51, 51, 51, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =30
+                                OnSelect: =Select(Parent)
+                                PaddingBottom: =10
+                                Size: =11
+                                Text: =ThisItem.'Exception Details'
+                                Tooltip: =ThisItem.'Exception Details'
+                                Width: =850
+                                X: =GridField2_12.X+GridField2_12.Width+20
+                                Y: =6
+                                ZIndex: =2
+
+                            CompTypeIcon_1 As image:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                FocusedBorderThickness: =4
+                                Height: =20
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                Image: =LookUp(FluentUIIcons, FriendlyName = "Cloud flows").SVG
+                                ImagePosition: =ImagePosition.Center
+                                OnSelect: =Set(CurrentObjectType,"")
+                                PaddingBottom: =3
+                                PaddingLeft: =4
+                                PaddingRight: =3
+                                PaddingTop: =5
+                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                PressedFill: =RGBA(0, 0, 0, 0)
+                                Width: =22
+                                Y: =10
+                                ZIndex: =7
+
+                            GoToPortal As icon.CheckBadge:
+                                BorderColor: =RGBA(166, 166, 166, 1)
+                                Color: =UIAccentColor
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(220, 220, 220, 1)
+                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                FocusedBorderThickness: =4
+                                Height: =30
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                Icon: =Icon.OpenInNewWindow
+                                OnSelect: |-
+                                    =Launch("https://us.flow.microsoft.com/manage/environments/" & First(EnvironmentDetails).EnvironmentId & "/solutions/" & galSolutions.Selected.'Solution Identifier' &"/flows/" & ThisItem.'Flow Id' &"/runs/" & ThisItem.'Flow Run Id')
+                                PaddingBottom: =4
+                                PaddingLeft: =4
+                                PaddingRight: =4
+                                PaddingTop: =4
+                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                                PressedFill: =RGBA(0, 0, 0, 0)
+                                Width: =30
+                                X: =ErrorDesc.X+ErrorDesc.Width+30
+                                Y: =5
+                                ZIndex: =8
+
+                            GridField2_14 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =If(ThisItem.'Overall Status' = "Succeeded", RGBA(0, 0, 0, 1),RGBA(184, 0, 0, 1))
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                FontWeight: =If(ThisItem.'Overall Status' = "Succeeded", FontWeight.Normal,FontWeight.Bold)
+                                Height: =30
+                                OnSelect: =Select(Parent)
+                                Overflow: =Overflow.Scroll
+                                Size: =11
+                                Text: =ThisItem.'Overall Status'
+                                Width: =90
+                                X: =37
+                                Y: =6
+                                ZIndex: =9
+
+                            GridField2_13 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =30
+                                OnSelect: =Select(Parent)
+                                Size: =11
+                                Text: =ThisItem.'Started On'
+                                Width: =160
+                                X: =140
+                                Y: =6
+                                ZIndex: =10
+
+                            GridField2_10 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =30
+                                OnSelect: =Select(Parent)
+                                Size: =11
+                                Text: =ThisItem.'Completed On'
+                                Width: =160
+                                X: =300
+                                Y: =5
+                                ZIndex: =11
+
+                            GridField2_12 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: =RGBA(0, 0, 0, 1)
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =30
+                                OnSelect: =Select(Parent)
+                                Size: =11
+                                Text: =ThisItem.'Exception Code'
+                                Width: =284
+                                X: =460
+                                Y: =5
+                                ZIndex: =12
+
+                        ArtifactShimmerImage_1 As image:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            BorderThickness: =2
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =545
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Image: =ArtifactShimmer
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Visible: =_showArtifactShimmer
+                            Width: =Parent.Width-27
+                            X: =27
+                            Y: =40
+                            ZIndex: =3
+
