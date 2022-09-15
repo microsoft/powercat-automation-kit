@@ -1,0 +1,216 @@
+Template_Controls As screen:
+    BackgroundImage: =
+    Height: =Max(App.Height, App.DesignHeight)
+    OnVisible: =
+    Width: =Max(App.Width, App.DesignWidth)
+
+    Container6 As groupContainer.manualLayoutContainer:
+        Height: =246
+        X: =866
+        ZIndex: =5
+
+        HtmlText1_1 As htmlViewer:
+            Height: =180
+            HtmlText: |-
+                ="<div style='width:" 
+                & Max(800, Parent.Width-30) & "px; height:" 
+                & Max(600, Parent.Height-30) & "px; "
+                & "background: #ffffff;"
+                & "margin-bottom: 8px;"
+                & "margin-left: 2px;"
+                & "margin-top: 2px;"
+                & "border-radius: 4px;"
+                & "background-clip: padding-box;"
+                & "box-shadow: 0 0 3px 1px #d4d3d2;"
+                &"'></div>"
+            Width: =475
+            X: =10
+            Y: =15
+            ZIndex: =1
+
+    Image1 As image:
+        BorderColor: =ColorFade(Image1.Fill, -20%)
+        Height: =20
+        HoverBorderColor: =ColorFade(Image1.BorderColor, 20%)
+        HoverFill: =ColorFade(Image1.Fill, 20%)
+        Image: |-
+            ="data:image/svg+xml;utf8, " & EncodeUrl("<svg  xmlns='http://www.w3.org/2000/svg'>
+              <rect x='0' width='"& Self.Width &"' height='"& Self.Height &"' rx='3' fill='#0078d4'/>
+            </svg>")
+        PressedBorderColor: =ColorFade(Image1.BorderColor, -20%)
+        PressedFill: =ColorFade(Image1.Fill, -20%)
+        Width: =402
+        X: =964
+        Y: =744
+        ZIndex: =6
+
+    Dev_Shimmer As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =205
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: ='Shimmer complex'
+        OnSelect: =
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =402
+        X: =964
+        Y: =523
+        ZIndex: =8
+
+    TextInput4 As text:
+        BorderColor: =BorderColorValue
+        Default: ="Text input"
+        HoverBorderColor: =HoverBorderColorValue
+        HoverColor: =ColorFade(TextInput4.Color, 20%)
+        HoverFill: =ColorFade(TextInput4.Fill, 20%)
+        PressedBorderColor: =TextInput4.HoverBorderColor
+        PressedColor: =TextInput4.Color
+        PressedFill: =TextInput4.Fill
+        X: =12
+        Y: =16
+        ZIndex: =9
+
+    DatePicker1 As datepicker:
+        BorderColor: =BorderColorValue
+        FocusedBorderColor: =
+        IconBackground: =Transparent
+        IconFill: =UIColor
+        Size: =TextBodyFontSizeValue
+        X: =12
+        Y: =92
+        ZIndex: =10
+
+    Button4 As button:
+        Fill: =BTNAccent_Fill
+        FocusedBorderColor: =BTNAccent_PressedBorder
+        FontWeight: =FontWeight.Normal
+        HoverBorderColor: =BTNAccent_HoverBorder
+        HoverColor: =PrimaryColor2TextValue
+        HoverFill: =BTNAccent_HoverFill
+        PressedBorderColor: =BTNAccent_PressedBorder
+        PressedColor: =BTNAccent_Pressed
+        PressedFill: =BTNAccent_Pressed
+        Size: =14
+        Text: ="Button"
+        X: =12
+        Y: =179
+        ZIndex: =11
+
+    Button5 As button:
+        Color: =BTNStandard_Color
+        Fill: =BTNStandard_Fill
+        FontWeight: =FontWeight.Normal
+        HoverBorderColor: =ColorFade(Button5.BorderColor, 20%)
+        HoverColor: =PrimaryColor1TextValue
+        HoverFill: =BTNStandard_HoverFill
+        PressedBorderColor: =BTNStandard_PressedBorder
+        PressedColor: =BTNStandard_ColorPressed
+        PressedFill: =BTNStandard_Fill
+        Size: =14
+        Text: ="Button"
+        X: =12
+        Y: =246
+        ZIndex: =12
+
+    Button5_1 As button:
+        Color: =BTNStandard_Color
+        Fill: =BTNEnabledBtnFill
+        FontWeight: =FontWeight.Normal
+        HoverBorderColor: =HoverBorderColorValue
+        HoverColor: =PrimaryColor1TextValue
+        HoverFill: =HoverFillValue
+        PressedBorderColor: =BTNStandard_PressedBorder
+        PressedColor: =BTNStandard_ColorPressed
+        PressedFill: =BTNStandard_Fill
+        Size: =14
+        Text: ="Button"
+        X: =12
+        Y: =314
+        ZIndex: =13
+
+    cmb As combobox:
+        BorderColor: =RGBA(230, 230, 230, 1)
+        ChevronBackground: =Transparent
+        ChevronFill: =PrimaryColor1TextValue
+        ChevronHoverBackground: =ColorFade(cmb.ChevronBackground, 20%)
+        ChevronHoverFill: =ColorFade(cmb.ChevronFill, 20%)
+        Fill: =White
+        HoverBorderColor: =HoverBorderColorValue
+        HoverColor: =HoverColorValue
+        HoverFill: =HoverFillValue
+        IsSearchable: =false
+        Items: =ComboBoxSample
+        MoreItemsButtonColor: =Self.ChevronBackground
+        NoSelectionText: ="No Selection"
+        PressedBorderColor: =cmb.HoverBorderColor
+        PressedFill: =PrimaryColor1Value
+        SearchItems: =[]
+        SelectionFill: =SelectionFillValue
+        SelectMultiple: =false
+        X: =423
+        Y: =16
+        ZIndex: =14
+
+    Icon3_3 As icon.Add:
+        BorderColor: =ColorFade(Icon3_3.Fill, -20%)
+        Color: =PrimaryColor2Value
+        DisabledFill: =ColorFade(Icon3_3.Fill, -80%)
+        Height: =40
+        HoverBorderColor: =ColorFade(Icon3_3.BorderColor, 20%)
+        HoverColor: =ColorFade(Icon3_3.Color, 20%)
+        HoverFill: =ColorFade(Icon3_3.Fill, 20%)
+        Icon: =Icon.LikeDislike
+        OnSelect: =
+        PaddingBottom: =8
+        PaddingLeft: =8
+        PaddingRight: =8
+        PaddingTop: =8
+        PressedBorderColor: =ColorFade(Icon3_3.BorderColor, -20%)
+        PressedColor: =ColorFade(Icon3_3.Color, -20%)
+        PressedFill: =ColorFade(Icon3_3.Fill, -20%)
+        Visible: =If(isProjectAdmin = true || isProjectContributor = true, true, false)
+        X: =423
+        Y: =81
+        ZIndex: =15
+
+    TextInput4_1 As text:
+        BorderColor: =BorderColorValue
+        Default: ="Text input"
+        HoverBorderColor: =HoverBorderColorValue
+        HoverColor: =HoverColorValue
+        HoverFill: =HoverFillValue
+        PressedBorderColor: =TextInput4_1.HoverBorderColor
+        PressedColor: =TextInput4_1.Color
+        PressedFill: =TextInput4_1.Fill
+        X: =340
+        Y: =605
+        ZIndex: =16
+
+    HtmlText1 As htmlViewer:
+        Height: =193
+        HtmlText: |-
+            ="<div style='
+                margin: auto;
+                width: " & HtmlText3_1.Width - 40 & "px;
+                height: " & HtmlText3_1.Height - 40 & "px;
+                     box-shadow:
+                           5px 5px 10px -2px rgba(0,0,0,0.2);
+                border-radius: 10px;
+                background: #ffffff;'>
+            </div>"
+        Width: =485
+        X: =94
+        Y: =398
+        ZIndex: =17
+
