@@ -29,7 +29,7 @@ Stay up to date with our releases by **subscribing** to them:
 
 If you want to learn more about what's in the latest release of the CoE Starter Kit, you can check out our  **[closed Milestones](https://github.com/microsoft/automation-kit/milestones?state=closed)**. This will list both bug fixes as new features that were introduced with the latest version.
 
-If you want to learn more about what the CoE Starter Kit team is planning, check out our **[open Milestones](https://github.com/microsoft/automation-kit/milestones?state=open)**. We use CoE Starter Kit - _Month_ 2022 to plan our next release, and Automation Kit - Backlog for our unprioritized feature requests. Please comment or upvote feature requests by using reactions.
+If you want to learn more about what the CoE Starter Kit team is planning, check out our **[Open Milestones](https://github.com/microsoft/powercat-automation-kit/milestones?state=open)**. We use CoE Starter Kit - _Month_ 2022 to plan our next release, and Automation Kit - Backlog for our unprioritized feature requests. Please comment or upvote feature requests by using reactions.
 
 ## Report a Bug or submit a Feature Request
 
