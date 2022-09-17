@@ -1,4 +1,4 @@
-# Contribute to the CoE Starter Kit
+# Contribute to the Automation Kit
 
 Welcome, and thank you for your interest in contributing to the Automation Kit.
 
@@ -31,6 +31,6 @@ Observe the inline guidelines of the Issue template.
 
 ## Contribute with Code
 
-If you are interested in contributing to the CoE Starter Kit by fixing issues or adding features please read the [How to Contribute](HOW_TO_CONTRIBUTE.md) guide.
+If you are interested in contributing to the Automation Kit by fixing issues or adding features please read the [How to Contribute](HOW_TO_CONTRIBUTE.md) guide.
 
 ## Thank You

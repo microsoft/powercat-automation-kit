@@ -2,7 +2,7 @@
 
 ![Automation Kit Logo](media/automation-kit.svg)
 
-The automation kit supports an automation CoE. The kit provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions.
+The Power CAT Automation Kit for Power Platform supports an automation CoE. The kit provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions.
 
 The Automation Kit is an open-source project made available via GitHub, built on top of Power Platform, but not coupled with Core Engineering platform investments. This kit relies on Power Automate, Power Apps and Dataverse. These core components require customers who choose to implement the kit to have premium Power Platform licenses. The kit provides with users with the the following artifacts:
 
@@ -27,13 +27,13 @@ Stay up to date with our releases by **subscribing** to them:
 2. Select Custom > Releases > Apply to receive notifications about our releases<br>
       ![image](media/121772469-661d4480-cb6d-11eb-8a24-1c53c8d9e8bd.png)
 
-If you want to learn more about what's in the latest release of the CoE Starter Kit, you can check out our  **[closed Milestones](https://github.com/microsoft/automation-kit/milestones?state=closed)**. This will list both bug fixes as new features that were introduced with the latest version.
+If you want to learn more about what's in the latest release of the Automation Kit, you can check out our  **[closed Milestones](https://github.com/microsoft/automation-kit/milestones?state=closed)**. This will list both bug fixes as new features that were introduced with the latest version.
 
-If you want to learn more about what the CoE Starter Kit team is planning, check out our **[Open Milestones](https://github.com/microsoft/powercat-automation-kit/milestones?state=open)**. We use CoE Starter Kit - _Month_ 2022 to plan our next release, and Automation Kit - Backlog for our unprioritized feature requests. Please comment or upvote feature requests by using reactions.
+If you want to learn more about what the Automation Kit team is planning, check out our **[Open Milestones](https://github.com/microsoft/powercat-automation-kit/milestones?state=open)**. We use Automation Kit - _Month_ 2022 to plan our next release, and Automation Kit - Backlog for our unprioritized feature requests. Please comment or upvote feature requests by using reactions.
 
 ## Report a Bug or submit a Feature Request
 
-Have you found a bug in the CoE Starter Kit or do you want to suggest a new feature? Either way, please let us now by filing an issue while observing the following guidelines
+Have you found a bug in the Automation Kit or do you want to suggest a new feature? Either way, please let us now by filing an issue while observing the following guidelines
 
 ### Look for an existing issue
 
@@ -58,7 +58,7 @@ Observe the inline guidelines of the Issue template.
 
 ## Contribute with Code
 
-If you are interested in contributing to the CoE Starter Kit by fixing issues or adding features please read the [How to Contribute](HOW_TO_CONTRIBUTE.md) guide.
+If you are interested in contributing to the Automation Kit by fixing issues or adding features please read the [How to Contribute](HOW_TO_CONTRIBUTE.md) guide.
 
 ## Setup Instructions and Documentation
 

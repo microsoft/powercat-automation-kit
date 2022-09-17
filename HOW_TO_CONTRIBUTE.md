@@ -17,17 +17,17 @@ or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any addi
 
 The Automation Kit uses feature branches from the main branch.
 
-When creating new releases for the CoE Starter Kit the main branch is tagged with the version of the release. Hotfixes are made to the tagged version while on-going development of new features and bug fixes are made via Pull Requests into main.
+When creating new releases for the Automation Kit the main branch is tagged with the version of the release. Hotfixes are made to the tagged version while on-going development of new features and bug fixes are made via Pull Requests into main.
 
 Following the branching strategy means that **all Pull Requests are made to the main branch.**
 
 ## Getting your own copy of the source code
 
-Any code (documentation, solution components, yaml pipelines etc.) contribution you want to make to CoE Starter Kit should be made in your own copy of the source code.
+Any code (documentation, solution components, yaml pipelines etc.) contribution you want to make to Automation Kit should be made in your own copy of the source code.
 
 > [!NOTE]There are many ways to interact with github depending on your development workflow and the tools and software you use. The steps to create your own copy of the source code will differ depending on your tools and software.
 
-To create a copy of the repository you should fork the CoE Starter Kit repository to your own github account.
+To create a copy of the repository you should fork the Automation Kit repository to your own github account.
 Any contributions you make should be made in your own fork.
 
 > [!NOTE]To learn about GitHub forks visit the GitHub docs: [Working with forks](https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/about-forks)
@@ -49,7 +49,7 @@ We recommend naming your feature branches in a way that identify the feature or 
 
 ## Pull Requests
 
-When your contribution is complete and you are ready to submit your changes to the CoE Starter Kit repository you should make a Pull Request from your feature branch in your own fork into the main branch in the CoE Starter Kit repository.
+When your contribution is complete and you are ready to submit your changes to the Automation Kit repository you should make a Pull Request from your feature branch in your own fork into the main branch in the Automation Kit repository.
 
 Before we can accept a pull request from you, you'll need to sign a Contributor License Agreement (CLA). It is an automated process and you only need to do it once.
 To enable us to quickly review and accept your pull requests, always create one pull request per issue and link the issue in the pull request. Never merge multiple requests in one unless they have the same root cause.
