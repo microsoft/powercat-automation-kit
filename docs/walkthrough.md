@@ -88,3 +88,34 @@ Walkthrough video of the setup process for the Satellite solution including disc
 
 </video>
 
+## Configuration Data Setup
+
+Walkthrough video that discusses:
+
+- Setup of Automation Corporate Goals
+
+- Configuration of Satellite Environments
+
+- Configuration of Active Automation Departments
+
+- Configuration of Process Categories and Subcategories
+
+- Setup the App Automation Roles
+
+- Setup of Fallback Environment, Owner and Approver
+
+- Setup ROI Calculation Formulas
+
+- Setup Automation Console
+
+<summary class="px-3 py-2">
+    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
+    <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
+</svg>
+    <span aria-label="Video description 5-Setup-AutoCoE-ConfigurationData.mp4" class="m-1">5-Setup-AutoCoE-ConfigurationData.mp4</span>
+    <span class="dropdown-caret"></span>
+</summary>
+
+<video src="https://user-images.githubusercontent.com/31553604/190874663-97b2fad4-7e34-4884-91e4-8e5971a50bf0.mp4" data-canonical-src="https://user-images.githubusercontent.com/31553604/190874663-97b2fad4-7e34-4884-91e4-8e5971a50bf0.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;">
+
+</video>
