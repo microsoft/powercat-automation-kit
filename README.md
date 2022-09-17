@@ -11,6 +11,12 @@ The Automation Kit is an open-source project made available via GitHub, built on
 1. Near realtime cloud flows that sync data from satellite environments to the main environment using Dataverse tables. Data is also stored locally (in the satellite environment) and synced with main in near realtime.
 1. Power BI dashboard to provide insights and monitor your automation assets.
 
+## Getting Started
+
+The [Automation Kit Learning Guide](https://aka.ms/automation-kit-docs) will soon be live and will include instruction and setup guidance for the Automation Kit.
+
+The [Walkthrough guide](./docs/walkthrough.md) includes videos that cover prerequisite setup, main and satellite solution setup, configuration data setup. It also includes how to guides on end to end Automation Project setup and the Flow Exception Framework setup.
+
 ## About this GitHub repo
 
 The Automation Kit GitHub Repo contains the source, releases, issues and backlog items of all components that are part of the Automation Kit.
