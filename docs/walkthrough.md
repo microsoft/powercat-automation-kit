@@ -22,8 +22,6 @@ Walkthrough video for installation and verification of the Creators Kit dependan
 
 </video>
 
-<a href="https://user-images.githubusercontent.com/31553604/190863687-3b448056-fe4e-46f2-8e1b-640d4c59171f.mp4">Download</a>
-
 ## Main Solution Setup
 
 Walkthrough of the setup process for the Main solution including discussion of:
@@ -66,6 +64,8 @@ Walkthrough video of the setup process for the Satellite solution including disc
 
 ### Part 1 - Setup and Import
 
+<br/>
+
 <summary class="px-3 py-2">
     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
     <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
@@ -79,6 +79,8 @@ Walkthrough video of the setup process for the Satellite solution including disc
   </video>
 
 ### Part 2 - Environment Variables
+
+<br/>
 
 <summary class="px-3 py-2">
     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
@@ -112,6 +114,8 @@ Walkthrough video that discusses:
 
 - Setup Automation Console
 
+<br/>
+
 <summary class="px-3 py-2">
     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
     <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
@@ -142,6 +146,8 @@ Walkthrough video that covers discussion of the following:
 
 - Setup of Power BI dashboard
 
+<br/>
+
 <summary class="px-3 py-2">
     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
     <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
@@ -165,6 +171,8 @@ Walkthrough video that covers discussion of the following:
 - Example of flow exception process for new exception
 
 - Flow Exceptions Power BI Dashboard
+
+<br/>
 
 <summary class="px-3 py-2">
     <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">

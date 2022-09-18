@@ -54,5 +54,9 @@ Follow these steps to un-register  un-used actions in the AutoCOE Plugin
 
 The video include a summary of the steps above to unregister the actions that are no longer required for the September 2022 release.
 
+❗ NOTE: To view the videos below you will need to be signed in as a :octocat: GitHub user.
+
+<br/>
+
 <video src="https://user-images.githubusercontent.com/94862471/190827083-52e4b0f2-19ef-4f7d-942e-a7a520d26dfc.mp4" data-canonical-src="https://user-images.githubusercontent.com/94862471/190827083-52e4b0f2-19ef-4f7d-942e-a7a520d26dfc.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;">
 </video>
