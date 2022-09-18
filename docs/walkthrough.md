@@ -22,7 +22,7 @@ Walkthrough video for installation and verification of the Creators Kit dependan
 
 </video>
 
-[Download](https://user-images.githubusercontent.com/31553604/190863687-3b448056-fe4e-46f2-8e1b-640d4c59171f.mp4)
+<a href="https://user-images.githubusercontent.com/31553604/190863687-3b448056-fe4e-46f2-8e1b-640d4c59171f.mp4">Download</a>
 
 ## Main Solution Setup
 
