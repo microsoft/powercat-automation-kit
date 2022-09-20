@@ -33,7 +33,7 @@ Stay up to date with our releases by **subscribing** to them:
 2. Select Custom > Releases > Apply to receive notifications about our releases<br>
       ![image](media/121772469-661d4480-cb6d-11eb-8a24-1c53c8d9e8bd.png)
 
-If you want to learn more about what's in the latest release of the Automation Kit, you can check out our  **[closed Milestones](https://github.com/microsoft/automation-kit/milestones?state=closed)**. This will list both bug fixes as new features that were introduced with the latest version.
+If you want to learn more about what's in the latest release of the Automation Kit, you can check out our  **[closed Milestones](https://github.com/microsoft/powercat-automation-kit/milestones?state=closed)**. This will list both bug fixes as new features that were introduced with the latest version.
 
 If you want to learn more about what the Automation Kit team is planning, check out our **[Open Milestones](https://github.com/microsoft/powercat-automation-kit/milestones?state=open)**. We use Automation Kit - _Month_ 2022 to plan our next release, and Automation Kit - Backlog for our unprioritized feature requests. Please comment or upvote feature requests by using reactions.
 
