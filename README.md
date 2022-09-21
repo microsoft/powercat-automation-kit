@@ -13,9 +13,19 @@ The Automation Kit is an open-source project made available via GitHub, built on
 
 ## Getting Started
 
-The [Automation Kit Learning Guide](https://aka.ms/automation-kit-docs) includes instructions and setup guidance for the Automation Kit.
+The [Automation Kit Learning Guide](https://aka.ms/automation-kit-learn) includes instructions and setup guidance for the Automation Kit.
 
 The [Walkthrough guide](./docs/walkthrough.md) includes videos that cover prerequisite setup, main and satellite solution setup, configuration data setup. It also includes how to guides on end to end Automation Project setup and the Flow Exception Framework setup.
+
+## Office Hours
+
+:calendar: Register for our office hours session [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)
+
+This meeting is a regular forum for customers and partners to learn and ask questions about the Automation Kit for Power Platform. Come prepared to ask questions about existing features, learn how something works and new features you'd like to see. Please note: This session will be attended by multiple customers and partners and will be recorded. Please state any questions with the appropriate level of detail for this broader audience.
+
+This meeting is not an Automation Kit for Power Platform introduction or overview session. If you are looking for an introduction we suggest you start here: [https://aka.ms/automation-kit-learn](https://aka.ms/automation-kit-learn)
+
+We are also unable to do custom troubleshooting or consulting not relevant to a broader audience in this session. If you are experiencing issues with or have questions about the Automation Kit for Power Platform, please don't wait for the call - instead raise your issue or questions via [https://aka.ms/ak4pp-issues](https://aka.ms/ak4pp-issues)
 
 ## About this GitHub repo
 
