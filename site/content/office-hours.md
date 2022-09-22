@@ -2,7 +2,7 @@
 title: Office Hours
 sidebar: false
 sidebarlogo: fresh-white
-include_footer: false
+include_footer: true
 ---
 
 ## Register
