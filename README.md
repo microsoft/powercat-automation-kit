@@ -47,6 +47,10 @@ If you want to learn more about what's in the latest release of the Automation K
 
 If you want to learn more about what the Automation Kit team is planning, check out our **[Open Milestones](https://github.com/microsoft/powercat-automation-kit/milestones?state=open)**. We use Automation Kit - _Month_ 2022 to plan our next release, and Automation Kit - Backlog for our unprioritized feature requests. Please comment or upvote feature requests by using reactions.
 
+## Give Kudos
+
+Want to share some feedback on the Automation Kit or a feature and the impact it has had for you? You can submit a [Kudos](https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Ckudos&template=4-automation-kit-kudos.yml&title=%5BAutomation+Kit+-+Kudos%5D+Your+summary) to share your comments with the community.
+
 ## Report a Bug or submit a Feature Request
 
 Have you found a bug in the Automation Kit or do you want to suggest a new feature? Either way, please let us now by filing an issue while observing the following guidelines
