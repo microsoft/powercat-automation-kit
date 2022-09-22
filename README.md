@@ -78,7 +78,7 @@ If you are interested in contributing to the Automation Kit by fixing issues or 
 
 ## Setup Instructions and Documentation
 
-Please find all information on how to install and use the kit on https://docs.microsoft.com/power-automate/guidance/automation-kit/
+Please find all information on how to install and use the kit on [https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
 
 ## Microsoft Open Source Code of Conduct
 
