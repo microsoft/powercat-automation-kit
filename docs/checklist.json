@@ -119,6 +119,30 @@
                     "type": "html",
                     "html": "Review our <a href='/support' target='blank'>support</a> page for more information",
                     "visibleIf": "contains({technicalNotInstalled},['Further support']) or contains({otherNotInstalled},['Further support'])"
+                },
+                {
+                    "name": "haveQuestionsHelped",
+                    "type": "boolean",
+                    "title": "Have these questions helped?"
+                },
+                {
+                    "type": "html",
+                    "title": "11 {haveQuestionsHelped}"
+                },
+                {
+                    "type": "html",
+                    "html": "Review our <a href='/frequently-asked-questions' target='blank'>frequently asked questions</a> page for other common Question and Answers",
+                    "visibleIf": "{haveQuestionsHelped}=False"
+                },
+                {
+                    "type": "html",
+                    "html": "Consider creating a <a href='https://github.com/microsoft/powercat-automation-kit/issues/new/choose' target='blank'>New feature Request</a> describing what additional questions / guides that could be added to help with getting started",
+                    "visibleIf": "{haveQuestionsHelped}=False"
+                },
+                {
+                    "type": "html",
+                    "html": "Consider creating a <a href='https://github.com/microsoft/powercat-automation-kit/issues/new/choose' target='blank'>New Kudos</a> or comment on an <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Akudos' target='blank'>existing Kudos</a> to provide feedback",
+                    "visibleIf": "{haveQuestionsHelped}=True"
                 }
             ]
         }
