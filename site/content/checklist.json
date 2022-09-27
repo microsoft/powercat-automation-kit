@@ -1,0 +1,126 @@
+{
+    "pages": [
+        {
+            "name": "welcome",
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "roles",
+                    "title": "Which of the following role(s) are the best match for you?",
+                    "isRequired": true,
+                    "colCount": 4,
+                    "choices": [
+                        "Goal Setter",
+                        "Process Owner",
+                        "Reviewer",
+                        "Center Of Excellence",
+                        "Administrator",
+                        "Compliance",
+                        "Information Security",
+                        "Audit",
+                        "All"
+                    ]
+                },
+                {
+                    "name": "roleNotSure",
+                    "type": "boolean",
+                    "title": "Not sure of roles, tell me more about selected items",
+                    "defaultValue": false
+                },
+                {
+                    "type": "html",
+                    "html": "<b>Goal Setter</b> - This could be a Corporate or Department decision maker role <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='blank'>Learn More</a>",
+                    "visibleIf": "({roleNotSure} = true) and contains({roles},['Goal Setter','All'])"
+                },
+                {
+                    "type": "html",
+                    "html": "<b>Process Owner</b> - Creates the Automation Projects in the system <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='blank'>Learn More</a>",
+                    "visibleIf": "({roleNotSure} = true) and contains({roles},['Process Owner','All'])"
+                },
+                {
+                    "type": "html",
+                    "html": "<b>Reviewer</b> - Validates idea to approve that the idea should be implemented and is justifiable <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='blank'>Learn More</a>",
+                    "visibleIf": "({roleNotSure} = true) and contains({roles},['Reviewer','All'])"
+                },
+                {
+                    "type": "html",
+                    "html": "<b>Center Of Excellence</b> - Sets up and maps solution to a specific environment <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='blank'>Learn More</a>",
+                    "visibleIf": "({roleNotSure} = true) and contains({roles},['Center Of Excellence','All'])"
+                },
+                {
+                    "type": "html",
+                    "html": "<b>Administrator</b> - May set Power Platform environment management and creation of Data Loss Prevention (DLP) policies that need to be put in place for the organization to scale <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#power-platform-and-microsoft-365-coes' target='blank'>Learn More</a>",
+                    "visibleIf": "({roleNotSure} = true) and contains({roles},['Administrator','All'])"
+                },
+                {
+                    "type": "html",
+                    "html": "<b>Compliance, Information Security, Audit</b> - Set the corporate rules, regulations, cyber-security, data privacy, and auditing requirements as part of <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#corporate-automation-strategy' target='blank'>Corporate automation strategy</a>",
+                    "visibleIf": "({roleNotSure} = true) and contains({roles},['Compliance', 'Information Security', 'Audit','All'])"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "checkInstalled",
+                    "title": "Does you organization have the Automation Kit for Power Platform installed?",
+                    "isRequired": true,
+                    "colCount": 4,
+                    "choices": [
+                        "Yes",
+                        "No",
+                        "Not Sure"
+                    ],
+                    "visibleIf": "{roles} notempty"
+                },
+                {
+                    "type": "html",
+                    "html": "Great you can review the <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit' target='blank'>Use the Automation Kit</a> for more information",
+                    "visibleIf": "{checkInstalled}='Yes'"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "technicalNotInstalled",
+                    "title": "Ok the Automation Kit is not installed, what technical task do you need help with?",
+                    "isRequired": true,
+                    "colCount": 4,
+                    "choices": [
+                        "Help with install",
+                        "Setup instructions",
+                        "Further support"
+                    ],
+                    "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "otherNotInstalled",
+                    "title": "Ok the Automation Kit is not installed, what do you need help with?",
+                    "isRequired": true,
+                    "colCount": 4,
+                    "choices": [
+                        "Help with install",
+                        "Further support"
+                    ],
+                    "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = false"
+                },
+                {
+                    "type": "html",
+                    "html": "Start by reviewing the install <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='blank'>prerequisites</a> for more information",
+                    "visibleIf": "contains({technicalNotInstalled},['Help with install', 'Setup instructions']) and contains({roles},['Center Of Excellence','All'])"
+                },
+                {
+                    "type": "html",
+                    "html": "Contact your Center of Excellence to install or check if Automation Kit is installed",
+                    "visibleIf": "contains({otherNotInstalled},['Help with install'])"
+                },
+                {
+                    "type": "html",
+                    "html": "Review walkthrough install videos <a href='https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md' target='blank'>learn more</a>",
+                    "visibleIf": "contains({technicalNotInstalled},['Help with install'])"
+                },
+                {
+                    "type": "html",
+                    "html": "Review our <a href='/support' target='blank'>support</a> page for more information",
+                    "visibleIf": "contains({technicalNotInstalled},['Further support']) or contains({otherNotInstalled},['Further support'])"
+                }
+            ]
+        }
+    ]
+}

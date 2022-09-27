@@ -1,0 +1,57 @@
+{{ $fileName := .Get "name" }}
+{{ $completedHtml := .Get "completed" }}
+{{ $showNavigationButtons := .Get "showNavigationButtons"}}
+<script>
+    data = {{readFile $fileName }}
+</script>
+
+<div id="gettingStarted">
+</div>
+
+<script>
+    function contains(params) {
+        try {
+            if (Array.isArray(params[0]) && Array.isArray(params[1])) {
+                for ( var i = 0; i < params[1].length; i++) {
+                    if (params[0].includes(params[1][i]) ) {
+                        return true
+                    } 
+                }
+            }
+
+            if (Array.isArray(params[0]) && !Array.isArray(params[1])) {
+                return params[0].includes(params[1]);
+            }
+        } catch {
+            return false
+        }        
+        return false
+    }
+    document.addEventListener("DOMContentLoaded", () => {
+        Survey.FunctionFactory
+            .Instance
+            .register("contains", contains);
+        Survey.StylesManager.applyTheme("modern");
+
+        const converter = new showdown.Converter();
+        const questionModel = new Survey.Model(data);
+        questionModel.onTextMarkdown.add(function (survey, options) {
+            // Convert Markdown to HTML
+            let str = converter.makeHtml(options.text);
+            if ( options.hasOwnProperty('markdown') ) {
+                console.log(options.markdown)
+                str = converter.makeHtml(options.markdown);
+            }
+            // Remove root paragraphs <p></p>
+            str = str.substring(3);
+            str = str.substring(0, str.length - 4);
+            // Set HTML markup to render
+            options.html = str;
+        });
+        questionModel.showNavigationButtons = {{ $showNavigationButtons }};
+        questionModel.completedHtml = "{{ $completedHtml }}";
+
+        $("#gettingStarted").Survey({ model: questionModel });
+    });
+</script>
+
