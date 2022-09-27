@@ -13,9 +13,11 @@ The Automation Kit is an open-source project made available via GitHub, built on
 
 ## Getting Started
 
-The [Automation Kit Learning Guide](https://aka.ms/automation-kit-learn) includes instructions and setup guidance for the Automation Kit.
+Use the [Automation Kit Starter](https://aka.ms/automation-kit-starter) site to navigate your getting started experience.
 
-The [Walkthrough guide](./docs/walkthrough.md) includes videos that cover prerequisite setup, main and satellite solution setup, configuration data setup. It also includes how to guides on end to end Automation Project setup and the Flow Exception Framework setup.
+Refer to the [Automation Kit Learning Guide](https://aka.ms/automation-kit-learn) to reference instructions and setup guidance for the Automation Kit.
+
+Use the [Walkthrough guide videos](./docs/walkthrough.md) that cover prerequisite setup, main and satellite solution setup, configuration data setup. It also includes how to guides on end to end Automation Project setup and the Flow Exception Framework setup.
 
 ## Office Hours
 
