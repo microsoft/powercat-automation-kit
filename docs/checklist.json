@@ -111,6 +111,147 @@
                     "visibleIf": "contains({otherNotInstalled},['Help with install'])"
                 },
                 {
+                    "type": "checkbox",
+                    "name": "technical-Azure",
+                    "title": "Check the best Azure option(s) that apply to you",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "aad",
+                            "text": "I have rights to create Azure Active Directory application"
+                        },
+                        {
+                            "value": "azure-create",
+                            "text": "I can create Azure resources (For example Azure Key Vault)"
+                        },
+                        {
+                            "value": "azure-delegate",
+                            "text": "I need to work with Azure team to create resources for me"
+                        },
+                        {
+                            "value": "azure-contributor-aad",
+                            "text": "I have owner or contributor rights Azure Active Directory App"
+                        },
+                        {
+                            "value": "azure-contributor-kv",
+                            "text": "I have owner or contributor rights Azure Key Vault"
+                        }
+                    ],
+                    "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+                },
+                {
+                    "type": "html",
+                    "html": "Azure pre-requistes met",
+                    "visibleIf": "contains({technical-Azure},['azure-create','azure-contributor-aad','azure-contributor-kv','azure-delegate']) and contains({technical-Azure},['aad','azure-contributor-aad']) and contains({technical-Azure},['azure-create','azure-contributor-kv'])"
+                },
+                {
+                    "type": "html",
+                    "html": "Refer your Azure team to <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite' target='blank'>Set up satellites</a> to create Azure App registration and Azure KeyVault Secrets",
+                    "visibleIf": "contains({technical-Azure},['azure-delegate'])"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "technical-O365",
+                    "title": "Check the best Office 365 option(s) that apply for you",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "lic",
+                            "text": "I have Office 365 E3 "
+                        },
+                        {
+                            "value": "not-sure",
+                            "text": "Not sure"
+                        }
+                    ],
+                    "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+                },
+                {
+                    "type": "html",
+                    "html": "Office 365 pre-requistes met",
+                    "visibleIf": "contains({technical-O365},['lic'])"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "technical-PP",
+                    "title": "Check the best Power Platform option(s) that apply for you",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "pp-tenant-admin",
+                            "text": "I have Power Platform tenant admin rights"
+                        },
+                        {
+                            "value": "pp-environment-admin",
+                            "text": "I have Power Platform environment admin right"
+                        },
+                        {
+                            "value": "power-bi-pro",
+                            "text": "I have Power BI professional licenses available"
+                        }
+                    ],
+                    "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+                },
+                {
+                    "type": "html",
+                    "html": "Power Platform pre-requistes met",
+                    "visibleIf": "contains({technical-PP},['pp-tenant-admin','pp-environment-admin']) and contains({technical-PP},['power-bi-pro'])"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "technical-ALM",
+                    "title": "Check the best ALM option(s) that apply for you for your Power Automation Desktop Deployments",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "manual",
+                            "text": "We will manual import / export solutions between environments"
+                        },
+                        {
+                            "value": "alm-setup",
+                            "text": "We need to setup ALM process for deployment"
+                        }
+                    ],
+                    "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+                },
+                {
+                    "type": "html",
+                    "html": "Review <a href='https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components' target='blank'>ALM Accelerator</a> for ALM automation install and setup documentation",
+                    "visibleIf": "{technical-ALM} = 'alm-setup'"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "technical-data",
+                    "title": "Check the best data setup option(s) that apply",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "manual",
+                            "text": "We will follow documents to setup and configure Automation Kit data"
+                        },
+                        {
+                            "value": "import",
+                            "text": "We would like to import pre-packaged sample data sets"
+                        }
+                    ],
+                    "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+                },
+                {
+                    "type": "html",
+                    "html": "Review <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit' target='blank'>Configure automation kit</a> learning content",
+                    "visibleIf": "{technical-data} = 'manual'"
+                },
+                {
+                    "type": "html",
+                    "html": "Watch <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='blank'>Sample Import</a> issue for progress",
+                    "visibleIf": "{technical-data} = 'import'"
+                },
+                {
                     "type": "html",
                     "html": "Review walkthrough install videos <a href='https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md' target='blank'>learn more</a>",
                     "visibleIf": "contains({technicalNotInstalled},['Help with install'])"
@@ -124,10 +265,6 @@
                     "name": "haveQuestionsHelped",
                     "type": "boolean",
                     "title": "Have these questions helped?"
-                },
-                {
-                    "type": "html",
-                    "title": "11 {haveQuestionsHelped}"
                 },
                 {
                     "type": "html",
