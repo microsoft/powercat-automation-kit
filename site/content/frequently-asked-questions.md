@@ -39,6 +39,10 @@ The Automation Kit has a focused on the [Automation Lifecycle](https://learn.mic
 
 Absolutely, the ALM Accelerator within the CoE Kit is one example where Power Automate Desktop deployment and integrate with the Automation Kit are a natural combination to automate integration with source control and automate deployment between environments.
 
+### **Question:** How do monitoring options compare?
+
+Review the [Monitoring comparison](/monitoring-compare) page for further information
+
 ## Roadmap
 
 ### **Question:** How can I see what is planned for upcoming releases?
