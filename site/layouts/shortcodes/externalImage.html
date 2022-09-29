@@ -1,0 +1,7 @@
+{{ $imageSrc := .Get "src" }}
+{{ $size := .Get "size" }}
+{{ $text := .Get "text" }}
+
+{{ $image := resources.GetRemote $imageSrc }}
+{{ $image := $image.Resize $size }}
+<img src="{{ $image.RelPermalink | safeURL }}" alt="{{ $text }}"/>

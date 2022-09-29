@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-**Status:** Work In Progress - Under Review
+**Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Work In Progress - Under Review
 
 Use the questions below to compare the monitoring features of out of the box Power Platform Analytics, CoE Kit and Automation Kit monitoring features as at **September 2022**.
 
