@@ -49,35 +49,9 @@ If you want to learn more about what's in the latest release of the Automation K
 
 If you want to learn more about what the Automation Kit team is planning, check out our **[Open Milestones](https://github.com/microsoft/powercat-automation-kit/milestones?state=open)**. We use Automation Kit - _Month_ 2022 to plan our next release, and Automation Kit - Backlog for our unprioritized feature requests. Please comment or upvote feature requests by using reactions.
 
-## Give Kudos
+## Provide feedback
 
-Want to share some feedback on the Automation Kit or a feature and the impact it has had for you? You can submit a [Kudos](https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Ckudos&template=4-automation-kit-kudos.yml&title=%5BAutomation+Kit+-+Kudos%5D+Your+summary) to share your comments with the community.
-
-## Report a Bug or submit a Feature Request
-
-Have you found a bug in the Automation Kit or do you want to suggest a new feature? Either way, please let us now by filing an issue while observing the following guidelines
-
-### Look for an existing issue
-
-Before submitting your issue please search the [issues](https://github.com/microsoft/automation-kit/issues) to ensure your issue has not already been reported
-
-If your bug or feature request has already been reported, join the conversation by commenting and adding your reaction. Please use reactions to vote and not "+1" comments.
-
-- 👍 - upvote
-- 👎 - downvote
-
-### Submitting your Issue
-
-Select the Issue template that matches the solution for which you want to submit an issue.
-
-File a single issue per problem and feature request. Do not enumerate multiple bugs or feature requests in the same issue.
-
-Do not add your issue as a comment to an existing issue unless it's for the identical input. Many issues look similar, but have different causes.
-
-The more information you can provide, the more likely someone will be successful at reproducing the issue and finding a fix.
-
-Observe the inline guidelines of the Issue template.
-
+Visit our starter [feedback](https://microsoft.github.io/powercat-automation-kit/contribution/feedback/) page to discover how to give feedback
 ## Contribute with Code
 
 If you are interested in contributing to the Automation Kit by fixing issues or adding features please read the [How to Contribute](HOW_TO_CONTRIBUTE.md) guide.
