@@ -1,8 +1,11 @@
 # Automation Kit
 
 ![Automation Kit Logo](media/automation-kit.svg)
+<br/>
+<br/>
+![Status: Public Preview](https://microsoft.github.io/powercat-automation-kit/images/illustrations/status-public-preview.svg)
 
-The Power CAT Automation Kit for Power Platform supports an automation CoE. The kit provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions.
+The public preview of the Power CAT Automation Kit for Power Platform supports an automation CoE. The kit provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions.
 
 The Automation Kit is an open-source project made available via GitHub, built on top of Power Platform, but not coupled with Core Engineering platform investments. This kit relies on Power Automate, Power Apps and Dataverse. These core components require customers who choose to implement the kit to have premium Power Platform licenses. The kit provides with users with the the following artifacts:
 
