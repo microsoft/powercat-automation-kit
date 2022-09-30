@@ -14,7 +14,7 @@ Given this context there are multiple ways you can contribute to the project to 
 
 - **Give Feedback** - Attend our [office hours](/office-hours) or create [issues](/contribution/feedback)
 
-- **Improve Our Guidance and Documentation** - Contribute to this site update our [documentation](/contribution/documentation)
+- **Improve Our Guidance and Documentation** - Contribute to the by refering our [documentation](/contribution/documentation) guidance
 
 - **Improve Our Managed solutions** - Provide updates to our Main or Satellite solutions that we include in our releases
 
