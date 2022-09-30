@@ -66,3 +66,13 @@ Review our [Releases](https://github.com/microsoft/powercat-automation-kit/relea
 ### **Question:** How can I be notified of new releases?
 
 You can stay up to date with our releases by subscribing to them in [Latest Release](https://github.com/microsoft/powercat-automation-kit#latest-release)
+
+## Feedback
+
+### **Question:** How contribute to the Automation Kit starter documentation?
+
+Review the [Contribution](/contribution) page for further information
+
+### **Question:** What are other ways to give feedback?
+
+Review the [Feedback](/contribution/feedback) page for further information

@@ -160,11 +160,24 @@
         }        
         return false
     }
+
+    function stringLength(params) {
+        try {
+            return params[0].length
+        } catch {
+            return false
+        }        
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         $(window).scrollTop()
         Survey.FunctionFactory
             .Instance
             .register("contains", contains);
+        Survey.FunctionFactory
+            .Instance
+            .register("len", stringLength);
         Survey.StylesManager.applyTheme("modern");
 
         const converter = new showdown.Converter();
@@ -188,8 +201,6 @@
         $("#questions").Survey({ model: questionModel });
     });
 </script>
-
-
 
     </div>
   </div>

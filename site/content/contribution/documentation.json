@@ -1,0 +1,144 @@
+{
+    "pages": [
+        {
+            "name": "welcome",
+            "elements": [
+                {
+                    "type": "radiogroup",
+                    "name": "tool",
+                    "title": "Which of the following is the best match for you?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "git",
+                            "text": "I am familiar with using command line git"
+                        },
+                        {
+                            "value": "vscode",
+                            "text": "I use Visual Studio Code or Visual Studio and want to download and contribute changes"
+                        },
+                        {
+                            "value": "app",
+                            "text": "I use GitHub application to download and submit changes"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "role",
+                    "title": "What is your role in the Automation Kit project",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "core",
+                            "text": "Core contributor"
+                        },
+                        {
+                            "value": "community",
+                            "text": "GitHub community member"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "Complete the followings commands",
+                    "visibleIf": "{tool} = 'git' and len({role}) > 0"
+                },
+                {
+                    "type": "html",
+                    "title": "Clone the repository",
+                    "html": "git clone https://github.com/microsoft/powercat-automation-kit.git",
+                    "visibleIf": "{tool} = 'git' and {role} = 'core'"
+                },
+                {
+                    "type": "html",
+                    "title": "Fork the repository",
+                    "html": "Complete the <a href='https://docs.github.com/get-started/quickstart/fork-a-repo' target='blank'>Fork a repo</a> to fork the project",
+                    "visibleIf": "{tool} = 'git' and {role} = 'community'"
+                },
+                {
+                    "type": "html",
+                    "title": "Clone the your forked repository",
+                    "html": "git clone https://github.com/YOUR-USERNAME/powercat-automation-kit.git",
+                    "visibleIf": "{tool} = 'git' and {role} = 'community'"
+                },
+                {
+                    "type": "html",
+                    "title": "Switch to gh-pages",
+                    "html": "git checkout gh-pages",
+                    "visibleIf": "{tool} = 'git' and len({role}) > 0"
+                },
+                {
+                    "type": "html",
+                    "title": "Create your branch for changes",
+                    "html": "git checkout -b yourname-gh-pages",
+                    "visibleIf": "{tool} = 'git' and len({role}) > 0"
+                },
+                {
+                    "type": "html",
+                    "title": "Make you changes",
+                    "html": "<b>Edit Changes</b> Make your the changes to markdown and questions",
+                    "visibleIf": "{tool} = 'git' and len({role}) > 0"
+                },
+                {
+                    "type": "html",
+                    "title": "Commit changes",
+                    "html": "git commit -m 'Your summary' .",
+                    "visibleIf": "{tool} = 'git' and len({role}) > 0"
+                },
+                {
+                    "type": "html",
+                    "title": "Push the repository",
+                    "html": "git push",
+                    "visibleIf": "{tool} = 'git' and len({role}) > 0"
+                },
+                {
+                    "type": "html",
+                    "title": "Create pull request",
+                    "html": "Read and complete steps in <a href='https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request' target='blank'>Creating a pull request</a>",
+                    "visibleIf": "{tool} = 'git' and len({role}) > 0"
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "setup-complete",
+                    "title": "GitHub download successfully completed?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "yes",
+                            "text": "Yes"
+                        },
+                        {
+                            "value": "no",
+                            "text": "No"
+                        }
+                    ],
+                    "visibleIf": "{tool} = 'git' and len({role}) > 0"
+                },
+                {
+                    "type": "html",
+                    "html": "<b>Note</b> Visual Studio steps still need to be documented",
+                    "visibleIf": "({tool} = 'vscode') and len({role}) > 0"
+                },
+                {
+                    "type": "html",
+                    "html": "<b>Note</b> GitHub Desktop steps still need to be documented",
+                    "visibleIf": "({tool} = 'app') and len({role}) > 0"
+                },
+                {
+                    "type": "html",
+                    "html": "Review the <a href='/contribution/authoring'>Authoring Guidelines</a>",
+                    "visibleIf": "({setup-complete} = 'yes')"
+                },
+                {
+                    "type": "html",
+                    "html": "<b>TIP:</b> In the site folder use the <b>hugo serve</b> command to view content locally and <b>hugo</b> to build static HTML in docs folder",
+                    "visibleIf": "({setup-complete} = 'yes')"
+                }                
+            ]
+        }
+    ]
+}
