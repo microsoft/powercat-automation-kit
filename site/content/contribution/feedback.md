@@ -8,6 +8,8 @@ include_footer: true
 
 Looking to contribute your feedback to the Automation Kit? You can use the sections below to explore the different feedback types.
 
+{{<toc>}}
+
 ## Give Kudos
 
 Want to share some feedback on the Automation Kit or a feature and the impact it has had for you? You can submit a [Kudos](https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Ckudos&template=4-automation-kit-kudos.yml&title=%5BAutomation+Kit+-+Kudos%5D+Your+summary) to share your comments with the community.
@@ -36,3 +38,7 @@ Do not add your issue as a comment to an existing issue unless it's for the iden
 The more information you can provide, the more likely someone will be successful at reproducing the issue and finding a fix.
 
 Observe the inline guidelines of the Issue template.
+
+## Other Ways to Contribute?
+
+Review our [Contribution](/contribution) guidance page.
