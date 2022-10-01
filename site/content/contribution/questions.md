@@ -140,3 +140,15 @@ The following advantages of this approach includes
 ### **Question** Could this approach be used within a Power App or Power Page?
 
 Absolutely, the same JavaScript and question definitions could be used by creating a [Code Component](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/custom-controls-overview)
+
+### **Question** How can I author the SVG image-task questions?
+
+One option to create the svg files is [Microsoft Visio](https://www.microsoft.com/microsoft-365/visio/) which wll export diagrams to a svg file with the required hyperlinks that is compatible with **image-task** questions.
+
+### **Question** Can I use Microsoft PowerPoint to export image-task questions SVG files?
+
+While Microsoft Power Point can export a slide to a SVG file initial testing shoe it does not export the hyperlinks required to make an interactive **image-task** work successfully.
+
+### **Question** My exported SVG files are large can I make them smaller?
+
+One option for SVG files to make them smaller before committing them to source control. There are multiple tools that can be used to shrink the size of a SVG, one option to consider is [svgo](https://github.com/svg/svgo) a NodeJs based SVG optimizer.

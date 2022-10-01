@@ -20,4 +20,4 @@ Given this context there are multiple ways you can contribute to the project to 
 
 ## Further Reading
 
-- [Authoring Guidelines](/contribution/authoring) - Provide guidelines and notes for authoring contributions to the starter documentation
+- [Authoring Guidelines](/contribution/authoring) - Provides guidelines and notes for authoring contributions to the starter documentation
