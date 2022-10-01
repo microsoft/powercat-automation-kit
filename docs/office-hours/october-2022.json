@@ -1,0 +1,156 @@
+{
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Office-Hours-October-2022"
+        }
+    ],
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "new-topics",
+                    "title": "What topics are of most interest to you to cover in new topics section?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "New documentation",
+                            "text": "New documentation to help get you started"
+                        },
+                        {
+                            "value": "Navigating content",
+                            "text": "Navigating content between starter experience and learn content"
+                        },
+                        {
+                            "value": "Project organization",
+                            "text": "How is this open source run and what to expect"
+                        },
+                        {
+                            "value": "Relationship to kits",
+                            "text": "Relationship to other kits and out of the box features"
+                        },
+                        {
+                            "value": "Getting started",
+                            "text": "How do I get started?"
+                        },
+                        {
+                            "value": "Configuration",
+                            "text": "Configuring Automation Kit data"
+                        },
+                        {
+                            "value": "Automation projects",
+                            "text": "Setting up Automation Projects"
+                        },
+                        {
+                            "value": "Monitoring",
+                            "text": "Monitoring ROI of Automation Projects"
+                        },
+                        {
+                            "value": "Exceptions",
+                            "text": "How to I setup exceptions?"
+                        },
+                        {
+                            "value": "DLP",
+                            "text": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?"
+                        }
+                    ]
+                },
+                {
+                    "name": "ranked-topics",
+                    "type": "ranking",
+                    "title": "Please rank the areas of interest to you",
+                    "visibleIf": "{new-topics.length} > 1",
+                    "choicesFromQuestion": "new-topics",
+                    "choicesFromQuestionMode": "selected",
+                    "isRequired": true
+                },
+                {
+                    "type": "checkbox",
+                    "name": "questions",
+                    "title": "What questions are top of mind for you?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "Kit differences",
+                            "text": "What are the differences between the different kits managed by the Power CAT team?"
+                        },
+                        {
+                            "value": "ALM",
+                            "text": "Do you have examples of end to ALM working with the Automation Kit?"
+                        },
+                        {
+                            "value": "Data",
+                            "text": "Do you have examples of KPIs for my industry?"
+                        },
+                        {
+                            "value": "Roadmap",
+                            "text": "What is the roadmap for the Automation Kit?"
+                        },
+                        {
+                            "value": "FAQ",
+                            "text": "What are frequently asked questions about the Automation Kit?"
+                        },
+                        {
+                            "value": "Install",
+                            "text": "Are you looking to simplify the install experience?"
+                        },
+                        {
+                            "value": "Localization",
+                            "text": "Can you tell me more about localization of Applications and Dashboards?"
+                        }
+                    ]
+                },
+                {
+                    "name": "ranked-questions",
+                    "type": "ranking",
+                    "title": "Please rank the areas of interest to you",
+                    "visibleIf": "{questions.length} > 1",
+                    "choicesFromQuestion": "questions",
+                    "choicesFromQuestionMode": "selected",
+                    "isRequired": true
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Any other feedback?"
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "title": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+                    "label": "Send results?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = false",
+                    "html": "We hope these questions will help you determine an idea of topics or questions if you attend"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve office hours."
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}

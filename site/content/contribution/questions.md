@@ -123,7 +123,7 @@ If the user selects these objects then other elements on the page could be shown
 
 ### **Question** Why has this approach been used rather than Microsoft Forms?
 
-The use of the questions shortcode allows the questions to be part of each page
+The use of the questions shortcode allows the questions to be part of each content page rather than a separate link.
 
 ### **Question** What advantages are there of this approach?
 
