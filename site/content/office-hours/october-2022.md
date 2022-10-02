@@ -24,4 +24,4 @@ Each office hours session is an hour long and has the following format
 
 You can use the interactive set of questions to provide the core Automation Kit team feedback what topics you would like to cover as part of the office hour and private any ask me anything questions.
 
-{{<questions name="/office-hours/october-2022.json" completed="" showNavigationButtons=false >}}
+{{<questions name="/office-hours/october-2022.json" completed="Thank you for completing feedback" showNavigationButtons=false >}}

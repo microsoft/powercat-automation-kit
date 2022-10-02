@@ -1,4 +1,6 @@
 {
+    "checkErrorsMode": "onValueChanging",
+    "completedHtml": "Thank you for completing feedback",
     "triggers": [
         {
             "type": "setvalue",
@@ -18,6 +20,10 @@
                     "hasOther": true,
                     "colCount": 1,
                     "choices": [
+                        {
+                            "value": "Not sure",
+                            "text": "Not sure"
+                        },
                         {
                             "value": "New documentation",
                             "text": "New documentation to help get you started"
@@ -77,6 +83,10 @@
                     "hasOther": true,
                     "colCount": 1,
                     "choices": [
+                        {
+                            "value": "Not sure",
+                            "text": "Not sure"
+                        },
                         {
                             "value": "Kit differences",
                             "text": "What are the differences between the different kits managed by the Power CAT team?"
@@ -138,7 +148,13 @@
                     "inputMask": "email",
                     "name": "register-email",
                     "title": "Your email address to register with",
-                    "visibleIf": "{auto-register} = true"
+                    "visibleIf": "{auto-register} = true",
+                    "isRequired": true,
+                    "validators": [  
+                        {  
+                            "type": "email"  
+                        }  
+                    ] 
                 },
                 {
                     "type": "boolean",
