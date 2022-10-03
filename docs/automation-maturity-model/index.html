@@ -192,6 +192,7 @@
                                 $.ajax({
                                         type: "GET",
                                         url: question.destination,
+                                        cors: true,
                                         success: function (response) {
                                             $.ajax
                                             ({
@@ -199,6 +200,7 @@
                                                 url: response.url,
                                                 dataType: 'json',
                                                 async: false,
+                                                cors: true,
                                                 data: JSON.stringify(question.survey.data),
                                                 success: function (result) {
                                                     question.survey.setValue(question.name + "-status", result.status)
