@@ -195,7 +195,8 @@
                                         type: "GET",
                                         url: question.destination,
                                         headers: {
-                                                "Access-Control-Allow-Origin":"https://powercat-automation-kit.azurewebsites.net"
+                                                "Access-Control-Allow-Origin":"https://powercat-automation-kit.azurewebsites.net",
+                                                "Access-Control-Request-Method":"GET"
                                         },
                                         success: function (response) {
                                             $.ajax
@@ -206,7 +207,8 @@
                                                 async: false,
                                                 cors: true,
                                                 headers: {
-                                                "Access-Control-Allow-Origin":"https://powercat-automation-kit.azurewebsites.net"
+                                                    "Access-Control-Allow-Origin":"https://powercat-automation-kit.azurewebsites.net",
+                                                    "Access-Control-Request-Method":"POST"
                                                 },
                                                 data: JSON.stringify(question.survey.data),
                                                 success: function (result) {
