@@ -16,7 +16,7 @@ The following sections outline technical, design and outcome based guidelines fo
 
 ### Source Control
 
-- You have completed [Documentation](./documentation.md) steps to download and push changes to the GitHub repository
+- You have completed [Documentation](/contribution/documentation) steps to download and push changes to the GitHub repository
 - New changes are pushed to a new branch and have a Pull Request to review changes
 - All documentation should be either markdown, JSon or static assets that can be version controls and reviewed using standard pull requets process
 
