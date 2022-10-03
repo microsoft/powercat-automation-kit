@@ -191,10 +191,10 @@
                         $("#sendFeedback").on("click", function() {
                             if ( question.survey.completeLastPage() ) {
                                 question.survey.setValue(question.name + "-status", 'Sending feedback')
+
                                 $.ajax({
                                         type: "GET",
                                         url: question.destination,
-                                        crossOrigin: true,
                                         success: function (response) {
                                             $.ajax
                                             ({
@@ -202,7 +202,7 @@
                                                 url: response.url,
                                                 dataType: 'json',
                                                 async: false,
-                                                crossOrigin: true,
+                                                cors: true,
                                                 data: JSON.stringify(question.survey.data),
                                                 success: function (result) {
                                                     question.survey.setValue(question.name + "-status", result.status)
@@ -211,11 +211,8 @@
                                                     question.survey.setValue(question.name + "-status", 'Unable to send feedback')
                                                 }
                                             });
-                                        },
-                                        error: function() {
-                                            question.survey.setValue(question.name + "-status", 'Unable to get feedback location')
-                                        }
-                                    }); 
+                                            }
+                                    });
                             } else {
                                 question.survey.setValue(question.name + "-status", 'Validate questions are complete')
                             }
