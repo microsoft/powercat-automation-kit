@@ -193,6 +193,9 @@
                                         type: "GET",
                                         url: question.destination,
                                         cors: true,
+                                        headers: {
+                                        "Access-Control-Allow-Origin":"*"
+                                        },
                                         success: function (response) {
                                             $.ajax
                                             ({
@@ -201,6 +204,9 @@
                                                 dataType: 'json',
                                                 async: false,
                                                 cors: true,
+                                                headers: {
+                                                "Access-Control-Allow-Origin":"*"
+                                                },
                                                 data: JSON.stringify(question.survey.data),
                                                 success: function (result) {
                                                     question.survey.setValue(question.name + "-status", result.status)
