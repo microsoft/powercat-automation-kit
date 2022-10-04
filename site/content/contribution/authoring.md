@@ -32,8 +32,7 @@ Given this goal consider the following:
 
   - Allow users to make use of Development environments to get hands on if a central environment is not available and they want to features before a test or production deployment of the {{<product-name>}}
 
-
-  - Allow usage of Trial environments with easy setup to get hands on with the  {{<product-name>}}
+  - Discuss usage of Trial environments with easy setup to get hands on with the  {{<product-name>}}
 
 - Provide a channel for feedback. Give options for customers to provide input on what we can improve
 

@@ -1,0 +1,435 @@
+{
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Feedback-Install-Checklist"
+        }
+    ],
+    "pages": [
+        {
+            "name": "welcome",
+            "elements": [
+                {
+                    "type": "radiogroup",
+                    "name": "install-type",
+                    "title": "Which type of the install are you trying to make?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "production",
+                            "text": "Production - Install to a production licensed environment"
+                        },
+                        {
+                            "value": "non-production",
+                            "text": "Non production - Install to a development or test environment"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "method",
+                    "title": "Which of the following install method do you want to try?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "development",
+                            "text": "Install to a Power Platform development environment"
+                        },
+                        {
+                            "value": "shared",
+                            "text": "Install to a shared Power Platform environment"
+                        },
+                        {
+                            "value": "trial-30",
+                            "text": "Install into 30 day trial Power Platform environment"
+                        }
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "name": "components",
+                    "title": "Which of the following components did you want to install?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "main",
+                            "text": "The **main solution** that can be used to setup Automation Projects and expected ROI"
+                        },
+                        {
+                            "value": "dashboard",
+                            "text": "A **Power BI dashboard** that reads data from the main environment to display ROI, complexity and monitor solutions"
+                        },
+                        {
+                            "value": "satellite",
+                            "text": "Install **satellite solution** to monitor deployed Power Automate Desktop solution"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "If you are not sure of these components, the <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction' target='_blank'>Automation Kit Introduction</a> can help provide information"
+                },
+                {
+                    "type": "html",
+                    "html": "NOTE: The setup of the satellite solution will require addition <b>Microsoft Azure</b> resources to complete the setup",
+                    "visibleIf": "contains({components}, 'satellite')"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "developmentChecks",
+                    "title": "Which of the following apply?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "dev-lic",
+                            "text": "I want to assign Development license"
+                        },
+                        {
+                            "value": "dev-env",
+                            "text": "I have been assigned a Development environment"
+                        }
+                    ],
+                    "visibleIf": "{method} = 'development'"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "devLicenseEnv",
+                    "title": "Developer License Environment - Select the items below that apply",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "azure-portal",
+                            "text": "Can open the <a href='https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers' target='_blank'>Azure Portal - Users</a>"
+                        },
+                        "Can search for your user name",
+                        "Can open user record",
+                        "Can select 'Licenses' for your user",
+                        {
+                            "value": "dev-lic",
+                            "text": "Can verify that find 'Microsoft Power Apps for Developer' assigned"
+                        },
+                        "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
+                        {
+                            "value": "dev-created",
+                            "text": "Development environment created"
+                        },
+                        {
+                            "value": "unable-to-complete",
+                            "text": "Unable to complete **other** steps"
+                        }
+                    ],
+                    "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-lic')"
+                },
+                {
+                    "type": "html",
+                    "html": "🚫 It looks like you have hit a road block with a developer license. Check if getting a developer or shared environment assigned to you. If this is not option, consider setting up a 30 day trial.",
+                    "visibleIf": "{method} = 'development' and contains({devLicenseEnv}, 'unable-to-complete')"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "devEnvironmentAssigned",
+                    "title": "Developer Assigned Environment - Select the items below that have been done",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "open-envs",
+                            "text": "Can open the <a href='https://admin.powerplatform.microsoft.com/environments' target='_blank'>Environments</a>"
+                        },
+                        {
+                            "value": "dev-created",
+                            "text": "Can verify environment with Type 'Developer' exists"
+                        },
+                        {
+                            "value": "unable-to-complete",
+                            "text": "Unable to complete all **other** steps"
+                        }
+                    ],
+                    "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-env')"
+                },
+                {
+                    "type": "html",
+                    "html": "🚫 It looks like you have hit a road block with a developer environment. Check if getting a developer license or a shared environment assigned are options in your organization. If not consider setting up a 30 day trial with a Non Production installation",
+                    "visibleIf": "{method} = 'development' and contains({devEnvironmentAssigned}, 'unable-to-complete')"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "trial-setup",
+                    "title": "Trial Environment - Select the items below that have been done",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        "Start a <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 free trial</a>",
+                        "Login as free **Dynamics trial admin** created above and sign up for <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Try Microsoft 365 for free</a>",
+                        "As your **Dynamics trial admin** sign up for the <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan</a> to be able to create development environments to install **Main** or **Satellite** solutions",
+                        "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
+                        {
+                            "value": "unable-to-complete",
+                            "text": "Unable to complete **other** steps"
+                        }
+                    ],
+                    "visibleIf": "{method} = 'trial-30'"
+                },
+                {
+                    "type": "html",
+                    "html": "🚫 It looks like you have hit a road block with a trial setup. Check if you can get a developer or shared environment assigned within you organization.",
+                    "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+                },
+                {
+                    "type": "comment",
+                    "name": "trial-setup-more-information",
+                    "title": "Would you like to provide more information on what problems you encountered?",
+                    "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "environmentSteps",
+                    "title": "Environment Setup - Select the items below that apply",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "admin-rights",
+                            "text": "I have environment administrator rights",
+                            "visibleIf": "({method} = 'shared')"
+                        },
+                        {
+                            "value": "no-admin",
+                            "text": "I DO NOT have environment administrator rights",
+                            "visibleIf": "({method} = 'shared')"
+                        },
+                        {
+                            "value": "code-components",
+                            "text": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information"
+                        },
+                        {
+                            "value": "creator-kit",
+                            "text": "I have (or an environment administrator) has installed the creator kit using <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator Kit Import</a> learn information"
+                        },
+                        {
+                            "value": "main-creator-kit",
+                            "text": "I have setup creator kit for **main** environment",
+                            "visibleIf": "contains({components},'main')"
+                        },
+                        {
+                            "value": "main-creator-kit",
+                            "text": "I have setup creator kit for EACH **satellite** environment",
+                            "visibleIf": "contains({components},'satellite')"
+                        },
+                        {
+                            "value": "unable-to-complete",
+                            "text": "Unable to complete **other** steps"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "🚫 It looks like you have hit a road block with a environment setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. If this is not an option you could consider setting up a 30 day trial. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+                    "visibleIf": "contains({environmentSteps},'unable-to-complete')"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "mainSetup",
+                    "title": "Main Solution Environment - Select the items below that have been done",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "admin-rights",
+                            "text": "I have admin rights the shared environment",
+                            "visibleIf": "({method} = 'shared')"
+                        },
+                        {
+                            "value": "no-admin",
+                            "text": "I DO NOT have environment administrator rights",
+                            "visibleIf": "({method} = 'shared')"
+                        },
+                        {
+                            "value": "code-components",
+                            "text": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                            "visibleIf": "({method} = 'shared')"
+                        },
+                        {
+                            "value": "creator-kit",
+                            "text": "I have imported the creator kit <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator kit import</a> using the learn steps into each satellite environment"
+                        },
+                        {
+                            "value": "solution-import",
+                            "text": "I successfully imported the solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-main-solution-into-the-main-environment' target='_blank'>Learn</a>"
+                        },
+                        {
+                            "value": "approvals",
+                            "text": "I successfully provisioned the approvals solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#provision-the-approvals-solution-optional' target='_blank'>Learn</a>"
+                        },
+                        {
+                            "value": "assign-security-roles",
+                            "text": "I successfully assigned the security roles using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#assign-security-roles' target='_blank'>Learn</a>"
+                        },
+                        {
+                            "value": "sync-environments",
+                            "text": "I successfully sync the environments using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#sync-environments' target='_blank'>Learn</a>"
+                        },
+                        {
+                            "value": "desktop-flow-actions",
+                            "text": "I successfully imported the desktop flow actions in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-desktop-flow-actions-csv' target='_blank'>Learn</a>"
+                        },
+                        {
+                            "value": "configured-kit",
+                            "text": "I successfully used the automation kit steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit' target='_blank'>Use the Automation Kit</a>"
+                        },
+                        {
+                            "value": "unable-to-complete",
+                            "text": "Unable to complete **other** steps"
+                        }
+                    ],
+                    "visibleIf": "contains({components},'main')"
+                },
+                {
+                    "type": "html",
+                    "html": "🚫 It looks like you have hit a road block with a main solution setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+                    "visibleIf": "contains({mainSetup},'unable-to-complete')"
+                },
+                {
+                    "type": "comment",
+                    "name": "main-setup-more-information",
+                    "title": "Would you like to provide more information on what problems you encountered?",
+                    "visibleIf": "contains({mainSetup},'unable-to-complete')"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "dashboardSetup",
+                    "title": "Dashboard setup - Select the items below that have been done",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "powerbi-install",
+                            "text": "Review the Power BI desktop install instructions at <a href='/get-started/install-powerbi-dashboard' target='_blank'>Setup Automation Kit Power BI dashboard</a>."
+                        },
+                        {
+                            "value": "unable-to-complete",
+                            "text": "Unable to complete **other** steps"
+                        }
+                    ],
+                    "visibleIf": "contains({components},'dashboard')"
+                },
+                {
+                    "type": "html",
+                    "html": "🚫 It looks like you have hit a road block with the Power BI dashboard setup. You could look at creating an issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+                    "visibleIf": "contains({components},'dashboard') and contains({dashboardSetup},'unable-to-complete')"
+                },
+                {
+                    "type": "comment",
+                    "name": "dashboard-setup-more-information",
+                    "title": "Would you like to provide more information on what problems you encountered?",
+                    "visibleIf": "contains({mainSetup},'unable-to-complete')"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "satelliteSetup",
+                    "title": "Satellite Solution Environment - Select the items below that have been done",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "admin-rights",
+                            "text": "I have admin rights the shared environment",
+                            "visibleIf": "({method} = 'shared')"
+                        },
+                        {
+                            "value": "no-admin",
+                            "text": "I DO NOT have environment administrator rights",
+                            "visibleIf": "({method} = 'shared')"
+                        },
+                        {
+                            "value": "code-components",
+                            "text": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                            "visibleIf": "({method} = 'shared')"
+                        },
+                        {
+                            "value": "creator-kit",
+                            "text": "I have imported the creator kit <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator kit import</a> using the learn steps into each satellite environment"
+                        },
+                        {
+                            "value": "aad",
+                            "text": "I created the Azure Active Directory application and secret from <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-an-azure-ad-app-registration-to-connect-to-dataverse-web-api' target='_blank'>Learn</a>"
+                        },
+                        {
+                            "value": "aad-user-setup",
+                            "text": "I have setup the application user in the satellite environment <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-application-user-inside-dataverse-per-satellite-env' target='_blank'>Learn</a>"
+                        },
+                        {
+                            "value": "solution-import",
+                            "text": "I successfully imported the solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#import-the-satellite-solution-into-the-satellite-environment' target='_blank'>Learn</a>"
+                        },
+                        {
+                            "value": "desktop-flow-actions",
+                            "text": "I successfully imported the desktop flow actions in <a href='https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite#import-the-desktop-flow-actions-csv' target='_blank'>Learn</a>"
+                        },
+                        {
+                            "value": "setup-environment-variables",
+                            "text": "I have setup environment as described in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables' target='_blank'>Environment variables</a>"
+                        },
+                        {
+                            "value": "unable-to-complete",
+                            "text": "Unable to complete **other** steps"
+                        }
+                    ],
+                    "visibleIf": "contains({components},'satellite')"
+                },
+                {
+                    "type": "html",
+                    "html": "🚫 It looks like you have hit a road block with a satellite setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+                    "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+                },
+                {
+                    "type": "comment",
+                    "name": "satellite-setup-more-information",
+                    "title": "Would you like to provide more information on what problems you encountered?",
+                    "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "label": "Do you want to send the results of the your install check list so that the Core Automation Kit team can learn what worked?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = false",
+                    "html": "We hope this checklist helped you with the non production install"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our getting started guidance"
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Did you have any other feedback?",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}
