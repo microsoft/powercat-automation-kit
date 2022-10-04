@@ -1,6 +1,6 @@
 ---
 title: Install Checklist
-description: Automation Kit Non Production Install
+description: Automation Kit Install Checklist
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
