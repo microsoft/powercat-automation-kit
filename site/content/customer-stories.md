@@ -8,7 +8,7 @@ include_footer: true
 
 # Introduction
 
-Want to see how customers or partners have used with the [Automation Kit](https://aka.ms/ak4pp)? This page will reference public customer stories and feedback using the Automation Kit.
+Want to see how customers or partners have used with the [{{<product-name>}}](https://aka.ms/ak4pp)? This page will reference public customer stories and feedback using the {{<product-name>}}.
 
 ## Cineplex
 

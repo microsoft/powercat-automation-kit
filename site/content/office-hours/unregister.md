@@ -6,6 +6,6 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-Please use the question below to cancel your auto registration for Automation Kit for Power Platform. We will send you a confirmation code that you can use to [confirm unregistration](/office-hours/unregister-confirm)
+Please use the question below to cancel your auto registration for {{<product-name>}}. We will send you a confirmation code that you can use to [confirm unregistration](/office-hours/unregister-confirm)
 
 {{<questions name="/office-hours/unregister.json" completed="Thank you for completing unregistration questions" showNavigationButtons=false >}}

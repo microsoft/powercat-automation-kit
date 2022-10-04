@@ -6,17 +6,17 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-Looking to contribute your feedback to the Automation Kit? You can use the sections below to explore the different feedback types.
+Looking to contribute your feedback to the {{<product-name>}}? You can use the sections below to explore the different feedback types.
 
 {{<toc>}}
 
 ## Give Kudos
 
-Want to share some feedback on the Automation Kit or a feature and the impact it has had for you? You can submit a [Kudos](https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Ckudos&template=4-automation-kit-kudos.yml&title=%5BAutomation+Kit+-+Kudos%5D+Your+summary) to share your comments with the community.
+Want to share some feedback on the {{<product-name>}} or a feature and the impact it has had for you? You can submit a [Kudos](https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Ckudos&template=4-automation-kit-kudos.yml&title=%5BAutomation+Kit+-+Kudos%5D+Your+summary) to share your comments with the community.
 
 ## Report a Bug or submit a Feature Request
 
-Have you found a bug in the Automation Kit or do you want to suggest a new feature? Either way, please let us now by filing an issue while observing the following guidelines
+Have you found a bug in the {{<product-name>}} or do you want to suggest a new feature? Either way, please let us now by filing an issue while observing the following guidelines
 
 ### Look for an existing issue
 

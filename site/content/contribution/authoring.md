@@ -14,11 +14,34 @@ The following sections outline guidelines and notes for authoring starter docume
 
 The following sections outline technical, design and outcome based guidelines for authoring contributions
 
+## Goals
+
+As we build our documentation is it important to consider how we enable our readers to **Fall into the pit of success**.
+
+Brad Abrams defined [The Pit of Success in 2003](https://web.archive.org/web/20160705182659/https://blogs.msdn.microsoft.com/brada/2003/10/02/the-pit-of-success/) as
+
+> The Pit of Success: in stark contrast to a summit, a peak, or a journey across a desert to find victory through many trials
+> and surprises, we want our customers to simply fall into winning practices
+> by using our platform and frameworks. To the extent that we make it easy to get into trouble we fail.
+
+Given this goal consider the following:
+
+- Provide a "no cliffs experience"
+
+  - Help Administrators and Central governance teams create a self-service model of using {{<product-name>}}
+
+  - Allow users to make use of Development environments to get hands on if a central environment is not available and they want to features before a test or production deployment of the {{<product-name>}}
+
+
+  - Allow usage of Trial environments with easy setup to get hands on with the  {{<product-name>}}
+
+- Provide a channel for feedback. Give options for customers to provide input on what we can improve
+
 ### Source Control
 
 - You have completed [Documentation](/contribution/documentation) steps to download and push changes to the GitHub repository
 - New changes are pushed to a new branch and have a Pull Request to review changes
-- All documentation should be either markdown, JSon or static assets that can be version controls and reviewed using standard pull requets process
+- All documentation should be either markdown, JSon or static assets that can be version controls and reviewed using standard pull request process
 
 ## Design Guidelines
 
@@ -44,10 +67,10 @@ Read the [Site Configuration](/contribution/site-configuration) for more informa
   - Share Point
   - Azure Static Websites
 
-- The the approach can be used as a templates by Partners or Customers to build "Documentation Packs" to accelerate nuture phase of Automation Kit documentation
+- The the approach can be used as a templates by Partners or Customers to build "Documentation Packs" to accelerate nuture phase of {{<product-name>}} documentation
 - Provide the ability for multiple users of the documentation (e.g. Customer and Partner Center of Excellence teams)
 - Allow user provided content to be included
-- Allow upgrade process that allows new changes to be pulled from Automation Kit starter documentation
+- Allow upgrade process that allows new changes to be pulled from {{<product-name>}} starter documentation
 
 ## Markdown Pages
 
@@ -199,7 +222,7 @@ To customize the home page image to a Status: Public preview badge I do the foll
 
 ### **Question** Why was Hugo selected?
 
-[Hugo](https://gohugo.io/) is a popular static site generator that allows content of the Automation Kit starter documentation to be transformed to static HTML that can be hosted in GitHub Pages
+[Hugo](https://gohugo.io/) is a popular static site generator that allows content of the {{<product-name>}} starter documentation to be transformed to static HTML that can be hosted in GitHub Pages
 
 ### **Question** Why did you not select some other static site generator?
 
@@ -211,7 +234,7 @@ One design aim was to integrate the question process directly into the content.
 
 ### **Question** Why GitHub pages to host content?
 
-The source code for the Automation Kit already exists on GitHub and the native GitHub pages support was one choice of where to host the content.
+The source code for the {{<product-name>}} already exists on GitHub and the native GitHub pages support was one choice of where to host the content.
 
 ### **Question** Why is this content not on http://learn.microsoft.com?
 
@@ -225,7 +248,7 @@ The source code for the Automation Kit already exists on GitHub and the native G
 
 ### **Question** Why is approach not applied to other Power CAT projects?
 
-The Automation kit is experimenting with this channel of documentation to compliment and link to our existing [Learning content](https://aka.ms/automation-kit-learn). Based on the feedback and outcome of this experiment we will evaluate if other Power CAT managed projects will adopt a similar approach.
+The {{<product-name>}} is experimenting with this channel of documentation to compliment and link to our existing [Learning content](https://aka.ms/automation-kit-learn). Based on the feedback and outcome of this experiment we will evaluate if other Power CAT managed projects will adopt a similar approach.
 
 ### **Question** How do I see open documentation issues?
 

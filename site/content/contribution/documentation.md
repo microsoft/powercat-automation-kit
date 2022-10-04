@@ -8,7 +8,7 @@ include_footer: true
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Work In Progress - Under Review
 
-Learn how to start making a contribution to the starter documentation for the Automation Kit.
+Learn how to start making a contribution to the starter documentation for the {{<product-name>}}.
 
 ## Setup
 

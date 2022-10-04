@@ -8,7 +8,7 @@ include_footer: true
 
 # Introduction
 
-This page contains a set of frequently asked questions related to the Automation Kit. If you cannot find an answer to a question you have consider creating a [Feature Request](https://github.com/microsoft/powercat-automation-kit/issues/new/choose) to update this page.
+This page contains a set of frequently asked questions related to the {{<product-name>}}. If you cannot find an answer to a question you have consider creating a [Feature Request](https://github.com/microsoft/powercat-automation-kit/issues/new/choose) to update this page.
 
 Question groups in this page:
 {{< toc >}}
@@ -21,23 +21,23 @@ Refer to our [Get Started](/get-started) page for more information.
 
 ## Support
 
-### **Question:** How do I get support installing or operating the Automation Kit?
+### **Question:** How do I get support installing or operating the {{<product-name>}}?
 
 Refer to out [Support](/support) page for more information.
 
 ## Automation Center of Excellence
 
-### **Question:** How is the Automation Kit related to the [CoE Kit](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit)?
+### **Question:** How is the {{<product-name>}} related to the [CoE Kit](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit)?
 
 They are complimentary solutions that your Center of Excellence team may install to help manage your Low Code Environment.
 
-### **Question:** Why is the Automation Kit not a another modules of the [CoE Kit](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit)?
+### **Question:** Why is the {{<product-name>}} not a another modules of the [CoE Kit](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit)?
 
-The Automation Kit has a focused on the [Automation Lifecycle](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle). As indicated in the [Automation Center Of Excellence](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-center-of-excellence) each of the kits meet the needs of different components and activities of the overall process.
+The {{<product-name>}} has a focused on the [Automation Lifecycle](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle). As indicated in the [Automation Center Of Excellence](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-center-of-excellence) each of the kits meet the needs of different components and activities of the overall process.
 
-### **Question:** Can the Automation Kit and [CoE Kit](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit) be used together?
+### **Question:** Can the {{<product-name>}} and [CoE Kit](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit) be used together?
 
-Absolutely, the ALM Accelerator within the CoE Kit is one example where Power Automate Desktop deployment and integrate with the Automation Kit are a natural combination to automate integration with source control and automate deployment between environments.
+Absolutely, the ALM Accelerator within the CoE Kit is one example where Power Automate Desktop deployment and integrate with the {{<product-name>}} are a natural combination to automate integration with source control and automate deployment between environments.
 
 ### **Question:** How do monitoring options compare?
 
@@ -53,9 +53,9 @@ Review our [Open Milestones](https://github.com/microsoft/powercat-automation-ki
 
 Review our [Closed Milestones](https://github.com/microsoft/powercat-automation-kit/milestones?state=closed)
 
-### **Question:** How can I see what is on the Automation Kit Backlog?
+### **Question:** How can I see what is on the {{<product-name>}} Backlog?
 
-Review our [Automation Kit Project backlog](https://github.com/orgs/microsoft/projects/486/views/1)
+Review our [{{<product-name>}} Project backlog](https://github.com/orgs/microsoft/projects/486/views/1)
 
 ## Release
 
@@ -69,7 +69,7 @@ You can stay up to date with our releases by subscribing to them in [Latest Rele
 
 ## Feedback
 
-### **Question:** How contribute to the Automation Kit starter documentation?
+### **Question:** How contribute to the {{<product-name>}} starter documentation?
 
 Review the [Contribution](/contribution) page for further information
 

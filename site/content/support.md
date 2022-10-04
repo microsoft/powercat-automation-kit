@@ -12,7 +12,7 @@ The [Getting Started Guidance](/get-started) provides some interactive questions
 
 ## Getting further support
 
-Guidance on getting further support for the Automation Kit:
+Guidance on getting further support for the {{<product-name>}}:
 
 - Refer to our [Feedback and support](https://learn.microsoft.com/power-automate/guidance/automation-kit/feedback-support) page for general guidance
 
@@ -28,4 +28,4 @@ Guidance on getting further support for the Automation Kit:
 
 ## Power CAT Team
 
-The core Power CAT team are unable to do custom troubleshooting or consulting to a broader audience. If you are experiencing issues with or have questions about the Automation Kit for Power Platform, Join our [Office Hours](/office-hours) or instead raise your issue or questions via [https://aka.ms/ak4pp-issues](https://aka.ms/ak4pp-issues)
+The core Power CAT team are unable to do custom troubleshooting or consulting to a broader audience. If you are experiencing issues with or have questions about the {{<product-name>}}, Join our [Office Hours](/office-hours) or instead raise your issue or questions via [https://aka.ms/ak4pp-issues](https://aka.ms/ak4pp-issues)

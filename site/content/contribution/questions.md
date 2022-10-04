@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-This page contains information the format used to author interactive questions that are included as part of the Automation Kit starter.
+This page contains information the format used to author interactive questions that are included as part of the {{<product-name>}} starter.
 
 {{<toc>}}
 
@@ -34,7 +34,7 @@ To embed a set of questions in your page your can add the following to your mark
 
 ## Custom Functions
 
-The Automation Kit also includes some additional functions you can use inside expressions.
+The {{<product-name>}} also includes some additional functions you can use inside expressions.
 
 ### len
 
@@ -80,7 +80,7 @@ Will make element visible if one of the roles selected is maker or architect
 
 ### Image Task
 
-The Automation Kit also includes the **image-task** custom widget. This widget can be included in your question elements using the following json snippet.
+The {{<product-name>}} also includes the **image-task** custom widget. This widget can be included in your question elements using the following json snippet.
 
 ```json
 {
