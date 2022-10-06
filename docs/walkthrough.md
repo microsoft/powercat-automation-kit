@@ -2,8 +2,6 @@
 
 In this document we provide a walkthrough videos of the Automation Kit prerequisites, features and "how to" videos related to the Automation Kit
 
-❗ NOTE: To view the videos below you may need to be signed in as a :octocat: GitHub user.
-
 ## Prerequistes
 
 Walkthrough video for installation and verification of the Creators Kit dependency for the Automation Kit
