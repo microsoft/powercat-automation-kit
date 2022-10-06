@@ -6,21 +6,13 @@ In this document we provide a walkthrough videos of the Automation Kit prerequis
 
 ## Prerequistes
 
-Walkthrough video for installation and verification of the Creators Kit dependancy for the Automation Kit
+Walkthrough video for installation and verification of the Creators Kit dependency for the Automation Kit
 
-<br/>
+<a href='https://www.youtube.com/watch?v=xUH-SMCP_1w&list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy&index=2' target='_blank'>
 
-<summary class="px-3 py-2">
-    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
-    <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
-</svg>
-    <span aria-label="Video description 1-Prerequisites-CreatorKit.mp4" class="m-1">1-Prerequisites-CreatorKit.mp4</span>
-    <span class="dropdown-caret"></span>
-</summary>
+![Prerequistes Video](https://img.youtube.com/vi/xUH-SMCP_1w/0.jpg)
 
-<video src="https://user-images.githubusercontent.com/31553604/190863687-3b448056-fe4e-46f2-8e1b-640d4c59171f.mp4" data-canonical-src="https://user-images.githubusercontent.com/31553604/190863687-3b448056-fe4e-46f2-8e1b-640d4c59171f.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;">
-
-</video>
+</a>
 
 ## Main Solution Setup
 
@@ -36,17 +28,11 @@ Walkthrough of the setup process for the Main solution including discussion of:
 
 <br/>
 
-<summary class="px-3 py-2">
-<svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
-<path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
-</svg>
-<span aria-label="Video description 2-Setup-AutoCoE-Main.mp4" class="m-1">2-Setup-AutoCoE-Main.mp4</span>
-<span class="dropdown-caret"></span>
-</summary>
+<a href='https://www.youtube.com/watch?v=sB9iwzL3rYs&list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy&index=3' target='_blank'>
 
-<video src="https://user-images.githubusercontent.com/31553604/190866377-8059f97d-f303-42d6-a797-8c576fcdc2af.mp4" data-canonical-src="https://user-images.githubusercontent.com/31553604/190866377-8059f97d-f303-42d6-a797-8c576fcdc2af.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;">
+![Main Install Video](https://img.youtube.com/vi/sB9iwzL3rYs/0.jpg)
 
-</video>
+</a>
 
 ## Satellite Solution Setup
 
@@ -66,31 +52,23 @@ Walkthrough video of the setup process for the Satellite solution including disc
 
 <br/>
 
-<summary class="px-3 py-2">
-    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
-    <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
-</svg>
-    <span aria-label="Video description 3-Setup-AutoCoE-Satellite-Part1.mp4" class="m-1">3-Setup-AutoCoE-Satellite-Part1.mp4</span>
-    <span class="dropdown-caret"></span>
-  </summary>
+<br/>
 
-  <video src="https://user-images.githubusercontent.com/31553604/190873768-a110ee7c-b35c-4096-bb18-9a956416b175.mp4" data-canonical-src="https://user-images.githubusercontent.com/31553604/190873768-a110ee7c-b35c-4096-bb18-9a956416b175.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;">
+<a href='https://www.youtube.com/watch?v=IlmcQaU5jBo&list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy&index=4' target='_blank'>
 
-  </video>
+![Part 1 - Setup and Import](https://img.youtube.com/vi/IlmcQaU5jBo/0.jpg)
+
+</a>
 
 ### Part 2 - Environment Variables
 
 <br/>
 
-<summary class="px-3 py-2">
-    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
-    <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
-</svg>
-    <span aria-label="Video description 3-Setup-AutoCoE-Satellite-Part1.mp4" class="m-1">3-Setup-AutoCoE-Satellite-Part1.mp4</span>
-    <span class="dropdown-caret"></span>
-</summary>
+<a href='https://www.youtube.com/watch?v=xWOi_A341T0&list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy&index=5' target='_blank'>
 
-<video src="https://user-images.githubusercontent.com/31553604/190873768-a110ee7c-b35c-4096-bb18-9a956416b175.mp4" data-canonical-src="https://user-images.githubusercontent.com/31553604/190873768-a110ee7c-b35c-4096-bb18-9a956416b175.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;">
+![Part 2 - Setup and Import](https://img.youtube.com/vi/xWOi_A341T0/0.jpg)
+
+</a>
 
 </video>
 
@@ -116,17 +94,11 @@ Walkthrough video that discusses:
 
 <br/>
 
-<summary class="px-3 py-2">
-    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
-    <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
-</svg>
-    <span aria-label="Video description 5-Setup-AutoCoE-ConfigurationData.mp4" class="m-1">5-Setup-AutoCoE-ConfigurationData.mp4</span>
-    <span class="dropdown-caret"></span>
-</summary>
+<a href='https://www.youtube.com/watch?v=QmNWtau4AAI&list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy&index=6' target='_blank'>
 
-<video src="https://user-images.githubusercontent.com/31553604/190874663-97b2fad4-7e34-4884-91e4-8e5971a50bf0.mp4" data-canonical-src="https://user-images.githubusercontent.com/31553604/190874663-97b2fad4-7e34-4884-91e4-8e5971a50bf0.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;">
+![Part 2 - Setup and Import](https://img.youtube.com/vi/QmNWtau4AAI/0.jpg)
 
-</video>
+</a>
 
 ## How To - End to End Automation Project
 
@@ -148,17 +120,11 @@ Walkthrough video that covers discussion of the following:
 
 <br/>
 
-<summary class="px-3 py-2">
-    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
-    <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
-</svg>
-    <span aria-label="Video description EndToEndProjectRequest.mp4" class="m-1">EndToEndProjectRequest.mp4</span>
-    <span class="dropdown-caret"></span>
-</summary>
+<a href='https://www.youtube.com/watch?v=CB91k3IhRCI&list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy&index=1' target='_blank'>
 
-<video src="https://user-images.githubusercontent.com/31553604/190875175-65cead4b-02e6-484e-9b7d-a79b2f9f2977.mp4" data-canonical-src="https://user-images.githubusercontent.com/31553604/190875175-65cead4b-02e6-484e-9b7d-a79b2f9f2977.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;">
+![End to End Project Request](https://img.youtube.com/vi/CB91k3IhRCI/0.jpg)
 
-</video>
+</a>
 
 ## How To - Configure Flow Exceptions Framework
 
@@ -174,14 +140,8 @@ Walkthrough video that covers discussion of the following:
 
 <br/>
 
-<summary class="px-3 py-2">
-    <svg aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-device-camera-video">
-    <path fill-rule="evenodd" d="M16 3.75a.75.75 0 00-1.136-.643L11 5.425V4.75A1.75 1.75 0 009.25 3h-7.5A1.75 1.75 0 000 4.75v6.5C0 12.216.784 13 1.75 13h7.5A1.75 1.75 0 0011 11.25v-.675l3.864 2.318A.75.75 0 0016 12.25v-8.5zm-5 5.075l3.5 2.1v-5.85l-3.5 2.1v1.65zM9.5 6.75v-2a.25.25 0 00-.25-.25h-7.5a.25.25 0 00-.25.25v6.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-4.5z"></path>
-</svg>
-    <span aria-label="Video description FlowExceptionFramework.mp4" class="m-1">FlowExceptionFramework.mp4</span>
-    <span class="dropdown-caret"></span>
-</summary>
+<a href='https://www.youtube.com/watch?v=NJ8OrO9miHk&list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy&index=7' target='_blank'>
 
-<video src="https://user-images.githubusercontent.com/31553604/190875411-01954c92-51d7-47ba-bd71-3eab763c3074.mp4" data-canonical-src="https://user-images.githubusercontent.com/31553604/190875411-01954c92-51d7-47ba-bd71-3eab763c3074.mp4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px;">
+![End to End Project Request](https://img.youtube.com/vi/NJ8OrO9miHk/0.jpg)
 
-</video>
+</a>
