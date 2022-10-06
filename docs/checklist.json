@@ -5,6 +5,12 @@
             "expression": "contains({roles},['All', 'Center Of Excellence']) = false",
             "setToName": "non-technical",
             "setValue": true
+        },
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Feedback-Get-Started-Checklist"
         }
     ],
     "pages": [
@@ -287,13 +293,42 @@
                 },
                 {
                     "type": "html",
-                    "html": "Consider creating a <a href='https://github.com/microsoft/powercat-automation-kit/issues/new/choose' target='_blank'>New feature Request</a> describing what additional questions / guides that could be added to help with getting started",
+                    "html": "Consider giving feedback below on how we can improve",
                     "visibleIf": "{haveQuestionsHelped}=False"
                 },
                 {
                     "type": "html",
-                    "html": "Consider creating a <a href='https://github.com/microsoft/powercat-automation-kit/issues/new/choose' target='_blank'>New Kudos</a> or comment on an <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Akudos' target='_blank'>existing Kudos</a> to provide feedback",
+                    "html": "Consider giving feedback below or create a <a href='https://github.com/microsoft/powercat-automation-kit/issues/new/choose' target='_blank'>New Kudos</a> or comment on an <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Akudos' target='_blank'>existing Kudos</a> to provide feedback",
                     "visibleIf": "{haveQuestionsHelped}=True"
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "label": "Do you want to send the results of the your check list so that the Core Automation Kit team can gather your feedback to improve the process?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our getting started guidance"
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Did you have any other feedback?",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
                 }
             ]
         }
