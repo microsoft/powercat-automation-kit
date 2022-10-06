@@ -18,4 +18,4 @@ The [Automation Center of Excellence strategy with the {{<product-name>}}](https
 
 Use the following questions to help guide you through the getting started process
 
-{{<questions name="checklist.json" completed="Thank you for completing checklist" showNavigationButtons=false >}}
+{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
