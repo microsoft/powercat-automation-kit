@@ -1,5 +1,5 @@
 ---
-title: September 2022 Release
+title: October 2022 Release
 description: Automation Kit - September
 sidebar: false
 sidebarlogo: fresh-white
