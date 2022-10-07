@@ -20,7 +20,7 @@ Guidance on getting further support for the {{<product-name>}}:
 
 - Use the [Automation Kit Issues](https://aka.ms/ak4pp-issues) templates for search for known Bugs / Feature gaps. If you do not find a match for your issue look to create a new issue using one of the supplied templates
 
-- Use our [walkthrough videos](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) to assist you with show how installation process works
+- Use our [walkthrough videos](n each milestone due to priority bugs or features) to assist you with show how installation process works
 
 - Join our [Office Hours](/office-hours) to ask questions on common issues or product roadmap
 
