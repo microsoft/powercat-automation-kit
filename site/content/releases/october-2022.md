@@ -10,6 +10,10 @@ include_footer: true
 
 The October release (upbeat-dhawan) of the {{<product-name>}} is the second public preview release. This release is a **documentation only** release and the release assets remain unchanged since the September release.
 
+## Get Started
+
+Try out [Get Started Guide](/get-started) or join our [Office Hours](/office-hours)
+
 ## Prior Release
 
 - [September 2022](/releases/september-2022) (vibrant-elion)

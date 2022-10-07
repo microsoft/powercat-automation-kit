@@ -14,6 +14,10 @@ Stretch goals that may be included based on priority and customer feedback:
 
 - CoE Kit ALM Accelerator integration samples
 
+## Get Started
+
+Try out [Get Started Guide](/get-started) or join our [Office Hours](/office-hours)
+
 ## Prior Release
 
 - [October 2022](/releases/october-2022) (upbeat-dhawan)

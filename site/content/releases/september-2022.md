@@ -10,6 +10,10 @@ include_footer: true
 
 The September release (vibrant-elion) of the {{<product-name>}} is the first public preview release.
 
+## Get Started
+
+Try out [Get Started Guide](/get-started) or join our [Office Hours](/office-hours)
+
 ## Prior Release
 
 - Private private previews
