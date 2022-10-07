@@ -13,7 +13,9 @@ The page contains links to the release history for the {{<product-name>}}.
 ### Planned
 
 - [October 2022](/releases/october-2022) - (upbeat-dhawan)
+
 - [November 2022](/releases/november-2022) - (sharp-archimedes)
+
 - December 2022 - (zealous-antonelli)
 
 ### Released

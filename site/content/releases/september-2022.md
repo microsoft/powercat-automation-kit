@@ -12,10 +12,10 @@ The September release (vibrant-elion) of the {{<product-name>}} is the first pub
 
 - Private private previews
 
-- ## Next Release
-n each milestone due to priority bugs or features
-- [November 2022](/releases/october-2022) (upbeat-dhawan)
-n each milestone due to priority bugs or features
+## Next Release
+
+- [October 2022](/releases/october-2022) (upbeat-dhawan)
+
 ## Key Notes
 
 Key notes for the September 2022 release:

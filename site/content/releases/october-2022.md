@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-The October release (upbeat-dhawan) of the {{<product-name>}} is the second public preview release. This release is a **documentation only** release and the release assets remain unchanged since the September release
+The October release (upbeat-dhawan) of the {{<product-name>}} is the second public preview release. This release is a **documentation only** release and the release assets remain unchanged since the September release.
 
 ## Prior Release
 
