@@ -22,7 +22,7 @@ Key notes for the September 2022 release:
 
 - For customers upgrading from the April private preview release the [Private Preview Upgrade](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/private-preview-upgrade.md) include notes on steps required to unregister plugin actions no longer required in the September public preview release.
 
--❗IMPORTANT❗Ensure that the Creators Kit is installed and verified prior to installation or upgrade. The [Prerequisites Walkthrough Video](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) describes this step.
+>❗IMPORTANT❗Ensure that the Creators Kit is installed and verified prior to installation or upgrade. The [Prerequisites Walkthrough Video](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) describes this step.
 
 - The [Walkthrough Instructions](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) includes a visual guide on the setup and installation process
 
