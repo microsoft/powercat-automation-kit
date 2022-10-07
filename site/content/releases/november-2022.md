@@ -6,11 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
+![Sharp Archimedes](/images/illustrations/icons/sharp-archimedes.svg)
+
 The November release (sharp-archimedes) of the {{<product-name>}} is the third public preview release. This release is expected to include bug fixes and a focus on improving the installation experience.
 
-Stretch goals for prioritization based and customer feedback
+Stretch goals that may be included based on priority and customer feedback:
 
-- ALM Accelerator integration samples
+- CoE Kit ALM Accelerator integration samples
 
 ## Prior Release
 
