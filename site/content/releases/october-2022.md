@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-![Upbeat Dhawan](/images/illustrations/icons/upbeat-dhawan.svg)
+![Upbeat Dhawan](/images/upbeat-dhawan.png)
 
 The October release (upbeat-dhawan) of the {{<product-name>}} is the second public preview release. This release is a **documentation only** release and the release assets remain unchanged since the September release.
 

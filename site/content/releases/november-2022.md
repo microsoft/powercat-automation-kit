@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-![Sharp Archimedes](/images/illustrations/icons/sharp-archimedes.svg)
+![Sharp Archimedes](/images/sharp-archimedes.png)
 
 The November release (sharp-archimedes) of the {{<product-name>}} is the third public preview release. This release is expected to include bug fixes and a focus on improving the installation experience.
 
