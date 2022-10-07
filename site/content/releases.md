@@ -14,12 +14,12 @@ Each release will name a unique code name assigned to make the release identific
 
 ### Planned
 
-- [October 2022](/releases/october-2022) - (upbeat-dhawan)
-
 - [November 2022](/releases/november-2022) - (sharp-archimedes)
 
 - December 2022 - (zealous-antonelli)
 
 ### Released
+
+- [October 2022](/releases/october-2022) - (upbeat-dhawan)
 
 - [September 2022](/releases/september-2022) - (vibrant-elion)
