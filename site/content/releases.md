@@ -6,7 +6,9 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-The page contains links to the release history for the {{<product-name>}}.
+The page contains links to the release history for the {{<product-name>}}. 
+
+Each release will name a unique code name assigned to make the release identification more memorable. To learn more about the name generation process read [Release Naming](/releases/naming).
 
 ## 2022
 
