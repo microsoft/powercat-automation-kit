@@ -6,13 +6,23 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-The {{<product-name>}} Migration module provides you a proven set of tools and guidance based on engagements with customer to accelerate your journey to leveraging the power of Microsoft Power Platform, Microsoft Azure and the wider Microsoft Cloud to:
+The {{<product-name>}} **Migration module** provides you a proven set of tools and guidance based on engagements with customers to accelerate your journey to leveraging the power of Microsoft Power Platform, Microsoft Azure and the wider Microsoft Cloud to:
 
 - Realize your goals of providing cost savings.
 
 - Providing the guardrails to plan, migrate, monitor and setup for ongoing operations model for ongoing usage.
 
 - Provide conversion samples that you can customize to your process to meet your migration needs.
+
+## RPA Migration Get Started
+
+![Business Leaders’ Guide to Robotic Process Automation (RPA) Migration.](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/01/RPAWhitepaper_Img-241x300.png)
+
+You can use the following link to understand the RPA migration process for the Microsoft Power Platform
+
+- [Proven methods to modernize your RPA approach with Power Automate](https://powerautomate.microsoft.com/en-us/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
+
+- Downloadable white paper [Business Leaders’ Guide to Robotic Process Automation (RPA) Migration.](https://aka.ms/PAD/RPAMigrationWhitepaper)
 
 ## Milestone Status
 
