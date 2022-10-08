@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-![Vibrant Eloin](/images/vibrant-elion.png)
+![Vibrant Eloin](/images/vibrant-elion)
 
 The September release (vibrant-elion) of the {{<product-name>}} is the first public preview release.
 
