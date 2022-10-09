@@ -10,7 +10,9 @@ include_footer: true
 
 <g-emoji class="g-emoji" alias="calendar" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png">📆</g-emoji> Register for our office hours session [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)
 
-Visit our [October 2022](/office-hours/october-2022) landing page for more information and give feedback.
+> Visit our [October 2022](/office-hours/october-2022) landing page for more information and give feedback.
+
+![Office Hours](/images/office-hours.png)
 
 ## History
 
