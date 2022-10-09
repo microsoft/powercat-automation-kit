@@ -6,19 +6,19 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-The {{<product-name>}} **Migration module** provides you a proven set of tools and guidance based on engagements with customers to accelerate your journey to leveraging the power of Microsoft Power Platform, Microsoft Azure and the wider Microsoft Cloud to:
+The {{<product-name>}} **Migration module** provides you a proven set of tools and guidance based on engagements with customers to accelerate your migration journey. By leveraging the strength of Microsoft Power Platform, Microsoft Azure and the wider Microsoft Cloud services you can:
 
 - Realize your goals of providing cost savings.
 
-- Providing the guardrails to plan, migrate, monitor and setup for ongoing operations model for ongoing usage.
+- Providing the guardrails to plan, migrate, monitor and setup for a operations model for ongoing usage.
 
-- Provide conversion samples that you can customize to your process to meet your migration needs.
+- Leverage conversion samples that you can customize to your process to meet your migration needs.
 
 ## RPA Migration Get Started
 
 ![Business Leaders’ Guide to Robotic Process Automation (RPA) Migration.](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/01/RPAWhitepaper_Img-241x300.png)
 
-You can use the following link to understand the RPA migration process for the Microsoft Power Platform
+You can use the following link to understand the RPA migration process for the Microsoft Power Platform:
 
 - [Proven methods to modernize your RPA approach with Power Automate](https://powerautomate.microsoft.com/en-us/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
@@ -32,11 +32,11 @@ We are in an active process of leveraging the low code Power Platform and Micros
 
 To read more about our milestone process review our [Milestone Release notes](/releases/milestones).
 
-## Areas Of Investment
+## Areas Of Focus
 
-The following list provides an overview of areas we a prioritizing for investment to enhance the Automation Kit so that we can include components that you can use in your migration.
+The following list provides an overview of areas we a prioritizing for inclusion in the Automation Kit so that we can improve components that you can use in your migration.
 
-> NOTE: These areas of investment may be changed substantially. These changes will occur we continually receive feedback and do prioritization of features to meet customer needs
+> NOTE: These areas of focus may be changed substantially. These changes will occur we continually receive feedback and do prioritization of features to meet customer needs
 
 ### Planning
 
