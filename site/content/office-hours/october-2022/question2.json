@@ -1,0 +1,53 @@
+{
+    "completedHtml": "Thank you for sending feedback",
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{focus.length} > 0",
+            "setToName": "code",
+            "setValue": "Office-Hours-October-2022-Question-2"
+        }
+    ],
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "focus",
+                    "title": "What area(s) do you think we should focus on next?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 1,
+                    "choices": [
+                        "Improving getting started experience and documentation",
+                        "Relationship to other kits and out of the box features",
+                        "Demonstrate end to end Application Lifecycle management (ALM)",
+                        "Demonstrate how to migrate to Power Automate Desktop as scale?",
+                        "Sample data to help me get started?",
+                        "Industry specific return on investment samples?"
+                    ]
+                },
+                {
+                    "name": "ranked-questions",
+                    "type": "ranking",
+                    "title": "Please rank the areas of interest to you",
+                    "visibleIf": "{focus.length} > 1",
+                    "choicesFromQuestion": "focus",
+                    "choicesFromQuestionMode": "selected",
+                    "isRequired": true
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}

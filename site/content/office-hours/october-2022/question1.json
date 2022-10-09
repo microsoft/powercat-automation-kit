@@ -1,0 +1,42 @@
+{
+    "completedHtml": "Thank you for sending feedback",
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{journey.length} > 0",
+            "setToName": "code",
+            "setValue": "Office-Hours-October-2022-Question-1"
+        }
+    ],
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "radiogroup",
+                    "name": "journey",
+                    "title": "Where are you on your Automation Kit Journey?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 1,
+                    "choices": [
+                        "Just started, learning why I should use it",
+                        "Read the starter content and look to install",
+                        "Installed in development / demo environment",
+                        "Using in production"
+                    ]
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}

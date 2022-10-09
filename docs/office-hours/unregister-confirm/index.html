@@ -126,7 +126,10 @@
 
 
 <script>
+    
+    
     data = "{\r\n    \"checkErrorsMode\": \"onValueChanging\",\r\n    \"completedHtml\": \"Thank you for confirming unregistration\",\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{confirmation-code.length} \u003e 0\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Office-Hours-Unregister-ConfirmationCode\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"name\": \"confirmation-code\",\r\n                    \"isRequired\": true,\r\n                    \"title\": \"Please enter your confirmation code\"\r\n                },              \r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Confirm your unregistration now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+    
 </script>
 
 <div id="questions">
@@ -770,25 +773,43 @@
         const converter = new showdown.Converter();
         new QuestionExtensions();
 
-        const questionModel = new Survey.Model(data);
-        questionModel.onTextMarkdown.add(function (survey, options) {
-            
-            let str = converter.makeHtml(options.text);
-            if (options.hasOwnProperty('markdown')) {
-                console.log(options.markdown)
-                str = converter.makeHtml(options.markdown);
-            }
-            
-            str = str.substring(3);
-            str = str.substring(0, str.length - 4);
-            
-            options.html = str;
-        });
-        questionModel.showNavigationButtons =  false 
-    
-        questionModel.completedHtml = "Thank you for completing unregistration confirmation";
+        function loadData(loaded) {
+            const questionModel = new Survey.Model(loaded);
+            questionModel.onTextMarkdown.add(function (survey, options) {
+                
+                let str = converter.makeHtml(options.text);
+                if (options.hasOwnProperty('markdown')) {
+                    console.log(options.markdown)
+                    str = converter.makeHtml(options.markdown);
+                }
+                
+                str = str.substring(3);
+                str = str.substring(0, str.length - 4);
+                
+                options.html = str;
+            });
+            questionModel.showNavigationButtons =  false 
+        
+            questionModel.completedHtml = "Thank you for completing unregistration confirmation";
 
-        $("#questions").Survey({ model: questionModel });
+            $("#questions").Survey({ model: questionModel });
+        }
+
+        if ( data != null) {
+            loadData(data)
+        }
+        else {
+            const get_url = window.location.search;
+            const url_param = new URLSearchParams(get_url);
+            const source = url_param.get('source');
+            fetch('/powercat-automation-kit/' + source + ".json")
+                .then(async function (response) {
+                    if (response.ok) {
+                        loadData(await response.text());
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+        }
     });
 </script>
 

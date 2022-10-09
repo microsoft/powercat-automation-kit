@@ -1,0 +1,55 @@
+{
+    "completedHtml": "Thank you for sending feedback",
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{ama.length} > 0",
+            "setToName": "code",
+            "setValue": "Office-Hours-October-2022-Question-AMA"
+        }
+    ],
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "ama",
+                    "title": "What questions(s) are top of mind for you?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 1,
+                    "choices": [
+                        "What are the differences between the different kits managed by the Power CAT team?",
+                        "Do you have examples of end to ALM working with the Automation Kit?",
+                        "Do you have examples of KPIs for my industry?",
+                        "What are frequently asked questions about the Automation Kit?",
+                        "Are you looking to simplify the install experience?",
+                        "Can you tell me more about localization of Applications and Dashboards?",
+                        "Where can I see a list of current issues for the Automation Kit?",
+                        "Can you provide further case studies of how the Automation Kit has been used by and been used to  assist other organizations?"
+                    ]
+                },
+                {
+                    "name": "ranked-questions",
+                    "type": "ranking",
+                    "title": "Please rank the areas of interest to you",
+                    "visibleIf": "{ama.length} > 1",
+                    "choicesFromQuestion": "ama",
+                    "choicesFromQuestionMode": "selected",
+                    "isRequired": true
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}
