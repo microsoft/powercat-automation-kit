@@ -1,0 +1,73 @@
+{
+    "completedHtml": "Thank you for sending feedback",
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{ama.length} > 0",
+            "setToName": "code",
+            "setValue": "Office-Hours-October-2022-Question-Feedback"
+        }
+    ],
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "rating",
+                    "name": "nps_score",
+                    "title": "On a scale of zero to ten, how satisfied with the session today?",
+                    "isRequired": true,
+                    "rateMin": 0,
+                    "rateMax": 10,
+                    "minRateDescription": "(Most unsatisfied)",
+                    "maxRateDescription": "(Most satisfied)"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "promoter_features",
+                    "visibleIf": "{nps_score} >= 9",
+                    "title": "Which of the following did you value the most?",
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "answercount",
+                            "text": "Please select no more than three features.",
+                            "maxCount": 3
+                        }
+                    ],
+                    "hasOther": true,
+                    "choices": [
+                        "Demonstrated Features",
+                        "Roadmap of what is next",
+                        "Question and anwsers",
+                        "Learning materials (documentation, demos, code examples)"
+                    ],
+                    "otherText": "Other features:",
+                    "colCount": 2
+                },
+                {
+                    "type": "comment",
+                    "name": "passive_experience",
+                    "visibleIf": "{nps_score} >= 7  and {nps_score} <= 8",
+                    "title": "What can we do to make your session more satisfying?"
+                },
+                {
+                    "type": "comment",
+                    "name": "disappointing_experience",
+                    "visibleIf": "{nps_score} <= 6",
+                    "title": "Please let us know why you had such a disappointing experience with our session"
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}
