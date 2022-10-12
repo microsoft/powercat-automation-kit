@@ -55,7 +55,7 @@ Review our [Closed Milestones](https://github.com/microsoft/powercat-automation-
 
 ### **Question:** How can I see what is on the {{<product-name>}} Backlog?
 
-Review our [{{<product-name>}} Project backlog](https://github.com/orgs/microsoft/projects/486/views/1)
+Review our [{{<product-name>}} Project backlog](https://aka.ms/ak4pp/backlog)
 
 ## Release
 
