@@ -1,0 +1,233 @@
+{
+    "checkErrorsMode": "onValueChanging",
+    "completedHtml": "Thank you for completing feedback",
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Office-Hours-Feedback-November-2022"
+        }
+    ],
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "new-topics",
+                    "title": "What topics are of most interest to you to cover in new topics section?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 1,
+                    "choices": [
+                        "Not sure",
+                        "New documentation to help get you started",
+                        "Learning path from starter experience to hands on learning content",
+                        "How is this open source run and what to expect",
+                        "Relationship to other kits and out of the box features",
+                        "How do I get started?",
+                        "Configuring Automation Kit data",
+                        "Setting up Automation Projects",
+                        "Monitoring ROI of Automation Projects",
+                        "How to I setup exceptions?",
+                        "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+                        "How to I contribute to the Automation Kit to improve its features?"
+                    ]
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({new-topics},'How do I get started?')",
+                    "html": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({new-topics},'How to I contribute to the Automation Kit to improve its features?')",
+                    "html": "<b>Contribution</b> Review the <a href='/powercat-automation-kit/contribution' target='_blank'>Contribution</> guide"
+                },
+                {
+                    "name": "ranked-topics",
+                    "type": "ranking",
+                    "title": "Please rank the areas of interest to you",
+                    "visibleIf": "{new-topics.length} > 1",
+                    "choicesFromQuestion": "new-topics",
+                    "choicesFromQuestionMode": "selected",
+                    "isRequired": true
+                },
+                {
+                    "type": "checkbox",
+                    "name": "roadmap",
+                    "title": "What roadmap areas are of most interest to you?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 1,
+                    "choices": [
+                        "Not sure",
+                        "Providing an easier install process",
+                        "Providing an sample pre-configured projects and ROI calculations",
+                        "Providing industry specific ROI calculations",
+                        "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+                        "End to end ALM integration and samples",
+                        "Improved Documentation",
+                        "Infrastructure Operations Templates",
+                        "Security and compliance safeguards",
+                        "Unit, Integration and System testing roadmap",
+                        "More information on RPA Migration"
+                    ]
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({roadmap},'Providing an easier install process')",
+                    "html": "<b>Easier Install</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>App Source Install</> issue"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({roadmap},'Providing an sample pre-configured projects and ROI calculations')",
+                    "html": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Optional ability to import sample Automation Projects</> issue"
+                },
+                {
+                    "name": "ranked-roadmap",
+                    "type": "ranking",
+                    "title": "Please rank the roadmap areas of interest for you",
+                    "visibleIf": "{roadmap.length} > 1",
+                    "choicesFromQuestion": "roadmap",
+                    "choicesFromQuestionMode": "selected",
+                    "isRequired": true
+                },
+                {
+                    "type": "checkbox",
+                    "name": "questions",
+                    "title": "What questions are top of mind for you?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "Not sure",
+                            "text": "Not sure"
+                        },
+                        {
+                            "value": "Kit differences",
+                            "text": "What are the differences between the different kits managed by the Power CAT team?"
+                        },
+                        {
+                            "value": "ALM",
+                            "text": "Do you have examples of end to ALM working with the Automation Kit?"
+                        },
+                        {
+                            "value": "Data",
+                            "text": "Do you have examples of KPIs for my industry?"
+                        },
+                        {
+                            "value": "Roadmap",
+                            "text": "What is the roadmap for the Automation Kit?"
+                        },
+                        {
+                            "value": "FAQ",
+                            "text": "What are frequently asked questions about the Automation Kit?"
+                        },
+                        {
+                            "value": "Install",
+                            "text": "Are you looking to simplify the install experience?"
+                        },
+                        {
+                            "value": "Localization",
+                            "text": "Can you tell me more about localization of Applications and Dashboards?"
+                        },
+                        {
+                            "value": "Issues",
+                            "text": "Where can I see a list of current issues for the Automation Kit?"
+                        },
+                        {
+                            "value": "Case studies",
+                            "text": "Can you provide further case studies of how the Automation Kit has been used by and assisted other organizations?"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({questions},'FAQ')",
+                    "html": "<b>Frequently Asked Questions</b> Review or comment on the <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>FAQ</> page"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({questions},'Issues')",
+                    "html": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>Open issues</>"
+                },
+                {
+                    "name": "ranked-questions",
+                    "type": "ranking",
+                    "title": "Please rank the areas of interest to you",
+                    "visibleIf": "{questions.length} > 1",
+                    "choicesFromQuestion": "questions",
+                    "choicesFromQuestionMode": "selected",
+                    "isRequired": true
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Any other feedback?"
+                },
+                {
+                    "type": "boolean",
+                    "name": "auto-register",
+                    "label": "Send an automatic invitation for each Office Hours?",
+                    "isRequired": false
+                },
+                {
+                    "type": "html",
+                    "html": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+                    "visibleIf": "{auto-register} = true"
+                },
+                {
+                    "type": "text",
+                    "name": "register-name",
+                    "title": "Your name to register with",
+                    "isRequired": true,
+                    "visibleIf": "{auto-register} = true"
+                },
+                {
+                    "type": "text",
+                    "inputMask": "email",
+                    "name": "register-email",
+                    "title": "Your email address to register with",
+                    "visibleIf": "{auto-register} = true",
+                    "isRequired": true,
+                    "validators": [  
+                        {  
+                            "type": "email"  
+                        }  
+                    ] 
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "title": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+                    "label": "Send results?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = false",
+                    "html": "We hope these questions will help you determine an idea of topics or questions if you attend"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve office hours."
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}
