@@ -1,0 +1,112 @@
+cmp_SideDetailsBar As CanvasComponent:
+    DetailsTable: |-
+        =Table({Title: "Title1",Value: 5},{Title: "Title2",Value: 24},{Title: "Title3",Value: 7},{Title: "Title4",Value: 10})
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =App.Height
+    LoadingBar: =false
+    Width: =180
+    X: =0
+    Y: =0
+    ZIndex: =10
+
+    Container22 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =768
+        LayoutMode: =LayoutMode.Auto
+        Width: =180
+        ZIndex: =1
+
+        Rectangle2_23 As rectangle:
+            AlignInContainer: =AlignInContainer.Stretch
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Fill: =RGBA(230, 230, 230, 1)
+            FocusedBorderThickness: =4
+            Height: =1
+            Width: =2
+            ZIndex: =1
+
+    Container_SideDetails As groupContainer.verticalAutoLayoutContainer:
+        BorderColor: =RGBA(222, 222, 222, 1)
+        Fill: |-
+            =Transparent
+            //RGBA(230, 230, 230, 1)
+        Height: =768
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowX: =LayoutOverflow.Scroll
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        LayoutWrap: =true
+        PaddingTop: =16
+        Width: =180
+        ZIndex: =2
+
+        galTemp_sideGal As gallery.galleryVertical:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            BorderColor: =
+            FocusedBorderThickness: =0
+            Height: =Parent.Height - 100
+            Items: =cmp_SideDetailsBar.DetailsTable
+            Layout: =Layout.Vertical
+            LayoutMinHeight: =
+            LayoutMinWidth: =Parent.Width
+            TemplateSize: =140
+            Transition: =Transition.Pop
+            Width: =Parent.Width
+            ZIndex: =1
+
+            lbl_sideGal_value As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                OnSelect: =Select(Parent)
+                PaddingBottom: =15
+                PaddingLeft: =15
+                PaddingRight: =15
+                PaddingTop: =15
+                Size: =35
+                Text: =ThisItem.Value
+                Width: =Parent.TemplateWidth
+                Y: =40
+                ZIndex: =1
+
+            lbl_sideGal_title As label:
+                Align: =Align.Center
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Semibold
+                OnSelect: =Select(Parent)
+                PaddingBottom: =15
+                PaddingLeft: =15
+                PaddingRight: =15
+                PaddingTop: =15
+                Size: =15
+                Text: =ThisItem.Title
+                Width: =Parent.TemplateWidth
+                Y: =1
+                ZIndex: =2
+
+    r_line_nav_3 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        Fill: =RGBA(230, 230, 230, 1)
+        FocusedBorderThickness: =4
+        Height: =Parent.Height
+        Width: =1
+        ZIndex: =3
+

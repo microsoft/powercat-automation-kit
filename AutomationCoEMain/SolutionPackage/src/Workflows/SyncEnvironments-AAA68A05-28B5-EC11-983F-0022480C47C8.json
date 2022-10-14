@@ -1,0 +1,197 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_powerplatformforadmins_2": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedpowerplatformforadmins_890d8"
+        },
+        "api": {
+          "name": "shared_powerplatformforadmins"
+        }
+      },
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_9c637"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_b71a4"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "staticResults": {
+        "Upsert_Environment0": {
+          "status": "Succeeded",
+          "outputs": {
+            "statusCode": "OK",
+            "headers": {}
+          }
+        }
+      },
+      "triggers": {
+        "Recurrence": {
+          "recurrence": {
+            "frequency": "Day",
+            "interval": 1,
+            "startTime": "2021-11-02T09:00:00Z"
+          },
+          "metadata": {
+            "operationMetadataId": "ab84acbb-1e45-4e79-9b73-b1a2ca901b16"
+          },
+          "type": "Recurrence"
+        }
+      },
+      "actions": {
+        "List_Environments_as_Admin": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c53bb7ad-1515-4ba6-b8f7-866ff250f1ef"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_powerplatformforadmins_2",
+              "operationId": "Get-AdminEnvironment",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerplatformforadmins"
+            },
+            "parameters": {
+              "api-version": "2018-10-01"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Apply_to_each_environment": {
+          "foreach": "@outputs('List_Environments_as_Admin')?['body/value']",
+          "actions": {
+            "Sync_non-default_and_non_teams_environments_only": {
+              "actions": {
+                "Get_Environment": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "39bc3797-0817-4911-8f59-52480771b56a"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_1",
+                      "operationId": "ListRecords",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "autocoe_environments",
+                      "$filter": "(autocoe_environmentguid eq '@{items('Apply_to_each_environment')?['name']}')",
+                      "$top": 1
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Upsert_Environment": {
+                  "runAfter": {
+                    "Get_Environment": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "44bd3af8-39dc-4af7-8576-ad419b8bbca9"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps",
+                      "operationId": "UpdateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "autocoe_environments",
+                      "recordId": "@if(equals(first(outputs('Get_Environment')?['body/value'])?['autocoe_environmentid'],null), guid(), first(outputs('Get_Environment')?['body/value'])?['autocoe_environmentid'])",
+                      "item/autocoe_environmentguid": "@items('Apply_to_each_environment')?['name']",
+                      "item/autocoe_environmentname": "@items('Apply_to_each_environment')?['properties/linkedEnvironmentMetadata/friendlyName']",
+                      "item/autocoe_environmentregion": "@items('Apply_to_each_environment')?['properties/azureRegionHint']",
+                      "item/autocoe_environmentuniquename": "@items('Apply_to_each_environment')?['properties/linkedEnvironmentMetadata/uniqueName']",
+                      "item/autocoe_environmentbaseapiurl": "@items('Apply_to_each_environment')?['properties/linkedEnvironmentMetadata/instanceApiUrl']",
+                      "item/autocoe_environmentinstanceurl": "@items('Apply_to_each_environment')?['properties/linkedEnvironmentMetadata/instanceUrl']",
+                      "item/autocoe_organizationid": "@items('Apply_to_each_environment')?['properties/linkedEnvironmentMetadata/resourceId']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  },
+                  "runtimeConfiguration": {
+                    "staticResult": {
+                      "staticResultOptions": "Disabled",
+                      "name": "Upsert_Environment0"
+                    }
+                  }
+                }
+              },
+              "runAfter": {},
+              "expression": {
+                "and": [
+                  {
+                    "not": {
+                      "equals": [
+                        "@items('Apply_to_each_environment')?['properties/creationType']",
+                        "DefaultTenant"
+                      ]
+                    }
+                  },
+                  {
+                    "not": {
+                      "equals": [
+                        "@items('Apply_to_each_environment')?['properties/linkedEnvironmentMetadata/resourceId']",
+                        "@null"
+                      ]
+                    }
+                  },
+                  {
+                    "not": {
+                      "equals": [
+                        "@items('Apply_to_each_environment')?['name']",
+                        "@null"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "b979ea55-1ef3-45c6-8bc1-8abdd42ea8e4"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "List_Environments_as_Admin": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "67e28252-9eec-41ea-8461-3aadaa13966d"
+          },
+          "type": "Foreach"
+        }
+      }
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
