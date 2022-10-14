@@ -1,0 +1,189 @@
+cmp_Popup As CanvasComponent:
+    DialogBody: ="This will permanently delete the file. Are you sure?"
+    DialogCancel: ="Text"
+    DialogHeight: =300
+    DialogTitle: ="Delete File?"
+    DialogWidth: =500
+    Fill: =RGBA(0, 0, 0, 0.3)
+    Height: =App.Height
+    Styles: |-
+        =Table(
+        {Name: "PrimaryColor1Value", Value: "#ffffff"},
+        {Name: "PrimaryColor1TextValue", Value: "#292929"},
+        {Name: "PrimaryColor2Value", Value: "#ff5000"},
+        {Name: "PrimaryColor2TextValue", Value: "#ffffff"},
+        {Name: "PrimaryColor3Value", Value: "#303030"},
+        {Name: "PrimaryColor3TextValue", Value: "#080808"},
+        {Name: "PrimaryColor4Value", Value: "#006e7d"},
+        {Name: "defaultLabelColorValue", Value: "#0f0f0f"},
+        {Name: "RadiusValue", Value: "0"},
+        {Name: "TextBodyFontFaceValue", Value: "Segoe UI" },
+        {Name: "PaddingValue", Value: "8"},
+        {Name: "TextEmphasisFontSizeValue", Value: "16"},
+        {Name: "TextEmphasisFontSizePhoneValue", Value: "24"},
+        {Name: "TextBodyFontSizeValue", Value: "14"},
+        {Name: "TextBodyFontSizePhoneValue", Value: "21"},
+        {Name: "BackgroundColorValue", Value: "#d9d4d4"},
+        {Name: "BorderThicknessValue", Value: "0"},
+        {Name: "BorderColorValue", Value: "#FFFFFF"},
+        {Name: "FocusedBorderThicknessValue", Value: "0"}
+        )
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =10
+
+    Container15 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Center
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutJustifyContent: =LayoutJustifyContent.Center
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HtmlText3 As htmlViewer:
+            Height: =cmp_Popup.DialogHeight
+            HtmlText: |-
+                ="<div style='
+                    margin: auto;
+                    width: " & HtmlText3.Width - 40 & "px;
+                    height: " & HtmlText3.Height - 40 & "px;
+                    border: 3px solid #C8C8C8;
+                         box-shadow:
+                                2px 2px 2px rgba(0,0,0,0.12), 
+                                4px 4px 4px rgba(0,0,0,0.16), 
+                                4px 8px 8px rgba(0,0,0,0.20),
+                                8px 10px 10px rgba(0,0,0,0.30);
+                    border-radius: 10px;
+                    background: #ffffff;'>
+                </div>"
+            Width: =cmp_Popup.DialogWidth
+            ZIndex: =2
+
+    Container10_1 As groupContainer.manualLayoutContainer:
+        Height: =Parent.DialogHeight - 50
+        PaddingBottom: =
+        Width: =Parent.DialogWidth - 50
+        X: =HtmlText3.X + 25
+        Y: =HtmlText3.Y
+        ZIndex: =2
+
+        Container11 As groupContainer.verticalAutoLayoutContainer:
+            Height: =Parent.Height
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            Width: =Parent.Width
+            ZIndex: =3
+
+            Popup_Title As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Fill: =RGBA(0, 0, 0, 0)
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                FontWeight: =FontWeight.Bold
+                LineHeight: =1
+                PaddingBottom: =25
+                PaddingLeft: =25
+                PaddingRight: =25
+                PaddingTop: =25
+                Size: =16
+                Text: =cmp_Popup.DialogTitle
+                Width: =Parent.Width
+                Y: =8
+                ZIndex: =1
+
+            Popup_Title_1 As label:
+                AutoHeight: =true
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Color: =RGBA(51, 51, 51, 1)
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisabledFill: =RGBA(0, 0, 0, 0)
+                Fill: =RGBA(0, 0, 0, 0)
+                FillPortions: =1
+                FocusedBorderThickness: =4
+                Font: =Font.'Segoe UI'
+                LineHeight: =1
+                Overflow: =Overflow.Scroll
+                PaddingBottom: =10
+                PaddingLeft: =25
+                PaddingRight: =25
+                PaddingTop: =10
+                Size: =13
+                Text: =cmp_Popup.DialogBody
+                Width: =Parent.Width
+                Y: =76
+                ZIndex: =2
+
+            c_dialog_Buttons As groupContainer.horizontalAutoLayoutContainer:
+                LayoutAlignItems: =LayoutAlignItems.End
+                LayoutGap: =15
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutWrap: =true
+                PaddingBottom: =5
+                PaddingLeft: =10
+                PaddingRight: =5
+                PaddingTop: =5
+                ZIndex: =3
+
+                dialog_Cancel As button:
+                    BorderColor: |-
+                        =ColorValue("#323130")
+                    BorderThickness: =2
+                    Color: |-
+                        =ColorValue("#323130")
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    Fill: =White
+                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                    OnSelect: =cmp_Popup.DialogCancel()
+                    PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                    PressedColor: |-
+                        =ColorValue("#201f1e")
+                    PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    RadiusBottomLeft: =5
+                    RadiusBottomRight: =5
+                    RadiusTopLeft: =5
+                    RadiusTopRight: =5
+                    Size: =15
+                    Text: ="Cancel"
+                    ZIndex: =1
+
+                dialog_Confirm As button:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderThickness: =2
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                    Fill: =RGBA(105, 121, 126, 1)
+                    FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                    FocusedBorderThickness: =4
+                    Font: =Font.'Segoe UI'
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =RGBA(255, 255, 255, 1)
+                    HoverFill: =ColorFade(RGBA(105, 121, 126, 1), -10%)
+                    PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                    PressedColor: =RGBA(255, 255, 255, 1)
+                    PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                    RadiusBottomLeft: =5
+                    RadiusBottomRight: =5
+                    RadiusTopLeft: =5
+                    RadiusTopRight: =5
+                    Size: =15
+                    Text: ="Button"
+                    ZIndex: =2
+

@@ -1,0 +1,710 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_approvals": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedapprovals_8865d"
+        },
+        "api": {
+          "name": "shared_approvals"
+        }
+      },
+      "shared_office365users": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedoffice365users_0b5c0"
+        },
+        "api": {
+          "name": "shared_office365users"
+        }
+      },
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedoffice365_01313"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_9c637"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added_or_modified": {
+          "metadata": {
+            "operationMetadataId": "2a6a96f8-535e-4688-a833-f218e30ffadd"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "autocoe_automationproject",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "conditions": [
+            {
+              "expression": "@equals(triggerOutputs()?['body/_autocoe_automationprojectstatus_label'], 'Submitted')"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "Start_and_wait_for_an_approval": {
+          "runAfter": {
+            "Send_an_email_-_Requested": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "78a3b867-84eb-4b39-a147-75fdd38ebed8"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_approvals",
+              "operationId": "StartAndWaitForAnApproval",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_approvals"
+            },
+            "parameters": {
+              "approvalType": "Basic",
+              "WebhookApprovalCreationInput/title": "Automation Project Request",
+              "WebhookApprovalCreationInput/assignedTo": "@{\r\njoin(variables('Approvers'),';')};",
+              "WebhookApprovalCreationInput/details": "# Automation Project Request - @{triggerOutputs()?['body/autocoe_automationprojectnumber']}\n## Project\n### Project Name:\n@{triggerOutputs()?['body/autocoe_automationproject']}\n### Process Challenges:\n@{triggerOutputs()?['body/autocoe_primaryprocesschallenges']}\n### Improvment Driver:\n@{triggerOutputs()?['body/autocoe_primaryimprovementdriver']}\n### Business Owner:\n@{triggerOutputs()?['body/autocoe_businessowner']} (@{triggerOutputs()?['body/autocoe_businessowneremail']})\n### Submitted By:\n@{triggerOutputs()?['body/autocoe_submittedby']}\n----- ----- -----\n## ROI\n### ROI Saving Potential:\n$@{triggerOutputs()?['body/autocoe_roisavingpotential']}\n### Complexity Score:\n@{triggerOutputs()?['body/autocoe_complexityscore']}",
+              "WebhookApprovalCreationInput/itemLink": "@variables('varProjectDeepLink')",
+              "WebhookApprovalCreationInput/itemLinkDescription": "View Project Details",
+              "WebhookApprovalCreationInput/requestor": "@{variables('varSubmittedBy')};",
+              "WebhookApprovalCreationInput/enableNotifications": true,
+              "WebhookApprovalCreationInput/enableReassignment": true
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": " join(variables('Approvers'),';')"
+        },
+        "Search_for_users_(V2)": {
+          "runAfter": {
+            "varHTMLTableStyle": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "638ea35b-011f-48aa-afc8-aba87c7c822b"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365users",
+              "operationId": "SearchUserV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365users"
+            },
+            "parameters": {
+              "searchTerm": "@outputs('Get_full_AutomationProject_record')?['body/modifiedby/internalemailaddress']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "If_Project_Approved": {
+          "actions": {
+            "Create_HTML_table_-_Approved": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "fa6104f0-c1c5-40d9-a22f-40bd71b78cf7"
+              },
+              "type": "Table",
+              "inputs": {
+                "from": "@outputs('Start_and_wait_for_an_approval')?['body/responses']",
+                "format": "HTML",
+                "columns": [
+                  {
+                    "header": "ApprovedBy",
+                    "value": "@{item()?['responder/displayName']}(@{item()?['responder/email']})"
+                  },
+                  {
+                    "header": "Comments",
+                    "value": "@item()?['comments']"
+                  },
+                  {
+                    "header": "ViewProjectDetails",
+                    "value": "@outputs('Start_and_wait_for_an_approval')?['body/itemLink']"
+                  }
+                ]
+              }
+            },
+            "Send_an_email_(V2)_-_Approved": {
+              "runAfter": {
+                "Create_HTML_table_-_Approved": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1d1870f6-6cbc-4dfd-857f-be95ddc23db1"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_office365",
+                  "operationId": "SendEmailV2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                },
+                "parameters": {
+                  "emailMessage/To": "@variables('varSubmittedBy')",
+                  "emailMessage/Subject": "Automation Project @{triggerOutputs()?['body/autocoe_automationproject']} Approved",
+                  "emailMessage/Body": "@{variables('varHtmlTableStyle')}\n<body>\n    <div id=\"content\">\n        <table id=\"form\">\n            <tbody>\n                <tr>\n                    <td><img id=\"logo\" src=\"http://pngimg.com/uploads/microsoft/microsoft_PNG16.png\"></td>\n                </tr>\n                <tr>\n                    <td>\n                        <p id=\"header\">Automation Project Approved</p>\n                    </td>\n                </tr>\n                <tr id=\"ribbon\">\n                    <td>\n                        <table id=\"ribbonContent\">\n                            <tbody>\n                                <tr>\n                                    <td>@{triggerOutputs()?['body/autocoe_automationprojectnumber']}</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </td>\n                </tr>\n                <tr id=\"message\">\n                    <td>\n                        <p>@{triggerOutputs()?['body/autocoe_automationproject']} submitted by @{triggerOutputs()?['body/autocoe_submittedby']} has been Approved.\n                        <br>\nSee details below\n                        </p>\n                        <ol>\n                        </ol>\n                        <p></p>\n                    \n <p id=\"header2\">Project</p>\n<br>\n@{body('Create_HTML_table_-_Project_Details')}\n <br><br>\n<p id=\"header2\">ROI</p>\n<br>\n@{body('Create_HTML_table_-_ROI_Details')}\n<br>\n<br>\n<p id=\"header2\">Approval Details</p>\n@{body('Create_HTML_table_-_Approved')}\n</body>\n </div>\n</html>",
+                  "emailMessage/Importance": "High"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Update_Project_Details_-_Approved": {
+              "runAfter": {
+                "Send_an_email_(V2)_-_Approved": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "d137abd3-5afc-4c3e-9fc7-c10747163cad"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "UpdateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "autocoe_automationprojects",
+                  "recordId": "@triggerOutputs()?['body/autocoe_automationprojectid']",
+                  "item/autocoe_automationprojectstatus": 333820002,
+                  "item/autocoe_approvedby": "@variables('ApprovedBy')",
+                  "item/autocoe_approvedon": "@utcNow()"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Set_ApprovedBy": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Create_HTML_table_-_Rejected": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "1b585308-0ebc-4630-af3e-8d789d90e0e0"
+                },
+                "type": "Table",
+                "inputs": {
+                  "from": "@outputs('Start_and_wait_for_an_approval')?['body/responses']",
+                  "format": "HTML",
+                  "columns": [
+                    {
+                      "header": "RejectedBy",
+                      "value": "@{item()?['responder/displayName']}(@{item()?['responder/email']})"
+                    },
+                    {
+                      "header": "Comments",
+                      "value": "@item()?['comments']"
+                    },
+                    {
+                      "header": "ViewProjectDetails",
+                      "value": "@outputs('Start_and_wait_for_an_approval')?['body/itemLink']"
+                    }
+                  ]
+                }
+              },
+              "Send_an_email_(V2)_-_Rejected": {
+                "runAfter": {
+                  "Create_HTML_table_-_Rejected": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "2ebd8380-1bfc-4a32-a186-79cc771bc8c1"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_office365",
+                    "operationId": "SendEmailV2",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                  },
+                  "parameters": {
+                    "emailMessage/To": "@variables('varSubmittedBy')",
+                    "emailMessage/Subject": "Automation Project @{triggerOutputs()?['body/autocoe_automationproject']} Rejected",
+                    "emailMessage/Body": "@{variables('varHtmlTableStyle')}\n<body>\n    <div id=\"content\">\n        <table id=\"form\">\n            <tbody>\n                <tr>\n                    <td><img id=\"logo\" src=\"http://pngimg.com/uploads/microsoft/microsoft_PNG16.png\"></td>\n                </tr>\n                <tr>\n                    <td>\n                        <p id=\"header\">Automation Project Rejected</p>\n                    </td>\n                </tr>\n                <tr id=\"ribbon\">\n                    <td>\n                        <table id=\"ribbonContent\">\n                            <tbody>\n                                <tr>\n                                    <td>@{triggerOutputs()?['body/autocoe_automationprojectnumber']}</td>\n                                </tr>\n                            </tbody>\n                        </table>\n                    </td>\n                </tr>\n                <tr id=\"message\">\n                    <td>\n                        <p>@{triggerOutputs()?['body/autocoe_automationproject']} submitted by @{triggerOutputs()?['body/autocoe_submittedby']} has been Approved.\n                        <br>\nSee details below\n                        </p>\n                        <ol>\n                        </ol>\n                        <p></p>\n                    \n <p id=\"header2\">Project</p>\n<br>\n@{body('Create_HTML_table_-_Project_Details')}\n <br><br>\n<p id=\"header2\">ROI</p>\n<br>\n@{body('Create_HTML_table_-_ROI_Details')}\n<br>\n<br>\n<p id=\"header2\">Approval Details</p>\n@{body('Create_HTML_table_-_Rejected')}\n</body>\n </div>\n</html>",
+                    "emailMessage/Importance": "High"
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              },
+              "Update_Project_Details_-_Declined": {
+                "runAfter": {
+                  "Send_an_email_(V2)_-_Rejected": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "3d984034-9045-47b2-b672-6439b1095aba"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataserviceforapps",
+                    "operationId": "UpdateRecord",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  },
+                  "parameters": {
+                    "entityName": "autocoe_automationprojects",
+                    "recordId": "@triggerOutputs()?['body/autocoe_automationprojectid']",
+                    "item/autocoe_automationprojectstatus": 333820003,
+                    "item/autocoe_approvedby": "@variables('ApprovedBy')",
+                    "item/autocoe_approvedon": "@utcNow()"
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@outputs('Start_and_wait_for_an_approval')?['body/outcome']",
+              "Approve"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a52b62cc-6cd0-4913-a9a2-8fff72c1a22c"
+          },
+          "type": "If"
+        },
+        "Automation_Project_URL": {
+          "runAfter": {
+            "List_Console_Config_for_URL": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1b8b4f37-663e-43c5-a3b1-e634310decf8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varAutomationProjectURL",
+                "type": "string",
+                "value": "@{first(outputs('List_Console_Config_for_URL')?['body/value'])?['autocoe_applink']}"
+              }
+            ]
+          },
+          "description": "first(outputs('List_Console_Config_for_URL')?['body/value'])?['autocoe_applink']"
+        },
+        "varHTMLTableStyle": {
+          "runAfter": {
+            "Automation_Project_Deep_Link_ProjectNumber": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "752a74fd-b28d-4abf-b796-705713335301"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varHtmlTableStyle",
+                "type": "string",
+                "value": "<html>\n\n<head>\n    <meta http-equiv=\"Content-Type\" content=\"text/html; charset=us-ascii\">\n    <style>\n        body {\n            background-color: #efefef;\n            font-family: Segoe UI;\n            text-align: left;\n        }\n\n        #content {\n            border: 1px solid #9e9e9e;\n            background-color: #ffffff;\n            width: 1000px;\n            margin-bottom: 50px;\n            display: inline-block;\n            padding: 10px;\n        }\n\n        #logo {\n            margin-left: 52px;\n            margin-top: 40px;\n            width: 120px;\n            height: 24px;\n        }\n\n        #header {\n            font-size: 24px;\n            margin-left: 50px;\n            margin-top: 20px;\n            margin-bottom: 20px;\n        }\n        #header2 {\n            font-size: 20px;\n            margin-left: 20px;\n            margin-top: 20px;\n            margin-bottom: 20px;\n        }\n\n\n        #ribbon {\n            background-color: #9e9e9e;\n        }\n\n        #ribbonContent {\n            font-size: 20px;\n            padding-left: 30px;\n            padding-top: 10px;\n            padding-bottom: 20px;\n            color: black;\n            width: 100%;\n            padding-right: 10px;\n        }\n\n        #message>td {\n            font-size: 14px;\n            padding-left: 60px;\n            padding-right: 60px;\n            padding-top: 20px;\n            padding-bottom: 40px;\n        }\n\n        #footer>td {\n            font-size: 12px;\n            background-color: #cfcfcf;\n            height: 40px;\n            padding-top: 15px;\n            padding-left: 40px;\n            padding-bottom: 20px;\n        }\n\n        #form {\n            width: 100%;\n            border-collapse: collapse;\n        }\n\n        #app {\n            width: 60%;\n            font-size: 12px;\n        }\n\n        .label {\n            color: #5f5f5f\n        }\n        table a:link {\n            color: #666;\n            font-weight: bold;\n            text-decoration: none;\n        }\n\n        table a:visited {\n            color: #999999;\n            font-weight: bold;\n            text-decoration: none;\n        }\n\n        table a:active,\n        table a:hover {\n            color: #bd5a35;\n            text-decoration: underline;\n        }\n\n        table {\n            font-family: 'Roboto', Arial, sans-serif;\n            color: #666;\n            font-size: 12px;\n            text-shadow: 1px 1px 0px #fff;\n            background: #eaebec;\n            border: #ccc 1px solid;\n            border-radius: 3px;\n            box-shadow: 0 1px 2px #d1d1d1;\n        }\n\n        table th {\n            text-align: left;\n            padding: 21px 25px 22px 25px;\n            border-top: 1px solid #fafafa;\n            border-bottom: 1px solid #e0e0e0;\n            background: #ededed;\n        }\n\n        table tr {\n            padding-left: 20px;\n            max-height: 10px;\n        }\n\n        table td {\n            text-align: left;\n            padding: 21px 25px 22px 25px;\n            border-top: 1px solid #fafafa;\n            border-bottom: 1px solid #e0e0e0;\n            background: #fafafa;\n        }\n\n        table tr.even td {\n            background: #f6f6f6;\n        }\n\n        li {\n            display: list-item;\n            text-align: left;\n            margin: 0 0 3px 0;\n        }\n    </style>\n</head>"
+              }
+            ]
+          }
+        },
+        "Send_an_email_-_Requested": {
+          "runAfter": {
+            "Create_HTML_table_-_ROI_Details": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "cc342d6b-1666-41e9-bc87-95c32473d8a0"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_office365",
+              "operationId": "SendEmailV2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+            },
+            "parameters": {
+              "emailMessage/To": "@variables('varSubmittedBy')",
+              "emailMessage/Subject": "Automation Project Requested",
+              "emailMessage/Body": "<p>An automation project has been requested <br>\n<h2> ID: @{triggerOutputs()?['body/autocoe_automationprojectnumber']} </h2>\n@{variables('varHtmlTableStyle')}<br>\n<br>\n<h2>Project</h2>\n@{body('Create_HTML_table_-_Project_Details')}\n<br>\n<h2>ROI</h2> <br>\n@{body('Create_HTML_table_-_ROI_Details')}\n<br> <br>\n<a href=\"@{variables('varProjectDeepLink')}\">Click here to view more details</a>\n<br>\nYou will recieve another email once the request has been (Approved / Rejected)</p>",
+              "emailMessage/Importance": "High"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Create_HTML_table_-_Project_Details": {
+          "runAfter": {
+            "Is_there_assigned_Approvers": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6a697163-2cd7-4f9b-bb47-6bdd66149aa0"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@array(triggerOutputs()?['body'])",
+            "format": "HTML",
+            "columns": [
+              {
+                "header": "ProjectName",
+                "value": "@triggerOutputs()?['body/autocoe_automationproject']"
+              },
+              {
+                "header": "SubmittedBy",
+                "value": "@triggerOutputs()?['body/autocoe_submittedby']"
+              },
+              {
+                "header": "BusinessOwner",
+                "value": "@triggerOutputs()?['body/autocoe_businessowneremail']"
+              },
+              {
+                "header": "ProcessChallenges",
+                "value": "@triggerOutputs()?['body/autocoe_primaryprocesschallenges']"
+              }
+            ]
+          }
+        },
+        "Create_HTML_table_-_ROI_Details": {
+          "runAfter": {
+            "Create_HTML_table_-_Project_Details": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6a697163-2cd7-4f9b-bb47-6bdd66149aa0"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@array(triggerOutputs()?['body'])",
+            "format": "HTML",
+            "columns": [
+              {
+                "header": "ComplexityScore",
+                "value": "@triggerOutputs()?['body/autocoe_complexityscore']"
+              },
+              {
+                "header": "PotentialROISavings",
+                "value": "$@{triggerOutputs()?['body/autocoe_roisavingpotential']}"
+              }
+            ]
+          }
+        },
+        "List_Console_Config_for_URL": {
+          "runAfter": {
+            "Get_full_AutomationProject_record": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1ddef011-aa1d-461f-82e6-f4ea7c58eedc"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_consoleconfigs",
+              "$filter": "(autocoe_name eq 'Automation Project')",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Automation_Project_Deep_Link_ProjectNumber": {
+          "runAfter": {
+            "Automation_Project_URL": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1b8b4f37-663e-43c5-a3b1-e634310decf8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varProjectDeepLink",
+                "type": "string",
+                "value": "@{variables('varAutomationProjectURL')}&ProjectNumber=@{triggerOutputs()?['body/autocoe_automationprojectnumber']}"
+              }
+            ]
+          }
+        },
+        "Create_HTML_table_-_Approval_Details": {
+          "runAfter": {
+            "Start_and_wait_for_an_approval": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "fa6104f0-c1c5-40d9-a22f-40bd71b78cf7"
+          },
+          "type": "Table",
+          "inputs": {
+            "from": "@outputs('Start_and_wait_for_an_approval')?['body/responses']",
+            "format": "HTML",
+            "columns": [
+              {
+                "header": "ActionedBy",
+                "value": "@{item()?['responder/displayName']}(@{item()?['responder/email']})"
+              },
+              {
+                "header": "Outcome",
+                "value": "@outputs('Start_and_wait_for_an_approval')?['body/outcome']"
+              },
+              {
+                "header": "Comments",
+                "value": "@item()?['comments']"
+              },
+              {
+                "header": "ViewProjectDetails",
+                "value": "@outputs('Start_and_wait_for_an_approval')?['body/itemLink']"
+              }
+            ]
+          }
+        },
+        "varApprovers": {
+          "runAfter": {
+            "varSubmittedBy": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "07030e10-6478-4953-8ec5-c0cb54b0424b"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Approvers",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "varApprovedBy": {
+          "runAfter": {
+            "varApprovers": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "f6df3435-89e4-446a-b27c-7d37c4ac1199"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "ApprovedBy",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "varSubmittedBy": {
+          "runAfter": {
+            "Search_for_users_(V2)": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "98c361a2-5d92-469b-a70d-aef3ce43eea8"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varSubmittedBy",
+                "type": "string",
+                "value": "@{first(outputs('Search_for_users_(V2)')?['body/value'])?['UserPrincipalName']}"
+              }
+            ]
+          },
+          "description": "@{first(outputs('Search_for_users_(V2)')?['body/value'])?['UserPrincipalName']}"
+        },
+        "Is_there_assigned_Approvers": {
+          "actions": {
+            "Set_Approver_from_Business_Owner": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "ef7d6af6-889d-4c2a-b68d-a09de7134799"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Approvers",
+                "value": [
+                  "@outputs('BusinessOwnerEmail')"
+                ]
+              }
+            }
+          },
+          "runAfter": {
+            "BusinessOwnerEmail": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Get_Fallback_Configurations": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "d6a67a72-7db8-4d22-bd7c-d2b0aac8aa69"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataserviceforapps",
+                    "operationId": "ListRecords",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                  },
+                  "parameters": {
+                    "entityName": "autocoe_baseconfigurations",
+                    "$filter": "(autocoe_FallbackApprover/systemuserid ne null)",
+                    "$expand": "autocoe_FallbackApprover($select=internalemailaddress)",
+                    "$top": 1
+                  },
+                  "authentication": "@parameters('$authentication')"
+                }
+              },
+              "Select_Fallback_Approver": {
+                "runAfter": {
+                  "Get_Fallback_Configurations": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "40f82709-7941-4775-9020-64f1767c3f9c"
+                },
+                "type": "Select",
+                "inputs": {
+                  "from": "@outputs('Get_Fallback_Configurations')?['body/value']",
+                  "select": "@item()?['autocoe_fallbackapprover/internalemailaddress']"
+                }
+              },
+              "Set_Approver_from_Fallback": {
+                "runAfter": {
+                  "Select_Fallback_Approver": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "498ce25b-f55c-4641-9d82-3627cf52375d"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "Approvers",
+                  "value": "@body('Select_Fallback_Approver')"
+                }
+              }
+            }
+          },
+          "expression": {
+            "not": {
+              "equals": [
+                "@empty(outputs('BusinessOwnerEmail'))",
+                "@true"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "b91747e2-9b1d-467e-b649-f6365260ff46"
+          },
+          "type": "If"
+        },
+        "Set_ApprovedBy": {
+          "runAfter": {
+            "Create_HTML_table_-_Approval_Details": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3e1dd119-0433-4144-af1f-c68d752190bf"
+          },
+          "type": "SetVariable",
+          "inputs": {
+            "name": "ApprovedBy",
+            "value": "@{first(outputs('Start_and_wait_for_an_approval')?['body/responses'])?['responder/displayName']}"
+          },
+          "description": "first(outputs('Start_and_wait_for_an_approval')?['body/responses'])?['responder/displayName']"
+        },
+        "BusinessOwnerEmail": {
+          "runAfter": {
+            "varApprovedBy": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ce0ae88e-ee34-44ab-aee2-3939fd2c7e6c"
+          },
+          "type": "Compose",
+          "inputs": "@triggerOutputs()?['body/autocoe_businessowneremail']"
+        },
+        "Get_full_AutomationProject_record": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c7273f10-1187-4f89-ab80-6181a15ca3aa"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_automationprojects",
+              "recordId": "@triggerOutputs()?['body/autocoe_automationprojectid']",
+              "$expand": "modifiedby($select=internalemailaddress)"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      }
+    }
+  },
+  "schemaVersion": "1.0.0.0"
+}
