@@ -28,8 +28,8 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     source: 'specific'
-    project: 'Automation Automation Kit'
-    pipeline: '12'
+    project: 'powercat-automation-kit'
+    pipeline: '2082'
     runVersion: 'latest'
     patterns: '**/AutomationCoEMain*.zip'
   displayName: 'Download Automation CoE Main solution'
@@ -38,7 +38,7 @@ steps:
 - task: DownloadPipelineArtifact@2
   inputs:
     source: 'specific'
-    project: 'Automation Automation Kit'
+    project: 'powercat-automation-kit'
     pipeline: '15'
     runVersion: 'latest'
     patterns: '**/AutomationCoESatellite*.zip'
@@ -82,7 +82,7 @@ steps:
     solutionDisplayName: 'Automation Starter Kit'
     releaseMonth: ${{parameters.ReleaseMonthNumber}}
     releaseYear: ${{parameters.ReleaseYearNumber}}
-    connectionName: 'automation-coe-starter-kit'
+    connectionName: 'powercat-alm'
     releaseNotesPath: 'AutomationKitResources/Release/Notes/'
     issueClosingComment: 'This has been fixed in the latest release.'
     closeIssues: ${{parameters.CloseMilestoneIssues}}
