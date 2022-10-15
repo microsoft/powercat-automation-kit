@@ -6,10 +6,17 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js" integrity="sha512-QYXU3Cojl94ZRiZRjUZpyg1odj9mKTON9MsTMzGNx/L3JqvMA3BQNraZwsZ83UeisO+QMVfFa83SyuYYJzR9hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js" integrity="sha512-7DEMfv8iM8rlGUiVduuJQGcTazyiw+7PSxEMGuPzk+sW8KLZiSh5TrkCNTbjpNVL1o7grRlXTN+OQLEFuYGVxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+<style>
+.section {
+    overflow-y: auto  !important;
+    overflow-x: hidden !important;
+    height: 100%;
+  }
+</style>
 
-
-<div class="reveal" style="height:400px">
+<div class="reveal" style="height:400px;width:600px;margin: auto">
     <div class="slides">
     {{range split $slides ","}}
     <section id="slide-{{.}}"></section>
@@ -27,7 +34,7 @@
        
         $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
         
-        Reveal.initialize({ embedded: true });
+        Reveal.initialize({ embedded: true, showNotes: true, plugins: [ RevealNotes ] });
 
         Reveal.addEventListener( 'slidechanged', event => {
             $('audio').each(function(){
