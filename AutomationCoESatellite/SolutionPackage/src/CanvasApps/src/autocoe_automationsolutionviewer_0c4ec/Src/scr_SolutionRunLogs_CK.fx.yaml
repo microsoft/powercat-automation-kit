@@ -1,0 +1,729 @@
+scr_SolutionRunLogs_CK As screen:
+    LoadingSpinner: =LoadingSpinner.Controls
+    LoadingSpinnerColor: =UIAccentColor
+    OnVisible: |
+        =Concurrent(
+            UpdateContext(
+                {
+                    _showArtifactShimmer: true,
+                    _filterApplied: false,
+                    _filterDurationDays: 7,
+                    previousStartDate: Today()
+                }
+            ),
+            Reset(DateValueStartDate),
+            Reset(DateValueEndDate),
+            Refresh('Flow Session Traces')
+        );
+        ClearCollect(
+            tempFlowTacesCollection,
+            Filter(
+                'Flow Session Traces',
+                'Solution Id' = Text(_selectedSolution.'Solution Identifier') && ('Flow Name' = _artifactRecord.'Display name' || 'Workflow Unique Id' = _artifactRecord.'Workflow unique id')
+            )
+        );
+        ClearCollect(
+            col_FlowSessionTraces,
+            AddColumns(
+                tempFlowTacesCollection,
+                "StatusColor",
+                Switch(
+                    'Overall Status',
+                    "Succeeded",
+                    "rgba(186, 216, 10, 0.2)",
+                    "Failed",
+                    "rgba(232, 17, 35, 0.1)",
+                    "Cancelled",
+                    "#d4d9e0"
+                ),
+                "RecordKey",
+                'Flow Session Trace',
+                "OpeninNewWindow",
+                "icon:OpeninNewWindow",
+                "IconColor",
+                AppTheme.palette.themePrimary,
+                "ComponentIcon",
+                "icon:Flow",
+                "StartedOn",
+                Text('Started On'),
+                "CompletedOn",
+                Text('Completed On'),
+                "Duration",
+                DateDiff(
+                    'Started On',
+                    'Completed On',
+                    Seconds
+                )
+            )
+        );
+        UpdateContext({_showArtifactShimmer: false});
+
+    c_screen_15 As groupContainer.verticalAutoLayoutContainer:
+        ContentLanguage: =_selectedSolution.'Solution Identifier'
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =App.Width
+        ZIndex: =1
+
+        HeaderContainer2_17 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(52, 60, 63, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Header_3 As Header:
+                BackButtonVisible: =true
+                Height: =50
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                OnBackSelect: =Back(ScreenTransition.Fade);
+                RightButtonVisible: =false
+                Text: =appTitle
+                Theme: =AppTheme
+                Width: =App.Width
+
+        MainSectionContainer2_17 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            ExpandMenu_3 As ExpandMenu:
+                Fill: =ColorValue(ExpandMenu_3.Theme.palette.white)
+                Height: =Parent.Height
+                Items: =col_MainNavItems
+                LayoutMinWidth: =200
+                Theme: =AppTheme
+                Visible: =false
+                Width: =If(ExpandMenu_3.IsExpanded, 200, 46)
+                ZIndex: =2
+
+            Rectangle2_23 As rectangle:
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Fill: =RGBA(230, 230, 230, 1)
+                FocusedBorderThickness: =4
+                Height: =1
+                Width: =1
+                ZIndex: =3
+
+            c_mainContent_15 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =4
+
+                Container10_10 As groupContainer.verticalAutoLayoutContainer:
+                    Fill: =ColorValue(AppTheme.palette.white)
+                    FillPortions: =0
+                    Height: =40
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =500
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =5
+                    PaddingRight: =5
+                    ZIndex: =1
+
+                    "ArtifactsCommandBar_1 As 'Fluent Command Bar (0.0.20)'.pcfdataset":
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =40
+                        Items: |-
+                            =Table(
+                                    {
+                                        ItemKey: "OpeninNewWindow",
+                                        ItemDisplayName: "Open in New Window",
+                                        ItemIconName: "OpeninNewWindow",
+                                        ItemEnabled: If(IsBlank(_currentSelectedTraces.'Flow Session Trace'),false,true)
+                                    }
+                                )
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =120
+                        OnChange: =false
+                        OnSelect: |-
+                            =Switch(Self.Selected.ItemKey,"OpeninNewWindow", Launch("https://us.flow.microsoft.com/manage/environments/" & First(EnvironmentDetails).EnvironmentId & "/solutions/" & _selectedSolution.'Solution Identifier' &"/flows/" & _currentSelectedTraces.'Flow Id' &"/runs/" & _currentSelectedTraces.'Flow Run Id'))
+                        Theme: =AppThemeJson
+                        Width: =400
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    lblArtifactName As Label:
+                        Color: =ColorValue(AppTheme.palette.neutralPrimary)
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        FontWeight: =FontWeight.Semibold
+                        Height: =40
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Text: =_artifactRecord.'Display name'
+                        Width: =350
+                        X: =42
+                        Y: =93
+                        ZIndex: =2
+
+                    lblLogsTitle As Label:
+                        Color: =ColorValue(AppTheme.palette.neutralPrimary)
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        FontWeight: =FontWeight.Normal
+                        Height: =40
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        Text: =Concatenate("Results from last ",_filterDurationDays, " Days")
+                        Visible: =DateValueEndDate.Value = Today()
+                        Width: =350
+                        X: =42
+                        Y: =93
+                        ZIndex: =3
+
+                    "IconShowFlowFilter As 'Fluent Icon (0.0.20)'":
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =Parent.Height
+                        IconName: ="Filter"
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: |+
+                            =UpdateContext({_showFlowSessionFilterPanel:true, _filterApplied:false})
+                            
+                            
+                        Text: =
+                        Theme: =AppThemeJson
+                        Width: =Parent.Height
+                        X: =40
+                        Y: =40
+                        ZIndex: =4
+
+                    "FailonlyrunCheckbox As 'Check box'":
+                        Checked: =true
+                        Color: =ColorValue(AppTheme.palette.neutralPrimary)
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Label: ="Failed runs only"
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =160
+                        Width: =160
+                        X: =42
+                        Y: =283
+                        ZIndex: =5
+
+                Rectangle2_27 As rectangle:
+                    AlignInContainer: =AlignInContainer.Stretch
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Fill: =RGBA(230, 230, 230, 1)
+                    FocusedBorderThickness: =4
+                    Height: =1
+                    Width: =1
+                    ZIndex: =2
+
+                Container23_11 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =ColorValue(AppTheme.palette.white)
+                    Height: =20
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutGap: =2
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =20
+                    PaddingLeft: =20
+                    PaddingRight: =20
+                    PaddingTop: =10
+                    ZIndex: =3
+
+                    "FlowSessionTracesDetailList As 'Fluent Details List (0.0.20)'.pcfdataset":
+                        ColSortable: ="ColSortable"
+                        columns_Items: |-
+                            =Table(
+                                {
+                                    ColName: "ComponentIcon",
+                                    ColDisplayName: "",
+                                    ColWidth: Parent.Width * 0.044,
+                                    ColImageWidth: 20,
+                                    ColImageHeight: 20,
+                                    ColCellType: "image",
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true,
+                                    ColTagColorColumn: "IconColor"
+                                },
+                                {
+                                    ColName: "autocoe_overallstatus",
+                                    ColDisplayName: "Status",
+                                    ColWidth: Parent.Width * 0.096,
+                                    ColCellType: "tag",
+                                    ColTagColorColumn: "StatusColor",
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "StartedOn",
+                                    ColDisplayName: "Started on",
+                                    ColWidth: Parent.Width * 0.1,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "CompletedOn",
+                                    ColDisplayName: "Completed On",
+                                    ColWidth: Parent.Width * 0.1,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "Duration",
+                                    ColDisplayName: "Duration (In Seconds)",
+                                    ColWidth: Parent.Width * 0.12,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "autocoe_exceptioncode",
+                                    ColDisplayName: "Exception Code",
+                                    ColWidth: Parent.Width * 0.15,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                },
+                                {
+                                    ColName: "autocoe_exceptiondetails",
+                                    ColDisplayName: "Exception Details",
+                                    ColWidth: Parent.Width * 0.2,
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true
+                                }/*,
+                                {
+                                    ColName: "OpeninNewWindow",
+                                    ColDisplayName: "Open in New Window",
+                                    ColWidth: Parent.Width * 0.1,
+                                    ColImageWidth: 20,
+                                    ColImageHeight: 20,
+                                    ColCellType: "clickableimage",
+                                    ColSortable: true,
+                                    ColIsBold: true,
+                                    ColResizable: true,
+                                    ColTagColorColumn: "IconColor"
+                                }*/
+                            )
+                        CurrentSortColumn: =ctxSortCol
+                        CurrentSortDirection: |-
+                            =If(ctxSortAsc,
+                                '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Ascending,
+                                '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Descending) 
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =Parent.Height
+                        Items: |-
+                            =SortByColumns(
+                                Filter(
+                                    If(
+                                        _filterApplied,
+                                        Filter(
+                                            col_FlowSessionTraces,
+                                            'Completed On' >= DateValueStartDate.Value && 'Completed On' <= DateValueEndDate.Value
+                                        ),
+                                        Filter(
+                                            col_FlowSessionTraces,
+                                            'Completed On' >= previousStartDate && 'Completed On' <= previousStartDate + 7
+                                        )
+                                    ),
+                                    If(
+                                        FailonlyrunCheckbox.Checked,
+                                        'Overall Status' = "Failed",
+                                        'Overall Status' <> ""
+                                    )
+                                ),
+                                ctxSortCol,
+                                If(
+                                    ctxSortAsc,
+                                    SortOrder.Ascending,
+                                    SortOrder.Descending
+                                )
+                            )
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: |+
+                            =/* Runs when selected row changes and control property 'Raise OnRowSelection event' is true */
+                            If( Self.EventName = "OnRowSelectionChange",If(!IsBlank(Self.EventRowKey),
+                                    UpdateContext({_currentSelectedTraces:First(Filter(col_FlowSessionTraces,'Flow Session Trace' = FlowSessionTracesDetailList.Selected.'Flow Session Trace'))});, 
+                                    //Empty Collection
+                                    UpdateContext({_currentSelectedTraces:{}});)
+                            );
+                            
+                            /* Runs when a user clicks on a column with ColCellType set to 'link' */
+                            If( Self.EventName = "CellAction",
+                                Switch(Self.EventColumn,
+                                "OpeninNewWindow",
+                            Launch("https://us.flow.microsoft.com/manage/environments/" & First(EnvironmentDetails).EnvironmentId & "/solutions/" & _selectedSolution.'Solution Identifier' &"/flows/" & _currentSelectedTraces.'Flow Id' &"/runs/" & _currentSelectedTraces.'Flow Run Id')
+                            ));
+                            
+                            If(Self.EventName="Sort", 
+                            UpdateContext({
+                                            ctxSortCol:Self.SortEventColumn,
+                                            ctxSortAsc:If(Self.SortEventDirection='''PowerCAT.FluentDetailsList.SortEventDirection'''.Ascending,true,false)
+                             })
+                            );
+                            
+                        RaiseOnRowSelectionChangeEvent: =true
+                        SelectionType: ='''PowerCAT.FluentDetailsList.SelectionType'''.Single
+                        Theme: =AppThemeJson
+                        Width: =200
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                        autocoe_exceptioncode1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="autocoe_exceptioncode"
+                            FieldName: ="autocoe_exceptioncode"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =1
+                            ZIndex: =13
+
+                        autocoe_overallstatus1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="autocoe_overallstatus"
+                            FieldName: ="autocoe_overallstatus"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =4
+                            ZIndex: =16
+
+                        autocoe_exceptiondetails1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="autocoe_exceptiondetails"
+                            FieldName: ="autocoe_exceptiondetails"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =5
+                            ZIndex: =17
+
+                        OpeninNewWindow3 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="OpeninNewWindow"
+                            FieldName: ="OpeninNewWindow"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =6
+                            ZIndex: =18
+
+                        ComponentIcon2 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="ComponentIcon"
+                            FieldName: ="ComponentIcon"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =7
+                            ZIndex: =19
+
+                        CompletedOn1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="CompletedOn"
+                            FieldName: ="CompletedOn"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =6
+                            ZIndex: =20
+
+                        StartedOn1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="StartedOn"
+                            FieldName: ="StartedOn"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =7
+                            ZIndex: =21
+
+                        autocoe_startedon1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="autocoe_startedon"
+                            FieldName: ="autocoe_startedon"
+                            FieldType: ="d"
+                            FieldVariantName: ="textualColumn"
+                            Order: =8
+                            ZIndex: =22
+
+                        Duration1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="Duration"
+                            FieldName: ="Duration"
+                            FieldType: ="n"
+                            FieldVariantName: ="textualColumn"
+                            Order: =9
+                            ZIndex: =23
+
+                        Sortable1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="Sortable"
+                            FieldName: ="Sortable"
+                            FieldType: ="b"
+                            FieldVariantName: ="textualColumn"
+                            Order: =10
+                            ZIndex: =24
+
+    FlowSessionFilterPanel As Panel:
+        Buttons: |-
+            =If(!IsBlank(DateValueStartDate.Value),Table({Label: "Apply", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary, Enabled:false},{Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard }))
+        DialogWidth: =Parent.Width * 0.6
+        Fill: =FlowSessionFilterPanel.OverlayColor
+        Height: =Parent.Height
+        OnButtonSelect: |
+            =If(
+                Self.SelectedButton.Label = "Apply",
+                UpdateContext({_filterApplied: true,_customfilterDate:true, previousStartDate: DateValueStartDate.Value}); 
+            );
+            UpdateContext({_showFlowSessionFilterPanel: false});
+        OnCloseSelect: |-
+            =UpdateContext({_showFlowSessionFilterPanel:false})
+        Subtitle: |-
+            =Concatenate("Note: Result are only shown between a selected date range of ",_filterDurationDays, " Days and filtered is applied on 'Completed On'")
+        Title: ="Apply Filter"
+        Visible: =_showFlowSessionFilterPanel
+        Width: =Parent.Width
+        ZIndex: =2
+
+    FilterContainer As groupContainer.manualLayoutContainer:
+        Height: =FlowSessionFilterPanel.ContentHeight
+        Visible: =_showFlowSessionFilterPanel
+        Width: =FlowSessionFilterPanel.ContentWidth
+        X: =FlowSessionFilterPanel.ContentX
+        Y: =FlowSessionFilterPanel.ContentY
+        ZIndex: =3
+
+        DataCardComparerValueSO As combobox:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(33, 33, 33, 1)
+            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DefaultSelectedItems: =["Equals"]
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayFields: =["Value"]
+            DisplayMode: =Disabled
+            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            Height: =29
+            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(212, 212, 212, 1)
+            IsSearchable: =false
+            Items: =["equals","not equals","greater than or equal","greater","less than or equal","less than"]
+            PaddingLeft: =12
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(212, 212, 212, 1)
+            SearchFields: =["Value"]
+            SearchItems: =[]
+            SelectionColor: =RGBA(51, 51, 51, 1)
+            SelectionFill: =RGBA(0, 120, 212, 1)
+            SelectMultiple: =false
+            Size: =10.5
+            Tooltip: =
+            Width: =195
+            X: =212
+            Y: =110
+            ZIndex: =3
+
+        DefaultAndValue As combobox:
+            AccessibleLabel: =
+            BorderColor: =RGBA(166, 166, 166, 1)
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(33, 33, 33, 1)
+            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DefaultSelectedItems: =["And"]
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayFields: =["Value"]
+            DisplayMode: =Disabled
+            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            Height: =29
+            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(212, 212, 212, 1)
+            IsSearchable: =false
+            Items: =["And"]
+            PaddingLeft: =12
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(212, 212, 212, 1)
+            SearchFields: =["Value"]
+            SearchItems: =[]
+            SelectionColor: =RGBA(51, 51, 51, 1)
+            SelectionFill: =RGBA(0, 120, 212, 1)
+            SelectMultiple: =false
+            Size: =10.5
+            Tooltip: =
+            Width: =100
+            X: =27
+            Y: =57
+            ZIndex: =4
+
+        DataCardComparerValueCO As combobox:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            ChevronBackground: =RGBA(255, 255, 255, 1)
+            ChevronDisabledBackground: =RGBA(244, 244, 244, 1)
+            ChevronDisabledFill: =RGBA(166, 166, 166, 1)
+            ChevronFill: =RGBA(33, 33, 33, 1)
+            ChevronHoverBackground: =RGBA(212, 212, 212, 1)
+            ChevronHoverFill: =RGBA(33, 33, 33, 1)
+            Color: =RGBA(51, 51, 51, 1)
+            DefaultSelectedItems: =["Equals"]
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            DisabledFill: =RGBA(244, 244, 244, 1)
+            DisplayFields: =["Value"]
+            DisplayMode: =Disabled
+            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+            FocusedBorderThickness: =2
+            Font: =Font.'Segoe UI'
+            Height: =29
+            HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            HoverColor: =RGBA(51, 51, 51, 1)
+            HoverFill: =RGBA(212, 212, 212, 1)
+            IsSearchable: =false
+            Items: =["equals","not equals","greater than or equal","greater","less than or equal","less than"]
+            PaddingLeft: =12
+            PressedBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+            PressedColor: =RGBA(255, 255, 255, 1)
+            PressedFill: =RGBA(212, 212, 212, 1)
+            SearchFields: =["Value"]
+            SearchItems: =[]
+            SelectionColor: =RGBA(51, 51, 51, 1)
+            SelectionFill: =RGBA(0, 120, 212, 1)
+            SelectMultiple: =false
+            Size: =10.5
+            Tooltip: =
+            Width: =195
+            X: =212
+            Y: =155
+            ZIndex: =7
+
+        "ChkboxStartDate As 'Check box'":
+            Checked: =true
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =Disabled
+            Height: =32
+            Label: ="Start Date"
+            Width: =160
+            X: =72
+            Y: =110
+            ZIndex: =8
+
+        "ChkboxEndDate As 'Check box'":
+            Checked: =true
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =Disabled
+            Height: =32
+            Label: ="End Date"
+            Width: =160
+            X: =72
+            Y: =155
+            ZIndex: =9
+
+        "DateValueStartDate As 'Date picker'":
+            AccessibleLabel: =
+            DisplayMode: =Parent.DisplayMode
+            Height: =29
+            InitialPickerDate: =
+            Tooltip: =
+            Value: =DateValue(Today()-_filterDurationDays)
+            Visible: =true
+            Width: =251
+            X: =418
+            Y: =110
+            ZIndex: =10
+
+        "DateValueEndDate As 'Date picker'":
+            AccessibleLabel: =
+            DisplayMode: =Disabled
+            Height: =29
+            InitialPickerDate: =
+            Tooltip: =
+            Value: =DateAdd(DateValueStartDate.Value,_filterDurationDays,Days)
+            Width: =251
+            X: =418
+            Y: =155
+            ZIndex: =13
+
+        icoConnector As rectangle:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =0.5
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(105, 121, 126, 1)
+            FocusedBorderThickness: =4
+            Height: =86
+            HoverFill: =RGBA(105, 121, 126, 1)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            Width: =0.5
+            X: =40
+            Y: =86
+            ZIndex: =14
+
+        icoFirst As rectangle:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =0.5
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(105, 121, 126, 1)
+            FocusedBorderThickness: =4
+            Height: =0.5
+            HoverFill: =RGBA(105, 121, 126, 1)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            Width: =32
+            X: =40
+            Y: =128
+            ZIndex: =15
+
+        icoSecond As rectangle:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderThickness: =0.5
+            DisabledFill: =RGBA(166, 166, 166, 1)
+            Fill: =RGBA(105, 121, 126, 1)
+            FocusedBorderThickness: =4
+            Height: =0.5
+            HoverFill: =RGBA(105, 121, 126, 1)
+            PressedFill: =RGBA(105, 121, 126, 1)
+            Width: =32
+            X: =40
+            Y: =172
+            ZIndex: =16
+
+        lblAcknowledgement As label:
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledColor: =RGBA(166, 166, 166, 1)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            Height: =78
+            Size: =13
+            Text: |-
+                ="Important : This might not be complete set of results and by design a total of 2000 entries will be shown at a time"
+            Width: =780
+            Y: =520
+            ZIndex: =17
+

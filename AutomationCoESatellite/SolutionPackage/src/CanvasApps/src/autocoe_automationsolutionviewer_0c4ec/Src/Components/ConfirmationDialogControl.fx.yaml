@@ -1,0 +1,197 @@
+ConfirmationDialogControl As CanvasComponent:
+    BodyText: ="{This is the Body Text}"
+    CancelButtonText: ="{Cancel}"
+    ConfirmButtonText: ="{Yes}"
+    Fill: |-
+        =If(ConfirmationDialogControl.SemiTransparentBackground, RGBA(255, 255, 255, 0.4), ColorValue("#F8F8F8"))
+    HeaderText: ="{This is the Hearder Text}"
+    Height: =App.Height
+    OnCancellation: ="Text"
+    OnConfirmation: ="Text"
+    OnReset: |-
+        =Set(_showHideConfirmationDialog,true);
+        Set(UIBGColor,ColorValue("#FAF9F8"));
+        Set(UIAccentColor,ColorValue("#0078d4"));
+        Set(UIAccentColorText,"#0078d4");
+        
+        Set(BTNStandard_Fill, White);
+        Set(BTNStandard_Color, ColorValue("#323130"));
+        Set(BTNStandard_ColorPressed, ColorValue("#201f1e"));
+        Set(BTNStandard_Border, ColorValue("#323130"));
+        Set(BTNStandard_Text, ColorValue("#323130"));
+        Set(BTNStandard_Pressed, ColorValue("#edebe9"));
+        Set(BTNStandard_PressedBorder, ColorValue("#edebe9"));
+        Set(BTNStandard_HoverFill, ColorValue("#f3f2f1"));
+        Set(BTNStandard_HoverBorder, ColorValue("#323130"));
+        
+        Set(BTNAccent_Fill, ColorValue("#0078D4"));
+        Set(BTNAccent_Border, ColorValue("#106EBE"));
+        Set(BTNAccent_Text, ColorValue("#323130"));
+        Set(BTNAccent_Pressed, ColorValue("#005a9e"));
+        Set(BTNAccent_PressedBorder, ColorValue("#005a9e"));
+        Set(BTNAccent_HoverFill, ColorValue("#106ebe"));
+        Set(BTNAccent_HoverBorder, ColorValue("#106ebe"));
+    SemiTransparentBackground: =true
+    Width: =App.Width
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Background As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =304
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: |-
+            ="data:image/svg+xml," & 
+             EncodeUrl(
+            "<svg width='676' height='304' viewBox='0 0 676 304' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <g filter='url(#filter0_dd_5941_269)'>
+            <path d='M58 34C58 32.8954 58.8954 32 60 32H616C617.105 32 618 32.8954 618 34V218C618 219.105 617.105 220 616 220H60C58.8954 220 58 219.105 58 218V34Z' fill='white'/>
+            <rect width='560' height='64' transform='translate(58 32)' fill='white'/>
+            </g>
+            <defs>
+            <filter id='filter0_dd_5941_269' x='0.400002' y='1.90735e-06' width='675.2' height='303.2' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'>
+            <feFlood flood-opacity='0' result='BackgroundImageFix'/>
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+            <feOffset dy='25.6'/>
+            <feGaussianBlur stdDeviation='28.8'/>
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.22 0'/>
+            <feBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow_5941_269'/>
+            <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha'/>
+            <feOffset dy='4.8'/>
+            <feGaussianBlur stdDeviation='7.2'/>
+            <feColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.18 0'/>
+            <feBlend mode='normal' in2='effect1_dropShadow_5941_269' result='effect2_dropShadow_5941_269'/>
+            <feBlend mode='normal' in='SourceGraphic' in2='effect2_dropShadow_5941_269' result='shape'/>
+            </filter>
+            </defs>
+            </svg>"
+            )
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =676
+        X: =App.Width/2-Self.Width/2
+        Y: =App.Height/2-Self.Height/2
+        ZIndex: =1
+
+    Close As icon.Cancel:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(220, 220, 220, 1)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =30
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Icon: =Icon.Cancel
+        OnSelect: =ConfirmationDialogControl.OnCancellation()
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =35
+        X: =Background.X+Background.Width-110
+        Y: =Background.Y+50
+        ZIndex: =2
+
+    HeaderText As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Bold
+        Size: =13
+        Text: =ConfirmationDialogControl.HeaderText
+        Width: =468
+        X: =Background.X+80
+        Y: =Background.Y+45
+        ZIndex: =3
+
+    BodyText As label:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        Color: =RGBA(51, 51, 51, 1)
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        FocusedBorderThickness: =4
+        Font: =Font.'Segoe UI'
+        Height: =60
+        Size: =11
+        Text: =ConfirmationDialogControl.BodyText
+        VerticalAlign: =VerticalAlign.Top
+        Width: =520
+        X: =Background.X+80
+        Y: =Background.Y+HeaderText.Height+45
+        ZIndex: =4
+
+    Cancel As button:
+        BorderColor: =RGBA(0, 0, 0, 1)
+        BorderThickness: =1
+        Color: =BTNStandard_Color
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(255, 255, 255, 1)
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =32
+        HoverBorderColor: =BTNStandard_HoverBorder
+        HoverColor: =BTNStandard_ColorPressed
+        HoverFill: =BTNStandard_HoverFill
+        OnSelect: =ConfirmationDialogControl.OnCancellation()
+        PressedBorderColor: =ColorFade(RGBA(135, 100, 184, 1), -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(Black, -30%)
+        RadiusBottomLeft: =2
+        RadiusBottomRight: =2
+        RadiusTopLeft: =2
+        RadiusTopRight: =2
+        Text: =ConfirmationDialogControl.CancelButtonText
+        Width: =140
+        X: =Confirm.X-Self.Width-20
+        Y: =Confirm.Y
+        ZIndex: =5
+
+    Confirm As button:
+        BorderColor: =BTNAccent_Border
+        BorderThickness: =1
+        Color: =White
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =BTNAccent_Fill
+        Font: =Font.'Segoe UI'
+        FontWeight: =FontWeight.Semibold
+        Height: =32
+        HoverBorderColor: =BTNAccent_HoverBorder
+        HoverColor: =White
+        HoverFill: =BTNAccent_HoverFill
+        OnSelect: =ConfirmationDialogControl.OnConfirmation()
+        PressedBorderColor: =ColorFade(White, -50%)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =ColorFade(White, -30%)
+        RadiusBottomLeft: =2
+        RadiusBottomRight: =2
+        RadiusTopLeft: =2
+        RadiusTopRight: =2
+        Text: =ConfirmationDialogControl.ConfirmButtonText
+        Width: =140
+        X: =Background.X+Background.Width-Self.Width-90
+        Y: =Background.Y+Background.Height-140
+        ZIndex: =6
+

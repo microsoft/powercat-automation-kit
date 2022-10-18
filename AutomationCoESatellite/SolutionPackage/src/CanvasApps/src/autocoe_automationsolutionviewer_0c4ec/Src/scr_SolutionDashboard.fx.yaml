@@ -1,0 +1,696 @@
+scr_SolutionDashboard As screen:
+    LoadingSpinner: =LoadingSpinner.Controls
+    LoadingSpinnerColor: =UIAccentColor
+    OnVisible: |
+        =Set(appTitle, "AUTOMATION SOLUTION VIEWER");
+        
+        UpdateContext({_showShimmer: true});
+        ClearCollect(col_Solutions,Filter(Solutions, 
+            'Is Visible Outside Platform' = 'Is Visible Outside Platform (Solutions)'.Yes && 
+            Name <> "Default" && 
+            Name <> "PluginProfiler" &&
+            Not("msdyn_" in Name) && 
+            'Display Name' <> "Common Data Services Default Solution" )
+        );
+        Set(UnmanagedSolutions, CountRows(Filter(col_Solutions, 'Package Type' = 'Package Type (Solutions)'.Unmanaged)));
+        Set(ManagedSolutions, CountRows(Filter(col_Solutions, 'Package Type' = 'Package Type (Solutions)'.Managed)));
+        Set(_showConfirmationBox,false);
+        
+        // If you wish to update the item count on the navbar icon uncomment this
+        // Patch(col_MainNav, LookUp(col_MainNav,Screen = App.ActiveScreen),{Notifications: CountRows(galPolicies.AllItems)});
+        UpdateContext({_showShimmer: false});
+
+    c_screen_9 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =App.Width
+        ZIndex: =1
+
+        HeaderContainer2_11 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(52, 60, 63, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            cmp_Header_2 As cmp_Header_1:
+                AppTitle: ="AUTOMATION SOLUTION MANAGER"
+                CompanyLogo: =Paw_Light
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                ZIndex: =2
+
+        MainSectionContainer2_11 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            Navigation_12 As NavigationControl:
+                AlignInContainer: =AlignInContainer.Stretch
+                Items: =col_MainNav
+                LayoutMinHeight: =600
+                LayoutMinWidth: =640
+                Width: =If(Navigation_12.IsExpanded, 200, 60)
+
+            Rectangle2_17 As rectangle:
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Fill: =RGBA(230, 230, 230, 1)
+                FocusedBorderThickness: =4
+                Height: =1
+                OnSelect: |-
+                    =UpdateContext({_showConfirmationBox:true})
+                Width: =1
+                ZIndex: =2
+
+            c_mainContent_9 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =3
+
+                Container2_2 As groupContainer.horizontalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =UIBGColor
+                    FillPortions: =0
+                    Height: =60
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =10
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =7
+                    PaddingLeft: =25
+                    PaddingTop: =25
+                    ZIndex: =2
+
+                    Container10_2 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =15
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =500
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        ZIndex: =1
+
+                        txtSolutionSearchBox As text:
+                            BorderColor: =RGBA(230, 230, 230, 1)
+                            Color: =RGBA(51, 51, 51, 1)
+                            Default: =""
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(166, 166, 166, 1)
+                            DisabledFill: =RGBA(244, 244, 244, 1)
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            HintText: ="Search solutions..."
+                            HoverBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverColor: =RGBA(51, 51, 51, 1)
+                            HoverFill: =RGBA(255, 255, 255, 1)
+                            OnChange: =
+                            PaddingLeft: =15
+                            PressedBorderColor: =RGBA(105, 121, 126, 1)
+                            PressedColor: =RGBA(51, 51, 51, 1)
+                            PressedFill: =RGBA(255, 255, 255, 1)
+                            RadiusBottomLeft: =0
+                            RadiusBottomRight: =0
+                            RadiusTopLeft: =0
+                            RadiusTopRight: =0
+                            Size: =10
+                            Width: =600
+                            X: =245
+                            Y: =95
+                            ZIndex: =1
+
+                        icReload_1 As icon.Reload:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Color: =UIAccentColor
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =40
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =Icon.Reload
+                            OnSelect: |+
+                                =Reset(txtSolutionSearchBox);
+                                
+                                Refresh(Solutions);
+                                Refresh('Solution Meterings');
+                                Refresh('Solution Metering Artifacts');
+                                ClearCollect(col_Solutions,Filter(Solutions, 
+                                    'Is Visible Outside Platform' = 'Is Visible Outside Platform (Solutions)'.Yes && 
+                                    Name <> "Default" && 
+                                    Name <> "PluginProfiler" &&
+                                    Not("msdyn_" in Name) && 
+                                    'Display Name' <> "Common Data Services Default Solution" )
+                                );
+                                Set(UnmanagedSolutions, CountRows(Filter(col_Solutions, 'Package Type' = 'Package Type (Solutions)'.Unmanaged)));
+                                Set(ManagedSolutions, CountRows(Filter(col_Solutions, 'Package Type' = 'Package Type (Solutions)'.Managed)));
+                                
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Width: =47
+                            X: =981
+                            Y: =95
+                            ZIndex: =4
+
+                        MeteredOnly As toggleSwitch:
+                            BorderColor: =RGBA(0, 0, 0, 0)
+                            BorderStyle: =BorderStyle.None
+                            Color: =RGBA(51, 51, 51, 1)
+                            Default: =true
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            FalseFill: =RGBA(36, 42, 44, 1)
+                            FalseHoverFill: =RGBA(33, 33, 33, 1)
+                            FalseText: ="Show all solutions"
+                            FocusedBorderThickness: =4
+                            Font: =Font.'Segoe UI'
+                            FontWeight: =FontWeight.Semibold
+                            HandleFill: =RGBA(255, 255, 255, 1)
+                            Height: =25
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            Size: =12
+                            TrueFill: =UIAccentColor
+                            TrueHoverFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            TrueText: ="Metered solutions only"
+                            Width: =240
+                            ZIndex: =5
+
+                Container23_5 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =UIBGColor
+                    Height: =20
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutGap: =2
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =20
+                    PaddingLeft: =20
+                    PaddingRight: =20
+                    PaddingTop: =10
+                    ZIndex: =3
+
+                    Container2 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        ZIndex: =3
+
+                        GridContainerControl_1 As GridContainerControl:
+                            HeaderFields: |-
+                                ={
+                                    Headers: [
+                                        {Index: 1, Name: "Name", Width: 250, Visible: true},
+                                        {Index: 2, Name: "Display name", Width: 320, Visible: true},
+                                        {Index: 3, Name: "Metering on", Width: 100, Visible: true},
+                                        {Index: 4, Name: "Automation Project", Width: 140, Visible: true},  
+                                        {Index: 5, Name: "Created On", Width: 145, Visible: true},
+                                        {Index: 6, Name: "Version", Width: 105, Visible: true},    
+                                        {Index: 7, Name: "Package type", Width: 125, Visible: true},    
+                                        {Index: 8, Name: "Header 8", Width: 100, Visible: false},
+                                        {Index: 9, Name: "Header 9", Width: 100, Visible: false},
+                                        {Index: 10, Name: "Header 10", Width: 100, Visible: false}
+                                    ]
+                                }
+                            Height: =Parent.Height
+                            Width: =Parent.Width
+
+                        "galSolutions As gallery.'BrowseLayout_Vertical_OneTextVariant_ver4.0'":
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Fill: =Parent.Fill
+                            Height: =Parent.Height-90
+                            Items: =If(MeteredOnly.Value = true, Search(Filter(col_Solutions, 'Solution Identifier' in 'Solution Meterings'.'Solution Id'),txtSolutionSearchBox.Text,"friendlyname","uniquename"),Search(col_Solutions,txtSolutionSearchBox.Text,"friendlyname","uniquename"))
+                            Layout: =Layout.Vertical
+                            OnSelect: =
+                            TemplateFill: =If(ThisItem.IsSelected,RGBA(243, 242, 241, 1), RGBA(0, 0, 0, 0))
+                            TemplatePadding: =0
+                            TemplateSize: =42
+                            Width: =Parent.Width-25
+                            X: =22
+                            Y: =58
+                            ZIndex: =2
+
+                            LineSeparator_2 As rectangle:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                Fill: |-
+                                    =ColorValue("#f3f2f1")
+                                Height: =1/3
+                                OnSelect: =Select(Parent)
+                                Width: =Parent.TemplateWidth
+                                Y: =Parent.TemplateHeight - 1
+                                ZIndex: =1
+
+                            GridField1_2 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: |-
+                                    =If(ThisItem.'Package Type' = 'Package Type (Solutions)'.Managed, 
+                                        UIAccentColor,// Blue
+                                        ColorValue("#888888")   // Gray
+                                    )
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =29
+                                OnSelect: =Select(Parent)
+                                Size: =10
+                                Text: =ThisItem.'Package Type'
+                                Width: =100
+                                X: =Last(FirstN(GridContainerControl_1.HeaderXValues.HeaderX, 7)).Value.X -15
+                                Y: =galSolutions.TemplateHeight/2-Self.Height/2
+                                ZIndex: =2
+
+                            GridField2_2 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: |-
+                                    =ColorValue("#605e5c")
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =30
+                                OnSelect: =Select(Parent)
+                                Overflow: =Overflow.Scroll
+                                Size: =10
+                                Text: =ThisItem.Name
+                                Width: =400
+                                X: =Last(FirstN(GridContainerControl_1.HeaderXValues.HeaderX, 1)).Value.X -20
+                                Y: =6
+                                ZIndex: =4
+
+                            GridField3_2 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: |-
+                                    =ColorValue("#605e5c")
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =30
+                                OnSelect: =Select(Parent)
+                                Overflow: =Overflow.Scroll
+                                Size: =10
+                                Text: =ThisItem.'Display Name'
+                                Width: =465
+                                X: =Last(FirstN(GridContainerControl_1.HeaderXValues.HeaderX, 2)).Value.X -20
+                                Y: =6
+                                ZIndex: =5
+
+                            GridField4_2 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: |-
+                                    =ColorValue("#605e5c")
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =29
+                                OnSelect: =Select(Parent)
+                                Size: =10
+                                Text: =ThisItem.Version
+                                Width: =75
+                                X: =Last(FirstN(GridContainerControl_1.HeaderXValues.HeaderX, 6)).Value.X -15
+                                Y: =7
+                                ZIndex: =6
+
+                            GridField7_2 As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: |-
+                                    =ColorValue("#605e5c")
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =30
+                                OnSelect: =Select(Parent)
+                                Size: =10
+                                Text: =ThisItem.'Created On'
+                                Width: =165
+                                X: =Last(FirstN(GridContainerControl_1.HeaderXValues.HeaderX, 5)).Value.X -15
+                                Y: =6
+                                ZIndex: =7
+
+                            OpenSolutionExplorer As icon.CheckBadge:
+                                BorderColor: =RGBA(166, 166, 166, 1)
+                                Color: =UIAccentColor
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(220, 220, 220, 1)
+                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                FocusedBorderThickness: =4
+                                Height: =30
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                Icon: =Icon.OpenInNewWindow
+                                OnSelect: |-
+                                    =Launch("https://us.flow.microsoft.com/manage/environments/" & First(EnvironmentDetails).EnvironmentId & "/solutions/" & ThisItem.'Solution Identifier' &"")
+                                PaddingBottom: =4
+                                PaddingLeft: =4
+                                PaddingRight: =4
+                                PaddingTop: =4
+                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                                PressedFill: =RGBA(0, 0, 0, 0)
+                                Tooltip: ="Open solution explorer"
+                                Width: =30
+                                X: =GridField1_2.X+150
+                                Y: =7
+                                ZIndex: =8
+
+                            ViewDetails As icon.CheckBadge:
+                                BorderColor: =RGBA(166, 166, 166, 1)
+                                Color: =UIAccentColor
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(220, 220, 220, 1)
+                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                FocusedBorderThickness: =4
+                                Height: =30
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                Icon: =Icon.More
+                                OnSelect: =Navigate(scr_SolutionDetails,ScreenTransition.Fade)
+                                PaddingBottom: =4
+                                PaddingLeft: =4
+                                PaddingRight: =4
+                                PaddingTop: =4
+                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                                PressedFill: =RGBA(0, 0, 0, 0)
+                                Tooltip: ="View solution details"
+                                Width: =30
+                                X: =GridField1_2.X+100
+                                Y: =7
+                                ZIndex: =9
+
+                            Monitored_1 As image:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                FocusedBorderThickness: =4
+                                Height: =30
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                Image: |-
+                                    ="data:image/svg+xml," & 
+                                     EncodeUrl(
+                                        "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+                                      <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+                                       <path fill='"& UIAccentColorText & "'
+                                    d='M1639 1548q135 -136 208 -297.5t73 -354.5q0 -124 -32 -238.5t-90.5 -214t-140 -181t-181 -140t-214 -90.5t-238.5 -32t-238.5 32t-214 90.5t-181 140t-140 181t-90.5 214t-32 238.5q0 111 26.5 216t75 198t117.5 172.5t154 141t185 102.5t210 57v137h-256v128h640v-128h-256v-128q139 0 270.5 -41t244.5 -122l208 208l90 -90zM1024 128q159 0 298.5 60.5t244 165t165 244t60.5 298.5t-60.5 298.5t-165 244t-244 165t-298.5 60.5t-298.5 -60.5t-244 -165t-165 -244t-60.5 -298.5t60.5 -298.5t165 -244t244 -165t298.5 -60.5zM1664 1024v-128q0 -133 -50 -249.5t-137 -203.5t-203.5 -137t-249.5 -50t-249.5 50t-203.5 136.5t-137 203t-50 249.5q0 88 23 170t64.5 153t100 129.5t129.5 100.5t152.5 65t170.5 23h128v-512h512zM1024 384q106 0 199.5 40t163 109.5t109.5 163t40 199.5h-512v512q-107 0 -200 -40.5t-162.5 -110t-109.5 -163.5t-40 -200t40.5 -199t110 -162t162.5 -109t199 -40z' />
+                                      </g>
+                                    
+                                    </svg>"
+                                    )
+                                OnSelect: |-
+                                    =UpdateContext({_showConfirmationBox:true})
+                                PaddingBottom: =5
+                                PaddingLeft: =5
+                                PaddingRight: =5
+                                PaddingTop: =5
+                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                PressedFill: =RGBA(0, 0, 0, 0)
+                                Tooltip: ="Remove from metering"
+                                Visible: =If(ThisItem.'Solution Identifier' in 'Solution Meterings'.'Solution Id',true,false)
+                                Width: =30
+                                X: =Last(FirstN(GridContainerControl_1.HeaderXValues.HeaderX, 3)).Value.X 
+                                Y: =7
+                                ZIndex: =10
+
+                            AddToMetered As icon.CheckBadge:
+                                BorderColor: =RGBA(166, 166, 166, 1)
+                                Color: =UIAccentColor
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(220, 220, 220, 1)
+                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                FocusedBorderThickness: =4
+                                Height: =30
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                Icon: =Icon.Add
+                                OnSelect: =Navigate(scr_SolutionMeteringAdd,ScreenTransition.Fade)
+                                PaddingBottom: =4
+                                PaddingLeft: =4
+                                PaddingRight: =4
+                                PaddingTop: =4
+                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                                PressedFill: =RGBA(0, 0, 0, 0)
+                                Tooltip: ="Add to metering"
+                                Visible: =If(ThisItem.'Solution Identifier' in 'Solution Meterings'.'Solution Id',false,true)
+                                Width: =30
+                                X: =Last(FirstN(GridContainerControl_1.HeaderXValues.HeaderX, 3)).Value.X 
+                                Y: =5
+                                ZIndex: =11
+
+                            ProjectNumber As label:
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                BorderStyle: =BorderStyle.None
+                                BorderThickness: =2
+                                Color: |-
+                                    =ColorValue("#605e5c")
+                                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                DisabledColor: =RGBA(166, 166, 166, 1)
+                                FocusedBorderThickness: =4
+                                Font: =Font.'Segoe UI'
+                                Height: =30
+                                OnSelect: |-
+                                    =If(!IsBlank(ProjectNumber.Text),Launch("https://apps.powerapps.com/play/" & First(EnvironmentDetails).AutomationProjectCanvasAppId & "?ProjectNumber=" & ProjectNumber.Text & "&hidenavbar=true"))
+                                Size: =10
+                                Text: =LookUp('Solution Meterings', autocoe_solutionid = Text(ThisItem.'Solution Identifier')).autocoe_AutomationProject.autocoe_automationprojectnumber
+                                Underline: =true
+                                Width: =165
+                                X: =Last(FirstN(GridContainerControl_1.HeaderXValues.HeaderX, 4)).Value.X -15
+                                Y: =5
+                                ZIndex: =12
+
+            Container7_1 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =100
+                LayoutMode: =LayoutMode.Auto
+                Width: =180
+                ZIndex: =4
+
+                Container8_1 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderThickness: =2
+                    Fill: =UIBGColor
+                    FillPortions: =0
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =100
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingTop: =16
+                    Width: =180
+                    ZIndex: =7
+
+                    Label7_18 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Semibold
+                        Height: =60
+                        PaddingBottom: =20
+                        PaddingLeft: =30
+                        Size: =15
+                        Text: ="Total solutions"
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =160
+                        ZIndex: =1
+
+                    Label8_19 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Bold
+                        Height: =70
+                        PaddingLeft: =25
+                        PaddingTop: =0
+                        Size: =35
+                        Text: =CountRows(Distinct(col_Solutions,'Solution Identifier'))
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =2
+
+                    Label7_19 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Semibold
+                        Height: =60
+                        PaddingBottom: =20
+                        PaddingLeft: =25
+                        Size: =15
+                        Text: ="Managed solutions"
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =3
+
+                    Label8_25 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Bold
+                        Height: =70
+                        OnSelect: =Navigate(scr_SolutionDashboard,ScreenTransition.Fade)
+                        PaddingLeft: =25
+                        PaddingTop: =0
+                        Size: =35
+                        Text: =ManagedSolutions
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =4
+
+                    Label7_20 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Semibold
+                        Height: =60
+                        PaddingBottom: =20
+                        PaddingLeft: =25
+                        Size: =15
+                        Text: ="Unmanaged solutions"
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =5
+
+                    Label8_26 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Bold
+                        Height: =70
+                        PaddingLeft: =25
+                        PaddingTop: =0
+                        Size: =35
+                        Text: =UnmanagedSolutions
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =6
+
+                    Label7_21 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Semibold
+                        Height: =60
+                        PaddingBottom: =20
+                        PaddingLeft: =25
+                        Size: =15
+                        Text: ="Metered solutions"
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =7
+
+                    Label8_27 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Bold
+                        Height: =70
+                        PaddingLeft: =25
+                        PaddingTop: =0
+                        Size: =35
+                        Text: =CountRows(Filter(col_Solutions, 'Solution Identifier' in 'Solution Meterings'.'Solution Id'))
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =8
+
+    ConfirmationDialogControl_RemoveAll As ConfirmationDialogControl:
+        BodyText: ="Are you sure you want to remove the Solution '" & galSolutions.Selected.'Display Name' & "' and all its artifacts from metering? Please note that this will create an audit log entry in our databse."
+        CancelButtonText: ="Cancel"
+        ConfirmButtonText: ="Yes"
+        Fill: |-
+            =If(ConfirmationDialogControl_RemoveAll.SemiTransparentBackground, RGBA(255, 255, 255, 0.4), ColorValue("#F8F8F8"))
+        HeaderText: ="Confirmation"
+        OnCancellation: |-
+            =UpdateContext({_showConfirmationBox:false})
+        OnConfirmation: |-
+            =UpdateContext({_showConfirmationBox:false});
+            Remove('Solution Meterings', LookUp('Solution Meterings', 'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')))
+        SemiTransparentBackground: =false
+        Visible: =_showConfirmationBox
+        ZIndex: =2
+
