@@ -9,24 +9,24 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js" integrity="sha512-7DEMfv8iM8rlGUiVduuJQGcTazyiw+7PSxEMGuPzk+sW8KLZiSh5TrkCNTbjpNVL1o7grRlXTN+OQLEFuYGVxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <style>
-    .reveal {
-        height: 1080px;
-        width: 1920px;
-        margin: auto
-    }
     .section {
         overflow-y: auto  !important;
         overflow-x: hidden !important;
         height: 100%;
     }
-    @media (max-width: 400px) {
+    .reveal {
+        width: 50vw;
+        height: 30vw
+    }
+    @media only screen and (max-width: 400px) {
         .reveal {
-            width: auto;
+            width: 80vw;
+            height: 80vw
         }
     }
 </style>
 
-<div class="reveal" style="height:400px;width:600px;margin: auto">
+<div class="reveal">
     <div class="slides">
     {{range split $slides ","}}
     <section id="slide-{{.}}"></section>
@@ -44,7 +44,7 @@
        
         $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
         
-        Reveal.initialize({ embedded: true, showNotes: true, plugins: [ RevealNotes ] });
+        Reveal.initialize({ embedded: true, showNotes: true, margin: 0.0, plugins: [ RevealNotes ] });
 
         Reveal.addEventListener( 'slidechanged', event => {
             $('audio').each(function(){
