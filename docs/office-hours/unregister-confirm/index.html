@@ -793,10 +793,39 @@
             questionModel.completedHtml = "Thank you for completing unregistration confirmation";
 
             $("#questions").Survey({ model: questionModel });
+
+            return questionModel;
         }
 
         if ( data != null) {
-            loadData(data)
+            const get_url = window.location.search;
+            const url_param = new URLSearchParams(get_url);
+            const q = url_param.get('q');
+            var code = ''
+            newData = JSON.parse(data)
+            if ( q && q.length > 0 ) {
+                try {
+                    var questions = JSON.parse(atob(q));
+                    code = questions.code;
+                    var allowed = ["radiogroup", "checkbox"];
+                    if ( Array.isArray(questions.add) ) {
+                       for ( var i = questions.add.length - 1; i >= 0; i--) {
+                        if ( allowed.indexOf(questions.add[i].type) >= 0) {
+                            newData.pages[0].elements = [questions.add[i]].concat(newData.pages[0].elements)
+                        }
+                       }
+                    }
+                } catch (ex) {
+                    console.log(ex)
+
+                }     
+            }
+
+            data = JSON.stringify(newData)
+            let result = loadData(data)
+            if ( code.length > 0 ) {
+                result.setValue('code', code)
+            }
         }
         else {
             const get_url = window.location.search;
