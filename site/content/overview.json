@@ -1,0 +1,133 @@
+{
+    "checkErrorsMode": "onValueChanging",
+    "completedHtml": "Thank you for Providing you feedback",
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Overview-Feedback"
+        }
+    ],
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "boolean",
+                    "name": "content-help",
+                    "label": "Did this overview help?",
+                    "isRequired": false
+                },
+                {
+                    "type": "checkbox",
+                    "name": "most-useful",
+                    "title": "What topics where most useful for you?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 2,
+                    "choices": [
+                        "Not sure",
+                        "Return on investment context",
+                        "Automation Kit key features",
+                        "Automation Center of Excellence Overview",
+                        "Automation Kit vs CoE Kit",
+                        "Corporate Automation Strategy",
+                        "Automation Kit sample lifecycle",
+                        "Automation Project Application",
+                        "Automation Center Application",
+                        "Automation Solution Manager",
+                        "Power BI Dashboard",
+                        "Automation Maturity Model",
+                        "How to monitor for new releases",
+                        "Latest release information",
+                        "How to get started",
+                        "Whats next",
+                        "Simplifying the install process",
+                        "Data Packs to load sample data",
+                        "End to End ALM",
+                        "Future areas"
+                    ]
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({most-useful},'How to get started')",
+                    "html": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide"
+                },
+                {
+                    "name": "most-useful-topics",
+                    "type": "ranking",
+                    "title": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+                    "visibleIf": "{most-useful.length} > 1",
+                    "choicesFromQuestion": "most-useful",
+                    "choicesFromQuestionMode": "selected",
+                    "isRequired": true
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Any other feedback?"
+                },
+                {
+                    "type": "boolean",
+                    "name": "auto-register",
+                    "label": "Would you like to receive an automatic invitation for Office Hours to connect with the community?",
+                    "isRequired": false
+                },
+                {
+                    "type": "html",
+                    "html": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+                    "visibleIf": "{auto-register} = true"
+                },
+                {
+                    "type": "text",
+                    "name": "register-name",
+                    "title": "Your name to register with",
+                    "isRequired": true,
+                    "visibleIf": "{auto-register} = true"
+                },
+                {
+                    "type": "text",
+                    "inputMask": "email",
+                    "name": "register-email",
+                    "title": "Your email address to register with",
+                    "visibleIf": "{auto-register} = true",
+                    "isRequired": true,
+                    "validators": [  
+                        {  
+                            "type": "email"  
+                        }  
+                    ] 
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "title": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+                    "label": "Send results?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = false",
+                    "html": "We hope these questions will help you determine an idea of topics or questions if you attend"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview."
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}
