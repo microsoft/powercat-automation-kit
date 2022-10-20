@@ -5,6 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 ---
 
+<div class="optional">
 
 ![Public Preview Status](/images/illustrations/status-public-preview.svg)
 
@@ -12,12 +13,41 @@ Welcome to the public preview of the {{<product-name>}}. To begin select the fir
 
 > Want to provide use feedback on the overview information? If so you can use the questions below.
 
-<audio id="slideAudio" controls="controls" style="height:50px">
-    <source src="" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
+</div>
 
 {{<presentation slides="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20">}}
+
+<div class="optional">
+
+<style>
+    @media only screen and (max-width: 1024px) {
+        .mobileSpacer { margin-bottom: 60vw }
+    }
+</style>
+
+<div class="mobileSpacer">
+</div>
+
+## Feedback
+
+{{<questions name="overview.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+
+</div>
+
+<style>
+    .fullscreen.optional {
+        display: none !important
+    }
+    nav > .fullscreen.container {
+        display: none !important
+    }
+    section.fullscreen {
+        padding: 10px !important;
+    }
+    .reveal.fullscreen {
+    }
+}
+</style>
 
 <style>
      .page { display: none }
@@ -291,15 +321,3 @@ As we look to augment the hosted RPA Agents we will look to provide examples tha
 
 </div>
 
-<style>
-    @media only screen and (max-width: 1024px) {
-        .mobileSpacer { margin-bottom: 60vw }
-    }
-</style>
-
-<div class="mobileSpacer">
-</div>
-
-## Feedback
-
-{{<questions name="overview.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}

@@ -18,13 +18,42 @@
         width: 50vw;
         height: 30vw
     }
+    .reveal .speaker-notes {
+        margin-top: 20px;
+    }
     @media only screen and (max-width: 1024px) {
         .reveal {
             width: 90vw;
             height: 80vw
         }
     }
+    .header {
+        margin-top: 20px;
+    }
+    .header > a {
+        float: inline-end;
+    }
+    .section.is-medium.fullscreen {
+        padding: 10px;
+    }
+    nav.navbar.fullscreen {
+        display:none;
+    }
 </style>
+
+<div class="header">
+    <audio id="slideAudio" controls="controls" style="height:50px">
+        <source src="" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+
+    <a id="fullScreen" class="navbar-item">
+        <span class="button signup-button rounded secondary-btn raised">
+        Full Screen
+        </span>
+    </a>
+</div>
 
 <div class="reveal">
     <div class="slides">
@@ -58,5 +87,13 @@
             }
             
         } );
+
+        $("#fullScreen").on("click", () => {
+            $(".reveal").toggleClass("fullscreen");
+            $(".optional").toggleClass("fullscreen");
+            $("nav > .container").toggleClass("fullscreen");
+            $("nav.navbar").toggleClass("fullscreen");
+            $(".section.is-medium").toggleClass("fullscreen");
+        });
     });
 </script>
