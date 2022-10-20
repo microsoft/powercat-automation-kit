@@ -5,9 +5,12 @@ sidebar: false
 sidebarlogo: fresh-white
 ---
 
-Welcome to the {{<product-name>}} overview. To begin select the first page below and **swipe to the left / right** or **use your keyboard left, right keys** to view each page of the overview.
 
-> Want to provide use feedback on the overview information? Of so you can use the questions below.
+![Public Preview Status](/images/illustrations/status-public-preview.svg)
+
+Welcome to the public preview of the {{<product-name>}}. To begin select the first page below and **swipe to the left / right** or **use your keyboard left, right keys** to view each page of the overview.
+
+> Want to provide use feedback on the overview information? If so you can use the questions below.
 
 <audio id="slideAudio" controls="controls" style="height:50px">
     <source src="" type="audio/mpeg">
