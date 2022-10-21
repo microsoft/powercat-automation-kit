@@ -6,9 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
+<div class="optional">
+
 ![Sharp Archimedes](/images/sharp-archimedes.png)
 
 The November release (sharp-archimedes) of the {{<product-name>}} is the third public preview release. This release includes bug fixes and a focus on improving the data setup installation experience.
+
+</div>
 
 {{<presentation slides="1,2">}}
 
@@ -78,6 +82,8 @@ The ability to include Data Packs as part of the install will allow for a web ba
 
 </div>
 
+<div class="optional">
+
 ## Get Started
 
 Try out [Get Started Guide](/get-started) or join our [Office Hours](/office-hours)
@@ -116,3 +122,5 @@ Included with [Automation Kit - November 2022](https://github.com/microsoft/powe
 ## Release History
 
 Full [release history](/releases)
+
+</div>
