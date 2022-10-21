@@ -58,7 +58,7 @@ The November release (sharp-archimedes) of the {{<product-name>}} is the third p
 
 <aside class="notes">
 
-With the November Release "[Data Packs](/features/databacks)" are a key new feature.
+With the November Release "[Data Packs](/features/datapacks)" are a key new feature.
 
 Datapacks provide you the ability to optionally import sample data.
 
