@@ -108,8 +108,9 @@ Review the [Milestone Notes](/releases/milestones) for further information
 
 ## Key Notes
 
-Key features in this release
-- Data pack. Read more [/features/datapacks]
+Key features in this release:
+
+- Data pack. Read more about [Data Pack feature](/features/datapacks)
 
 ## Release Notes
 

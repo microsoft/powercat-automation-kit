@@ -10,13 +10,13 @@ Data Packs are prepackaged set of data that can be optionally installed into you
 
 ## Return On Investment Main Solution
 
-The Return on Investment (ROI) main solution data pack includes Automation projects, machines and sample 
+The Return on Investment (ROI) main solution data pack includes Automation projects, machines and sample Power Automate Desktop telemetry so that you can get hands on with the end to end process.
 
 ### Getting Started
 
 To get started with this data pack
 
-- Install the [Creator Kit](https://appsource.microsoft.com/en-US/product/dynamics-365/microsoftpowercatarch.creatorkit1) from App Source or via [Learn setup guide](https://learn.microsoft.com/power-platform/guidance/creator-kit/setup)
+- Install the Creator Kit from [App Source](https://appsource.microsoft.com/en-US/product/dynamics-365/microsoftpowercatarch.creatorkit1) or via [Learn setup guide](https://learn.microsoft.com/power-platform/guidance/creator-kit/setup)
 
 - Install the latest version of the Automation Kit Main from [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) using [Learn setup guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
