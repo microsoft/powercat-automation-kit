@@ -32,17 +32,17 @@ steps:
     pipeline: '2082'
     runVersion: 'latest'
     patterns: '**/AutomationCoEMain*.zip'
-  displayName: 'Download Automation CoE Main solution'
+  displayName: 'Download Automation Kit Main solution'
 
 # Download the artifacts from the latest deployment of Main to production.
-- task: DownloadPipelineArtifact@2
-  inputs:
-    source: 'specific'
-    project: 'powercat-automation-kit'
-    pipeline: '15'
-    runVersion: 'latest'
-    patterns: '**/AutomationCoESatellite*.zip'
-  displayName: 'Download Automation CoE Satellite solution'
+# - task: DownloadPipelineArtifact@2
+#   inputs:
+#     source: 'specific'
+#     project: 'powercat-automation-kit'
+#     pipeline: '15'
+#     runVersion: 'latest'
+#     patterns: '**/AutomationCoESatellite*.zip'
+#   displayName: 'Download Automation CoE Satellite solution'
 
 - powershell: |
     New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
@@ -55,7 +55,7 @@ steps:
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
       CompressionLevel = 'Fastest'
-      DestinationPath = '$(Pipeline.Workspace)\releaseassets\AutomationStarterKit.zip'
+      DestinationPath = '$(Pipeline.Workspace)\releaseassets\AutomationKit.zip'
     }
     Compress-Archive @compress
 
@@ -70,19 +70,19 @@ steps:
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
       CompressionLevel = 'Fastest'
-      DestinationPath = '$(Pipeline.Workspace)/releaseassets/AutomationStarterKit-Unmanaged.zip'
+      DestinationPath = '$(Pipeline.Workspace)/releaseassets/AutomationKit-Unmanaged.zip'
     }
     Compress-Archive @compress
   displayName: 'Prepare release assets'
 
 - template: Pipelines\Templates\create-release-github.yml@PipelineRepo
   parameters:
-    gitHubApiUrl: 'https://api.github.com/repos/microsoft/coe-starter-kit'
-    solutionName: 'AutomationStarterKit'
-    solutionDisplayName: 'Automation Starter Kit'
+    gitHubApiUrl: 'https://api.github.com/repos/microsoft/automation-kit'
+    solutionName: 'AutomationKit'
+    solutionDisplayName: 'Automation Kit'
     releaseMonth: ${{parameters.ReleaseMonthNumber}}
     releaseYear: ${{parameters.ReleaseYearNumber}}
-    connectionName: 'powercat-alm'
+    connectionName: 'powercat-automation-kit'
     releaseNotesPath: 'AutomationKitResources/Release/Notes/'
     issueClosingComment: 'This has been fixed in the latest release.'
     closeIssues: ${{parameters.CloseMilestoneIssues}}
