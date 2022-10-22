@@ -1,0 +1,23 @@
+
+{{ $id := .Get "id" }}
+{{ $audio := .Get "audio" }}
+{{ $description := .Get "description" }}
+{{ $image := .Get "image" }}
+{{ $localImage := .Get "localImage" }}
+
+<div id="{{ $id }}" class="page" data-audio="https://powercat-automation-kit.azureedge.net/{{ $audio }}">
+
+    {{ if gt (len $image) 0 }}
+    <img src="https://powercat-automation-kit.azureedge.net/{{ $image }}" alt="{{ $description }}"/>
+    {{ end }}
+    {{ if gt (len $localImage) 0 }}
+    <img src="{{ $localImage }}" alt="{{ $description }}"/>
+    {{ end }}
+    
+    <aside class="notes">
+
+    {{ .Inner | markdownify }}
+    
+    </aside>
+    
+</div>

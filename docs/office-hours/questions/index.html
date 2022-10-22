@@ -111,6 +111,7 @@
 
 
 <section class="section is-medium">
+  <a id="topofpage"></a>
   <div class="container">
     <div class="columns">
       <div class="column is-centered-tablet-portrait">
@@ -131,6 +132,12 @@
     data = null
     
 </script>
+
+<style>
+    #questions {
+        margin-bottom: 20px;
+    }
+</style>
 
 <div id="questions">
 </div>
@@ -761,7 +768,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        $(window).scrollTo(0,0)
+        
         Survey.FunctionFactory
             .Instance
             .register("contains", contains);
@@ -775,6 +782,9 @@
 
         function loadData(loaded) {
             const questionModel = new Survey.Model(loaded);
+            questionModel.onStarted.add(() => {
+                console.log('called')
+            })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 
                 let str = converter.makeHtml(options.text);
@@ -791,6 +801,15 @@
             questionModel.showNavigationButtons =  false 
         
             questionModel.completedHtml = "";
+
+            const targetNode = document.getElementById('preloader');
+            const observer = new MutationObserver(() => {
+                const element = document.getElementById("topofpage");
+                element.scrollIntoView({behavior: 'smooth'})
+                element.scrollTop -= 300;
+            });
+            const config = { attributes: true, childList: true, subtree: true };
+            observer.observe(targetNode, config);
 
             $("#questions").Survey({ model: questionModel });
 

@@ -72,14 +72,15 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
+        
         let slides = {{ $slides }}.split(",")
         slides.forEach(element => {
             $("#slide-" + element).append($("#slide" + element).html());
         });
        
         $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
-        
-        Reveal.initialize({ embedded: true, showNotes: true, center: true, margin: 0.0, plugins: [ RevealNotes ] });
+
+        Reveal.initialize({ embedded: true, showNotes: true, center: true, margin: 0.0, plugins: [ RevealNotes ] })
 
         Reveal.addEventListener( 'slidechanged', event => {
             $('audio').each(function(){

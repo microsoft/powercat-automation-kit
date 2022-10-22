@@ -24,6 +24,20 @@ Notes about {{<product-name>}} milestones
 
 - If features are not being used provide a path to de-investing in a feature so that we can focus on higher priority features
 
-- [Office Hours](/office-hours) will be use to share roadmap and assist with prioritization of new features and bugs to include in each milestone
+- [Office Hours](/office-hours) will be use to share roadmap and assist with priority of new features and bugs to include in each milestone
 
 - Each milestone may include a mixture of functional features and non functional features covering documentation and quality testing improvements
+
+## Release Naming
+
+Each release will be labeled with month and year of release for example November 2022. Additionally we can assign a code name and graphical avatar to the release to give the release a brand that gives additional personality to the release.
+
+![Sharp Archimedes](/images/sharp-archimedes.png)
+
+Overtime the use of avatars and naming should give us the ability to look back at the family of releases and graphically point out the key features that have been released over time.
+
+Our [Release Naming](/releases/naming) page has more information on this process.
+
+## Release History
+
+Read more on our [Release History](/releases/)

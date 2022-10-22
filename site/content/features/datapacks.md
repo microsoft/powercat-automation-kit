@@ -37,3 +37,7 @@ pac data import -d AutomationKitROIMain.zip --environment https://contoso.crm.dy
 ```
 
 - Connect the Power BI Dashboard downloaded from with your environment to explore the imported data. Use [Install Power BI Dashboard](/get-started/install-powerbi-dashboard) for more information
+
+## Feedback
+
+{{<questions name="/features/datapacks.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}

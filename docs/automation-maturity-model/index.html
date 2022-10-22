@@ -111,6 +111,7 @@
 
 
 <section class="section is-medium">
+  <a id="topofpage"></a>
   <div class="container">
     <div class="columns">
       <div class="column is-centered-tablet-portrait">
@@ -138,6 +139,12 @@
     data = "{\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"title\": \"Please select the components of interest\",\r\n                    \"type\": \"image-task\",\r\n                    \"src\": \"/powercat-automation-kit/images/illustrations/sample.svg\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"html\": \"You selected start\",\r\n                    \"visibleIf\": \"contains({test1},'start')\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"html\": \"You selected condition\",\r\n                    \"visibleIf\": \"contains({test1},'condition')\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"html\": \"You selected end\",\r\n                    \"visibleIf\": \"contains({test1},'end')\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
     
 </script>
+
+<style>
+    #questions {
+        margin-bottom: 20px;
+    }
+</style>
 
 <div id="questions">
 </div>
@@ -768,7 +775,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        $(window).scrollTo(0,0)
+        
         Survey.FunctionFactory
             .Instance
             .register("contains", contains);
@@ -782,6 +789,9 @@
 
         function loadData(loaded) {
             const questionModel = new Survey.Model(loaded);
+            questionModel.onStarted.add(() => {
+                console.log('called')
+            })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 
                 let str = converter.makeHtml(options.text);
@@ -798,6 +808,15 @@
             questionModel.showNavigationButtons =  false 
         
             questionModel.completedHtml = "";
+
+            const targetNode = document.getElementById('preloader');
+            const observer = new MutationObserver(() => {
+                const element = document.getElementById("topofpage");
+                element.scrollIntoView({behavior: 'smooth'})
+                element.scrollTop -= 300;
+            });
+            const config = { attributes: true, childList: true, subtree: true };
+            observer.observe(targetNode, config);
 
             $("#questions").Survey({ model: questionModel });
 

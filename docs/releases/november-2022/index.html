@@ -111,6 +111,7 @@
 
 
 <section class="section is-medium">
+  <a id="topofpage"></a>
   <div class="container">
     <div class="columns">
       <div class="column is-centered-tablet-portrait">
@@ -123,7 +124,7 @@
     <div class="content">
       <div class="optional">
 <p><img src="https://microsoft.github.io/powercat-automation-kit/images/sharp-archimedes.png" alt="Sharp Archimedes"></p>
-<p>The November release (sharp-archimedes) of the Automation Kit for Power Platform is the third public preview release. This release includes bug fixes and a focus on improving the data setup installation experience.</p>
+<p>The November release (sharp-archimedes) of the Automation Kit for Power Platform is the third public preview release. This release includes bug fixes and a focus on improving the data setup installation experience and release deployment to GitHub using ALM Accelerator.</p>
 </div>
 
 
@@ -195,20 +196,23 @@
     
     <section id="slide-2"></section>
     
+    <section id="slide-3"></section>
+    
     </div>
 </div>
 
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        let slides = "1,2".split(",")
+        
+        let slides = "1,2,3".split(",")
         slides.forEach(element => {
             $("#slide-" + element).append($("#slide" + element).html());
         });
        
         $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
-        
-        Reveal.initialize({ embedded: true, showNotes: true, center: true, margin: 0.0, plugins: [ RevealNotes ] });
+
+        Reveal.initialize({ embedded: true, showNotes: true, center: true, margin: 0.0, plugins: [ RevealNotes ] })
 
         Reveal.addEventListener( 'slidechanged', event => {
             $('audio').each(function(){
@@ -238,6 +242,7 @@
         .mobileSpacer { margin-bottom: 60vw }
     }
 </style>
+
 <div class="mobileSpacer">
 </div>
 <h2 id="feedback">Feedback</h2>
@@ -247,9 +252,15 @@
 <script>
     
     
-    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-November-2022-Release\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"roles\",\r\n                    \"title\": \"Which of was most useful for you in this release?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"Getting hands on with the Automation Kit\",\r\n                        \"Data packs so that I can show the Automation Kit\",\r\n                        \"Roadmap of whats next\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on the release?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our getting started guidance\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-November-2022-Release\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"roles\",\r\n                    \"title\": \"Which of was most useful for you in this release?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"Getting hands on with the Automation Kit\",\r\n                        \"Data packs so that I can show the Automation Kit\",\r\n                        \"New automated ALM GitHub release process\",\r\n                        \"Roadmap of whats next\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on the release?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
     
 </script>
+
+<style>
+    #questions {
+        margin-bottom: 20px;
+    }
+</style>
 
 <div id="questions">
 </div>
@@ -880,7 +891,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        $(window).scrollTo(0,0)
+        
         Survey.FunctionFactory
             .Instance
             .register("contains", contains);
@@ -894,6 +905,9 @@
 
         function loadData(loaded) {
             const questionModel = new Survey.Model(loaded);
+            questionModel.onStarted.add(() => {
+                console.log('called')
+            })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 
                 let str = converter.makeHtml(options.text);
@@ -910,6 +924,15 @@
             questionModel.showNavigationButtons =  false 
         
             questionModel.completedHtml = "Thank you for providing feedback";
+
+            const targetNode = document.getElementById('preloader');
+            const observer = new MutationObserver(() => {
+                const element = document.getElementById("topofpage");
+                element.scrollIntoView({behavior: 'smooth'})
+                element.scrollTop -= 300;
+            });
+            const config = { attributes: true, childList: true, subtree: true };
+            observer.observe(targetNode, config);
 
             $("#questions").Survey({ model: questionModel });
 
@@ -975,23 +998,79 @@
     }
 }
 </style>
+
 <style>
      .page { display: none }
 </style>
+
+
+
+
+
+
+
 <div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.mp3">
-<p><img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.svg" alt="Automation Kit Overview"></p>
-<aside class="notes">
-<p>With the November Release &ldquo;<a href="https://microsoft.github.io/powercat-automation-kit/features/datapacks">Data Packs</a>&rdquo; are a key new feature.</p>
+
+    
+    <img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.svg" alt="Automation Kit Overview"/>
+    
+    
+    
+    <aside class="notes">
+
+    <p>With the November Release &ldquo;<a href="https://microsoft.github.io/powercat-automation-kit/features/datapacks">Data Packs</a>&rdquo; are a key new feature.</p>
 <p>Datapacks provide you the ability to optionally import sample data.</p>
-<p>The Return on investment data pack allows you to rapidly demonstrate planning, metering and monitoring of return on investment via the Automation Kit Power BI dashboard.</p>
-</aside>
+<p>The Return on Investment (ROI) data pack allows you to rapidly demonstrate planning, metering and monitoring of return on investment via the Automation Kit Power BI dashboard.</p>
+
+    
+    </aside>
+    
 </div>
+
+
+
+
+
+
+
 <div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.mp3">
-<p><img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.svg?v=1" alt="Automation Kit Features"></p>
-<aside class="notes">
-<p>In future milestones we will look to improve the datapacks by including them as an optional part of the Automation Kit automated install process.</p>
+
+    
+    <img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.svg?v=1" alt="Automation Kit Features"/>
+    
+    
+    
+    <aside class="notes">
+
+    <p>In future milestones we will look to improve the datapacks by including them as an optional part of the Automation Kit automated install process.</p>
 <p>The ability to include Data Packs as part of the install will allow for a web based install, rather than the command line install process for this release.</p>
-<aside>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/alm-roadmap.mp3">
+
+    
+    
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="ALM Roadmap"/>
+    
+    
+    <aside class="notes">
+
+    <p>For this release similar the other Power CAT managed kits the Automation Kit for Power Platform has shifted to using the ALM Accelerator to deploy our GitHub releases. You can read more in our <a href="https://microsoft.github.io/powercat-automation-kit/features/alm">ALM Features</a> page.</p>
+<p>In future milestones we will be improving on the existing ALM Accelerator process to include Power Automate Desktop specific tasks that will apply extensions to the CI/CD ALM process.</p>
+
+    
+    </aside>
+    
 </div>
 <div class="optional">
 <h2 id="get-started">Get Started</h2>

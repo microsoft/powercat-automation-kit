@@ -13,7 +13,7 @@ Alongside the month and version numbers the {{<product-name>}} uses a code name 
 1. Install node dependencies
 
 ```bash
-npm install
+npm install @criblinc/docker-names
 ```
 
 1. Add the following node sample as file named index.mjs

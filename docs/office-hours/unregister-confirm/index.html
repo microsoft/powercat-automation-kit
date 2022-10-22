@@ -111,6 +111,7 @@
 
 
 <section class="section is-medium">
+  <a id="topofpage"></a>
   <div class="container">
     <div class="columns">
       <div class="column is-centered-tablet-portrait">
@@ -131,6 +132,12 @@
     data = "{\r\n    \"checkErrorsMode\": \"onValueChanging\",\r\n    \"completedHtml\": \"Thank you for confirming unregistration\",\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{confirmation-code.length} \u003e 0\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Office-Hours-Unregister-ConfirmationCode\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"name\": \"confirmation-code\",\r\n                    \"isRequired\": true,\r\n                    \"title\": \"Please enter your confirmation code\"\r\n                },              \r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Confirm your unregistration now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
     
 </script>
+
+<style>
+    #questions {
+        margin-bottom: 20px;
+    }
+</style>
 
 <div id="questions">
 </div>
@@ -761,7 +768,7 @@
     }
 
     document.addEventListener("DOMContentLoaded", () => {
-        $(window).scrollTo(0,0)
+        
         Survey.FunctionFactory
             .Instance
             .register("contains", contains);
@@ -775,6 +782,9 @@
 
         function loadData(loaded) {
             const questionModel = new Survey.Model(loaded);
+            questionModel.onStarted.add(() => {
+                console.log('called')
+            })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 
                 let str = converter.makeHtml(options.text);
@@ -791,6 +801,15 @@
             questionModel.showNavigationButtons =  false 
         
             questionModel.completedHtml = "Thank you for completing unregistration confirmation";
+
+            const targetNode = document.getElementById('preloader');
+            const observer = new MutationObserver(() => {
+                const element = document.getElementById("topofpage");
+                element.scrollIntoView({behavior: 'smooth'})
+                element.scrollTop -= 300;
+            });
+            const config = { attributes: true, childList: true, subtree: true };
+            observer.observe(targetNode, config);
 
             $("#questions").Survey({ model: questionModel });
 

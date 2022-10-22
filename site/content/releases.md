@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-The page contains links to the release history for the {{<product-name>}}. 
+The page contains links to the release history for the {{<product-name>}}.
 
 Read more on our [Release Milestone Notes](/releases/milestones)
 
@@ -18,7 +18,7 @@ Each release will name a unique code name assigned to make the release identific
 
 - [November 2022](/releases/november-2022) - (sharp-archimedes)
 
-- December 2022 - (zealous-antonelli)
+- [December 2022](/releases/december-2022) - (zealous-antonelli)
 
 ### Released
 
