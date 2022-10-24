@@ -1,4 +1,12 @@
 {
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Sample-Feedback"
+        }
+    ],
     "pages": [
         {
             "name": "welcome",
@@ -25,11 +33,73 @@
                     ]
                 },
                 {
+                    "type": "checkbox",
+                    "name": "most-useful",
+                    "title": "What topics where most useful for you?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "colCount": 1,
+                    "choices": [
+                        "Not sure",
+                        "Overview of Authoring",
+                        "Authoring goals"
+                    ]
+                },
+                {
+                    "name": "most-useful-topics",
+                    "type": "ranking",
+                    "title": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+                    "visibleIf": "{most-useful.length} > 1",
+                    "choicesFromQuestion": "most-useful",
+                    "choicesFromQuestionMode": "selected",
+                    "isRequired": true
+                },
+                {
+                    "type": "boolean",
+                    "name": "sample-help",
+                    "label": "Did this sample help?",
+                    "isRequired": false
+                },
+                {
                     "type": "handoff-task",
                     "name": "questionHandoff",
                     "title": "Test handoff",
                     "text": "Open",
                     "destination": "/powercat-automation-kit/contribution/sample?group={group}"
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Any other feedback?"
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "title": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+                    "label": "Send results?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = false",
+                    "html": "We hope these questions will help you determine an idea of topics or questions if you attend"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview."
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
                 }                
             ]
         }
