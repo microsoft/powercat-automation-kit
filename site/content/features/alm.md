@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-The Automation Kit leverages [ALM Accelerator](https://aka.ms/aa4pp) to provide ALM functionality for solutions that include Power Automate Desktop
+The Automation Kit leverages the [ALM Accelerator](https://aka.ms/aa4pp) to provide ALM functionality for solutions that include Power Automate Desktop
 
 {{<border>}}
 
@@ -36,7 +36,7 @@ Now that we have this automation in place the automated ALM release has the foll
 
 You can investigate our open ALM related backlog items in our [GitHub Issues Register](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
-Overall we build on the existing out of the box Power Platoform and Microosft DevOps product features together ALM Accelerator. This combination allows us to focus on specific extensions that help with hyperautomtion.
+Overall we build on the existing out of the box Power Platform and Microsoft DevOps product features together ALM Accelerator. This combination allows us to focus on specific extensions that help with hyperautomtion.
 
 ## Feedback
 
