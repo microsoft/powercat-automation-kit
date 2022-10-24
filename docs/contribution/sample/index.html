@@ -122,15 +122,135 @@
     </div>
 
     <div class="content">
-      <p>This page provides a sample for authoring content</p>
-<h2 id="questions">Questions</h2>
+      <div class="optional">
+<p>This page provides a sample for authoring content</p>
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" integrity="sha512-V5fKCVKOFy36w8zJmLzPH5R6zU6KvuHOvxfMRczx2ZeqTjKRGSBO9yiZjCKEJS3n6EmENwrH/xvSwXqxje+VVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" integrity="sha512-0BwgQfciYCCQc2rKINa7wL2k5vGAjF5dyL90A598QMimsVDie6M/4ShOLG07HJpNtSc9JB6m2s9B9OGam3rmTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js" integrity="sha512-QYXU3Cojl94ZRiZRjUZpyg1odj9mKTON9MsTMzGNx/L3JqvMA3BQNraZwsZ83UeisO+QMVfFa83SyuYYJzR9hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js" integrity="sha512-7DEMfv8iM8rlGUiVduuJQGcTazyiw+7PSxEMGuPzk+sW8KLZiSh5TrkCNTbjpNVL1o7grRlXTN+OQLEFuYGVxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .section {
+        overflow-y: auto  !important;
+        overflow-x: hidden !important;
+        height: 100%;
+    }
+    .reveal {
+        width: 50vw;
+        height: 30vw
+    }
+    .reveal .speaker-notes {
+        margin-top: 20px;
+    }
+    @media only screen and (max-width: 1024px) {
+        .reveal {
+            width: 90vw;
+            height: 80vw
+        }
+    }
+    @media only screen and (max-width: 420px) {
+        #fullScreen {
+            display: block;
+            float: none;
+        }
+    }
+    .header {
+        margin-top: 20px;
+    }
+    .header > a {
+        float: inline-end;
+    }
+    .section.is-medium.fullscreen {
+        padding: 10px;
+    }
+    nav.navbar.fullscreen {
+        display:none;
+    }
+</style>
+
+<div class="header">
+    <audio id="slideAudio" controls="controls" style="height:50px">
+        <source src="" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+
+    <a id="fullScreen" class="navbar-item">
+        <span class="button signup-button rounded secondary-btn raised">
+        Full Screen
+        </span>
+    </a>
+</div>
+
+<div class="reveal">
+    <div class="slides">
+    
+    <section id="slide-1"></section>
+    
+    <section id="slide-2"></section>
+    
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        let slides = "1,2".split(",")
+        slides.forEach(element => {
+            $("#slide-" + element).append($("#slide" + element).html());
+        });
+       
+        $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
+
+        Reveal.initialize({ embedded: true, showNotes: true, center: true, margin: 0.0, plugins: [ RevealNotes ] })
+
+        Reveal.addEventListener( 'slidechanged', event => {
+            $('audio').each(function(){
+                this.pause(); 
+                this.currentTime = 0; 
+            }); 
+            try {
+                $("#slideAudio").attr('src', $("#slide" + slides[event.indexh]).attr("data-audio"))
+            } catch {
+
+            }
+            
+        } );
+
+        $("#fullScreen").on("click", () => {
+            $(".reveal").toggleClass("fullscreen");
+            $(".optional").toggleClass("fullscreen");
+            $("nav > .container").toggleClass("fullscreen");
+            $("nav.navbar").toggleClass("fullscreen");
+            $(".section.is-medium").toggleClass("fullscreen");
+        });
+    });
+</script>
+<div class="optional">
+<style>
+    @media only screen and (max-width: 1024px) {
+        .mobileSpacer { margin-bottom: 60vw }
+    }
+</style>
+
+<div class="mobileSpacer">
+</div>
+<h2 id="feedback">Feedback</h2>
+<p>Use the questions below to explore different feedback question types</p>
 
 
 
 <script>
     
     
-    data = "{\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"radiogroup\",\r\n                    \"name\": \"group\",\r\n                    \"title\": \"Which of the following is the best match for you?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"choices\": [\r\n                        {\r\n                            \"value\": \"1\",\r\n                            \"text\": \"Option 1\"\r\n                        },\r\n                        {\r\n                            \"value\": \"2\",\r\n                            \"text\": \"Option 2\"\r\n                        },\r\n                        {\r\n                            \"value\": \"3\",\r\n                            \"text\": \"Option 3\"\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"handoff-task\",\r\n                    \"name\": \"questionHandoff\",\r\n                    \"title\": \"Test handoff\",\r\n                    \"text\": \"Open\",\r\n                    \"destination\": \"/powercat-automation-kit/contribution/sample?group={group}\"\r\n                }                \r\n            ]\r\n        }\r\n    ]\r\n}"
+    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Sample-Feedback\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"radiogroup\",\r\n                    \"name\": \"group\",\r\n                    \"title\": \"Which of the following is the best match for you?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"choices\": [\r\n                        {\r\n                            \"value\": \"1\",\r\n                            \"text\": \"Option 1\"\r\n                        },\r\n                        {\r\n                            \"value\": \"2\",\r\n                            \"text\": \"Option 2\"\r\n                        },\r\n                        {\r\n                            \"value\": \"3\",\r\n                            \"text\": \"Option 3\"\r\n                        }\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"most-useful\",\r\n                    \"title\": \"What topics where most useful for you?\",\r\n                    \"isRequired\": true,\r\n                    \"hasOther\": true,\r\n                    \"colCount\": 1,\r\n                    \"choices\": [\r\n                        \"Not sure\",\r\n                        \"Overview of Authoring\",\r\n                        \"Authoring goals\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"name\": \"most-useful-topics\",\r\n                    \"type\": \"ranking\",\r\n                    \"title\": \"Please rank the topics of interest to you (long tap on selection with a touch screen)\",\r\n                    \"visibleIf\": \"{most-useful.length} \u003e 1\",\r\n                    \"choicesFromQuestion\": \"most-useful\",\r\n                    \"choicesFromQuestionMode\": \"selected\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"sample-help\",\r\n                    \"label\": \"Did this sample help?\",\r\n                    \"isRequired\": false\r\n                },\r\n                {\r\n                    \"type\": \"handoff-task\",\r\n                    \"name\": \"questionHandoff\",\r\n                    \"title\": \"Test handoff\",\r\n                    \"text\": \"Open\",\r\n                    \"destination\": \"/powercat-automation-kit/contribution/sample?group={group}\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Any other feedback?\"\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses\",\r\n                    \"label\": \"Send results?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = false\",\r\n                    \"html\": \"We hope these questions will help you determine an idea of topics or questions if you attend\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview.\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }                \r\n            ]\r\n        }\r\n    ]\r\n}"
     
 </script>
 
@@ -935,6 +1055,74 @@
         }
     });
 </script>
+</div>
+</div>
+<style>
+    .fullscreen.optional {
+        display: none !important
+    }
+    nav > .fullscreen.container {
+        display: none !important
+    }
+    section.fullscreen {
+        padding: 10px !important;
+    }
+    .reveal.fullscreen {
+    }
+}
+</style>
+
+<style>
+     .page { display: none }
+</style>
+
+
+
+
+
+
+
+<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/authoring/overview.mp3?v=1">
+
+    
+    
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/Authoring-Overview.svg" alt="Authoring Overview"/>
+    
+    
+    <aside class="notes">
+
+    <p>Each piece of content should have a clear title and description that provides a quick overview.</p>
+<p>Each page can optionally include a multi media slideshow that provides audio narration, visual summary and speaker notes.</p>
+<p>Each page should have a feedback section, that allows people visiting the page to answer specific questions of interest to the author and provide free form feedback.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/authoring/goals.mp3">
+
+    
+    
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/Authoring-Goals.svg" alt="Authoring Goals"/>
+    
+    
+    <aside class="notes">
+
+    <p>The design goal of the <a href="https://microsoft.github.io/powercat-automation-kit/contribution/authoring">Authoring</a> process is to allow a co-creation model as a core team building and maintaining the Automation Kit for Power Platform and the community. This community could be with Customers or Partners.</p>
+<p>The content is authored in <a href="https://learn.microsoft.com/en-us/contribute/markdown-reference">Markdown</a> similar to the <a href="https://learn.microsoft.com">Microsoft Learn site</a>.</p>
+<p>To create interactive content authors can use shortcodes to engage the reader and provide interactive feedback and experiences for each page.</p>
+
+    
+    </aside>
+    
+</div>
 
     </div>
   </div>
