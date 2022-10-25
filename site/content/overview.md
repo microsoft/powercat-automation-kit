@@ -15,7 +15,7 @@ Welcome to the public preview of the {{<product-name>}}. To begin select the fir
 
 </div>
 
-{{<presentation slides="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20">}}
+{{<presentation slides="0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20">}}
 
 <div class="optional">
 
@@ -28,6 +28,14 @@ Welcome to the public preview of the {{<product-name>}}. To begin select the fir
 </div>
 
 {{<slideStyles>}}
+
+{{<slide id="slide0" audio="" description="Overview Video" video="VNC0PWBTRwA">}}
+
+This is short video that walks through the end-to-end functionality of the Return on Investment (ROI) process of the Automation Kit.
+
+You can watch further videos on the [Automation Kit Playlist](https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy)
+
+{{</slide>}}
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
