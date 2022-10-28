@@ -12,7 +12,7 @@ This page provides an overview of using ALM with the Automation Kit.
 
 When looking at ALM for Power Platform solutions that include Power Automate Desktop components
 
-1. Review and follow the [Streamline low code governance in your organization](https://learn.microsoft.com/en-us/events/ignite-2022/brk41-streamline-low-code-governance-in-your-organization) to leverage in product feature to move solutions between environments.
+1. Review and follow the [Streamline low code governance in your organization](https://learn.microsoft.com/en-us/events/ignite-2022/brk41-streamline-low-code-governance-in-your-organization) to leverage in product features to manage and govern solutions within environments.
 
 1. If needed investigate the [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/devops-github-actions) or [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) to integrate and automate your ALM DevOps processes
 
