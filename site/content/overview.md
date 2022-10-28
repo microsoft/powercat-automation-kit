@@ -136,6 +136,8 @@ Extending on the install process, Data Packs will provide the ability to import 
 
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 Extending on the existing ALM Accelerator features, we are planning to add RPA specific actions that make the process of integrating Power Automate Desktop components into an automated deployment and review process.
+
+Read more about [Managed Environment Power Platform PIpelines and the ALM Accelerator](/features/alm) and how it can help deploy and manage you automation solutions.
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}
