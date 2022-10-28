@@ -5,17 +5,25 @@
 {{ $image := .Get "image" }}
 {{ $localImage := .Get "localImage" }}
 {{ $video := .Get "video" }}
+{{ $cdnVideo := .Get "cdnVideo" }}
 
 <div id="{{ $id }}" class="page" data-audio="https://powercat-automation-kit.azureedge.net/{{ $audio }}">
 
-    {{ if gt (len $video) 0 }}
-    <iframe width="860" height="540" src="https://www.youtube-nocookie.com/embed/{{ $video }}" title="{{ $description }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    {{ if gt (len $cdnVideo) 0 }}
+        <video width="860" height="540" controls>
+            <source src="https://powercat-automation-kit.azureedge.net/{{ $cdnVideo }}" type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video>
     {{ else }}
-        {{ if gt (len $image) 0 }}
-        <img src="https://powercat-automation-kit.azureedge.net/{{ $image }}" alt="{{ $description }}"/>
-        {{ end }}
-        {{ if gt (len $localImage) 0 }}
-        <img src="{{ $localImage }}" alt="{{ $description }}"/>
+        {{ if gt (len $video) 0 }}
+        <iframe width="860" height="540" src="https://www.youtube-nocookie.com/embed/{{ $video }}" title="{{ $description }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        {{ else }}
+            {{ if gt (len $image) 0 }}
+            <img src="https://powercat-automation-kit.azureedge.net/{{ $image }}" alt="{{ $description }}"/>
+            {{ end }}
+            {{ if gt (len $localImage) 0 }}
+            <img src="{{ $localImage }}" alt="{{ $description }}"/>
+            {{ end }}
         {{ end }}
     {{ end }}
     

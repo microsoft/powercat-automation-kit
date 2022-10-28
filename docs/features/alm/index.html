@@ -122,36 +122,192 @@
     </div>
 
     <div class="content">
-      <p>This page provides an overview of using ALM with the Automation Kit.</p>
+      <style>
+    .fullscreen.optional {
+        display: none !important
+    }
+    nav > .fullscreen.container {
+        display: none !important
+    }
+    section.fullscreen {
+        padding: 10px !important;
+    }
+    .reveal.fullscreen {
+    }
+}
+</style>
+
+<style>
+     .page { display: none }
+</style>
+<div class="optional">
+<p>This page provides an overview of components that can assist you with using ALM with the Automation Kit for Power Automate Desktop workflows included in <a href="https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm">Power Platform Solutions</a>.</p>
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" integrity="sha512-V5fKCVKOFy36w8zJmLzPH5R6zU6KvuHOvxfMRczx2ZeqTjKRGSBO9yiZjCKEJS3n6EmENwrH/xvSwXqxje+VVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" integrity="sha512-0BwgQfciYCCQc2rKINa7wL2k5vGAjF5dyL90A598QMimsVDie6M/4ShOLG07HJpNtSc9JB6m2s9B9OGam3rmTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js" integrity="sha512-QYXU3Cojl94ZRiZRjUZpyg1odj9mKTON9MsTMzGNx/L3JqvMA3BQNraZwsZ83UeisO+QMVfFa83SyuYYJzR9hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js" integrity="sha512-7DEMfv8iM8rlGUiVduuJQGcTazyiw+7PSxEMGuPzk+sW8KLZiSh5TrkCNTbjpNVL1o7grRlXTN+OQLEFuYGVxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .section {
+        overflow-y: auto  !important;
+        overflow-x: hidden !important;
+        height: 100%;
+    }
+    .reveal {
+        width: 50vw;
+        height: 30vw
+    }
+    .reveal .speaker-notes {
+        margin-top: 20px;
+    }
+    @media only screen and (max-width: 1024px) {
+        .reveal {
+            width: 90vw;
+            height: 80vw
+        }
+    }
+    @media only screen and (max-width: 420px) {
+        #fullScreen {
+            display: block;
+            float: none;
+        }
+    }
+    .header {
+        margin-top: 20px;
+    }
+    .header > a {
+        float: inline-end;
+    }
+    .section.is-medium.fullscreen {
+        padding: 10px;
+    }
+    nav.navbar.fullscreen {
+        display:none;
+    }
+</style>
+
+<div class="header">
+    <audio id="slideAudio" controls="controls" style="height:50px">
+        <source src="" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+
+    <a id="fullScreen" class="navbar-item">
+        <span class="button signup-button rounded secondary-btn raised">
+        Full Screen
+        </span>
+    </a>
+</div>
+
+<div class="reveal">
+    <div class="slides">
+    
+    <section id="slide-1"></section>
+    
+    <section id="slide-2"></section>
+    
+    <section id="slide-3"></section>
+    
+    <section id="slide-4"></section>
+    
+    <section id="slide-5"></section>
+    
+    <section id="slide-6"></section>
+    
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        let slides = "1,2,3,4,5,6".split(",")
+        slides.forEach(element => {
+            $("#slide-" + element).append($("#slide" + element).html());
+        });
+       
+        $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
+
+        Reveal.initialize({ embedded: true, showNotes: true, center: true, margin: 0.0, plugins: [ RevealNotes ] })
+
+        Reveal.addEventListener( 'slidechanged', event => {
+            $('audio').each(function(){
+                this.pause(); 
+                this.currentTime = 0; 
+            }); 
+            try {
+                $("#slideAudio").attr('src', $("#slide" + slides[event.indexh]).attr("data-audio"))
+            } catch {
+
+            }
+            
+        } );
+
+        $("#fullScreen").on("click", () => {
+            $(".reveal").toggleClass("fullscreen");
+            $(".optional").toggleClass("fullscreen");
+            $("nav > .container").toggleClass("fullscreen");
+            $("nav.navbar").toggleClass("fullscreen");
+            $(".section.is-medium").toggleClass("fullscreen");
+        });
+    });
+</script>
+<div class="optional">
+<style>
+    @media only screen and (max-width: 1024px) {
+        .mobileSpacer { margin-bottom: 60vw }
+    }
+</style>
+
+<div class="mobileSpacer">
+</div>
 <h2 id="summary">Summary</h2>
 <p>When looking at ALM for Power Platform solutions that include Power Automate Desktop components</p>
 <ol>
 <li>
-<p>Review and follow the <a href="https://learn.microsoft.com/en-us/events/ignite-2022/brk41-streamline-low-code-governance-in-your-organization">Streamline low code governance in your organization</a> to leverage in product features to manage and govern solutions within environments.</p>
+<p>Review the features of Managed Environment Power Platform Pipelines to take advantage of enterprise scale in-product features to manage and govern solutions within environments.</p>
 </li>
 <li>
-<p>If needed investigate the <a href="https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools">Microsoft Power Platform Build Tools for Azure DevOps</a>, <a href="https://learn.microsoft.com/en-us/power-platform/alm/devops-github-actions">GitHub Actions for Microsoft Power Platform</a> or <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction">Power Platform CLI</a> to integrate and automate your ALM DevOps processes</p>
+<p>If needed, investigate the <a href="https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools">Microsoft Power Platform Build Tools for Azure DevOps</a>, <a href="https://learn.microsoft.com/en-us/power-platform/alm/devops-github-actions">GitHub Actions for Microsoft Power Platform</a> or <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction">Power Platform CLI</a> to integrate and automate your ALM DevOps processes.</p>
 </li>
 <li>
-<p>Consider using the <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components">ALM Accelerator for Power Platform</a> which provides a prebuilt set of Azure DevOps templates that automates many of the Power Platform ALM tasks using an integrated source control governance</p>
+<p>Consider using the <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components">ALM Accelerator for Power Platform</a>. The ALM Accelerator provides a prebuilt set of Azure DevOps templates that automates many of the Power Platform ALM tasks using integrated source control governance.</p>
 </li>
 </ol>
 <h2 id="learning-from-power-cat">Learning from Power CAT</h2>
-<p>You can also read more how we as the Power CAT team use ALM Accelerator to ship the <a href="https://microsoft.github.io/powercat-automation-kit/features/alm/powercat">Power CAT Automtion Kit ALM</a>.</p>
+<p>You can also read more how we as the Power CAT team use ALM Accelerator to ship the <a href="https://microsoft.github.io/powercat-automation-kit/features/alm/powercat">Power CAT Automation Kit ALM</a>.</p>
+<h2 id="alm-accelerator-resources">ALM Accelerator Resources</h2>
+<p>Blog</p>
+<p><a href="https://powerapps.microsoft.com/en-us/blog/introducing-the-alm-accelerator-for-power-platform/">Introducing the ALM Accelerator for Power Platform | Microsoft Power Apps</a></p>
+<p>Repository</p>
+<p><a href="https://github.com/microsoft/coe-starter-kit">microsoft/coe-starter-kit (github.com)</a></p>
+<p>Release</p>
+<p><a href="https://github.com/microsoft/coe-starter-kit/releases/">https://github.com/microsoft/coe-starter-kit/releases/</a></p>
+<p>Documentation</p>
+<p><a href="https://docs.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components">Use the ALM Accelerator for Power Platform App - Power Platform | Microsoft Docs</a></p>
+<p>Videos</p>
+<p><a href="https://github.com/microsoft/coe-starter-kit/blob/main/CenterofExcellenceALMAccelerator/WALKTHROUGHS.md">https://github.com/microsoft/coe-starter-kit/blob/main/CenterofExcellenceALMAccelerator/WALKTHROUGHS.md</a></p>
 <h2 id="roadmap">Roadmap</h2>
 <p>The Automation Kit team is working with the ALM Accelerator team to add Power Automate Desktop specific tasks to the existing templates that cover:</p>
 <ul>
 <li>
-<p>Side by side compare of Power Automate Desktop definitions</p>
+<p>Side by side compare of Power Automate Desktop definitions.</p>
 </li>
 <li>
-<p>Validation Rule checks for Power Automate Desktop</p>
+<p>Validation Rule checks for Power Automate Desktop.</p>
 </li>
 <li>
-<p>Execution of Unit, Integration and System tests as part of integration pipeline</p>
+<p>Execution of Unit, Integration and System tests as part of CI/CD pipeline.</p>
 </li>
 </ul>
-<p>Review our <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm">Automation Kit ALM related backlog</a></p>
+<p>Review our <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm">Automation Kit ALM related backlog</a>.</p>
 <h2 id="feedback">Feedback</h2>
 
 
@@ -159,7 +315,7 @@
 <script>
     
     
-    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-AK4PP-ALM\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"roles\",\r\n                    \"title\": \"Which of was most useful for related to ALM?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"What the ALM Roadmap is for the Automation Kit\",\r\n                        \"How we add ALM specific tasks to our Power Automate Desktop process\",\r\n                        \"How to apply unit testing\",\r\n                        \"How to apply integration / system testing\",\r\n                        \"How this relates to in-product ALM roadmap\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on ALM?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-AK4PP-ALM\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"roles\",\r\n                    \"title\": \"Which of was most useful for related to ALM for your automation solutions?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"How this relates to in-product ALM roadmap with Managed Environments\",\r\n                        \"What is the ALM ALM Accelerator for Power Platform\",\r\n                        \"What the ALM roadmap is for the Automation Kit\",\r\n                        \"How we add ALM specific tasks to our Power Automate Desktop process\",\r\n                        \"How to apply unit testing\",\r\n                        \"How to apply integration / system testing\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on ALM?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
     
 </script>
 
@@ -964,6 +1120,197 @@
         }
     });
 </script>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.mp3">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.svg" alt="Managed Environments Overview"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>Managed environments provide you the ability to streamline and simplify governance at scale. Admins can activate Managed Environments with just a few clicks and immediately light up features that provide more visibility, more control with less effort to manage all your low code assets.</p>
+<p>Managed environments are a key part of the Power Platform family, in the same ways that AI Builder infused intelligence into our products and Dataverse provides the data backbone. Managed environments streamline governance of the platform at scale.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.mp3">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.svg" alt="Managed Environments Features"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>Managed environments provide you:</p>
+<ul>
+<li>More visibility with usage insights on the home page, admin digest emails, license reports and data policy views</li>
+<li>More control with sharing limits giving you control on how widely and with how many people canvas app and solution flows can be shared with.</li>
+<li>You can also restrict sharing to limited security groups.</li>
+<li>Configure solution checker for security or reliability checks to run rules automatically whenever a solution is imported to a managed environment</li>
+<li>Customize the maker welcome and sharing experience so that you guide users down the correct path.</li>
+<li>Less effort streamline, simplify and automate steps out of the box just a few clicks.</li>
+<li>The Power Platform Pipelines provides the ability to simplify the Application Lifecycle Management (ALM) process.</li>
+</ul>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/">
+
+    
+        <video width="860" height="540" controls>
+            <source src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-power-platform-pipelines-demo.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video>
+    
+    
+    <aside class="notes">
+
+    <p>This a solution in that I am working with in the Maker Portal.</p>
+<p>I&rsquo;ve gone ahead to select this pipeline that already been setup. Pipelines are basically a series of automated steps that move your work from one environment to another. This pipeline will take my solution from the development environment on the left to the test environment. Then there&rsquo;s another stage to take it from test to production.</p>
+<p>Lets deploy to test, select next and here, I&rsquo;ll confirm my connections to test the environment to make sure I am using the right credentials. Next I&rsquo;ll configure my environment variables to make sure for example that I am pointing to the right SharePoint site in test. This is important if the site was different than the one I was using in development.</p>
+<p>Once I set it all up I can just select &ldquo;Deploy&rdquo; and preflight validations are automatically run to make I&rsquo;ve got the right dependencies and the solution doesn&rsquo;t violate and DLP policies in that target environment. The pipeline can also be setup so that approval is required before deployment can be run.</p>
+<p>Looks like everything was successful here.</p>
+<p>After I run my pipeline I get full visibility and an audit trail of the deployments across my organization with every solution backed up and versioned.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide4" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.mp3?v=1">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.svg?v=1" alt="Managed Environments Availability"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>The features will be rolled out in phases. Some of them like the admin digests and sharing limits are available today. The rest will be rolling out by the end of the year.</p>
+<p>In the coming weeks and months, you will see usage insights on the home page. New trends in the admin digests, and reports for licensed usage. Sharing limits will get more controls and support solution flows. You will be able to able to block unsafe deployments with Solution Checker. The customer maker onboarding and pipeline capabilities will also come later this year.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide5" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" alt="ALM Accelerator for Power Platform Overview"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>What is ALM Accelerator for Power Platform?</p>
+<p>The ALM Accelerator for Power Platform includes Power Apps that sits on top of Azure DevOps Pipelines and Git source control. The app provides a simplified interface for makers to regularly export the components in their Power Platform Solutions to source control and create deployment requests to have their work reviewed before deploying to target environments.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide6" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.mp3?v=1">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.svg?v=1" alt="ALM Accelerator for Power Platform Workflow"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>Looking at the ALM Accelerator workflow it starts with Development environments. Their interaction with the ALM process is via the ALM Accelerator Canvas App or Managed Environment Pipelines</p>
+<p>Makers use the ALM Accelerator Canvas App for their ALM tasks such as import solution from source control, export changes to source control and create pull request to merge changes</p>
+<p>ALM Accelerator templates for Azure DevOps pipelines facilitates the automation of ALM tasks based on the Makers interaction with the ALM Accelerator Canvas App</p>
+<p>ALM Accelerator includes pipeline templates to support a 3 stage deployment to production.
+Templates can be customized to fit specific needs and scenarios</p>
+<p>The ALM Accelerator for Power Platform is a Canvas App that sits on top of Azure DevOps Pipelines to provide a simplified interface for Makers to regularly commit and create pull requests for their development work in the Power Platform. </p>
+<p>The combination of the Azure DevOps Pipelines and the Canvas App are what make up the full ALM Accelerator for Power Platform  solution. 
+The pipelines and the App are reference implementations. They were developed for use by the development team for the CoE Starter Kit internally but have been open sourced and released in order to demonstrate how healthy ALM can be achieved in the Power Platform. They can be used as is or customized for specific business scenarios.</p>
+
+    
+    </aside>
+    
+</div>
 
     </div>
   </div>
