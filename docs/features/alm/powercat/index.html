@@ -3,10 +3,10 @@
   <head>
     
 
-<meta property="og:title" content="Application Lifecycle Management (ALM)" />
-<meta property="og:description" content="Automation Kit - ALM" />
+<meta property="og:title" content="Power CAT Application Lifecycle Management (ALM)" />
+<meta property="og:description" content="Automation Kit - ALM Power CAT" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/features/alm/" /><meta property="article:section" content="features" />
+<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/features/alm/powercat/" /><meta property="article:section" content="features" />
 
 
 
@@ -115,43 +115,48 @@
   <div class="container">
     <div class="columns">
       <div class="column is-centered-tablet-portrait">
-        <h1 class="title section-title">Application Lifecycle Management (ALM)</h1>
+        <h1 class="title section-title">Power CAT Application Lifecycle Management (ALM)</h1>
         <h5 class="subtitle is-5 is-muted"></h5>
         <div class="divider"></div>
       </div>
     </div>
 
     <div class="content">
-      <p>This page provides an overview of using ALM with the Automation Kit.</p>
-<h2 id="summary">Summary</h2>
-<p>When looking at ALM for Power Platform solutions that include Power Automate Desktop components</p>
-<ol>
-<li>
-<p>Review and follow the <a href="https://learn.microsoft.com/en-us/events/ignite-2022/brk41-streamline-low-code-governance-in-your-organization">Streamline low code governance in your organization</a> to leverage in product feature to move solutions between environments.</p>
-</li>
-<li>
-<p>If needed investigate the <a href="https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools">Microsoft Power Platform Build Tools for Azure DevOps</a>, <a href="https://learn.microsoft.com/en-us/power-platform/alm/devops-github-actions">GitHub Actions for Microsoft Power Platform</a> or <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction">Power Platform CLI</a> to integrate and automate your ALM DevOps processes</p>
-</li>
-<li>
-<p>Consider using the <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components">ALM Accelerator for Power Platform</a> which provides a prebuilt set of Azure DevOps templates that automates many of the Power Platform ALM tasks using an integrated source control governance</p>
-</li>
-</ol>
-<h2 id="learning-from-power-cat">Learning from Power CAT</h2>
-<p>You can also read more how we as the Power CAT team use ALM Accelerator to ship the <a href="https://microsoft.github.io/powercat-automation-kit/features/alm/powercat">Power CAT Automtion Kit ALM</a>.</p>
-<h2 id="roadmap">Roadmap</h2>
-<p>The Automation Kit team is working with the ALM Accelerator team to add Power Automate Desktop specific tasks to the existing templates that cover:</p>
+      <p>The Automation Kit leverages the <a href="https://aka.ms/aa4pp">ALM Accelerator</a> to provide ALM functionality for solutions that include Power Automate Desktop</p>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+    }
+</style>
+<div class="outerBorder">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="ALM Roadmap November 2022">
+</div>
+
+<h2 id="github-deployment-process">GitHub Deployment Process</h2>
+<p>Similar to the release process used for other Power CAT managed kits the Automation Kit for Power Platform uses the ALM Accelerator to deploy releases to our public GitHub releases.</p>
+<p>Our internal process has a Power Platform environment for Development, Test and Production. Once we are ready for a release our integrated GitHub Actions package the managed and unmanaged deployment solutions along with release notes automatically for a GitHub Draft release.</p>
+<p>Once the draft release is ready we can publish new versions or hotfixes as needed.</p>
+<h3 id="what-this-means-for-you">What this means for you</h3>
+<p>Now that we have this automation in place the automated ALM release has the following benefits for you:</p>
 <ul>
 <li>
-<p>Side by side compare of Power Automate Desktop definitions</p>
+<p>Visibility into all the low code source code that makes up the Automation Kit so that you can investigate how we have built the kit.</p>
 </li>
 <li>
-<p>Validation Rule checks for Power Automate Desktop</p>
+<p>Streamlined automation process that can respond to bugs or issues quickly and provide hotfixes if needed.</p>
 </li>
 <li>
-<p>Execution of Unit, Integration and System tests as part of integration pipeline</p>
+<p>Automated compilation of all Bugs and Features that are included in a release.</p>
+</li>
+<li>
+<p>We include Power Apps, Power Automate, Dataverse and Power Automate Desktop as part of our ALM process for our Continuous Integration / Continuous Deployment.</p>
 </li>
 </ul>
-<p>Review our <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm">Automation Kit ALM related backlog</a></p>
+<h2 id="roadmap">Roadmap</h2>
+<p>You can investigate our open ALM related backlog items in our <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm">GitHub Issues Register</a></p>
+<p>Overall we build on the existing out of the box Power Platform and Microsoft DevOps product features together ALM Accelerator. This combination allows us to focus on specific extensions that help with hyperautomtion.</p>
 <h2 id="feedback">Feedback</h2>
 
 
@@ -159,7 +164,7 @@
 <script>
     
     
-    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-AK4PP-ALM\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"roles\",\r\n                    \"title\": \"Which of was most useful for related to ALM?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"What the ALM Roadmap is for the Automation Kit\",\r\n                        \"How we add ALM specific tasks to our Power Automate Desktop process\",\r\n                        \"How to apply unit testing\",\r\n                        \"How to apply integration / system testing\",\r\n                        \"How this relates to in-product ALM roadmap\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on ALM?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-AK4PP-ALM-PowerCAT\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"roles\",\r\n                    \"title\": \"Which of was most useful for related to Power CAT ALM usage?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"Understanding how Power CAT releases low code releases\",\r\n                        \"What the ALM Roadmap is for the Automation Kit\",\r\n                        \"How we add ALM specific tasks to our Power Automate Desktop process\",\r\n                        \"How we apply unit testing\",\r\n                        \"How we apply integration / system testing\",\r\n                        \"How this relates to in-product ALM roadmap\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on PowerCAT ALM usage?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
     
 </script>
 

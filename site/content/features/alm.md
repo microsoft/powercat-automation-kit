@@ -6,37 +6,33 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
-The Automation Kit leverages the [ALM Accelerator](https://aka.ms/aa4pp) to provide ALM functionality for solutions that include Power Automate Desktop
+This page provides an overview of using ALM with the Automation Kit.
 
-{{<border>}}
+## Summary
 
-![ALM Roadmap November 2022](/images/illustrations/alm-roadmap-2022-11.svg)
+When looking at ALM for Power Platform solutions that include Power Automate Desktop components
 
-{{</border>}}
+1. Review and follow the [Streamline low code governance in your organization](https://learn.microsoft.com/en-us/events/ignite-2022/brk41-streamline-low-code-governance-in-your-organization) to leverage in product feature to move solutions between environments.
 
-## GitHub Deployment Process
+1. If needed investigate the [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/devops-github-actions) or [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) to integrate and automate your ALM DevOps processes
 
-Similar to the release process used for other Power CAT managed kits the {{<product-name>}} uses the ALM Accelerator to deploy releases to our public GitHub releases.
+1. Consider using the [ALM Accelerator for Power Platform](https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components) which provides a prebuilt set of Azure DevOps templates that automates many of the Power Platform ALM tasks using an integrated source control governance
 
-Our internal process has a Power Platform environment for Development, Test and Production. Once we are ready for a release our integrated GitHub Actions package the managed and unmanaged deployment solutions along with release notes automatically for a GitHub Draft release.
+## Learning from Power CAT
 
-Once the draft release is ready we can publish new versions or hotfixes as needed.
-
-### What this means for you
-
-Now that we have this automation in place the automated ALM release has the following benefits for you:
-
-- Visibility into all the low code source code that makes up the Automation Kit so that you can investigate how we have built the kit.
-
-- Streamlined automation process that can respond to bugs or issues quickly and provide hotfixes if needed.
-
-- Automated compilation of all Bugs and Features that are included in a release.
+You can also read more how we as the Power CAT team use ALM Accelerator to ship the [Power CAT Automtion Kit ALM](/features/alm/powercat).
 
 ## Roadmap
 
-You can investigate our open ALM related backlog items in our [GitHub Issues Register](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
+The Automation Kit team is working with the ALM Accelerator team to add Power Automate Desktop specific tasks to the existing templates that cover:
 
-Overall we build on the existing out of the box Power Platform and Microsoft DevOps product features together ALM Accelerator. This combination allows us to focus on specific extensions that help with hyperautomtion.
+- Side by side compare of Power Automate Desktop definitions
+
+- Validation Rule checks for Power Automate Desktop
+
+- Execution of Unit, Integration and System tests as part of integration pipeline
+
+Review our [Automation Kit ALM related backlog](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
 ## Feedback
 
