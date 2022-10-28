@@ -26,35 +26,21 @@ When looking at ALM for Power Platform solutions that include Power Automate Des
 
 1. Review the features of Managed Environment Power Platform Pipelines to take advantage of enterprise scale in-product features to manage and govern solutions within environments.
 
-1. If needed, investigate the [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/devops-github-actions) or [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) to integrate and automate your ALM DevOps processes.
+<br/>
 
-1. Consider using the [ALM Accelerator for Power Platform](https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components). The ALM Accelerator provides a prebuilt set of Azure DevOps templates that automates many of the Power Platform ALM tasks using integrated source control governance.
+2. If needed, investigate the [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/devops-github-actions) or [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) to integrate and automate your ALM DevOps processes.
+
+<br/>
+
+3. Consider using the [ALM Accelerator for Power Platform](https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components). The ALM Accelerator provides a prebuilt set of Azure DevOps templates that automates many of the Power Platform ALM tasks using integrated source control governance.
 
 ## Learning from Power CAT
 
 You can also read more how we as the Power CAT team use ALM Accelerator to ship the [Power CAT Automation Kit ALM](/features/alm/powercat).
 
-## ALM Accelerator Resources
+## Resources
 
-Blog
-
-[Introducing the ALM Accelerator for Power Platform | Microsoft Power Apps](https://powerapps.microsoft.com/en-us/blog/introducing-the-alm-accelerator-for-power-platform/)
-
-Repository
-
-[microsoft/coe-starter-kit (github.com)](https://github.com/microsoft/coe-starter-kit)
-
-Release
-
-[https://github.com/microsoft/coe-starter-kit/releases/](https://github.com/microsoft/coe-starter-kit/releases/)
-
-Documentation
-
-[Use the ALM Accelerator for Power Platform App - Power Platform | Microsoft Docs](https://docs.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components)
-
-Videos
-
-[https://github.com/microsoft/coe-starter-kit/blob/main/CenterofExcellenceALMAccelerator/WALKTHROUGHS.md](https://github.com/microsoft/coe-starter-kit/blob/main/CenterofExcellenceALMAccelerator/WALKTHROUGHS.md)
+[ALM Accelerator for Power Platform Learning Catalog](https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
 
 ## Roadmap
 
