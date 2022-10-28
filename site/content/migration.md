@@ -20,7 +20,7 @@ The {{<product-name>}} **Migration module** provides you a proven set of tools a
 
 You can use the following link to understand the RPA migration process for the Microsoft Power Platform:
 
-- [Proven methods to modernize your RPA approach with Power Automate](https://powerautomate.microsoft.com/en-us/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
+- [Proven methods to modernize your RPA approach with Power Automate](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
 - Downloadable white paper [Business Leaders’ Guide to Robotic Process Automation (RPA) Migration.](https://aka.ms/PAD/RPAMigrationWhitepaper)
 

@@ -139,7 +139,7 @@ The following advantages of this approach includes
 
 ### **Question** Could this approach be used within a Power App or Power Page?
 
-Absolutely, the same JavaScript and question definitions could be used by creating a [Code Component](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/custom-controls-overview)
+Absolutely, the same JavaScript and question definitions could be used by creating a [Code Component](https://learn.microsoft.com/power-apps/developer/component-framework/custom-controls-overview)
 
 ### **Question** How can I author the SVG image-task questions?
 

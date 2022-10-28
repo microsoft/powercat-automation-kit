@@ -33,7 +33,7 @@ They are complimentary solutions that your Center of Excellence team may install
 
 ### **Question:** Why is the {{<product-name>}} not a another modules of the [CoE Kit](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit)?
 
-The {{<product-name>}} has a focused on the [Automation Lifecycle](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle). As indicated in the [Automation Center Of Excellence](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-center-of-excellence) each of the kits meet the needs of different components and activities of the overall process.
+The {{<product-name>}} has a focused on the [Automation Lifecycle](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle). As indicated in the [Automation Center Of Excellence](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-center-of-excellence) each of the kits meet the needs of different components and activities of the overall process.
 
 ### **Question:** Can the {{<product-name>}} and [CoE Kit](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit) be used together?
 

@@ -10,11 +10,11 @@ include_footer: true
 
 <div class="optional">
 
-This page provides an overview of components that can assist you with using ALM with the Automation Kit for Power Automate Desktop workflows included in [Power Platform Solutions](https://learn.microsoft.com/en-us/power-platform/alm/solution-concepts-alm).
+This page provides an overview of components that can assist you with using ALM with the Automation Kit for Power Automate Desktop workflows included in [Power Platform Solutions](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
 
 </div>
 
-{{<presentation slides="1,2,3,4,5,6">}}
+{{<presentation slides="1,2,3,4,5,6,7">}}
 
 <div class="optional">
 
@@ -28,11 +28,11 @@ When looking at ALM for Power Platform solutions that include Power Automate Des
 
 <br/>
 
-2. If needed, investigate the [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/en-us/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/devops-github-actions) or [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) to integrate and automate your ALM DevOps processes.
+2. If needed, investigate the [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) or [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) to integrate and automate your ALM DevOps processes.
 
 <br/>
 
-3. Consider using the [ALM Accelerator for Power Platform](https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components). The ALM Accelerator provides a prebuilt set of Azure DevOps templates that automates many of the Power Platform ALM tasks using integrated source control governance.
+3. Consider using the [ALM Accelerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). The ALM Accelerator provides a prebuilt set of Azure DevOps templates that automates many of the Power Platform ALM tasks using integrated source control governance.
 
 ## Learning from Power CAT
 
@@ -40,7 +40,7 @@ You can also read more how we as the Power CAT team use ALM Accelerator to ship 
 
 ## Resources
 
-[ALM Accelerator for Power Platform Learning Catalog](https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
+[ALM Accelerator for Power Platform Learning Catalog](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
 
 ## Roadmap
 
@@ -106,7 +106,17 @@ In the coming weeks and months, you will see usage insights on the home page. Ne
 
 {{</slide>}}
 
-{{<slide  id="slide5" audio="features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1" description="ALM Accelerator for Power Platform Overview" image="features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" >}}
+{{<slide  id="slide5" audio="features/alm/pipeline-extensibility.mp3" description="Pipeline Extensibility" image="features/alm/pipeline-extensibility.svg" >}}
+
+If you need to extend your ALM process to include a source control based experience you have have a couple of options.
+
+The first option is you can use [Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), the [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) or [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) to roll your own ALM DevOps processes.
+
+The second option is to leverage [ALM Accelerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)  from the CoE Kit to provide pre-built templates and samples for End-to-End ALM using Azure DevOps.
+
+{{</slide>}}
+
+{{<slide  id="slide6" audio="features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1" description="ALM Accelerator for Power Platform Overview" image="features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" >}}
 
 What is ALM Accelerator for Power Platform?
 
@@ -114,7 +124,7 @@ The ALM Accelerator for Power Platform includes Power Apps that sits on top of A
 
 {{</slide>}}
 
-{{<slide  id="slide6" audio="features/alm/alm-accelerator-for-power-platform-workflow.mp3?v=1" description="ALM Accelerator for Power Platform Workflow" image="features/alm/alm-accelerator-for-power-platform-workflow.svg?v=1" >}}
+{{<slide  id="slide7" audio="features/alm/alm-accelerator-for-power-platform-workflow.mp3?v=1" description="ALM Accelerator for Power Platform Workflow" image="features/alm/alm-accelerator-for-power-platform-workflow.svg?v=1" >}}
 
 Looking at the ALM Accelerator workflow it starts with Development environments. Their interaction with the ALM process is via the ALM Accelerator Canvas App or Managed Environment Pipelines
 
