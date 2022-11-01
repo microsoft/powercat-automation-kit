@@ -1,0 +1,425 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataservice": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataservice_305b1"
+        },
+        "api": {
+          "name": "shared_commondataservice"
+        }
+      },
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_6489c"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)": {
+          "defaultValue": "unqda99ac46cfcd47eba73db6d73de2e.crm",
+          "type": "String",
+          "metadata": {
+            "schemaName": "autocoe_EnvironmentUniqueNameofCoEMain",
+            "description": "This is the unique name of the environment where the Automation CoE Main has been installed."
+          }
+        },
+        "Desktop Flows Base URL (autocoe_DesktopFlowsBaseURL)": {
+          "defaultValue": "https://us.flow.microsoft.com/manage/environments/",
+          "type": "String",
+          "metadata": {
+            "schemaName": "autocoe_DesktopFlowsBaseURL",
+            "description": "The Base URL for Desktop Flows in Power Automate Portal e.g. https://germany.flow.microsoft.com/manage/environments/"
+          }
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "016bbf97-f2fc-41ce-a5b6-dd3edd2cb9ad"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 7,
+              "subscriptionRequest/entityname": "autocoe_desktopflowdefinition",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Parse_JSON": {
+          "runAfter": {
+            "Initialize_FlowBaseURL": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "17622a66-2394-4ac3-8810-5101d8eec300"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@triggerOutputs()?['body']",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "_owningbusinessunit_value": {
+                  "type": "string"
+                },
+                "_owningbusinessunit_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_owningbusinessunit_type": {
+                  "type": "string"
+                },
+                "autocoe_desktopflowdefinitionid": {
+                  "type": "string"
+                },
+                "statecode": {
+                  "type": "integer"
+                },
+                "_statecode_label": {
+                  "type": "string"
+                },
+                "statuscode": {
+                  "type": "integer"
+                },
+                "_statuscode_label": {
+                  "type": "string"
+                },
+                "autocoe_ownername": {
+                  "type": "string"
+                },
+                "autocoe_environmentid": {
+                  "type": "string"
+                },
+                "_createdby_value": {
+                  "type": "string"
+                },
+                "_createdby_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_createdby_type": {
+                  "type": "string"
+                },
+                "autocoe_owneremail": {
+                  "type": "string"
+                },
+                "_ownerid_value": {
+                  "type": "string"
+                },
+                "_ownerid_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_ownerid_type": {
+                  "type": "string"
+                },
+                "autocoe_desktopflowurl": {
+                  "type": "string"
+                },
+                "modifiedon": {
+                  "type": "string"
+                },
+                "_modifiedby_value": {
+                  "type": "string"
+                },
+                "_modifiedby_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_modifiedby_type": {
+                  "type": "string"
+                },
+                "autocoe_script": {
+                  "type": "string"
+                },
+                "_autocoe_desktopflow_value": {
+                  "type": "string"
+                },
+                "_autocoe_desktopflow_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_autocoe_desktopflow_type": {
+                  "type": "string"
+                },
+                "createdon": {
+                  "type": "string"
+                },
+                "ItemInternalId": {
+                  "type": "string"
+                },
+                "SdkMessage": {
+                  "type": "string"
+                },
+                "RunAsSystemUserId": {
+                  "type": "string"
+                },
+                "RowVersion": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Is_Create_or_Update": {
+          "actions": {
+            "Does_record_exist_in_main": {
+              "actions": {
+                "Sync_Update_Desktop_Flow_Definition_to_CoE_Main": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "8d12aef1-699a-4b3e-af56-560b67546687"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataservice",
+                      "operationId": "PatchItem_V2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                    },
+                    "parameters": {
+                      "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                      "table": "autocoe_desktopflowdefinitions",
+                      "id": "@first(outputs('Get_Desktop_Flow_Definition_from_main')?['body/value'])?['autocoe_desktopflowdefinitionid']",
+                      "item/autocoe_desktopflowdisplayname": "@outputs('Get_Desktop_Flow')?['body/autocoe_desktopflow/name']",
+                      "item/autocoe_desktopflowurl": "@variables('varFlowBaseURL')",
+                      "item/autocoe_environmentid": "@triggerOutputs()?['body/autocoe_environmentid']",
+                      "item/autocoe_originalrecordid": "@triggerOutputs()?['body/autocoe_desktopflowdefinitionid']",
+                      "item/autocoe_owneremail": "@triggerOutputs()?['body/autocoe_owneremail']",
+                      "item/autocoe_ownername": "@triggerOutputs()?['body/autocoe_ownername']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                }
+              },
+              "runAfter": {
+                "Get_Desktop_Flow_Definition_from_main": [
+                  "Succeeded"
+                ]
+              },
+              "else": {
+                "actions": {
+                  "Sync_New_Desktop_Flow_Definition_to_CoE_Main": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "8040efb1-7365-4af9-9755-d225aab029a0"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataservice",
+                        "operationId": "PostItem_V2",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                      },
+                      "parameters": {
+                        "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                        "table": "autocoe_desktopflowdefinitions",
+                        "item/autocoe_desktopflowdisplayname": "@outputs('Get_Desktop_Flow')?['body/autocoe_desktopflow/name']",
+                        "item/autocoe_desktopflowurl": "@variables('varFlowBaseURL')",
+                        "item/autocoe_environmentid": "@triggerOutputs()?['body/autocoe_environmentid']",
+                        "item/autocoe_originalrecordid": "@triggerOutputs()?['body/autocoe_desktopflowdefinitionid']",
+                        "item/autocoe_owneremail": "@triggerOutputs()?['body/autocoe_owneremail']",
+                        "item/autocoe_ownername": "@triggerOutputs()?['body/autocoe_ownername']"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "greater": [
+                  "@length(outputs('Get_Desktop_Flow_Definition_from_main')?['body/value'])",
+                  0
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "eeebded3-3ab7-4483-924b-2a7bf7e590b4"
+              },
+              "type": "If"
+            },
+            "Does_Desktop_Flow_URL_exists_": {
+              "actions": {
+                "Set_FlowBaseURL_existing": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "04811280-cbd3-47cf-9429-21e1e8a4471e"
+                  },
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "varFlowBaseURL",
+                    "value": "@triggerOutputs()?['body/autocoe_desktopflowurl']"
+                  }
+                }
+              },
+              "runAfter": {},
+              "else": {
+                "actions": {
+                  "Add_Desktop_Flow_URL": {
+                    "runAfter": {
+                      "Set_FlowBaseURL_new": [
+                        "Succeeded"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "f872ef45-00a2-460e-9c9b-38f4cde74e73"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataserviceforapps",
+                        "operationId": "UpdateRecord",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                      },
+                      "parameters": {
+                        "entityName": "autocoe_desktopflowdefinitions",
+                        "recordId": "@triggerOutputs()?['body/autocoe_desktopflowdefinitionid']",
+                        "item/autocoe_desktopflowurl": "@variables('varFlowBaseURL')"
+                      },
+                      "authentication": "@parameters('$authentication')"
+                    }
+                  },
+                  "Set_FlowBaseURL_new": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "6332d798-280a-4220-b9cd-ee828fe762eb"
+                    },
+                    "type": "SetVariable",
+                    "inputs": {
+                      "name": "varFlowBaseURL",
+                      "value": "@{parameters('Desktop Flows Base URL (autocoe_DesktopFlowsBaseURL)')}@{workflow()['tags']['environmentName']}/uiflows/@{outputs('Get_Desktop_Flow')?['body/autocoe_desktopflow/workflowid']}/details"
+                    }
+                  }
+                }
+              },
+              "expression": {
+                "not": {
+                  "equals": [
+                    "@triggerOutputs()?['body/autocoe_desktopflowurl']",
+                    "@null"
+                  ]
+                }
+              },
+              "metadata": {
+                "operationMetadataId": "a74bb7a0-c7f9-48df-9a2c-30c3dc4f00a6"
+              },
+              "type": "If"
+            },
+            "Get_Desktop_Flow_Definition_from_main": {
+              "runAfter": {
+                "Does_Desktop_Flow_URL_exists_": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "8e71e1be-ab7c-4ba9-927a-789f36f1eef1"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataservice",
+                  "operationId": "GetItems_V2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                },
+                "parameters": {
+                  "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                  "table": "autocoe_desktopflowdefinitions",
+                  "$filter": "autocoe_originalrecordid eq '@{triggerOutputs()?['body/autocoe_desktopflowdefinitionid']}'",
+                  "$top": 1
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_Desktop_Flow": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "or": [
+              {
+                "equals": [
+                  "@body('Parse_JSON')?['SdkMessage']",
+                  "Create"
+                ]
+              },
+              {
+                "equals": [
+                  "@body('Parse_JSON')?['SdkMessage']",
+                  "Update"
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1399503a-2924-4032-9a75-43a790875fa4"
+          },
+          "type": "If"
+        },
+        "Get_Desktop_Flow": {
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b59bda29-e29e-4830-828a-1dd71e805ef7"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_desktopflowdefinitions",
+              "recordId": "@triggerOutputs()?['body/autocoe_desktopflowdefinitionid']",
+              "$expand": "autocoe_DesktopFlow($select=name,workflowid)"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Initialize_FlowBaseURL": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "7eeb9cbb-0964-4158-a518-233c6817696c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varFlowBaseURL",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

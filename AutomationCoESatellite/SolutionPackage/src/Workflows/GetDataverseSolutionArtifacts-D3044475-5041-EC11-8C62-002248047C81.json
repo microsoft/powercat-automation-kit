@@ -1,0 +1,227 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "7395c836-8e61-4201-8c1f-700e87b11c08"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Solution Id",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_1": {
+                  "title": "Environment URL",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text",
+                "text_1"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Get_Dataverse_Bearer_Token": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c166b532-ba78-4f05-a208-1a6e701d94eb"
+          },
+          "type": "Workflow",
+          "inputs": {
+            "host": {
+              "workflowReferenceName": "8a017897-6fa3-ec11-983f-0022480b188a"
+            },
+            "body": {
+              "text": "@triggerBody()['text_1']"
+            }
+          }
+        },
+        "Get_Solution_Artifacts": {
+          "runAfter": {
+            "Bearer_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "5e7ec53b-6b7d-405f-ab93-a6ca3576f3ba"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "GET",
+            "uri": "@{triggerBody()['text_1']}/api/data/v9.2/msdyn_solutioncomponentsummaries?$filter=(msdyn_solutionid%20eq%20@{triggerBody()['text']})",
+            "headers": {
+              "Authorization": "@{outputs('Bearer_Token')}",
+              "Prefer": "odata.include-annotations=*"
+            }
+          }
+        },
+        "Bearer_Token": {
+          "runAfter": {
+            "Get_Dataverse_Bearer_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8d7617c7-3886-413a-b324-5b8316653a15"
+          },
+          "type": "Compose",
+          "inputs": "Bearer @{outputs('Get_Dataverse_Bearer_Token')?['Body']?['access_token']}"
+        },
+        "Select_only_a_couple_of_fields": {
+          "runAfter": {
+            "Get_Solution_Artifacts": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d246bc37-978a-4628-860d-99fe2757c2f7"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@body('Get_Solution_Artifacts')?['value']",
+            "select": {
+              "Schema name": "@item()?['msdyn_schemaname']",
+              "Modified on": "@item()?['msdyn_modifiedon']",
+              "Created on": "@item()?['msdyn_createdon']",
+              "Is customizable": "@item()?['msdyn_iscustomizable']",
+              "Is managed": "@item()?['msdyn_ismanaged']",
+              "Solution id": "@item()?['msdyn_solutionid']",
+              "Name": "@item()?['msdyn_name']",
+              "Display name": "@item()?['msdyn_displayname']",
+              "Object type code": "@item()?['msdyn_objecttypecode']",
+              "Component type": "@item()?['msdyn_objectid']",
+              "Component type name": "@item()?['msdyn_componenttypename']",
+              "Component logical name": "@item()?['msdyn_componentlogicalname']",
+              "Primary id attribute": "@item()?['msdyn_primaryidattribute']",
+              "Total count of component type": "@item()?['msdyn_total']",
+              "Owner": "@item()?['msdyn_owner']",
+              "Connector internal id": "@item()?['msdyn_connectorinternalid']",
+              "Workflow category name": "@item()?['msdyn_workflowcategoryname']",
+              "Sub type": "@item()?['msdyn_subtype']",
+              "Workflow category": "@item()?['msdyn_workflowcategory']",
+              "Workflow unique id": "@item()?['msdyn_workflowidunique']",
+              "Description": "@item()?['msdyn_description']",
+              "Object id": "@item()?['msdyn_objectid']"
+            }
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "Select_only_a_couple_of_fields": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a00ec714-ce40-4f98-8ce5-edd2e6418501"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": "@body('Select_only_a_couple_of_fields')",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "Schema name": {},
+                  "Modified on": {
+                    "type": "string"
+                  },
+                  "Created on": {
+                    "type": "string"
+                  },
+                  "Is customizable": {
+                    "type": "boolean"
+                  },
+                  "Is managed": {
+                    "type": "boolean"
+                  },
+                  "Solution id": {
+                    "type": "string"
+                  },
+                  "Name": {
+                    "type": "string"
+                  },
+                  "Display name": {
+                    "type": "string"
+                  },
+                  "Object type code": {
+                    "type": "integer"
+                  },
+                  "Object id": {
+                    "type": "string"
+                  },
+                  "Component type": {
+                    "type": "string"
+                  },
+                  "Component type name": {
+                    "type": "string"
+                  },
+                  "Component logical name": {
+                    "type": "string"
+                  },
+                  "Primary id attribute": {
+                    "type": "string"
+                  },
+                  "Total count of component type": {
+                    "type": "integer"
+                  },
+                  "Owner": {
+                    "type": "string"
+                  },
+                  "Connector internal id": {
+                    "type": "string"
+                  },
+                  "Workflow category name": {
+                    "type": "string"
+                  },
+                  "Sub type": {
+                    "type": "string"
+                  },
+                  "Workflow category": {
+                    "type": "integer"
+                  },
+                  "Workflow unique id": {
+                    "type": "string"
+                  },
+                  "Description": {
+                    "type": "string"
+                  }
+                },
+                "required": []
+              }
+            }
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

@@ -1,0 +1,76 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "11004bac-59bd-45ef-95b6-78cb19bd32f5"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Pull_Automation_Projects_from_CoE_Core": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "9926dbb1-55f5-42c8-b434-83fd0585eca0"
+          },
+          "type": "Workflow",
+          "inputs": {
+            "host": {
+              "workflowReferenceName": "33a0af05-b43b-ec11-b6e5-00224809b791"
+            }
+          }
+        },
+        "Respond_to_a_PowerApp_or_flow": {
+          "runAfter": {
+            "Pull_Automation_Projects_from_CoE_Core": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "ba36b93e-6bb3-49e7-9df2-481c2e7812ca"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "success": "true"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "title": "Success",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

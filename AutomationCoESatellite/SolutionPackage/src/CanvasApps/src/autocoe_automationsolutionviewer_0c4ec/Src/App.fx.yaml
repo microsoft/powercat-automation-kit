@@ -1,0 +1,450 @@
+App As appinfo:
+    BackEnabled: =true
+    ConfirmExit: =true
+    ConfirmExitMessage: ="Are you sure you want to leave this tool?"
+    OnStart: |
+        =Concurrent(
+            Set(
+                appTitle,
+                "AUTOMATION SOLUTION MANAGER"
+            ),
+            Set(
+                UIBGColor,
+                ColorValue("#FAF9F8")
+            ),
+            Set(
+                UIAccentColor,
+                ColorValue("#0078d4")
+            ),
+            Set(
+                UIAccentColorText,
+                "#0078d4"
+            ),
+            Set(
+                BTNStandard_Fill,
+                White
+            ),
+            Set(
+                BTNStandard_Color,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNStandard_ColorPressed,
+                ColorValue("#201f1e")
+            ),
+            Set(
+                BTNStandard_Border,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNStandard_Text,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNStandard_Pressed,
+                ColorValue("#edebe9")
+            ),
+            Set(
+                BTNStandard_PressedBorder,
+                ColorValue("#edebe9")
+            ),
+            Set(
+                BTNStandard_HoverFill,
+                ColorValue("#f3f2f1")
+            ),
+            Set(
+                BTNStandard_HoverBorder,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNAccent_Fill,
+                ColorValue("#0078D4")
+            ),
+            Set(
+                BTNAccent_Border,
+                ColorValue("#106EBE")
+            ),
+            Set(
+                BTNAccent_Text,
+                ColorValue("#323130")
+            ),
+            Set(
+                BTNAccent_Pressed,
+                ColorValue("#005a9e")
+            ),
+            Set(
+                BTNAccent_PressedBorder,
+                ColorValue("#005a9e")
+            ),
+            Set(
+                BTNAccent_HoverFill,
+                ColorValue("#106ebe")
+            ),
+            Set(
+                BTNAccent_HoverBorder,
+                ColorValue("#106ebe")
+            ),
+            Set(
+                MenuCollapsed,
+                true
+            ),
+            Set(
+                varDisableFlowNaming,
+                false
+            ),
+            Set(
+                AppTheme,
+                {
+                    palette: {
+                        themePrimary: "#0078d4",
+                        themeLighterAlt: "#eff6fc",
+                        themeLighter: "#deecf9",
+                        themeLight: "#c7e0f4",
+                        themeTertiary: "#71afe5",
+                        themeSecondary: "#2b88d8",
+                        themeDarkAlt: "#106ebe",
+                        themeDark: "#005a9e",
+                        themeDarker: "#004578",
+                        neutralLighterAlt: "#faf9f8",
+                        neutralLighter: "#f3f2f1",
+                        neutralLight: "#edebe9",
+                        neutralQuaternaryAlt: "#e1dfdd",
+                        neutralQuaternary: "#d0d0d0",
+                        neutralTertiaryAlt: "#c8c6c4",
+                        neutralTertiary: "#a19f9d",
+                        neutralSecondary: "#605e5c",
+                        neutralPrimaryAlt: "#3b3a39",
+                        neutralPrimary: "#323130",
+                        neutralDark: "#201f1e",
+                        black: "#000000",
+                        white: "#ffffff"
+                    }
+                }
+            )
+        );
+        Set(
+            AppThemeJson,
+            JSON(
+                AppTheme,
+                JSONFormat.IndentFour
+            )
+        );
+        ClearCollect(
+            col_MainNav,
+            {
+                Label: "Solutions",
+                Icon: Icon.Items,
+                Screen: scr_SolutionDashboard,
+                Notifications: 0,
+                NotificationColor: Color.Red,
+                ChildScreens: [
+                    scr_SolutionDashboard,
+                    scr_SolutionDetails,
+                    scr_SolutionMeteringAdd
+                ]
+            },
+            {
+                Label: "Run Logs",
+                Icon: Icon.History,
+                Screen: scr_SolutionRunLogs,
+                Notifications: 0,
+                NotificationColor: Color.Red,
+                ChildScreens: [scr_SolutionRunLogs]
+            }/*,
+            {
+                Label: "Deploy",
+                Icon: Icon.Publish,
+                Screen: scr_SolutionDeployment,
+                Notifications: 0,
+                NotificationColor: Color.Red,
+                ChildScreens: [scr_SolutionDeployment,scr_SolutionDeploymentDetails]
+            }*/
+        );
+        Concurrent(
+            Set(
+                AutoProjectCanvasAppId,
+                LookUp(
+                    'Environment Variable Definitions',
+                    'Schema Name' = "autocoe_AutomationProjectAppID"
+                ).'Environment Variable Definition'
+            ),
+            Set(
+                EnvVarDefEnvId,
+                LookUp(
+                    'Environment Variable Definitions',
+                    'Schema Name' = "autocoe_EnvironmentId"
+                ).'Environment Variable Definition'
+            ),
+            Set(
+                EnvVarDefEnvName,
+                LookUp(
+                    'Environment Variable Definitions',
+                    'Schema Name' = "autocoe_EnvironmentName"
+                ).'Environment Variable Definition'
+            ),
+            Set(
+                EnvVarDefEnvURL,
+                LookUp(
+                    'Environment Variable Definitions',
+                    'Schema Name' = "autocoe_EnvironmentURL"
+                ).'Environment Variable Definition'
+            ),
+            Set(
+                EnvVarEnableMultiFlowMetering,
+                LookUp(
+                    'Environment Variable Definitions',
+                    'Schema Name' = "autocoe_EnableMultiCloudFlowMetering"
+                ).'Environment Variable Definition'
+            )
+        );
+        Set(
+            EnableMultiCloudMetering,
+            LookUp(
+                'Environment Variable Values',
+                'Environment Variable Definition'.'Environment Variable Definition' = EnvVarEnableMultiFlowMetering
+            ).Value
+        );
+        ClearCollect(
+            EnvironmentDetails,
+            {
+                EnvironmentId: LookUp(
+                    'Environment Variable Values',
+                    'Environment Variable Definition'.'Environment Variable Definition' = EnvVarDefEnvId
+                ).Value,
+                EnvironmentName: LookUp(
+                    'Environment Variable Values',
+                    'Environment Variable Definition'.'Environment Variable Definition' = EnvVarDefEnvName
+                ).Value,
+                EnvironmentURL: LookUp(
+                    'Environment Variable Values',
+                    'Environment Variable Definition'.'Environment Variable Definition' = EnvVarDefEnvURL
+                ).Value,
+                AutomationProjectCanvasAppId: LookUp(
+                    'Environment Variable Values',
+                    'Environment Variable Definition'.'Environment Variable Definition' = AutoProjectCanvasAppId
+                ).Value
+            }
+        );
+        ClearCollect(
+            FluentUIIcons,
+            {
+                FriendlyName: "All",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M0 640v384h384v-384h-384zM128 896v-128h128v128h-128zM0 1152v384h384v-384h-384zM128 1408v-128h128v128h-128zM0 1664v384h384v-384h-384zM128 1920v-128h128v128h-128zM640 1280v128h1152v-128h-1152zM1536 896v-128h-896v128h896zM640 1920h1408v-128h-1408v128zM0 128v384h384v-384h-384zM128 384v-128h128v128h-128zM640 256v128h1152v-128h-1152z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Apps",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill='" & AppTheme.palette.neutralPrimary & "'
+        d='M0 2048h1920v-1024h-896v-896h-1024v1920zM896 256v768h-768v-768h768zM896 1152v768h-768v-768h768zM1792 1152v768h-768v-768h768z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Chatbot subcomponents",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M2048 1536v-1024q0 -27 -10 -50t-27.5 -40.5t-40.5 -27.5t-50 -10h-1792q-27 0 -50 10t-40.5 27.5t-27.5 40.5t-10 50v1280q0 27 10 50t27.5 40.5t40.5 27.5t50 10h736q37 0 69 -13.5t58.5 -36t48 -51t39.5 -58.5q13 -23 25.5 -41t28 -30.5t35 -19t48.5 -6.5h704q27 0 50 -10t40.5 -27.5t27.5 -40.5t10 -50zM864 1792h-736v-256h736q27 0 45.5 9t35 22t33.5 28.5t39 27.5q-15 17 -31.5 45.5t-35.5 56t-40.5 47.5t-45.5 20zM1920 512v1024h-704q-56 0 -90.5 -9.5t-58 -23.5t-40.5 -31t-37.5 -31t-49.5 -23.5t-76 -9.5h-736v-896h1792z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Chatbots",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M768 1024h-128v128h128v-128zM1280 1024h-128v128h128v-128zM1792 1152v-256h-128v-320q0 -40 -15 -75t-41 -61t-61 -41t-75 -15h-264l-440 -376v376h-320q-40 0 -75 15t-61 41t-41 61t-15 75v320h-128v256h128v192q0 40 15 75t41 61t61 41t75 15h448v209q-29 17 -46.5 47t-17.5 64q0 27 10 50t27.5 40.5t40.5 27.5t50 10t50 -10t40.5 -27.5t27.5 -40.5t10 -50q0 -34 -17.5 -64t-46.5 -47v-209h448q40 0 75 -15t61 -41t41 -61t15 -75v-192h128zM1536 1344q0 26 -19 45t-45 19h-1024q-26 0 -45 -19t-19 -45v-768q0 -26 19 -45t45 -19h448v-226l264 226h312q26 0 45 19t19 45v768zM685 882q55 -55 126 -84.5t149 -29.5t149 29.5t126 84.5l90 -91q-73 -73 -167.5 -112t-197.5 -39t-197.5 39t-167.5 112z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Choices",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M0 768v128h128v-128h-128zM0 1152v128h128v-128h-128zM384 1152v128h1664v-128h-1664zM0 1536v128h128v-128h-128zM384 1664h1664v-128h-1664v128zM384 768v128h1664v-128h-1664zM0 384v128h128v-128h-128zM384 384v128h1664v-128h-1664z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Cloud flows",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M1408 1792h640v-640h-640v256h-120l-449 -896h-199v-256h-640v640h640v-256h120l449 896h199v256zM512 384v384h-384v-384h384zM1920 1280v384h-384v-384h384z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Connection references",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M1408 1664v-448q0 -83 -29 -158.5t-80.5 -134.5t-122 -98.5t-152.5 -51.5v-773h-128v773q-83 12 -153 51.5t-121.5 98.5t-80.5 134.5t-29 158.5v448h128v384h128v-384h384v384h128v-384h128zM1280 1536h-640v-320q0 -66 25 -124.5t68.5 -102t102 -68.5t124.5 -25t124 25t101.5 68.5t69 102t25.5 124.5v320z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Custom connectors",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M256 832q0 89 34 171.5t97 145.5l227 226l633 -633l-226 -227q-63 -63 -145.5 -97t-171.5 -34q-73 0 -141.5 22.5t-126.5 66.5l-327 -326l-90 90l326 327q-44 58 -66.5 126.5t-22.5 141.5zM704 512q64 0 122.5 24.5t103.5 69.5l136 136l-452 452l-136 -136q-45 -45 -69.5 -103.5t-24.5 -122.5q0 -66 25 -124.5t68.5 -102t102 -68.5t124.5 -25zM1575 1612q44 -58 66.5 -126.5t22.5 -141.5q0 -89 -34 -171.5t-97 -145.5l-227 -226l-633 633l226 227q63 63 145.5 97t171.5 34q73 0 141.5 -22.5t126.5 -66.5l327 326l90 -90zM1442 1118q45 45 69.5 103.5t24.5 122.5q0 66 -25.5 124t-69 101.5t-101.5 69t-124 25.5q-64 0 -122.5 -24.5t-103.5 -69.5l-136 -136l452 -452z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Desktop flows",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M1024 1536q150 0 292 -39t272.5 -107.5t246 -162.5t213.5 -203q-98 -110 -213.5 -203.5t-246 -162t-272.5 -107.5t-292 -39t-292 39t-272.5 107.5t-246.5 162t-213 203.5q97 109 213 203t246.5 162.5t272.5 107.5t292 39zM1408 1024q0 79 -30.5 149t-82.5 122t-122 82.5t-149 30.5t-149 -30.5t-122 -82.5t-82.5 -122t-30.5 -149t30.5 -149t82.5 -122t122 -82.5t149 -30.5t149 30.5t122 82.5t82.5 122t30.5 149zM177 1024q94 -91 200 -166.5t227 -126.5q-45 64 -68.5 139.5t-23.5 153.5t23.5 153.5t68.5 139.5q-121 -51 -227 -126.5t-200 -166.5zM1444 731q121 51 227 126.5t200 166.5q-94 91 -200 166.5t-227 126.5q45 -64 68.5 -139.5t23.5 -153.5t-23.5 -153.5t-68.5 -139.5zM1024 896q-27 0 -50 10t-40.5 27.5t-27.5 40.5t-10 50t10 50t27.5 40.5t40.5 27.5t50 10t50 -10t40.5 -27.5t27.5 -40.5t10 -50t-10 -50t-27.5 -40.5t-40.5 -27.5t-50 -10z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Environment variables",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M690 701q0 23 15 38t38 15q12 0 23 -6t20 -13t16.5 -13t14.5 -6q10 0 26.5 15.5t35 39.5t38.5 53.5t37 57t29 50t17 33.5q-8 34 -17 67t-17 67q-8 31 -17.5 54.5t-24 39.5t-34 24.5t-47.5 8.5q-10 0 -20.5 -1t-21.5 -3v25l184 33q21 -23 35.5 -46.5t24 -48t16.5 -51t15 -56.5q15 22 37.5 56.5t51 66.5t61 55.5t66.5 23.5q25 0 45 -13.5t20 -40.5q0 -54 -54 -54q-20 0 -37 9t-37 9q-19 0 -40 -19t-40.5 -45t-35.5 -52.5t-26 -41.5l57 -237q1 -7 4 -19.5t8 -25t12 -22t16 -9.5q12 0 27.5 11.5t29.5 27.5t25.5 32.5t15.5 27.5l24 -12q-8 -19 -28 -47t-45.5 -54.5t-52 -45.5t-48.5 -19t-36.5 13t-25.5 30q-9 16 -17 46.5t-15 65t-13.5 67.5t-13.5 53q-11 -20 -26.5 -48t-35.5 -58.5t-43 -61t-48 -54t-50.5 -38.5t-50.5 -15q-26 0 -46.5 17t-20.5 44zM1516 640q54 69 83 149.5t29 168.5q0 90 -29 170t-83 152h94q118 -139 118 -322q0 -91 -28.5 -170t-89.5 -148h-94zM0 1920h2048v-1664h-2048v1664zM1920 384v1024h-1792v-1024h1792zM1920 1536v256h-1792v-256h1792zM438 640q-62 68 -90 147.5t-28 170.5q0 183 118 322h93q-54 -70 -82.5 -151.5t-28.5 -170.5q0 -87 28.5 -168t82.5 -150h-93z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Environment variable values",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M139 1088q0 -223 59 -430t165 -402h-97q-62 91 -111 191.5t-83.5 206t-53 215.5t-18.5 220q0 230 71 435t195 396h97q-55 -108 -96.5 -205t-70 -195.5t-43 -203.5t-14.5 -228zM1624 1566q0 -48 -25.5 -72t-72.5 -24q-17 0 -34 5t-33.5 11t-33 11t-33.5 5q-21 0 -45 -16t-49.5 -42t-50 -58t-46 -64t-38 -60t-25.5 -45l101 -426q3 -13 8.5 -35.5t14 -45t21 -39t29.5 -16.5q23 0 50.5 20t52.5 48.5t45 58t29 49.5l43 -21q-12 -23 -32.5 -54t-45.5 -64t-54.5 -65t-60.5 -57.5t-61.5 -41.5t-58.5 -16q-39 0 -66 23t-45 55q-8 14 -18 45t-20.5 71t-21.5 85t-20 86.5t-16.5 76t-10.5 53.5q-26 -48 -62.5 -108.5t-78 -121.5t-85.5 -115t-85 -88q-32 -26 -68 -44t-78 -18q-24 0 -45.5 7.5t-38 22t-26.5 34.5t-10 45q0 42 26 69t68 27q22 0 41 -11t35.5 -23.5t31 -23.5t26.5 -11q18 0 47.5 28t63 72t69 97t65.5 103t52.5 90t31.5 59q-10 38 -20 75t-19 75q-8 32 -17 72.5t-22.5 81t-32.5 75t-47 54.5q-31 22 -64.5 28t-70.5 6q-33 0 -66 -3v44l332 59q40 -43 65 -85t42 -85.5t29.5 -91t27.5 -101.5q32 48 64.5 98t69 95.5t80 84t97.5 65.5q18 9 38 14.5t40 5.5q22 0 43.5 -6t37.5 -18t26 -30.5t10 -43.5zM2048 1089q0 -110 -18.5 -220t-53 -215.5t-83.5 -206t-111 -191.5h-97q106 195 165 402t59 430q0 146 -25.5 290.5t-77.5 281.5q-26 67 -57.5 131.5t-63.5 128.5h97q124 -191 195 -396t71 -435z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Plug-in assemblies",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M1600 1152q-27 0 -50 -10t-40.5 -27.5t-27.5 -40.5t-10 -50t10 -50t27.5 -40.5t40.5 -27.5t50 -10h192v-512h-384v-64q0 -53 -20 -99.5t-55 -81.5t-81.5 -55t-99.5 -20t-99.5 20t-81.5 55t-55 81.5t-20 99.5v64h-384v384h-64q-53 0 -99.5 20t-81.5 55t-55 81.5t-20 99.5t20 99.5t55 81.5t81.5 55t99.5 20h64v384h384v64q0 53 20 99.5t55 81.5t81.5 55t99.5 20t99.5 -20t81.5 -55t55 -81.5t20 -99.5v-64h384v-512h-192zM1600 768q-53 0 -99.5 20t-81.5 55t-55 81.5t-20 99.5t20 99.5t55 81.5t81.5 55t99.5 20h64v256h-384v192q0 27 -10 50t-27.5 40.5t-40.5 27.5t-50 10t-50 -10t-40.5 -27.5t-27.5 -40.5t-10 -50v-192h-384v-384h-192q-27 0 -50 -10t-40.5 -27.5t-27.5 -40.5t-10 -50t10 -50t27.5 -40.5t40.5 -27.5t50 -10h192v-384h384v-192q0 -27 10 -50t27.5 -40.5t40.5 -27.5t50 -10t50 10t40.5 27.5t27.5 40.5t10 50v192h384v256h-64z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Plug-in steps",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M1920 1792v-1408h-1792v640h512v384h512v384h768zM1792 1664h-512v-384h-512v-384h-512v-384h1536v1152z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Security roles",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M867 587q65 -33 118 -81t90 -108t57 -128.5t20 -141.5h-128q0 79 -30 149t-82.5 122.5t-122.5 82.5t-149 30q-80 0 -149.5 -30t-122 -82.5t-82.5 -122.5t-30 -149h-128q0 73 20 141.5t57 128.5t90 108t118 81q-74 54 -115.5 135.5t-41.5 173.5q0 79 30 149t82.5 122.5t122 82.5t149.5 30q92 0 173.5 -41.5t135.5 -115.5q38 75 97.5 134.5t134.5 96.5q-74 55 -115.5 136.5t-41.5 173.5q0 79 30 149t82.5 122.5t122 82.5t149.5 30q79 0 149 -30t122.5 -82.5t82.5 -122.5t30 -149q0 -94 -43 -177t-120 -137q47 -25 90 -59.5t78.5 -76.5t62.5 -90.5t43 -99.5h-134q-22 52 -59 98.5t-85 81.5t-103.5 55t-113.5 20q-80 0 -149.5 -30t-122 -82t-82.5 -122t-30 -149q0 -92 -41.5 -173.5t-115.5 -135.5zM1408 1920q-53 0 -99.5 -20t-81.5 -55t-55 -81.5t-20 -99.5t20 -99.5t55 -81.5t81.5 -55t99.5 -20t99.5 20t81.5 55t55 81.5t20 99.5t-20 99.5t-55 81.5t-81.5 55t-99.5 20zM384 896q0 -53 20 -99.5t55 -81.5t81.5 -55t99.5 -20t99.5 20t81.5 55t55 81.5t20 99.5t-20 99.5t-55 81.5t-81.5 55t-99.5 20t-99.5 -20t-81.5 -55t-55 -81.5t-20 -99.5zM2048 512v-512h-640v512h64v128q0 53 20 99.5t55 81.5t81.5 55t99.5 20t99.5 -20t81.5 -55t55 -81.5t20 -99.5v-128h64zM1600 512h256v128q0 27 -10 50t-27.5 40.5t-40.5 27.5t-50 10t-50 -10t-40.5 -27.5t-27.5 -40.5t-10 -50v-128zM1920 384h-384v-256h384v256z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Site maps",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M0 1792h2048v-1408h-2048v1408zM128 1408v-896h384v896h-384zM1920 512v896h-1280v-896h1280zM128 1536h1792v128h-1792v-128z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "Tables",
+                SVG: "data:image/svg+xml," & EncodeUrl(
+                    "<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' viewBox='-10 0 2068 2048'>
+          <g transform='matrix(1 0 0 -1 0 2048),rotate(0,1034,1024)'>
+           <path fill=''
+        d='M128 1792h1664v-1536h-1664v1536zM768 1024v-256h384v256h-384zM1152 1152v256h-384v-256h384zM640 1152v256h-384v-256h384zM256 1024v-256h384v256h-384zM640 384v256h-384v-256h384zM1152 384v256h-384v-256h384zM1664 384v256h-384v-256h384zM1664 768v256h-384v-256h384zM1664 1152v256h-384v-256h384zM256 1536h1408v128h-1408v-128z' />
+          </g>
+        </svg>"
+                )
+            },
+            {
+                FriendlyName: "DeployRocket",
+                SVG: "data:image/svg+xml," & EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' enable-background='new 0 0 24 24' height='24px' viewBox='0 0 24 24' width='24px' fill='#000000'><g><rect fill='none' height='24' width='24'/></g><g><g><path d='M9.19,6.35c-2.04,2.29-3.44,5.58-3.57,5.89L2,10.69l4.05-4.05c0.47-0.47,1.15-0.68,1.81-0.55L9.19,6.35L9.19,6.35z M11.17,17c0,0,3.74-1.55,5.89-3.7c5.4-5.4,4.5-9.62,4.21-10.57c-0.95-0.3-5.17-1.19-10.57,4.21C8.55,9.09,7,12.83,7,12.83 L11.17,17z M17.65,14.81c-2.29,2.04-5.58,3.44-5.89,3.57L13.31,22l4.05-4.05c0.47-0.47,0.68-1.15,0.55-1.81L17.65,14.81 L17.65,14.81z M9,18c0,0.83-0.34,1.58-0.88,2.12C6.94,21.3,2,22,2,22s0.7-4.94,1.88-6.12C4.42,15.34,5.17,15,6,15 C7.66,15,9,16.34,9,18z M13,9c0-1.1,0.9-2,2-2s2,0.9,2,2s-0.9,2-2,2S13,10.1,13,9z'/></g></g></svg>")
+            },
+            {
+                FriendlyName: "History",
+                SVG: "data:image/svg+xml," & EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2048 2048' class='svg_dd790ee3' focusable='false'><path d='M1024 512v549l365 366-90 90-403-402V512h128zm944 113q80 192 80 399t-80 399q-78 183-220 325t-325 220q-192 80-399 80-174 0-336-57-158-55-289-156-130-101-223-238-47-69-81-144t-57-156l123-34q40 145 123 266t198 208 253 135 289 48q123 0 237-32t214-90 182-141 140-181 91-214 32-238q0-123-32-237t-90-214-141-182-181-140-214-91-238-32q-130 0-252 36T545 268 355 429 215 640h297v128H0V256h128v274q17-32 37-62t42-60q94-125 220-216Q559 98 710 49t314-49q207 0 399 80 183 78 325 220t220 325z'></path></svg>")
+            },
+            {
+                FriendlyName: "Object",
+                SVG: "data:image/svg+xml," & EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2048 2048' class='svg_dd790ee3' focusable='false'><path d='M512 384h1536v128H512V384zm512 640V896h1024v128H1024zm0 512v-128h1024v128H1024zM0 640V256h384v384H0zm128-256v128h128V384H128zm384 768V768h384v384H512zm128-256v128h128V896H640zm-128 768v-384h384v384H512zm128-256v128h128v-128H640z'></path></svg>")
+            }
+        );
+        
+        ClearCollect(
+            col_MainNavItems,
+            Table(
+                {
+                    Icon: LookUp(
+                        FluentUIIcons,
+                        FriendlyName = "Apps"
+                    ).SVG,
+                    Label: "  Solutions",
+                    Screen: scr_SolutionDashboard_CK
+                },
+                {
+                    Icon: LookUp(
+                        FluentUIIcons,
+                        FriendlyName = "Object"
+                    ).SVG,
+                    Label: "  Artifacts",
+                    Screen: scr_SolutionDetails_CK
+                },
+                {
+                    Icon: LookUp(
+                        FluentUIIcons,
+                        FriendlyName = "History"
+                    ).SVG,
+                    Label: "  Run Logs",
+                    Screen: scr_SolutionRunLogs_CK
+                }
+            )
+        );
+    StartScreen: =scr_SolutionDashboard_CK
+

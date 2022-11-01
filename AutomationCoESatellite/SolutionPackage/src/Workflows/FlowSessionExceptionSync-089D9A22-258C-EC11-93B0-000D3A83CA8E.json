@@ -1,0 +1,763 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_office365": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedoffice365_912a8"
+        },
+        "api": {
+          "name": "shared_office365"
+        }
+      },
+      "shared_flowmanagement": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedflowmanagement_e5dfb"
+        },
+        "api": {
+          "name": "shared_flowmanagement"
+        }
+      },
+      "shared_commondataserviceforapps_2": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_6489c"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Automation CoE Alert Email Recipient (autocoe_AutomationCoEAlertEmailRecipient)": {
+          "defaultValue": "joshcook@PASandbox.onmicrosoft.com",
+          "type": "String",
+          "metadata": {
+            "schemaName": "autocoe_AutomationCoEAlertEmailRecipient",
+            "description": "The email address where operational reports and alerts should be sent to"
+          }
+        }
+      },
+      "staticResults": {
+        "Add_a_row_to_Flow_Session_Exception0": {
+          "status": "Succeeded",
+          "outputs": {
+            "statusCode": "OK",
+            "headers": {}
+          }
+        }
+      },
+      "triggers": {
+        "When_a_Flow_Session_Run_has_failed": {
+          "metadata": {
+            "operationMetadataId": "3935674b-da13-428a-b50b-97369e472729"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_2",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "flowsession",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filterexpression": "(statuscode eq 8)"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "conditions": [
+            {
+              "expression": "@contains(triggerBody()?['context'],'ApiFlow')"
+            },
+            {
+              "expression": "@equals(triggerBody()?['statuscode'],8)"
+            }
+          ],
+          "description": "Trigger conditions: @contains(triggerBody()?['context'],'ApiFlow')  @equals(triggerBody()?['statuscode'],8)"
+        }
+      },
+      "actions": {
+        "Select_all_Flow_Session_Ids_from_error_list": {
+          "runAfter": {
+            "Get_Desktop_Flow": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e8c0cf70-05ab-4b7b-a5ec-8097105f1917"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('Get_last_n_Flow_Session_error_records')?['body/value']",
+            "select": {
+              "FlowSessionId": "@item()?['flowsessionid']"
+            }
+          }
+        },
+        "Select_all_Flow_Session_Ids_from_complete_list": {
+          "runAfter": {
+            "Select_all_Flow_Session_Ids_from_error_list": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "25d92994-1f06-4d45-bde0-8e1fa79ea294"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('Get_Last_n_Flow_Session_')?['body/value']",
+            "select": {
+              "FlowSessionId": "@item()?['flowsessionid']"
+            }
+          }
+        },
+        "Get_the_intersection_of_both_Flow_Session_Id_lists": {
+          "runAfter": {
+            "Select_all_Flow_Session_Error_Codes": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "247cefd6-eb13-49ce-80a2-6ff28c8f06b8"
+          },
+          "type": "Compose",
+          "inputs": "@length(intersection(body('Select_all_Flow_Session_Ids_from_complete_list'),body('Select_all_Flow_Session_Ids_from_error_list')))"
+        },
+        "Select_all_Flow_Session_Error_Codes": {
+          "runAfter": {
+            "Select_all_Flow_Session_Ids_from_complete_list": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e8c0cf70-05ab-4b7b-a5ec-8097105f1917"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('Get_last_n_Flow_Session_error_records')?['body/value']",
+            "select": {
+              "Code": "@item()?['errorcode']"
+            }
+          }
+        },
+        "Check_if_we_had_consecutive_Flow_Session_errors": {
+          "actions": {
+            "Apply_to_each_Flow_Session_error_code": {
+              "foreach": "@body('Select_all_Flow_Session_Error_Codes')",
+              "actions": {
+                "Is_the_Error_Code_part_of_our_Rules_configuration": {
+                  "actions": {
+                    "Increment_Exception_Match_Count": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "aa809be2-0539-4087-b95c-dc12a243a0de"
+                      },
+                      "type": "IncrementVariable",
+                      "inputs": {
+                        "name": "Exception Match Count",
+                        "value": 1
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "expression": {
+                    "equals": [
+                      "@greaterOrEquals(indexOf(outputs('Flow_Exception_Rule_Config')?['autocoe_exceptioncode'],item()?['Code']),0)",
+                      true
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6bbbde25-1d03-4126-bb63-d32d6a6f8cfc"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "1c7ec81d-98ab-41e5-9ca8-f791441a143d"
+              },
+              "type": "Foreach"
+            },
+            "If_matched_error_code_is_greater_than_allowed_in_rules_configuration": {
+              "actions": {
+                "Shall_we_send_an_alert": {
+                  "actions": {
+                    "Acknowledgment_required": {
+                      "actions": {
+                        "Send_Alert_to_Automation_CoE_for_acknowledgement": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "bfce6a0b-9d14-47f0-a2f3-73424e1f9f26"
+                          },
+                          "type": "OpenApiConnectionWebhook",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_office365",
+                              "operationId": "SendMailWithOptions",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                            },
+                            "parameters": {
+                              "optionsEmailSubscription/Message/To": "@parameters('Automation CoE Alert Email Recipient (autocoe_AutomationCoEAlertEmailRecipient)')",
+                              "optionsEmailSubscription/Message/Subject": "Your Cloud Flow '@{outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/properties/displayName']}' has been disabled",
+                              "optionsEmailSubscription/Message/Options": "I Acknowledge",
+                              "optionsEmailSubscription/Message/HeaderText": "We need your input",
+                              "optionsEmailSubscription/Message/SelectionText": "Please acknowledge this message",
+                              "optionsEmailSubscription/Message/Body": "The Cloud Flow '@{outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/properties/displayName']}' with Id '@{outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/name']}' in Environment '@{body('Parse_Workflow_JSON')?['tags']?['environmentName']}' has been disabled because the Desktop Flow '@{outputs('Get_Desktop_Flow')?['body/name']}' reached or exceeded @{outputs('Flow_Exception_Rule_Config')?['autocoe_consecutiveexceptioncount']} consecutive errors.\n\nThis threshold has been set in the Flow Exception Rule Configuration '@{outputs('Flow_Exception_Rule_Config')?['autocoe_rulename']}'.\n\n\nErrorCode: @{triggerOutputs()?['body/errorcode']}\n\nError Message: @{triggerOutputs()?['body/errormessage']}",
+                              "optionsEmailSubscription/Message/Importance": "High",
+                              "optionsEmailSubscription/Message/UseOnlyHTMLMessage": false,
+                              "optionsEmailSubscription/Message/HideHTMLMessage": true,
+                              "optionsEmailSubscription/Message/ShowHTMLConfirmationDialog": false
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        },
+                        "Acknowledged_By": {
+                          "runAfter": {
+                            "Send_Alert_to_Automation_CoE_for_acknowledgement": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "42fdc9a2-bf7f-4199-8ae7-ea5de6b4c3fb"
+                          },
+                          "type": "Compose",
+                          "inputs": "@outputs('Send_Alert_to_Automation_CoE_for_acknowledgement')?['body/UserEmailAddress']"
+                        },
+                        "Acknowledged_On": {
+                          "runAfter": {
+                            "Acknowledged_By": [
+                              "Succeeded"
+                            ]
+                          },
+                          "metadata": {
+                            "operationMetadataId": "42fdc9a2-bf7f-4199-8ae7-ea5de6b4c3fb"
+                          },
+                          "type": "Compose",
+                          "inputs": "@utcNow()"
+                        }
+                      },
+                      "runAfter": {},
+                      "else": {
+                        "actions": {
+                          "Send_Alert_to_Automation_CoE": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "3a64f919-d33e-4fbf-b726-f531d8ba1a93"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "shared_office365",
+                                "operationId": "SendEmailV2",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_office365"
+                              },
+                              "parameters": {
+                                "emailMessage/To": "@parameters('Automation CoE Alert Email Recipient (autocoe_AutomationCoEAlertEmailRecipient)')",
+                                "emailMessage/Subject": "Your Cloud Flow '@{outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/properties/displayName']}' has been disabled",
+                                "emailMessage/Body": "<p>The Cloud Flow&nbsp;<strong></strong><strong>@{outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/properties/displayName']}</strong><strong></strong> with id <strong>&nbsp;</strong><strong>@{outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/name']}</strong><strong></strong> in Environment <strong></strong><strong>@{body('Parse_Workflow_JSON')?['tags']?['environmentName']}</strong><strong></strong> has been disabled because the Desktop Flow<strong> </strong><strong>@{outputs('Get_Desktop_Flow')?['body/name']}</strong><strong></strong> has reached or exceeded <strong></strong><strong>@{outputs('Flow_Exception_Rule_Config')?['autocoe_consecutiveexceptioncount']}</strong><strong> </strong>consecutive errors.<br>\n<br>\nThis threshold has been set in the Flow Exception Rule Configuration <strong>'</strong><strong>@{outputs('Flow_Exception_Rule_Config')?['autocoe_rulename']}</strong><strong>'.</strong><br>\n<br>\n<strong>Latest ErrorCode:</strong> @{triggerOutputs()?['body/errorcode']}<br>\n<strong>Latest Error Message</strong>: @{triggerOutputs()?['body/errormessage']}<strong><br>\n<br>\n</strong>This email was sent by a bot, please do not reply.<br>\nAutomation CoE Team<strong><br>\n</strong></p>",
+                                "emailMessage/Importance": "High"
+                              },
+                              "authentication": "@parameters('$authentication')"
+                            }
+                          }
+                        }
+                      },
+                      "expression": {
+                        "equals": [
+                          "@outputs('Flow_Exception_Rule_Config')?['autocoe_requiresacknowledgment']",
+                          true
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "4fdcd209-65f8-41b9-80ab-e7cf041cee32"
+                      },
+                      "type": "If"
+                    }
+                  },
+                  "runAfter": {
+                    "Shall_we_Turn_the_Cloud_Flow_Off": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "equals": [
+                      "@outputs('Flow_Exception_Rule_Config')?['autocoe_sendalert']",
+                      true
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "f3af1704-7e1b-4a42-9ef0-a7c68d1c7421"
+                  },
+                  "type": "If"
+                },
+                "Get_Parent_Cloud_Flow_as_Admin": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "3a10f1cc-af25-41ab-8daa-ea662fa2cf62"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_flowmanagement",
+                      "operationId": "AdminGetFlow",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
+                    },
+                    "parameters": {
+                      "environmentName": "@body('Parse_Workflow_JSON')?['tags']?['environmentName']",
+                      "flowName": "@body('Parse_JSON_Context')?['parentWorkflowId']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  }
+                },
+                "Add_a_row_to_Flow_Session_Exception": {
+                  "runAfter": {
+                    "Shall_we_send_an_alert": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "9a0b7120-49e2-4163-a71d-fa1b395aef1f"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataserviceforapps_2",
+                      "operationId": "CreateRecord",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                    },
+                    "parameters": {
+                      "entityName": "autocoe_flowsessionexceptions",
+                      "item/autocoe_acknowledgedby": "@outputs('Acknowledged_By')",
+                      "item/autocoe_acknowledgedon": "@outputs('Acknowledged_On')",
+                      "item/autocoe_cloudflowid": "@outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/name']",
+                      "item/autocoe_desktopflowid": "@triggerOutputs()?['body/_regardingobjectid_value']",
+                      "item/autocoe_desktopflowname": "@outputs('Get_Desktop_Flow')?['body/name']",
+                      "item/autocoe_environmentid": "@body('Parse_Workflow_JSON')?['tags']?['environmentName']",
+                      "item/autocoe_errorcode": "@triggerOutputs()?['body/errorcode']",
+                      "item/autocoe_errormessage": "@triggerOutputs()?['body/errormessage']",
+                      "item/autocoe_exceptiontime": "@utcNow()",
+                      "item/autocoe_flowdisabled": "@outputs('Flow_Exception_Rule_Config')?['autocoe_turnoffcloudflow']",
+                      "item/autocoe_flowname": "@outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/properties/displayName']",
+                      "item/autocoe_flowrunid": "@body('Parse_JSON_Context')?['parentWorkflowRunId']",
+                      "item/autocoe_FlowSessionExceptionRuleC@odata.bind": "/autocoe_flowsessionexceptionruleconfigurations(@{outputs('Flow_Exception_Rule_Config')?['autocoe_flowsessionexceptionruleconfigurationid']})",
+                      "item/autocoe_flowsessionid": "@triggerOutputs()?['body/flowsessionid']",
+                      "item/autocoe_hostname": "@body('Parse_JSON_Context')?['hostName']",
+                      "item/autocoe_runmode": "@body('Parse_JSON_Context')?['attendedMode']"
+                    },
+                    "authentication": "@parameters('$authentication')"
+                  },
+                  "runtimeConfiguration": {
+                    "staticResult": {
+                      "staticResultOptions": "Disabled",
+                      "name": "Add_a_row_to_Flow_Session_Exception0"
+                    }
+                  }
+                },
+                "Shall_we_Turn_the_Cloud_Flow_Off": {
+                  "actions": {
+                    "Turn_Off_Flow": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "e3e49dd9-7fd1-429f-8ea8-420754e32b5e"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_flowmanagement",
+                          "operationId": "StopFlow",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_flowmanagement"
+                        },
+                        "parameters": {
+                          "environmentName": "@body('Parse_Workflow_JSON')?['tags']?['environmentName']",
+                          "flowName": "@outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/name']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Get_Parent_Cloud_Flow_as_Admin": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "and": [
+                      {
+                        "equals": [
+                          "@outputs('Flow_Exception_Rule_Config')?['autocoe_turnoffcloudflow']",
+                          true
+                        ]
+                      },
+                      {
+                        "not": {
+                          "equals": [
+                            "@outputs('Get_Parent_Cloud_Flow_as_Admin')?['body/properties/state']",
+                            "Stopped"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "18cbf87f-b8cf-4e6d-9e8c-d5fb4b8b664f"
+                  },
+                  "type": "If"
+                }
+              },
+              "runAfter": {
+                "Apply_to_each_Flow_Session_error_code": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "greaterOrEquals": [
+                  "@variables('Exception Match Count')",
+                  "@outputs('Flow_Exception_Rule_Config')?['autocoe_consecutiveexceptioncount']"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "b8a84f0f-88f4-4775-9d03-fd1d83d358d3"
+              },
+              "type": "If"
+            }
+          },
+          "runAfter": {
+            "Get_the_intersection_of_both_Flow_Session_Id_lists": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Terminate_the_flow_since_consecutive_error_count_has_not_been_reached": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "08f4fb0a-5b23-4503-87b1-72ce25a863e1"
+                },
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Succeeded"
+                }
+              }
+            }
+          },
+          "expression": {
+            "greaterOrEquals": [
+              "@outputs('Get_the_intersection_of_both_Flow_Session_Id_lists')",
+              "@outputs('Flow_Exception_Rule_Config')?['autocoe_consecutiveexceptioncount']"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1094b389-dd46-471c-b2c2-a52f90b10c83"
+          },
+          "type": "If"
+        },
+        "Get_last_n_Flow_Session_error_records": {
+          "runAfter": {
+            "Parse_JSON_Context": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a4423a29-ca1d-48ce-be02-160a717b05e0"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_2",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "flowsessions",
+              "$filter": "contains(context,'@{body('Parse_JSON_Context')?['parentWorkflowId']}') and createdon le @{utcNow()} and statuscode eq 8 and (errorcode eq '@{triggerOutputs()?['body/errorcode']}')",
+              "$orderby": "createdon desc",
+              "$top": "@outputs('Flow_Exception_Rule_Config')?['autocoe_consecutiveexceptioncount']"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "description": "and (errorcode eq '@{triggerOutputs()?['body/errorcode']}')"
+        },
+        "Get_Last_n_Flow_Session_": {
+          "runAfter": {
+            "Get_last_n_Flow_Session_error_records": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9bd48e1d-6031-41e3-ac58-7f4fdfae2cad"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_2",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "flowsessions",
+              "$filter": "contains(context,'@{body('Parse_JSON_Context')?['parentWorkflowId']}') and createdon le @{utcNow()}",
+              "$orderby": "createdon desc",
+              "$top": "@outputs('Flow_Exception_Rule_Config')?['autocoe_consecutiveexceptioncount']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Parse_Workflow_JSON": {
+          "runAfter": {
+            "Flow_Exception_Rule_Config": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6a840287-88c5-4187-b610-d8b24f783bee"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@workflow()",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "type": {
+                  "type": "string"
+                },
+                "location": {
+                  "type": "string"
+                },
+                "tags": {
+                  "type": "object",
+                  "properties": {
+                    "flowDisplayName": {
+                      "type": "string"
+                    },
+                    "environmentName": {
+                      "type": "string"
+                    },
+                    "logicAppName": {
+                      "type": "string"
+                    },
+                    "environmentWorkflowId": {
+                      "type": "string"
+                    },
+                    "xrmWorkflowId": {
+                      "type": "string"
+                    },
+                    "environmentFlowSuspensionReason": {
+                      "type": "string"
+                    },
+                    "sharingType": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "run": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "type": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Initialize_Exception_Match_Count": {
+          "runAfter": {
+            "Do_we_have_a_valid_Flow_Exception_Rule": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9ad3d10f-f05b-4909-ad1d-af97e626e881"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Exception Match Count",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Parse_JSON_Context": {
+          "runAfter": {
+            "Parse_Workflow_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7573346d-5877-4d82-8881-19e882151100"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@triggerOutputs()?['body/context']",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "hostName": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "parentWorkflowId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "parentWorkflowRunId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "attendedMode": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "agentVersion": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "connectionType": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "parentWorkflowType": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "Get_Desktop_Flow": {
+          "runAfter": {
+            "Get_Last_n_Flow_Session_": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d424b599-a334-4317-bc7f-d4ad177a359e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_2",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "workflows",
+              "recordId": "@triggerOutputs()?['body/_regardingobjectid_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Flow_Exception_Rules": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "ea7d574f-4b9a-4215-a390-6e4b1668899e"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_2",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_flowsessionexceptionruleconfigurations",
+              "$filter": "(autocoe_exceptioncode eq '@{triggerOutputs()?['body/errorcode']}')",
+              "$top": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Flow_Exception_Rule_Config": {
+          "runAfter": {
+            "Initialize_Exception_Match_Count": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a46d1554-016a-4f96-aaa9-54b2aa60a414"
+          },
+          "type": "Compose",
+          "inputs": "@first(outputs('Get_Flow_Exception_Rules')?['body/value'])"
+        },
+        "Do_we_have_a_valid_Flow_Exception_Rule": {
+          "actions": {},
+          "runAfter": {
+            "Get_Flow_Exception_Rules": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "No_Flow_Exception_Rule_Configuration_defined": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "872fe27f-b1a7-41e8-9779-5d7f70cd2680"
+                },
+                "type": "Terminate",
+                "inputs": {
+                  "runStatus": "Cancelled"
+                }
+              }
+            }
+          },
+          "expression": {
+            "greater": [
+              "@length(outputs('Get_Flow_Exception_Rules')?['body/value'])",
+              0
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8c4398b0-90e5-41ab-9622-42f868550bba"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

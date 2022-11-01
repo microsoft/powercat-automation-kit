@@ -1,0 +1,131 @@
+App As appinfo:
+    BackEnabled: =false
+    OnStart: |+
+        =Set(
+            DesiredMaxWidth,
+            App.Width
+        );
+        Set(
+            AppTheme,
+            {
+                palette: {
+                    themePrimary: "#0078d4",
+                    themeLighterAlt: "#eff6fc",
+                    themeLighter: "#deecf9",
+                    themeLight: "#c7e0f4",
+                    themeTertiary: "#71afe5",
+                    themeSecondary: "#2b88d8",
+                    themeDarkAlt: "#106ebe",
+                    themeDark: "#005a9e",
+                    themeDarker: "#004578",
+                    neutralLighterAlt: "#faf9f8",
+                    neutralLighter: "#f3f2f1",
+                    neutralLight: "#edebe9",
+                    neutralQuaternaryAlt: "#e1dfdd",
+                    neutralQuaternary: "#d0d0d0",
+                    neutralTertiaryAlt: "#c8c6c4",
+                    neutralTertiary: "#a19f9d",
+                    neutralSecondary: "#605e5c",
+                    neutralPrimaryAlt: "#3b3a39",
+                    neutralPrimary: "#323130",
+                    neutralDark: "#201f1e",
+                    black: "#000000",
+                    white: "#ffffff"
+                }
+            }
+        );
+        Set(
+            AppThemeJson,
+            JSON(
+                AppTheme,
+                JSONFormat.IndentFour
+            )
+        );
+        ClearCollect(
+            PADActions,
+            Table(
+                {
+                    ItemKey: "Home",
+                    ItemDisplayName: "Home",
+                    ItemIconName: 'Add item to list',
+                    Links: Table(
+                        {
+                            ItemKey: "Home",
+                            ItemDisplayName: "Home",
+                            ItemIconName: 'Add item to list'
+                        },
+                        {
+                            ItemKey: "Back",
+                            ItemDisplayName: "Back",
+                            ItemIconName: 'Add item to list'
+                        }
+                    )
+                }
+            )
+        );
+        ClearCollect(
+            CommandBarMenu,
+            Table(
+                {
+                    key: "refresh",
+                    text: "Refresh",
+                    iconName: "refresh"
+                },
+                {
+                    key: "help",
+                    text: "Help",
+                    iconName: "help"
+                }
+            )
+        );
+        // Set Environment var IDs (These are IDs to get the values)
+        Set(
+            DesktopFlowBaseURL_ID,
+            LookUp(
+                'Environment Variable Definitions',
+                'Schema Name' = "autocoe_DesktopFlowsBaseURL"
+            ).'Environment Variable Definition'
+        );
+        Set(
+            EnvironmentID_ID,
+            LookUp(
+                'Environment Variable Definitions',
+                'Schema Name' = "autocoe_EnvironmentId"
+            ).'Environment Variable Definition'
+        );
+        
+        Set(
+            InstanceAPIURL_ID,
+            LookUp(
+                'Environment Variable Definitions',
+                'Schema Name' = "autocoe_EnvironmentURL"
+            ).'Environment Variable Definition'
+        );
+        
+        
+        //Set Environment var Values
+        
+        Set(
+            DesktopFlowBaseURL_Value,
+            LookUp(
+                'Environment Variable Values',
+                'Environment Variable Definition'.'Environment Variable Definition' = DesktopFlowBaseURL_ID
+            ).Value
+        );
+        Set(
+            EnvironmentID,
+            LookUp(
+                'Environment Variable Values',
+                'Environment Variable Definition'.'Environment Variable Definition' = EnvironmentID_ID
+            ).Value
+        );
+        Set(
+            InstanceAPIURL_Value,
+            LookUp(
+                'Environment Variable Values',
+                'Environment Variable Definition'.'Environment Variable Definition' = InstanceAPIURL_ID
+            ).Value
+        );
+        
+    StartScreen: =DLPPolicyImpactAnalysis_CK
+

@@ -1,0 +1,377 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_98ee0"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "28e0ed36-c564-424c-a849-8a16030862f5"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Environment URL",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_1": {
+                  "title": "Client Id",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_2": {
+                  "title": "Secret",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_3": {
+                  "title": "Tenant Id",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Get_AKV_Client_Id_Secret": {
+          "runAfter": {
+            "Get_AKV_Tenant_Id_Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "d98a8da3-c68a-475f-91a7-87f8a85c10bc"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "RetrieveEnvironmentVariableSecretValue",
+              "item/EnvironmentVariableName": "autocoe_AKVClientIdSecret"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Get_AKV_Client_Secret_Secret": {
+          "runAfter": {
+            "Get_AKV_Client_Id_Secret": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0321ffe0-db97-43d3-9885-9256b1c6061f"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "RetrieveEnvironmentVariableSecretValue",
+              "item/EnvironmentVariableName": "autocoe_AKVClientSecretSecret"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Check_if_values__have_been_passed_in": {
+          "actions": {
+            "Set_Client_Id": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "a1f26ce5-b871-4d46-862d-4452632b603f"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Dataverse AAD App ID",
+                "value": "@outputs('Get_AKV_Client_Id_Secret')?['body/EnvironmentVariableSecretValue']"
+              }
+            },
+            "Set_Secret": {
+              "runAfter": {
+                "Set_Client_Id": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f6084b0b-fb09-4126-b9a8-3b1e36c809e6"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Dataverse AAD App Secret",
+                "value": "@outputs('Get_AKV_Client_Secret_Secret')?['body/EnvironmentVariableSecretValue']"
+              }
+            },
+            "Set_Tenant_Id": {
+              "runAfter": {
+                "Set_Secret": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "4299d9f9-86aa-4493-a022-97912b66cda3"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Tenant Id",
+                "value": "@outputs('Get_AKV_Tenant_Id_Secret')?['body/EnvironmentVariableSecretValue']"
+              }
+            }
+          },
+          "runAfter": {
+            "Get_AKV_Client_Secret_Secret": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Set_Client_Id_2": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "2a3b2447-050d-4a87-84af-77df420176f0"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "Dataverse AAD App ID",
+                  "value": "@triggerBody()['text_1']"
+                }
+              },
+              "Set_Secret_2": {
+                "runAfter": {
+                  "Set_Client_Id_2": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "37c87603-cdf3-4894-bc93-49f24df29512"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "Dataverse AAD App Secret",
+                  "value": "@triggerBody()['text_2']"
+                }
+              },
+              "Set_Tenant_Id_2": {
+                "runAfter": {
+                  "Set_Secret_2": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "b808bb3e-2a9c-497e-8ece-8e94028efc62"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "Tenant Id",
+                  "value": "@triggerBody()['text_3']"
+                }
+              }
+            }
+          },
+          "expression": {
+            "equals": [
+              "@empty(triggerBody()?['text_1'])",
+              true
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7d0e0822-a702-46a7-9f54-6d2c38f410a8"
+          },
+          "type": "If"
+        },
+        "Get_Dataverse_Bearer_Token": {
+          "runAfter": {
+            "Check_if_values__have_been_passed_in": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "369c783e-74c5-4a9c-9d6c-27323fba87bb"
+          },
+          "type": "Http",
+          "inputs": {
+            "method": "POST",
+            "uri": "https://login.microsoftonline.com/@{variables('Tenant Id')}/oauth2/token",
+            "headers": {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "body": "grant_type=client_credentials&client_id=@{variables('Dataverse AAD App ID')}&client_secret=@{variables('Dataverse AAD App Secret')}&resource=@{triggerBody()['text']}&scope=user_impersonation User.Read"
+          }
+        },
+        "Response": {
+          "runAfter": {
+            "Get_Dataverse_Bearer_Token": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a05a589d-8f15-495d-b98e-e7bbf8a190a0"
+          },
+          "type": "Response",
+          "kind": "Http",
+          "inputs": {
+            "statusCode": 200,
+            "body": "@body('Get_Dataverse_Bearer_Token')",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token_type": {
+                  "type": "string"
+                },
+                "expires_in": {
+                  "type": "string"
+                },
+                "ext_expires_in": {
+                  "type": "string"
+                },
+                "expires_on": {
+                  "type": "string"
+                },
+                "not_before": {
+                  "type": "string"
+                },
+                "resource": {
+                  "type": "string"
+                },
+                "access_token": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Tenant_Id_var": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "edadd59c-a36c-4a8d-b34d-2a3b111ccab6"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Tenant Id",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Client_ID_var": {
+          "runAfter": {
+            "Tenant_Id_var": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e1629519-8fe0-4f14-8015-302c6271d59c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Dataverse AAD App ID",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Secret_var": {
+          "runAfter": {
+            "Client_ID_var": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9bec1a21-7ef3-4579-9293-27a3a8acad04"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Dataverse AAD App Secret",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Get_AKV_Tenant_Id_Secret": {
+          "runAfter": {
+            "Secret_var": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e59f5ea5-939e-4798-aec5-0a5b7519c0f8"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "RetrieveEnvironmentVariableSecretValue",
+              "item/EnvironmentVariableName": "autocoe_AKVTenantIdSecret"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
