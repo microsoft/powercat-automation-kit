@@ -1,0 +1,850 @@
+scr_SolutionDeployment_CK As screen:
+    LoadingSpinner: =LoadingSpinner.Controls
+    LoadingSpinnerColor: =UIAccentColor
+    OnVisible: |
+        =UpdateContext({_showShimmer: true});
+        ClearCollect(tempCollection,Filter(Solutions, 
+            'Is Visible Outside Platform' = 'Is Visible Outside Platform (Solutions)'.Yes && 
+            Name <> "Default" && 
+            Name <> "PluginProfiler" &&
+            Not("msdyn_" in Name) && 
+            'Display Name' <> "Common Data Services Default Solution" )
+        );
+        ClearCollect(col_Solutions,AddColumns(tempCollection,"RecordKey",Name,"CreatedOn",Text('Created On'),"PackageType",'Package Type',"OpeninNewWindow","icon:OpeninNewWindow","DeploySolution","icon:Rocket","IconColor",AppTheme.palette.themePrimary));
+        Set(UnmanagedSolutions, CountRows(Filter(col_Solutions, 'Package Type' = 'Package Type (Solutions)'.Unmanaged)));
+        Set(ManagedSolutions, CountRows(Filter(col_Solutions, 'Package Type' = 'Package Type (Solutions)'.Managed)));
+        Set(_showConfirmationBox,false);
+        
+        // If you wish to update the item count on the navbar icon uncomment this
+        // Patch(col_MainNav, LookUp(col_MainNav,Screen = App.ActiveScreen),{Notifications: CountRows(galPolicies.AllItems)});
+        UpdateContext({_showShimmer: false});
+
+    c_screen_16 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =App.Width
+        ZIndex: =1
+
+        HeaderContainer2_18 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(52, 60, 63, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Header_4 As Header:
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                RightButtonVisible: =false
+                Text: =appTitle
+                Width: =Parent.Width
+                ZIndex: =3
+
+        MainSectionContainer2_18 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            ExpandMenu_4 As ExpandMenu:
+                Fill: =ColorValue(ExpandMenu_4.Theme.palette.white)
+                Height: =Parent.Height
+                Items: =col_MainNavItems
+                LayoutMinWidth: =200
+                Theme: =AppTheme
+                Width: =If(ExpandMenu_4.IsExpanded, 200, 42)
+                ZIndex: =1
+
+            Rectangle2_24 As rectangle:
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Fill: =RGBA(230, 230, 230, 1)
+                FocusedBorderThickness: =4
+                Height: =1
+                OnSelect: |-
+                    =UpdateContext({_showConfirmationBox:true})
+                Width: =1
+                ZIndex: =3
+
+            c_mainContent_16 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =4
+
+                Container2_12 As groupContainer.horizontalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =ColorValue(AppTheme.palette.white)
+                    FillPortions: =0
+                    Height: =60
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =10
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =7
+                    PaddingLeft: =25
+                    PaddingTop: =25
+                    ZIndex: =2
+
+                    Container10_11 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =50
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =15
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =500
+                        LayoutMode: =LayoutMode.Auto
+                        PaddingLeft: =10
+                        ZIndex: =1
+
+                        SolutionSearchBox As SearchBox:
+                            HintText: ="Search Solutions..."
+                            LayoutMinHeight: =640
+                            LayoutMinWidth: =640
+                            Theme: =AppTheme
+                            ZIndex: =1
+
+                        "CheckboxMeteredOnly_2 As 'Check box'":
+                            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Label: ="Metered only solutions"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =100
+                            Width: =250
+                            X: =42
+                            Y: =283
+                            ZIndex: =2
+
+                        "IconrefreshLoad As 'Fluent Icon (0.0.20)'":
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =30
+                            IconName: ="Refresh"
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            OnChange: |+
+                                =Reset(SolutionSearchBox);
+                                
+                                Refresh(Solutions);
+                                Refresh('Solution Meterings');
+                                Refresh('Solution Metering Artifacts');
+                                
+                                UpdateContext({_showShimmer: true});
+                                ClearCollect(tempCollection,Filter(Solutions, 
+                                    'Is Visible Outside Platform' = 'Is Visible Outside Platform (Solutions)'.Yes && 
+                                    Name <> "Default" && 
+                                    Name <> "PluginProfiler" &&
+                                    Not("msdyn_" in Name) && 
+                                    'Display Name' <> "Common Data Services Default Solution" )
+                                );
+                                ClearCollect(col_Solutions,AddColumns(tempCollection,"CreatedOn",Text('Created On'),"DeploySolution","icon:Rocket","IconColor",AppTheme.palette.themePrimary));
+                                Set(UnmanagedSolutions, CountRows(Filter(col_Solutions, 'Package Type' = 'Package Type (Solutions)'.Unmanaged)));
+                                Set(ManagedSolutions, CountRows(Filter(col_Solutions, 'Package Type' = 'Package Type (Solutions)'.Managed)));
+                                Set(_showConfirmationBox,false);
+                                
+                                // If you wish to update the item count on the navbar icon uncomment this
+                                // Patch(col_MainNav, LookUp(col_MainNav,Screen = App.ActiveScreen),{Notifications: CountRows(galPolicies.AllItems)});
+                                UpdateContext({_showShimmer: false});
+                                
+                                
+                            Theme: =AppThemeJson
+                            Width: =30
+                            X: =0
+                            Y: =0
+                            ZIndex: =3
+
+                Container23_12 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =ColorValue(AppTheme.palette.white)
+                    Height: =20
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutGap: =2
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =3
+
+                    ContainerSolutionsDetailsList As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        Height: =Parent.Height
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        "SolutionsDetailsListCommandBar_1 As 'Fluent Command Bar (0.0.20)'.pcfdataset":
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =40
+                            Items: |-
+                                =Table({ItemKey: "Deploy",ItemDisplayName: "Deploy", ItemIconName: "Rocket",ItemEnabled:!IsBlank(_currentSelectedRequest.Name)}, 
+                                {ItemKey: "NewWindow",ItemDisplayName: "Open in a new window",ItemIconName: "OpenInNewWindow", ItemVisible:!IsBlank(_currentSelectedRequest.Name)})
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            OnSelect: |-
+                                =Switch(
+                                    Self.Selected.ItemKey,
+                                    "MeteringOn",
+                                If(_currentSelectedRequest.'Solution Identifier' in 'Solution Meterings'.'Solution Id',UpdateContext({_showConfirmationBox:true}),UpdateContext({_showAddSolutionPanel:true})),
+                                    "NewWindow",
+                                    Launch("https://us.flow.microsoft.com/manage/environments/" & First(EnvironmentDetails).EnvironmentId & "/solutions/" & _currentSelectedRequest.'Solution Identifier' & ""),
+                                    "More",
+                                    Navigate(
+                                        scr_SolutionDetails_CK,
+                                        ScreenTransition.Fade,{_selectedSolution:_currentSelectedRequest}
+                                    ),
+                                    /* Default action */
+                                    false
+                                )
+                            Theme: =AppThemeJson
+                            Visible: =true
+                            Width: =Parent.Width
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        "SolutionsDetailsList As 'Fluent Details List (0.0.20)'.pcfdataset":
+                            columns_Items: |-
+                                =Table(
+                                    {
+                                        ColName: "uniquename",
+                                        ColDisplayName: "Name",
+                                        ColWidth: Parent.Width * 0.15,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true
+                                    },
+                                    {
+                                        ColName: "friendlyname",
+                                        ColDisplayName: "Display Name",
+                                        ColWidth: Parent.Width * 0.15,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true
+                                    },
+                                    {
+                                        ColName: "CreatedOn",
+                                        ColDisplayName: "Created On",
+                                        ColWidth: Parent.Width * 0.1,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColTagColorColumn: "IconColor"
+                                    },
+                                    {
+                                        ColName: "Version",
+                                        ColDisplayName: "Version",
+                                        ColCellType: "link",
+                                        ColWidth: Parent.Width * 0.1,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true
+                                    },
+                                    {
+                                        ColName: "PackageType",
+                                        ColDisplayName: "Package Type",
+                                        ColWidth: Parent.Width * 0.1,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true
+                                    },
+                                    {
+                                        ColName: "DeploySolution",
+                                        ColDisplayName: "Deploy",
+                                        ColWidth: Parent.Width * 0.1,
+                                        ColImageWidth: 20,
+                                        ColImageHeight: 20,
+                                        ColCellType: "clickableimage",
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColTagColorColumn: "IconColor"
+                                    },
+                                    {
+                                        ColName: "OpeninNewWindow",
+                                        ColDisplayName: "Open in New Window",
+                                        ColWidth: Parent.Width * 0.1,
+                                        ColImageWidth: 20,
+                                        ColImageHeight: 20,
+                                        ColCellType: "clickableimage",
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColTagColorColumn: "IconColor"
+                                    }
+                                )
+                            Compact: =false
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =Parent.Height
+                            Items: =If(CheckboxMeteredOnly_2.Checked, Search(Filter(col_Solutions, 'Solution Identifier' in 'Solution Meterings'.'Solution Id'),SolutionSearchBox.SearchText,"friendlyname","uniquename"),Search(col_Solutions,SolutionSearchBox.SearchText,"friendlyname","uniquename"))
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            OnChange: |-
+                                =/* Runs when selected row changes and control property 'Raise OnRowSelection event' is true */
+                                If( Self.EventName = "OnRowSelectionChange",If(!IsBlank(Self.EventRowKey),
+                                        UpdateContext({_currentSelectedRequest:First(Filter(col_Solutions,Name = SolutionsDetailsList.Selected.Name))});, 
+                                        //Empty Collection
+                                        UpdateContext({_currentSelectedRequest:{}});)
+                                );
+                                
+                                /* Runs when a user clicks on a column with ColCellType set to 'link' */
+                                If( Self.EventName = "CellAction",UpdateContext({_currentSelectedRequest:LookUp(col_Solutions,Name = Self.EventRowKey)});
+                                    Switch(Self.EventColumn,
+                                    "DeploySolution",
+                                    UpdateContext({_showDeplpoySolutionPanel:true}),
+                                    "OpeninNewWindow",Launch("https://us.flow.microsoft.com/manage/environments/" & First(EnvironmentDetails).EnvironmentId & "/solutions/" & _currentSelectedRequest.'Solution Identifier' &""));
+                                )
+                            RaiseOnRowSelectionChangeEvent: =true
+                            Theme: =AppThemeJson
+                            Width: =Parent.Width
+                            X: =40
+                            Y: =40
+                            ZIndex: =2
+
+                            Name1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="Name"
+                                FieldName: ="Name"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =1
+                                ZIndex: =10
+
+                            "'Display name2' As pcfDataField.textualColumn":
+                                FieldDisplayName: ="Display name"
+                                FieldName: ="Display name"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =2
+                                ZIndex: =11
+
+                            version2 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="version"
+                                FieldName: ="version"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =5
+                                ZIndex: =14
+
+                            DeploySolution1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="DeploySolution"
+                                FieldName: ="DeploySolution"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =6
+                                ZIndex: =15
+
+                            uniquename3 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="uniquename"
+                                FieldName: ="uniquename"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =7
+                                ZIndex: =16
+
+                            friendlyname3 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="friendlyname"
+                                FieldName: ="friendlyname"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =8
+                                ZIndex: =17
+
+                            CreatedOn1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="CreatedOn"
+                                FieldName: ="CreatedOn"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =8
+                                ZIndex: =18
+
+                            PackageType4 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="PackageType"
+                                FieldName: ="PackageType"
+                                FieldType: ="l"
+                                FieldVariantName: ="textualColumn"
+                                Order: =8
+                                ZIndex: =19
+
+                            OpeninNewWindow4 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="OpeninNewWindow"
+                                FieldName: ="OpeninNewWindow"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =9
+                                ZIndex: =20
+
+            Container7_3 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =100
+                LayoutMode: =LayoutMode.Auto
+                Visible: =false
+                Width: =180
+                ZIndex: =5
+
+                Container8_3 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderThickness: =2
+                    Fill: =UIBGColor
+                    FillPortions: =0
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =100
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingTop: =16
+                    Width: =180
+                    ZIndex: =7
+
+                    Label7_26 As label:
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Semibold
+                        Height: =60
+                        PaddingBottom: =20
+                        PaddingLeft: =30
+                        Size: =15
+                        Text: ="Total solutions"
+                        VerticalAlign: =VerticalAlign.Top
+                        Width: =160
+                        ZIndex: =1
+
+                    Label8_21 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Bold
+                        Height: =70
+                        PaddingLeft: =25
+                        PaddingTop: =0
+                        Size: =35
+                        Text: =CountRows(Distinct(col_Solutions,'Solution Identifier'))
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =2
+
+                    Label7_27 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Semibold
+                        Height: =60
+                        PaddingBottom: =20
+                        PaddingLeft: =25
+                        Size: =15
+                        Text: ="Managed solutions"
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =3
+
+                    Label8_31 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Bold
+                        Height: =70
+                        OnSelect: =Navigate(scr_SolutionDeployment_CK,ScreenTransition.Fade)
+                        PaddingLeft: =25
+                        PaddingTop: =0
+                        Size: =35
+                        Text: =ManagedSolutions
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =4
+
+                    Label7_28 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Semibold
+                        Height: =60
+                        PaddingBottom: =20
+                        PaddingLeft: =25
+                        Size: =15
+                        Text: ="Unmanaged solutions"
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =5
+
+                    Label8_32 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Bold
+                        Height: =70
+                        PaddingLeft: =25
+                        PaddingTop: =0
+                        Size: =35
+                        Text: =UnmanagedSolutions
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =6
+
+                    Label7_29 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Semibold
+                        Height: =60
+                        PaddingBottom: =20
+                        PaddingLeft: =25
+                        Size: =15
+                        Text: ="Metered solutions"
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =7
+
+                    Label8_33 As label:
+                        AlignInContainer: =AlignInContainer.Center
+                        BorderColor: =RGBA(0, 0, 0, 0)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =2
+                        Color: =RGBA(51, 51, 51, 1)
+                        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        FocusedBorderThickness: =4
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =Bold
+                        Height: =70
+                        PaddingLeft: =25
+                        PaddingTop: =0
+                        Size: =35
+                        Text: =CountRows(Filter(col_Solutions, 'Solution Identifier' in 'Solution Meterings'.'Solution Id'))
+                        VerticalAlign: =VerticalAlign.Top
+                        ZIndex: =8
+
+    ConfirmationDialogControl_RemoveAll_2 As ConfirmationDialogControl:
+        BodyText: ="Are you sure you want to remove the Solution '" & _currentSelectedRequest.'Display Name' & "' and all its artifacts from metering? Please note that this will create an audit log entry in our databse."
+        CancelButtonText: ="Cancel"
+        ConfirmButtonText: ="Yes"
+        Fill: |-
+            =If(ConfirmationDialogControl_RemoveAll_2.SemiTransparentBackground, RGBA(255, 255, 255, 0.4), ColorValue("#F8F8F8"))
+        HeaderText: ="Confirmation"
+        OnCancellation: |-
+            =UpdateContext({_showConfirmationBox:false})
+        OnConfirmation: |-
+            =UpdateContext({_showConfirmationBox:false});
+            Remove('Solution Meterings', LookUp('Solution Meterings', 'Solution Id' = Text(_currentSelectedRequest.'Solution id')))
+        SemiTransparentBackground: =false
+        Visible: =_showConfirmationBox
+        ZIndex: =2
+
+    Panel_DeploySolution As Panel:
+        Buttons: =/**/
+        Fill: =Panel_DeploySolution.OverlayColor
+        Height: =Parent.Height
+        OnButtonSelect: |-
+            =/*If(
+                Self.SelectedButton.Label = "Submit",
+                Patch(
+                    'Solution Meterings',
+                    Defaults('Solution Meterings'),
+                    {
+                        'Solution Id': lblSolutionIdVal.Text,
+                        'Automation Project': LookUp(
+                            'Automation Projects',
+                            'Automation Project' = AutomationProject.Selected.'Automation Project'
+                        ),
+                        'Solution Name': lblSolutionNameVal.Text,
+                        'Environment Id': lblEnvIDVal.Text,
+                        'Environment Name': lblEnvIDNameVal.Text,
+                        'Is Managed': solutionRecord.'Package Type' = 'Package Type (Solutions)'.Managed
+                    }
+                );
+                Navigate(
+                    scr_SolutionDetails,
+                    Fade
+                );
+                Notify(
+                    "Your Solution '" & txtSolutionName.Text & "' has been added to the metered list.",
+                    NotificationType.Success
+                );
+                UpdateContext({_showAddSolutionPanel: false}),
+                UpdateContext({_showAddSolutionPanel: false})
+            );
+            */
+        OnCloseSelect: |-
+            =UpdateContext({_showDeplpoySolutionPanel:false})
+        Subtitle: ="Deploy solutions from " & First(EnvironmentDetails).EnvironmentName & " as a managed solution to other automation environments"
+        Title: ="Deploy Solution to other environment"
+        Visible: =_showDeplpoySolutionPanel
+        Width: =Parent.Width
+        ZIndex: =3
+
+    "DestinationEnvironmentPicker As 'Fluent Picker (0.0.20)'.pcfdataset":
+        AllowFreeText: =true
+        DisplayMode: =DisplayMode.Edit
+        Height: =30
+        HintText: ="Search Project"
+        ItemHeight: =0
+        Items: =DefaultProjectCollection
+        MaxTags: =1
+        NoSuggestionFoundMessage: ="No Projects Found"
+        OnChange: |-
+            =
+            If(DestinationEnvironmentPicker.TagEvent="Add" && CountRows(Filter(DefaultProjectCollection,autocoe_automationprojectname=DestinationEnvironmentPicker.TagDisplayName))=0,
+            Collect(DefaultProjectCollection,{autocoe_automationprojectname:DestinationEnvironmentPicker.TagDisplayName});
+            );
+            
+            If(DestinationEnvironmentPicker.TagEvent="Remove",
+            RemoveIf(DefaultProjectCollection,autocoe_automationprojectname=Text(DestinationEnvironmentPicker.TagDisplayName))
+            );
+        Suggestions_Items: |
+            =//Search(colEnvironments, environmentName <> First(EnvironmentDetails).EnvironmentName),"environmentName")
+            
+            //Search('Automation Projects',DestinationEnvironmentPicker.SearchTerm,"autocoe_automationprojectname")
+        SuggestionsDisplayName: =""
+        SuggestionsKey: =""
+        TagsDisplayName: ="autocoe_automationprojectname"
+        Theme: =AppThemeJson
+        Visible: =_showDeplpoySolutionPanel
+        Width: =Panel_AddSolution2Meter.DialogWidth * 0.7
+        X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+        Y: =lblProjectName.Y + Self.Height 
+        ZIndex: =16
+
+        "'Automation Project Name1_1' As pcfDataField.textualColumn":
+            FieldDisplayName: ="Automation Project Name"
+            FieldName: ="autocoe_automationprojectname"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =30
+
+        "'Automation Project Number1_1' As pcfDataField.textualColumn":
+            FieldDisplayName: ="Automation Project Number"
+            FieldName: ="autocoe_automationprojectnumber"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =2
+            ZIndex: =31
+
+        "'Created On1_1' As pcfDataField.textualColumn":
+            FieldDisplayName: ="Created On"
+            FieldName: ="createdon"
+            FieldType: ="d"
+            FieldVariantName: ="textualColumn"
+            Order: =3
+            ZIndex: =32
+
+        "'Business Owner Email1_1' As pcfDataField.textualColumn":
+            FieldDisplayName: ="Business Owner Email"
+            FieldName: ="autocoe_businessowneremail"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =4
+            ZIndex: =33
+
+        "'Business Owner Name1_1' As pcfDataField.textualColumn":
+            FieldDisplayName: ="Business Owner Name"
+            FieldName: ="autocoe_businessownername"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =5
+            ZIndex: =34
+
+        "'Original Record Id1_1' As pcfDataField.textualColumn":
+            FieldDisplayName: ="Original Record Id"
+            FieldName: ="autocoe_originalrecordid"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =6
+            ZIndex: =35
+
+    grpMeteredSolutionForm_1 As group:
+        Height: =5
+        Width: =5
+        X: =1046
+        Y: =153.60000000000002
+        ZIndex: =16
+
+        lblEnvIDNameVal_1 As Label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            Text: =First(EnvironmentDetails).EnvironmentName
+            Visible: =_showDeplpoySolutionPanel
+            Width: =320
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+            Y: =lblProjectName_1.Y + Self.Height * 9
+            ZIndex: =4
+
+        lblEnvName_1 As Label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            Text: ="Environment Name"
+            Visible: =_showDeplpoySolutionPanel
+            Width: =320
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+            Y: =lblProjectName_1.Y + Self.Height * 8
+            ZIndex: =5
+
+        lblEnvIDVal_1 As Label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            Text: =First(EnvironmentDetails).EnvironmentId
+            Visible: =_showDeplpoySolutionPanel
+            Width: =320
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+            Y: =lblProjectName_1.Y + Self.Height * 7
+            ZIndex: =6
+
+        lblEnvID_1 As Label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            Text: ="Environment ID"
+            Visible: =_showDeplpoySolutionPanel
+            Width: =320
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+            Y: =lblProjectName_1.Y + Self.Height * 6
+            ZIndex: =7
+
+        lblSolutionNameVal_1 As Label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            Text: =
+            Visible: =_showDeplpoySolutionPanel
+            Width: =320
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+            Y: =lblProjectName_1.Y + Self.Height * 5
+            ZIndex: =8
+
+        lblSolutionName_1 As Label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            Text: ="Automation Project"
+            Visible: =_showDeplpoySolutionPanel
+            Width: =320
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+            Y: =lblProjectName_1.Y + Self.Height * 4
+            ZIndex: =9
+
+        lblSolutionIdVal_1 As Label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Normal
+            Height: =32
+            Text: =
+            Visible: =_showDeplpoySolutionPanel
+            Width: =320
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+            Y: =lblProjectName_1.Y + Self.Height * 3
+            ZIndex: =10
+
+        lblSolutionId_1 As Label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            Text: ="Solution Id"
+            Visible: =_showDeplpoySolutionPanel
+            Width: =Panel_AddSolution2Meter.DialogWidth * 0.7
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+            Y: =lblProjectName_1.Y + Self.Height * 2
+            ZIndex: =11
+
+        lblProjectName_1 As Label:
+            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+            DisplayMode: =DisplayMode.Edit
+            FontWeight: =FontWeight.Semibold
+            Height: =32
+            Text: ="Automation Project"
+            Visible: =_showDeplpoySolutionPanel
+            Width: =Panel_AddSolution2Meter.DialogWidth * 0.7
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+            Y: =Parent.Height * 0.2
+            ZIndex: =13
+
+        btnSubmitSolution2Meter_1 As Button:
+            ButtonType: ='''Microsoft.CoreControls.Button.ButtonType'''.Standard
+            DisplayMode: =If(CountRows(DefaultProjectCollection)>0,DisplayMode.Edit,DisplayMode.Disabled)
+            FillColor: =ColorValue(AppTheme.palette.themePrimary)
+            Height: =32
+            OnSelect: =
+            Text: ="Submit"
+            TextColor: =ColorValue(AppTheme.palette.white)
+            Visible: =_showDeplpoySolutionPanel
+            Width: =96
+            X: =btnCancelSolution2Meter_1.X + btnCancelSolution2Meter_1.Width + 10
+            Y: =Parent.Height * 0.9
+            ZIndex: =14
+
+        btnCancelSolution2Meter_1 As Button:
+            ButtonType: ='''Microsoft.CoreControls.Button.ButtonType'''.Standard
+            DisplayMode: =Edit
+            FillColor: =ColorValue(AppTheme.palette.white)
+            Height: =32
+            OnSelect: |-
+                =UpdateContext({_showAddSolutionPanel: false})
+            Text: ="Cancel"
+            TextColor: =ColorValue(AppTheme.palette.black)
+            Visible: =_showDeplpoySolutionPanel
+            Width: =96
+            X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.ContentWidth
+            Y: =Parent.Height * 0.9
+            ZIndex: =15
+

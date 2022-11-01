@@ -1,0 +1,1312 @@
+scr_SolutionDetails_CK As screen:
+    LoadingSpinner: =LoadingSpinner.Controls
+    LoadingSpinnerColor: =UIAccentColor
+    OnVisible: |
+        =If(
+            _prevselectedSolution.'Solution Identifier' <> _selectedSolution.'Solution Identifier',
+            Concurrent(
+                UpdateContext(
+                    {
+                        _isDirty: false,
+                        _editFlowName: false,
+                        _cloudFlowName: "",
+                        _showEditCloudFlowPanel: false
+                    }
+                ),
+                Set(
+                    CurrentObjectType,
+                    "All"
+                ),
+                Clear(col_SolutionArtifacts)
+            );
+            UpdateContext({_showArtifactShimmer: true});
+            UpdateContext({_prevselectedSolution: _selectedSolution});
+            ClearCollect(
+                tempCollection,
+                GetDataverseSolutionArtifacts.Run(
+                    _selectedSolution.'Solution Identifier',
+                    First(EnvironmentDetails).EnvironmentURL
+                )
+            );
+            ClearCollect(
+                col_SolutionArtifacts,
+                AddColumns(
+                    tempCollection,
+                    "EditCloudFlow",
+                    If(
+                        _selectedSolution.'Package Type' = 'Package Type (Solutions)'.Unmanaged && 'Component type name' = "Process" && 'Workflow category name' = "Modern Flow",
+                        "icon:Edit"
+                    ),
+                    "Viewlogs",
+                    If(
+                        'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id' && 'Component type name' = "Process" && 'Workflow category' = 5,
+                        "icon:History"
+                    ),
+                    "lastModified",
+                    Text(
+                        DateTimeValue('Modified on'),
+                        DateTimeFormat.ShortDateTime
+                    ),
+                    "IsMetered",
+                    If(
+                        'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id' && 'Component type name' = "Process" && 'Workflow category' = 5,
+                        "icon:Timer"
+                    ),
+                    "IconColor",
+                    AppTheme.palette.themePrimary,
+                    "RecordKey",
+                    'Object id',
+                    "ComponentIcon",
+                    Switch(
+                        'Object type code',
+                        80,
+                        "icon:AllApps",
+                        300,
+                        "icon:AppIconDefault",
+                        10040,
+                        "icon:FabricFolder",
+                        10039,
+                        "icon:Chatbot",
+                        9,
+                        "icon:BulletedList",
+                        5,
+                        "icon:Flow",
+                        10049,
+                        "icon:Plug",
+                        372,
+                        "icon:PlugConnected",
+                        4703,
+                        If(
+                            'Workflow category' = 6,
+                            "icon:RedEye",
+                            "icon:Flow"
+                        ),
+                        380,
+                        "icon:VariableGroup",
+                        381,
+                        "icon:Variable2",
+                        91,
+                        "icon:Puzzle",
+                        92,
+                        "icon:Step",
+                        1036,
+                        "icon:SecurityGroup",
+                        62,
+                        "icon:SidePanel",
+                        If(
+                            'Component logical name' = "entity",
+                            "icon:Table",
+                            "icon:BulletedList"
+                        )
+                    )
+                )
+            );
+            Clear(tempCollection);
+            UpdateContext({_showArtifactShimmer: false});
+            UpdateContext({_editFlowName: false});
+            
+        );
+
+    c_screen_14 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =App.Width
+        ZIndex: =1
+
+        HeaderContainer2_16 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(52, 60, 63, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+            Header_2 As Header:
+                BackButtonVisible: =true
+                Height: =50
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                OnBackSelect: =Back(ScreenTransition.Fade);
+                RightButtonVisible: =false
+                Text: =appTitle
+                Theme: =AppTheme
+                Width: =App.Width
+
+        MainSectionContainer2_16 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =Parent.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutOverflowX: =LayoutOverflow.Scroll
+            ZIndex: =3
+
+            ExpandMenu_2 As ExpandMenu:
+                Fill: =ColorValue(ExpandMenu_2.Theme.palette.white)
+                Height: =Parent.Height
+                Items: =Filter(col_MainNavItems,Label <> "  Run Logs")
+                LayoutMinWidth: =200
+                Theme: =AppTheme
+                Visible: =false
+                Width: =If(ExpandMenu_2.IsExpanded, 200, 46)
+                ZIndex: =1
+
+            Rectangle2_22 As rectangle:
+                BorderColor: =RGBA(0, 0, 0, 0)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =2
+                Fill: =RGBA(230, 230, 230, 1)
+                FocusedBorderThickness: =4
+                Height: =Parent.Height
+                Width: =1
+                ZIndex: =2
+
+            SideNav As groupContainer.verticalAutoLayoutContainer:
+                BorderColor: =RGBA(222, 222, 222, 1)
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =1
+                Fill: =ColorValue(AppTheme.palette.white)
+                FillPortions: =0
+                Height: =Parent.Height
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowX: =LayoutOverflow.Scroll
+                LayoutWrap: =true
+                PaddingLeft: =5
+                Width: =260
+                ZIndex: =3
+
+                "SolutionArtifactNav As 'Fluent Nav (0.0.20)'.pcfdataset":
+                    CollapseByDefault: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Height: =Parent.Height
+                    Items: |-
+                        =Table(
+                            {
+                                ItemKey: "All",
+                                ItemDisplayName: "All ("& CountRows(If(MeteredOnly_1.Value = false, col_SolutionArtifacts, Filter(col_SolutionArtifacts,'Object id' in 'Solution Metering Artifacts'.'Artifact Object Id'))) &")",
+                                ItemIconName: "AllApps"
+                            },
+                        	{
+                                ItemKey: "Apps",
+                                ItemDisplayName: "Apps (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 300 || 'Object type code' = 80)) & ")",
+                                ItemIconName: "AppIconDefault"
+                            },
+                        	{
+                                ItemKey: "Chatbot subcomponents",
+                                ItemDisplayName: "Chatbot subcomponents (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 10040)) & ")",
+                                ItemIconName: "FabricFolder"
+                            },
+                        	{
+                                ItemKey: "Chatbots",
+                                ItemDisplayName: "Chatbots (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 10039)) & ")",
+                                ItemIconName: "Chatbot"
+                            },
+                        	{
+                                ItemKey: "Choices",
+                                ItemDisplayName: "Choices (" & CountRows(Filter(col_SolutionArtifacts,'Component type name' = "Option Set")) & ")",
+                                ItemIconName: "BulletedList"
+                            },
+                        	{
+                                ItemKey: "Cloud flows",
+                                ItemDisplayName: "Cloud flows (" & CountRows(Filter(col_SolutionArtifacts,'Workflow category' = 5)) & ")",
+                                ItemIconName: "Flow"
+                            },
+                        	{
+                                ItemKey: "Connection references",
+                                ItemDisplayName: "Connection references (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 10049)) & ")",
+                                ItemIconName: "Plug"
+                            },
+                        	{
+                                ItemKey: "Custom connectors",
+                                ItemDisplayName: "Custom connectors (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 372)) & ")",
+                                ItemIconName: "PlugConnected"
+                            },
+                        	{
+                                ItemKey: "Desktop flows",
+                                ItemDisplayName: "Desktop flows (" & CountRows(Filter(col_SolutionArtifacts,'Workflow category' = 6)) & ")",
+                                ItemIconName: "RedEye"
+                            },
+                        	{
+                                ItemKey: "Environment variables",
+                                ItemDisplayName: "Environment variables (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 380)) & ")",
+                                ItemIconName: "VariableGroup"
+                            },
+                        	{
+                                ItemKey: "Environment variable values",
+                                ItemDisplayName: "Environment variable values (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 381)) & ")",
+                                ItemIconName: "Variable2"
+                            },
+                        	{
+                                ItemKey: "Plug-in assemblies",
+                                ItemDisplayName: "Plug-in assemblies (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 91)) & ")",
+                                ItemIconName: "Puzzle"
+                            },
+                        	{
+                                ItemKey: "Plug-in steps",
+                                ItemDisplayName: "Plug-in steps (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 92)) & ")",
+                                ItemIconName: "Step"
+                            },
+                        	{
+                                ItemKey: "Security roles",
+                                ItemDisplayName: "Security roles (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 1036)) & ")",
+                                ItemIconName: "SecurityGroup"
+                            },
+                        	{
+                                ItemKey: "Site maps",
+                                ItemDisplayName: "Site maps (" & CountRows(Filter(col_SolutionArtifacts,'Object type code' = 62)) & ")",
+                                ItemIconName: "SidePanel"
+                            },
+                        		{
+                                ItemKey: "Tables",
+                                ItemDisplayName: "Tables (" & CountRows(Filter(col_SolutionArtifacts,'Component type name' = "Entity")) & ")",
+                                ItemIconName: "Table"
+                            }
+                        )
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    OnChange: =Set(CurrentObjectType,Self.SelectedKey)
+                    SelectedKey: =CurrentObjectType
+                    Theme: =AppThemeJson
+                    Visible: =!_showArtifactShimmer
+                    Width: =Parent.Width
+                    X: =Parent.X
+                    Y: =0
+                    ZIndex: =2
+
+                Rectangle2_25 As rectangle:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =2
+                    Fill: =RGBA(230, 230, 230, 1)
+                    FocusedBorderThickness: =4
+                    Height: =Parent.Height
+                    Width: =1
+                    ZIndex: =3
+
+            c_mainContent_14 As groupContainer.verticalAutoLayoutContainer:
+                Height: =Parent.Height
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =4
+
+                Container2_11 As groupContainer.horizontalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =ColorValue(AppTheme.palette.white)
+                    FillPortions: =0
+                    Height: =40
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutGap: =10
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =5
+                    PaddingRight: =20
+                    PaddingTop: =5
+                    ZIndex: =1
+
+                    Container10_9 As groupContainer.verticalAutoLayoutContainer:
+                        Fill: =ColorValue(AppTheme.palette.white)
+                        FillPortions: =0
+                        Height: =40
+                        LayoutAlignItems: =LayoutAlignItems.Center
+                        LayoutGap: =15
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =500
+                        LayoutMode: =LayoutMode.Auto
+                        ZIndex: =1
+
+                        "ArtifactsCommandBar As 'Fluent Command Bar (0.0.20)'.pcfdataset":
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =1
+                            Height: =40
+                            Items: |-
+                                =If(
+                                    !IsBlank(_artifactRecord.'Object id') && If(
+                                        _artifactRecord.'Component type name' = "Process" && _artifactRecord.'Workflow category name' = "Modern Flow",
+                                        true,
+                                        false
+                                    ) && !IsBlank(
+                                        LookUp(
+                                            'Solution Meterings',
+                                            'Solution Id' = Text(_selectedSolution.'Solution Identifier')
+                                        ).'Automation Project'.'Automation Project Number'
+                                    ),
+                                    If(
+                                        _artifactRecord.'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id',
+                                        Table(
+                                            {
+                                                ItemKey: "RenameFlow",
+                                                ItemDisplayName: "Rename Cloud flow",
+                                                ItemIconName: "Edit",
+                                                ItemEnabled: If(_selectedSolution.'Package Type' = 'Package Type (Solutions)'.Unmanaged,true,false)
+                                            },
+                                            {
+                                                ItemKey: "RemoveMeter",
+                                                ItemDisplayName: "Unmeter Cloud Flow",
+                                                ItemIconName: "Timer",
+                                                ItemEnabled: true
+                                            },
+                                            {
+                                                ItemKey: "ViewLogs",
+                                                ItemDisplayName: "View Logs",
+                                                ItemIconName: "History",
+                                                ItemEnabled: true
+                                            }
+                                        ),
+                                        Table(
+                                            {
+                                                ItemKey: "RenameFlow",
+                                                ItemDisplayName: "Rename Cloud flow",
+                                                ItemIconName: "Edit",
+                                                ItemEnabled: If(_selectedSolution.'Package Type' = 'Package Type (Solutions)'.Unmanaged,true,false)
+                                            },
+                                            {
+                                                ItemKey: "AddMeter",
+                                                ItemDisplayName: "Meter Cloud Flow",
+                                                ItemIconName: "Add",
+                                                ItemEnabled: If(
+                                                    CountRows(
+                                                        Filter(
+                                                            'Solution Metering Artifacts',
+                                                            'Solution Metering'.'Solution Id' = Text(_selectedSolution.'Solution Identifier')
+                                                        )
+                                                    ) = 0 &&
+                                    // RegEx searches for [CloudFlowName]_[AutomationProjectName]-[9digits]_[3digits for Solution Number]
+                                 IsMatch(
+                                                        _artifactRecord.'Display name',
+                                                        "_AP-[0-9]{9}_[0-9]{3}\b",
+                                                        MatchOptions.Contains
+                                                    ) || varDisableFlowNaming = true && CountRows(
+                                                        Filter(
+                                                            'Solution Metering Artifacts',
+                                                            'Solution Metering'.'Solution Id' = Text(_selectedSolution.'Solution Identifier')
+                                                        )
+                                                    ) = 0,
+                                                    true,
+                                                    false
+                                                )
+                                            }
+                                        )
+                                    ),
+                                    Table(
+                                        {
+                                            ItemKey: "RenameFlow",
+                                            ItemDisplayName: "Rename Cloud flow",
+                                            ItemIconName: "Edit",
+                                            ItemEnabled: false
+                                        },
+                                        {
+                                            ItemKey: "AddMeter",
+                                            ItemDisplayName: "Meter Cloud Flow",
+                                            ItemIconName: "Add",
+                                            ItemEnabled: false
+                                        }
+                                    )
+                                )
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            OnChange: =false
+                            OnSelect: |-
+                                =Switch(
+                                    Self.Selected.ItemKey,
+                                    "RenameFlow",
+                                    Set(
+                                        _renamedCloudFlow,
+                                        If(
+                                            !IsMatch(
+                                                _artifactRecord.'Display name',
+                                                "_AP-[0-9]{9}_[0-9]{3}\b",
+                                                MatchOptions.Contains
+                                            ),
+                                            _artifactRecord.'Display name' & "_" & LookUp(
+                                                'Solution Meterings',
+                                                'Solution Id' = Text(_selectedSolution.'Solution Identifier')
+                                            ).'Automation Project'.'Automation Project Number' & "_001",
+                                            _artifactRecord.'Display name'
+                                        )
+                                    );
+                                    UpdateContext({_showEditCloudFlowPanel: true}),
+                                    "RemoveMeter",
+                                    UpdateContext({_showConfirmationBox: true}),
+                                    "ViewLogs",
+                                    Navigate(
+                                        scr_SolutionRunLogs_CK,
+                                        ScreenTransition.Fade,
+                                        {
+                                            _selectedSolution: _selectedSolution,
+                                            _artifactRecord: _artifactRecord
+                                        }
+                                    ),
+                                    "AddMeter",
+                                    UpdateContext({_showConfirmationBoxAdd: true});
+                                    
+                                )
+                            Theme: =AppThemeJson
+                            Width: =Parent.Width
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        "IconNamingConventionWarning As 'Fluent Icon (0.0.20)'":
+                            DisplayMode: =DisplayMode.View
+                            Height: =20
+                            IconColor: =If( varDisableFlowNaming = true, "DarkRed", AppTheme.palette.themePrimary)
+                            IconName: =If(varDisableFlowNaming = true,  "Warning", "Info")
+                            IconSize: =20
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            OnChange: =false
+                            Text: ="Flow"
+                            TextAlignment: ='''PowerCAT.Icon.TextAlignment'''.Center
+                            Theme: =AppThemeJson
+                            Tooltip: ="Flow naming convention"
+                            Visible: =varDisableFlowNaming
+                            Width: =20
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        "CheckboxDisabledNamingConvention As 'Check box'":
+                            Checked: =If(varDisableFlowNaming,true,false)
+                            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Label: |
+                                ="Disable flow naming convention"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =160
+                            OnCheck: |-
+                                =UpdateContext({_showConfirmationBoxDisable:true})
+                            OnUncheck: |-
+                                =Set(varDisableFlowNaming, false) //UpdateContext({_showConfirmationBoxEnable:true})
+                            Visible: =true
+                            Width: =260
+                            X: =555
+                            Y: =4
+                            ZIndex: =4
+
+                        "CheckboxMeteredOnly_1 As 'Check box'":
+                            Color: =ColorValue(AppTheme.palette.neutralPrimary)
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            Label: ="Only metered cloud flow"
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =160
+                            Width: =210
+                            X: =42
+                            Y: =283
+                            ZIndex: =5
+
+                        icNamingConventionWarning_1 As icon.Reload:
+                            BorderColor: =RGBA(166, 166, 166, 1)
+                            Color: =If( varDisableFlowNaming = true, DarkRed, UIAccentColor)
+                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                            DisabledColor: =RGBA(220, 220, 220, 1)
+                            DisabledFill: =RGBA(0, 0, 0, 0)
+                            FocusedBorderThickness: =4
+                            Height: =40
+                            HoverBorderColor: =RGBA(0, 0, 0, 0)
+                            HoverColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            HoverFill: =RGBA(0, 0, 0, 0)
+                            Icon: =If(varDisableFlowNaming = true,  Icon.Warning, Icon.Information)
+                            OnSelect: |
+                                =If(
+                                    
+                                    varDisableFlowNaming = true,
+                                    Set(varDisableFlowNaming, false),
+                                
+                                    //UpdateContext({_showConfirmationBoxEnable:true}),
+                                    UpdateContext({_showConfirmationBoxDisable:true})
+                                )
+                            PaddingBottom: =10
+                            PaddingLeft: |
+                                =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            PressedBorderColor: =RGBA(0, 0, 0, 0)
+                            PressedColor: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                            PressedFill: =RGBA(0, 0, 0, 0)
+                            Tooltip: |-
+                                =If(
+                                    varDisableFlowNaming = true,
+                                    "Flow naming convention is Disabled!",
+                                     "Flow naming convention Enabled"
+                                )
+                            Visible: =false
+                            Width: =47
+                            X: =981
+                            Y: =95
+                            ZIndex: =6
+
+                        Artifacts_SearchBox As SearchBox:
+                            HintText: ="Search artifact list..."
+                            LayoutMinHeight: =640
+                            LayoutMinWidth: =640
+                            Theme: =AppTheme
+                            ZIndex: =7
+
+                icoRect As rectangle:
+                    BorderColor: =RGBA(237, 237, 237, 1)
+                    BorderThickness: =1
+                    Fill: =RGBA(214, 216, 217, 1)
+                    FocusedBorderThickness: =4
+                    Height: =1
+                    Width: =Parent.Width
+                    ZIndex: =2
+
+                Container23_10 As groupContainer.verticalAutoLayoutContainer:
+                    BorderColor: =RGBA(222, 222, 222, 1)
+                    BorderStyle: =BorderStyle.None
+                    BorderThickness: =1
+                    Fill: =ColorValue(AppTheme.palette.white)
+                    Height: =Parent.Height
+                    LayoutAlignItems: =LayoutAlignItems.Stretch
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutWrap: =true
+                    ZIndex: =3
+
+                    MainDetailList As groupContainer.verticalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        BorderColor: =RGBA(222, 222, 222, 1)
+                        BorderStyle: =BorderStyle.None
+                        BorderThickness: =1
+                        Fill: =ColorValue(AppTheme.palette.white)
+                        Height: =20
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        LayoutWrap: =true
+                        PaddingLeft: =10
+                        PaddingTop: =20
+                        Width: =Parent.Width
+                        ZIndex: =16
+
+                        "ArtifactBreadcrumb As 'Fluent Breadcrumb (0.0.20)'.pcfdataset":
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =60
+                            Items: |-
+                                =Table(
+                                    {
+                                        ItemKey: "1",
+                                        ItemDisplayName: _selectedSolution.'Display Name',
+                                        ItemClickable: false
+                                    },
+                                    {
+                                        ItemKey: "2",
+                                        ItemDisplayName: CurrentObjectType,
+                                        ItemClickable: true
+                                    }
+                                )
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =40
+                            Width: =200
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                        "ArtifactsDetailsList As 'Fluent Details List (0.0.20)'.pcfdataset":
+                            columns_Items: |-
+                                =Table(
+                                    {
+                                        ColName: "ComponentIcon",
+                                        ColDisplayName: "",
+                                        ColWidth: Parent.Width * 0.04,
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColCellType: "image",
+                                        ColTagColorColumn: "IconColor"
+                                    },
+                                    {
+                                        ColName: "Display name",
+                                        ColDisplayName: "Name",
+                                        ColWidth: Parent.Width * 0.16,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true
+                                    },
+                                    {
+                                        ColName: "IsMetered",
+                                        ColDisplayName: "",
+                                        ColWidth: Parent.Width * 0.05,
+                                        ColCellType: "clickableimage",
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColTagColorColumn: "IconColor"
+                                    },
+                                    {
+                                        ColName: "Viewlogs",
+                                        ColDisplayName: "View Logs",
+                                        ColWidth: Parent.Width * 0.10,
+                                        ColCellType: "clickableimage",
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColTagColorColumn: "IconColor"
+                                    },
+                                    {
+                                        ColName: "Component type name",
+                                        ColDisplayName: "Type",
+                                        ColWidth: Parent.Width * 0.15,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true
+                                    },
+                                    {
+                                        ColName: "Workflow category name",
+                                        ColDisplayName: "Workflow Category",
+                                        ColWidth: Parent.Width * 0.12,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColTagColorColumn: "IconColor"
+                                    },
+                                    {
+                                        ColName: "Is managed",
+                                        ColDisplayName: "Managed",
+                                        ColWidth: Parent.Width * 0.1,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColTagColorColumn: "IconColor"
+                                    },
+                                    {
+                                        ColName: "lastModified",
+                                        ColDisplayName: "Last Modified",
+                                        ColWidth: Parent.Width * 0.1,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColTagColorColumn: "IconColor"
+                                    },
+                                    {
+                                        ColName: "Owner",
+                                        ColDisplayName: "Owner",
+                                        ColWidth: Parent.Width * 0.15,
+                                        ColSortable: true,
+                                        ColIsBold: true,
+                                        ColResizable: true,
+                                        ColTagColorColumn: "IconColor"
+                                    }
+                                )
+                            Compact: =false
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =1
+                            Height: =Parent.Height
+                            Items: |-
+                                =If(CheckboxMeteredOnly_1.Checked = false, Search(
+                                    Switch(CurrentObjectType, 
+                                        "All", col_SolutionArtifacts, 
+                                        "Apps",Filter(col_SolutionArtifacts, 'Object type code' = 80 || 'Object type code' = 300),
+                                        "Chatbot subcomponents", Filter(col_SolutionArtifacts,'Object type code' = 10040),
+                                        "Chatbots", Filter(col_SolutionArtifacts,'Object type code' = 10039),
+                                        "Choices", Filter(col_SolutionArtifacts,'Component type name' = "Option Set"),
+                                        "Cloud flows", Filter(col_SolutionArtifacts,'Workflow category' = 5),
+                                        "Connection references", Filter(col_SolutionArtifacts,'Object type code' = 10049),
+                                        "Custom connectors", Filter(col_SolutionArtifacts,'Object type code' = 372),
+                                        "Desktop flows", Filter(col_SolutionArtifacts,'Workflow category' = 6),
+                                        "Environment variables", Filter(col_SolutionArtifacts,'Object type code' = 380),
+                                        "Environment variable values",  Filter(col_SolutionArtifacts,'Object type code' = 381),
+                                        "Plug-in assemblies", Filter(col_SolutionArtifacts,'Object type code' = 91),
+                                        "Plug-in steps", Filter(col_SolutionArtifacts,'Object type code' = 92),
+                                        "Security roles", Filter(col_SolutionArtifacts,'Object type code' = 1036),
+                                        "Site maps", Filter(col_SolutionArtifacts,'Object type code' = 62),
+                                        "Tables", Filter(col_SolutionArtifacts,'Component type name' = "Entity")
+                                    ),
+                                    Artifacts_SearchBox.SearchText,
+                                    "Display name","Component type name","Description","Component logical name","Created on","Name","Object id","Owner","Solution id","Workflow category name","Workflow unique id","Workflow unique id","ComponentIcon","IsMetered"),
+                                    Filter(col_SolutionArtifacts,'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id'))
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            OnChange: |-
+                                =/* Runs when selected row changes and control property 'Raise OnRowSelection event' is true */
+                                If( Self.EventName = "OnRowSelectionChange",If(!IsBlank(Self.EventRowKey),
+                                        UpdateContext({_artifactRecord:LookUp(col_SolutionArtifacts,'Object id' = ArtifactsDetailsList.Selected.'Object id')});, 
+                                        //Empty Collection
+                                        UpdateContext({_artifactRecord:{}});)
+                                );
+                                
+                                /* Runs when a user clicks on a column with ColCellType set to 'link' */
+                                If(
+                                    Self.EventName = "CellAction",
+                                    UpdateContext({_artifactRecord:LookUp(col_SolutionArtifacts,'Object id' = Self.EventRowKey)});    
+                                    Switch(
+                                        Self.EventColumn,
+                                        "IsMetered", 
+                                    If(Not(_artifactRecord.'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id') && 
+                                    _artifactRecord.'Component type name' = "Process" && 
+                                    _artifactRecord.'Workflow category' = 5,UpdateContext({_showConfirmationBoxAdd:true}),
+                                        UpdateContext({_showConfirmationBox:true})),
+                                        "Viewlogs",Navigate(scr_SolutionRunLogs_CK,ScreenTransition.Fade,{_selectedSolution:_selectedSolution,_artifactRecord:_artifactRecord}),
+                                        "EditCloudFlow", UpdateContext({_showEditCloudFlowPanel:true});
+                                    );
+                                );
+                            RaiseOnRowSelectionChangeEvent: =true
+                            Theme: =AppThemeJson
+                            Width: =Parent.Width
+                            X: =0
+                            Y: =40
+                            ZIndex: =3
+
+                            "'Display name1' As pcfDataField.textualColumn":
+                                FieldDisplayName: ="Display name"
+                                FieldName: ="Display name"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =1
+                                ZIndex: =38
+
+                            "'Component type1' As pcfDataField.textualColumn":
+                                FieldDisplayName: ="Component type"
+                                FieldName: ="Component type"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =2
+                                ZIndex: =39
+
+                            "'Component type name1' As pcfDataField.textualColumn":
+                                FieldDisplayName: ="Component type name"
+                                FieldName: ="Component type name"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =3
+                                ZIndex: =40
+
+                            IsMetered1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="IsMetered"
+                                FieldName: ="IsMetered"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =4
+                                ZIndex: =41
+
+                            "'Workflow category name1' As pcfDataField.textualColumn":
+                                FieldDisplayName: ="Workflow category name"
+                                FieldName: ="Workflow category name"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =5
+                                ZIndex: =42
+
+                            ComponentIcon1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="ComponentIcon"
+                                FieldName: ="ComponentIcon"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =6
+                                ZIndex: =43
+
+                            RecordKey2 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="RecordKey"
+                                FieldName: ="RecordKey"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =7
+                                ZIndex: =44
+
+                            ismanaged1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="ismanaged"
+                                FieldName: ="ismanaged"
+                                FieldType: ="l"
+                                FieldVariantName: ="textualColumn"
+                                Order: =8
+                                ZIndex: =45
+
+                            lastModified1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="lastModified"
+                                FieldName: ="lastModified"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =9
+                                ZIndex: =46
+
+                            "'Is managed1' As pcfDataField.textualColumn":
+                                FieldDisplayName: ="Is managed"
+                                FieldName: ="Is managed"
+                                FieldType: ="b"
+                                FieldVariantName: ="textualColumn"
+                                Order: =10
+                                ZIndex: =47
+
+                            Owner1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="Owner"
+                                FieldName: ="Owner"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =11
+                                ZIndex: =48
+
+                            Viewlogs1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="Viewlogs"
+                                FieldName: ="Viewlogs"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =12
+                                ZIndex: =49
+
+                            "'Modified on1' As pcfDataField.textualColumn":
+                                FieldDisplayName: ="Modified on"
+                                FieldName: ="Modified on"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =13
+                                ZIndex: =50
+
+                            modifiedon1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="modifiedon"
+                                FieldName: ="modifiedon"
+                                FieldType: ="d"
+                                FieldVariantName: ="textualColumn"
+                                Order: =14
+                                ZIndex: =51
+
+    ConfirmationDialogControl_Remove_2 As Dialog:
+        DialogHeight: =250
+        Fill: =ConfirmationDialogControl_Remove_2.OverlayColor
+        Height: =Parent.Height
+        OnButtonSelect: |
+            =If(
+                Self.SelectedButton.Label = "Ok",
+                Remove(
+                    'Solution Metering Artifacts',
+                    LookUp(
+                        'Solution Metering Artifacts',
+                      //  'Artifact Object Id' = ArtifactsDetailsList.Selected.'Workflow unique id'
+                        'Artifact Object Id' = _artifactRecord.'Workflow unique id'
+                    )
+                );
+                Refresh('Solution Meterings');
+                Refresh('Solution Metering Artifacts');
+                
+            // Update Local Collection - Similar to the way done in Screen visible
+            ClearCollect(
+                    tempCollection,
+                    GetDataverseSolutionArtifacts.Run(
+                        _selectedSolution.'Solution Identifier',
+                        First(EnvironmentDetails).EnvironmentURL
+                    )
+                );
+                ClearCollect(
+                    col_SolutionArtifacts,
+                    AddColumns(
+                        tempCollection,
+                        "EditCloudFlow",
+                        If(
+                            _selectedSolution.'Package Type' = 'Package Type (Solutions)'.Unmanaged && 'Component type name' = "Process" && 'Workflow category name' = "Modern Flow",
+                            "icon:Edit"
+                        ),
+                        "Viewlogs",
+                        If(
+                            'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id' && 'Component type name' = "Process" && 'Workflow category' = 5,
+                            "icon:History"
+                        ),
+                        "lastModified",
+                        Text(
+                            DateValue('Modified on'),
+                            DateTimeFormat.ShortDateTime24
+                        ),
+                        "IsMetered",
+                        If(
+                            'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id' && 'Component type name' = "Process" && 'Workflow category' = 5,
+                            "icon:Timer"
+                        ),
+                        "IconColor",
+                        AppTheme.palette.themePrimary,
+                        "RecordKey",
+                        'Object id',
+                        "ComponentIcon",
+                        Switch(
+                            'Object type code',
+                            80,
+                            "icon:AllApps",
+                            300,
+                            "icon:AppIconDefault",
+                            10040,
+                            "icon:FabricFolder",
+                            10039,
+                            "icon:Chatbot",
+                            9,
+                            "icon:BulletedList",
+                            5,
+                            "icon:Flow",
+                            10049,
+                            "icon:Plug",
+                            372,
+                            "icon:PlugConnected",
+                            4703,
+                            If(
+                                'Workflow category' = 6,
+                                "icon:RedEye",
+                                "icon:Flow"
+                            ),
+                            380,
+                            "icon:VariableGroup",
+                            381,
+                            "icon:Variable2",
+                            91,
+                            "icon:Puzzle",
+                            92,
+                            "icon:Step",
+                            1036,
+                            "icon:SecurityGroup",
+                            62,
+                            "icon:SidePanel",
+                            If(
+                                'Component logical name' = "entity",
+                                "icon:Table",
+                                "icon:BulletedList"
+                            )
+                        )
+                    )
+                );
+                Clear(tempCollection);
+                
+            //
+            );
+            UpdateContext({_showConfirmationBox: false});
+        OnCloseSelect: |-
+            =UpdateContext({_showConfirmationBox:false});
+        SubTitle: ="Are you sure you want to remove this artifact '" & _artifactRecord.'Display name' & "' from metering? Please note that this will create an audit log entry in our database."
+        Title: ="Confirmation"
+        Visible: =_showConfirmationBox
+        Width: =Parent.Width
+        ZIndex: =2
+
+    ConfirmationDialogControl_Add_2 As Dialog:
+        Buttons: |-
+            =Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Yes", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary})
+        DialogHeight: =250
+        Fill: =ConfirmationDialogControl_Add_2.OverlayColor
+        Height: =Parent.Height
+        OnButtonSelect: |-
+            =If(Self.SelectedButton.Label = "Yes",
+            Patch('Solution Metering Artifacts',Defaults('Solution Metering Artifacts'),{
+                'Solution Metering': LookUp('Solution Meterings', 'Solution Id' = Text(_selectedSolution.'Solution Identifier')),
+                'Artifact Name': _artifactRecord.'Display name',
+                'Artifact Object Id': _artifactRecord.'Workflow unique id',
+                'Workflow Id': _artifactRecord.'Object id',
+                'Arftifact Type': If(_artifactRecord.'Workflow category' = 6, 'Solution Arftifact Type'.'Desktop flow','Solution Arftifact Type'.'Cloud flow')
+            });
+            Refresh('Solution Metering Artifacts');
+            
+            // Update Local Collection - Similar to the way done in Screen on visible
+            
+            ClearCollect(
+                tempCollection,
+                GetDataverseSolutionArtifacts.Run(
+                    _selectedSolution.'Solution Identifier',
+                    First(EnvironmentDetails).EnvironmentURL
+                )
+            );
+            
+            ClearCollect(
+                col_SolutionArtifacts,
+                AddColumns(
+                    tempCollection,
+                    "EditCloudFlow",
+                    If(_selectedSolution.'Package Type' = 'Package Type (Solutions)'.Unmanaged && 'Component type name' = "Process" && 'Workflow category name' = "Modern Flow",
+                        "icon:Edit"
+                    ),
+                    "Viewlogs",
+                    If(
+                        'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id' && 'Component type name' = "Process" && 'Workflow category' = 5,
+                        "icon:History"
+                    ),
+                    "lastModified",
+                    Text(
+                        DateValue('Modified on'),
+                        DateTimeFormat.ShortDateTime24
+                    ),
+                    "IsMetered",
+                    If(
+                        'Workflow unique id' in 'Solution Metering Artifacts'.'Artifact Object Id' && 'Component type name' = "Process" && 'Workflow category' = 5,
+                        "icon:Timer"
+                    ),
+                    "IconColor",
+                    AppTheme.palette.themePrimary,
+                    "RecordKey",
+                    'Object id',
+                    "ComponentIcon",
+                    Switch(
+                        'Object type code',
+                        80,
+                        "icon:AllApps",
+                        300,
+                        "icon:AppIconDefault",
+                        10040,
+                        "icon:FabricFolder",
+                        10039,
+                        "icon:Chatbot",
+                        9,
+                        "icon:BulletedList",
+                        5,
+                        "icon:Flow",
+                        10049,
+                        "icon:Plug",
+                        372,
+                        "icon:PlugConnected",
+                        4703,
+                        If(
+                            'Workflow category' = 6,
+                            "icon:RedEye",
+                            "icon:Flow"
+                        ),
+                        380,
+                        "icon:VariableGroup",
+                        381,
+                        "icon:Variable2",
+                        91,
+                        "icon:Puzzle",
+                        92,
+                        "icon:Step",
+                        1036,
+                        "icon:SecurityGroup",
+                        62,
+                        "icon:SidePanel",
+                        If(
+                            'Component logical name' = "entity",
+                            "icon:Table",
+                            "icon:BulletedList"
+                        )
+                    )
+                )
+            );
+            Clear(tempCollection);
+            );
+            //
+            UpdateContext({_showConfirmationBoxAdd:false});
+        OnCloseSelect: |-
+            =UpdateContext({_showConfirmationBoxAdd:false});
+        SubTitle: ="Are you sure you want to add this artifact '" & _artifactRecord.'Display name' & "' to metering? Please note that this will create an audit log entry in our database."
+        Title: ="Confirmation"
+        Visible: =_showConfirmationBoxAdd
+        Width: =Parent.Width
+        ZIndex: =3
+
+    ConfirmationDialogControl_Disable_2 As Dialog:
+        Buttons: |-
+            =Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Yes", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary})
+        DialogHeight: =250
+        Fill: =ConfirmationDialogControl_Disable_2.OverlayColor
+        Height: =Parent.Height
+        OnButtonSelect: |
+            =Switch(
+                Self.SelectedButton.Label,
+                "Yes",
+                Set(
+                    varDisableFlowNaming,
+                    true
+                ),
+                "Cancel",
+                Set(
+                    varDisableFlowNaming,
+                    false
+                );
+                Reset(CheckboxDisabledNamingConvention);
+            );
+            UpdateContext({_showConfirmationBoxDisable: false});
+            /*Patch('Solution Metering Artifacts',Defaults('Solution Metering Artifacts'),{
+                'Solution Metering': LookUp('Solution Meterings', 'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')),
+                'Artifact Name': galSolutionArtifacts.Selected.'Display name',
+                'Artifact Object Id': galSolutionArtifacts.Selected.'Workflow unique id',
+                'Workflow Id': galSolutionArtifacts.Selected.'Object id',
+                'Arftifact Type': If(galSolutionArtifacts.Selected.'Workflow category' = 6, 'Solution Arftifact Type'.'Desktop flow','Solution Arftifact Type'.'Cloud flow')
+            });*/
+        OnCloseSelect: |
+            =Set(
+                varDisableFlowNaming,
+                false
+            );
+            Reset(CheckboxDisabledNamingConvention);
+            UpdateContext({_showConfirmationBoxDisable: false});
+        SubTitle: |-
+            ="Are you sure you want to disable the Flow naming convention?
+            Warning: Multiple flows with the same name in the same environment could break metering."
+        Title: ="Warning"
+        Visible: =_showConfirmationBoxDisable
+        Width: =Parent.Width
+        ZIndex: =4
+
+    ConfirmationDialogControl_Enable_2 As Dialog:
+        Buttons: |-
+            =Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Yes", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary})
+        DialogHeight: =250
+        Fill: =ConfirmationDialogControl_Enable_2.OverlayColor
+        Height: =Parent.Height
+        OnButtonSelect: |
+            =If(
+                Self.SelectedButton.Label = "Yes",
+                Set(
+                    varDisableFlowNaming,
+                    false
+                ),
+                Set(
+                    varDisableFlowNaming,
+                    true
+                )
+            );
+            UpdateContext({_showConfirmationBoxEnable: false});
+            /*Patch('Solution Metering Artifacts',Defaults('Solution Metering Artifacts'),{
+                'Solution Metering': LookUp('Solution Meterings', 'Solution Id' = Text(galSolutions.Selected.'Solution Identifier')),
+                'Artifact Name': galSolutionArtifacts.Selected.'Display name',
+                'Artifact Object Id': galSolutionArtifacts.Selected.'Workflow unique id',
+                'Workflow Id': galSolutionArtifacts.Selected.'Object id',
+                'Arftifact Type': If(galSolutionArtifacts.Selected.'Workflow category' = 6, 'Solution Arftifact Type'.'Desktop flow','Solution Arftifact Type'.'Cloud flow')
+            });*/
+        OnCloseSelect: |-
+            =UpdateContext({_showConfirmationBoxEnable:false})
+        SubTitle: |-
+            ="Are you sure you want to enable the Flow naming convention?
+            Warning: Multiple flows with the same name in the same environment could break metering."
+        Title: ="Warning"
+        Visible: =_showConfirmationBoxEnable
+        Width: =Parent.Width
+        ZIndex: =5
+
+    EditCloudFlowPanel As Panel:
+        Buttons: |-
+            =If(_DisablePanelBtn, Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard }), Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Save", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary, Disable:true}))
+        Fill: =EditCloudFlowPanel.OverlayColor
+        Height: =Parent.Height
+        OnButtonSelect: |
+            =If(
+                Self.SelectedButton.Label = "Save",
+                    UpdateContext({_DisablePanelBtn:true});
+                    Patch(
+                        Processes,
+                        LookUp(
+                            Processes,
+                            Process = GUID(_artifactRecord.'Object id')
+                        ),
+                        {'Process Name': txtBoxRenameCloudFlow.Value}
+                    );
+                    Patch(
+                        'Solution Metering Artifacts',
+                        LookUp(
+                            'Solution Metering Artifacts',
+                            'Artifact Object Id' = _artifactRecord.'Object id' && 'Solution Metering'.'Solution Id' = _artifactRecord.'Solution id'
+                        ),
+                        {'Artifact Name': txtBoxRenameCloudFlow.Value}
+                    );
+                    Patch(
+                        col_SolutionArtifacts,
+                        _artifactRecord,
+                        {'Display name': txtBoxRenameCloudFlow.Value}
+                    );
+                    UpdateContext({_DisablePanelBtn:false});
+            );
+            UpdateContext({_showEditCloudFlowPanel: false});
+        OnCloseSelect: |-
+            =UpdateContext({_showEditCloudFlowPanel:false});
+        Subtitle: =
+        Title: ="Rename Cloud flow"
+        Visible: =_showEditCloudFlowPanel
+        Width: =Parent.Width
+        ZIndex: =6
+
+    "txtBoxRenameCloudFlow As 'Text box'":
+        ColorBackground: =ColorValue(AppTheme.palette.white)
+        ColorText: =ColorValue(AppTheme.palette.neutralPrimary)
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Value: =_renamedCloudFlow
+        Visible: =_showEditCloudFlowPanel
+        Width: =EditCloudFlowPanel.DialogWidth * 0.7
+        X: =EditCloudFlowPanel.Width - EditCloudFlowPanel.DialogWidth +20
+        Y: =EditCloudFlowPanel.DialogWidth/2
+        ZIndex: =7
+
+    lblRenameCloudFlow As Label:
+        Color: =ColorValue(AppTheme.palette.neutralPrimary)
+        DisplayMode: =DisplayMode.Edit
+        FontWeight: =FontWeight.Semibold
+        Height: =32
+        Text: ="Name"
+        Visible: =_showEditCloudFlowPanel
+        Width: =Panel_AddSolution2Meter.DialogWidth * 0.7
+        X: =Panel_AddSolution2Meter.Width - Panel_AddSolution2Meter.DialogWidth +20
+        Y: =txtBoxRenameCloudFlow.Y - Self.Height
+        ZIndex: =8
+
+    ArtifactShimmerImage_2 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =545
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =ArtifactShimmer
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =_showArtifactShimmer
+        Width: =ArtifactsDetailsList.Width
+        X: =rectNavSimmarBackground.Width + 10
+        Y: =Header_2.Height + ArtifactsCommandBar.Height + ArtifactBreadcrumb.Height
+        ZIndex: =9
+
+    rectNavSimmarBackground As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(166, 166, 166, 1)
+        Fill: =ColorValue(AppTheme.palette.white)
+        FocusedBorderThickness: =4
+        Height: =Parent.Height - Header_2.Height
+        HoverFill: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(255, 255, 255, 1)
+        Visible: =_showArtifactShimmer
+        Width: =248
+        Y: =Header_2.Height
+        ZIndex: =10
+
+    NavShimmerImage As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        Fill: =RGBA(255, 255, 255, 1)
+        FocusedBorderThickness: =4
+        Height: =rectNavSimmarBackground.Height /2
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =NavShimmer
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Visible: =_showArtifactShimmer
+        Width: =rectNavSimmarBackground.Width - 6
+        X: =5
+        Y: =Header_2.Height + ArtifactsCommandBar.Height
+        ZIndex: =11
+
+    icoRectDivider As rectangle:
+        BorderColor: =RGBA(237, 237, 237, 1)
+        BorderThickness: =0.5
+        Fill: =RGBA(230, 230, 230, 1)
+        FocusedBorderThickness: =4
+        Height: =rectNavSimmarBackground.Height
+        Visible: =_showArtifactShimmer
+        Width: =0.5
+        X: =rectNavSimmarBackground.Width
+        Y: =rectNavSimmarBackground.Y
+        ZIndex: =12
+

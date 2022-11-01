@@ -1,0 +1,321 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_6489c"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_commondataservice": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataservice_a6d4e"
+        },
+        "api": {
+          "name": "shared_commondataservice"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)": {
+          "defaultValue": "unqda99ac46cfcd47eba73db6d73de2e.crm",
+          "type": "String",
+          "metadata": {
+            "schemaName": "autocoe_EnvironmentUniqueNameofCoEMain",
+            "description": "The environment unique name of the Main environment along with its extension e.g. 08ed139e532b4edc8f38851fd1bb3279.crm. Please note that the extension 'crm', 'crm[x]'  etc. is region dependent."
+          }
+        },
+        "Environment Name (autocoe_EnvironmentName)": {
+          "defaultValue": "AutoCoESatellite_Dev",
+          "type": "String",
+          "metadata": {
+            "schemaName": "autocoe_EnvironmentName",
+            "description": "The environment name of the current environment. This will be added to the flow session trace table during processing."
+          }
+        }
+      },
+      "triggers": {
+        "When_a_Flow_Session_Exception_is_added": {
+          "metadata": {
+            "operationMetadataId": "6bfde020-ba7f-45a7-b6c9-c450d197f8cf"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 5,
+              "subscriptionRequest/entityname": "autocoe_flowsessionexception",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Parse_JSON": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "845431a1-6a6e-4125-803f-f50bd95930e4"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@triggerOutputs()?['body']",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "statecode": {
+                  "type": "integer"
+                },
+                "_statecode_label": {
+                  "type": "string"
+                },
+                "autocoe_desktopflowid": {
+                  "type": "string"
+                },
+                "createdon": {
+                  "type": "string"
+                },
+                "autocoe_exceptiontime": {
+                  "type": "string"
+                },
+                "autocoe_errormessage": {
+                  "type": "string"
+                },
+                "_ownerid_value": {
+                  "type": "string"
+                },
+                "_ownerid_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_ownerid_type": {
+                  "type": "string"
+                },
+                "modifiedon": {
+                  "type": "string"
+                },
+                "autocoe_hostname": {
+                  "type": "string"
+                },
+                "autocoe_errorcode": {
+                  "type": "string"
+                },
+                "timezoneruleversionnumber": {
+                  "type": "integer"
+                },
+                "autocoe_flowrunid": {
+                  "type": "string"
+                },
+                "_modifiedby_value": {
+                  "type": "string"
+                },
+                "_modifiedby_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_modifiedby_type": {
+                  "type": "string"
+                },
+                "_autocoe_flowsessionexceptionrulec_value": {
+                  "type": "string"
+                },
+                "_autocoe_flowsessionexceptionrulec_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_autocoe_flowsessionexceptionrulec_type": {
+                  "type": "string"
+                },
+                "statuscode": {
+                  "type": "integer"
+                },
+                "_statuscode_label": {
+                  "type": "string"
+                },
+                "autocoe_cloudflowid": {
+                  "type": "string"
+                },
+                "autocoe_flowsessionexceptionid": {
+                  "type": "string"
+                },
+                "autocoe_desktopflowname": {
+                  "type": "string"
+                },
+                "autocoe_flowname": {
+                  "type": "string"
+                },
+                "_createdby_value": {
+                  "type": "string"
+                },
+                "_createdby_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_createdby_type": {
+                  "type": "string"
+                },
+                "_owningbusinessunit_value": {
+                  "type": "string"
+                },
+                "_owningbusinessunit_value@Microsoft.Dynamics.CRM.lookuplogicalname": {
+                  "type": "string"
+                },
+                "_owningbusinessunit_type": {
+                  "type": "string"
+                },
+                "autocoe_flowdisabled": {
+                  "type": "boolean"
+                },
+                "autocoe_runmode": {
+                  "type": "string"
+                },
+                "autocoe_environmentid": {
+                  "type": "string"
+                },
+                "autocoe_flowsessionid": {
+                  "type": "string"
+                },
+                "ItemInternalId": {
+                  "type": "string"
+                },
+                "SdkMessage": {
+                  "type": "string"
+                },
+                "RunAsSystemUserId": {
+                  "type": "string"
+                },
+                "RowVersion": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Create_operation": {
+          "actions": {
+            "Get_local_FSE_Rule_Configuration_row": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "1facd58f-e72b-4292-9c36-a5036dd4bb37"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "autocoe_flowsessionexceptionruleconfigurations",
+                  "recordId": "@triggerOutputs()?['body/_autocoe_flowsessionexceptionrulec_value']"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_remote_FSE_Rule_Configuration_row": {
+              "runAfter": {
+                "Get_local_FSE_Rule_Configuration_row": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "df45c6cd-7735-49de-adae-1fadb7991c99"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataservice",
+                  "operationId": "GetItems_V2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                },
+                "parameters": {
+                  "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                  "table": "autocoe_flowsessionexceptionruleconfigurations",
+                  "$filter": "autocoe_originalrecordid eq '@{outputs('Get_local_FSE_Rule_Configuration_row')?['body/autocoe_flowsessionexceptionruleconfigurationid']}'",
+                  "$top": 1
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Sync_Flow_Session_Exception_to_CoE_Main": {
+              "runAfter": {
+                "Get_remote_FSE_Rule_Configuration_row": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2aed0930-4bd6-4e88-83df-b343bba9beda"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataservice",
+                  "operationId": "PostItem_V2",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                },
+                "parameters": {
+                  "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                  "table": "autocoe_flowsessionexceptions",
+                  "item/autocoe_acknowledgedby": "@triggerOutputs()?['body/autocoe_acknowledgedby']",
+                  "item/autocoe_acknowledgedon": "@triggerOutputs()?['body/autocoe_acknowledgedon']",
+                  "item/autocoe_cloudflowid": "@triggerOutputs()?['body/autocoe_cloudflowid']",
+                  "item/autocoe_desktopflowid": "@triggerOutputs()?['body/autocoe_desktopflowid']",
+                  "item/autocoe_desktopflowname": "@triggerOutputs()?['body/autocoe_desktopflowname']",
+                  "item/autocoe_environmentid": "@triggerOutputs()?['body/autocoe_environmentid']",
+                  "item/autocoe_environmentname": "@parameters('Environment Name (autocoe_EnvironmentName)')",
+                  "item/autocoe_errorcode": "@triggerOutputs()?['body/autocoe_errorcode']",
+                  "item/autocoe_errormessage": "@triggerOutputs()?['body/autocoe_errormessage']",
+                  "item/autocoe_exceptiontime": "@triggerOutputs()?['body/autocoe_exceptiontime']",
+                  "item/autocoe_flowdisabled": "@triggerOutputs()?['body/autocoe_flowdisabled']",
+                  "item/autocoe_flowname": "@triggerOutputs()?['body/autocoe_flowname']",
+                  "item/autocoe_flowrunid": "@triggerOutputs()?['body/autocoe_flowrunid']",
+                  "item/autocoe_flowsessionid": "@triggerOutputs()?['body/autocoe_flowsessionid']",
+                  "item/autocoe_hostname": "@triggerOutputs()?['body/autocoe_hostname']",
+                  "item/autocoe_originalrecordid": "@triggerOutputs()?['body/autocoe_flowsessionexceptionid']",
+                  "item/autocoe_runmode": "@triggerOutputs()?['body/autocoe_runmode']",
+                  "item/_autocoe_flowsessionexceptionrulec_value": "@first(outputs('Get_remote_FSE_Rule_Configuration_row')?['body/value'])?['autocoe_flowsessionexceptionruleconfigurationid']",
+                  "item/_ownerid_type": ""
+                },
+                "authentication": "@parameters('$authentication')"
+              },
+              "description": "first(outputs('Get_remote_FSE_Rule_Configuration_row')?['body/value'])?['autocoe_flowsessionexceptionruleconfigurationid']"
+            }
+          },
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "equals": [
+              "@body('Parse_JSON')?['SdkMessage']",
+              "Create"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9e620b09-4478-46b2-9926-ea1f23f163c3"
+          },
+          "type": "If"
+        }
+      },
+      "outputs": {}
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

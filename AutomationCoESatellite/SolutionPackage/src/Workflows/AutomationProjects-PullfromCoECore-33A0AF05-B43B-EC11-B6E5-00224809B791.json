@@ -1,0 +1,546 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataservice": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataservice_38df0"
+        },
+        "api": {
+          "name": "shared_commondataservice"
+        }
+      },
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_51023"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      },
+      "shared_commondataservice_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataservice_38df0"
+        },
+        "api": {
+          "name": "shared_commondataservice"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)": {
+          "defaultValue": "unqda99ac46cfcd47eba73db6d73de2e.crm",
+          "type": "String",
+          "metadata": {
+            "schemaName": "autocoe_EnvironmentUniqueNameofCoEMain",
+            "description": "The environment unique name of the Main environment along with its extension e.g. 08ed139e532b4edc8f38851fd1bb3279.crm. Please note that the extension 'crm', 'crm[x]'  etc. is region dependent."
+          }
+        },
+        "Environment Id (autocoe_EnvironmentId)": {
+          "defaultValue": "7a74e5d3-7ff3-4bc4-b7bb-37b1428c5d4a",
+          "type": "String",
+          "metadata": {
+            "schemaName": "autocoe_EnvironmentId",
+            "description": "The environment Id of the current environment."
+          }
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "84aa5706-0a11-4306-ad1a-e603647c4817"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Loop_Through_Automation_Project_Environment_Mappings": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "5ffb4e29-7191-4c61-82da-4e5cfe67b0ce"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataservice",
+              "operationId": "GetItems_V2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+            },
+            "parameters": {
+              "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+              "table": "autocoe_environment_automationproject_mappingset"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Respond_to_a_PowerApp_or_flow": {
+          "runAfter": {
+            "Check_if_there's_at_least_1_custom_environment_mapping": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "52c3f5f0-2548-41ec-a903-77efa10eaeb4"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {},
+            "schema": {
+              "type": "object",
+              "properties": {}
+            }
+          }
+        },
+        "Check_if_there's_at_least_1_custom_environment_mapping": {
+          "actions": {
+            "Apply_to_each_mapping_record": {
+              "foreach": "@outputs('Loop_Through_Automation_Project_Environment_Mappings')?['body/value']",
+              "actions": {
+                "Is_this_mapping_for_the_current_environment": {
+                  "actions": {
+                    "Get_Automation_Project": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "ca114bde-3cfc-4d3e-816e-b9e6580bd7e7"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataservice",
+                          "operationId": "GetItem_V2",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                        },
+                        "parameters": {
+                          "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                          "table": "autocoe_automationprojects",
+                          "id": "@item()?['autocoe_automationprojectid']"
+                        },
+                        "authentication": {
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                        }
+                      }
+                    },
+                    "Get_Automation_Project_Record_in_Satellite_Environment": {
+                      "runAfter": {
+                        "Get_Automation_Project": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "644c5548-7bde-4877-a298-cf3d75652a6f"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "autocoe_automationprojects",
+                          "$filter": "autocoe_automationprojectnumber eq '@{outputs('Get_Automation_Project')?['body/autocoe_automationprojectnumber']}'"
+                        },
+                        "authentication": {
+                          "type": "Raw",
+                          "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                        }
+                      }
+                    },
+                    "Is_the_record_already_addedd_to_that_environment": {
+                      "actions": {
+                        "Add_a_new_Automation_Project_Record": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "fad55dc3-e083-4831-bef6-70fac04271ba"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "autocoe_automationprojects",
+                              "item/autocoe_automationprojectname": "@outputs('Get_Automation_Project')?['body/autocoe_automationproject']",
+                              "item/autocoe_automationprojectnumber": "@outputs('Get_Automation_Project')?['body/autocoe_automationprojectnumber']",
+                              "item/autocoe_businessowneremail": "@outputs('Get_Automation_Project')?['body/autocoe_businessowneremail']",
+                              "item/autocoe_businessownername": "@outputs('Get_Automation_Project')?['body/autocoe_businessowner']",
+                              "item/autocoe_originalrecordid": "@outputs('Get_Automation_Project')?['body/autocoe_automationprojectid']"
+                            },
+                            "authentication": {
+                              "type": "Raw",
+                              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                            }
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "Get_Automation_Project_Record_in_Satellite_Environment": [
+                          "Succeeded"
+                        ]
+                      },
+                      "else": {
+                        "actions": {
+                          "Update_an_Automation_Project_Record": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "71511516-6e25-467f-ae6c-2d9ebf2ee2b3"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "shared_commondataserviceforapps_1",
+                                "operationId": "UpdateRecord",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                              },
+                              "parameters": {
+                                "entityName": "autocoe_automationprojects",
+                                "recordId": "@first(outputs('Get_Automation_Project_Record_in_Satellite_Environment')?['body/value'])?['autocoe_automationprojectid']",
+                                "item/autocoe_automationprojectname": "@outputs('Get_Automation_Project')?['body/autocoe_automationproject']",
+                                "item/autocoe_automationprojectnumber": "@outputs('Get_Automation_Project')?['body/autocoe_automationprojectnumber']",
+                                "item/autocoe_businessowneremail": "@outputs('Get_Automation_Project')?['body/autocoe_businessowneremail']",
+                                "item/autocoe_businessownername": "@outputs('Get_Automation_Project')?['body/autocoe_businessowner']",
+                                "item/autocoe_originalrecordid": "@outputs('Get_Automation_Project')?['body/autocoe_automationprojectid']"
+                              },
+                              "authentication": {
+                                "type": "Raw",
+                                "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "expression": {
+                        "equals": [
+                          "@empty(outputs('Get_Automation_Project_Record_in_Satellite_Environment')?['body/value'])",
+                          "@true"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "e919ba4e-1fcb-472f-b483-74e49e8add97"
+                      },
+                      "type": "If"
+                    }
+                  },
+                  "runAfter": {
+                    "Lookup_Environment_From_Mapping": [
+                      "Succeeded"
+                    ]
+                  },
+                  "expression": {
+                    "equals": [
+                      "@outputs('Lookup_Environment_From_Mapping')?['body/autocoe_environmentguid']",
+                      "@workflow().tags.environmentName"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "f0fabe5b-e528-4a6e-b557-7c45492d3912"
+                  },
+                  "type": "If"
+                },
+                "Lookup_Environment_From_Mapping": {
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "67b7e479-f211-4c86-855f-2b0d9d6e51b3"
+                  },
+                  "type": "OpenApiConnection",
+                  "inputs": {
+                    "host": {
+                      "connectionName": "shared_commondataservice_1",
+                      "operationId": "GetItem_V2",
+                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                    },
+                    "parameters": {
+                      "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                      "table": "autocoe_environments",
+                      "id": "@item()?['autocoe_environmentid']"
+                    },
+                    "authentication": {
+                      "type": "Raw",
+                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                    }
+                  }
+                }
+              },
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "2f1c8b6d-accc-435e-9833-3c85976f9510"
+              },
+              "type": "Foreach"
+            }
+          },
+          "runAfter": {
+            "Loop_Through_Automation_Project_Environment_Mappings": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Get_Environment_Mapping_Fallback_Configuration": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "c1ab6b81-f24e-4b42-85e2-8ed7060738d7"
+                },
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "host": {
+                    "connectionName": "shared_commondataservice_1",
+                    "operationId": "GetItems_V2",
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                  },
+                  "parameters": {
+                    "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                    "table": "autocoe_baseconfigurations",
+                    "$top": 1
+                  },
+                  "authentication": {
+                    "type": "Raw",
+                    "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                  }
+                }
+              },
+              "Do_we_have_a_base_configuration_with_environment_fallback": {
+                "actions": {
+                  "Get_fallback_environment_record": {
+                    "runAfter": {},
+                    "metadata": {
+                      "operationMetadataId": "884cecb0-5d74-4fa3-a4e0-da6a17263e31"
+                    },
+                    "type": "OpenApiConnection",
+                    "inputs": {
+                      "host": {
+                        "connectionName": "shared_commondataservice_1",
+                        "operationId": "GetItem_V2",
+                        "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                      },
+                      "parameters": {
+                        "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                        "table": "autocoe_environments",
+                        "id": "@first(outputs('Get_Environment_Mapping_Fallback_Configuration')?['body/value'])?['autocoe_fallbackenvironment']"
+                      },
+                      "authentication": {
+                        "type": "Raw",
+                        "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                      }
+                    }
+                  },
+                  "Does_fallback_match_current_environment": {
+                    "actions": {
+                      "Get_all_approved_Automation_Projects_from_CoE_Main": {
+                        "runAfter": {},
+                        "metadata": {
+                          "operationMetadataId": "5e28f8db-8d99-4cbe-b5fb-8ca3ba777e82"
+                        },
+                        "type": "OpenApiConnection",
+                        "inputs": {
+                          "host": {
+                            "connectionName": "shared_commondataservice_1",
+                            "operationId": "GetItems_V2",
+                            "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+                          },
+                          "parameters": {
+                            "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+                            "table": "autocoe_automationprojects",
+                            "$filter": "autocoe_automationprojectstatus eq 333820002"
+                          },
+                          "authentication": {
+                            "type": "Raw",
+                            "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                          }
+                        }
+                      },
+                      "Apply_to_each_Automation_Project": {
+                        "foreach": "@outputs('Get_all_approved_Automation_Projects_from_CoE_Main')?['body/value']",
+                        "actions": {
+                          "Get_Automation_Project_Record_in_Satellite_Env": {
+                            "runAfter": {},
+                            "metadata": {
+                              "operationMetadataId": "644c5548-7bde-4877-a298-cf3d75652a6f"
+                            },
+                            "type": "OpenApiConnection",
+                            "inputs": {
+                              "host": {
+                                "connectionName": "shared_commondataserviceforapps_1",
+                                "operationId": "ListRecords",
+                                "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                              },
+                              "parameters": {
+                                "entityName": "autocoe_automationprojects",
+                                "$filter": "autocoe_automationprojectnumber eq '@{items('Apply_to_each_Automation_Project')?['autocoe_automationprojectnumber']}'"
+                              },
+                              "authentication": {
+                                "type": "Raw",
+                                "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                              }
+                            }
+                          },
+                          "Is_this_a_new_Automation_Project_record_in_Satellite": {
+                            "actions": {
+                              "Add_a_new_Automation_Project_to_Satellite": {
+                                "runAfter": {},
+                                "metadata": {
+                                  "operationMetadataId": "fad55dc3-e083-4831-bef6-70fac04271ba"
+                                },
+                                "type": "OpenApiConnection",
+                                "inputs": {
+                                  "host": {
+                                    "connectionName": "shared_commondataserviceforapps_1",
+                                    "operationId": "CreateRecord",
+                                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                  },
+                                  "parameters": {
+                                    "entityName": "autocoe_automationprojects",
+                                    "item/autocoe_automationprojectname": "@items('Apply_to_each_Automation_Project')?['autocoe_automationproject']",
+                                    "item/autocoe_automationprojectnumber": "@items('Apply_to_each_Automation_Project')?['autocoe_automationprojectnumber']",
+                                    "item/autocoe_businessowneremail": "@items('Apply_to_each_Automation_Project')?['autocoe_businessowneremail']",
+                                    "item/autocoe_businessownername": "@items('Apply_to_each_Automation_Project')?['autocoe_businessowner']",
+                                    "item/autocoe_originalrecordid": "@items('Apply_to_each_Automation_Project')?['autocoe_automationprojectid']"
+                                  },
+                                  "authentication": {
+                                    "type": "Raw",
+                                    "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                                  }
+                                }
+                              }
+                            },
+                            "runAfter": {
+                              "Get_Automation_Project_Record_in_Satellite_Env": [
+                                "Succeeded"
+                              ]
+                            },
+                            "else": {
+                              "actions": {
+                                "Update_an_Automation_Project_to_Satellite": {
+                                  "runAfter": {},
+                                  "metadata": {
+                                    "operationMetadataId": "71511516-6e25-467f-ae6c-2d9ebf2ee2b3"
+                                  },
+                                  "type": "OpenApiConnection",
+                                  "inputs": {
+                                    "host": {
+                                      "connectionName": "shared_commondataserviceforapps_1",
+                                      "operationId": "UpdateRecord",
+                                      "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                                    },
+                                    "parameters": {
+                                      "entityName": "autocoe_automationprojects",
+                                      "recordId": "@first(outputs('Get_Automation_Project_Record_in_Satellite_Env')?['body/value']?['body/value'])?['autocoe_automationprojectid']",
+                                      "item/autocoe_automationprojectname": "@items('Apply_to_each_Automation_Project')?['autocoe_automationproject']",
+                                      "item/autocoe_automationprojectnumber": "@items('Apply_to_each_Automation_Project')?['autocoe_automationprojectnumber']",
+                                      "item/autocoe_businessowneremail": "@items('Apply_to_each_Automation_Project')?['autocoe_businessowneremail']",
+                                      "item/autocoe_businessownername": "@items('Apply_to_each_Automation_Project')?['autocoe_businessowner']",
+                                      "item/autocoe_originalrecordid": "@items('Apply_to_each_Automation_Project')?['autocoe_automationprojectid']"
+                                    },
+                                    "authentication": {
+                                      "type": "Raw",
+                                      "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "expression": {
+                              "equals": [
+                                "@empty(outputs('Get_Automation_Project_Record_in_Satellite_Env')?['body/value'])",
+                                "@true"
+                              ]
+                            },
+                            "metadata": {
+                              "operationMetadataId": "e919ba4e-1fcb-472f-b483-74e49e8add97"
+                            },
+                            "type": "If"
+                          }
+                        },
+                        "runAfter": {
+                          "Get_all_approved_Automation_Projects_from_CoE_Main": [
+                            "Succeeded"
+                          ]
+                        },
+                        "metadata": {
+                          "operationMetadataId": "de079ea7-6490-4693-972c-709edd4eae82"
+                        },
+                        "type": "Foreach"
+                      }
+                    },
+                    "runAfter": {
+                      "Get_fallback_environment_record": [
+                        "Succeeded"
+                      ]
+                    },
+                    "expression": {
+                      "equals": [
+                        "@outputs('Get_fallback_environment_record')?['body/autocoe_environmentguid']",
+                        "@parameters('Environment Id (autocoe_EnvironmentId)')"
+                      ]
+                    },
+                    "metadata": {
+                      "operationMetadataId": "398e7898-8931-4cc1-831a-bfb9988e4811"
+                    },
+                    "type": "If"
+                  }
+                },
+                "runAfter": {
+                  "Get_Environment_Mapping_Fallback_Configuration": [
+                    "Succeeded"
+                  ]
+                },
+                "expression": {
+                  "not": {
+                    "equals": [
+                      "@first(outputs('Get_Environment_Mapping_Fallback_Configuration')?['body/value'])?['autocoe_fallbackenvironment']",
+                      "@null"
+                    ]
+                  }
+                },
+                "metadata": {
+                  "operationMetadataId": "9a8476ea-18d9-4ecc-bb87-baff353c13b7"
+                },
+                "type": "If"
+              }
+            }
+          },
+          "expression": {
+            "greater": [
+              "@length(outputs('Loop_Through_Automation_Project_Environment_Mappings')?['body/value'])",
+              0
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "52c844df-f4fe-42c2-81b5-f704ba9ad172"
+          },
+          "type": "If"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

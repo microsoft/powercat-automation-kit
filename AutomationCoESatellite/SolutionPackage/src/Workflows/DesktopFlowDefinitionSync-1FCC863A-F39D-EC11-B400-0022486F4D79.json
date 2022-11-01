@@ -1,0 +1,182 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_DLPImpactAnalysisDataverse"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Desktop Flows Base URL (autocoe_DesktopFlowsBaseURL)": {
+          "defaultValue": "https://us.flow.microsoft.com/manage/environments/",
+          "type": "String",
+          "metadata": {
+            "schemaName": "autocoe_DesktopFlowsBaseURL",
+            "description": "The Base URL for Desktop Flows in Power Automate Portal e.g. https://germany.flow.microsoft.com/manage/environments/"
+          }
+        },
+        "Store Extracted Script (autocoe_StoreExtractedScript)": {
+          "defaultValue": true,
+          "type": "Bool",
+          "metadata": {
+            "schemaName": "autocoe_StoreExtractedScript",
+            "description": "Indicates whether the extracted Desktop Flow Script should also be store in Dataverse or just the DLP Impact profile."
+          }
+        }
+      },
+      "triggers": {
+        "When_Desktop_Flow_is_added_or_modified": {
+          "metadata": {
+            "operationMetadataId": "cf39ec4d-1062-4520-b59c-4cbbe47cfbca"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 4,
+              "subscriptionRequest/entityname": "workflow",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "conditions": [
+            {
+              "expression": "@equals(triggerBody()?['category'],6)"
+            }
+          ],
+          "description": "@equals(triggerBody()?['category'],6)"
+        }
+      },
+      "actions": {
+        "Search_for_Workflow_Id": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "9711fde6-f61f-4837-8bb7-72a333ffb884"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_desktopflowdefinitions",
+              "$filter": "_autocoe_desktopflow_value eq @{triggerOutputs()?['body/workflowid']}"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Extract_and_Analyze_Desktop_Flow_Script_for_DLP_Impact_Profiling": {
+          "runAfter": {
+            "Upsert_Desktop_Flow_Definition": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "96ddb926-4444-497f-831f-7d11691aa8fb"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "AutoCoE_DesktopFlowDefinitionAnalysis",
+              "item/StoreExtractedScript": "@parameters('Store Extracted Script (autocoe_StoreExtractedScript)')",
+              "item/DesktopFlowDefinitionId": "@outputs('Upsert_Desktop_Flow_Definition')?['body/autocoe_desktopflowdefinitionid']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Get_Owner_Record": {
+          "runAfter": {
+            "Search_for_Workflow_Id": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "65cb998e-7b73-4014-b7d2-acfc00eaa661"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "GetItem",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "systemusers",
+              "recordId": "@triggerOutputs()?['body/_ownerid_value']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "Upsert_Desktop_Flow_Definition": {
+          "runAfter": {
+            "FlowBaseURL_-_Variable_view": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "7afa89b5-d0f2-452e-b475-1121da032140"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "UpdateRecord",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_desktopflowdefinitions",
+              "recordId": "@if(equals(first(outputs('Search_for_Workflow_Id')?['body/value'])?['autocoe_desktopflowdefinitionid'], null), guid(), first(outputs('Search_for_Workflow_Id')?['body/value'])?['autocoe_desktopflowdefinitionid'])",
+              "item/autocoe_DesktopFlow@odata.bind": "/workflows(@{triggerOutputs()?['body/workflowid']})",
+              "item/autocoe_desktopflowurl": "@{parameters('Desktop Flows Base URL (autocoe_DesktopFlowsBaseURL)')}@{workflow()['tags']['environmentName']}/uiflows/@{triggerOutputs()?['body/workflowid']}/details",
+              "item/autocoe_environmentid": "@workflow()['tags']['environmentName']",
+              "item/autocoe_owneremail": "@outputs('Get_Owner_Record')?['body/internalemailaddress']",
+              "item/autocoe_ownername": "@outputs('Get_Owner_Record')?['body/fullname']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        },
+        "FlowBaseURL_-_Variable_view": {
+          "runAfter": {
+            "Get_Owner_Record": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "81f46968-f136-4de2-acba-4650a7f1493a"
+          },
+          "type": "Compose",
+          "inputs": "@parameters('Desktop Flows Base URL (autocoe_DesktopFlowsBaseURL)')"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

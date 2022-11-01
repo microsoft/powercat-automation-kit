@@ -1,0 +1,181 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataservice_1": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_DataverseLegacyAutoCoEMain"
+        },
+        "api": {
+          "name": "shared_commondataservice"
+        }
+      },
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_DataverseAutoCoESatellitecurrent"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)": {
+          "defaultValue": "unqda99ac46cfcd47eba73db6d73de2e.crm",
+          "type": "String",
+          "metadata": {
+            "schemaName": "autocoe_EnvironmentUniqueNameofCoEMain",
+            "description": "This is the unique name of the environment where the Automation CoE Main has been installed."
+          }
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "b7e2ccab-3ddc-43dc-939e-31fb72bfcf29"
+          },
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "List_Desktop_Flow_Actions_from_CoE_Main": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "3adee9ca-1d56-4642-8475-caf15f57adbc"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataservice_1",
+              "operationId": "GetItems_V2",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataservice"
+            },
+            "parameters": {
+              "dataset": "@parameters('Environment Unique Name of CoE Main (autocoe_EnvironmentUniqueNameofCoEMain)')",
+              "table": "autocoe_desktopflowactions"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "List_local_Desktop_Flow_Actions": {
+          "runAfter": {
+            "List_Desktop_Flow_Actions_from_CoE_Main": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9252b38f-e6c3-4416-be82-084d40be9b0c"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "ListRecords",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "entityName": "autocoe_desktopflowactions"
+            },
+            "authentication": {
+              "type": "Raw",
+              "value": "@json(decodeBase64(triggerOutputs().headers['X-MS-APIM-Tokens']))['$ConnectionKey']"
+            }
+          }
+        },
+        "Select_Desktop_Flow_Actions_from_CoE_Main": {
+          "runAfter": {
+            "List_local_Desktop_Flow_Actions": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e8e7adcc-4589-4ad3-ac7c-3cb9ef1f5573"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('List_Desktop_Flow_Actions_from_CoE_Main')?['body/value']",
+            "select": {
+              "Action Name": "@item()?['autocoe_actionname']",
+              "DLP Support": "@item()?['autocoe_dlpsupport']",
+              "Module Display Name": "@item()?['autocoe_moduledisplayname']",
+              "Module Name": "@item()?['autocoe_modulename']",
+              "Module Source": "@item()?['autocoe_modulesource']",
+              "Selector Id": "@item()?['autocoe_selectorid']"
+            }
+          }
+        },
+        "Select_local_Desktop_Flow_Actions": {
+          "runAfter": {
+            "Select_Desktop_Flow_Actions_from_CoE_Main": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "10b68611-de73-4166-82e5-512b7c3f317b"
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@outputs('List_local_Desktop_Flow_Actions')?['body/value']",
+            "select": {
+              "Action Name": "@item()?['autocoe_actionname']",
+              "DLP Support": "@item()?['autocoe_dlpsupport']",
+              "Module Display Name": "@item()?['autocoe_moduledisplayname']",
+              "Module Name": "@item()?['autocoe_modulename']",
+              "Module Source": "@item()?['autocoe_modulesource']",
+              "Selector Id": "@item()?['autocoe_selectorid']"
+            }
+          }
+        },
+        "Union": {
+          "runAfter": {
+            "Select_local_Desktop_Flow_Actions": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "3272f559-18b3-4036-8d36-444cea475dc5"
+          },
+          "type": "Compose",
+          "inputs": "@union(body('Select_local_Desktop_Flow_Actions'),body('Select_Desktop_Flow_Actions_from_CoE_Main'))"
+        },
+        "Intersect": {
+          "runAfter": {
+            "Union": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "563adcf0-1ea7-4c0e-91c4-f7f6d32a1ed4"
+          },
+          "type": "Compose",
+          "inputs": "@intersection(body('Select_local_Desktop_Flow_Actions'),body('Select_Desktop_Flow_Actions_from_CoE_Main'))"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
