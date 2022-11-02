@@ -1,0 +1,644 @@
+scr_IdeasDashboard As screen:
+    LoadingSpinner: =LoadingSpinner.Controls
+    OnVisible: |
+        =UpdateContext(
+            {
+                _selectedProject: Blank(),
+                var_BusinessOwnerDisplayName: Blank(),
+                var_BusinessOwnerEmail: Blank(),
+                _showShimmer: true
+            }
+        );
+        ClearCollect(col_Projects, 'Automation Projects');
+        
+        Set(
+            varFormMode,
+            FormMode.New
+        );
+        UpdateContext({_showShimmer: false});
+
+    c_NewIdeaRoot_1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        PaddingRight: =0.00
+        PaddingTop: =0.00
+        Width: =Parent.Width
+        X: =0.00
+        ZIndex: =1
+
+        c_NewIdeaHeader_1 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingRight: =0.00
+            PaddingTop: =0.00
+            Width: =Parent.Width
+            X: =0.00
+            ZIndex: =1
+
+            cmp_Header_3 As cmp_Header_1:
+                AppTitle: ="AUTOMATION PROJECT"
+                CompanyLogo: =Paw_Light
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                ZIndex: =2
+
+        c_NewIdeaMainSec_1 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            Width: =App.Width
+            ZIndex: =2
+
+            cmp_NavigationControl_5 As cmp_NavigationControl:
+                AlignInContainer: =AlignInContainer.Center
+                Height: =Parent.Height
+                Items: =col_MainNav
+                LayoutMinHeight: =640
+                LayoutMinWidth: =640
+                Width: =If(cmp_NavigationControl_5.IsExpanded, 200, 60)
+
+            c_NewIdeaMainContent_1 As groupContainer.verticalAutoLayoutContainer:
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width
+                ZIndex: =2
+
+                c_NewIdeaFilterHeader_1 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =60
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutGap: =10
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =200
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingBottom: =10
+                    PaddingLeft: =10
+                    PaddingRight: =10
+                    PaddingTop: =10
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    txt_ProjectNameFilter As text:
+                        BorderColor: =BorderColorValue
+                        Default: =""
+                        EnableSpellCheck: =true
+                        Fill: =White
+                        FillPortions: =1
+                        HintText: ="Search project name..."
+                        HoverBorderColor: =HoverBorderColorValue
+                        HoverColor: =ColorFade(txt_ProjectNameFilter.Color, 20%)
+                        HoverFill: =ColorFade(txt_ProjectNameFilter.Fill, 20%)
+                        LayoutMinWidth: =150
+                        PressedBorderColor: =txt_ProjectNameFilter.HoverBorderColor
+                        PressedColor: =txt_ProjectNameFilter.Color
+                        PressedFill: =txt_ProjectNameFilter.Fill
+                        Tooltip: ="Search project name"
+                        ZIndex: =1
+
+                    cmb_ProjectStatusFilter As combobox:
+                        BorderColor: =BorderColorValue
+                        ChevronBackground: =Transparent
+                        ChevronFill: =PrimaryColor1TextValue
+                        ChevronHoverBackground: =ColorFade(cmb_ProjectStatusFilter.ChevronBackground, 20%)
+                        ChevronHoverFill: =ColorFade(cmb_ProjectStatusFilter.ChevronFill, 20%)
+                        DefaultSelectedItems: =
+                        DisplayFields: =["Value"]
+                        Fill: =White
+                        HoverBorderColor: =HoverBorderColorValue
+                        HoverColor: =ColorFade(cmb_ProjectStatusFilter.Color, 20%)
+                        HoverFill: =RGBA(212, 212, 212, 1)
+                        IsSearchable: =false
+                        Items: =Choices('Automation Projects'.'Automation Project Status')
+                        MoreItemsButtonColor: =Self.ChevronBackground
+                        NoSelectionText: ="Project Status"
+                        PressedBorderColor: =cmb_ProjectStatusFilter.HoverBorderColor
+                        PressedFill: =PrimaryColor1Value
+                        SearchFields: =["Value"]
+                        SearchItems: =[]
+                        SelectionFill: =SelectionFillValue
+                        SelectMultiple: =false
+                        Tooltip: ="Filter project status"
+                        ZIndex: =2
+
+                    ico_Refresh As icon.Reload:
+                        BorderColor: =ColorFade(ico_Refresh.Fill, -20%)
+                        Color: =PrimaryColor2Value
+                        DisabledFill: =ColorFade(ico_Refresh.Fill, -80%)
+                        Height: =40
+                        HoverBorderColor: =ColorFade(ico_Refresh.BorderColor, 20%)
+                        HoverColor: =ColorFade(ico_Refresh.Color, 20%)
+                        HoverFill: =ColorFade(ico_Refresh.Fill, 20%)
+                        Icon: =Icon.Reload
+                        OnSelect: |-
+                            =UpdateContext({_showShimmer:true});
+                            Refresh('Automation Projects');
+                            Reset(txt_ProjectNameFilter);
+                            Reset(cmb_ProjectStatusFilter);
+                            ClearCollect(col_Projects, 'Automation Projects');
+                            UpdateContext({_showShimmer:false});
+                        PaddingBottom: =8
+                        PaddingLeft: =8
+                        PaddingRight: =8
+                        PaddingTop: =8
+                        PressedBorderColor: =ColorFade(ico_Refresh.BorderColor, -20%)
+                        PressedColor: =ColorFade(ico_Refresh.Color, -20%)
+                        PressedFill: =ColorFade(ico_Refresh.Fill, -20%)
+                        Tooltip: ="Reset filters"
+                        ZIndex: =3
+
+                    ico_NewProject1 As icon.Add:
+                        BorderColor: =ColorFade(ico_NewProject1.Fill, -20%)
+                        Color: =PrimaryColor2Value
+                        DisabledFill: =ColorFade(ico_NewProject1.Fill, -80%)
+                        Height: =40
+                        HoverBorderColor: =ColorFade(ico_NewProject1.BorderColor, 20%)
+                        HoverColor: =ColorFade(ico_NewProject1.Color, 20%)
+                        HoverFill: =ColorFade(ico_NewProject1.Fill, 20%)
+                        Icon: =Icon.Add
+                        OnSelect: |-
+                            =Set(varFormMode, FormMode.New);
+                            Navigate(scr_NewIdea,ScreenTransition.Fade)
+                        PaddingBottom: =8
+                        PaddingLeft: =8
+                        PaddingRight: =8
+                        PaddingTop: =8
+                        PressedBorderColor: =ColorFade(ico_NewProject1.BorderColor, -20%)
+                        PressedColor: =ColorFade(ico_NewProject1.Color, -20%)
+                        PressedFill: =ColorFade(ico_NewProject1.Fill, -20%)
+                        Tooltip: ="New project"
+                        Visible: =If(isProjectAdmin = true || isProjectContributor = true, true, false)
+                        ZIndex: =4
+
+                c_NewIdeaForm_1 As groupContainer.horizontalAutoLayoutContainer:
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =App.Width
+                    ZIndex: =2
+
+                    Container10_2 As groupContainer.manualLayoutContainer:
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        Width: =Parent.Width
+                        ZIndex: =1
+
+                        Container12_1 As groupContainer.verticalAutoLayoutContainer:
+                            Height: =Parent.Height
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingBottom: =10
+                            PaddingLeft: =10
+                            PaddingRight: =10
+                            PaddingTop: =10
+                            Width: =Parent.Width
+                            ZIndex: =2
+
+                            "'gal_Project Dashboard_1' As gallery.galleryVertical":
+                                Height: =600
+                                Items: |-
+                                    =If(
+                                        isProjectAdmin = true,
+                                        SortByColumns(
+                                            Filter(
+                                                col_Projects,
+                                                StartsWith(
+                                                    'Automation Project Name',
+                                                    txt_ProjectNameFilter.Text
+                                                ) && ('Automation Project Status' = cmb_ProjectStatusFilter.Selected.Value || cmb_ProjectStatusFilter.Selected.Value = Blank())
+                                            ),
+                                            "autocoe_automationprojectid",
+                                            Descending
+                                        ),
+                                        SortByColumns(
+                                            Filter(
+                                                col_Projects,
+                                                StartsWith(
+                                                    'Automation Project Name',
+                                                    txt_ProjectNameFilter.Text
+                                                ) && ('Automation Project Status' = cmb_ProjectStatusFilter.Selected.Value || cmb_ProjectStatusFilter.Selected.Value = Blank()) && 'Created By'.'Primary Email' = User().Email
+                                            ),
+                                            "autocoe_automationprojectid",
+                                            Descending
+                                        )
+                                    )
+                                Layout: =Layout.Vertical
+                                LayoutMinHeight: =287
+                                LayoutMinWidth: =320
+                                ShowScrollbar: =false
+                                TemplatePadding: =10
+                                TemplateSize: =250 //If(Self.Layout = Layout.Horizontal, Min(280, Self.Width - 60), Min(280, Self.Height - 60))
+                                Width: =Parent.Width
+                                WrapCount: |-
+                                    =If(
+                                        App.Width < 1280,
+                                        1,
+                                        App.Width >= 1280 && App.Width < 1800,
+                                        2,
+                                        App.Width >= 1800 && App.Width < 2250,
+                                        3,
+                                        4
+                                    )
+                                ZIndex: =1
+
+                                Html_ShadowBoxGal_1 As htmlViewer:
+                                    Height: =Parent.Height
+                                    HtmlText: |-
+                                        ="<div style='width:" & 'gal_Project Dashboard_1'.TemplateWidth - 10 & "px; height:" & 'gal_Project Dashboard_1'.TemplateHeight - 10 & "px; " & "background: #ffffff; box-shadow: 5px 5px 10px -2px rgba(0,0,0,0.2);border-radius: 10px'></div>"
+                                    OnSelect: =Select(Parent)
+                                    PaddingBottom: =20
+                                    PaddingLeft: =0
+                                    PaddingRight: =0
+                                    PaddingTop: =20
+                                    Width: =Parent.Width
+                                    ZIndex: =1
+
+                                c_ProjDashboard_1 As groupContainer.verticalAutoLayoutContainer:
+                                    Height: =Parent.TemplateHeight - 10
+                                    LayoutDirection: =LayoutDirection.Vertical
+                                    LayoutGap: =2
+                                    LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                    LayoutMode: =LayoutMode.Auto
+                                    PaddingBottom: =5
+                                    PaddingLeft: =20
+                                    PaddingRight: =15
+                                    PaddingTop: =5
+                                    Width: =Parent.TemplateWidth
+                                    Y: =21
+                                    ZIndex: =2
+
+                                    Container3 As groupContainer.horizontalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =70
+                                        LayoutAlignItems: =LayoutAlignItems.Center
+                                        LayoutGap: =15
+                                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        LayoutWrap: =true
+                                        PaddingBottom: =5
+                                        PaddingLeft: =5
+                                        PaddingRight: =20
+                                        PaddingTop: =5
+                                        Width: =Parent.Width
+                                        ZIndex: =2
+
+                                        Label3 As label:
+                                            FillPortions: =1
+                                            FontWeight: =FontWeight.Bold
+                                            Size: =TextEmphasisFontSizeValue
+                                            Text: =ThisItem.'Automation Project Name'
+                                            ZIndex: =1
+
+                                        Button1_3 As button:
+                                            BorderColor: =Self.Color
+                                            BorderThickness: =1
+                                            Color: |-
+                                                =ColorValue(
+                                                    If(
+                                                        ThisItem.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Approved,
+                                                        "#248e5b",//Green
+                                                        ThisItem.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Declined,
+                                                        "#fa0606",//Red
+                                                        ThisItem.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Saved,
+                                                        "#818181",
+                                                        ThisItem.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Submitted,
+                                                        "#1a70a0"
+                                                    )
+                                                )
+                                            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                                            DisplayMode: =DisplayMode.View
+                                            Fill: |-
+                                                =ColorValue(
+                                                    If(
+                                                        ThisItem.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Approved,
+                                                        "#d6ede2",//Green
+                                                        ThisItem.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Declined,
+                                                        "#f2dcf5",//Red
+                                                        ThisItem.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Saved,
+                                                        "#d4d9e0",
+                                                        ThisItem.'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Submitted,
+                                                        "#ceecfd"
+                                                    )
+                                                )
+                                            FocusedBorderColor: =ColorFade(Self.Fill, -75%)
+                                            FocusedBorderThickness: =4
+                                            Font: =Font.'Segoe UI'
+                                            Height: =30
+                                            HoverBorderColor: =Self.BorderColor
+                                            HoverColor: =Self.Color
+                                            HoverFill: =ColorFade(Self.Fill, -3%)
+                                            LayoutMinWidth: =80
+                                            OnSelect: =
+                                            PressedBorderColor: =ColorFade(RGBA(105, 121, 126, 1), -50%)
+                                            PressedColor: =RGBA(255, 255, 255, 1)
+                                            PressedFill: =ColorFade(RGBA(105, 121, 126, 1), -30%)
+                                            RadiusBottomLeft: =50
+                                            RadiusBottomRight: =50
+                                            RadiusTopLeft: =50
+                                            RadiusTopRight: =50
+                                            Size: =11
+                                            Text: =ThisItem.'Automation Project Status'
+                                            Tooltip: ="Project status"
+                                            VerticalAlign: =VerticalAlign.Bottom
+                                            Width: =120
+                                            X: =26
+                                            Y: =23
+                                            ZIndex: =3
+
+                                        Icon2 As icon.More:
+                                            BorderColor: =ColorFade(Icon2.Fill, -20%)
+                                            Color: =PrimaryColor2Value
+                                            DisabledFill: =ColorFade(Icon2.Fill, -80%)
+                                            Height: =40
+                                            HoverBorderColor: =ColorFade(Icon2.BorderColor, 20%)
+                                            HoverColor: =ColorFade(Icon2.Color, 20%)
+                                            HoverFill: =ColorFade(Icon2.Fill, 20%)
+                                            Icon: =Icon.More
+                                            OnSelect: |-
+                                                =Set(
+                                                    varFormMode,
+                                                    FormMode.View
+                                                );
+                                                UpdateContext({_selectedProject: ThisItem});
+                                                Navigate(
+                                                    scr_NewIdea,
+                                                    ScreenTransition.Fade,
+                                                    {
+                                                        _SelectedProject: _selectedProject,
+                                                        var_BusinessOwnerDisplayName: ThisItem.'Business Owner',
+                                                        var_BusinessOwnerEmail: ThisItem.'Business Owner Email'
+                                                    
+                                                    }
+                                                )
+                                            PaddingBottom: =8
+                                            PaddingLeft: =8
+                                            PaddingRight: =8
+                                            PaddingTop: =8
+                                            PressedBorderColor: =ColorFade(Icon2.BorderColor, -20%)
+                                            PressedColor: =ColorFade(Icon2.Color, -20%)
+                                            PressedFill: =ColorFade(Icon2.Fill, -20%)
+                                            Tooltip: ="View project item"
+                                            Width: =40
+                                            ZIndex: =4
+
+                                    c_CardSectionHeader As groupContainer.horizontalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =30
+                                        LayoutAlignItems: =LayoutAlignItems.Center
+                                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        ZIndex: =3
+
+                                        Label7 As label:
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            LayoutMinWidth: =220
+                                            LineHeight: =1.5
+                                            Text: ="Submitted by"
+                                            ZIndex: =1
+
+                                        Label7_1 As label:
+                                            Align: =Align.Center
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            LayoutMinWidth: =120
+                                            LineHeight: =1.5
+                                            Text: ="Department"
+                                            ZIndex: =2
+
+                                        Label10 As label:
+                                            Align: =Align.Center
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            LineHeight: =1.5
+                                            Text: ="Owner"
+                                            ZIndex: =3
+
+                                    c_CardSectionValues As groupContainer.verticalAutoLayoutContainer:
+                                        Height: =40
+                                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                        LayoutMinHeight: =25
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        ZIndex: =4
+
+                                        Label2 As label:
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            FontWeight: =FontWeight.Bold
+                                            LayoutMinWidth: =220
+                                            LineHeight: =1
+                                            Text: =ThisItem.'Submitted By'
+                                            Tooltip: ="Submitted by"
+                                            VerticalAlign: =VerticalAlign.Top
+                                            ZIndex: =1
+
+                                        Label6_1 As label:
+                                            Align: =Align.Center
+                                            AlignInContainer: =AlignInContainer.Start
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            FontWeight: =FontWeight.Bold
+                                            LayoutMinWidth: =120
+                                            Text: =ThisItem.Department.Name
+                                            Tooltip: ="Department"
+                                            VerticalAlign: =VerticalAlign.Top
+                                            ZIndex: =2
+
+                                        Label6 As label:
+                                            Align: =Align.Center
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            FontWeight: =FontWeight.Bold
+                                            Text: =ThisItem.'Business Owner'
+                                            Tooltip: ="Business Owner"
+                                            ZIndex: =3
+
+                                    c_CardSectionHeader2 As groupContainer.horizontalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =30
+                                        LayoutAlignItems: =LayoutAlignItems.Center
+                                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        ZIndex: =5
+
+                                        Label13 As label:
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            LayoutMinWidth: =200
+                                            Text: ="Project Number"
+                                            ZIndex: =1
+
+                                        Label15 As label:
+                                            Align: =Align.Center
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            LayoutMinWidth: =70
+                                            Text: ="ROI"
+                                            ZIndex: =3
+
+                                        Label26 As label:
+                                            Align: =Align.Center
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            LayoutMinWidth: =60
+                                            Text: ="Score"
+                                            Width: =130
+                                            ZIndex: =4
+
+                                    c_CardSectionValues2 As groupContainer.horizontalAutoLayoutContainer:
+                                        FillPortions: =0
+                                        Height: =50
+                                        LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                                        LayoutMinHeight: =100
+                                        LayoutMinWidth: =250
+                                        LayoutMode: =LayoutMode.Auto
+                                        ZIndex: =6
+
+                                        Label20 As label:
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            FontWeight: =FontWeight.Bold
+                                            LayoutMinWidth: =200
+                                            Text: =ThisItem.'Automation Project Number'
+                                            Tooltip: ="Main Driver"
+                                            ZIndex: =1
+
+                                        Label22 As label:
+                                            Align: =Align.Center
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            FontWeight: =FontWeight.Bold
+                                            LayoutMinWidth: =70
+                                            Text: =If(!IsBlank(ThisItem.'ROI Saving Potential'), "$" & ThisItem.'ROI Saving Potential', "-")
+                                            Tooltip: ="Potential ROI"
+                                            Width: =50
+                                            ZIndex: =3
+
+                                        Label27 As label:
+                                            Align: =Align.Center
+                                            AutoHeight: =true
+                                            FillPortions: =1
+                                            FontWeight: =FontWeight.Bold
+                                            LayoutMinWidth: =60
+                                            Text: =If(!IsBlank(ThisItem.'Complexity Score'),""& ThisItem.'Complexity Score' , "-")
+                                            Tooltip: ="Complexity score"
+                                            Width: =70
+                                            ZIndex: =4
+
+                                shimmer_Dashboard As image:
+                                    BorderColor: =ColorFade(shimmer_Dashboard.Fill, -20%)
+                                    Height: =227
+                                    HoverBorderColor: =ColorFade(shimmer_Dashboard.BorderColor, 20%)
+                                    HoverFill: =ColorFade(shimmer_Dashboard.Fill, 20%)
+                                    Image: ='Shimmer complex'
+                                    ImagePosition: =ImagePosition.Stretch
+                                    OnSelect: =
+                                    PaddingBottom: =
+                                    PaddingLeft: =
+                                    PaddingRight: =
+                                    PaddingTop: =
+                                    PressedBorderColor: =ColorFade(shimmer_Dashboard.BorderColor, -20%)
+                                    PressedFill: =ColorFade(shimmer_Dashboard.Fill, -20%)
+                                    Visible: =_showShimmer
+                                    Width: =Parent.TemplateWidth - 20
+                                    X: =4
+                                    Y: =21
+                                    ZIndex: =3
+
+            Container16 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =180
+                ZIndex: =3
+
+                Container17 As groupContainer.verticalAutoLayoutContainer:
+                    FillPortions: =0
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    cmp_SideDetailsBar_1 As cmp_SideDetailsBar:
+                        AlignInContainer: =AlignInContainer.Start
+                        DetailsTable: |-
+                            =Table(
+                                {
+                                    Title: "Approved",
+                                    Value: If(
+                                        isProjectAdmin,
+                                        CountIf(
+                                            col_Projects,
+                                            'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Approved
+                                        ),
+                                        CountIf(
+                                            col_Projects,
+                                            'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Approved && 'Created By'.'Primary Email' = User().Email
+                                        )
+                                    )
+                                },
+                                {
+                                    Title: "Declined",
+                                    Value: If(
+                                        isProjectAdmin,
+                                        CountIf(
+                                            col_Projects,
+                                            'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Declined
+                                        ),
+                                        CountIf(
+                                            col_Projects,
+                                            'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Declined && 'Created By'.'Primary Email' = User().Email
+                                        )
+                                    )
+                                },
+                                {
+                                    Title: "Saved",
+                                   Value: If(
+                                        isProjectAdmin,
+                                        CountIf(
+                                            col_Projects,
+                                            'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Saved
+                                        ),
+                                        CountIf(
+                                            col_Projects,
+                                            'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Saved && 'Created By'.'Primary Email' = User().Email
+                                        )
+                                    )
+                                },
+                                {
+                                    Title: "Submitted",
+                                   Value: If(
+                                        isProjectAdmin,
+                                        CountIf(
+                                            col_Projects,
+                                            'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Submitted
+                                        ),
+                                        CountIf(
+                                            col_Projects,
+                                            'Automation Project Status' = 'Automation Project Status (Automation Projects)'.Submitted && 'Created By'.'Primary Email' = User().Email
+                                        )
+                                    )
+                                }
+                            )
+                        FillPortions: =1
+                        LayoutMinHeight: =640
+                        LayoutMinWidth: =640
+                        ZIndex: =2
+
