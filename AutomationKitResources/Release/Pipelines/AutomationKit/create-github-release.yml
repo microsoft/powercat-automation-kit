@@ -35,14 +35,14 @@ steps:
   displayName: 'Download Automation Kit Main solution'
 
 # Download the artifacts from the latest deployment of Main to production.
-# - task: DownloadPipelineArtifact@2
-#   inputs:
-#     source: 'specific'
-#     project: 'powercat-automation-kit'
-#     pipeline: '2100'
-#     runVersion: 'latest'
-#     patterns: '**/AutomationCoESatellite*.zip'
-#   displayName: 'Download Automation CoE Satellite solution'
+- task: DownloadPipelineArtifact@2
+  inputs:
+    source: 'specific'
+    project: 'powercat-automation-kit'
+    pipeline: '2100'
+    runVersion: 'latest'
+    patterns: '**/AutomationCoESatellite*.zip'
+  displayName: 'Download Automation CoE Satellite solution'
 
 - powershell: |
     New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
