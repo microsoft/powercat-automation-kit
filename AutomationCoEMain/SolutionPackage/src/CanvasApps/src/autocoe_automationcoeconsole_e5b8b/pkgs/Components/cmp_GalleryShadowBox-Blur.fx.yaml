@@ -1,0 +1,74 @@
+"'cmp_GalleryShadowBox-Blur' As CanvasComponent":
+    CardHeight: =100
+    CardItems: |-
+        =Table({SampleStringField: "SampleText", SampleNumberField: 10, SampleBooleanField: true})
+    CardWidth: =500
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =640
+    Width: =1200
+    X: =0
+    Y: =0
+    ZIndex: =7
+
+    gal_TemplateCard_2 As gallery.galleryVertical:
+        BorderColor: =RGBA(166, 166, 166, 1)
+        Height: =640
+        Items: |-
+            =Table({Id: 1, Name: "Column1"},{Id: 2, Name: "Column2"},{Id: 3, Name: "Column3"},{Id: 4, Name: "Column4"})
+        Layout: =Layout.Vertical
+        TemplateSize: =196
+        Width: =956
+        WrapCount: |-
+            =If(
+                App.Width < 1280,
+                1,
+                App.Width >= 1280 && App.Width < 1800,
+                2,
+                App.Width >= 1800 && App.Width < 2250,
+                3,
+                4
+            )
+        ZIndex: =1
+
+        Html_card1_3 As htmlViewer:
+            Height: =196
+            HtmlText: |-
+                ="<div style='
+                    margin: left;
+                    width: " & Html_card1_3.Width - 35 & "px;
+                    height: " & Html_card1_3.Height - 35 & "px;
+                    border: 3px solid #C8C8C8;
+                         box-shadow:
+                                2px 2px 2px rgba(0,0,0,0.12), 
+                                4px 4px 4px rgba(0,0,0,0.16), 
+                                4px 8px 8px rgba(0,0,0,0.20),
+                                8px 10px 10px rgba(0,0,0,0.30);
+                    border-radius: 10px;
+                    background: #ffffff;'>
+                </div>"
+            OnSelect: =Select(Parent)
+            Width: =470.5
+            ZIndex: =1
+
+        Label5_1 As label:
+            Align: =Align.Right
+            BorderColor: =RGBA(0, 0, 0, 0)
+            BorderStyle: =BorderStyle.None
+            BorderThickness: =2
+            Color: =RGBA(51, 51, 51, 1)
+            DisabledBorderColor: =RGBA(0, 0, 0, 0)
+            DisabledFill: =RGBA(0, 0, 0, 0)
+            Fill: =RGBA(0, 0, 0, 0)
+            FocusedBorderThickness: =4
+            Font: =Font.'Segoe UI'
+            OnSelect: =Select(Parent)
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Size: =13
+            Text: =ThisItem.Id
+            X: =285
+            Y: =12
+            ZIndex: =4
+
