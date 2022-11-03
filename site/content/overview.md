@@ -7,6 +7,10 @@ sidebarlogo: fresh-white
 
 <div class="optional">
 
+{{<toc>}}
+
+## Welcome
+
 ![Public Preview Status](/images/illustrations/status-public-preview.svg)
 
 Welcome to the public preview of the {{<product-name>}}. To begin select the first page below and **swipe to the left / right** or **use your keyboard left, right keys** to view each page of the overview.
@@ -20,6 +24,12 @@ Welcome to the public preview of the {{<product-name>}}. To begin select the fir
 <div class="optional">
 
 {{<presentationStyles>}}
+
+## Next Steps
+
+- [Get Started](/get-started) with setting up the Automation Kit
+- Explore optional [Data Packs](/features/datapacks) to load sample data
+- Investigate how [ALM](/features/alm) can help you automate deployment of your solutions
 
 ## Feedback
 
