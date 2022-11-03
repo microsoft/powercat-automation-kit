@@ -54,11 +54,11 @@ Key features in this release:
 
 ## Release Notes
 
-Included with [Automation Kit - December 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022) for bugs and issues closed
+Included with [Automation Kit - January 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023) for bugs and issues closed
 
 ## Release Assets
 
-- [Automation Kit - December 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022)
+- [Automation Kit - January 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023)
 
 ## Release History
 
