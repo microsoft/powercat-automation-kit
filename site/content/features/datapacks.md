@@ -28,12 +28,14 @@ To get started with this data pack
 pac auth create --url https://contoso.crm.dynamics.com/
 ```
 
-- Download the **AutomationKitROIMain.zip** from [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases)
+- Download the **AutomationKit.zip** from [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases)
+
+- Extract the file **AutomationKit-SampleData.zip** from **AutomationKit.zip**
 
 - Import the data into your environment
 
 ```pwsh
-pac data import -d AutomationKitROIMain.zip --environment https://contoso.crm.dynamics.com/ 
+pac data import -d AutomationKit-SampleData.zip --environment https://contoso.crm.dynamics.com/ 
 ```
 
 - Connect the Power BI Dashboard downloaded from with your environment to explore the imported data. Use [Install Power BI Dashboard](/get-started/install-powerbi-dashboard) for more information
