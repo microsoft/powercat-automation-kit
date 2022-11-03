@@ -12,15 +12,21 @@ Read more on our [Release Milestone Notes](/releases/milestones)
 
 Each release will name a unique code name assigned to make the release identification more memorable. To learn more about the name generation process read [Release Naming](/releases/naming).
 
-## 2022
+## 2023
 
 ### Planned
 
-- [November 2022](/releases/november-2022) - (sharp-archimedes)
+- [January 2023](/releases/january-2023) - (nifty-emmy)
+
+## 2022
+
+### 2022 Planned
 
 - [December 2022](/releases/december-2022) - (zealous-antonelli)
 
-### Released
+### 2022 Released
+
+- [November 2022](/releases/november-2022) - (sharp-archimedes)
 
 - [October 2022](/releases/october-2022) - (upbeat-dhawan)
 

@@ -1,6 +1,6 @@
 ---
-title: December 2022 Release
-description: Automation Kit - December 2022
+title: January 2022 Release
+description: Automation Kit - January 2023
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
@@ -8,9 +8,9 @@ include_footer: true
 
 <div class="optional">
 
-![Zealous Antonellis](/images/zealous-antonelli.png)
+![Nifty Emmy](/images/nifty-emmy.png)
 
-The December release (zealous-antonelli) of the {{<product-name>}} is the fourth public preview release. This release is expected to include regular bug fixes and a focus on improving the solution setup and further integration with the ALM Accelerator.
+The January release (nifty-emmy) of the {{<product-name>}} is the fifth public preview release. This release is expected to include improving the web install and data pack functionality introduced in the November and December releases.
 
 </div>
 
@@ -20,7 +20,7 @@ The December release (zealous-antonelli) of the {{<product-name>}} is the fourth
 
 ## Feedback
 
-{{<questions name="/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/releases/january-2023.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 
 </div>
 
@@ -32,15 +32,15 @@ Try out [Get Started Guide](/get-started) or join our [Office Hours](/office-hou
 
 ## Prior Release
 
-- [November 2022](/releases/november-2022) (sharp-archimedes)
+- [December 2022](/releases/december-2022) (zealous-antonelli)
 
 ## Next Release
 
-- [January 2023](/releases/january-2023) (nifty-emmy)
+- February 2023 (nifty-emmy)
 
 ## Project Milestones
 
-[Automation Kit - December 2022](https://github.com/orgs/microsoft/projects/486/views/5)
+[Automation Kit - January 2023](https://github.com/orgs/microsoft/projects/486/views/9)
 
 [Automation Kit - Backlog](https://github.com/orgs/microsoft/projects/486/views/1)
 
