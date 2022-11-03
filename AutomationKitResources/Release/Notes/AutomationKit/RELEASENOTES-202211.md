@@ -11,7 +11,9 @@ Review highlighted release features for the [November 2022 Release](https://micr
 ## Upgrade Instructions
 
 - Upgrading to the latest version of the Automation Kit:
-
-  1. Update the Creator Kit
   
-  1. Upgrade the Main and Satellite Solutions to this release
+  1. Upgrade the Main and Satellite Solutions to this release in the Assets section below
+
+## Notes
+
+The Power BI template and Data Pack zip file are located inside the **AutomationKit.zip** file
