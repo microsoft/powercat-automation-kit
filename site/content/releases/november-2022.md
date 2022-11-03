@@ -63,7 +63,7 @@ Try out [Get Started Guide](/get-started) or join our [Office Hours](/office-hou
 
 ## Next Release
 
-- December 2022 (zealous-antonelli)
+- [December 2022](/releases/december-2022) (zealous-antonelli)
 
 ## Project Milestones
 
