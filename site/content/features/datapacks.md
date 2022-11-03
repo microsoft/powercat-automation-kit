@@ -6,7 +6,35 @@ sidebarlogo: fresh-white
 include_footer: true
 ---
 
+{{<toc>}}
+
+## Introduction
+
 Data Packs are prepackaged set of data that can be optionally installed into your installed Automation Kit to accelerate your usage.
+
+{{<border>}}
+![Data Packs Overview](https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.svg)
+{{</border>}}
+
+<br/>
+
+Introduced as part of the [November 2022](/releases/november-2022), Datapacks provide you the ability to optionally import sample data.
+
+The Return on Investment (ROI) data pack allows you to rapidly demonstrate planning, metering and monitoring of return on investment via the Automation Kit Power BI dashboard. You can load your first data pack using the [Getting Started](#getting-started) section below.
+
+Overtime we will add other data packs to the backlog for prioritization and document how you can collaborate on publishing data packs to the community.
+
+## Roadmap
+
+{{<border>}}
+![Data Packs Roadmap](https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.svg?v=1)
+{{</border>}}
+
+<br/>
+
+In future milestones we will look to improve the datapacks by including them as an optional part of the Automation Kit automated install process.
+
+The ability to include Data Packs as part of the install will allow for a web based install, rather than the command line install process for this release.
 
 ## Return On Investment Main Solution
 

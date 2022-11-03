@@ -31,6 +31,8 @@ The November release (sharp-archimedes) of the {{<product-name>}} is the third p
 {{<slide  id="slide1" audio="releases/november-2022/DataPacks.mp3" description="Automation Kit Overview" image="releases/november-2022/DataPacks.svg" >}}
 With the November Release "[Data Packs](/features/datapacks)" are a key new feature.
 
+Refer to the **Getting Started** section to load your first data pack.
+
 Datapacks provide you the ability to optionally import sample data.
 
 The Return on Investment (ROI) data pack allows you to rapidly demonstrate planning, metering and monitoring of return on investment via the Automation Kit Power BI dashboard.
