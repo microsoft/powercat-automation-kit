@@ -120,7 +120,7 @@ The Automation Kit and CoE Kit provide you useful tools and guidance to help you
 From our GitHub site you can use the **Watch** drop down item to select **Releases** so that you are notified as we update the Automation Kit.
 {{</slide>}}
 
-{{<slide  id="slide14" audio="overview/Slide14.mp3" description="Automation Kit Release" image="overview/Slide14.SVG" >}}
+{{<slide  id="slide14" audio="overview/Slide14.mp3" description="Automation Kit Release" image="overview/Slide14-Nov2022.SVG" >}}
 You can review our release notes for each release for guidance on what has changed, how to install and upgrade the Automation Kit.
 {{</slide>}}
 
