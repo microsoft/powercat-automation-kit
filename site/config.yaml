@@ -5,52 +5,35 @@ theme: hugo-fresh
 publishDir: ../docs
 relativeURLs: false
 canonifyURLS: true
-
-# Disables warnings
 disableKinds:
 - taxonomy
 - taxonomyTerm
+defaultContentLanguage: en
 markup:
   goldmark:
     renderer:
-      unsafe: true # Allows you to write raw html in your md files
-
+      unsafe: true
 params:
   productName: Automation Kit for Power Platform
   image: https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.png
   imagealt: Automation Kit Logo
-
-  # Open graph allows easy social sharing. If you don't want it you can set it to false or just delete the variable
   openGraph: true
-  # Used as meta data; describe your site to make Google Bots happy
-  
   description: Automation Kit for Power Platform starter site. Define and measure Power Automate Desktop return on investment, link to learning content and customer stories.
-  # Preloader ensures images are loaded before displaying to the user. If you don't want it uncomment to set it to false
-  # preloader: false
   navbarlogo:
-  # Logo (from static/images/logos/___)
     image: logos/automation-kit.svg
     link: /
-    # Default width/height. Uncomment if you need to change
-    # width: 112
-    # height: 28
   font:
-    name: "Open Sans"
-    sizes: [400,600]
+    name: Open Sans
+    sizes:
+    - 400
+    - 600
   hero:
-    # Main hero title
     title: Automation Kit for Power Platform
-    # Hero subtitle (optional)
     subtitle: Accelerates the use and support of Power Automate for desktop for solutions by defining and measuring return on investment (ROI). <br/> <br/> See our [Overview](/overview) page to understand more about [Features](/features) of the Automation Kit.
-    # Button text
     buttontext: Get started
-    # Where the main hero button links to
     buttonlink: /get-started
-    # Hero image (from static/images/___)
     image: illustrations/worker-public-preview.svg
-    # Footer logos (from static/images/logos/clients/___.svg)
-    clientlogos:
-  # Customizable navbar. For a dropdown, add a "sublinks" list.
+    clientlogos: 
   navbar:
   - title: Customer Stories
     url: /customer-stories
@@ -75,19 +58,15 @@ params:
       buttonText: Read More
       url: frequently-asked-questions
   footer:
-    # Logo (from /images/logos/___)
     logo: automation-kit.svg
-    # Social Media Title
     socialmediatitle: Follow Us
-    # Social media links (GitHub, Twitter, etc.). All are optional.
     socialmedia:
     - link: https://github.com/microsoft/powercat-automation-kit
-      # Icons are from Font Awesome
       icon: github
     bulmalogo: false
     quicklinks:
       column1:
-        title: "Product"
+        title: Product
         links:
         - text: Releases
           link: /releases
@@ -108,7 +87,7 @@ params:
         - text: Privacy Policy
           link: https://privacy.microsoft.com/privacystatement
       column2:
-        title: "Learn"
+        title: Learn
         links:
         - text: Get started
           link: https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites
@@ -117,9 +96,14 @@ params:
         - text: Use the Automation Kit
           link: https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit
       column3:
-        title: "Blog"
+        title: Blog
         links:
         - text: Public Preview
           link: https://aka.ms/automation-kit-blog
         - text: Cineplex Customer Story
           link: https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/
+languages:
+  en:
+    contentDir: content/en-us
+    languageName: English
+    weight: 10
