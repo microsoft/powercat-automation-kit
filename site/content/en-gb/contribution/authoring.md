@@ -6,7 +6,6 @@ sidebarlogo: fresh-white
 include_footer: true
 
 ---
-
 The following sections outline guidelines and notes for authoring starter documentation.
 
 {{<toc>}}
@@ -39,7 +38,7 @@ Given this goal consider the following:
 
 ### Source Control
 
-- You have completed [Documentation](/contribution/documentation) steps to download and push changes to the GitHub repository
+- You have completed [Documentation](/en-gb/contribution/documentation) steps to download and push changes to the GitHub repository
 - New changes are pushed to a new branch and have a Pull Request to review changes
 - All documentation should be either markdown, JSon or static assets that can be version controls and reviewed using standard pull request process
 
@@ -55,7 +54,7 @@ Given this goal consider the following:
 - Summary list of features that assist the users manage hyperautomation projects
 - Footer navigation for common links.
 
-Read the [Site Configuration](/contribution/site-configuration) for more information on configuring the home page.
+Read the [Site Configuration](/en-gb/contribution/site-configuration) for more information on configuring the home page.
 
 ### Reuse
 
@@ -114,7 +113,7 @@ Include a set of questions in your page surrounded by \{\{ and \}\}
 
 Parameters:
 
-- **name** The name of the JSon file that includes questions to import. Read [Questions](/contribution/questions) for more information on question file format
+- **name** The name of the JSon file that includes questions to import. Read [Questions](/en-gb/contribution/questions) for more information on question file format
 - **completed** The text to display when the questions are completed
 - **showNavigationButtons** true/false value to shoe Next/Back/Completed navigation buttons
 
@@ -240,9 +239,9 @@ One design aim was to integrate the question process directly into the content.
 
 The source code for the {{<product-name>}} already exists on GitHub and the native GitHub pages support was one choice of where to host the content.
 
-### **Question** Why is this content not on http://learn.microsoft.com?
+### **Question** Why is this content not on [http://learn.microsoft.com]()?
 
-- As content matures to commonly reusable guidance it may migrate to https://learn.microsoft.com
+- As content matures to commonly reusable guidance it may migrate to [https://learn.microsoft.com]()
 
 - A key design goal are enabled by GitHub hosting
 

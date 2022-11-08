@@ -5,7 +5,6 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-
 # Introduction
 
 This page contains a set of frequently asked questions related to the {{<product-name>}}. If you cannot find an answer to a question you have consider creating a [Feature Request](https://github.com/microsoft/powercat-automation-kit/issues/new/choose) to update this page.
@@ -17,13 +16,13 @@ Question groups in this page:
 
 ### **Question:** What is the best way for me to get started?
 
-Refer to our [Get Started](/get-started) page for more information.
+Refer to our [Get Started](/en-gb/get-started) page for more information.
 
 ## Support
 
 ### **Question:** How do I get support installing or operating the {{<product-name>}}?
 
-Refer to out [Support](/support) page for more information.
+Refer to out [Support](/en-gb/support) page for more information.
 
 ## Automation Center of Excellence
 
@@ -41,7 +40,7 @@ Absolutely, the ALM Accelerator within the CoE Kit is one example where Power Au
 
 ### **Question:** How do monitoring options compare?
 
-Review the [Monitoring comparison](/monitoring-compare) page for further information
+Review the [Monitoring comparison](/en-gb/monitoring-compare) page for further information
 
 ## Roadmap
 
@@ -71,8 +70,8 @@ You can stay up to date with our releases by subscribing to them in [Latest Rele
 
 ### **Question:** How contribute to the {{<product-name>}} starter documentation?
 
-Review the [Contribution](/contribution) page for further information
+Review the [Contribution](/en-gb/contribution) page for further information
 
 ### **Question:** What are other ways to give feedback?
 
-Review the [Feedback](/contribution/feedback) page for further information
+Review the [Feedback](/en-gb/contribution/feedback) page for further information
