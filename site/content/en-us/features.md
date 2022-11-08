@@ -30,6 +30,35 @@ Tools to automate & manage all aspects of Hyper-automation scenarios including A
 
 [Learn More](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle)
 
+## Governance
+
+### Data Loss Prevention for PAD (Desktop Flows)
+
+[Introduction to data loss prevention (DLP) policies. - Power Automate | Microsoft Learn](https://learn.microsoft.com/power-automate/prevent-data-loss#data-loss-prevention-for-desktop-flows-preview)
+
+### Automation CoE Admin & Governance Whitepaper
+
+Condensed learnings from [HEAT](https://learn.microsoft.com/power-platform/guidance/automation-coe/heat) into an automation admin & governance whitepaper. This whitepaper outlines key considerations for planning, deploying, and managing an Automation Center of Excellence (CoE) for hyper automation scenarios in Power Automate. 
+
+[https://aka.ms/autocoeadminwhitepaper](https://aka.ms/autocoeadminwhitepaper)
+
+### Managing Power Automate for desktop Playbook
+
+[https://aka.ms/padonwindowspnp](https://aka.ms/padonwindowspnp)
+
+### Automation Kit – PAD DLP Impact Analysis
+
+Automation Kit includes a governance module that provides DLP impact analysis for Desktop Flows (PAD)
+
+{{<border>}}
+
+![Automation Kit PAD DLP Impact Analysis](/images/pad-dlp-impact.png)
+
+{{</border>}}
+
+
+
+
 ## Migration
 
 [Read More](/migration) on how the Migration Module provides you a proven set of tools and guidance based on engagements with customers to accelerate your migration journey to Power Automate Desktop.
