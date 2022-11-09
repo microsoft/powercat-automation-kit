@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+
+<meta property="og:title" content="Wskazówki dotyczące tworzenia" />
+<meta property="og:description" content="Wskazówki dotyczące tworzenia dokumentacji pakietu Automation Kit" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/pl/contribution/authoring/" /><meta property="article:section" content="contribution" />
+
+
+
+
+
+<meta name="description" content="Zestaw automatyzacji dla miejsca startowego Power Platform. Definiuj i mierz zwrot z inwestycji w programie Power Automate Desktop, łącz się z materiałami szkoleniowymi i historiami klientów." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="og:image" content="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.png" />
+<meta name="og:image:alt" content="Automation Kit Logo" />
+
+    <title>Automation Kit for Power Platform</title>
+    
+<link rel="icon" type="image/png" href="https://microsoft.github.io/powercat-automation-kit/images/favicon.png" />
+<link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/style.min.973539e55bb9a3b263afa3bea3a5c42c6bc9388ce23c69a67bf0e629f1a941a0.css" integrity="sha256-lzU55Vu5o7Jjr6O&#43;o6XELGvJOIziPGmme/DmKfGpQaA=">
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/icons.css">
+<link href="https://microsoft.github.io/powercat-automation-kit/css/survey-jquery/modern.min.css" type="text/css" rel="stylesheet">
+
+
+  </head>
+  <body>
+    
+    
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    
+
+    
+
+    
+
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/pl/">
+        <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+      <div id="navbar-menu" class="navbar-menu is-static">
+
+        <div class="navbar-end">
+          <a href="https://microsoft.github.io/powercat-automation-kit/pl/customer-stories" class="navbar-item is-secondary">
+            Historie klientów
+          </a>
+          <a href="https://aka.ms/automation-kit-learn" class="navbar-item is-secondary">
+            Uczyć się
+          </a>
+          <a href="https://microsoft.github.io/powercat-automation-kit/pl/office-hours" class="navbar-item is-secondary">
+            Godziny pracy biura
+          </a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+
+
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/pl/">
+        <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+
+      <div class="navbar-end">
+        <a href="https://microsoft.github.io/powercat-automation-kit/pl/customer-stories" class="navbar-item is-secondary">
+          Historie klientów
+        </a>
+        <a href="https://aka.ms/automation-kit-learn" class="navbar-item is-secondary">
+          Uczyć się
+        </a>
+        <a href="https://microsoft.github.io/powercat-automation-kit/pl/office-hours" class="navbar-item is-secondary">
+          Godziny pracy biura
+        </a>
+      </div>
+    </div>
+</div>
+</nav>
+
+
+<section class="section is-medium">
+  <a id="topofpage"></a>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">Wskazówki dotyczące tworzenia</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <p>W poniższych sekcjach przedstawiono wskazówki i uwagi dotyczące tworzenia dokumentacji początkowej.</p>
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#wytyczne">Wytyczne</a></li>
+    <li><a href="#cele">Cele</a>
+      <ul>
+        <li><a href="#kontrola-źródła">Kontrola źródła</a></li>
+      </ul>
+    </li>
+    <li><a href="#wytyczne-projektowe">Wytyczne projektowe</a>
+      <ul>
+        <li><a href="#strona-główna">Strona główna</a></li>
+        <li><a href="#ponowne-wykorzystanie">Ponowne wykorzystanie</a></li>
+      </ul>
+    </li>
+    <li><a href="#strony-markdown">Strony Markdown</a></li>
+    <li><a href="#skróty">Skróty</a>
+      <ul>
+        <li><a href="#spis-treści">Spis treści</a></li>
+        <li><a href="#pytanie">Pytanie</a></li>
+        <li><a href="#obraz-zewnętrzny">Obraz zewnętrzny</a></li>
+      </ul>
+    </li>
+    <li><a href="#notatki">Notatki</a>
+      <ul>
+        <li><a href="#konfiguracja-stron-github">Konfiguracja stron GitHub</a></li>
+        <li><a href="#plakietka-aktualizuj-obraz-strony-głównej">Plakietka Aktualizuj obraz strony głównej</a></li>
+      </ul>
+    </li>
+    <li><a href="#pytanie-i-odpowiedź">Pytanie i odpowiedź</a>
+      <ul>
+        <li><a href="#pytanie-dlaczego-wybrano-hugo"><strong>Pytanie</strong> Dlaczego wybrano Hugo?</a></li>
+        <li><a href="#pytanie-dlaczego-nie-wybrałeś-innego-statycznego-generatora-witryn"><strong>Pytanie</strong> Dlaczego nie wybrałeś innego statycznego generatora witryn?</a></li>
+        <li><a href="#pytanie-dlaczego-microsoft-forms-nie-został-użyty-do-obsługi-pytań"><strong>Pytanie</strong> Dlaczego Microsoft Forms nie został użyty do obsługi pytań?</a></li>
+        <li><a href="#pytanie-dlaczego-strony-github-hostują-zawartość"><strong>Pytanie</strong> Dlaczego strony GitHub hostują zawartość?</a></li>
+        <li><a href="#pytanie-dlaczego-ta-treść-nie-jest-włączona-httplearnmicrosoftcom"><strong>Pytanie</strong> Dlaczego ta treść nie jest włączona <a href="">http://learn.microsoft.com</a>?</a></li>
+        <li><a href="#pytanie-dlaczego-podejście-to-nie-jest-stosowane-w-innych-projektach-power-cat"><strong>Pytanie</strong> Dlaczego podejście to nie jest stosowane w innych projektach Power CAT?</a></li>
+        <li><a href="#pytanie-jak-wyświetlić-problemy-z-otwartą-dokumentacją"><strong>Pytanie</strong> Jak wyświetlić problemy z otwartą dokumentacją?</a></li>
+        <li><a href="#pytanie-jak-zgłosić-prośbę-o-nową-funkcję-dokumentacji"><strong>Pytanie</strong> Jak zgłosić prośbę o nową funkcję dokumentacji?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<h2 id="wytyczne">Wytyczne</h2>
+<p>W poniższych sekcjach przedstawiono techniczne, projektowe i oparte na wynikach wytyczne dotyczące tworzenia wkładów</p>
+<h2 id="cele">Cele</h2>
+<p>Podczas tworzenia naszej dokumentacji ważne jest, aby zastanowić się, w jaki sposób umożliwiamy naszym czytelnikom <strong>Wpadnij w otchłań sukcesu</strong>.</p>
+<p>Brad Abrams zdefiniowany <a href="https://web.archive.org/web/20160705182659/https://blogs.msdn.microsoft.com/brada/2003/10/02/the-pit-of-success/">Otchłań sukcesu w 2003 roku</a> gdy</p>
+<blockquote>
+<p>Otchłań sukcesu: w jaskrawym kontraście do szczytu, szczytu lub podróży przez pustynię, aby znaleźć zwycięstwo w wielu próbach
+i niespodzianki, chcemy, aby nasi klienci po prostu wpadli w zwycięskie praktyki
+korzystając z naszej platformy i frameworków. W takim stopniu, w jakim ułatwiamy wpadnięcie w kłopoty, ponosimy porażkę.</p>
+</blockquote>
+<p>Biorąc pod uwagę ten cel, rozważ następujące kwestie:</p>
+<ul>
+<li>
+<p>Zapewnij &ldquo;doświadczenie bez klifów&rdquo;</p>
+<ul>
+<li>
+<p>Pomóż administratorom i zespołom centralnego zarządzania utworzyć samoobsługowy model korzystania z Zestaw automatyzacji dla platformy Power Platform</p>
+</li>
+<li>
+<p>Zezwalaj użytkownikom na korzystanie ze środowisk programistycznych, aby uzyskać dostęp do nich, jeśli środowisko centralne nie jest dostępne i chcą korzystać z funkcji przed testem lub wdrożeniem produkcyjnym Zestaw automatyzacji dla platformy Power Platform</p>
+</li>
+<li>
+<p>Omów użycie środowisk próbnych z łatwą konfiguracją, aby uzyskać praktyczne informacje z Zestaw automatyzacji dla platformy Power Platform</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Podaj kanał opinii. Daj klientom możliwość wniesienia wkładu w to, co możemy poprawić</p>
+</li>
+</ul>
+<h3 id="kontrola-źródła">Kontrola źródła</h3>
+<ul>
+<li>Ukończono <a href="https://microsoft.github.io/powercat-automation-kit/pl/contribution/documentation">Dokumentacja</a> kroki, aby pobrać i wypchnąć zmiany do repozytorium GitHub</li>
+<li>Nowe zmiany są wypychane do nowej gałęzi i mają żądanie ściągnięcia w celu przejrzenia zmian</li>
+<li>Cała dokumentacja powinna być albo markdown, JSon, albo statycznymi zasobami, które mogą być kontrolowane wersją i przeglądane przy użyciu standardowego procesu pull request</li>
+</ul>
+<h2 id="wytyczne-projektowe">Wytyczne projektowe</h2>
+<h3 id="strona-główna">Strona główna</h3>
+<ul>
+<li>Miej jasny tytuł i podtytuł, który określa cel doświadczenia początkowego</li>
+<li>Podaj wezwanie do działania, aby uwzględnić inne powiązane wydarzenia. Na przykład zarejestruj się na godziny pracy.</li>
+<li>Link do akcji Wprowadzenie, która jest podstawową akcją pomagającą nowym użytkownikom na pokładzie</li>
+<li>Akcja dodatkowa, aby dołączyć do godzin pracy, aby pomóc w budowaniu społeczności użytkowników</li>
+<li>Dołączanie kafelków typowych akcji</li>
+<li>Zbiorcza lista funkcji ułatwiających użytkownikom zarządzanie projektami hiperautomatyzacji</li>
+<li>Nawigacja w stopce dla typowych łączy.</li>
+</ul>
+<p>Przeczytaj <a href="https://microsoft.github.io/powercat-automation-kit/pl/contribution/site-configuration">Konfiguracja witryny</a> , aby uzyskać więcej informacji na temat konfigurowania strony głównej.</p>
+<h3 id="ponowne-wykorzystanie">Ponowne wykorzystanie</h3>
+<ul>
+<li>
+<p>Użyj układów hugo, aby móc określić nowy motyw lub zastąpić bieżący motyw, umieszczając zawartość w folderze site\layouts</p>
+</li>
+<li>
+<p>Zmiana układu powinna umożliwić dołączenie statycznego kodu HTML do wielu lokalizacji hostingu. Na przykład</p>
+<ul>
+<li>Strony GitHub</li>
+<li>Strony zasilania</li>
+<li>Punkt udostępniania</li>
+<li>Statyczne witryny sieci Web platformy Azure</li>
+</ul>
+</li>
+<li>
+<p>Podejście to może być używane jako szablon przez partnerów lub klientów do tworzenia &ldquo;pakietów dokumentacji&rdquo; w celu przyspieszenia fazy nuture Zestaw automatyzacji dla platformy Power Platform Dokumentacja</p>
+</li>
+<li>
+<p>Zapewnienie możliwości wielu użytkownikom dokumentacji (np. zespołom Customer Center of Excellence)</p>
+</li>
+<li>
+<p>Zezwalaj na dołączanie treści dostarczanych przez użytkownika</p>
+</li>
+<li>
+<p>Zezwalaj na proces uaktualniania, który umożliwia pobieranie nowych zmian z Zestaw automatyzacji dla platformy Power Platform Dokumentacja startowa</p>
+</li>
+</ul>
+<h2 id="strony-markdown">Strony Markdown</h2>
+<ul>
+<li>
+<p>Możesz użyć <a href="https://code.visualstudio.com/">Visual Studio Code</a> Aby edytować pliki Markdown</p>
+</li>
+<li>
+<p>Pliki Markdown powinny znajdować się w folderze /site/content</p>
+</li>
+<li>
+<p>Każdy plik przeceny powinien zawierać wspólny nagłówek na każdej stronie</p>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">title</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">Sample</span> <span style="color:#a6e22e">page</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">description</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">Automation</span> <span style="color:#a6e22e">Kit</span> <span style="color:#a6e22e">sample</span> <span style="color:#a6e22e">page</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sidebar</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#66d9ef">false</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">sidebarlogo</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#a6e22e">fresh-white</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">include_footer</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><ul>
+<li>Pliki Markdown powinny używać skrótów do osadzania dowolnego kodu JavaScript</li>
+</ul>
+<h2 id="skróty">Skróty</h2>
+<p>Krótkie kody umożliwiają dołączanie dynamicznej zawartości do strony znaczników. Możesz przeczytać więcej o skrótach z <a href="https://gohugo.io/content-management/shortcodes/">Dokumentacja skrótu Hugo</a></p>
+<p>Ten projekt zawiera również dodatkowe skróty</p>
+<h3 id="spis-treści">Spis treści</h3>
+<p>Dodaj <strong>Toc</strong> podążanie za krótkim kodem do znacznika, aby dołączyć spis treści nagłówków Markdown na stronie otoczonej {{ oraz }}</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">toc</span>/&gt;
+</span></span></code></pre></div><h3 id="pytanie">Pytanie</h3>
+<p>Dołącz zestaw pytań do swojej strony otoczony {{ oraz }}</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">questions</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;foo.json&#34;</span> <span style="color:#a6e22e">completed</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Thank you for completing foo&#34;</span> <span style="color:#a6e22e">showNavigationButtons</span><span style="color:#f92672">=</span><span style="color:#e6db74">false</span> /&gt;
+</span></span></code></pre></div><p>Parametry:</p>
+<ul>
+<li><strong>nazwa</strong> Nazwa pliku JSon, który zawiera pytania do zaimportowania. Czytać <a href="https://microsoft.github.io/powercat-automation-kit/pl/contribution/questions">Pytania</a> Aby uzyskać więcej informacji na temat formatu pliku pytania</li>
+<li><strong>Zakończone</strong> Tekst wyświetlany po zakończeniu pytań</li>
+<li><strong>showNavigationButtons</strong> wartość true/false do przycisku nawigacyjnego Następny/Wstecz/Zakończony</li>
+</ul>
+<h3 id="obraz-zewnętrzny">Obraz zewnętrzny</h3>
+<p>Dołącz do strony obraz o rozmiarze ze źródła zewnętrznego otoczony {{ oraz }}</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">externalImage</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png&#34;</span> <span style="color:#a6e22e">size</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;16x16&#34;</span> <span style="color:#a6e22e">text</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Construction Icon&#34;</span>/&gt;
+</span></span></code></pre></div><p>Parametry:</p>
+<ul>
+<li><strong>Src</strong> Ścieżka źródłowa do obrazu do zaimportowania</li>
+<li><strong>rozmiar</strong> Rozmiar w pikselach, na który ma zostać zmieniony rozmiar obrazu źródłowego</li>
+<li><strong>Tekst</strong> Tekst alternatywny do dołączenia do obrazu</li>
+</ul>
+<h2 id="notatki">Notatki</h2>
+<h3 id="konfiguracja-stron-github">Konfiguracja stron GitHub</h3>
+<p>Poniższe kroki, gdzie użyto do skonfigurowania stron GitHub dla witryny</p>
+<ol>
+<li>
+<p>Utworzono nową osieroconą gałąź w git</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git checkout --orphan gh-pages
+</span></span></code></pre></div></li>
+<li>
+<p>Czyszczenie istniejącej zawartości (plików i folderów)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clean -d -f
+</span></span></code></pre></div></li>
+<li>
+<p>Hugo jest zainstalowany</p>
+<ul>
+<li>Możesz także zainstalować z chocolatey w systemie Windows</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>choco install hugo-extended -confirm
+</span></span></code></pre></div></li>
+<li>
+<p>Wyjście Hugo skonfigurowane do wyprowadzania do folderu / docs</p>
+</li>
+<li>
+<p>Testowanie zmian</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo serve
+</span></span></code></pre></div></li>
+<li>
+<p>Aby zbudować statyczną witrynę HTML wewnątrz folderu witryny, uruchom następujące polecenie:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo
+</span></span></code></pre></div></li>
+<li>
+<p>Wypychaj gałąź gh-pages do GitHubPush your gh-pages branch to GitHub</p>
+</li>
+<li>
+<p>Konfigurowanie projektu usługi GitHub, aby włączyć aplikację PagesSetup GitHub project to enable Pages</p>
+<ul>
+<li>Zobacz Konfigurowanie źródła publikowania dla witryny GitHub Pages - GitHub Docs</li>
+<li>Wybrana gałąź gh-pages i folder /docs</li>
+</ul>
+</li>
+</ol>
+<h3 id="plakietka-aktualizuj-obraz-strony-głównej">Plakietka Aktualizuj obraz strony głównej</h3>
+<p>Aby dostosować obraz strony głównej do plakietki Stan: Podgląd publiczny Wykonuję następujące czynności:</p>
+<ol>
+<li>
+<p>Sklonuj repozytorium svg-badges</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/anouarhassine/svg-badges.git
+</span></span><span style="display:flex;"><span>cd svg-badges   
+</span></span></code></pre></div></li>
+<li>
+<p>Instalowanie modułów</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm install
+</span></span></code></pre></div></li>
+<li>
+<p>Uruchom serwer WWW, aby wygenerować odznaki</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>npm run start
+</span></span></code></pre></div></li>
+<li>
+<p>Wygeneruj plakietkę</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-link" data-lang="link"><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">http://localhost:9000/static/Status-Public%20Preview-Green</span>
+</span></span></code></pre></div></li>
+<li>
+<p>Pobierz plakietkę svg</p>
+</li>
+<li>
+<p>Użyj inkscape do edycji istniejącego svg i zapisywania wyników</p>
+</li>
+<li>
+<p>Prześlij nowy obraz do folderu static\images\illustrations</p>
+</li>
+<li>
+<p>Zmienianie obrazu elementu głównego config.yaml</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">params</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">hero</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">image</span>: <span style="color:#ae81ff">illustrations/worker-public-preview.svg </span>
+</span></span></code></pre></div></li>
+</ol>
+<h2 id="pytanie-i-odpowiedź">Pytanie i odpowiedź</h2>
+<h3 id="pytanie-dlaczego-wybrano-hugo"><strong>Pytanie</strong> Dlaczego wybrano Hugo?</h3>
+<p><a href="https://gohugo.io/">Hugo</a> to popularny generator stron statycznych, który umożliwia zawartość Zestaw automatyzacji dla platformy Power Platform dokumentacja startowa do przekształcenia na statyczny kod HTML, który może być hostowany w GitHub Pages</p>
+<h3 id="pytanie-dlaczego-nie-wybrałeś-innego-statycznego-generatora-witryn"><strong>Pytanie</strong> Dlaczego nie wybrałeś innego statycznego generatora witryn?</h3>
+<p>Główny zespół Power CAT miał wcześniejsze doświadczenie w korzystaniu z Hugo</p>
+<h3 id="pytanie-dlaczego-microsoft-forms-nie-został-użyty-do-obsługi-pytań"><strong>Pytanie</strong> Dlaczego Microsoft Forms nie został użyty do obsługi pytań?</h3>
+<p>Jednym z celów projektowych było zintegrowanie procesu zadawania pytań bezpośrednio z treścią.</p>
+<h3 id="pytanie-dlaczego-strony-github-hostują-zawartość"><strong>Pytanie</strong> Dlaczego strony GitHub hostują zawartość?</h3>
+<p>Kod źródłowy Zestaw automatyzacji dla platformy Power Platform już istnieje na GitHub, a natywna obsługa stron GitHub była jednym z wyborów miejsca hostowania zawartości.</p>
+<h3 id="pytanie-dlaczego-ta-treść-nie-jest-włączona-httplearnmicrosoftcom"><strong>Pytanie</strong> Dlaczego ta treść nie jest włączona <a href="">http://learn.microsoft.com</a>?</h3>
+<ul>
+<li>
+<p>W miarę dojrzewania treści do wskazówek wielokrotnego użytku może zostać przeniesiona do <a href="">https://learn.microsoft.com</a></p>
+</li>
+<li>
+<p>Kluczowy cel projektowy jest możliwy dzięki hostingowi GitHubA key design goal are enabled by GitHub hosting</p>
+<ul>
+<li>
+<p>Zezwalaj na aktywny wkład społeczności</p>
+</li>
+<li>
+<p>Wspieranie procesu Nuture w Centrum Doskonałości, aby dokumentacja mogła być ponownie wykorzystywana przez Klientów i społeczność Partnerów</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="pytanie-dlaczego-podejście-to-nie-jest-stosowane-w-innych-projektach-power-cat"><strong>Pytanie</strong> Dlaczego podejście to nie jest stosowane w innych projektach Power CAT?</h3>
+<p>Na Zestaw automatyzacji dla platformy Power Platform eksperymentuje z tym kanałem dokumentacji, aby uzupełnić i połączyć się z naszym istniejącym <a href="https://aka.ms/automation-kit-learn">Treści szkoleniowe</a>. Na podstawie informacji zwrotnych i wyników tego eksperymentu ocenimy, czy inne projekty zarządzane przez Power CAT przyjmą podobne podejście.</p>
+<h3 id="pytanie-jak-wyświetlić-problemy-z-otwartą-dokumentacją"><strong>Pytanie</strong> Jak wyświetlić problemy z otwartą dokumentacją?</h3>
+<p>Możesz odwiedzić nasze <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation">Problemy z otwartą dokumentacją</a> strona</p>
+<h3 id="pytanie-jak-zgłosić-prośbę-o-nową-funkcję-dokumentacji"><strong>Pytanie</strong> Jak zgłosić prośbę o nową funkcję dokumentacji?</h3>
+<p>Utwórz nowy <a href="https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&amp;labels=automation-kit%2Cenhancement,automation-kit%2Cdocumentation&amp;template=2-automation-kit-feature.yml&amp;title=%5BAutomation+Kit+-+Feature%5D%3A+FEATURE+TITLE">Prośba o funkcję</a></p>
+
+    </div>
+  </div>
+</section>
+
+
+
+    
+    
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="footer-logo">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg">
+        </div>
+      </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>Produkt</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/pl/releases">
+                  Zwalnia
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/pl/frequently-asked-questions">
+                  FAQ
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/pl/support">
+                  Wsparcie
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/pl/office-hours">
+                  Godziny pracy biura
+                </a>
+              </li>
+              <li>
+                <a href="https://aka.ms/automation-kit-learn">
+                  Odkryj funkcje
+                </a>
+              </li>
+              <li>
+                <a href="https://aka.ms/ak4pp-issues">
+                  Problemy
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/microsoft/powercat-automation-kit/milestones?status=open">
+                  Kamienie milowe
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/microsoft/powercat-automation-kit/releases">
+                  Zwalnia
+                </a>
+              </li>
+              <li>
+                <a href="https://privacy.microsoft.com/privacystatement">
+                  Polityka prywatności
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>Uczyć się</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">
+                  Rozpocząć
+                </a>
+              </li>
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit">
+                  Konfigurowanie zestawu Automation Kit
+                </a>
+              </li>
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit">
+                  Korzystanie z zestawu Automation Kit
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>Blog</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://aka.ms/automation-kit-blog">
+                  Publiczna wersja zapoznawcza
+                </a>
+              </li>
+              <li>
+                <a href="https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/">
+                  Historia klienta Cineplex
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3></h3>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" href="https://github.com/microsoft/powercat-automation-kit">
+                  <span class="icon"><i class="fa fa-github"></i></span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+    
+    <div id="backtotop"><a href="#"></a></div>
+
+    
+
+    
+
+    <script src="https://microsoft.github.io/powercat-automation-kit/js/jquery/3.6.1/jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/feather-icons/4.29.0/feather.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/fresh.js"></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/jquery.panelslider.min.js"></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/modernizr/2.8.3/modernizr.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/survey-jquery/1.9.55/survey.jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/showdown/2.1.0/showdown.min.js" ></script>
+  </body>
+</html>

@@ -1,0 +1,1320 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+
+<meta property="og:title" content="전력 CAT 애플리케이션 라이프사이클 관리(ALM)" />
+<meta property="og:description" content="자동화 키트 - ALM 전원 고양이" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/ko/features/alm/powercat/" /><meta property="article:section" content="features" />
+
+
+
+
+
+<meta name="description" content="전력 플랫폼 스타터 사이트용 자동화 키트. Power Automate 데스크톱 투자 수익률을 정의 및 측정하고 학습 콘텐츠 및 고객 사례에 연결합니다." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="og:image" content="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.png" />
+<meta name="og:image:alt" content="Automation Kit Logo" />
+
+    <title>Automation Kit for Power Platform</title>
+    
+<link rel="icon" type="image/png" href="https://microsoft.github.io/powercat-automation-kit/images/favicon.png" />
+<link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/style.min.973539e55bb9a3b263afa3bea3a5c42c6bc9388ce23c69a67bf0e629f1a941a0.css" integrity="sha256-lzU55Vu5o7Jjr6O&#43;o6XELGvJOIziPGmme/DmKfGpQaA=">
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/icons.css">
+<link href="https://microsoft.github.io/powercat-automation-kit/css/survey-jquery/modern.min.css" type="text/css" rel="stylesheet">
+
+
+  </head>
+  <body>
+    
+    
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    
+
+    
+
+    
+
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/ko/">
+        <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+      <div id="navbar-menu" class="navbar-menu is-static">
+
+        <div class="navbar-end">
+          <a href="https://microsoft.github.io/powercat-automation-kit/ko/customer-stories" class="navbar-item is-secondary">
+            고객 사례
+          </a>
+          <a href="https://aka.ms/automation-kit-learn" class="navbar-item is-secondary">
+            배우다
+          </a>
+          <a href="https://microsoft.github.io/powercat-automation-kit/ko/office-hours" class="navbar-item is-secondary">
+            업무 시간
+          </a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+
+
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/ko/">
+        <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+
+      <div class="navbar-end">
+        <a href="https://microsoft.github.io/powercat-automation-kit/ko/customer-stories" class="navbar-item is-secondary">
+          고객 사례
+        </a>
+        <a href="https://aka.ms/automation-kit-learn" class="navbar-item is-secondary">
+          배우다
+        </a>
+        <a href="https://microsoft.github.io/powercat-automation-kit/ko/office-hours" class="navbar-item is-secondary">
+          업무 시간
+        </a>
+      </div>
+    </div>
+</div>
+</nav>
+
+
+<section class="section is-medium">
+  <a id="topofpage"></a>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">전력 CAT 애플리케이션 라이프사이클 관리(ALM)</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <style>
+    .fullscreen.optional {
+        display: none !important
+    }
+    nav > .fullscreen.container {
+        display: none !important
+    }
+    section.fullscreen {
+        padding: 10px !important;
+    }
+    .reveal.fullscreen {
+    }
+}
+</style>
+
+<style>
+     .page { display: none }
+</style>
+<div class="optional">
+<p>자동화 키트는 <a href="https://aka.ms/aa4pp">ALM 가속기</a> 파워 오토메이트 데스크톱을 포함하는 솔루션에 ALM 기능을 제공하기 위해</p>
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" integrity="sha512-V5fKCVKOFy36w8zJmLzPH5R6zU6KvuHOvxfMRczx2ZeqTjKRGSBO9yiZjCKEJS3n6EmENwrH/xvSwXqxje+VVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" integrity="sha512-0BwgQfciYCCQc2rKINa7wL2k5vGAjF5dyL90A598QMimsVDie6M/4ShOLG07HJpNtSc9JB6m2s9B9OGam3rmTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js" integrity="sha512-QYXU3Cojl94ZRiZRjUZpyg1odj9mKTON9MsTMzGNx/L3JqvMA3BQNraZwsZ83UeisO+QMVfFa83SyuYYJzR9hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js" integrity="sha512-7DEMfv8iM8rlGUiVduuJQGcTazyiw+7PSxEMGuPzk+sW8KLZiSh5TrkCNTbjpNVL1o7grRlXTN+OQLEFuYGVxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .section {
+        overflow-y: auto  !important;
+        overflow-x: hidden !important;
+        height: 100%;
+    }
+    .reveal {
+        width: 50vw;
+        height: 30vw
+    }
+    .reveal .speaker-notes {
+        margin-top: 20px;
+    }
+    @media only screen and (max-width: 1024px) {
+        .reveal {
+            width: 90vw;
+            height: 80vw
+        }
+    }
+    @media only screen and (max-width: 420px) {
+        #fullScreen {
+            display: block;
+            float: none;
+        }
+    }
+    .header {
+        margin-top: 20px;
+    }
+    .header > a {
+        float: inline-end;
+    }
+    .section.is-medium.fullscreen {
+        padding: 10px;
+    }
+    nav.navbar.fullscreen {
+        display:none;
+    }
+</style>
+
+<div class="header">
+    <audio id="slideAudio" controls="controls" style="height:50px">
+        <source src="" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+
+    <a id="fullScreen" class="navbar-item">
+        <span class="button signup-button rounded secondary-btn raised">
+        Full Screen
+        </span>
+    </a>
+</div>
+
+<div class="reveal">
+    <div class="slides">
+    
+    <section id="slide-1"></section>
+    
+    <section id="slide-2"></section>
+    
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        let slides = "1,2".split(",")
+        slides.forEach(element => {
+            $("#slide-" + element).append($("#slide" + element).html());
+        });
+       
+        $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
+
+        Reveal.initialize({ embedded: true, showNotes: true, center: true, margin: 0.0, plugins: [ RevealNotes ] })
+
+        Reveal.addEventListener( 'slidechanged', event => {
+            $('audio').each(function(){
+                this.pause(); 
+                this.currentTime = 0; 
+            }); 
+            try {
+                $("#slideAudio").attr('src', $("#slide" + slides[event.indexh]).attr("data-audio"))
+            } catch {
+
+            }
+            
+        } );
+
+        $("#fullScreen").on("click", () => {
+            $(".reveal").toggleClass("fullscreen");
+            $(".optional").toggleClass("fullscreen");
+            $("nav > .container").toggleClass("fullscreen");
+            $("nav.navbar").toggleClass("fullscreen");
+            $(".section.is-medium").toggleClass("fullscreen");
+        });
+    });
+</script>
+<div class="optional">
+<style>
+    @media only screen and (max-width: 1024px) {
+        .mobileSpacer { margin-bottom: 60vw }
+    }
+</style>
+
+<div class="mobileSpacer">
+</div>
+<h2 id="깃허브-배포-프로세스">깃허브 배포 프로세스</h2>
+<p>다른 Power CAT 관리 키트에 사용되는 릴리스 프로세스와 유사하게 전력 플랫폼용 자동화 키트는 ALM 액셀러레이터를 사용하여 공개 GitHub 릴리스에 릴리스를 배포합니다.</p>
+<p>내부 프로세스에는 개발, 테스트 및 프로덕션을 위한 Power Platform 환경이 있습니다. 릴리스가 준비되면 통합된 GitHub 작업은 GitHub 초안 릴리스에 대한 릴리스 정보와 함께 관리되는 배포 솔루션과 관리되지 않는 배포 솔루션을 자동으로 패키지합니다.</p>
+<p>초안 릴리스가 준비되면 필요에 따라 새 버전 또는 핫픽스를 게시할 수 있습니다.</p>
+<h3 id="이것이-의미하는-것">이것이 의미하는 것</h3>
+<p>이제 이 자동화가 적용되었으므로 자동화된 ALM 릴리스는 다음과 같은 이점을 제공합니다.</p>
+<ul>
+<li>
+<p>자동화 키트를 구성하는 모든 로우 코드 소스 코드에 대한 가시성을 확보하여 키트를 구축한 방법을 조사할 수 있습니다.</p>
+</li>
+<li>
+<p>버그 또는 문제에 신속하게 대응하고 필요한 경우 핫픽스를 제공할 수 있는 간소화된 자동화 프로세스입니다.</p>
+</li>
+<li>
+<p>릴리스에 포함된 모든 버그 및 기능의 자동 컴파일.</p>
+</li>
+<li>
+<p>Power Apps, Power Automate, Dataverse 및 Power Automate 데스크톱을 지속적인 통합/지속적인 배포를 위한 ALM 프로세스의 일부로 포함합니다.</p>
+</li>
+</ul>
+<h2 id="로드맵">로드맵</h2>
+<p>다음에서 열려 있는 ALM 관련 백로그 항목을 조사할 수 있습니다. <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm">GitHub 문제 등록</a></p>
+<p>전반적으로 우리는 기존의 즉시 사용 가능한 Power Platform 및 Microsoft DevOps 제품 기능을 함께 ALM Accelerator를 기반으로 합니다. 이 조합을 통해 우리는 초자동화에 도움이 되는 특정 확장에 집중할 수 있습니다.</p>
+<h2 id="피드백">피드백</h2>
+
+
+
+<script>
+    
+    
+    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-AK4PP-ALM-PowerCAT\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"roles\",\r\n                    \"title\": \"Which of the follow was most useful for related to Power CAT ALM usage?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"Understanding how Power CAT created low code releases\",\r\n                        \"What the ALM Roadmap is for the Automation Kit\",\r\n                        \"How we add ALM specific tasks to our Power Automate Desktop process\",\r\n                        \"How we apply unit testing\",\r\n                        \"How we apply integration / system testing\",\r\n                        \"How this relates to in-product ALM roadmap\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on PowerCAT ALM usage?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+    
+</script>
+
+<style>
+    #questions {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div id="questions">
+</div>
+
+<noscript>
+    <p>JavaScript must be enabled to view this content</p>
+</noscript>
+
+<script>
+    class QuestionExtensions {
+        constructor() {
+            this.feedbackTask();
+            this.importTask();
+            this.imageTask();
+            this.handoffTask();
+        }
+
+        handoffTask() {
+            var widget = {
+                name: "handoff-task",
+                title: "Handoff Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "handoff-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='handoff'></a>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "handoff-task", [
+                        {
+                            name: "destination",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "text",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        question.survey.setValue(question.name + '_loaded', true)
+                        $("#handoff").html(question.text);
+                        $("#handoff").on("click", function() {
+                            const parameterRegularExpression = new RegExp("\{([^}]+)\}","g")
+                            var matches = question.destination.match(parameterRegularExpression)
+                            var destination = question.destination
+                            for ( var i = 0; i < matches.length; i++) {
+                                let name = matches[i].replaceAll("{","").replaceAll("}","")
+                                destination = destination.replaceAll(matches[i], question.survey.data[name])
+                            }
+                            window.location = destination;
+                        })  
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
+        }
+
+        feedbackTask() {
+            var widget = {
+                name: "feedback-task",
+                title: "Feedback Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "feedback-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>Complete questions and send feedback</a>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "feedback-task", [
+                        {
+                            name: "destination",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        $("#sendFeedback").on("click", function() {
+                            if ( question.survey.completeLastPage() ) {
+                                question.survey.setValue(question.name + "-status", 'Sending feedback')
+
+                                $.ajax({
+                                        type: "GET",
+                                        url: question.destination,
+                                        success: function (response) {
+                                            $.ajax
+                                            ({
+                                                type: "POST",
+                                                url: response.url,
+                                                dataType: 'json',
+                                                async: false,
+                                                cors: true,
+                                                data: JSON.stringify(question.survey.data),
+                                                success: function (result) {
+                                                    question.survey.setValue(question.name + "-status", result.status)
+                                                },
+                                                error: function() {
+                                                    question.survey.setValue(question.name + "-status", 'Unable to send feedback')
+                                                }
+                                            });
+                                            }
+                                    });
+                            } else {
+                                question.survey.setValue(question.name + "-status", 'Validate questions are complete')
+                            }
+                        })  
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
+        }
+
+        importTask() {
+            var widget = {
+                name: "importTask",
+                title: "Import Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "import-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div></div>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "import-task", [
+                        {
+                            name: "src",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "mode",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        console.log('Loading')
+                        fetch(question.src)
+                            .then(function (response) {
+                                if (response.ok) {
+                                    return response.text();
+                                }
+                                throw new Error('Network response was not ok.');
+                            })
+                            .then(function (jsonContent) {
+                                question.survey[question.name + '_loaded'] = true;
+                                var importSurvey = new Model(jsonContent);
+                                if (question.hasOwnProperty('mode')) {
+                                    switch (question.mode) {
+                                        case 'merge':
+                                            for (var i = 0; i < importSurvey.pages.length; i++) {
+                                                for (var q = 0; q < question.survey.pages.length; q++) {
+                                                    if (question.survey.pages[q].name === importSurvey.pages[i].name) {
+                                                        for (var e = 0; e < importSurvey.pages[i].elements.length; e++) {
+                                                            question.survey.pages[q].elements.push(importSurvey.pages[i].elements[e])
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            break;
+                                        case 'insert':
+                                        case 'replace':
+                                            var selectedPage = question.survey.currentPageNo;
+                                            var newPages = [];
+                                            
+                                            for (var i = 0; i < importSurvey.pages.length; i++) {
+                                                var newPage = question.survey.addNewPage(importSurvey.pages[i].name);
+                                                newPages.push(newPages)
+                                                for (var e = 0; e < importSurvey.pages[i].elements.length; e++) {
+                                                    newPage.elements.push(importSurvey.pages[i].elements[e])
+                                                }
+                                                newPage.title = importSurvey.pages[i].title;
+                                                newPage.visibleIf = importSurvey.pages[i].visibleIf;
+                                                
+                                                question.survey.pages.splice(selectedPage + i + 1, 0, question.survey.pages.splice(question.survey.pages.length - 1, 1)[0]);
+                                                question.survey.runConditions();
+                                                question.survey.updateVisibleIndexes();
+                                            }
+                                            if (question.mode == 'replace') {
+                                                question.survey.removePage(question.survey.pages[selectedPage]);
+                                            }
+                                            question.survey.currentPageNo = selectedPage;
+                                            break;
+                                        default:
+                                            for (var i = 0; i < importSurvey.pages.length; i++) {
+                                                var newPage = question.survey.addNewPage(importSurvey.pages[i].name);
+                                                for (var e = 0; e < importSurvey.pages[i].elements.length; e++) {
+                                                    newPage.elements.push(importSurvey.pages[i].elements[e])
+                                                }
+                                                newPage.title = importSurvey.pages[i].title;
+                                                newPage.visibleIf = importSurvey.pages[i].visibleIf;
+                                            }
+                                    }
+                                }
+                            })
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
+        }
+
+        imageTask() {
+            var self = this;
+            var widget = {
+                name: "imageTask",
+                title: "Image Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "image-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div></div>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "image-task", [
+                        {
+                            name: "src",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    function initWidget() {
+                        if (question.survey[question.name + '_loaded']) {
+                            return;
+                        }
+
+                        fetch(question.src)
+                            .then(function (response) {
+                                if (response.ok) {
+                                    return response.text();
+                                }
+                                throw new Error('Network response was not ok.');
+                            })
+                            .then(function (svgContent) {
+                                el.innerHTML = svgContent;
+                                if (typeof self !== "undefined") {
+                                    self.componentSelect(question.survey, question, el);
+                                }
+                            })
+                    }
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
+        }
+
+        componentSelect(survey, question, element) {
+        console.log('Component Loaded')
+        var itemSelected =  ''
+        var groupSelected = ''
+        var itemUnselected =  ''
+        var groupUnselected = ''
+
+        var requiredQuestions = []
+        
+        for (const a of element.querySelectorAll("a")) {
+            if ( typeof a.href !== "undefined" && a.href.baseVal.startsWith("template://") )  {
+                var rect = this.findRect(a);
+                if (rect == null) {
+                    var rect = this.findPath(a);
+                }
+
+                if (rect != null)
+                {
+                    var classVal = rect.getAttribute("class");
+                    switch ( a.href.baseVal ) {
+                        case "template://group/selected":
+                            groupSelected = classVal;
+                            break;
+                        case "template://group/unselected":
+                            groupUnselected = classVal;
+                            break;
+                        case "template://item/selected":
+                            itemSelected = classVal;
+                            break;
+                        case "template://item/unselected":
+                            itemUnselected = classVal;
+                            break;
+                    }
+                }
+            }
+
+            if ( typeof a.href !== "undefined" && a.href.baseVal.startsWith("required://") )  {
+                var parts = a.href.baseVal.split('/')
+                var requiredQuestionId = parts[parts.length -1]
+                if ( requiredQuestions.indexOf(requiredQuestionId) == -1) {
+                    requiredQuestions.push(requiredQuestionId)
+                }
+            }
+        }
+
+        this.updateComplete(survey, question, requiredQuestions, element)
+
+        for (const a of element.querySelectorAll("a")) {        
+            if ( typeof a.href !== "undefined" ) {
+                var handled = false;
+                if (a.href.baseVal.startsWith("question://") || a.href.baseVal.startsWith("option://")) {
+                    console.log('Found question ' + a.href.baseVal )
+                    this.setupQuestion(survey, a.href.baseVal, a, itemSelected)
+
+                    a.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        var aLink = this.findLink(event.target);
+                        if ( aLink !== null) {
+                            var rect = this.findRect(aLink);
+                            if (rect == null) {
+                                var rect = this.findPath(aLink);
+                            }
+
+                            var newClass = itemSelected;
+                            if (rect.getAttribute("class") == itemSelected) {
+                                newClass = itemUnselected
+                            }
+                            this.selectQuestion(survey, a.href.baseVal, newClass == itemSelected, element, itemUnselected, () => {
+                                this.updateComplete(survey, question, requiredQuestions, element)
+                            });
+
+                            if (rect != null) {
+                                rect.setAttribute("class", newClass)
+                            }
+                        }
+                    })
+                    handled = true;
+                }
+
+                if (a.href.baseVal.startsWith("navigate://")) {
+                    console.log('Found navigation link ' + a.href.baseVal )
+                    a.addEventListener("click", (event) => {
+                        event.preventDefault();
+
+                        var parts = a.href.baseVal.split('/');
+                    
+                        survey.currentPageNo = parseInt(parts[parts.length-1]) - 1;
+                    });
+                    handled = true;
+                }
+
+                if (a.href.baseVal.startsWith("popup://")) {
+                    console.log('Found popup link ' + a.href.baseVal )
+                    
+                    
+                    handled = true;
+                }
+
+                if (!handled) {
+                    a.addEventListener("click", (event) => {
+                        event.preventDefault();
+                    });
+                }
+            }
+        }
+    }
+    
+    unique(arr) {
+        var a = arr.concat();
+        for(var i=0; i<a.length; ++i) {
+            for(var j=i+1; j<a.length; ++j) {
+                if(a[i] === a[j])
+                    a.splice(j--, 1);
+            }
+        }
+
+        return a;
+    };
+
+    findQuestion(survey, questionId) {
+        var questionMatch = null;
+        for ( var p = 0; p < survey.pages.length; p++ ) {
+            for ( var q = 0; q < survey.pages[p].questions.length; q++ ) 
+            {
+                if ( survey.pages[p].questions[q].name == questionId )
+                {
+                    questionMatch = survey.pages[p].questions[q];
+                    break;
+                }
+            }
+        }
+        return questionMatch;
+    }
+
+    updateComplete(survey, question, requiredList, element) {
+        var requiredMatch = 0;
+        for (const a of element.querySelectorAll("a")) {
+            if ( typeof a.href !== "undefined" && a.href.baseVal.startsWith("required://") )  {
+                var parts = a.href.baseVal.split('/')
+                var requiredQuestionId = parts[parts.length -1]
+                var hasValue = false;
+                if (
+                    typeof survey.data[requiredQuestionId] !== "undefined" && 
+                    (typeof survey.data[requiredQuestionId].length === "number" && survey.data[requiredQuestionId].length > 0)
+                ) {
+                    requiredMatch++;
+                    hasValue = true;
+                }
+
+                var path = this.findPath(a);
+                if (path != null) {
+                    if (hasValue) {
+                        path.setAttribute('style', 'display:none')
+                    } else {
+                        path.setAttribute('style', '')
+                    }
+                }
+            }
+        }
+
+        if (typeof question.name === "string") {
+            if (requiredMatch == requiredList.length) {
+                survey.setValue(question.name, 'complete')
+            } else {
+                survey.clearValue(question.name)
+            }
+        } 
+    }
+
+    setupQuestion(survey, questionId, element, itemSelected) {
+        var parts = questionId.split('/');
+        var val = parts[parts.length - 1];
+        var question = parts[parts.length - 2];
+        
+        var currentVal = survey.data[question];
+
+        if ( typeof currentVal === "undefined") {
+            return;
+        }
+
+        var newClass = '';
+
+        if ( questionId.startsWith('option://') ) {
+            if ( val === currentVal ) {
+                newClass = itemSelected;
+            }
+        }
+
+        if ( questionId.startsWith('question://') && currentVal.indexOf(val) >= 0 ) {
+            newClass = itemSelected;
+        }
+
+        if ( newClass.length > 0)
+        {
+        var rect = this.findRect(element);
+        if (rect == null) {
+            var rect = this.findPath(element);
+        }
+        
+        rect.setAttribute('class', newClass)
+        }
+    }
+
+    selectQuestion(survey, questionId, selected, element, itemUnselected, callback) {
+        var parts = questionId.split('/');
+        var val = parts[parts.length - 1];
+        var question = parts[parts.length - 2];
+        var group = parts[parts.length - 3];
+
+        if ( questionId.startsWith('option://') ) {
+            this.unselectGroup(element, group, question, itemUnselected);
+        }
+
+        if ( questionId.startsWith('option://') && !selected ) {
+            survey.clearValue(question);
+            if (typeof callback === "function") {
+                callback()
+            }
+            return;
+        }
+
+        var newVal = val;
+
+        var currentVal = survey.data[question];
+        if ( typeof currentVal === "undefined") {
+            if ( questionId.startsWith('question://') ) {
+                newVal = selected ? [ val ] : [];
+            }
+        }
+        else
+        {
+            if ( questionId.startsWith('question://') ) {
+                newVal = selected ? [ val ] : [];
+                newVal = this.unique(currentVal.concat(newVal));
+                if ( !selected ) {
+                    
+                    var index = newVal.indexOf(val);
+                    if (index > -1) {
+                        newVal.splice(index, 1);
+                    }
+                }
+            }
+        }
+
+        survey.setValue(question, newVal);
+
+        if (typeof callback === "function") {
+            callback()
+        }
+    }
+
+    unselectGroup(element, group, question, classToApply) {
+        var items = this.findOptions(element, group, question);
+
+        items.forEach( item => {
+            var rect = this.findRect(item);
+            if (rect == null) {
+                var rect = this.findPath(item);
+            }
+
+            if (rect != null) {
+                rect.setAttribute('class', classToApply)
+            }
+        });
+    }
+
+    findOptions(element, group, question) {
+        var options = []
+        this.findChildLink(element, 'option://' + group + "/" + question, options)
+        return options;
+    }
+
+    findLink(element, startsWith) {
+        if (typeof element !== "undefined") {
+            if ( typeof element.href !== "undefined" ) {
+                if ( typeof startsWith !== "undefined") {
+                    if ( element.href.baseVal.startsWith(startsWith) ) {
+                        return element;
+                    }
+
+                    if ( typeof element.parentElement !== "undefined" ) {
+                        return this.findLink(element.parentElement, startsWith)
+                    }
+                } else {
+                    return element
+                }
+            }
+
+            if ( typeof element.parentElement !== "undefined" ) {
+                return this.findLink(element.parentElement, startsWith)
+            }
+        }
+    
+        return null;
+    }
+
+    findChildLink(element, startsWith, matches) {
+        if ( typeof element === "undefined" ) {
+            return null;
+        }
+
+        if ( typeof element.href !== "undefined" && typeof element.href.baseVal !== "undefined") {
+            if ( element.href.baseVal.startsWith(startsWith) ) {
+                if ( startsWith !== "undefined" && element.href.baseVal.startsWith(startsWith) ) {
+                    matches.push(element);
+                }
+            }
+        }
+
+        if ( typeof element.childNodes !== "undefined" ) {
+            for (let child of element.childNodes) {
+                if ( typeof startsWith === "string" && typeof child.href !== "undefined" && typeof child.href.baseVal !== "undefined") {
+                    if ( child.href.baseVal.startsWith(startsWith) ) {
+                        matches.push(child);
+                    }
+                }
+                
+                this.findChildLink(child, startsWith, matches);
+            }
+        }
+    }
+
+    findRect(element) {
+        for (const rect of element.querySelectorAll("rect")) {
+            return rect;
+        }
+        return null;
+    }
+
+    findPath(element) {
+        for (const item of element.querySelectorAll("path")) {
+            return item;
+        }
+        return null;
+    }
+    }
+
+    function contains(params) {
+        try {
+            if (Array.isArray(params[0]) && Array.isArray(params[1])) {
+                for (var i = 0; i < params[1].length; i++) {
+                    if (params[0].includes(params[1][i])) {
+                        return true
+                    }
+                }
+            }
+
+            if (Array.isArray(params[0]) && !Array.isArray(params[1])) {
+                return params[0].includes(params[1]);
+            }
+        } catch {
+            return false
+        }
+        return false
+    }
+
+    function stringLength(params) {
+        try {
+            return params[0].length
+        } catch {
+            return false
+        }
+        return false
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        Survey.FunctionFactory
+            .Instance
+            .register("contains", contains);
+        Survey.FunctionFactory
+            .Instance
+            .register("len", stringLength);
+        Survey.StylesManager.applyTheme("modern");
+
+        const converter = new showdown.Converter();
+        new QuestionExtensions();
+
+        function loadData(loaded) {
+            const questionModel = new Survey.Model(loaded);
+            const get_url = window.location.search;
+            const url_param = new URLSearchParams(get_url);
+            for (let key of url_param.keys()) {
+                if ( key == "q" )
+                {
+                    continue;
+                }
+                const value = url_param.get(key);
+                questionModel.setValue(key, value)
+            }
+
+            questionModel.onStarted.add(() => {
+                console.log('called')
+            })
+            questionModel.onTextMarkdown.add(function (survey, options) {
+                
+                let str = converter.makeHtml(options.text);
+                if (options.hasOwnProperty('markdown')) {
+                    console.log(options.markdown)
+                    str = converter.makeHtml(options.markdown);
+                }
+                
+                str = str.substring(3);
+                str = str.substring(0, str.length - 4);
+                
+                options.html = str;
+            });
+            questionModel.showNavigationButtons =  false 
+        
+            questionModel.completedHtml = "Thank you for providing feedback";
+
+            const targetNode = document.getElementById('preloader');
+            const observer = new MutationObserver(() => {
+                const element = document.getElementById("topofpage");
+                element.scrollIntoView({behavior: 'smooth'})
+                element.scrollTop -= 300;
+            });
+            const config = { attributes: true, childList: true, subtree: true };
+            observer.observe(targetNode, config);
+
+            $("#questions").Survey({ model: questionModel });
+
+            return questionModel;
+        }
+
+        if ( data != null) {
+            const get_url = window.location.search;
+            const url_param = new URLSearchParams(get_url);
+            const q = url_param.get('q');
+            var code = ''
+            newData = JSON.parse(data)
+            if ( q && q.length > 0 ) {
+                try {
+                    var questions = JSON.parse(atob(q));
+                    code = questions.code;
+                    var allowed = ["radiogroup", "checkbox"];
+                    if ( Array.isArray(questions.add) ) {
+                       for ( var i = questions.add.length - 1; i >= 0; i--) {
+                        if ( allowed.indexOf(questions.add[i].type) >= 0) {
+                            newData.pages[0].elements = [questions.add[i]].concat(newData.pages[0].elements)
+                        }
+                       }
+                    }
+                } catch (ex) {
+                    console.log(ex)
+
+                }     
+            }
+
+            data = JSON.stringify(newData)
+            let result = loadData(data)
+            if ( code.length > 0 ) {
+                result.setValue('code', code)
+            }
+        }
+        else {
+            const get_url = window.location.search;
+            const url_param = new URLSearchParams(get_url);
+            const source = url_param.get('source');
+            fetch('/powercat-automation-kit/' + source + ".json")
+                .then(async function (response) {
+                    if (response.ok) {
+                        loadData(await response.text());
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+        }
+    });
+</script>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/overview.mp3">
+
+    
+        
+            
+            
+            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="Power CAT ALM Overview"/>
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>Power CAT 팀은 ALM 가속기를 사용하여 각 <a href="https://github.com/microsoft/powercat-automation-kit/releases">릴리스</a>.</p>
+<p>각 릴리스는 개발에서 테스트 및 프로덕션 환경으로의 변경 사항을 촉진합니다. 키트 내의 Power Platform 솔루션은 자동화된 프로세스를 사용하여 공용 GitHub 릴리스에 배포할 자산을 패키징합니다.</p>
+<p>향후 이정표에서 기존 플랫폼을 확장할 예정입니다. <a href="https://microsoft.github.io/powercat-automation-kit/ko/features/alm">ALM 기능</a> DevOps 프로세스의 일부로 RPA 샘플의 유효성 검사 규칙 및 시각적 비교를 포함하는 방법의 예를 제공합니다.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/release-process.mp3">
+
+    
+        
+            
+            
+            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-powercat-process.svg" alt="Power CAT Automation Kit Release Checker"/>
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>다음은 자동화 키트 릴리스 프로세스의 주요 단계를 간략하게 설명합니다.</p>
+<ol>
+<li>
+<p>Power Platform 개발 환경에서 변경한 내용은 공용 GitHub 리포지토리의 분기에 저장됩니다.</p>
+</li>
+<li>
+<p>변경 내용을 테스트 릴리스에 포함할 준비가 되면 끌어오기 요청을 사용하여 기본 분기에 병합됩니다. 끌어오기 요청을 완료하려면 먼저 Azure DevOps 유효성 검사 파이프라인을 성공적으로 완료하고 끌어오기 요청을 검토해야 합니다.</p>
+</li>
+<li>
+<p>끌어오기 요청이 자동화된 검사를 통과하고 검토 승인을 받으면 주 분기에 병합할 수 있습니다. 이 병합은 관리되는 빌드를 테스트 전원 플랫폼 환경에 게시하는 테스트 Azure DevOps 빌드 파이프라인을 트리거합니다.</p>
+</li>
+<li>
+<p>내부 테스트 후 Azure DevOps 프로덕션 파이프라인이 수동으로 트리거되어 프로덕션 전원 플랫폼 배포를 생성합니다.</p>
+</li>
+<li>
+<p>릴리스가 준비되면 릴리스 Azure DevOps 파이프라인은 릴리스 정보 및 빌드 자산을 포함한 초안 릴리스를 만듭니다. 최종 릴리스 빌드는 열려 있는 모든 문제를 닫고 마일스톤을 닫습니다. 게시된 빌드 태그는 월 및 연도 레이블이 적용된 GitHub 리포지토리에 태그입니다.</p>
+</li>
+</ol>
+
+    
+    </aside>
+    
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    
+    
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="footer-logo">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg">
+        </div>
+      </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>제품</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/ko/releases">
+                  릴리스
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/ko/frequently-asked-questions">
+                  자주 묻는 질문(FAQ)
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/ko/support">
+                  지원
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/ko/office-hours">
+                  업무 시간
+                </a>
+              </li>
+              <li>
+                <a href="https://aka.ms/automation-kit-learn">
+                  기능 살펴보기
+                </a>
+              </li>
+              <li>
+                <a href="https://aka.ms/ak4pp-issues">
+                  문제
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/microsoft/powercat-automation-kit/milestones?status=open">
+                  이정표
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/microsoft/powercat-automation-kit/releases">
+                  릴리스
+                </a>
+              </li>
+              <li>
+                <a href="https://privacy.microsoft.com/privacystatement">
+                  개인 정보 정책
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>배우다</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">
+                  시작
+                </a>
+              </li>
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit">
+                  자동화 키트 구성
+                </a>
+              </li>
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit">
+                  자동화 키트 사용
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>블로그</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://aka.ms/automation-kit-blog">
+                  공개 미리 보기
+                </a>
+              </li>
+              <li>
+                <a href="https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/">
+                  시네플렉스 고객 사례
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3></h3>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" href="https://github.com/microsoft/powercat-automation-kit">
+                  <span class="icon"><i class="fa fa-github"></i></span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+    
+    <div id="backtotop"><a href="#"></a></div>
+
+    
+
+    
+
+    <script src="https://microsoft.github.io/powercat-automation-kit/js/jquery/3.6.1/jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/feather-icons/4.29.0/feather.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/fresh.js"></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/jquery.panelslider.min.js"></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/modernizr/2.8.3/modernizr.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/survey-jquery/1.9.55/survey.jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/showdown/2.1.0/showdown.min.js" ></script>
+  </body>
+</html>

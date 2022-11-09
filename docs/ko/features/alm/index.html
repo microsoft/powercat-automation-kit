@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+
+<meta property="og:title" content="애플리케이션 수명 주기 관리(ALM)" />
+<meta property="og:description" content="자동화 키트 - ALM" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/ko/features/alm/" /><meta property="article:section" content="features" />
+
+
+
+
+
+<meta name="description" content="전력 플랫폼 스타터 사이트용 자동화 키트. Power Automate 데스크톱 투자 수익률을 정의 및 측정하고 학습 콘텐츠 및 고객 사례에 연결합니다." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="og:image" content="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.png" />
+<meta name="og:image:alt" content="Automation Kit Logo" />
+
+    <title>Automation Kit for Power Platform</title>
+    
+<link rel="icon" type="image/png" href="https://microsoft.github.io/powercat-automation-kit/images/favicon.png" />
+<link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/style.min.973539e55bb9a3b263afa3bea3a5c42c6bc9388ce23c69a67bf0e629f1a941a0.css" integrity="sha256-lzU55Vu5o7Jjr6O&#43;o6XELGvJOIziPGmme/DmKfGpQaA=">
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/icons.css">
+<link href="https://microsoft.github.io/powercat-automation-kit/css/survey-jquery/modern.min.css" type="text/css" rel="stylesheet">
+
+
+  </head>
+  <body>
+    
+    
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    
+
+    
+
+    
+
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/ko/">
+        <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+      <div id="navbar-menu" class="navbar-menu is-static">
+
+        <div class="navbar-end">
+          <a href="https://microsoft.github.io/powercat-automation-kit/ko/customer-stories" class="navbar-item is-secondary">
+            고객 사례
+          </a>
+          <a href="https://aka.ms/automation-kit-learn" class="navbar-item is-secondary">
+            배우다
+          </a>
+          <a href="https://microsoft.github.io/powercat-automation-kit/ko/office-hours" class="navbar-item is-secondary">
+            업무 시간
+          </a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+
+
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/ko/">
+        <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+
+      <div class="navbar-end">
+        <a href="https://microsoft.github.io/powercat-automation-kit/ko/customer-stories" class="navbar-item is-secondary">
+          고객 사례
+        </a>
+        <a href="https://aka.ms/automation-kit-learn" class="navbar-item is-secondary">
+          배우다
+        </a>
+        <a href="https://microsoft.github.io/powercat-automation-kit/ko/office-hours" class="navbar-item is-secondary">
+          업무 시간
+        </a>
+      </div>
+    </div>
+</div>
+</nav>
+
+
+<section class="section is-medium">
+  <a id="topofpage"></a>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">애플리케이션 수명 주기 관리(ALM)</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <style>
+    .fullscreen.optional {
+        display: none !important
+    }
+    nav > .fullscreen.container {
+        display: none !important
+    }
+    section.fullscreen {
+        padding: 10px !important;
+    }
+    .reveal.fullscreen {
+    }
+}
+</style>
+
+<style>
+     .page { display: none }
+</style>
+<div class="optional">
+<p>이 페이지에서는 에 포함된 Power Automate 데스크톱 워크플로용 자동화 키트와 함께 ALM을 사용하는 데 도움이 될 수 있는 구성 요소에 대한 개요를 제공합니다. <a href="https://learn.microsoft.com/power-platform/alm/solution-concepts-alm">전력 플랫폼 솔루션</a>.</p>
+</div>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" integrity="sha512-V5fKCVKOFy36w8zJmLzPH5R6zU6KvuHOvxfMRczx2ZeqTjKRGSBO9yiZjCKEJS3n6EmENwrH/xvSwXqxje+VVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" integrity="sha512-0BwgQfciYCCQc2rKINa7wL2k5vGAjF5dyL90A598QMimsVDie6M/4ShOLG07HJpNtSc9JB6m2s9B9OGam3rmTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js" integrity="sha512-QYXU3Cojl94ZRiZRjUZpyg1odj9mKTON9MsTMzGNx/L3JqvMA3BQNraZwsZ83UeisO+QMVfFa83SyuYYJzR9hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js" integrity="sha512-7DEMfv8iM8rlGUiVduuJQGcTazyiw+7PSxEMGuPzk+sW8KLZiSh5TrkCNTbjpNVL1o7grRlXTN+OQLEFuYGVxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<style>
+    .section {
+        overflow-y: auto  !important;
+        overflow-x: hidden !important;
+        height: 100%;
+    }
+    .reveal {
+        width: 50vw;
+        height: 30vw
+    }
+    .reveal .speaker-notes {
+        margin-top: 20px;
+    }
+    @media only screen and (max-width: 1024px) {
+        .reveal {
+            width: 90vw;
+            height: 80vw
+        }
+    }
+    @media only screen and (max-width: 420px) {
+        #fullScreen {
+            display: block;
+            float: none;
+        }
+    }
+    .header {
+        margin-top: 20px;
+    }
+    .header > a {
+        float: inline-end;
+    }
+    .section.is-medium.fullscreen {
+        padding: 10px;
+    }
+    nav.navbar.fullscreen {
+        display:none;
+    }
+</style>
+
+<div class="header">
+    <audio id="slideAudio" controls="controls" style="height:50px">
+        <source src="" type="audio/mpeg">
+    Your browser does not support the audio element.
+    </audio>
+
+
+    <a id="fullScreen" class="navbar-item">
+        <span class="button signup-button rounded secondary-btn raised">
+        Full Screen
+        </span>
+    </a>
+</div>
+
+<div class="reveal">
+    <div class="slides">
+    
+    <section id="slide-1"></section>
+    
+    <section id="slide-2"></section>
+    
+    <section id="slide-3"></section>
+    
+    <section id="slide-4"></section>
+    
+    <section id="slide-5"></section>
+    
+    <section id="slide-6"></section>
+    
+    <section id="slide-7"></section>
+    
+    </div>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        let slides = "1,2,3,4,5,6,7".split(",")
+        slides.forEach(element => {
+            $("#slide-" + element).append($("#slide" + element).html());
+        });
+       
+        $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
+
+        Reveal.initialize({ embedded: true, showNotes: true, center: true, margin: 0.0, plugins: [ RevealNotes ] })
+
+        Reveal.addEventListener( 'slidechanged', event => {
+            $('audio').each(function(){
+                this.pause(); 
+                this.currentTime = 0; 
+            }); 
+            try {
+                $("#slideAudio").attr('src', $("#slide" + slides[event.indexh]).attr("data-audio"))
+            } catch {
+
+            }
+            
+        } );
+
+        $("#fullScreen").on("click", () => {
+            $(".reveal").toggleClass("fullscreen");
+            $(".optional").toggleClass("fullscreen");
+            $("nav > .container").toggleClass("fullscreen");
+            $("nav.navbar").toggleClass("fullscreen");
+            $(".section.is-medium").toggleClass("fullscreen");
+        });
+    });
+</script>
+<div class="optional">
+<style>
+    @media only screen and (max-width: 1024px) {
+        .mobileSpacer { margin-bottom: 60vw }
+    }
+</style>
+
+<div class="mobileSpacer">
+</div>
+<h2 id="요약">요약</h2>
+<p>Power Automate 데스크톱 구성 요소를 포함하는 Power Platform 솔루션용 ALM을 살펴보면</p>
+<ol>
+<li>관리되는 환경 Power Platform Pipelines의 기능을 검토하여 엔터프라이즈 규모의 제품 내 기능을 활용하여 환경 내에서 솔루션을 관리하고 관리합니다.</li>
+</ol>
+<br/>
+<ol start="2">
+<li>필요한 경우 <a href="https://learn.microsoft.com/power-platform/alm/devops-build-tools">Microsoft Power Platform Build Tools for Azure DevOps</a>, <a href="https://learn.microsoft.com/power-platform/alm/devops-github-actions">GitHub Actions for Microsoft Power Platform</a> 또는 <a href="https://learn.microsoft.com/power-platform/developer/cli/introduction">파워 플랫폼 CLI</a> ALM DevOps 프로세스를 통합하고 자동화합니다.</li>
+</ol>
+<br/>
+<ol start="3">
+<li>사용을 고려하십시오 <a href="https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components">전력 플랫폼용 ALM 가속기</a>. ALM 가속기는 통합 소스 제어 거버넌스를 사용하여 많은 Power Platform ALM 작업을 자동화하는 미리 빌드된 Azure DevOps 템플릿 집합을 제공합니다.</li>
+</ol>
+<h2 id="파워-캣에서-배우기">파워 캣에서 배우기</h2>
+<p>또한 Power CAT 팀이 ALM 가속기를 사용하여 배송하는 방법에 대해 자세히 알아볼 수 있습니다. <a href="https://microsoft.github.io/powercat-automation-kit/ko/features/alm/powercat">전원 고양이 자동화 키트 ALM</a>.</p>
+<h2 id="리소스">리소스</h2>
+<p><a href="https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog">전력 플랫폼 학습 카탈로그를 위한 ALM 가속기</a></p>
+<h2 id="로드맵">로드맵</h2>
+<p>자동화 키트 팀은 ALM 가속기 팀과 협력하여 다음을 다루는 기존 템플릿에 Power Automate 데스크톱 관련 작업을 추가하고 있습니다.</p>
+<ul>
+<li>
+<p>파워 오토메이트 데스크톱 정의를 나란히 비교합니다.</p>
+</li>
+<li>
+<p>유효성 검사 규칙은 Power Automate 데스크톱을 확인합니다.</p>
+</li>
+<li>
+<p>CI/CD 파이프라인의 일부로 단위, 통합 및 시스템 테스트 실행.</p>
+</li>
+</ul>
+<p>우리의 검토 <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm">자동화 키트 ALM 관련 백로그</a>.</p>
+<h2 id="피드백">피드백</h2>
+
+
+
+<script>
+    
+    
+    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-AK4PP-ALM\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"roles\",\r\n                    \"title\": \"Which of was most useful for related to ALM for your automation solutions?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"How this relates to in-product ALM roadmap with Managed Environments\",\r\n                        \"What is the ALM ALM Accelerator for Power Platform\",\r\n                        \"What the ALM roadmap is for the Automation Kit\",\r\n                        \"How we add ALM specific tasks to our Power Automate Desktop process\",\r\n                        \"How to apply unit testing\",\r\n                        \"How to apply integration / system testing\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on ALM?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+    
+</script>
+
+<style>
+    #questions {
+        margin-bottom: 20px;
+    }
+</style>
+
+<div id="questions">
+</div>
+
+<noscript>
+    <p>JavaScript must be enabled to view this content</p>
+</noscript>
+
+<script>
+    class QuestionExtensions {
+        constructor() {
+            this.feedbackTask();
+            this.importTask();
+            this.imageTask();
+            this.handoffTask();
+        }
+
+        handoffTask() {
+            var widget = {
+                name: "handoff-task",
+                title: "Handoff Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "handoff-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='handoff'></a>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "handoff-task", [
+                        {
+                            name: "destination",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "text",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        question.survey.setValue(question.name + '_loaded', true)
+                        $("#handoff").html(question.text);
+                        $("#handoff").on("click", function() {
+                            const parameterRegularExpression = new RegExp("\{([^}]+)\}","g")
+                            var matches = question.destination.match(parameterRegularExpression)
+                            var destination = question.destination
+                            for ( var i = 0; i < matches.length; i++) {
+                                let name = matches[i].replaceAll("{","").replaceAll("}","")
+                                destination = destination.replaceAll(matches[i], question.survey.data[name])
+                            }
+                            window.location = destination;
+                        })  
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
+        }
+
+        feedbackTask() {
+            var widget = {
+                name: "feedback-task",
+                title: "Feedback Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "feedback-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>Complete questions and send feedback</a>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "feedback-task", [
+                        {
+                            name: "destination",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        $("#sendFeedback").on("click", function() {
+                            if ( question.survey.completeLastPage() ) {
+                                question.survey.setValue(question.name + "-status", 'Sending feedback')
+
+                                $.ajax({
+                                        type: "GET",
+                                        url: question.destination,
+                                        success: function (response) {
+                                            $.ajax
+                                            ({
+                                                type: "POST",
+                                                url: response.url,
+                                                dataType: 'json',
+                                                async: false,
+                                                cors: true,
+                                                data: JSON.stringify(question.survey.data),
+                                                success: function (result) {
+                                                    question.survey.setValue(question.name + "-status", result.status)
+                                                },
+                                                error: function() {
+                                                    question.survey.setValue(question.name + "-status", 'Unable to send feedback')
+                                                }
+                                            });
+                                            }
+                                    });
+                            } else {
+                                question.survey.setValue(question.name + "-status", 'Validate questions are complete')
+                            }
+                        })  
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
+        }
+
+        importTask() {
+            var widget = {
+                name: "importTask",
+                title: "Import Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "import-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div></div>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "import-task", [
+                        {
+                            name: "src",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "mode",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        console.log('Loading')
+                        fetch(question.src)
+                            .then(function (response) {
+                                if (response.ok) {
+                                    return response.text();
+                                }
+                                throw new Error('Network response was not ok.');
+                            })
+                            .then(function (jsonContent) {
+                                question.survey[question.name + '_loaded'] = true;
+                                var importSurvey = new Model(jsonContent);
+                                if (question.hasOwnProperty('mode')) {
+                                    switch (question.mode) {
+                                        case 'merge':
+                                            for (var i = 0; i < importSurvey.pages.length; i++) {
+                                                for (var q = 0; q < question.survey.pages.length; q++) {
+                                                    if (question.survey.pages[q].name === importSurvey.pages[i].name) {
+                                                        for (var e = 0; e < importSurvey.pages[i].elements.length; e++) {
+                                                            question.survey.pages[q].elements.push(importSurvey.pages[i].elements[e])
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            break;
+                                        case 'insert':
+                                        case 'replace':
+                                            var selectedPage = question.survey.currentPageNo;
+                                            var newPages = [];
+                                            
+                                            for (var i = 0; i < importSurvey.pages.length; i++) {
+                                                var newPage = question.survey.addNewPage(importSurvey.pages[i].name);
+                                                newPages.push(newPages)
+                                                for (var e = 0; e < importSurvey.pages[i].elements.length; e++) {
+                                                    newPage.elements.push(importSurvey.pages[i].elements[e])
+                                                }
+                                                newPage.title = importSurvey.pages[i].title;
+                                                newPage.visibleIf = importSurvey.pages[i].visibleIf;
+                                                
+                                                question.survey.pages.splice(selectedPage + i + 1, 0, question.survey.pages.splice(question.survey.pages.length - 1, 1)[0]);
+                                                question.survey.runConditions();
+                                                question.survey.updateVisibleIndexes();
+                                            }
+                                            if (question.mode == 'replace') {
+                                                question.survey.removePage(question.survey.pages[selectedPage]);
+                                            }
+                                            question.survey.currentPageNo = selectedPage;
+                                            break;
+                                        default:
+                                            for (var i = 0; i < importSurvey.pages.length; i++) {
+                                                var newPage = question.survey.addNewPage(importSurvey.pages[i].name);
+                                                for (var e = 0; e < importSurvey.pages[i].elements.length; e++) {
+                                                    newPage.elements.push(importSurvey.pages[i].elements[e])
+                                                }
+                                                newPage.title = importSurvey.pages[i].title;
+                                                newPage.visibleIf = importSurvey.pages[i].visibleIf;
+                                            }
+                                    }
+                                }
+                            })
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
+        }
+
+        imageTask() {
+            var self = this;
+            var widget = {
+                name: "imageTask",
+                title: "Image Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "image-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div></div>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "image-task", [
+                        {
+                            name: "src",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    function initWidget() {
+                        if (question.survey[question.name + '_loaded']) {
+                            return;
+                        }
+
+                        fetch(question.src)
+                            .then(function (response) {
+                                if (response.ok) {
+                                    return response.text();
+                                }
+                                throw new Error('Network response was not ok.');
+                            })
+                            .then(function (svgContent) {
+                                el.innerHTML = svgContent;
+                                if (typeof self !== "undefined") {
+                                    self.componentSelect(question.survey, question, el);
+                                }
+                            })
+                    }
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
+        }
+
+        componentSelect(survey, question, element) {
+        console.log('Component Loaded')
+        var itemSelected =  ''
+        var groupSelected = ''
+        var itemUnselected =  ''
+        var groupUnselected = ''
+
+        var requiredQuestions = []
+        
+        for (const a of element.querySelectorAll("a")) {
+            if ( typeof a.href !== "undefined" && a.href.baseVal.startsWith("template://") )  {
+                var rect = this.findRect(a);
+                if (rect == null) {
+                    var rect = this.findPath(a);
+                }
+
+                if (rect != null)
+                {
+                    var classVal = rect.getAttribute("class");
+                    switch ( a.href.baseVal ) {
+                        case "template://group/selected":
+                            groupSelected = classVal;
+                            break;
+                        case "template://group/unselected":
+                            groupUnselected = classVal;
+                            break;
+                        case "template://item/selected":
+                            itemSelected = classVal;
+                            break;
+                        case "template://item/unselected":
+                            itemUnselected = classVal;
+                            break;
+                    }
+                }
+            }
+
+            if ( typeof a.href !== "undefined" && a.href.baseVal.startsWith("required://") )  {
+                var parts = a.href.baseVal.split('/')
+                var requiredQuestionId = parts[parts.length -1]
+                if ( requiredQuestions.indexOf(requiredQuestionId) == -1) {
+                    requiredQuestions.push(requiredQuestionId)
+                }
+            }
+        }
+
+        this.updateComplete(survey, question, requiredQuestions, element)
+
+        for (const a of element.querySelectorAll("a")) {        
+            if ( typeof a.href !== "undefined" ) {
+                var handled = false;
+                if (a.href.baseVal.startsWith("question://") || a.href.baseVal.startsWith("option://")) {
+                    console.log('Found question ' + a.href.baseVal )
+                    this.setupQuestion(survey, a.href.baseVal, a, itemSelected)
+
+                    a.addEventListener("click", (event) => {
+                        event.preventDefault();
+                        var aLink = this.findLink(event.target);
+                        if ( aLink !== null) {
+                            var rect = this.findRect(aLink);
+                            if (rect == null) {
+                                var rect = this.findPath(aLink);
+                            }
+
+                            var newClass = itemSelected;
+                            if (rect.getAttribute("class") == itemSelected) {
+                                newClass = itemUnselected
+                            }
+                            this.selectQuestion(survey, a.href.baseVal, newClass == itemSelected, element, itemUnselected, () => {
+                                this.updateComplete(survey, question, requiredQuestions, element)
+                            });
+
+                            if (rect != null) {
+                                rect.setAttribute("class", newClass)
+                            }
+                        }
+                    })
+                    handled = true;
+                }
+
+                if (a.href.baseVal.startsWith("navigate://")) {
+                    console.log('Found navigation link ' + a.href.baseVal )
+                    a.addEventListener("click", (event) => {
+                        event.preventDefault();
+
+                        var parts = a.href.baseVal.split('/');
+                    
+                        survey.currentPageNo = parseInt(parts[parts.length-1]) - 1;
+                    });
+                    handled = true;
+                }
+
+                if (a.href.baseVal.startsWith("popup://")) {
+                    console.log('Found popup link ' + a.href.baseVal )
+                    
+                    
+                    handled = true;
+                }
+
+                if (!handled) {
+                    a.addEventListener("click", (event) => {
+                        event.preventDefault();
+                    });
+                }
+            }
+        }
+    }
+    
+    unique(arr) {
+        var a = arr.concat();
+        for(var i=0; i<a.length; ++i) {
+            for(var j=i+1; j<a.length; ++j) {
+                if(a[i] === a[j])
+                    a.splice(j--, 1);
+            }
+        }
+
+        return a;
+    };
+
+    findQuestion(survey, questionId) {
+        var questionMatch = null;
+        for ( var p = 0; p < survey.pages.length; p++ ) {
+            for ( var q = 0; q < survey.pages[p].questions.length; q++ ) 
+            {
+                if ( survey.pages[p].questions[q].name == questionId )
+                {
+                    questionMatch = survey.pages[p].questions[q];
+                    break;
+                }
+            }
+        }
+        return questionMatch;
+    }
+
+    updateComplete(survey, question, requiredList, element) {
+        var requiredMatch = 0;
+        for (const a of element.querySelectorAll("a")) {
+            if ( typeof a.href !== "undefined" && a.href.baseVal.startsWith("required://") )  {
+                var parts = a.href.baseVal.split('/')
+                var requiredQuestionId = parts[parts.length -1]
+                var hasValue = false;
+                if (
+                    typeof survey.data[requiredQuestionId] !== "undefined" && 
+                    (typeof survey.data[requiredQuestionId].length === "number" && survey.data[requiredQuestionId].length > 0)
+                ) {
+                    requiredMatch++;
+                    hasValue = true;
+                }
+
+                var path = this.findPath(a);
+                if (path != null) {
+                    if (hasValue) {
+                        path.setAttribute('style', 'display:none')
+                    } else {
+                        path.setAttribute('style', '')
+                    }
+                }
+            }
+        }
+
+        if (typeof question.name === "string") {
+            if (requiredMatch == requiredList.length) {
+                survey.setValue(question.name, 'complete')
+            } else {
+                survey.clearValue(question.name)
+            }
+        } 
+    }
+
+    setupQuestion(survey, questionId, element, itemSelected) {
+        var parts = questionId.split('/');
+        var val = parts[parts.length - 1];
+        var question = parts[parts.length - 2];
+        
+        var currentVal = survey.data[question];
+
+        if ( typeof currentVal === "undefined") {
+            return;
+        }
+
+        var newClass = '';
+
+        if ( questionId.startsWith('option://') ) {
+            if ( val === currentVal ) {
+                newClass = itemSelected;
+            }
+        }
+
+        if ( questionId.startsWith('question://') && currentVal.indexOf(val) >= 0 ) {
+            newClass = itemSelected;
+        }
+
+        if ( newClass.length > 0)
+        {
+        var rect = this.findRect(element);
+        if (rect == null) {
+            var rect = this.findPath(element);
+        }
+        
+        rect.setAttribute('class', newClass)
+        }
+    }
+
+    selectQuestion(survey, questionId, selected, element, itemUnselected, callback) {
+        var parts = questionId.split('/');
+        var val = parts[parts.length - 1];
+        var question = parts[parts.length - 2];
+        var group = parts[parts.length - 3];
+
+        if ( questionId.startsWith('option://') ) {
+            this.unselectGroup(element, group, question, itemUnselected);
+        }
+
+        if ( questionId.startsWith('option://') && !selected ) {
+            survey.clearValue(question);
+            if (typeof callback === "function") {
+                callback()
+            }
+            return;
+        }
+
+        var newVal = val;
+
+        var currentVal = survey.data[question];
+        if ( typeof currentVal === "undefined") {
+            if ( questionId.startsWith('question://') ) {
+                newVal = selected ? [ val ] : [];
+            }
+        }
+        else
+        {
+            if ( questionId.startsWith('question://') ) {
+                newVal = selected ? [ val ] : [];
+                newVal = this.unique(currentVal.concat(newVal));
+                if ( !selected ) {
+                    
+                    var index = newVal.indexOf(val);
+                    if (index > -1) {
+                        newVal.splice(index, 1);
+                    }
+                }
+            }
+        }
+
+        survey.setValue(question, newVal);
+
+        if (typeof callback === "function") {
+            callback()
+        }
+    }
+
+    unselectGroup(element, group, question, classToApply) {
+        var items = this.findOptions(element, group, question);
+
+        items.forEach( item => {
+            var rect = this.findRect(item);
+            if (rect == null) {
+                var rect = this.findPath(item);
+            }
+
+            if (rect != null) {
+                rect.setAttribute('class', classToApply)
+            }
+        });
+    }
+
+    findOptions(element, group, question) {
+        var options = []
+        this.findChildLink(element, 'option://' + group + "/" + question, options)
+        return options;
+    }
+
+    findLink(element, startsWith) {
+        if (typeof element !== "undefined") {
+            if ( typeof element.href !== "undefined" ) {
+                if ( typeof startsWith !== "undefined") {
+                    if ( element.href.baseVal.startsWith(startsWith) ) {
+                        return element;
+                    }
+
+                    if ( typeof element.parentElement !== "undefined" ) {
+                        return this.findLink(element.parentElement, startsWith)
+                    }
+                } else {
+                    return element
+                }
+            }
+
+            if ( typeof element.parentElement !== "undefined" ) {
+                return this.findLink(element.parentElement, startsWith)
+            }
+        }
+    
+        return null;
+    }
+
+    findChildLink(element, startsWith, matches) {
+        if ( typeof element === "undefined" ) {
+            return null;
+        }
+
+        if ( typeof element.href !== "undefined" && typeof element.href.baseVal !== "undefined") {
+            if ( element.href.baseVal.startsWith(startsWith) ) {
+                if ( startsWith !== "undefined" && element.href.baseVal.startsWith(startsWith) ) {
+                    matches.push(element);
+                }
+            }
+        }
+
+        if ( typeof element.childNodes !== "undefined" ) {
+            for (let child of element.childNodes) {
+                if ( typeof startsWith === "string" && typeof child.href !== "undefined" && typeof child.href.baseVal !== "undefined") {
+                    if ( child.href.baseVal.startsWith(startsWith) ) {
+                        matches.push(child);
+                    }
+                }
+                
+                this.findChildLink(child, startsWith, matches);
+            }
+        }
+    }
+
+    findRect(element) {
+        for (const rect of element.querySelectorAll("rect")) {
+            return rect;
+        }
+        return null;
+    }
+
+    findPath(element) {
+        for (const item of element.querySelectorAll("path")) {
+            return item;
+        }
+        return null;
+    }
+    }
+
+    function contains(params) {
+        try {
+            if (Array.isArray(params[0]) && Array.isArray(params[1])) {
+                for (var i = 0; i < params[1].length; i++) {
+                    if (params[0].includes(params[1][i])) {
+                        return true
+                    }
+                }
+            }
+
+            if (Array.isArray(params[0]) && !Array.isArray(params[1])) {
+                return params[0].includes(params[1]);
+            }
+        } catch {
+            return false
+        }
+        return false
+    }
+
+    function stringLength(params) {
+        try {
+            return params[0].length
+        } catch {
+            return false
+        }
+        return false
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        
+        Survey.FunctionFactory
+            .Instance
+            .register("contains", contains);
+        Survey.FunctionFactory
+            .Instance
+            .register("len", stringLength);
+        Survey.StylesManager.applyTheme("modern");
+
+        const converter = new showdown.Converter();
+        new QuestionExtensions();
+
+        function loadData(loaded) {
+            const questionModel = new Survey.Model(loaded);
+            const get_url = window.location.search;
+            const url_param = new URLSearchParams(get_url);
+            for (let key of url_param.keys()) {
+                if ( key == "q" )
+                {
+                    continue;
+                }
+                const value = url_param.get(key);
+                questionModel.setValue(key, value)
+            }
+
+            questionModel.onStarted.add(() => {
+                console.log('called')
+            })
+            questionModel.onTextMarkdown.add(function (survey, options) {
+                
+                let str = converter.makeHtml(options.text);
+                if (options.hasOwnProperty('markdown')) {
+                    console.log(options.markdown)
+                    str = converter.makeHtml(options.markdown);
+                }
+                
+                str = str.substring(3);
+                str = str.substring(0, str.length - 4);
+                
+                options.html = str;
+            });
+            questionModel.showNavigationButtons =  false 
+        
+            questionModel.completedHtml = "Thank you for providing feedback";
+
+            const targetNode = document.getElementById('preloader');
+            const observer = new MutationObserver(() => {
+                const element = document.getElementById("topofpage");
+                element.scrollIntoView({behavior: 'smooth'})
+                element.scrollTop -= 300;
+            });
+            const config = { attributes: true, childList: true, subtree: true };
+            observer.observe(targetNode, config);
+
+            $("#questions").Survey({ model: questionModel });
+
+            return questionModel;
+        }
+
+        if ( data != null) {
+            const get_url = window.location.search;
+            const url_param = new URLSearchParams(get_url);
+            const q = url_param.get('q');
+            var code = ''
+            newData = JSON.parse(data)
+            if ( q && q.length > 0 ) {
+                try {
+                    var questions = JSON.parse(atob(q));
+                    code = questions.code;
+                    var allowed = ["radiogroup", "checkbox"];
+                    if ( Array.isArray(questions.add) ) {
+                       for ( var i = questions.add.length - 1; i >= 0; i--) {
+                        if ( allowed.indexOf(questions.add[i].type) >= 0) {
+                            newData.pages[0].elements = [questions.add[i]].concat(newData.pages[0].elements)
+                        }
+                       }
+                    }
+                } catch (ex) {
+                    console.log(ex)
+
+                }     
+            }
+
+            data = JSON.stringify(newData)
+            let result = loadData(data)
+            if ( code.length > 0 ) {
+                result.setValue('code', code)
+            }
+        }
+        else {
+            const get_url = window.location.search;
+            const url_param = new URLSearchParams(get_url);
+            const source = url_param.get('source');
+            fetch('/powercat-automation-kit/' + source + ".json")
+                .then(async function (response) {
+                    if (response.ok) {
+                        loadData(await response.text());
+                    }
+                    throw new Error('Network response was not ok.');
+                })
+        }
+    });
+</script>
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.mp3">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.svg" alt="Managed Environments Overview"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>관리되는 환경은 규모에 맞게 거버넌스를 간소화하고 간소화할 수 있는 기능을 제공합니다. 관리자는 몇 번의 클릭만으로 관리형 환경을 활성화하고 모든 로우 코드 자산을 관리하는 데 드는 노력을 줄이면서 더 많은 가시성과 더 많은 제어를 제공하는 기능을 즉시 밝힐 수 있습니다.</p>
+<p>관리되는 환경은 AI Builder가 제품에 인텔리전스를 주입하고 Dataverse가 데이터 백본을 제공하는 것과 같은 방식으로 Power Platform 제품군의 핵심 부분입니다. 관리되는 환경은 플랫폼의 거버넌스를 대규모로 간소화합니다.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.mp3">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.svg" alt="Managed Environments Features"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>관리되는 환경은 다음을 제공합니다.</p>
+<ul>
+<li>홈 페이지의 사용 통찰력, 관리자 다이제스트 이메일, 라이선스 보고서 및 데이터 정책 보기를 통한 가시성 향상</li>
+<li>공유 제한을 통해 더 많은 제어를 통해 캔버스 앱 및 솔루션 흐름을 공유할 수 있는 범위와 수를 제어할 수 있습니다.</li>
+<li>제한된 보안 그룹으로 공유를 제한할 수도 있습니다.</li>
+<li>보안 또는 안정성 검사를 위한 솔루션 검사기를 구성하여 솔루션을 관리되는 환경으로 가져올 때마다 규칙을 자동으로 실행합니다.</li>
+<li>사용자를 올바른 경로로 안내할 수 있도록 제작자 환영 및 공유 환경을 사용자 지정합니다.</li>
+<li>몇 번의 클릭만으로 즉시 사용 가능한 단계를 간소화하고 단순화하며 자동화하는 노력이 줄어듭니다.</li>
+<li>Power 플랫폼 파이프라인은 ALM(애플리케이션 수명 주기 관리) 프로세스를 간소화하는 기능을 제공합니다.</li>
+</ul>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/">
+
+    
+        <video width="860" height="540" controls>
+            <source src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-power-platform-pipelines-demo.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video>
+    
+    
+    <aside class="notes">
+
+    <p>이것은 내가 메이커 포털에서 작업하고있는 솔루션입니다.</p>
+<p>이미 설정된이 파이프 라인을 선택했습니다. 파이프라인은 기본적으로 한 환경에서 다른 환경으로 작업을 이동하는 일련의 자동화된 단계입니다. 이 파이프 라인은 왼쪽의 개발 환경에서 테스트 환경으로 내 솔루션을 가져옵니다. 그런 다음 테스트에서 프로덕션으로 가져가는 또 다른 단계가 있습니다.</p>
+<p>테스트를 위해 배포하고 다음을 선택하고 여기에서 연결을 확인하여 환경을 테스트하여 올바른 자격 증명을 사용하고 있는지 확인합니다. 다음에는 예를 들어 테스트에서 올바른 SharePoint 사이트를 가리키고 있는지 확인하기 위해 환경 변수를 구성하겠습니다. 사이트가 개발에서 사용했던 사이트와 다른 경우 중요합니다.</p>
+<p>모든 것을 설정하면 &ldquo;배포&quot;를 선택하면 실행 전 유효성 검사가 자동으로 실행되어 올바른 종속성이 있고 솔루션이 해당 대상 환경의 DLP 정책을 위반하지 않습니다. 배포를 실행하기 전에 승인이 필요하도록 파이프라인을 설정할 수도 있습니다.</p>
+<p>여기서 모든 것이 성공한 것 같습니다.</p>
+<p>파이프라인을 실행한 후에는 모든 솔루션을 백업하고 버전을 지정한 조직 전체의 배포에 대한 완전한 가시성과 감사 추적을 얻을 수 있습니다.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide4" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.mp3?v=1">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.svg?v=1" alt="Managed Environments Availability"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>기능은 단계적으로 출시될 예정입니다. 관리자 다이제스트 및 공유 제한과 같은 일부는 현재 사용할 수 있습니다. 나머지는 연말까지 출시될 예정입니다.</p>
+<p>앞으로 몇 주 또는 몇 달 안에 홈 페이지에서 사용 인사이트를 볼 수 있습니다. 관리자 다이제스트의 새로운 추세 및 사용이 허가된 사용에 대한 보고서입니다. 제한을 공유하면 더 많은 제어가 가능하고 솔루션 흐름을 지원할 수 있습니다. 솔루션 검사기를 사용하여 안전하지 않은 배포를 차단할 수 있습니다. 고객 제작자 온보딩 및 파이프라인 기능도 올해 말에 제공될 예정입니다.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide5" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.mp3?v=1">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.svg?v=1" alt="Pipeline Extensibility"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>Power 플랫폼에서 ALM을 선택할 때 고려해야 할 여러 가지 옵션이 있습니다. 관리되는 환경 Power Platform 파이프라인은 제품 응용 프로그램 수명 주기 관리를 제공합니다.</p>
+<p>필요에 따라 다음과 결합된 관리되는 환경 Power Platform 파이프라인의 확장 지점을 사용할 수 있습니다. <a href="https://learn.microsoft.com/power-platform/alm/devops-build-tools">Azure DevOps를 위한 Power Platform Build Tools</a>, <a href="https://learn.microsoft.com/power-platform/alm/devops-github-actions">GitHub Actions for Microsoft Power Platform</a> 또는 <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction">파워 플랫폼 CLI</a> 을 사용하여 사용자 지정 ALM DevOps 프로세스를 롤링할 수 있습니다.</p>
+<p>마지막으로 당신은 활용할 수 있습니다 <a href="https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog">전력 플랫폼용 ALM 가속기</a> CoE 키트에서 Azure DevOps를 사용하여 엔드투엔드 ALM에 대한 미리 빌드된 템플릿 및 샘플을 제공합니다. ALM 가속기는 여러 환경에서 솔루션을 빌드하고 제어할 수 있는 많은 일반적인 시나리오를 제공합니다.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide6" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" alt="ALM Accelerator for Power Platform Overview"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>파워 플랫폼용 ALM 가속기란 무엇입니까?</p>
+<p>Power Platform용 ALM 가속기에는 Azure DevOps 파이프라인 및 Git 원본 제어 위에 있는 Power Apps가 포함되어 있습니다. 이 앱은 제조업체가 Power Platform 솔루션의 구성 요소를 소스 제어로 정기적으로 내보내고 배포 요청을 생성하여 대상 환경에 배포하기 전에 작업을 검토할 수 있는 간소화된 인터페이스를 제공합니다.</p>
+
+    
+    </aside>
+    
+</div>
+
+
+
+
+
+
+
+
+
+<div id="slide7" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.mp3?v=1">
+
+    
+        
+            
+            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.svg?v=1" alt="ALM Accelerator for Power Platform Workflow"/>
+            
+            
+        
+    
+    
+    <aside class="notes">
+
+    <p>ALM 액셀러레이터 워크플로를 살펴보면 개발 환경에서 시작합니다. ALM 프로세스와의 상호 작용은 ALM 가속기 캔버스 앱 또는 관리되는 환경 파이프라인을 통해 이루어집니다.</p>
+<p>제작자는 ALM 액셀러레이터 캔버스 앱을 사용하여 소스 제어에서 솔루션 가져오기, 소스 제어로 변경 사항 내보내기, 변경 내용 병합을 위한 풀 요청 만들기와 같은 ALM 작업을 수행합니다.</p>
+<p>Azure DevOps 파이프라인용 ALM 가속기 템플릿은 ALM 가속기 캔버스 앱과의 제작자 상호 작용을 기반으로 ALM 작업의 자동화를 용이하게 합니다.</p>
+<p>ALM Accelerator에는 프로덕션에 대한 3단계 배포를 지원하는 파이프라인 템플릿이 포함되어 있습니다.
+템플릿은 특정 요구 사항과 시나리오에 맞게 사용자 지정할 수 있습니다.</p>
+<p>Power 플랫폼용 ALM 가속기는 Azure DevOps 파이프라인 위에 위치하여 제조업체가 Power 플랫폼에서 개발 작업에 대한 끌어오기 요청을 정기적으로 커밋하고 만들 수 있는 간소화된 인터페이스를 제공하는 캔버스 앱입니다. </p>
+<p>Azure DevOps 파이프라인과 캔버스 앱의 조합은 Power Platform 솔루션용 전체 ALM 가속기를 구성합니다. 
+파이프라인과 앱은 참조 구현입니다. 내부적으로 CoE 스타터 키트용 개발 팀에서 사용하기 위해 개발되었지만 Power 플랫폼에서 ALM을 얼마나 건강하게 달성할 수 있는지 보여주기 위해 오픈 소스 및 릴리스되었습니다. 있는 그대로 사용하거나 특정 비즈니스 시나리오에 맞게 사용자 지정할 수 있습니다.</p>
+
+    
+    </aside>
+    
+</div>
+
+    </div>
+  </div>
+</section>
+
+
+
+    
+    
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="footer-logo">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg">
+        </div>
+      </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>제품</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/ko/releases">
+                  릴리스
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/ko/frequently-asked-questions">
+                  자주 묻는 질문(FAQ)
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/ko/support">
+                  지원
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/ko/office-hours">
+                  업무 시간
+                </a>
+              </li>
+              <li>
+                <a href="https://aka.ms/automation-kit-learn">
+                  기능 살펴보기
+                </a>
+              </li>
+              <li>
+                <a href="https://aka.ms/ak4pp-issues">
+                  문제
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/microsoft/powercat-automation-kit/milestones?status=open">
+                  이정표
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/microsoft/powercat-automation-kit/releases">
+                  릴리스
+                </a>
+              </li>
+              <li>
+                <a href="https://privacy.microsoft.com/privacystatement">
+                  개인 정보 정책
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>배우다</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">
+                  시작
+                </a>
+              </li>
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit">
+                  자동화 키트 구성
+                </a>
+              </li>
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit">
+                  자동화 키트 사용
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>블로그</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://aka.ms/automation-kit-blog">
+                  공개 미리 보기
+                </a>
+              </li>
+              <li>
+                <a href="https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/">
+                  시네플렉스 고객 사례
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3></h3>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" href="https://github.com/microsoft/powercat-automation-kit">
+                  <span class="icon"><i class="fa fa-github"></i></span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+    
+    <div id="backtotop"><a href="#"></a></div>
+
+    
+
+    
+
+    <script src="https://microsoft.github.io/powercat-automation-kit/js/jquery/3.6.1/jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/feather-icons/4.29.0/feather.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/fresh.js"></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/jquery.panelslider.min.js"></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/modernizr/2.8.3/modernizr.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/survey-jquery/1.9.55/survey.jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/showdown/2.1.0/showdown.min.js" ></script>
+  </body>
+</html>

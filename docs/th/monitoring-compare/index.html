@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+
+<meta property="og:title" content="การย้ายข้อมูล RPA" />
+<meta property="og:description" content="การโยกย้าย RPA ของชุดระบบอัตโนมัติ" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/th/monitoring-compare/" /><meta property="article:section" content="" />
+
+
+
+
+
+<meta name="description" content="ชุดระบบอัตโนมัติสําหรับไซต์เริ่มต้น Power Platform กําหนดและวัดผลตอบแทนจากการลงทุนของ Power Automate Desktop ลิงก์ไปยังเนื้อหาการเรียนรู้และเรื่องราวของลูกค้า" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="og:image" content="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.png" />
+<meta name="og:image:alt" content="Automation Kit Logo" />
+
+    <title>Automation Kit for Power Platform</title>
+    
+<link rel="icon" type="image/png" href="https://microsoft.github.io/powercat-automation-kit/images/favicon.png" />
+<link href="https://fonts.googleapis.com/css?family=Open&#43;Sans:400,600" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/style.min.973539e55bb9a3b263afa3bea3a5c42c6bc9388ce23c69a67bf0e629f1a941a0.css" integrity="sha256-lzU55Vu5o7Jjr6O&#43;o6XELGvJOIziPGmme/DmKfGpQaA=">
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/icons.css">
+<link href="https://microsoft.github.io/powercat-automation-kit/css/survey-jquery/modern.min.css" type="text/css" rel="stylesheet">
+
+
+  </head>
+  <body>
+    
+    
+    <div id="preloader">
+      <div id="status"></div>
+    </div>
+    
+
+    
+
+    
+
+<nav class="navbar is-fresh is-transparent no-shadow" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/th/">
+        <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+      <div id="navbar-menu" class="navbar-menu is-static">
+
+        <div class="navbar-end">
+          <a href="https://microsoft.github.io/powercat-automation-kit/th/customer-stories" class="navbar-item is-secondary">
+            เรื่องราวของลูกค้า
+          </a>
+          <a href="https://aka.ms/automation-kit-learn" class="navbar-item is-secondary">
+            เรียน
+          </a>
+          <a href="https://microsoft.github.io/powercat-automation-kit/th/office-hours" class="navbar-item is-secondary">
+            เวลาทําการ
+          </a>
+        </div>
+      </div>
+  </div>
+</nav>
+
+
+
+<nav id="navbar-clone" class="navbar is-fresh is-transparent" role="navigation" aria-label="main navigation">
+  <div class="container">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/th/">
+        <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="28">
+      </a>
+
+      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="cloned-navbar-menu">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </a>
+    </div>
+
+    <div id="cloned-navbar-menu" class="navbar-menu is-fixed">
+
+      <div class="navbar-end">
+        <a href="https://microsoft.github.io/powercat-automation-kit/th/customer-stories" class="navbar-item is-secondary">
+          เรื่องราวของลูกค้า
+        </a>
+        <a href="https://aka.ms/automation-kit-learn" class="navbar-item is-secondary">
+          เรียน
+        </a>
+        <a href="https://microsoft.github.io/powercat-automation-kit/th/office-hours" class="navbar-item is-secondary">
+          เวลาทําการ
+        </a>
+      </div>
+    </div>
+</div>
+</nav>
+
+
+<section class="section is-medium">
+  <a id="topofpage"></a>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">การย้ายข้อมูล RPA</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <p>ชุดระบบอัตโนมัติมีชุดเครื่องมือและคําแนะนําในการใช้โค้ดน้อยและ Microsoft Cloud เพื่อช่วยคุณในเส้นทางการโยกย้าย RPA ของคุณ</p>
+<p>โมดูลการโยกย้ายชุดระบบอัตโนมัติสร้างขึ้นจากประสบการณ์ของเราในการทํางานร่วมกับลูกค้าที่มีอยู่เพื่อช่วยให้พวกเขาโยกย้ายโซลูชันที่มีอยู่ไปยัง Power Platform Robotic Process Automation (RPA)</p>
+<p>ด้วยการใช้โมดูลการโยกย้ายของชุดระบบอัตโนมัติ คุณจะสามารถเร่งเส้นทางของคุณเพื่อมอบการประหยัดต้นทุนและการมองเห็นให้กับองค์กรของคุณ</p>
+<h2 id="สถานะ">สถานะ</h2>
+<p>เป็นส่วนหนึ่งของ <a href="https://microsoft.github.io/powercat-automation-kit/th/releases/november-2022">อาร์คิมิดีสชาร์ป</a> เหตุการณ์สําคัญและนอกเหนือจากทีม Automation Kit กําลังวางแผนสําหรับการอัปเดตอย่างต่อเนื่องเพื่อจัดลําดับความสําคัญและตอบสนองต่อปัญหาการโยกย้าย RPA ของ Microsoft Power Platform ที่กว้างขึ้นเพื่อให้คู่ค้าและลูกค้าของเราและเร่งการเปิดใช้งานโซลูชันที่โยกย้ายเดสก์ท็อป Microsoft Power Automate</p>
+<p>สําหรับหมายเหตุเพิ่มเติมเกี่ยวกับกระบวนการวางแผนการย้ายถิ่นของเราโปรดตรวจสอบ <a href="https://microsoft.github.io/powercat-automation-kit/th/releases/milestones">บันทึกเหตุการณ์สําคัญที่วางจําหน่าย</a></p>
+<p><img src="https://microsoft.github.io/powercat-automation-kit/images/sharp-archimedies.png" alt="อาร์คิมิดีสชาร์ป"></p>
+<h2 id="พนทของการลงทน">พื้นที่ของการลงทุน</h2>
+<p>ขึ้นอยู่กับการป้อนข้อมูลของลูกค้าและจัดลําดับความสําคัญโมดูลการย้ายข้อมูลเสริมที่วางแผนไว้กําลังมองหาที่อยู่ในพื้นที่ต่อไปนี้:</p>
+<ul>
+<li>
+<p><strong>การประเมิน</strong> ชุดขององค์ประกอบที่เร่งกระบวนการประเมินเพื่อมุ่งเน้นไปที่การช่วยเหลือขั้นตอนการวางแผนของการโยกย้าย</p>
+</li>
+<li>
+<p><strong>ผลตอบแทนจากการลงทุน</strong> การคํานวณและการตรวจสอบโครงการโยกย้าย</p>
+</li>
+<li>
+<p><strong>แดชบอร์ด Power BI</strong> ที่มีส่วนร่วมกับผู้มีส่วนได้ส่วนเสียโดยการให้ความคืบหน้าแบบเกือบเรียลไทม์และการทบทวนโซลูชันที่โยกย้าย</p>
+</li>
+<li>
+<p><strong>ตัวอย่างสารละลาย</strong> ซึ่งรวมถึง Power Platform และ Microsoft Azure ที่เร่งรูปแบบการลงจอดสําหรับโซลูชันระบบอัตโนมัติที่โยกย้าย</p>
+</li>
+<li>
+<p>ปฏิบัติ <strong>สารพัด</strong>, <strong>การตรวจสอบคุณภาพ</strong> และ <strong>เอกสาร</strong> แนวทางที่ให้โมเดล DevOps ที่กําลังดําเนินอยู่</p>
+</li>
+</ul>
+
+    </div>
+  </div>
+</section>
+
+
+
+    
+    
+<footer class="footer footer-dark">
+  <div class="container">
+    <div class="columns">
+      <div class="column">
+        <div class="footer-logo">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg">
+        </div>
+      </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>ผลิตภัณฑ์</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/th/releases">
+                  รุ่น
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/th/frequently-asked-questions">
+                  คำถามที่ถามบ่อย
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/th/support">
+                  สนับสนุน
+                </a>
+              </li>
+              <li>
+                <a href="https://microsoft.github.io/powercat-automation-kit/th/office-hours">
+                  เวลาทําการ
+                </a>
+              </li>
+              <li>
+                <a href="https://aka.ms/automation-kit-learn">
+                  ค้นพบคุณสมบัติ
+                </a>
+              </li>
+              <li>
+                <a href="https://aka.ms/ak4pp-issues">
+                  ปัญหา
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/microsoft/powercat-automation-kit/milestones?status=open">
+                  เหตุการณ์สําคัญ
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/microsoft/powercat-automation-kit/releases">
+                  รุ่น
+                </a>
+              </li>
+              <li>
+                <a href="https://privacy.microsoft.com/privacystatement">
+                  นโยบายความเป็นส่วนตัว
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>เรียน</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">
+                  เริ่มต้นใช้งาน
+                </a>
+              </li>
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit">
+                  กําหนดค่าชุดระบบอัตโนมัติ
+                </a>
+              </li>
+              <li>
+                <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit">
+                  ใช้ชุดการทํางานอัตโนมัติ
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer-column">
+            <div class="footer-header">
+                <h3>บล็อก</h3>
+            </div>
+            <ul class="link-list">
+              <li>
+                <a href="https://aka.ms/automation-kit-blog">
+                  การแสดงตัวอย่างสาธารณะ
+                </a>
+              </li>
+              <li>
+                <a href="https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/">
+                  เรื่องราวของลูกค้าซีนีเพล็กซ์
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      <div class="column">
+        <div class="footer-column">
+          <div class="footer-header">
+            <h3></h3>
+            <nav class="level is-mobile">
+              <div class="level-left">
+                <a class="level-item" href="https://github.com/microsoft/powercat-automation-kit">
+                  <span class="icon"><i class="fa fa-github"></i></span>
+                </a>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    
+
+    
+    <div id="backtotop"><a href="#"></a></div>
+
+    
+
+    
+
+    <script src="https://microsoft.github.io/powercat-automation-kit/js/jquery/3.6.1/jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/feather-icons/4.29.0/feather.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/fresh.js"></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/jquery.panelslider.min.js"></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/modernizr/2.8.3/modernizr.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/survey-jquery/1.9.55/survey.jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/showdown/2.1.0/showdown.min.js" ></script>
+  </body>
+</html>
