@@ -41,3 +41,7 @@ Xxxxxxx xxx xxxxxx xxxxxxxxxx xx xxx Xxxxx xxxxxxxx.
 ## Xxxxx Xxxx xx Xxxxxxxxxx?
 
 Xxxxxx xxx [Xxxxxxxxxxxx](/fr/contribution) xxxxxxxx xxxx.
+
+## Xxxxxxxx
+
+{{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
