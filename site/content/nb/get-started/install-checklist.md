@@ -1,0 +1,12 @@
+---
+title: Installer sjekkliste
+description: Sjekkliste for installasjon av automatiseringssett
+sidebar: false
+sidebarlogo: fresh-white
+include_footer: true
+---
+> 🎥 Vil du ha en mer visuell presentasjon av ende-til-ende-prosessen og installasjonstrinnene? Se gjennom våre <a href='https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy' target='_blank'>{{<product-name>}} Video spilleliste</a> for forutsetninger, løsningsinstallasjon og {{<product-name>}} bruk.
+
+Hvis du ønsker å prøve eller installere {{<product-name>}}, kan du bruke spørsmålene nedenfor for å veilede installasjonsprosessen
+
+{{<questions name="/get-started/install-checklist.json" completed="Thank you for completing install checklist" showNavigationButtons=false >}}
