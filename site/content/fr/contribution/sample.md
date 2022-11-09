@@ -1,13 +1,13 @@
 ---
-title: Xxxxxxxxx Xxxxxx
-description: Xxxxxxxxxx Xxx Xxxxxxxxx Xxxxxx
+title: Exemple de création
+description: Exemple de création de kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
 <div class="optional">
 
-Xxxx xxxx xxxxxxxx x xxxxxx xxx xxxxxxxxx xxxxxxx
+Cette page fournit un exemple de création de contenu
 
 </div>
 
@@ -17,9 +17,9 @@ Xxxx xxxx xxxxxxxx x xxxxxx xxx xxxxxxxxx xxxxxxx
 
 {{<presentationStyles>}}
 
-## Xxxxxxxx
+## Rétroaction
 
-Xxx xxx xxxxxxxxx xxxxx xx xxxxxxx xxxxxxxxx xxxxxxxx xxxxxxxx xxxxx
+Utilisez les questions ci-dessous pour explorer différents types de questions de commentaires
 
 {{<questions name="contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
 
@@ -31,18 +31,18 @@ Xxx xxx xxxxxxxxx xxxxx xx xxxxxxx xxxxxxxxx xxxxxxxx xxxxxxxx xxxxx
 
 {{<slide  id="slide1" audio="authoring/overview.mp3?v=1" description="Authoring Overview" localImage="/images/illustrations/Authoring-Overview.svg" >}}
 
-Xxxx xxxxx xx xxxxxxx xxxxxx xxxx x xxxxx xxxxx xxx xxxxxxxxxxx xxxx xxxxxxxx x xxxxx xxxxxxxx.
+Chaque élément de contenu doit avoir un titre et une description clairs qui fournissent une vue d’ensemble rapide.
 
-Xxxx xxxx xxx xxxxxxxxxx xxxxxxx x xxxxx xxxxx xxxxxxxxx xxxx xxxxxxxx xxxxx xxxxxxxxx, xxxxxx xxxxxxx xxx xxxxxxx xxxxx.
+Chaque page peut éventuellement inclure un diaporama multimédia qui fournit une narration audio, un résumé visuel et des notes de conférencier.
 
-Xxxx xxxx xxxxxx xxxx x xxxxxxxx xxxxxxx, xxxx xxxxxx xxxxxx xxxxxxxx xxx xxxx xx xxxxxx xxxxxxxx xxxxxxxxx xx xxxxxxxx xx xxx xxxxxx xxx xxxxxxx xxxx xxxx xxxxxxxx.
+Chaque page devrait avoir une section de commentaires, qui permet aux personnes visitant la page de répondre à des questions spécifiques d’intérêt pour l’auteur et de fournir des commentaires gratuits.
 {{</slide>}}
 
 {{<slide  id="slide2" audio="authoring/goals.mp3" description="Authoring Goals" localImage="/images/illustrations/Authoring-Goals.svg" >}}
 
-Xxx xxxxxx xxxx xx xxx [Xxxxxxxxx](/fr/contribution/authoring) xxxxxxx xx xx xxxxx x xx-xxxxxxxx xxxxx xx x xxxx xxxx xxxxxxxx xxx xxxxxxxxxxx xxx {{<product-name>}} xxx xxx xxxxxxxxx. Xxxx xxxxxxxxx xxxxx xx xxxx Xxxxxxxxx xx Xxxxxxxx.
+L’objectif de conception de l' [Création](/fr/contribution/authoring) consiste à permettre un modèle de co-création en tant que base de consolidation d’équipe et de maintien du {{<product-name>}} et la communauté. Cette communauté peut être avec des clients ou des partenaires.
 
-Xxx xxxxxxx xx xxxxxxxx xx [Xxxxxxxx](https://learn.microsoft.com/contribute/markdown-reference) xxxxxxx xx xxx [Xxxxxxxxx Xxxxx xxxx](https://learn.microsoft.com).
+Le contenu est créé dans [Markdown](https://learn.microsoft.com/contribute/markdown-reference) semblable à l' [Site Microsoft Learn](https://learn.microsoft.com).
 
-Xx xxxxxx xxxxxxxxxxx xxxxxxx xxxxxxx xxx xxx xxxxxxxxxx xx xxxxxx xxx xxxxxx xxx xxxxxxx xxxxxxxxxxx xxxxxxxx xxx xxxxxxxxxxx xxx xxxx xxxx.
+Pour créer du contenu interactif, les auteurs peuvent utiliser des codes courts pour engager le lecteur et fournir des commentaires et des expériences interactifs pour chaque page.
 {{</slide>}}

@@ -1,34 +1,34 @@
 ---
-title: XXX Xxxxxxxxx
-description: Xxxxxxxxxx Xxx XXX Xxxxxxxxx
+title: RPA Migration
+description: Migration RPA du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xxx Xxxxxxxxxx Xxx xxxxxxxx x xxx xx xxx xxxx xxx Xxxxxxxxx Xxxxx xxxxx xxx xxxxxxxx xx xxxxxx xxx xxxx xxxx XXX Xxxxxxxxx xxxxxxx.
+Le kit d’automatisation fournit un ensemble d’outils et de conseils bas code et Microsoft Cloud pour vous aider dans votre parcours de migration RPA.
 
-Xxx Xxxxxxxxxx Xxx Xxxxxxxxx xxxxxx xxxxxx xx xxx xxxxxxxxxx xx xxxxxxx xxxx xxxxxxxx xxxxxxxxx xx xxxx xxxx xxxxxxx xxxxxxxx xxxxxxxxx xx xxx Xxxxx Xxxxxxxx Xxxxxxx Xxxxxxx Xxxxxxxxxx (XXX).
+Le module de migration du kit d’automatisation s’appuie sur notre expérience de travail avec les clients existants pour les aider à migrer les solutions existantes vers Power Platform Robotic Process Automation (RPA).
 
-Xx xxxxx xxx Xxxxxxxxx Xxxxxx xx xxx Xxxxxxxxxx xxx xxx xxx xxxxxxxxxx xxxx xxxx xx xxxxxxx xxxx xxxxxxx xxx xxxxxxxxxx xx xxxx xxxxxxxxxxxx.
+En utilisant le module de migration du kit d’automatisation, vous pouvez accélérer votre parcours pour fournir des économies de coûts et une visibilité à votre organisation.
 
-## Xxxxxx
+## Statut
 
-Xx xxxx xx xxx [Xxxxx Xxxxxxxxxx](/fr/releases/november-2022) xxxxxxxxx xxx xxxxxx xxx Xxxxxxxxxx Xxx xxxx xx xxxxxxxx xxx xxxxxxxxxx xxxxxxx xx xxxxxxxxxx xxx xxxxxxx xx xxx xxxxx Xxxxxxxxx Xxxxx Xxxxxxxx XXX Xxxxxxxxx xxxxxxx xx xxxx xxx Xxxxxxxx xxx xxxxxxxxx xxx xxxxxxxxxxx xxx xxxxxxxxxx xx Xxxxxxxxx Xxxxx Xxxxxxxx Xxxxxxx xxxxxxxx xxxxxxxxx.
+Dans le cadre de l' [Archimède tranchant](/fr/releases/november-2022) L’équipe du Kit d’automatisation prévoit des mises à jour continues pour hiérarchiser et répondre au problème plus large de migration RPA de Microsoft Power Platform afin que nos partenaires et clients accélèrent l’activation des solutions migrées Microsoft Power Automate Desktop.
 
-Xxx xxxxxxx xxxxx xx xxx xxxxxxxxx xxxxxxxx xxxxxxx xxxxxx xxxxxx xx [Xxxxxxx Xxxxxxxxx xxxxx](/fr/releases/milestones)
+Pour plus de notes sur notre processus de planification de la migration, veuillez consulter le [Notes d’étape de publication](/fr/releases/milestones)
 
-![Xxxxx Xxxxxxxxxx](/images/sharp-archimedies.png)
+![Archimède tranchant](/images/sharp-archimedies.png)
 
-## Xxxxx Xx Xxxxxxxxxx
+## Domaines d’investissement
 
-Xxxxx xx xxxxxxxx xxxxx xxx xxxxxxxxxx xxx xxxxxxx xxxxxxxx Xxxxxxxxx xxxxxx xx xxxxxxx xx xxxxxxx xxx xxxxxxxxx xxxxx:
+Sur la base des commentaires des clients et de la hiérarchisation, le module de migration optionnel prévu cherche à aborder les domaines suivants:
 
-- **Xxxxxxxxxx** x xxx xx xxxxxxxxxx xxxx xxxxxxxxxx xxxxxxxxxx xxxxxxx xx xxxxx xx xxxxxxxxx xxx xxxxxxxx xxxxx xx xxxxxxxxx
+- **Évaluation** un ensemble de composants qui accélèrent le processus d’évaluation pour se concentrer sur l’assistance à la phase de planification de la migration
 
-- **Xxxxxx xx xxxxxxxxxx** xxxxxxxxxxx xxx xxxxxxxxxx xx xxxxxxxxx xxxxxxxx
+- **Retour sur investissement** Calcul et suivi des projets de migration
 
-- **Xxxxx XX xxxxxxxxx** xxxx xxxxxx xxxxxxxxxxxx xx  xxxxxxxxx xxxx xxxx xxxx xxxxxxxx xxx xxxxxx xx xxxxxxxx xxxxxxxxx
+- **Tableau de bord Power BI** qui engagent les parties prenantes en fournissant des progrès et un examen en temps quasi réel des solutions migrées
 
-- **Xxxxxx xxxxxxxxx** xxxx xxxxxxx Xxxxx Xxxxxxxx xxx Xxxxxxxxx Xxxxx xxxx xxxxxxxxxx xxxxxxx xxxxxxxx xxx xxxxxxxx xxxxxxxxxx xxxxxxxxx
+- **Exemples de solutions** qui incluent Power Platform et Microsoft Azure qui accélèrent les modèles d’atterrissage pour les solutions d’automatisation migrées
 
-- Xxxxxxxxx **XXX**, **Xxxxxxx xxxxxxxxxx** xxx **Xxxxxxxxxxxxx** xxxxxxxxxx xxxx xxxxxxx xx xxxxxxx XxxXxx xxxxx
+- Pratique **Alm**, **Suivi de la qualité** et **Documentation** des approches qui fournissent un modèle DevOps continu

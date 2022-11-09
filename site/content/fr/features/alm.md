@@ -1,6 +1,6 @@
 ---
-title: Xxxxxxxxxxx Xxxxxxxxx Xxxxxxxxxx (XXX)
-description: Xxxxxxxxxx Xxx - XXX
+title: Gestion du cycle de vie des applications (ALM)
+description: Kit d’automatisation - ALM
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
@@ -9,7 +9,7 @@ include_footer: true
 
 <div class="optional">
 
-Xxxx xxxx xxxxxxxx xx xxxxxxxx xx xxxxxxxxxx xxxx xxx xxxxxx xxx xxxx xxxxx XXX xxxx xxx Xxxxxxxxxx Xxx xxx Xxxxx Xxxxxxxx Xxxxxxx xxxxxxxxx xxxxxxxx xx [Xxxxx Xxxxxxxx Xxxxxxxxx](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
+Cette page fournit une vue d’ensemble des composants qui peuvent vous aider à utiliser ALM avec le Kit d’automatisation pour les flux de travail Power Automate Desktop inclus dans [Solutions de plate-forme d’alimentation](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
 
 </div>
 
@@ -19,41 +19,41 @@ Xxxx xxxx xxxxxxxx xx xxxxxxxx xx xxxxxxxxxx xxxx xxx xxxxxx xxx xxxx xxxxx XXX 
 
 {{<presentationStyles>}}
 
-## Xxxxxxx
+## Résumé
 
-Xxxx xxxxxxx xx XXX xxx Xxxxx Xxxxxxxx xxxxxxxxx xxxx xxxxxxx Xxxxx Xxxxxxxx Xxxxxxx xxxxxxxxxx
+Lorsque vous examinez les solutions ALM for Power Platform qui incluent des composants Power Automate Desktop
 
-1. Xxxxxx xxx xxxxxxxx xx Xxxxxxx Xxxxxxxxxxx Xxxxx Xxxxxxxx Xxxxxxxxx xx xxxx xxxxxxxxx xx xxxxxxxxxx xxxxx xx-xxxxxxx xxxxxxxx xx xxxxxx xxx xxxxxx xxxxxxxxx xxxxxx xxxxxxxxxxxx.
-
-<br/>
-
-2. Xx xxxxxx, xxxxxxxxxxx xxx [Xxxxxxxxx Xxxxx Xxxxxxxx Xxxxx Xxxxx xxx Xxxxx XxxXxx](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [XxxXxx Xxxxxxx xxx Xxxxxxxxx Xxxxx Xxxxxxxx](https://learn.microsoft.com/power-platform/alm/devops-github-actions) xx [Xxxxx Xxxxxxxx XXX](https://learn.microsoft.com/power-platform/developer/cli/introduction) xx xxxxxxxxx xxx xxxxxxxx xxxx XXX XxxXxx xxxxxxxxx.
+1. Passez en revue les fonctionnalités de Managed Environment Power Platform Pipelines pour tirer parti des fonctionnalités intégrées au produit à l’échelle de l’entreprise afin de gérer et de gouverner les solutions au sein des environnements.
 
 <br/>
 
-3. Xxxxxxxx xxxxx xxx [XXX Xxxxxxxxxxx xxx Xxxxx Xxxxxxxx](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). Xxx XXX Xxxxxxxxxxx xxxxxxxx x xxxxxxxx xxx xx Xxxxx XxxXxx xxxxxxxxx xxxx xxxxxxxxx xxxx xx xxx Xxxxx Xxxxxxxx XXX xxxxx xxxxx xxxxxxxxxx xxxxxx xxxxxxx xxxxxxxxxx.
+2. Au besoin, examinez le [Outils de génération Microsoft Power Platform pour Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [Actions GitHub pour Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) ou [CLI de la plate-forme d’alimentation](https://learn.microsoft.com/power-platform/developer/cli/introduction) pour intégrer et automatiser vos processus ALM DevOps.
 
-## Xxxxxxxx xxxx Xxxxx XXX
+<br/>
 
-Xxx xxx xxxx xxxx xxxx xxx xx xx xxx Xxxxx XXX xxxx xxx XXX Xxxxxxxxxxx xx xxxx xxx [Xxxxx XXX Xxxxxxxxxx Xxx XXX](/fr/features/alm/powercat).
+3. Envisagez d’utiliser le [ALM Accelerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). ALM Accelerator fournit un ensemble prédéfini de modèles Azure DevOps qui automatise de nombreuses tâches ALM Power Platform à l’aide de la gouvernance de contrôle de code source intégrée.
 
-## Xxxxxxxxx
+## Apprendre de Power CAT
 
-[XXX Xxxxxxxxxxx xxx Xxxxx Xxxxxxxx Xxxxxxxx Xxxxxxx](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
+Vous pouvez également en savoir plus sur la façon dont nous, en tant qu’équipe Power CAT, utilisons ALM Accelerator pour expédier le [Kit d’automatisation Power CAT ALM](/fr/features/alm/powercat).
 
-## Xxxxxxx
+## Ressources
 
-Xxx Xxxxxxxxxx Xxx xxxx xx xxxxxxx xxxx xxx XXX Xxxxxxxxxxx xxxx xx xxx Xxxxx Xxxxxxxx Xxxxxxx xxxxxxxx xxxxx xx xxx xxxxxxxx xxxxxxxxx xxxx xxxxx:
+[Catalogue d’apprentissage ALM Accelerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
 
-- Xxxx xx xxxx xxxxxxx xx Xxxxx Xxxxxxxx Xxxxxxx xxxxxxxxxxx.
+## Feuille de route
 
-- Xxxxxxxxxx Xxxx xxxxxx xxx Xxxxx Xxxxxxxx Xxxxxxx.
+L’équipe du kit d’automatisation travaille avec l’équipe ALM Accelerator pour ajouter des tâches spécifiques à Power Automate Desktop aux modèles existants qui couvrent :
 
-- Xxxxxxxxx xx Xxxx, Xxxxxxxxxxx xxx Xxxxxx xxxxx xx xxxx xx XX/XX xxxxxxxx.
+- Comparaison côte à côte des définitions de Power Automate Desktop.
 
-Xxxxxx xxx [Xxxxxxxxxx Xxx XXX xxxxxxx xxxxxxx](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm).
+- Vérifications de règle de validation pour Power Automate Desktop.
 
-## Xxxxxxxx
+- Exécution de tests unitaires, d’intégration et de systèmes dans le cadre du pipeline CI/CD.
+
+Consultez notre [Backlog lié à Automation Kit ALM](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm).
+
+## Rétroaction
 
 {{<questions name="/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 
@@ -61,82 +61,82 @@ Xxxxxx xxx [Xxxxxxxxxx Xxx XXX xxxxxxx xxxxxxx](https://github.com/microsoft/pow
 
 {{<slide  id="slide1" audio="features/alm/managed-environments-overview.mp3" description="Managed Environments Overview" image="features/alm/managed-environments-overview.svg" >}}
 
-Xxxxxxx xxxxxxxxxxxx xxxxxxx xxx xxx xxxxxxx xx xxxxxxxxxx xxx xxxxxxxx xxxxxxxxxx xx xxxxx. Xxxxxx xxx xxxxxxxx Xxxxxxx Xxxxxxxxxxxx xxxx xxxx x xxx xxxxxx xxx xxxxxxxxxxx xxxxx xx xxxxxxxx xxxx xxxxxxx xxxx xxxxxxxxxx, xxxx xxxxxxx xxxx xxxx xxxxxx xx xxxxxx xxx xxxx xxx xxxx xxxxxx.
+Les environnements gérés vous permettent de rationaliser et de simplifier la gouvernance à grande échelle. Les administrateurs peuvent activer les environnements gérés en quelques clics et activer immédiatement les fonctionnalités qui offrent plus de visibilité, plus de contrôle avec moins d’efforts pour gérer toutes vos ressources low code.
 
-Xxxxxxx xxxxxxxxxxxx xxx x xxx xxxx xx xxx Xxxxx Xxxxxxxx xxxxxx, xx xxx xxxx xxxx xxxx XX Xxxxxxx xxxxxxx xxxxxxxxxxxx xxxx xxx xxxxxxxx xxx Xxxxxxxxx xxxxxxxx xxx xxxx xxxxxxxx. Xxxxxxx xxxxxxxxxxxx xxxxxxxxxx xxxxxxxxxx xx xxx xxxxxxxx xx xxxxx.
+Les environnements gérés sont un élément clé de la famille Power Platform, de la même manière qu’AI Builder a insufflé de l’intelligence dans nos produits et Dataverse fournit l’épine dorsale des données. Les environnements gérés rationalisent la gouvernance de la plate-forme à grande échelle.
 
 {{</slide>}}
 
 {{<slide  id="slide2" audio="features/alm/managed-environments-features.mp3" description="Managed Environments Features" image="features/alm/managed-environments-features.svg" >}}
 
-Xxxxxxx xxxxxxxxxxxx xxxxxxx xxx:
+Les environnements gérés vous offrent :
 
-- Xxxx xxxxxxxxxx xxxx xxxxx xxxxxxxx xx xxx xxxx xxxx, xxxxx xxxxxx xxxxxx, xxxxxxx xxxxxxx xxx xxxx xxxxxx xxxxx
-- Xxxx xxxxxxx xxxx xxxxxxx xxxxxx xxxxxx xxx xxxxxxx xx xxx xxxxxx xxx xxxx xxx xxxx xxxxxx xxxxxx xxx xxx xxxxxxxx xxxxx xxx xx xxxxxx xxxx.
-- Xxx xxx xxxx xxxxxxxx xxxxxxx xx xxxxxxx xxxxxxxx xxxxxx.
-- Xxxxxxxxx xxxxxxxx xxxxxxx xxx xxxxxxxx xx xxxxxxxxxxx xxxxxx xx xxx xxxxx xxxxxxxxxxxxx xxxxxxxx x xxxxxxxx xx xxxxxxxx xx x xxxxxxx xxxxxxxxxxx
-- Xxxxxxxxx xxx xxxxx xxxxxxx xxx xxxxxxx xxxxxxxxxx xx xxxx xxx xxxxx xxxxx xxxx xxx xxxxxxx xxxx.
-- Xxxx xxxxxx xxxxxxxxxx, xxxxxxxx xxx xxxxxxxx xxxxx xxx xx xxx xxx xxxx x xxx xxxxxx. 
-- Xxx Xxxxx Xxxxxxxx Xxxxxxxxx xxxxxxxx xxx xxxxxxx xx xxxxxxxx xxx Xxxxxxxxxxx Xxxxxxxxx Xxxxxxxxxx (XXX) xxxxxxx.
+- Plus de visibilité grâce à des informations sur l’utilisation sur la page d’accueil, des e-mails de résumé de l’administrateur, des rapports de licence et des vues de stratégie de données
+- Plus de contrôle avec des limites de partage vous permettant de contrôler l’étendue et le nombre de personnes avec lesquelles les flux d’applications et de solutions canevas peuvent être partagés.
+- Vous pouvez également limiter le partage à des groupes de sécurité limités.
+- Configurer le vérificateur de solution pour les contrôles de sécurité ou de fiabilité afin d’exécuter automatiquement des règles chaque fois qu’une solution est importée dans un environnement géré
+- Personnalisez l’expérience d’accueil et de partage du créateur afin de guider les utilisateurs sur le bon chemin.
+- Moins d’efforts rationalisez, simplifiez et automatisez les étapes prêtes à l’emploi en quelques clics. 
+- Power Platform Pipelines permet de simplifier le processus de gestion du cycle de vie des applications (ALM).
 
 {{</slide>}}
 
 {{<slide  id="slide3" cdnVideo="features/alm/managed-environments-power-platform-pipelines-demo.mp4" description="Power Platform Pipelines Demo" >}}
 
-Xxxx x xxxxxxxx xx xxxx X xx xxxxxxx xxxx xx xxx Xxxxx Xxxxxx.
+C’est une solution avec laquelle je travaille dans le portail Maker.
 
-X'xx xxxx xxxxx xx xxxxxx xxxx xxxxxxxx xxxx xxxxxxx xxxx xxxxx. Xxxxxxxxx xxx xxxxxxxxx x xxxxxx xx xxxxxxxxx xxxxx xxxx xxxx xxxx xxxx xxxx xxx xxxxxxxxxxx xx xxxxxxx. Xxxx xxxxxxxx xxxx xxxx xx xxxxxxxx xxxx xxx xxxxxxxxxxx xxxxxxxxxxx xx xxx xxxx xx xxx xxxx xxxxxxxxxxx. Xxxx xxxxx'x xxxxxxx xxxxx xx xxxx xx xxxx xxxx xx xxxxxxxxxx.
+Je suis allé de l’avant pour sélectionner ce pipeline qui a déjà été configuré. Les pipelines sont essentiellement une série d’étapes automatisées qui déplacent votre travail d’un environnement à un autre. Ce pipeline fera passer ma solution de l’environnement de développement de gauche à l’environnement de test. Ensuite, il y a une autre étape pour passer du test à la production.
 
-Xxxx xxxxxx xx xxxx, xxxxxx xxxx xxx xxxx, X'xx xxxxxxx xx xxxxxxxxxxx xx xxxx xxx xxxxxxxxxxx xx xxxx xxxx X xx xxxxx xxx xxxxx xxxxxxxxxxx. Xxxx X'xx xxxxxxxxx xx xxxxxxxxxxx xxxxxxxxx xx xxxx xxxx xxx xxxxxxx xxxx X xx xxxxxxxx xx xxx xxxxx XxxxxXxxxx xxxx xx xxxx. Xxxx xx xxxxxxxxx xx xxx xxxx xxx xxxxxxxxx xxxx xxx xxx X xxx xxxxx xx xxxxxxxxxxx. 
+Déployons pour tester, sélectionnez suivant et ici, je vais confirmer mes connexions pour tester l’environnement pour m’assurer que j’utilise les bonnes informations d’identification. Ensuite, je vais configurer mes variables d’environnement pour m’assurer, par exemple, que je pointe vers le bon site SharePoint en test. Ceci est important si le site était différent de celui que j’utilisais en développement. 
 
-Xxxx X xxx xx xxx xx X xxx xxxx xxxxxx "Xxxxxx" xxx xxxxxxxxx xxxxxxxxxxx xxx xxxxxxxxxxxxx xxx xx xxxx X'xx xxx xxx xxxxx xxxxxxxxxxxx xxx xxx xxxxxxxx xxxxx'x xxxxxxx xxx XXX xxxxxxxx xx xxxx xxxxxx xxxxxxxxxxx. Xxx xxxxxxxx xxx xxxx xx xxxxx xx xxxx xxxxxxxx xx xxxxxxxx xxxxxx xxxxxxxxxx xxx xx xxx. 
+Une fois que j’ai tout configuré, je peux simplement sélectionner « Déployer » et les validations de contrôle en amont sont automatiquement exécutées pour s’assurer que j’ai les bonnes dépendances et que la solution ne viole pas les politiques DLP dans cet environnement cible. Le pipeline peut également être configuré de sorte qu’une approbation soit requise avant que le déploiement puisse être exécuté. 
 
-Xxxxx xxxx xxxxxxxxxx xxx xxxxxxxxxx xxxx.
+On dirait que tout a réussi ici.
 
-Xxxxx X xxx xx xxxxxxxx X xxx xxxx xxxxxxxxxx xxx xx xxxxx xxxxx xx xxx xxxxxxxxxxx xxxxxx xx xxxxxxxxxxxx xxxx xxxxx xxxxxxxx xxxxxx xx xxx xxxxxxxxx.
+Après avoir exécuté mon pipeline, j’obtiens une visibilité complète et une piste d’audit des déploiements dans mon organisation avec chaque solution sauvegardée et versionnée.
 
 {{</slide>}}
 
 {{<slide  id="slide4" audio="features/alm/managed-environments-feature-availability.mp3?v=1" description="Managed Environments Availability" image="features/alm/managed-environments-feature-availability.svg?v=1" >}}
 
-Xxx xxxxxxxx xxxx xx xxxxxx xxx xx xxxxxx. Xxxx xx xxxx xxxx xxx xxxxx xxxxxxx xxx xxxxxxx xxxxxx xxx xxxxxxxxx xxxxx. Xxx xxxx xxxx xx xxxxxxx xxx xx xxx xxx xx xxx xxxx.
+Les fonctionnalités seront déployées par étapes. Certains d’entre eux, comme les résumés d’administration et les limites de partage, sont disponibles aujourd’hui. Le reste sera déployé d’ici la fin de l’année.
 
-Xx xxx xxxxxx xxxxx xxx xxxxxx, xxx xxxx xxx xxxxx xxxxxxxx xx xxx xxxx xxxx. Xxx xxxxxx xx xxx xxxxx xxxxxxx, xxx xxxxxxx xxx xxxxxxxx xxxxx. Xxxxxxx xxxxxx xxxx xxx xxxx xxxxxxxx xxx xxxxxxx xxxxxxxx xxxxx. Xxx xxxx xx xxxx xx xxxx xx xxxxx xxxxxx xxxxxxxxxxx xxxx Xxxxxxxx Xxxxxxx. Xxx xxxxxxxx xxxxx xxxxxxxxxx xxx xxxxxxxx xxxxxxxxxxxx xxxx xxxx xxxx xxxxx xxxx xxxx.
+Dans les semaines et les mois à venir, vous verrez des informations sur l’utilisation sur la page d’accueil. Nouvelles tendances dans les résumés d’administration et les rapports pour l’utilisation sous licence. Les limites de partage permettront d’obtenir plus de contrôles et de flux de solutions de support. Vous pourrez bloquer les déploiements non sécurisés avec Solution Checker. Les capacités d’intégration et de pipeline des créateurs de clients viendront également plus tard cette année.
 
 {{</slide>}}
 
 {{<slide  id="slide5" audio="features/alm/pipeline-extensibility.mp3?v=1" description="Pipeline Extensibility" image="features/alm/pipeline-extensibility.svg?v=1" >}}
 
-Xxx xxxx x xxxxxx xx xxxxxxx xx xxxxxxxx xxx xxxx XXX xxxxxxx xx xxx Xxxxx Xxxxxxxx. Xxx Xxxxxxx Xxxxxxxxxxx Xxxxx Xxxxxxxx xxxxxxxxx xxxxxxx xx xxxxxxx Xxxxxxxxxxx Xxxxxxxxx xxxxxxxxxx.
+Vous disposez d’un certain nombre d’options à prendre en compte pour vos choix ALM dans Power Platform. Les pipelines Managed Environment Power Platform assurent la gestion du cycle de vie des applications.
 
-Xxxxxxxxxx xxx xxxxx xxx xxx xxxxxxxxx xxxxxx xx xxx Xxxxxxx Xxxxxxxxxxx Xxxxx Xxxxxxxx xxxxxxxxx xxxxxxxx xxxx [Xxxxx Xxxxxxxx Xxxxx Xxxxx xxx Xxxxx XxxXxx](https://learn.microsoft.com/power-platform/alm/devops-build-tools), xxx [XxxXxx Xxxxxxx xxx Xxxxxxxxx Xxxxx Xxxxxxxx](https://learn.microsoft.com/power-platform/alm/devops-github-actions) xx [Xxxxx Xxxxxxxx XXX](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) xx xxxx xxxx xxx xxxxxx XXX XxxXxx xxxxxxxxx.
+Vous pouvez éventuellement utiliser les points d’extension des pipelines Managed Environment Power Platform combinés avec [Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)le [Actions GitHub pour Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) ou [CLI de la plate-forme d’alimentation](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) pour déployer vos propres processus ALM DevOps personnalisés.
 
-Xxxxxxx xxx xxxxx xxxx xxxxxxxxx xx xxx [XXX Xxxxxxxxxxx xxx Xxxxx Xxxxxxxx](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) xxxx xxx XxX Xxx xx xxxxxxx xxx-xxxxx xxxxxxxxx xxx xxxxxxx xxx Xxx-xx-Xxx XXX xxxxx Xxxxx XxxXxx. Xxx XXX Xxxxxxxxxxx xxxxxxx x xxxx xxxxxx xxxxxxxxx xx xxxxx xxx xxxxxx xxxx xxxxxxxxx xxxxxx xxxxxxxxxxxx.
+Enfin, vous pourriez profiter de la [ALM Accelerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) du Kit CoE pour fournir des modèles et des exemples prédéfinis pour la gestion de patrimoine ALM de bout en bout à l’aide d’Azure DevOps. ALM Accelerator fournit de nombreux scénarios courants pour créer et gérer vos solutions dans tous les environnements.
 
 {{</slide>}}
 
 {{<slide  id="slide6" audio="features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1" description="ALM Accelerator for Power Platform Overview" image="features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" >}}
 
-Xxxx xx XXX Xxxxxxxxxxx xxx Xxxxx Xxxxxxxx?
+Qu’est-ce qu’ALM Accelerator for Power Platform ?
 
-Xxx XXX Xxxxxxxxxxx xxx Xxxxx Xxxxxxxx xxxxxxxx Xxxxx Xxxx xxxx xxxx xx xxx xx Xxxxx XxxXxx Xxxxxxxxx xxx Xxx xxxxxx xxxxxxx. Xxx xxx xxxxxxxx x xxxxxxxxxx xxxxxxxxx xxx xxxxxx xx xxxxxxxxx xxxxxx xxx xxxxxxxxxx xx xxxxx Xxxxx Xxxxxxxx Xxxxxxxxx xx xxxxxx xxxxxxx xxx xxxxxx xxxxxxxxxx xxxxxxxx xx xxxx xxxxx xxxx xxxxxxxx xxxxxx xxxxxxxxx xx xxxxxx xxxxxxxxxxxx.
+ALM Accelerator for Power Platform inclut Power Apps qui se trouve au-dessus des pipelines Azure DevOps et du contrôle de code source Git. L’application fournit une interface simplifiée permettant aux fabricants d’exporter régulièrement les composants de leurs solutions Power Platform vers le contrôle de code source et de créer des demandes de déploiement pour que leur travail soit examiné avant de déployer dans des environnements cibles.
 
 {{</slide>}}
 
 {{<slide  id="slide7" audio="features/alm/alm-accelerator-for-power-platform-workflow.mp3?v=1" description="ALM Accelerator for Power Platform Workflow" image="features/alm/alm-accelerator-for-power-platform-workflow.svg?v=1" >}}
 
-Xxxxxxx xx xxx XXX Xxxxxxxxxxx xxxxxxxx xx xxxxxx xxxx Xxxxxxxxxxx xxxxxxxxxxxx. Xxxxx xxxxxxxxxxx xxxx xxx XXX xxxxxxx xx xxx xxx XXX Xxxxxxxxxxx Xxxxxx Xxx xx Xxxxxxx Xxxxxxxxxxx Xxxxxxxxx
+En examinant le flux de travail ALM Accelerator, il commence par les environnements de développement. Leur interaction avec le processus ALM se fait via l’application ALM Accelerator Canvas App ou Managed Environment Pipelines
 
-Xxxxxx xxx xxx XXX Xxxxxxxxxxx Xxxxxx Xxx xxx xxxxx XXX xxxxx xxxx xx xxxxxx xxxxxxxx xxxx xxxxxx xxxxxxx, xxxxxx xxxxxxx xx xxxxxx xxxxxxx xxx xxxxxx xxxx xxxxxxx xx xxxxx xxxxxxx
+Les créateurs utilisent l’application ALM Accelerator Canvas pour leurs tâches ALM telles que l’importation de solutions à partir du contrôle de code source, l’exportation des modifications vers le contrôle de code source et la création d’une demande d’extraction pour fusionner les modifications
 
-XXX Xxxxxxxxxxx xxxxxxxxx xxx Xxxxx XxxXxx xxxxxxxxx xxxxxxxxxxx xxx xxxxxxxxxx xx XXX xxxxx xxxxx xx xxx Xxxxxx xxxxxxxxxxx xxxx xxx XXX Xxxxxxxxxxx Xxxxxx Xxx
+Les modèles ALM Accelerator pour les pipelines Azure DevOps facilitent l’automatisation des tâches ALM en fonction de l’interaction des créateurs avec l’application ALM Accelerator Canvas
 
-XXX Xxxxxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxxx xx xxxxxxx x 3 xxxxx xxxxxxxxxx xx xxxxxxxxxx.
-Xxxxxxxxx xxx xx xxxxxxxxxx xx xxx xxxxxxxx xxxxx xxx xxxxxxxxx
+ALM Accelerator inclut des modèles de pipeline pour prendre en charge un déploiement en 3 étapes en production.
+Les modèles peuvent être personnalisés pour répondre à des besoins et des scénarios spécifiques
 
-Xxx XXX Xxxxxxxxxxx xxx Xxxxx Xxxxxxxx xx x Xxxxxx Xxx xxxx xxxx xx xxx xx Xxxxx XxxXxx Xxxxxxxxx xx xxxxxxx x xxxxxxxxxx xxxxxxxxx xxx Xxxxxx xx xxxxxxxxx xxxxxx xxx xxxxxx xxxx xxxxxxxx xxx xxxxx xxxxxxxxxxx xxxx xx xxx Xxxxx Xxxxxxxx. 
+ALM Accelerator for Power Platform est une application canevas qui repose sur Azure DevOps Pipelines pour fournir une interface simplifiée permettant aux créateurs de valider et de créer régulièrement des demandes d’extraction pour leur travail de développement dans Power Platform. 
 
-Xxx xxxxxxxxxxx xx xxx Xxxxx XxxXxx Xxxxxxxxx xxx xxx Xxxxxx Xxx xxx xxxx xxxx xx xxx xxxx XXX Xxxxxxxxxxx xxx Xxxxx Xxxxxxxx  xxxxxxxx. 
-Xxx xxxxxxxxx xxx xxx Xxx xxx xxxxxxxxx xxxxxxxxxxxxxxx. Xxxx xxxx xxxxxxxxx xxx xxx xx xxx xxxxxxxxxxx xxxx xxx xxx XxX Xxxxxxx Xxx xxxxxxxxxx xxx xxxx xxxx xxxx xxxxxxx xxx xxxxxxxx xx xxxxx xx xxxxxxxxxxx xxx xxxxxxx XXX xxx xx xxxxxxxx xx xxx Xxxxx Xxxxxxxx. Xxxx xxx xx xxxx xx xx xx xxxxxxxxxx xxx xxxxxxxx xxxxxxxx xxxxxxxxx.
+La combinaison des pipelines Azure DevOps et de l’application Canvas constitue la solution complète d’ALM Accelerator for Power Platform. 
+Les pipelines et l’application sont des implémentations de référence. Ils ont été développés pour être utilisés par l’équipe de développement du kit de démarrage CoE en interne, mais ont été open source et publiés afin de démontrer comment une ALM saine peut être obtenue dans la Power Platform. Ils peuvent être utilisés tels quels ou personnalisés pour des scénarios d’entreprise spécifiques.
 
 {{</slide>}}

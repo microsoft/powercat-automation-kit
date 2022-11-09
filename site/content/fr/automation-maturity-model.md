@@ -1,12 +1,12 @@
 ---
-title: Xxxxxxxxxx Xxxxxxxx Xxxxx
-description: Xxxxxxxxxx Xxx Xxxxxxxxxx Xxxxxxxx
+title: Modèle de maturité de l’automatisation
+description: Maturité de l’automatisation du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-**Xxxxxx:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Xxxx Xx Xxxxxxxx - Xxxxx Xxxxxx
+**Statut:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Travaux en cours - À l’étude
 
-Xxx xxx xxxxxxxxx xxxxx xxxxxxxxx xxxx xxxxxxxxxx xxxxxxxx xxxxx xxx xxxxxxxx xxx xxx {{<product-name>}} xx xxxxx xxxxxxx xxxxxxxxx xxx xxxx xxx xxxxxxx xxxx xxxxxxxxxx xxxxxxxx xxxxx xxx Xxxxx Xxxxxxxx.
+Utilisez les questions ci-dessous pour déterminer votre modèle de maturité de l’automatisation et découvrir comment {{<product-name>}} ou d’autres solutions connexes peuvent vous aider à améliorer votre maturité d’automatisation à l’aide de Power Platform.
 
 {{<questions name="automation-maturity-model.json" completed="" showNavigationButtons=false >}}

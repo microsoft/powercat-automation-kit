@@ -1,16 +1,16 @@
 ---
-title: Xxxxx Xxxxxxxxxx Xxx Xxxxx XX xxxxxxxxx
-description: Xxxxxxxxxx Xxx Xxxxx XX xxxxxxxxx
+title: Kit d’automatisation de configuration Tableau de bord Power BI
+description: Tableau de bord Power BI du Kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xx xxxxxx xxx Xxxxx XX Xxxxxxxxx xxx xxx Xxxxxxxxxx Xxxxxx xx Xxxxxxxxxx, xxx xxxx xxxxxxx xxx xxxxxxxxxxx XXX xxx xxxx Xxxx xxxxxxxxxxx (Xxxxx Xxxxxxxxxx XxX Xxxx xx xxxxxxxxx).
+Pour lancer le tableau de bord Power BI pour le centre d’excellence Automation, vous aurez besoin de l’URL de l’environnement principal (où Automation CoE Main est installé).
 
-Xx xxxxxx xxx xxxxxxxxxxx XXX, xxxxxxxx xx xxx Xxxxx Xxxxxxxx Xxxxx Xxxxxx, xx xx Xxxxxxxxxxxx, xxxxxx xxx xxxxxxxxxxx, xxx xxxx xxx Xxxxxxxxxxx XXX:
+Pour obtenir l’URL de l’environnement, accédez au Centre d’administration Power Platform, accédez à Environnements, sélectionnez l’environnement et notez l’URL de l’environnement :
 
-![Xxx Xxxxxxxxxxx xxxxxx - Xxxxx Xxxxxxxx xxxxx xxxxxx](/images/get-environment.png)
+![Écran Obtenir l’environnement - Centre d’administration Power Platform](/images/get-environment.png)
 
-Xxxxx xxx xxxxxxxxxxx XXX xxxx xxxxxxxxx xxx Xxxxx XX xxxxxxxx xxxxx xxx xxxx xxxxxxxxxx xxxx xxx [{{<product-name>}} xxxxxxxx](https://github.com/microsoft/powercat-automation-kit/releases)
+Entrez l’URL de l’environnement lors du lancement du modèle Power BI que vous avez téléchargé à partir du [{{<product-name>}} versions](https://github.com/microsoft/powercat-automation-kit/releases)
 
-![Xxxxx XX xxxxxx xxxxxxx](/images/power-bi-import.png)
+![Exemple d’importation Power BI](/images/power-bi-import.png)

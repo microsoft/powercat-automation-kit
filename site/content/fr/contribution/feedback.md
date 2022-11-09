@@ -1,47 +1,47 @@
 ---
-title: Xxxx Xxxxxxxx
-description: Xxxxxxxxxx Xxx xxxxxxxx
+title: Donner son avis
+description: Commentaires sur le kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xxxxxxx xx xxxxxxxxxx xxxx xxxxxxxx xx xxx {{<product-name>}}? Xxx xxx xxx xxx xxxxxxxx xxxxx xx xxxxxxx xxx xxxxxxxxx xxxxxxxx xxxxx.
+Vous souhaitez faire part de vos commentaires au {{<product-name>}}? Vous pouvez utiliser les sections ci-dessous pour explorer les différents types de commentaires.
 
 {{<toc>}}
 
-## Xxxx Xxxxx
+## Félicitez
 
-Xxxx xx xxxxx xxxx xxxxxxxx xx xxx {{<product-name>}} xx x xxxxxxx xxx xxx xxxxxx xx xxx xxx xxx xxx? Xxx xxx xxxxxx x [Xxxxx](https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Ckudos&template=4-automation-kit-kudos.yml&title=%5BAutomation+Kit+-+Kudos%5D+Your+summary) xx xxxxx xxxx xxxxxxxx xxxx xxx xxxxxxxxx.
+Vous souhaitez partager vos commentaires sur le {{<product-name>}} ou une fonctionnalité et l’impact qu’elle a eu pour vous ? Vous pouvez soumettre un [Gloire](https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Ckudos&template=4-automation-kit-kudos.yml&title=%5BAutomation+Kit+-+Kudos%5D+Your+summary) pour partager vos commentaires avec la communauté.
 
-## Xxxxxx x Xxx xx xxxxxx x Xxxxxxx Xxxxxxx
+## Signaler un bogue ou soumettre une demande de fonctionnalité
 
-Xxxx xxx xxxxx x xxx xx xxx {{<product-name>}} xx xx xxx xxxx xx xxxxxxx x xxx xxxxxxx? Xxxxxx xxx, xxxxxx xxx xx xxx xx xxxxxx xx xxxxx xxxxx xxxxxxxxx xxx xxxxxxxxx xxxxxxxxxx
+Avez-vous trouvé un bogue dans le {{<product-name>}} Ou voulez-vous suggérer une nouvelle fonctionnalité? Quoi qu’il en soit, s’il vous plaît laissez-nous maintenant en déposant un problème tout en observant les directives suivantes
 
-### Xxxx xxx xx xxxxxxxx xxxxx
+### Rechercher un problème existant
 
-Xxxxxx xxxxxxxxxx xxxx xxxxx xxxxxx xxxxxx xxx [xxxxxx](https://github.com/microsoft/automation-kit/issues) xx xxxxxx xxxx xxxxx xxx xxx xxxxxxx xxxx xxxxxxxx
+Avant de soumettre votre problème, veuillez effectuer une recherche dans le [Questions](https://github.com/microsoft/automation-kit/issues) pour vous assurer que votre problème n’a pas déjà été signalé
 
-Xx xxxx xxx xx xxxxxxx xxxxxxx xxx xxxxxxx xxxx xxxxxxxx, xxxx xxx xxxxxxxxxxxx xx xxxxxxxxxx xxx xxxxxx xxxx xxxxxxxx. Xxxxxx xxx xxxxxxxxx xx xxxx xxx xxx "+1" xxxxxxxx.
+Si votre bogue ou votre demande de fonctionnalité a déjà été signalé, rejoignez la conversation en commentant et en ajoutant votre réaction. Veuillez utiliser les réactions pour voter et non les commentaires « +1 ».
 
-- 👍 - xxxxxx
-- 👎 - xxxxxxxx
+- 👍 - Vote positif
+- 👎 - vote négatif
 
-### Xxxxxxxxxx xxxx Xxxxx
+### Soumission de votre problème
 
-Xxxxxx xxx Xxxxx xxxxxxxx xxxx xxxxxxx xxx xxxxxxxx xxx xxxxx xxx xxxx xx xxxxxx xx xxxxx.
+Sélectionnez le modèle de problème qui correspond à la solution pour laquelle vous souhaitez soumettre un problème.
 
-Xxxx x xxxxxx xxxxx xxx xxxxxxx xxx xxxxxxx xxxxxxx. Xx xxx xxxxxxxxx xxxxxxxx xxxx xx xxxxxxx xxxxxxxx xx xxx xxxx xxxxx.
+Classez un seul problème par problème et demande de fonctionnalité. N’énumérez pas plusieurs bogues ou demandes de fonctionnalités dans le même problème.
 
-Xx xxx xxx xxxx xxxxx xx x xxxxxxx xx xx xxxxxxxx xxxxx xxxxxx xx'x xxx xxx xxxxxxxxx xxxxx. Xxxx xxxxxx xxxx xxxxxxx, xxx xxxx xxxxxxxxx xxxxxx.
+N’ajoutez pas votre problème en tant que commentaire à un problème existant, sauf s’il s’agit d’une entrée identique. De nombreux problèmes se ressemblent, mais ont des causes différentes.
 
-Xxx xxxx xxxxxxxxxxx xxx xxx xxxxxxx, xxx xxxx xxxxxx xxxxxxx xxxx xx xxxxxxxxxx xx xxxxxxxxxxx xxx xxxxx xxx xxxxxxx x xxx.
+Plus vous pouvez fournir d’informations, plus il est probable que quelqu’un réussira à reproduire le problème et à trouver un correctif.
 
-Xxxxxxx xxx xxxxxx xxxxxxxxxx xx xxx Xxxxx xxxxxxxx.
+Respectez les instructions en ligne du modèle Problème.
 
-## Xxxxx Xxxx xx Xxxxxxxxxx?
+## D’autres façons de contribuer?
 
-Xxxxxx xxx [Xxxxxxxxxxxx](/fr/contribution) xxxxxxxx xxxx.
+Consultez notre [Contribution](/fr/contribution) page d’orientation.
 
-## Xxxxxxxx
+## Rétroaction
 
 {{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}

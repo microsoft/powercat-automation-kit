@@ -1,6 +1,6 @@
 ---
-title: Xxxxx XXX Xxxxxxxxxxx Xxxxxxxxx Xxxxxxxxxx (XXX)
-description: Xxxxxxxxxx Xxx - XXX Xxxxx XXX
+title: Gestion du cycle de vie des applications Power CAT (ALM)
+description: Kit d’automatisation - ALM Power CAT
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
@@ -9,7 +9,7 @@ include_footer: true
 
 <div class="optional">
 
-Xxx Xxxxxxxxxx Xxx xxxxxxxxx xxx [XXX Xxxxxxxxxxx](https://aka.ms/aa4pp) xx xxxxxxx XXX xxxxxxxxxxxxx xxx xxxxxxxxx xxxx xxxxxxx Xxxxx Xxxxxxxx Xxxxxxx
+Le kit d’automatisation tire parti de la [Accélérateur ALM](https://aka.ms/aa4pp) pour fournir la fonctionnalité ALM pour les solutions qui incluent Power Automate Desktop
 
 </div>
 
@@ -20,33 +20,33 @@ Xxx Xxxxxxxxxx Xxx xxxxxxxxx xxx [XXX Xxxxxxxxxxx](https://aka.ms/aa4pp) xx xxxx
 
 {{<presentationStyles>}}
 
-## XxxXxx Xxxxxxxxxx Xxxxxxx
+## Processus de déploiement GitHub
 
-Xxxxxxx xx xxx xxxxxxx xxxxxxx xxxx xxx xxxxx Xxxxx XXX xxxxxxx xxxx xxx {{<product-name>}} xxxx xxx XXX Xxxxxxxxxxx xx xxxxxx xxxxxxxx xx xxx xxxxxx XxxXxx xxxxxxxx.
+Semblable au processus de publication utilisé pour d’autres kits gérés par Power CAT, le {{<product-name>}} utilise ALM Accelerator pour déployer des versions sur nos versions GitHub publiques.
 
-Xxx xxxxxxxx xxxxxxx xxx x Xxxxx Xxxxxxxx xxxxxxxxxxx xxx Xxxxxxxxxxx, Xxxx xxx Xxxxxxxxxx. Xxxx xx xxx xxxxx xxx x xxxxxxx xxx xxxxxxxxxx XxxXxx Xxxxxxx xxxxxxx xxx xxxxxxx xxx xxxxxxxxx xxxxxxxxxx xxxxxxxxx xxxxx xxxx xxxxxxx xxxxx xxxxxxxxxxxxx xxx x XxxXxx Xxxxx xxxxxxx.
+Notre processus interne dispose d’un environnement Power Platform pour le développement, les tests et la production. Une fois que nous sommes prêts pour une version, nos actions GitHub intégrées empaquetent automatiquement les solutions de déploiement gérées et non gérées ainsi que les notes de version pour une version GitHub Draft.
 
-Xxxx xxx xxxxx xxxxxxx xx xxxxx xx xxx xxxxxxx xxx xxxxxxxx xx xxxxxxxx xx xxxxxx.
+Une fois que le brouillon est prêt, nous pouvons publier de nouvelles versions ou correctifs si nécessaire.
 
-### Xxxx xxxx xxxxx xxx xxx
+### Ce que cela signifie pour vous
 
-Xxx xxxx xx xxxx xxxx xxxxxxxxxx xx xxxxx xxx xxxxxxxxx XXX xxxxxxx xxx xxx xxxxxxxxx xxxxxxxx xxx xxx:
+Maintenant que nous avons mis en place cette automatisation, la version ALM automatisée présente les avantages suivants pour vous :
 
-- Xxxxxxxxxx xxxx xxx xxx xxx xxxx xxxxxx xxxx xxxx xxxxx xx xxx Xxxxxxxxxx Xxx xx xxxx xxx xxx xxxxxxxxxxx xxx xx xxxx xxxxx xxx xxx.
+- Visibilité sur tout le code source à faible code qui compose le kit d’automatisation afin que vous puissiez étudier comment nous avons construit le kit.
 
-- Xxxxxxxxxxx xxxxxxxxxx xxxxxxx xxxx xxx xxxxxxx xx xxxx xx xxxxxx xxxxxxx xxx xxxxxxx xxxxxxxx xx xxxxxx.
+- Processus d’automatisation rationalisé qui peut répondre rapidement aux bogues ou aux problèmes et fournir des correctifs si nécessaire.
 
-- Xxxxxxxxx xxxxxxxxxxx xx xxx Xxxx xxx Xxxxxxxx xxxx xxx xxxxxxxx xx x xxxxxxx.
+- Compilation automatisée de tous les bogues et fonctionnalités inclus dans une version.
 
-- Xx xxxxxxx Xxxxx Xxxx, Xxxxx Xxxxxxxx, Xxxxxxxxx xxx Xxxxx Xxxxxxxx Xxxxxxx xx xxxx xx xxx XXX xxxxxxx xxx xxx Xxxxxxxxxx Xxxxxxxxxxx / Xxxxxxxxxx Xxxxxxxxxx.
+- Nous incluons Power Apps, Power Automate, Dataverse et Power Automate Desktop dans le cadre de notre processus ALM pour notre intégration continue / déploiement continu.
 
-## Xxxxxxx
+## Feuille de route
 
-Xxx xxx xxxxxxxxxxx xxx xxxx XXX xxxxxxx xxxxxxx xxxxx xx xxx [XxxXxx Xxxxxx Xxxxxxxx](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
+Vous pouvez consulter les éléments de notre arriéré ALM ouvert dans notre [Registre des problèmes GitHub](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
-Xxxxxxx xx xxxxx xx xxx xxxxxxxx xxx xx xxx xxx Xxxxx Xxxxxxxx xxx Xxxxxxxxx XxxXxx xxxxxxx xxxxxxxx xxxxxxxx XXX Xxxxxxxxxxx. Xxxx xxxxxxxxxxx xxxxxx xx xx xxxxx xx xxxxxxxx xxxxxxxxxx xxxx xxxx xxxx xxxxxxxxxxxxxx.
+Dans l’ensemble, nous nous appuyons sur les fonctionnalités existantes de Power Platform et de Microsoft DevOps avec ALM Accelerator. Cette combinaison nous permet de nous concentrer sur des extensions spécifiques qui aident à l’hyperautomtion.
 
-## Xxxxxxxx
+## Rétroaction
 
 {{<questions name="/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 
@@ -54,26 +54,26 @@ Xxxxxxx xx xxxxx xx xxx xxxxxxxx xxx xx xxx xxx Xxxxx Xxxxxxxx xxx Xxxxxxxxx Xxx
 
 {{<slide  id="slide1" audio="features/alm/powercat/overview.mp3" description="Power CAT ALM Overview" localImage="/images/illustrations/alm-roadmap-2022-11.svg" >}}
 
-Xxx Xxxxx XXX xxxx xxxx xxx XXX Xxxxxxxxxxx xx xxxxx xxx xxxxxx xxxx xx xxx [Xxxxxxxx](https://github.com/microsoft/powercat-automation-kit/releases).
+L’équipe Power CAT utilise l’accélérateur ALM pour créer et déployer chacun de nos [Versions](https://github.com/microsoft/powercat-automation-kit/releases).
 
-Xxxx xxxxxxx xxxxxxxx xxxxxxx xxxx xxx xxxxxxxxxxx xxxx xxxx xxx xxxxxxxxxx xxxxxxxxxxxx. Xxx Xxxxx Xxxxxxxx xxxxxxxxx xxxxxx xxx xxx xxx xx xxxxxxxxx xxxxxxx xx xxxxxxx xxxxxx xxx xxxxxxxxxx xx xxxxxx XxxXxx xxxxxxxx.
+Chaque version favorise les changements de notre développement dans les environnements de test et de production. Les solutions Power Platform du kit utilisent un processus automatisé pour empaqueter les ressources à déployer dans des versions publiques de GitHub.
 
-Xx xxxxxx xxxxxxxxxx xx xxxx xx xxxxxxxxx xx xxxxxxxx xxxxxxxx [XXX Xxxxxxxx](/fr/features/alm) xx xxxxxxx xxxxxxxx xx xxx xx xxxxxxx xxxxxxxxxx xxxxx xxx xxxxxx xxxxxxxxxx xx XXX xxxxxxx xx xxxx xx xxx XxxXxx xxxxxxx.  
+Dans les prochaines étapes, nous développerons la plate-forme existante [Caractéristiques ALM](/fr/features/alm) fournir des exemples d’inclusion de règles de validation et de comparaison visuelle d’échantillons RPA dans le cadre du processus DevOps.  
 
 {{</slide>}}
 
 {{<slide  id="slide2" audio="features/alm/powercat/release-process.mp3" description="Power CAT Automation Kit Release Checker" localImage="/images/illustrations/alm-powercat-process.svg" >}}
 
-Xxx xxxxxxxxx xxxxxxxx xxx xxxxx xx xxx Xxxxxxxxxx Xxx xxxxxxx xxxxxxx:
+Voici les étapes clés du processus de publication du Kit d’automatisation :
 
-1. Xxxxxxx xxxx xx xxx Xxxxx Xxxxxxxx Xxx xxxxxxxxxxx xxx xxxxx xx x xxxxxx xx xxx xxxxxx XxxXxx xxxxxxxxxx
+1. Les modifications apportées à notre environnement Power Platform Dev sont enregistrées dans une branche du référentiel GitHub public
 
-2. Xxxx xxxxxxx xxx xxxxx xxx xxxxxxxxx xxxx x xxxx xxxxxxx xxxx xxx xxxxxx xxxx xxx xxxx xxxxxx xxxxx x Xxxx Xxxxxxx. Xxxxxx xxx Xxxx Xxxxxxx xxx xx xxxxxxxxx, xxx Xxxxx XxxXxx xxxxxxxxxx xxxxxxxx xxxxx xx xxxxxxxxxxxx xxxxxxxx xxx xxx Xxxx Xxxxxxx xxxxxxxx.
+2. Lorsque les modifications sont prêtes à être incluses dans une version de test, elles sont fusionnées dans la branche principale à l’aide d’une demande d’extraction. Avant que la demande d’extraction puisse être terminée, le pipeline de validation Azure DevOps doit être terminé avec succès et la demande d’extraction doit être examinée.
 
-3. Xxxx xxx Xxxx Xxxxxxx xxx xxxxxx xxx xxxxxxxxx xxxxxx xxx xxxxxxxx xxxxxx xxxxxxxx xx xxx xx xxxxxx xxxx xxx xxxx xxxxxx. Xxxx xxxxx xxxxxxxx xxx xxxx Xxxxx XxxXxx xxxxx xxxxxxxx xxxxx xxxxxxxxx xxx xxxxxxx xxxxx xx xxx xxxx Xxxxx Xxxxxxxx xxxxxxxxxxx.
+3. Une fois que la demande d’extraction a passé les contrôles automatisés et reçu l’approbation de la révision, elle peut être fusionnée dans la branche principale. Cette fusion déclenche le pipeline de génération Azure DevOps de test qui publie la build managée dans l’environnement Power Platform de test.
 
-4. Xxxxx xxxxxxxx xxxxxxx xxx Xxxxx XxxXxx xxxxxxxxxx xxxxxxxx xx xxxxxxxx xxxxxxxxx xx xxxxxxxx x Xxxxxxxxxx Xxxxx Xxxxxxxx xxxxxxxxxx.
+4. Après des tests internes, le pipeline de production Azure DevOps est déclenché manuellement pour générer un déploiement Production Power Platform.
 
-5. Xxxx xxx xx xxxxx x xxxxxxx, xxx xxxxxxx Xxxxx XxxXxx xxxxxxxx xxxxxxx x xxxxx xxxxxxx xxxxxxxxx xxxxxxx xxxxx xxx xxxxx xxxxxx. Xxx xxxxx xxxxxxx xxxxx xxxx xxxxx xxx xxxx xxxxxx xxx xxxxx xxx xxxxxxxxx. Xxxxxxxxx xxxxx xxx xxx XxxXxx xxxxxxxxxx xxxx x Xxxxx xxx xxxx xxxxx xxxxxxx.
+5. Une fois que la version est prête, le pipeline Azure DevOps de version crée un brouillon de version comprenant des notes de publication et des ressources de génération. La version finale fermera tous les problèmes ouverts et clôturera le jalon. Balise de build publiée dans le référentiel GitHub avec une étiquette Mois et année appliquée.
 
 {{</slide>}}

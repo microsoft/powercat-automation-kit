@@ -1,42 +1,42 @@
 ---
-title: Xxxxxxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxxx Xxxxxxxxxx
+title: Étapes
+description: Kit d’automatisation - Jalons de publication
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-![Xxxxxxxxx Xxxx](/images/milestone-loop.png)
+![Boucle de jalon](/images/milestone-loop.png)
 
-Xxxxx xxxxx {{<product-name>}} xxxxxxxxxx
+Remarques sur {{<product-name>}} jalons
 
-- Xxxx xxxxxx xx xxx xxxxxxx, xxxxx xx xxxxxxx, xxxxxxxx xxx xxxxxx xxxxxxxx xxx xxxxxxxx xxx xxxxxxxxx xxxx x xxxxxxxxx
+- Les travaux commencent dans notre carnet de commandes, en fonction de la prorité, de la rétroaction et des caractéristiques d’impact sont sélectionnées pour être incluses dans un jalon
 
-- Xxxxxxxxx xxxxxxxx xxx xx xxxxxxx xx xxx [Xxxxxxxxxx Xxx - XxxXxx Xxxxxxx](https://github.com/orgs/microsoft/projects/486)
+- Les progrès des jalons peuvent être suivis dans le [Kit d’automatisation - Projet GitHub](https://github.com/orgs/microsoft/projects/486)
 
-- Xxxxxxxxxx xxx x xxxxx xxxx xxx xxx x xxxxxxxxx xxxxxxxx
+- Les jalons ne sont qu’un guide et non un calendrier engagé
 
-- Xxxxxxxx xx xxxx xxx xxx xxxx xx xxxx xxxxxxxxx xxx xx xxxxxxxx xxxx xx xxxxxxxx
+- Les fonctionnalités ou les bogues peuvent ne pas être livrés à chaque jalon en raison de bogues ou de fonctionnalités prioritaires
 
-- Xxxxxxxx xx xxxx xxxx xxx xxx xxxxxxxx xx x xxxxxxx xxxx xx xxxxxxxxxx xxx xxxxxxxxx xx xxx xxxx xxxxxxxxx
+- Les fonctionnalités ou les bogues qui ne sont pas inclus dans une version seront pris en compte pour inclusion dans la prochaine étape
 
-- Xx xxxx x xxxxxxxxx xxxxxxx xx xxxxxxx xxxxxxxx xx xxx xxxx xxxxxxxxxxx xxxx xx xxxx xx xxx xxxxxxxx xxx xx xxxxxxxxxx xxxx xxx Xxxxxxxxxx Xxx xxx xxxxxxxx xx xx xxxxxxx xxxxxxxx
+- Nous avons un processus continu pour fournir des commentaires à l’équipe d’ingénierie principale afin d’examiner comment les fonctionnalités peuvent être déconseillées à partir du kit d’automatisation et migrées vers les fonctionnalités du produit.
 
-- Xx xxxxxxxx xxx xxx xxxxx xxxx xxxxxxx x xxxx xx xx-xxxxxxxxx xx x xxxxxxx xx xxxx xx xxx xxxxx xx xxxxxx xxxxxxxx xxxxxxxx
+- Si les fonctionnalités ne sont pas utilisées, fournissez un moyen de désinvestir dans une fonctionnalité afin que nous puissions nous concentrer sur les fonctionnalités de priorité plus élevée
 
-- [Xxxxxx Xxxxx](/fr/office-hours) xxxx xx xxx xx xxxxx xxxxxxx xxx xxxxxx xxxx xxxxxxxx xx xxx xxxxxxxx xxx xxxx xx xxxxxxx xx xxxx xxxxxxxxx
+- [Heures d’ouverture](/fr/office-hours) sera utilisé pour partager la feuille de route et aider à la priorité des nouvelles fonctionnalités et des bogues à inclure dans chaque jalon
 
-- Xxxx xxxxxxxxx xxx xxxxxxx x xxxxxxx xx xxxxxxxxxx xxxxxxxx xxx xxx xxxxxxxxxx xxxxxxxx xxxxxxxx xxxxxxxxxxxxx xxx xxxxxxx xxxxxxx xxxxxxxxxxxx
+- Chaque jalon peut inclure un mélange de caractéristiques fonctionnelles et de caractéristiques non fonctionnelles couvrant la documentation et les améliorations des tests de qualité
 
-## Xxxxxxx Xxxxxx
+## Dénomination de la version
 
-Xxxx xxxxxxx xxxx xx xxxxxxx xxxx xxxxx xxx xxxx xx xxxxxxx xxx xxxxxxx Xxxxxxxx 2022. Xxxxxxxxxxxx xx xxx xxxxxx x xxxx xxxx xxx xxxxxxxxx xxxxxx xx xxx xxxxxxx xx xxxx xxx xxxxxxx x xxxxx xxxx xxxxx xxxxxxxxxx xxxxxxxxxxx xx xxx xxxxxxx.
+Chaque version sera étiquetée avec le mois et l’année de sortie, par exemple novembre 2022. De plus, nous pouvons attribuer un nom de code et un avatar graphique à la version pour donner à la version une marque qui donne une personnalité supplémentaire à la version.
 
-![Xxxxx Xxxxxxxxxx](/images/sharp-archimedes.png)
+![Archimède tranchant](/images/sharp-archimedes.png)
 
-Xxxxxxxx xxx xxx xx xxxxxxx xxx xxxxxx xxxxxx xxxx xx xxx xxxxxxx xx xxxx xxxx xx xxx xxxxxx xx xxxxxxxx xxx xxxxxxxxxxx xxxxx xxx xxx xxx xxxxxxxx xxxx xxxx xxxx xxxxxxxx xxxx xxxx.
+Au fil du temps, l’utilisation d’avatars et de noms devrait nous donner la possibilité de revenir sur la famille des versions et de souligner graphiquement les principales caractéristiques qui ont été publiées au fil du temps.
 
-Xxx [Xxxxxxx Xxxxxx](/fr/releases/naming) xxxx xxx xxxx xxxxxxxxxxx xx xxxx xxxxxxx.
+Notre [Dénomination de la version](/fr/releases/naming) contient plus d’informations sur ce processus.
 
-## Xxxxxxx Xxxxxxx
+## Historique des versions
 
-Xxxx xxxx xx xxx [Xxxxxxx Xxxxxxx](/fr/releases/)
+En savoir plus sur notre [Historique des versions](/fr/releases/)

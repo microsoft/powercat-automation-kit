@@ -1,16 +1,16 @@
 ---
-title: Xxxxxxxx Xxxxxxx
-description: Xxxxxxxxxx Xxx xxxxxxxx xxxxxxx
+title: Témoignages clients
+description: Témoignages clients Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-# Xxxxxxxxxxxx
+# Introduction
 
-Xxxx xx xxx xxx xxxxxxxxx xx xxxxxxxx xxxx xxxx xxxx xxx [{{<product-name>}}](https://aka.ms/ak4pp)? Xxxx xxxx xxxx xxxxxxxxx xxxxxx xxxxxxxx xxxxxxx xxx xxxxxxxx xxxxx xxx {{<product-name>}}.
+Vous voulez voir comment les clients ou les partenaires ont utilisé le [{{<product-name>}}](https://aka.ms/ak4pp)? Cette page fera référence aux témoignages et aux commentaires des clients publics à l’aide du modèle {{<product-name>}}.
 
-## Xxxxxxxx
+## Cineplex
 
-![Xxxxxxxx Xxxx Xxxx](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/09/Cieneplex-Main-Card.jpg)
+![Carte principale Cineplex](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/09/Cieneplex-Main-Card.jpg)
 
-Xxxx xxxx xx xxx [Xxxxxxxx xxxxxxx xxxxxxxxxxxxxx xxxx Xxxxx Xxxxxxxx XXX xxx xx xxxxxxx xxxxxxxxxx](https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/) xxxxx.
+En savoir plus sur le [Transformation numérique de Cineplex avec Power Automate RPA dirigée par des développeurs citoyens](https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/) histoire.

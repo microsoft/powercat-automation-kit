@@ -1,54 +1,54 @@
 ---
-title: XXX Xxxxxxxxx
-description: Xxxxxxxxxx Xxx XXX Xxxxxxxxx
+title: RPA Migration
+description: Migration RPA du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xxx {{<product-name>}} **Xxxxxxxxx xxxxxx** xxxxxxxx xxx x xxxxxx xxx xx xxxxx xxx xxxxxxxx xxxxx xx xxxxxxxxxxx xxxx xxxxxxxxx xx xxxxxxxxxx xxxx xxxxxxxxx xxxxxxx. Xx xxxxxxxxxx xxx xxxxxxxx xx Xxxxxxxxx Xxxxx Xxxxxxxx, Xxxxxxxxx Xxxxx xxx xxx xxxxx Xxxxxxxxx Xxxxx xxxxxxxx xxx xxx:
+Le {{<product-name>}} **Module de migration** Vous fournit un ensemble éprouvé d’outils et de conseils basés sur les engagements avec les clients pour accélérer votre parcours de migration. En tirant parti de la puissance de Microsoft Power Platform, Microsoft Azure et des services Microsoft Cloud plus larges, vous pouvez :
 
-- Xxxxxxx xxxx xxxxx xx xxxxxxxxx xxxx xxxxxxx.
+- Réalisez vos objectifs d’économies de coûts.
 
-- Xxxxxxxxx xxx xxxxxxxxxx xx xxxx, xxxxxxx, xxxxxxx xxx xxxxx xxx x xxxxxxxxxx xxxxx xxx xxxxxxx xxxxx.
+- Fournir les garde-fous pour planifier, migrer, surveiller et configurer un modèle d’exploitation pour une utilisation continue.
 
-- Xxxxxxxx xxxxxxxxxx xxxxxxx xxxx xxx xxx xxxxxxxxx xx xxxx xxxxxxx xx xxxx xxxx xxxxxxxxx xxxxx.
+- Tirez parti des exemples de conversion que vous pouvez personnaliser en fonction de votre processus pour répondre à vos besoins de migration.
 
-## XXX Xxxxxxxxx Xxx Xxxxxxx
+## Mise en route de la migration RPA
 
-![Xxxxxxxx Xxxxxxx’ Xxxxx xx Xxxxxxx Xxxxxxx Xxxxxxxxxx (XXX) Xxxxxxxxx.](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/01/RPAWhitepaper_Img-241x300.png)
+![Guide des chefs d’entreprise sur la migration de l’automatisation robotisée des processus (RPA).](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/01/RPAWhitepaper_Img-241x300.png)
 
-Xxx xxx xxx xxx xxxxxxxxx xxxx xx xxxxxxxxxx xxx XXX xxxxxxxxx xxxxxxx xxx xxx Xxxxxxxxx Xxxxx Xxxxxxxx:
+Vous pouvez utiliser le lien suivant pour comprendre le processus de migration RPA pour Microsoft Power Platform :
 
-- [Xxxxxx xxxxxxx xx xxxxxxxxx xxxx XXX xxxxxxxx xxxx Xxxxx Xxxxxxxx](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
+- [Des méthodes éprouvées pour moderniser votre approche RPA avec Power Automate](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
-- Xxxxxxxxxxxx xxxxx xxxxx [Xxxxxxxx Xxxxxxx’ Xxxxx xx Xxxxxxx Xxxxxxx Xxxxxxxxxx (XXX) Xxxxxxxxx.](https://aka.ms/PAD/RPAMigrationWhitepaper)
+- Livre blanc téléchargeable [Guide des chefs d’entreprise sur la migration de l’automatisation robotisée des processus (RPA).](https://aka.ms/PAD/RPAMigrationWhitepaper)
 
-## Xxxxxxxxx Xxxxxx
+## État des jalons
 
-Xx xxx xx xx xxxxxx xxxxxxx xx xxxxxxxxxx xxx xxx xxxx Xxxxx Xxxxxxxx xxx Xxxxxxxxx Xxxxx xxxxxxxxx xx xxx xxxxxxxx xx xxx {{<product-name>}}. Xxx xxxxxxxx xxx xxxxx xxxxxxxxxx xx xxxx xx xxx [Xxxxx Xxxxxxxxxx](/fr/releases/november-2022) xxxxxxxxx xxx xxxxxx.
+Nous sommes dans un processus actif d’exploitation des ressources Low Code Power Platform et Microsoft Azure pour ajouter des fonctionnalités au {{<product-name>}}. De nouvelles fonctionnalités sont envisagées dans le cadre de l' [Archimède tranchant](/fr/releases/november-2022) jalon et au-delà.
 
-![Xxxxx Xxxxxxxxxx](/images/sharp-archimedes.png)
+![Archimède tranchant](/images/sharp-archimedes.png)
 
-Xx xxxx xxxx xxxxx xxx xxxxxxxxx xxxxxxx xxxxxx xxx [Xxxxxxxxx Xxxxxxx xxxxx](/fr/releases/milestones).
+Pour en savoir plus sur notre processus d’étape, consultez notre [Notes de mise à jour de Milestone](/fr/releases/milestones).
 
-## Xxxxx Xx Xxxxx
+## Domaines d’intérêt
 
-Xxx xxxxxxxxx xxxx xxxxxxxx xx xxxxxxxx xx xxxxx xx x xxxxxxxxxxxx xxx xxxxxxxxx xx xxx Xxxxxxxxxx Xxx xx xxxx xx xxx xxxxxxx xxxxxxxxxx xxxx xxx xxx xxx xx xxxx xxxxxxxxx.
+La liste suivante fournit une vue d’ensemble des domaines que nous avons priorisés pour l’inclusion dans le Kit d’automatisation afin que nous puissions améliorer les composants que vous pouvez utiliser dans votre migration.
 
-> XXXX: Xxxxx xxxxx xx xxxxx xxx xx xxxxxxx xxxxxxxxxxxxx. Xxxxx xxxxxxx xxxx xxxxx xx xxxxxxxxxxx xxxxxxx xxxxxxxx xxx xx xxxxxxxxxxxxxx xx xxxxxxxx xx xxxx xxxxxxxx xxxxx
+> REMARQUE: Ces domaines d’intérêt peuvent être considérablement modifiés. Ces changements se produiront, nous recevons continuellement des commentaires et priorisons les fonctionnalités pour répondre aux besoins des clients
 
-### Xxxxxxxx
+### Planification
 
-- **Xxxxxxxxxx** xxxxxxxxxx xxxx xxxx xx xxx xxxxxxxx xxxxx xx xxxxxx xxxx xxxxxxxx xxxxx Xxxxxxxxxx xxxxxxxxx xxxx xxxx Xxxxxxxxxx xxxxxxxxx xx xxxxxxx xx xxxx xxx xxxx xxxxxxx xxxxxx.
+- **Évaluation** composants qui aident à la phase de planification pour aider à identifier les solutions d’automatisation de votre inventaire d’automatisation à migrer pour donner le meilleur impact initial.
 
-### Xxxxxxxxxx xxx Xxxxxxxxxx
+### Gestion et gouvernance
 
-- **Xxxxxx xx Xxxxxxxxxx** x xxxxxxxxx xxx xxxxxxxxxx xxx xxxxxxxxxx xxx xxxxxx xx xxxxxxxxxx xx xxx xxxxxxxxx xxxxxxx xx xxxx xx xxxx xxxxxxxxxxxx xxx xxxxxxx xxxx xxxxxxxxx xxxxxxx xxx xxx xxxxxxx xxx xxxxxx.
+- **Retour sur investissement** un cadre pour la collecte et le suivi du retour sur investissement du programme de travail sur la migration afin que les parties prenantes soient engagées dans le processus de migration et puissent en mesurer l’impact.
 
-- **Xxxxxxxxxx** X xxx xx xxxxxxxxxx xxx xxxxxxxx xxxx xxxxxx xxxx Xxxxxxxxxxx xxxxxxxxx, xxxxxxxxxxxxx xxx xxxxxxx xxxxxxxxxxx xxxxxxxxxx xx xxx xxxxxxxx xxxxxxxxx.
+- **Gouvernance** Un ensemble de composants et de conseils qui facilitent le cycle de vie des applications, la documentation et la surveillance opérationnelle continue des solutions migrées.
 
-### Xxxxxxxxxx
+### Conversion
 
-- **Xxxxx Xxxxxxxxxxx** xxxxxx xxxxxxxxxx xxxx xxx xx xxxx xx xxxxxxxxxx xxxxxxxxxx xxxxxxx xx xxxxxxx xxxxxxxxx xx xxx Xxxxx Xxxxxxxx, Xxxxxxxxx Xxxxx.
+- **Intégration Cloud** exemples de composants qui peuvent être utilisés pour accélérer le processus de conversion afin de migrer des solutions vers Power Platform, Microsoft Cloud.
 
-- **Xxx Xxxxxxxxxx Xxxxxxxxxxxx** xxxxxxxx Xxxxxxx xxxxxxx xxxxxxxx, XxxXxx xxxxxxxxxx, Xxxxxxxxxxxxx xx xxxxxxxx xxxxxxxxx
+- **Exigences non fonctionnelles** couvrant l’approche de test de qualité, la surveillance DevOps, la documentation des solutions migrées

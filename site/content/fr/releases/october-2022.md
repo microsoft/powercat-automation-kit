@@ -1,73 +1,73 @@
 ---
-title: Xxxxxxx 2022 Xxxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxxx 2022
+title: Version d’octobre 2022
+description: Kit d’automatisation - Octobre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-![Xxxxxx Xxxxxx](/images/upbeat-dhawan.png)
+![Dhawan optimiste](/images/upbeat-dhawan.png)
 
-Xxx Xxxxxxx xxxxxxx (xxxxxx-xxxxxx) xx xxx {{<product-name>}} xx xxx xxxxxx xxxxxx xxxxxxx xxxxxxx. Xxxx xxxxxxx xx x **xxxxxxxxxxxxx xxxx** xxxxxxx xxx xxx xxxxxxx xxxxxx xxxxxx xxxxxxxxx xxxxx xxx Xxxxxxxxx xxxxxxx.
+La sortie en octobre (upbeat-dhawan) du {{<product-name>}} est la deuxième version d’aperçu publique. Cette version est une **Documentation uniquement** et les actifs de libération demeurent inchangés depuis la diffusion de septembre.
 
-## Xxx Xxxxxxx
+## Démarrer
 
-Xxx xxx [Xxx Xxxxxxx Xxxxx](/fr/get-started) xx xxxx xxx [Xxxxxx Xxxxx](/fr/office-hours)
+Expérimenter [Guide de démarrage](/fr/get-started) ou rejoignez notre [Heures d’ouverture](/fr/office-hours)
 
-## Xxxxx Xxxxxxx
+## Libération antérieure
 
-- [Xxxxxxxxx 2022](/fr/releases/september-2022) (xxxxxxx-xxxxx)
+- [Septembre 2022](/fr/releases/september-2022) (vibrant-élion)
 
-## Xxxx Xxxxxxx
+## Prochaine version
 
-- [Xxxxxxxx 2022](/fr/releases/november-2022) (xxxxx-xxxxxxxxxx)
+- [Novembre 2022](/fr/releases/november-2022) (Archimède pointu)
 
-## Xxxxxxx Xxxxxxxxx
+## Jalon du projet
 
-[Xxxxxxxxxx Xxx - Xxxxxxx 2022](https://github.com/orgs/microsoft/projects/486/views/3)
+[Kit d’automatisation - Octobre 2022](https://github.com/orgs/microsoft/projects/486/views/3)
 
-Xxxxxx xxx [Xxxxxxxxx Xxxxx](/fr/releases/milestones) xxx xxxxxxx xxxxxxxxxxx
+Passez en revue le [Notes marquantes](/fr/releases/milestones) Pour plus d’informations
 
-## Xxx Xxxxx
+## Remarques clés
 
-Xxx xxxxx xxx xxx Xxxxxxx 2022 xxxxxxx:
+Notes clés pour la version d’octobre 2022 :
 
-- Xxxx xx x **xxxxxxxxxxxxx xxxx xxxxxxx**, xx xxx xxxxxxx xxxxxx xxx xxxxxxxx.
+- Il s’agit d’un **Diffusion de la documentation uniquement**, aucune nouvelle ressource d’installation n’est incluse.
 
-- Xxx xxxxxxxxx xxxxxxxxx xxxx xxx Xxxxx xxxxxxx xxxxxxx xxxxxxx xxx [Xxxxxxx Xxxxxxx Xxxxxxx](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/private-preview-upgrade.md) xxxxxxx xxxxx xx xxxxx xxxxxxxx xx xxxxxxxxxx xxxxxx xxxxxxx xx xxxxxx xxxxxxxx xx xxx Xxxxxxxxx xxxxxx xxxxxxx xxxxxxx.
+- Pour les clients effectuant une mise à niveau à partir de la version d’aperçu privée d’avril, le [Mise à niveau de la préversion privée](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/private-preview-upgrade.md) incluez des notes sur les étapes requises pour annuler l’enregistrement des actions de plug-in qui ne sont plus nécessaires dans la version préliminaire publique de septembre.
 
-> -❗XXXXXXXXX❗Xxxxxx xxxx xxx Xxxxxxxx Xxx xx xxxxxxxxx xxx xxxxxxxx xxxxx xx xxxxxxxxxxxx xx xxxxxxx. Xxx [Xxxxxxxxxxxxx Xxxxxxxxxxx Xxxxx](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) xxxxxxxxx xxxx xxxx.
+> -IMPORTANT Assurez-vous ❗❗que le kit des créateurs est installé et vérifié avant l’installation ou la mise à niveau. Le [Vidéo de présentation des conditions préalables](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) décrit cette étape.
 
-- Xxx [Xxxxxxxxxxx Xxxxxxxxxxxx](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) xxxxxxxx x xxxxxx xxxxx xx xxx xxxxx xxx xxxxxxxxxxxx xxxxxxx
+- Le [Instructions pas à pas](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) comprend un guide visuel sur le processus d’installation et d’installation
 
-- Xxx [Xxxxx xxxxx xxxxxxxxx](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/setup-checklist) xxxxxxxx xxxx xx xxxx xxxxx xx xxx xxxxxxxxxxxx xxxxxxx
+- Le [Liste de contrôle de configuration pour apprendre](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/setup-checklist) Comprend un guide étape par étape sur le processus d’installation
 
-- Xxx [Xxxxxxx Xxxxxxxxx](/fr/get-started/install-checklist) xxxxxxxx xx xx xxxxxxxxxxx xxxxxxxxx xxx xxxxxxxxx xxxxxxx xxxxxxxxx
+- Le [Liste de contrôle d’installation](/fr/get-started/install-checklist) Inclut une liste de contrôle interactive pour différents scénarios d’installation
 
-## Xxxxxxx Xxxxx
+## Notes de version
 
-Xxx xxxxxxxxx xxxxxx xxxxx xxxxxx xx xxxx xx xxx [Xxxxxxx 2022 Xxxxxxxxx](https://github.com/orgs/microsoft/projects/486/views/3)
+Les questions suivantes ont été fermées dans le cadre de l' [Jalon d’octobre 2022](https://github.com/orgs/microsoft/projects/486/views/3)
 
-- [Xxxxxxxxxx Xxx - Xxxxxxx](https://github.com/microsoft/powercat-automation-kit/issues/37): Xxxxxxxxx xxxxxxxxxxx xxxxx xxxxxx #37
+- [Kit d’automatisation - Fonctionnalité](https://github.com/microsoft/powercat-automation-kit/issues/37): Accès vidéo anonyme #37
 
-  Xxxxxxxxxxx xxxxxx xxxxxxx xx XxxXxx
+  Les vidéos de la procédure pas à pas ont été remplacées par GitHub
 
-- [Xxxxxxxxxx Xxx - Xxxxxxx](https://github.com/microsoft/powercat-automation-kit/issues/46): Xxxxxxxxxx Xxx Xxxxxxx Xxxxxxxx #46 (Xxxxxx Xxxxxxxxx)
+- [Kit d’automatisation - Fonctionnalité](https://github.com/microsoft/powercat-automation-kit/issues/46): Guide de démarrage du kit d’automatisation #46 (doublon fermé)
 
-- [Xxxxxxxxxx Xxx - Xxxxxxx](https://github.com/microsoft/powercat-automation-kit/issues/47): Xxxxxxxxxx Xxx Xxxxxxx Xxxxxxxx #47
+- [Kit d’automatisation - Fonctionnalité](https://github.com/microsoft/powercat-automation-kit/issues/47): Guide de démarrage du kit d’automatisation #47
 
-  Xxx xxxx [https://aka.ms/ak4pp/starter](https://aka.ms/ak4pp/starter)
-  [Xxx Xxxxxxx Xxxxx](https://microsoft.github.io/powercat-automation-kit/get-started/) xxxx xxxxxxx xxxxx xxxxxxxxx xxx xxxxxxxx xxxxxxx
+  Nouveau site [https://aka.ms/ak4pp/starter](https://aka.ms/ak4pp/starter)
+  [Guide de démarrage](https://microsoft.github.io/powercat-automation-kit/get-started/) avec des questions basées sur les personas et un processus de rétroaction
 
-- [Xxxxxxxxxx Xxx - Xxxxxxx](https://github.com/microsoft/powercat-automation-kit/issues/34): Xxxxxxxxxx xxxxxxx Xxxxxxxxxx Xxx xxx xxxxx Xxxxx XXX xxxxxxx xxxx #34
+- [Kit d’automatisation - Fonctionnalité](https://github.com/microsoft/powercat-automation-kit/issues/34): Comparaison entre Automation Kit et d’autres kits gérés Power CAT #34
 
-  - Xxx xxxxxxxxxx xxxx xxxxxxxxx [xxxxxxxxxx](https://microsoft.github.io/powercat-automation-kit/monitoring-compare/)
+  - Nouvelle page de comparaison comparant [surveillance](https://microsoft.github.io/powercat-automation-kit/monitoring-compare/)
   
-  - Xxxxx xxxx xxxxxxx X&X xxxxxxx xx [XXX](https://microsoft.github.io/powercat-automation-kit/frequently-asked-questions/)
+  - Ajout de contenu de questions-réponses connexe à [FAQ](https://microsoft.github.io/powercat-automation-kit/frequently-asked-questions/)
 
-## Xxxxxxx Xxxxxx
+## Libérer les ressources
 
-- [Xxxxxxxxxx Xxx - Xxxxxxxxx 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-September2022)
+- [Kit d’automatisation - Septembre 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-September2022)
 
-## Xxxxxxx Xxxxxxx
+## Historique des versions
 
-Xxxx [xxxxxxx xxxxxxx](/fr/releases)
+Plein [Historique des versions](/fr/releases)

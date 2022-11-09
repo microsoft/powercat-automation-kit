@@ -1,28 +1,28 @@
 ---
-title: Xxxxxx Xxxxx
-description: Xxxxxxxxxx Xxx xxxxxx xxxxx - Xxxxxxx 2022
+title: Heures d’ouverture
+description: Heures de bureau du kit d’automatisation - Octobre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xxxxxxx xx xxx Xxxxxxxxxx Xxx xxx Xxxxx Xxxxxxxx Xxxxxxx 2022 xxxxxx xxxxx xxxxxxx xxxx.
+Bienvenue sur la page d’accueil Automation Kit for Power Platform d’octobre 2022 sur les heures de bureau.
 
-Xxx xxx xxxxxxxx xxx xxx xxxxxx xxxxx xxxxxxx [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) xx xx xxxx xx Xxxxxxx 11xx Xxxxxxx 2022 xxxxxxx 7:00XX xxx 8:00XX XXX (Xxx xxxxx xxxxx xxxxxxxxx [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
+Vous pouvez vous inscrire à la session des heures de bureau [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) qui se tiendra le mardi 11 octobre 2022 entre 7h00 et 8h00 PDT (Voir autres fuseaux horaires [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 
-Xx xxx xxxx xxx xxxxxxx xxxxxxxxxx, xxx xxx xxxxxxx xxxx xxxx xx xxx xxxxxxxxxxxx xxxx xx xxxxxx xxx xxxx xxx xx xxxxxxxxxx.
+Si vous êtes déjà inscrit, vous pouvez transmettre cette page ou le lien d’inscription à d’autres personnes susceptibles d’être intéressées.
 
-## Xxxxxx Xxxxx Xxxxxx
+## Format des heures de bureau
 
-Xxxx xxxxxx xxxxx xxxxxxx xx xx xxxx xxxx xxx xxx xxx xxxxxxxxx xxxxxx:
+Chaque session de bureau dure une heure et a le format suivant :
 
-- Xxx xxxxxx. Xxxxxxx xxxxxxxx xxxxx xx xxxxxxxx xxxxxx xxx xxxxx xxxx xx xxx xxxxxxxxxxx xxx xxxxxxxxxx.
-- Xxxxxxx Xxxxxxx. Xxxx xxx xxx xxxx xxx xx xxxxxxxxxxx xx xxxxxx xxxxxxxxxx xxxxx xx xxxx xxxxx?
-- "Xxx xx xxx xxxxxxxx" xxxxx xxxxxxxxx xxxx xxx xxxxxxxxx.
-    - Xxxxxx xxx [Xxxxxxxxxx xxxxx xxxxxxxxx](/fr/frequently-asked-questions)
-    - Xxx xxxx xxxxxxxxx xx xxx xxxxxxxx xxxxx.
+- Nouveaux sujets. Fournissez ci-dessous des commentaires sur les sujets possibles que vous aimeriez voir prioritaires pour la discussion.
+- Feuille de route prévue. Quels sont les prochains investissements que nous devrions prioriser en fonction de vos besoins?
+- Questions de style « Demandez-moi n’importe quoi » de la communauté.
+    - Consultez notre [Foire aux questions](/fr/frequently-asked-questions)
+    - Ajoutez vos questions dans les commentaires ci-dessous.
 
-## Xxxxxxxxx Xxxxxxxx
+## Fournir des commentaires
 
-Xxx xxx xxx xxx xxxxxxxxxxx xxx xx xxxxxxxxx xx xxxxxxx xxx xxxx {{<product-name>}} xxxx xxxxxxxx xxxx xxxxxx xxx xxxxx xxxx xx xxxxx xx xxxx xx xxx xxxxxx xxxx xxx xxxxxxx xxxxx xxxx xxx "xxx xxx xx xxxxxxxx" xxxxxxxxx.
+Vous pouvez utiliser l’ensemble interactif de questions pour fournir le noyau {{<product-name>}} Commentaires de l’équipe sur les sujets que vous aimeriez aborder dans le cadre de l’heure de bureau et donnez votre avis sur les questions « Demandez-moi n’importe quoi ».
 
 {{<questions name="/office-hours/october-2022.json" completed="Thank you for completing feedback" showNavigationButtons=false >}}

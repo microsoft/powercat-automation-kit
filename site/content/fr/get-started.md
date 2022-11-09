@@ -1,22 +1,22 @@
 ---
-title: Xxxxxxx Xxxxxxx
-description: Xxxxxxxxxx Xxx xxxxxxx xxxxxxx xxxxxx
+title: Commencer
+description: Aide à la mise en route du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-## Xxxxxxxxxxxx
+## Introduction
 
-Xxxxxxx xxxxxxx xxx xx xxx xx xxx xxx xxxxxxxx xx xxxxxxxxxx xxx xxxxx xxx {{<product-name>}} xx xxxx xxxxxxxxxxxx. Xxx xxx xxx xxx xxxxxxxxxxx xxxx xxxxx xx xxxx xxx xxxxxxx xxx xxxxxxx xxxxxxx xxxxxxx.
+La mise en route peut être l’un des principaux obstacles à l’évaluation et à l’utilisation du {{<product-name>}} dans votre organisation. Vous pouvez utiliser le formulaire interactif ci-dessous pour vous guider tout au long du processus de démarrage.
 
-Xxx xxx xxxx xxx xxx [Xxxxxxxxxxxx](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction) xx xxx xxxxxxxx xxxxxxx xx xxxxxxx xx xxxxxxxx xx xxx {{<product-name>}}.
+Vous pouvez également utiliser le [Introduction](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction) du contenu d’apprentissage pour fournir une vue d’ensemble du {{<product-name>}}.
 
-Xxx [Xxxxxxxxxx Xxxxxx xx Xxxxxxxxxx xxxxxxxx xxxx xxx {{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy) xxx xxxx xx xxxx xx xxxxxxx xxxxxxx xx xxx xxx {{<product-name>}} xxx xxxx xxxx Xxxxxxxxxx Xxxxxx xx Xxxxxxxxxx.
+Le [Stratégie du centre d’excellence en automatisation avec le {{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy) peut également être utilisé pour fournir un contexte sur la façon dont le {{<product-name>}} peut aider votre centre d’excellence en automatisation.
 
-> 📋 Xxxxxxx xx xxxx xxxxxxxx xxxx xxxxxxx? Xxxxxx xxx [Xxxxxxx Xxxxxxxxx](/fr/get-started/install-checklist).
+> 📋 Vous cherchez à passer directement à l’installation? Passez en revue le [Liste de contrôle d’installation](/fr/get-started/install-checklist).
 
-## Xxxxxxxxx
+## Liste de contrôle
 
-Xxx xxx xxxxxxxxx xxxxxxxxx xx xxxx xxxxx xxx xxxxxxx xxx xxxxxxx xxxxxxx xxxxxxx
+Utilisez les questions suivantes pour vous guider tout au long du processus de mise en route
 
 {{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}

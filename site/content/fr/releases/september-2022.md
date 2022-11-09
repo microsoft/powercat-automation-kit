@@ -1,44 +1,44 @@
 ---
-title: Xxxxxxxxx 2022 Xxxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxxxxx 2022
+title: Version de septembre 2022
+description: Kit d’automatisation - Septembre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-![Xxxxxxx Xxxxx](/images/vibrant-elion.png)
+![Filiforme vibrante](/images/vibrant-elion.png)
 
-Xxx Xxxxxxxxx xxxxxxx (xxxxxxx-xxxxx) xx xxx {{<product-name>}} xx xxx xxxxx xxxxxx xxxxxxx xxxxxxx.
+La sortie en septembre (vibrant-elion) du {{<product-name>}} est la première version d’aperçu publique.
 
-## Xxx Xxxxxxx
+## Démarrer
 
-Xxx xxx [Xxx Xxxxxxx Xxxxx](/fr/get-started) xx xxxx xxx [Xxxxxx Xxxxx](/fr/office-hours)
+Expérimenter [Guide de démarrage](/fr/get-started) ou rejoignez notre [Heures d’ouverture](/fr/office-hours)
 
-## Xxxxx Xxxxxxx
+## Libération antérieure
 
-- Xxxxxxx xxxxxxx xxxxxxxx
+- Avant-premières privées
 
-## Xxxx Xxxxxxx
+## Prochaine version
 
-- [Xxxxxxx 2022](/fr/releases/october-2022) (xxxxxx-xxxxxx)
+- [Octobre 2022](/fr/releases/october-2022) (optimiste-dhawan)
 
-## Xxx Xxxxx
+## Remarques clés
 
-Xxx xxxxx xxx xxx Xxxxxxxxx 2022 xxxxxxx:
+Principales notes pour la version de septembre 2022 :
 
-- Xxx xxxxxxxxx xxxxxxxxx xxxx xxx Xxxxx xxxxxxx xxxxxxx xxxxxxx xxx [Xxxxxxx Xxxxxxx Xxxxxxx](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/private-preview-upgrade.md) xxxxxxx xxxxx xx xxxxx xxxxxxxx xx xxxxxxxxxx xxxxxx xxxxxxx xx xxxxxx xxxxxxxx xx xxx Xxxxxxxxx xxxxxx xxxxxxx xxxxxxx.
+- Pour les clients effectuant une mise à niveau à partir de la version d’aperçu privée d’avril, le [Mise à niveau de la préversion privée](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/private-preview-upgrade.md) incluez des notes sur les étapes requises pour annuler l’enregistrement des actions de plug-in qui ne sont plus nécessaires dans la version préliminaire publique de septembre.
 
->❗XXXXXXXXX❗Xxxxxx xxxx xxx Xxxxxxxx Xxx xx xxxxxxxxx xxx xxxxxxxx xxxxx xx xxxxxxxxxxxx xx xxxxxxx. Xxx [Xxxxxxxxxxxxx Xxxxxxxxxxx Xxxxx](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) xxxxxxxxx xxxx xxxx.
+>❗IMPORTANT Assurez-vous❗que le kit des créateurs est installé et vérifié avant l’installation ou la mise à niveau. Le [Vidéo de présentation des conditions préalables](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) décrit cette étape.
 
-- Xxx [Xxxxxxxxxxx Xxxxxxxxxxxx](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) xxxxxxxx x xxxxxx xxxxx xx xxx xxxxx xxx xxxxxxxxxxxx xxxxxxx
+- Le [Instructions pas à pas](https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md) comprend un guide visuel sur le processus d’installation et d’installation
 
-- Xxx [Xxxxx xxxxx xxxxxxxxx](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/setup-checklist) xxxxxxxx xxxx xx xxxx xxxxx xx xxx xxxxxxxxxxxx xxxxxxx
+- Le [Liste de contrôle de configuration pour apprendre](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/setup-checklist) Comprend un guide étape par étape sur le processus d’installation
 
-- Xxx [Xxxxxxx Xxxxxxxxx](/fr/get-started/install-checklist) xxxxxxxx xx xx xxxxxxxxxxx xxxxxxxxx xxx xxxxxxxxx xxxxxxx xxxxxxxxx
+- Le [Liste de contrôle d’installation](/fr/get-started/install-checklist) Inclut une liste de contrôle interactive pour différents scénarios d’installation
 
-## Xxxxxxx Xxxxxx
+## Libérer les ressources
 
-- [Xxxxxxxxxx Xxx - Xxxxxxxxx 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-September2022)
+- [Kit d’automatisation - Septembre 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-September2022)
 
-## Xxxxxxx Xxxxxxx
+## Historique des versions
 
-Xxxx [xxxxxxx xxxxxxx](/fr/releases)
+Plein [Historique des versions](/fr/releases)

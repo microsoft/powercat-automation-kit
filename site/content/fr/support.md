@@ -1,30 +1,30 @@
 ---
-title: Xxxxxxx
-description: Xxxxxxxxxx Xxx Xxxxxxx
+title: Soutien
+description: Prise en charge des kits d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-## Xxxxxxx Xxxxxxx
+## Commencer
 
-Xxx [Xxxxxxx Xxxxxxx Xxxxxxxx](/fr/get-started) xxxxxxxx xxxx xxxxxxxxxxx xxxxxxxxx xx xxxx xxx xx xxxxxxx xx xxxxxxxxxxx xxxx xxxxx xxxx xxx xx xxx xxxxxxx.
+Le [Conseils de mise en route](/fr/get-started) fournit des questions interactives pour vous diriger vers des sources d’information qui pourraient vous aider à démarrer.
 
-## Xxxxxxx xxxxxxx xxxxxxx
+## Obtenir un soutien supplémentaire
 
-Xxxxxxxx xx xxxxxxx xxxxxxx xxxxxxx xxx xxx {{<product-name>}}:
+Conseils sur l’obtention d’un soutien supplémentaire pour le {{<product-name>}}:
 
-- Xxxxx xx xxx [Xxxxxxxx xxx xxxxxxx](https://learn.microsoft.com/power-automate/guidance/automation-kit/feedback-support) xxxx xxx xxxxxxx xxxxxxxx
+- Référez-vous à notre [Commentaires et soutien](https://learn.microsoft.com/power-automate/guidance/automation-kit/feedback-support) page pour des conseils généraux
 
-- Xxx xxx [Xxxxxxxxxx Xxx Xxxxx](https://aka.ms/automation-kit-learn) xxxxx xx xxxx xxxxxxx xxx xxxxxxx xxx xxxxx xxxxxxxxxxxx
+- Utilisez notre [Kit d’automatisation Apprendre](https://aka.ms/automation-kit-learn) Pages pour parcourir les instructions d’installation et d’utilisation
 
-- Xxx xxx [Xxxxxxxxxx Xxx Xxxxxx](https://aka.ms/ak4pp-issues) xxxxxxxxx xxx xxxxxx xxx xxxxx Xxxx / Xxxxxxx xxxx. Xx xxx xx xxx xxxx x xxxxx xxx xxxx xxxxx xxxx xx xxxxxx x xxx xxxxx xxxxx xxx xx xxx xxxxxxxx xxxxxxxxx
+- Utilisez le [Problèmes liés au kit d’automatisation](https://aka.ms/ak4pp-issues) modèles pour la recherche de bogues / lacunes de fonctionnalités connus. Si vous ne trouvez pas de correspondance pour votre problème, cherchez à créer un nouveau problème à l’aide de l’un des modèles fournis
 
-- Xxx xxx [xxxxxxxxxxx xxxxxx](x xxxx xxxxxxxxx xxx xx xxxxxxxx xxxx xx xxxxxxxx) xx xxxxxx xxx xxxx xxxx xxx xxxxxxxxxxxx xxxxxxx xxxxx
+- Utilisez notre [Vidéos pas à pas] (à chaque étape en raison de bogues ou de fonctionnalités prioritaires) pour vous aider à montrer comment fonctionne le processus d’installation
 
-- Xxxx xxx [Xxxxxx Xxxxx](/fr/office-hours) xx xxx xxxxxxxxx xx xxxxxx xxxxxx xx xxxxxxx xxxxxxx
+- Rejoignez notre [Heures d’ouverture](/fr/office-hours) pour poser des questions sur les problèmes courants ou la feuille de route du produit
 
-- Xxxxxxx xxxx Xxxxxxxxx Xxxxxx Xxxxx Xxxx, Xxxxx Xxxxxxxx Xxxxxxxxx xx xxxxxx Xxxxxxx Xxxxxxxx xxx xxxxxxx xxxxxxxx.
+- Contactez votre ceinture noire mondiale Microsoft, votre architecte de solutions cloud ou les canaux de support habituels pour obtenir des conseils supplémentaires.
 
-## Xxxxx XXX Xxxx
+## L’équipe Power CAT
 
-Xxx xxxx Xxxxx XXX xxxx xxx xxxxxx xx xx xxxxxx xxxxxxxxxxxxxxx xx xxxxxxxxxx xx x xxxxxxx xxxxxxxx. Xx xxx xxx xxxxxxxxxxxx xxxxxx xxxx xx xxxx xxxxxxxxx xxxxx xxx {{<product-name>}}, Xxxx xxx [Xxxxxx Xxxxx](/fr/office-hours) xx xxxxxxx xxxxx xxxx xxxxx xx xxxxxxxxx xxx [https://aka.ms/ak4pp-issues](https://aka.ms/ak4pp-issues)
+L’équipe principale de Power CAT n’est pas en mesure d’effectuer un dépannage personnalisé ou de consulter un public plus large. Si vous rencontrez des problèmes ou avez des questions concernant le {{<product-name>}}, Rejoignez notre [Heures d’ouverture](/fr/office-hours) ou soulevez plutôt votre problème ou vos questions via [https://aka.ms/ak4pp-issues](https://aka.ms/ak4pp-issues)

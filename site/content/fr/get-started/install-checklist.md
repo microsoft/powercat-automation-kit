@@ -1,12 +1,12 @@
 ---
-title: Xxxxxxx Xxxxxxxxx
-description: Xxxxxxxxxx Xxx Xxxxxxx Xxxxxxxxx
+title: Liste de contrôle d’installation
+description: Liste de contrôle pour l’installation du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-> 🎥 Xxxx xx x xxxx xxxxxx xxxxxxxxxxxx xx xxx xxx xx xxx xxxxxxx xxx xxxxxxx xxxxx? Xxxxxx xxx <a href='https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy' target='_blank'>{{<product-name>}} Xxxxx Xxxxxxxx</a> xxx xxxxxxxxxxxxx, xxxxxxxx xxxxxxx xxx {{<product-name>}} xxxxx.
+> 🎥 Vous voulez une présentation plus visuelle du processus de bout en bout et des étapes d’installation? Consultez notre <a href='https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy' target='_blank'>{{<product-name>}} Liste de lecture vidéo</a> Pour les conditions préalables, l’installation de la solution et {{<product-name>}} utilisation.
 
-Xx xxx xxx xxxxxxx xx xxx xx xxxxxxx xxx {{<product-name>}}, xxx xxx xxx xxx xxxxxxxxx xxxxx xx xxxxx xxxx xxxxxxx xxxxxxx
+Si vous cherchez à essayer ou à installer le {{<product-name>}}, vous pouvez utiliser les questions ci-dessous pour guider votre processus d’installation
 
 {{<questions name="/get-started/install-checklist.json" completed="Thank you for completing install checklist" showNavigationButtons=false >}}

@@ -1,38 +1,38 @@
 ---
-title: Xxxxxxxxxxxxx Xxxx Xxxxxxxxxxxxx
-description: Xxxxxxxxxx Xxx Xxxxxxxxxxxxx Xxxx Xxxxxxxxxxxxx
+title: Documentation Site Configuration
+description: Configuration du site de documentation du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
 
-Xx xxx xx-xxxxx xxxxxx xxx xxxxx xx x **xxxx/xxxxxx.xxxx** xxxx. Xxxx xxxx xxxxxxxx xxx xxxxxxxxxxxxx xxxx xxx xx xxxxxxx. Xxx xxx xxxxx xx xxxx-xxxxx/xxxxxx.xxxx xx xxxxxx [https://www.github.com/StefMa/hugo-fresh]() (xxxxxx.xxx) xxx xxxxxxxx.
+Dans la branche gh-pages, il y a un **site/config.yaml** lime. Ce fichier contient la configuration des clés qui peuvent être mises à jour. Vous pouvez vous référer à hugo-fresh/config.yaml à master [https://www.github.com/StefMa/hugo-fresh]() (github.com) par exemple.
 
-Xxx xxxxxxxxxx xxxxxxx
+Les principaux attributs sont les suivants :
 
-1. xxxxXxx
+1. baseUrl
 
-    - xxxxx
+    - titre
 
-1. xxxxxx:
+1. paramètres :
 
-    - xxxxxxxxxxx
+    - description
     
-    - xxxxxxxxxx
+    - navbarlogo
     
-    - xxxx - Xxxx xxx xxxx xxxxxx xx xx xxxxxx/xxxxxx/xxxx
+    - logo - Notez que le fichier doit être en statique / images / logo
     
-    - xxxx
+    - lien
     
-    - xxxx
-        - xxxxx
-        - xxxxxxxx
-        - xxxxxxxxxx
+    - héros
+        - titre
+        - sous-titre
+        - boutonlien
     
-    - xxxxxx - Xxxxxx xxxxxx xxx xxxxx
+    - navbar - Modifier les titres et les liens
     
-    - xxxxxxx2 - Xxxxxx xxxx xxxxxxx xxx xxxxxxxx
+    - section2 - Modifier votre produit et vos fonctionnalités
     
-    - xxxxxxx3 - Xxxxxx xx xxxxxxx xxx xxxxxx xxxx
+    - section3 - Mise à jour pour refléter le texte des images clés
     
-    - xxxxxx - Xxxxxx xxxx xxx xxxxx xx xxx xxxxxxx
+    - pied de page - Modifier le logo et les liens vers le nouveau contenu

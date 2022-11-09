@@ -1,10 +1,10 @@
 ---
-title: Xxxxxxxxxx
-description: Xxxxxxxxxx Xxx xxxxxx xxxxx - Xxxxxxxxxx
+title: Se désinscrire
+description: Heures de bureau du kit d’automatisation - Se désinscrire
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xxxxxx xxx xxx xxxxxxxx xxxxx xx xxxxxx xxxx xxxx xxxxxxxxxxxx xxx {{<product-name>}}. Xx xxxx xxxx xxx x xxxxxxxxxxxx xxxx xxxx xxx xxx xxx xx [xxxxxxx xxxxxxxxxxxxxx](/fr/office-hours/unregister-confirm)
+Veuillez utiliser la question ci-dessous pour annuler votre inscription automatique pour {{<product-name>}}. Nous vous enverrons un code de confirmation que vous pourrez utiliser pour [Confirmer la désinscription](/fr/office-hours/unregister-confirm)
 
 {{<questions name="/office-hours/unregister.json" completed="Thank you for completing unregistration questions" showNavigationButtons=false >}}

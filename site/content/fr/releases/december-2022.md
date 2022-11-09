@@ -1,15 +1,15 @@
 ---
-title: Xxxxxxxx 2022 Xxxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxxxx 2022
+title: Version de décembre 2022
+description: Kit d’automatisation - Décembre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
 <div class="optional">
 
-![Xxxxxxx Xxxxxxxxxx](/images/zealous-antonelli.png)
+![Antonellis zélé](/images/zealous-antonelli.png)
 
-Xxx Xxxxxxxx xxxxxxx (xxxxxxx-xxxxxxxxx) xx xxx {{<product-name>}} xx xxx xxxxxx xxxxxx xxxxxxx xxxxxxx. Xxxx xxxxxxx xx xxxxxxxx xx xxxxxxx xxxxxxx xxx xxxxx xxx x xxxxx xx xxxxxxxxx xxx xxxxxxxx xxxxx xxx xxxxxxx xxxxxxxxxxx xxxx xxx XXX Xxxxxxxxxxx.
+La sortie en décembre (zealous-antonelli) du {{<product-name>}} est la quatrième version d’aperçu publique. Cette version devrait inclure des corrections de bogues régulières et un accent sur l’amélioration de la configuration de la solution et une intégration plus poussée avec ALM Accelerator.
 
 </div>
 
@@ -17,7 +17,7 @@ Xxx Xxxxxxxx xxxxxxx (xxxxxxx-xxxxxxxxx) xx xxx {{<product-name>}} xx xxx xxxxxx
 
 {{<presentationStyles>}}
 
-## Xxxxxxxx
+## Rétroaction
 
 {{<questions name="/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 
@@ -25,42 +25,42 @@ Xxx Xxxxxxxx xxxxxxx (xxxxxxx-xxxxxxxxx) xx xxx {{<product-name>}} xx xxx xxxxxx
 
 <div class="optional">
 
-## Xxx Xxxxxxx
+## Démarrer
 
-Xxx xxx [Xxx Xxxxxxx Xxxxx](/fr/get-started) xx xxxx xxx [Xxxxxx Xxxxx](/fr/office-hours)
+Expérimenter [Guide de démarrage](/fr/get-started) ou rejoignez notre [Heures d’ouverture](/fr/office-hours)
 
-## Xxxxx Xxxxxxx
+## Libération antérieure
 
-- [Xxxxxxxx 2022](/fr/releases/november-2022) (xxxxx-xxxxxxxxxx)
+- [Novembre 2022](/fr/releases/november-2022) (Archimède pointu)
 
-## Xxxx Xxxxxxx
+## Prochaine version
 
-- [Xxxxxxx 2023](/fr/releases/january-2023) (xxxxx-xxxx)
+- [Janvier 2023](/fr/releases/january-2023) (Nifty-Emmy)
 
-## Xxxxxxx Xxxxxxxxxx
+## Jalons du projet
 
-[Xxxxxxxxxx Xxx - Xxxxxxxx 2022](https://github.com/orgs/microsoft/projects/486/views/5)
+[Kit d’automatisation - Décembre 2022](https://github.com/orgs/microsoft/projects/486/views/5)
 
-[Xxxxxxxxxx Xxx - Xxxxxxx](https://github.com/orgs/microsoft/projects/486/views/1)
+[Kit d’automatisation - Backlog](https://github.com/orgs/microsoft/projects/486/views/1)
 
-Xxxxxx xxx [Xxxxxxxxx Xxxxx](/fr/releases/milestones) xxx xxxxxxx xxxxxxxxxxx
+Passez en revue le [Notes marquantes](/fr/releases/milestones) Pour plus d’informations
 
-## Xxx Xxxxx
+## Remarques clés
 
-Xxx xxxxxxxx xx xxxx xxxxxxx:
+Principales fonctionnalités de cette version :
 
-- Xx xx xxxxxxx
+- À mettre à jour
 
-## Xxxxxxx Xxxxx
+## Notes de version
 
-Xxxxxxxx xxxx [Xxxxxxxxxx Xxx - Xxxxxxxx 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022) xxx xxxx xxx xxxxxx xxxxxx
+Inclus avec [Kit d’automatisation - Décembre 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022) pour les bogues et les problèmes fermés
 
-## Xxxxxxx Xxxxxx
+## Libérer les ressources
 
-- [Xxxxxxxxxx Xxx - Xxxxxxxx 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022)
+- [Kit d’automatisation - Décembre 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022)
 
-## Xxxxxxx Xxxxxxx
+## Historique des versions
 
-Xxxx [xxxxxxx xxxxxxx](/fr/releases)
+Plein [Historique des versions](/fr/releases)
 
 </div>

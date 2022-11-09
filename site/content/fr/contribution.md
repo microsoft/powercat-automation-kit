@@ -1,22 +1,22 @@
 ---
-title: Xxxxxxxxxxxx
-description: Xxxxxxxxxx Xxx xxxxxxxxxxxx
+title: Contribution
+description: Contribution au kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xx xx Xxxx Xxxxxx xxxxxxx xxxxx xx xxx xx xxx Xxxxx Xxxxxxxx xxx Xxxxxxxxx Xxxxx xxx xxxx xx xx xxxxxxx xxxxxxx xxxxx xxx xxxxxxxx xx xxxx xxxxxxxxxx xxxx xxxxx xxxxxxxxxx xxxxxxx.
+En tant que projet Open Source construit sur Power Platform et Microsoft Cloud, notre objectif est de fournir rapidement des outils et des conseils pour vous aider à accélérer votre parcours d’hyper automatisation.
 
-Xx xxxx xx xxxx xxxxxxx xx xx xxxxxxxx, xxxxxx xxx xxxxxxxxxxx xxxx xxx Xxxx Xxxxx Xxxxxxxx xxxxxxxxxxx xxxx xxxxx xx xxxx xxxxxxxx. Xxxxx xxxx xxxxxxxx xx xxxx xxxx xx xxxxxxx xxxxxxxxx xx xxx xxxx xxxxxxx xx xxxxxxx xxx xxxxxxx xx xxxx xxxxx.
+Dans le cadre de ce voyage, nous incubons, mûrissons et collaborons avec l’équipe d’ingénierie de Core Power Platform en fonction de vos commentaires. En utilisant ces commentaires, nous chercherons à inclure des apprentissages dans le produit de base pour améliorer et répondre à vos besoins.
 
-Xxxxx xxxx xxxxxxx xxxxx xxx xxxxxxxx xxxx xxx xxx xxxxxxxxxx xx xxx xxxxxxx xx xxxxxxx xxx xxxxxxx xxx xxxxxxxx:
+Dans ce contexte, il existe plusieurs façons de contribuer au projet pour améliorer notre feuille de route et nos fonctionnalités :
 
-- **Xxxx Xxxxxxxx** - Xxxxxx xxx [xxxxxx xxxxx](/fr/office-hours) xx xxxxxx [xxxxxx](/fr/contribution/feedback)
+- **Donner son avis** - Assistez à notre [Heures d’ouverture](/fr/office-hours) ou créer [Questions](/fr/contribution/feedback)
 
-- **Xxxxxxx Xxx Xxxxxxxx xxx Xxxxxxxxxxxxx** - Xxxxxxxxxx xx xxx xxxxxxxx / xxxxxxxxxxxxx xx xxxxxxxxx xxx [xxxxxxxxxxxxx](/fr/contribution/documentation) xxxxxxxx
+- **Améliorer nos conseils et notre documentation** - Contribuer à l’orientation / documentation en se référant à notre [documentation](/fr/contribution/documentation) direction
 
-- **Xxxxxxx Xxx Xxxxxxx xxxxxxxxx** - Xxxxxxx xxxxxxx xx xxx Xxxx xx Xxxxxxxxx xxxxxxxxx xxxx xx xxxxxxx xx xxx xxxxxxxx
+- **Améliorer nos solutions gérées** - Fournir des mises à jour à nos solutions principales ou satellites que nous incluons dans nos versions
 
-## Xxxxxxx Xxxxxxx
+## Lectures complémentaires
 
-- [Xxxxxxxxx Xxxxxxxxxx](/fr/contribution/authoring) - Xxxxxxxx xxxxxxxxxx xxx xxxxx xxx xxxxxxxxx xxxxxxxxxxxxx xx xxx xxxxxxx xxxxxxxxxxxxx
+- [Instructions de création](/fr/contribution/authoring) - Fournit des directives et des notes pour la création de contributions à la documentation de démarrage

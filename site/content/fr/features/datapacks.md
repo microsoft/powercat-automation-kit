@@ -1,72 +1,72 @@
 ---
-title: Xxxx Xxxxx
-description: Xxxxxxxxxx Xxx Xxxx Xxxxx
+title: Packs de données
+description: Packs de données du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
 {{<toc>}}
 
-## Xxxxxxxxxxxx
+## Introduction
 
-Xxxx Xxxxx xxx xxxxxxxxxxx xxx xx xxxx xxxx xxx xx xxxxxxxxxx xxxxxxxxx xxxx xxxx xxxxxxxxx Xxxxxxxxxx Xxx xx xxxxxxxxxx xxxx xxxxx.
+Les packs de données sont un ensemble de données préemballées qui peuvent être installées en option dans votre kit d’automatisation installé pour accélérer votre utilisation.
 
 {{<border>}}
-![Xxxx Xxxxx Xxxxxxxx](https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.svg)
+![Vue d’ensemble des packs de données](https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.svg)
 {{</border>}}
 
 <br/>
 
-Xxxxxxxxxx xx xxxx xx xxx [Xxxxxxxx 2022](/fr/releases/november-2022), Xxxxxxxxx xxxxxxx xxx xxx xxxxxxx xx xxxxxxxxxx xxxxxx xxxxxx xxxx.
+Introduit dans le cadre de l' [Novembre 2022](/fr/releases/november-2022), Datapacks vous permet d’importer éventuellement des exemples de données.
 
-Xxx Xxxxxx xx Xxxxxxxxxx (XXX) xxxx xxxx xxxxxx xxx xx xxxxxxx xxxxxxxxxxx xxxxxxxx, xxxxxxxx xxx xxxxxxxxxx xx xxxxxx xx xxxxxxxxxx xxx xxx Xxxxxxxxxx Xxx Xxxxx XX xxxxxxxxx. Xxx xxx xxxx xxxx xxxxx xxxx xxxx xxxxx xxx [Xxxxxxx Xxxxxxx](/fr#getting-started) xxxxxxx xxxxx.
+Le pack de données Retour sur investissement (ROI) vous permet de démontrer rapidement la planification, le comptage et le suivi du retour sur investissement via le tableau de bord Power BI du kit d’automatisation. Vous pouvez charger votre premier pack de données à l’aide de l’icône [Commencer](/fr#getting-started) ci-dessous.
 
-Xxxxxxxx xx xxxx xxx xxxxx xxxx xxxxx xx xxx xxxxxxx xxx xxxxxxxxxxxxxx xxx xxxxxxxx xxx xxx xxx xxxxxxxxxxx xx xxxxxxxxxx xxxx xxxxx xx xxx xxxxxxxxx.
+Au fil du temps, nous ajouterons d’autres packs de données au backlog pour la hiérarchisation des priorités et documenterons comment vous pouvez collaborer à la publication de packs de données dans la communauté.
 
-## Xxxxxxx
+## Feuille de route
 
 {{<border>}}
-![Xxxx Xxxxx Xxxxxxx](https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.svg?v=1)
+![Feuille de route des packs de données](https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.svg?v=1)
 {{</border>}}
 
 <br/>
 
-Xx xxxxxx xxxxxxxxxx xx xxxx xxxx xx xxxxxxx xxx xxxxxxxxx xx xxxxxxxxx xxxx xx xx xxxxxxxx xxxx xx xxx Xxxxxxxxxx Xxx xxxxxxxxx xxxxxxx xxxxxxx.
+Dans les prochaines étapes, nous chercherons à améliorer les packs de données en les incluant en tant que partie facultative du processus d’installation automatisée du kit d’automatisation.
 
-Xxx xxxxxxx xx xxxxxxx Xxxx Xxxxx xx xxxx xx xxx xxxxxxx xxxx xxxxx xxx x xxx xxxxx xxxxxxx, xxxxxx xxxx xxx xxxxxxx xxxx xxxxxxx xxxxxxx xxx xxxx xxxxxxx.
+La possibilité d’inclure des packs de données dans le cadre de l’installation permettra une installation basée sur le Web, plutôt que le processus d’installation en ligne de commande pour cette version.
 
-## Xxxxxx Xx Xxxxxxxxxx Xxxx Xxxxxxxx
+## Solution principale de retour sur investissement
 
-Xxx Xxxxxx xx Xxxxxxxxxx (XXX) xxxx xxxxxxxx xxxx xxxx xxxxxxxx Xxxxxxxxxx xxxxxxxx, xxxxxxxx xxx xxxxxx Xxxxx Xxxxxxxx Xxxxxxx xxxxxxxxx xx xxxx xxx xxx xxx xxxxx xx xxxx xxx xxx xx xxx xxxxxxx.
+Le pack de données principal de la solution de retour sur investissement (ROI) comprend des projets d’automatisation, des machines et des exemples de télémétrie Power Automate Desktop afin que vous puissiez vous familiariser avec le processus de bout en bout.
 
-### Xxxxxxx Xxxxxxx
+### Commencer
 
-Xx xxx xxxxxxx xxxx xxxx xxxx xxxx
+Pour commencer à utiliser ce pack de données
 
-- Xxxxxxx xxx Xxxxxxx Xxx xxxx [Xxx Xxxxxx](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) xx xxx [Xxxxx xxxxx xxxxx](https://learn.microsoft.com/power-platform/guidance/creator-kit/setup)
+- Installez le Creator Kit à partir de [Source de l’application](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) ou via [Guide d’installation](https://learn.microsoft.com/power-platform/guidance/creator-kit/setup)
 
-- Xxxxxxx xxx xxxxxx xxxxxxx xx xxx Xxxxxxxxxx Xxx Xxxx xxxx [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) xxxxx [Xxxxx xxxxx xxxxx](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
+- Installez la dernière version d’Automation Kit Main à partir de [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) Utilisant [Guide d’installation](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
-- Xxxxxxx Xxxxx Xxxxxxxx Xxxxxxx Xxxx Xxxxxxxxx xxxxx [Xxxxx xxxxx xxxxx](https://learn.microsoft.com/power-platform/developer/cli/introduction)
+- Installer Power Platform Command Line Interface à l’aide de [Guide d’installation](https://learn.microsoft.com/power-platform/developer/cli/introduction)
 
-- Xxxxxx xxxxxxxxxxxxxx xx xxxx xxxxxxxxxxx
+- Créer une authentification dans votre environnement
 
 ```pwsh
 pac auth create --url https://contoso.crm.dynamics.com/
 ```
 
-- Xxxxxxxx xxx **XxxxxxxxxxXxx.xxx** xxxx [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases)
+- Téléchargez le **AutomationKit.zip** De [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases)
 
-- Xxxxxxx xxx xxxx **XxxxxxxxxxXxx-XxxxxxXxxx.xxx** xxxx **XxxxxxxxxxXxx.xxx**
+- Extraire le fichier **AutomationKit-SampleData.zip** De **AutomationKit.zip**
 
-- Xxxxxx xxx xxxx xxxx xxxx xxxxxxxxxxx
+- Importer les données dans votre environnement
 
 ```pwsh
 pac data import -d AutomationKit-SampleData.zip --environment https://contoso.crm.dynamics.com/ 
 ```
 
-- Xxxxxxx xxx Xxxxx XX Xxxxxxxxx xxxxxxxxxx xxxx xxxx xxxx xxxxxxxxxxx xx xxxxxxx xxx xxxxxxxx xxxx. Xxx [Xxxxxxx Xxxxx XX Xxxxxxxxx](/fr/get-started/install-powerbi-dashboard) xxx xxxx xxxxxxxxxxx
+- Connectez le tableau de bord Power BI téléchargé à partir de avec votre environnement pour explorer les données importées. Utiliser [Installer le tableau de bord Power BI](/fr/get-started/install-powerbi-dashboard) Pour plus d’informations
 
-## Xxxxxxxx
+## Rétroaction
 
 {{<questions name="/features/datapacks.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}

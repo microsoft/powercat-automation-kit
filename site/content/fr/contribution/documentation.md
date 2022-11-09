@@ -1,16 +1,16 @@
 ---
-title: Xxxxxxxxxx xx xxx xxxxxxxxxxxxx
-description: Xxxxxxxxxx Xxx xxxxxxxxxxxxx xxxxxxxxxxxx
+title: Contribuer à la documentation
+description: Contribution à la documentation du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-**Xxxxxx:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Xxxx Xx Xxxxxxxx - Xxxxx Xxxxxx
+**Statut:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Travaux en cours - À l’étude
 
-Xxxxx xxx xx xxxxx xxxxxx x xxxxxxxxxxxx xx xxx xxxxxxx xxxxxxxxxxxxx xxx xxx {{<product-name>}}.
+Découvrez comment commencer à contribuer à la documentation de démarrage pour le {{<product-name>}}.
 
-## Xxxxx
+## Coup monté
 
-Xxx xxx xxx xxx xxxxxxxxx xxxxx xx xxxxx xxxx xxxxx xxx xxxxxxxxxxxx xxxxxxxxxx
+Vous pouvez utiliser les questions ci-dessous pour guider votre expérience de configuration et de contribution
 
 {{<questions name="contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}

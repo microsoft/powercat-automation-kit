@@ -1,32 +1,32 @@
 ---
-title: Xxxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxxx Xxxxxxx
+title: Libérer
+description: Kit d’automatisation - Historique des versions
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xxx xxxx xxxxxxxx xxxxx xx xxx xxxxxxx xxxxxxx xxx xxx {{<product-name>}}.
+La page contient des liens vers l’historique des versions de {{<product-name>}}.
 
-Xxxx xxxx xx xxx [Xxxxxxx Xxxxxxxxx Xxxxx](/fr/releases/milestones)
+En savoir plus sur notre [Notes d’étape de publication](/fr/releases/milestones)
 
-Xxxx xxxxxxx xxxx xxxx x xxxxxx xxxx xxxx xxxxxxxx xx xxxx xxx xxxxxxx xxxxxxxxxxxxxx xxxx xxxxxxxxx. Xx xxxxx xxxx xxxxx xxx xxxx xxxxxxxxxx xxxxxxx xxxx [Xxxxxxx Xxxxxx](/fr/releases/naming).
+Chaque version nommera un nom de code unique attribué pour rendre l’identification de la version plus mémorable. Pour en savoir plus sur le processus de génération de noms, lisez [Dénomination de la version](/fr/releases/naming).
 
 ## 2023
 
-### Xxxxxxx
+### Planifié
 
-- [Xxxxxxx 2023](/fr/releases/january-2023) - (xxxxx-xxxx)
+- [Janvier 2023](/fr/releases/january-2023) - (Nifty-Emmy)
 
 ## 2022
 
-### 2022 Xxxxxxx
+### 2022 Prévu
 
-- [Xxxxxxxx 2022](/fr/releases/december-2022) - (xxxxxxx-xxxxxxxxx)
+- [Décembre 2022](/fr/releases/december-2022) - (Zélé-Antonelli)
 
-### 2022 Xxxxxxxx
+### 2022 Publié
 
-- [Xxxxxxxx 2022](/fr/releases/november-2022) - (xxxxx-xxxxxxxxxx)
+- [Novembre 2022](/fr/releases/november-2022) - (Archimède pointu)
 
-- [Xxxxxxx 2022](/fr/releases/october-2022) - (xxxxxx-xxxxxx)
+- [Octobre 2022](/fr/releases/october-2022) - (optimiste-dhawan)
 
-- [Xxxxxxxxx 2022](/fr/releases/september-2022) - (xxxxxxx-xxxxx)
+- [Septembre 2022](/fr/releases/september-2022) - (vibrant-elion)

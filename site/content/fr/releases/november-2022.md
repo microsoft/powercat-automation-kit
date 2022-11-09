@@ -1,15 +1,15 @@
 ---
-title: Xxxxxxxx 2022 Xxxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxxxx 2022
+title: Version de novembre 2022
+description: Kit d’automatisation - Novembre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
 <div class="optional">
 
-![Xxxxx Xxxxxxxxxx](/images/sharp-archimedes.png)
+![Archimède tranchant](/images/sharp-archimedes.png)
 
-Xxx Xxxxxxxx xxxxxxx (xxxxx-xxxxxxxxxx) xx xxx {{<product-name>}} xx xxx xxxxx xxxxxx xxxxxxx xxxxxxx. Xxxx xxxxxxx xxxxxxxx xxx xxxxx xxx x xxxxx xx xxxxxxxxx xxx xxxx xxxxx xxxxxxxxxxxx xxxxxxxxxx xxx xxxxxxx xxxxxxxxxx xx XxxXxx xxxxx XXX Xxxxxxxxxxx.
+La sortie en novembre (sharp-archimedes) du {{<product-name>}} est la troisième version d’aperçu publique. Cette version inclut des correctifs de bogues et met l’accent sur l’amélioration de l’expérience d’installation de la configuration des données et le déploiement de la version sur GitHub à l’aide d’ALM Accelerator.
 
 </div>
 
@@ -19,7 +19,7 @@ Xxx Xxxxxxxx xxxxxxx (xxxxx-xxxxxxxxxx) xx xxx {{<product-name>}} xx xxx xxxxx x
 
 {{<presentationStyles>}}
 
-## Xxxxxxxx
+## Rétroaction
 
 {{<questions name="/releases/november-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 
@@ -28,68 +28,68 @@ Xxx Xxxxxxxx xxxxxxx (xxxxx-xxxxxxxxxx) xx xxx {{<product-name>}} xx xxx xxxxx x
 {{<slideStyles>}}
 
 {{<slide  id="slide1" audio="releases/november-2022/DataPacks.mp3" description="Automation Kit Overview" image="releases/november-2022/DataPacks.svg" >}}
-Xxxx xxx Xxxxxxxx Xxxxxxx "[Xxxx Xxxxx](/fr/features/datapacks)" xxx x xxx xxx xxxxxxx.
+Avec la version de novembre »[Packs de données](/fr/features/datapacks)» sont une nouvelle fonctionnalité clé.
 
-Xxxxx xx xxx **Xxxxxxx Xxxxxxx** xxxxxxx xx xxxx xxxx xxxxx xxxx xxxx.
+Reportez-vous à la **Commencer** pour charger votre premier pack de données.
 
-Xxxxxxxxx xxxxxxx xxx xxx xxxxxxx xx xxxxxxxxxx xxxxxx xxxxxx xxxx.
+Les packs de données vous permettent d’importer éventuellement des exemples de données.
 
-Xxx Xxxxxx xx Xxxxxxxxxx (XXX) xxxx xxxx xxxxxx xxx xx xxxxxxx xxxxxxxxxxx xxxxxxxx, xxxxxxxx xxx xxxxxxxxxx xx xxxxxx xx xxxxxxxxxx xxx xxx Xxxxxxxxxx Xxx Xxxxx XX xxxxxxxxx.
+Le pack de données Retour sur investissement (ROI) vous permet de démontrer rapidement la planification, le comptage et le suivi du retour sur investissement via le tableau de bord Power BI du kit d’automatisation.
 {{</slide>}}
 
 {{<slide  id="slide2" audio="releases/november-2022/DataPacks-WhatsNext.mp3" description="Automation Kit Features" image="releases/november-2022/DataPacks-WhatsNext.svg?v=1" >}}
-Xx xxxxxx xxxxxxxxxx xx xxxx xxxx xx xxxxxxx xxx xxxxxxxxx xx xxxxxxxxx xxxx xx xx xxxxxxxx xxxx xx xxx Xxxxxxxxxx Xxx xxxxxxxxx xxxxxxx xxxxxxx.
+Dans les prochaines étapes, nous chercherons à améliorer les packs de données en les incluant en tant que partie facultative du processus d’installation automatisée du kit d’automatisation.
 
-Xxx xxxxxxx xx xxxxxxx Xxxx Xxxxx xx xxxx xx xxx xxxxxxx xxxx xxxxx xxx x xxx xxxxx xxxxxxx, xxxxxx xxxx xxx xxxxxxx xxxx xxxxxxx xxxxxxx xxx xxxx xxxxxxx.
+La possibilité d’inclure des packs de données dans le cadre de l’installation permettra une installation basée sur le Web, plutôt que le processus d’installation en ligne de commande pour cette version.
 {{</slide>}}
 
 
 {{<slide id="slide3" audio="releases/november-2022/alm-roadmap.mp3" description="ALM Roadmap" localImage="/images/illustrations/alm-roadmap-2022-11.svg" >}}
-Xxx xxxx xxxxxxx xxxxxxx xxx xxxxx Xxxxx XXX xxxxxxx xxxx xxx {{<product-name>}} xxx xxxxxxx xx xxxxx xxx XXX Xxxxxxxxxxx xx xxxxxx xxx XxxXxx xxxxxxxx. Xxx xxx xxxx xxxx xx xxx [XXX Xxxxxxxx](/fr/features/alm) xxxx.
+Pour cette version similaire aux autres kits gérés par Power CAT, le {{<product-name>}} est passé à l’utilisation d’ALM Accelerator pour déployer nos versions GitHub. Vous pouvez en savoir plus dans notre [Caractéristiques ALM](/fr/features/alm) page.
 
-Xx xxxxxx xxxxxxxxxx xx xxxx xx xxxxxxxxx xx xxx xxxxxxxx XXX Xxxxxxxxxxx xxxxxxx xx xxxxxxx Xxxxx Xxxxxxxx Xxxxxxx xxxxxxxx xxxxx xxxx xxxx xxxxx xxxxxxxxxx xx xxx XX/XX XXX xxxxxxx.
+Dans les prochaines étapes, nous améliorerons le processus ALM Accelerator existant pour inclure des tâches spécifiques à Power Automate Desktop qui appliqueront des extensions au processus CI/CD ALM.
 {{</slide>}}
 
 <div class="optional">
 
-## Xxx Xxxxxxx
+## Démarrer
 
-Xxx xxx [Xxx Xxxxxxx Xxxxx](/fr/get-started) xx xxxx xxx [Xxxxxx Xxxxx](/fr/office-hours)
+Expérimenter [Guide de démarrage](/fr/get-started) ou rejoignez notre [Heures d’ouverture](/fr/office-hours)
 
-## Xxxxx Xxxxxxx
+## Libération antérieure
 
-- [Xxxxxxx 2022](/fr/releases/october-2022) (xxxxxx-xxxxxx)
+- [Octobre 2022](/fr/releases/october-2022) (optimiste-dhawan)
 
-## Xxxx Xxxxxxx
+## Prochaine version
 
-- [Xxxxxxxx 2022](/fr/releases/december-2022) (xxxxxxx-xxxxxxxxx)
+- [Décembre 2022](/fr/releases/december-2022) (Zélé-Antonelli)
 
-## Xxxxxxx Xxxxxxxxxx
+## Jalons du projet
 
-[Xxxxxxxxxx Xxx - Xxxxxxxx 2022](https://github.com/orgs/microsoft/projects/486/views/4)
+[Kit d’automatisation - Novembre 2022](https://github.com/orgs/microsoft/projects/486/views/4)
 
-[Xxxxxxxxxx Xxx - Xxxxxxxx 2022](https://github.com/orgs/microsoft/projects/486/views/5)
+[Kit d’automatisation - Décembre 2022](https://github.com/orgs/microsoft/projects/486/views/5)
 
-[Xxxxxxxxxx Xxx - Xxxxxxx](https://github.com/orgs/microsoft/projects/486/views/1)
+[Kit d’automatisation - Backlog](https://github.com/orgs/microsoft/projects/486/views/1)
 
-Xxxxxx xxx [Xxxxxxxxx Xxxxx](/fr/releases/milestones) xxx xxxxxxx xxxxxxxxxxx
+Passez en revue le [Notes marquantes](/fr/releases/milestones) Pour plus d’informations
 
-## Xxx Xxxxx
+## Remarques clés
 
-Xxx xxxxxxxx xx xxxx xxxxxxx:
+Principales fonctionnalités de cette version :
 
-- Xxxx xxxx. Xxxx xxxx xxxxx [Xxxx Xxxx xxxxxxx](/fr/features/datapacks)
+- Pack de données. Lire la suite de [Fonctionnalité Data Pack](/fr/features/datapacks)
 
-## Xxxxxxx Xxxxx
+## Notes de version
 
-Xxxxxxxx xxxx [Xxxxxxxxxx Xxx - Xxxxxxxx 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022) xxx xxxx xxx xxxxxx xxxxxx
+Inclus avec [Kit d’automatisation - Novembre 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022) pour les bogues et les problèmes fermés
 
-## Xxxxxxx Xxxxxx
+## Libérer les ressources
 
-- [Xxxxxxxxxx Xxx - Xxxxxxxx 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022)
+- [Kit d’automatisation - Novembre 2022](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022)
 
-## Xxxxxxx Xxxxxxx
+## Historique des versions
 
-Xxxx [xxxxxxx xxxxxxx](/fr/releases)
+Plein [Historique des versions](/fr/releases)
 
 </div>

@@ -1,21 +1,21 @@
 ---
-title: Xxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxx
+title: Nommage
+description: Kit d’automatisation - Dénomination
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xxxxxxxxx xxx xxxxx xxx xxxxxxx xxxxxxx xxx {{<product-name>}} xxxx x xxxx xxxx xxx xxxx xxxxxxx.
+À côté des numéros de mois et de version, le {{<product-name>}} utilise une balise de nom de code pour chaque version.
 
-## Xxxxxxxxxx Xxxxxxx
+## Processus de génération
 
-1. Xxxxxxx xxxx xxxxxxxxxxxx
+1. Installer les dépendances de nœud
 
 ```bash
 npm install @criblinc/docker-names
 ```
 
-1. Xxx xxx xxxxxxxxx xxxx xxxxxx xx xxxx xxxxx xxxxx.xxx
+1. Ajouter l’exemple de nœud suivant en tant que fichier nommé index.mjs
 
 ```nodejs
 import {generateName} from '@criblinc/docker-names'
@@ -25,7 +25,7 @@ const dockerName = generateName();
 console.log(dockerName);
 ```
 
-1. Xxx xxx xxxxxx
+1. Exécuter l’exemple
 
 ```bash
 node index.mjs

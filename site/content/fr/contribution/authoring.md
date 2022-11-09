@@ -1,83 +1,83 @@
 ---
-title: Xxxxxxxxx xxxxxxxxxx
-description: Xxxxxxxxxx Xxx xxxxxxxxxxxxx xxxxxxxxx xxxxxxxxxx
+title: Instructions de création
+description: Instructions de création de documentation du Kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
 ---
-Xxx xxxxxxxxx xxxxxxxx xxxxxxx xxxxxxxxxx xxx xxxxx xxx xxxxxxxxx xxxxxxx xxxxxxxxxxxxx.
+Les sections suivantes présentent des instructions et des notes pour la création de documentation de démarrage.
 
 {{<toc>}}
 
-## Xxxxxxxxxx
+## Lignes directrices
 
-Xxx xxxxxxxxx xxxxxxxx xxxxxxx xxxxxxxxx, xxxxxx xxx xxxxxxx xxxxx xxxxxxxxxx xxx xxxxxxxxx xxxxxxxxxxxxx
+Les sections suivantes décrivent les directives techniques, de conception et axées sur les résultats pour la rédaction de contributions
 
-## Xxxxx
+## Buts
 
-Xx xx xxxxx xxx xxxxxxxxxxxxx xx xx xxxxxxxxx xx xxxxxxxx xxx xx xxxxxx xxx xxxxxxx xx **Xxxx xxxx xxx xxx xx xxxxxxx**.
+Lorsque nous construisons notre documentation, il est important de réfléchir à la façon dont nous permettons à nos lecteurs de **Tomber dans le gouffre du succès**.
 
-Xxxx Xxxxxx xxxxxxx [Xxx Xxx xx Xxxxxxx xx 2003](https://web.archive.org/web/20160705182659/https://blogs.msdn.microsoft.com/brada/2003/10/02/the-pit-of-success/) xx
+Brad Abrams défini [Le gouffre du succès en 2003](https://web.archive.org/web/20160705182659/https://blogs.msdn.microsoft.com/brada/2003/10/02/the-pit-of-success/) comme
 
-> Xxx Xxx xx Xxxxxxx: xx xxxxx xxxxxxxx xx x xxxxxx, x xxxx, xx x xxxxxxx xxxxxx x xxxxxx xx xxxx xxxxxxx xxxxxxx xxxx xxxxxx
-> xxx xxxxxxxxx, xx xxxx xxx xxxxxxxxx xx xxxxxx xxxx xxxx xxxxxxx xxxxxxxxx
-> xx xxxxx xxx xxxxxxxx xxx xxxxxxxxxx. Xx xxx xxxxxx xxxx xx xxxx xx xxxx xx xxx xxxx xxxxxxx xx xxxx.
+> La fosse du succès : en contraste frappant avec un sommet, un pic ou un voyage à travers un désert pour trouver la victoire à travers de nombreuses épreuves
+> et surprises, nous voulons que nos clients tombent simplement dans des pratiques gagnantes
+> en utilisant notre plateforme et nos frameworks. Dans la mesure où nous facilitons les ennuis, nous échouons.
 
-Xxxxx xxxx xxxx xxxxxxxx xxx xxxxxxxxx:
+Compte tenu de cet objectif, envisagez ce qui suit :
 
-- Xxxxxxx x "xx xxxxxx xxxxxxxxxx"
+- Offrez une expérience « sans falaises »
 
-  - Xxxx Xxxxxxxxxxxxxx xxx Xxxxxxx xxxxxxxxxx xxxxx xxxxxx x xxxx-xxxxxxx xxxxx xx xxxxx {{<product-name>}}
+  - Aidez les administrateurs et les équipes de gouvernance centrale à créer un modèle en libre-service d’utilisation de {{<product-name>}}
 
-  - Xxxxx xxxxx xx xxxx xxx xx Xxxxxxxxxxx xxxxxxxxxxxx xx xxx xxxxx xx xx x xxxxxxx xxxxxxxxxxx xx xxx xxxxxxxxx xxx xxxx xxxx xx xxxxxxxx xxxxxx x xxxx xx xxxxxxxxxx xxxxxxxxxx xx xxx {{<product-name>}}
+  - Permettre aux utilisateurs d’utiliser des environnements de développement pour mettre la main sur si un environnement central n’est pas disponible et qu’ils souhaitent utiliser des fonctionnalités avant un déploiement de test ou de production du {{<product-name>}}
 
-  - Xxxxxxx xxxxx xx Xxxxx xxxxxxxxxxxx xxxx xxxx xxxxx xx xxx xxxxx xx xxxx xxx  {{<product-name>}}
+  - Discutez de l’utilisation des environnements d’essai avec une configuration facile pour vous familiariser avec le {{<product-name>}}
 
-- Xxxxxxx x xxxxxxx xxx xxxxxxxx. Xxxx xxxxxxx xxx xxxxxxxxx xx xxxxxxx xxxxx xx xxxx xx xxx xxxxxxx
+- Fournir un canal de rétroaction. Donner des options aux clients pour donner leur avis sur ce que nous pouvons améliorer
 
-### Xxxxxx Xxxxxxx
+### Contrôle de code source
 
-- Xxx xxxx xxxxxxxxx [Xxxxxxxxxxxxx](/fr/contribution/documentation) xxxxx xx xxxxxxxx xxx xxxx xxxxxxx xx xxx XxxXxx xxxxxxxxxx
-- Xxx xxxxxxx xxx xxxxxx xx x xxx xxxxxx xxx xxxx x Xxxx Xxxxxxx xx xxxxxx xxxxxxx
-- Xxx xxxxxxxxxxxxx xxxxxx xx xxxxxx xxxxxxxx, XXxx xx xxxxxx xxxxxx xxxx xxx xx xxxxxxx xxxxxxxx xxx xxxxxxxx xxxxx xxxxxxxx xxxx xxxxxxx xxxxxxx
+- Vous avez terminé [Documentation](/fr/contribution/documentation) étapes pour télécharger et transmettre les modifications au référentiel GitHub
+- Les nouvelles modifications sont transmises à une nouvelle branche et disposent d’une demande d’extraction pour examiner les modifications
+- Toute la documentation doit être démarquée, JSon ou statique qui peut être des contrôles de version et révisée à l’aide d’un processus de demande d’extraction standard.
 
-## Xxxxxx Xxxxxxxxxx
+## Directives de conception
 
-### Xxxx Xxxx
+### Page d’accueil
 
-- Xxxx xxxxx xxxxx xxx xxxxxxxx xxxx xxxxxxxx xxx xxxxxxxxx xx xxx xxxxxxx xxxxxxxxxx
-- Xxxxxxx x xxxx xx xxxxxx xx xxxxxxx xxxxx xxxxxxx xxxxxx. Xxx xxxxxxx xxxxxxxx xxx Xxxxxx xxxxx.
-- Xxxx xx Xxxxxxx Xxxxxxx xxxxxx xx xxx xxxxxxx xxxxxx xx xxxx xxx xxxxx xxxxxxx
-- Xxxxxxxxx xxxxxx xx xxxx xxxxxx xxxxx xx xxxx xxxxx xxxxxxxxx xx xxxxx
-- Xxxxxxx xxxxx xx xxxxxx xxxxxxx
-- Xxxxxxx xxxx xx xxxxxxxx xxxx xxxxxx xxx xxxxx xxxxxx xxxxxxxxxxxxxxx xxxxxxxx
-- Xxxxxx xxxxxxxxxx xxx xxxxxx xxxxx.
+- Avoir un titre et un sous-titre clairs qui décrivent l’objectif de l’expérience de démarrage
+- Fournir un appel à l’action pour inclure d’autres événements connexes. Par exemple, inscrivez-vous aux heures de bureau.
+- Lien vers l’action de mise en route en tant qu’action principale pour aider les nouveaux utilisateurs à intégrer
+- Action secondaire pour joindre les heures de bureau afin d’aider à créer une communauté d’utilisateurs
+- Inclure des vignettes d’actions communes
+- Liste récapitulative des fonctionnalités qui aident les utilisateurs à gérer les projets d’hyperautomatisation
+- Navigation en pied de page pour les liens communs.
 
-Xxxx xxx [Xxxx Xxxxxxxxxxxxx](/fr/contribution/site-configuration) xxx xxxx xxxxxxxxxxx xx xxxxxxxxxxx xxx xxxx xxxx.
+Lisez le [Site Configuration](/fr/contribution/site-configuration) pour plus d’informations sur la configuration de la page d’accueil.
 
-### Xxxxx
+### Réutiliser
 
-- Xxx xxxx xxxxxxx xx xx xxxx xx xxxxxxx xxx xxxxx xx xxxxxxxx xxx xxxxxxx xxxxx xx xxxxxxx xxxxxxx xx xxxx\xxxxxxx xxxxxx
-- Xxxxxxxx xxxxxxx xxxxxx xxxxx xxxxxx XXXX xx xx xxxxxxxx xx xxxx xxxxxxx xxxxxxxxx. Xxx xxxxxxx
+- Utilisez les mises en page hugo pour pouvoir spécifier un nouveau thème ou remplacer le thème actuel en plaçant du contenu dans le dossier site\layouts
+- La modification des mises en page devrait permettre d’inclure du HTML statique dans de nombreux emplacements d’hébergement. Par exemple
 
-  - XxxXxx Xxxxx
-  - Xxxxx Xxxxx
-  - Xxxxx Xxxxx
-  - Xxxxx Xxxxxx Xxxxxxxx
+  - GitHub Pages
+  - Pages d’alimentation
+  - Point de partage
+  - Sites web statiques Azure
 
-- Xxx xxx xxxxxxxx xxx xx xxxx xx x xxxxxxxxx xx Xxxxxxxx xx Xxxxxxxxx xx xxxxx "Xxxxxxxxxxxxx Xxxxx" xx xxxxxxxxxx xxxxxx xxxxx xx {{<product-name>}} xxxxxxxxxxxxx
-- Xxxxxxx xxx xxxxxxx xxx xxxxxxxx xxxxx xx xxx xxxxxxxxxxxxx (x.x. Xxxxxxxx xxx Xxxxxxx Xxxxxx xx Xxxxxxxxxx xxxxx)
-- Xxxxx xxxx xxxxxxxx xxxxxxx xx xx xxxxxxxx
-- Xxxxx xxxxxxx xxxxxxx xxxx xxxxxx xxx xxxxxxx xx xx xxxxxx xxxx {{<product-name>}} xxxxxxx xxxxxxxxxxxxx
+- L’approche peut être utilisée comme modèle par les partenaires ou les clients pour créer des « packs de documentation » afin d’accélérer la phase de nuture de {{<product-name>}} documentation
+- Fournir la possibilité à plusieurs utilisateurs de la documentation (par exemple, les équipes du Centre d’excellence des clients et des partenaires)
+- Autoriser l’inclusion du contenu fourni par l’utilisateur
+- Autoriser le processus de mise à niveau qui permet d’extraire de nouvelles modifications de {{<product-name>}} Documentation de démarrage
 
-## Xxxxxxxx Xxxxx
+## Markdown Pages
 
-- Xxx xxx xxx [Xxxxxx Xxxxxx Xxxx](https://code.visualstudio.com/) xx xxxx xxx xxxxxxxx xxxxx
+- Vous pouvez utiliser [Visual Studio Code](https://code.visualstudio.com/) Pour modifier les fichiers Markdown
 
-- Xxxxxxxx xxxxx xxxxxx xx xxxxxxx xx xxx /xxxx/xxxxxxx xxxxxx
+- Les fichiers Markdown doivent se trouver dans le dossier /site/content
 
-- Xxxx xxxxxxxx xxxx xxxxxx xxxxxxx xxxxxx xxxxxx xx xxxx xxxx
+- Chaque fichier de démarque doit inclure un en-tête commun sur chaque page
 
 ```toml
 title: Sample page
@@ -87,133 +87,133 @@ sidebarlogo: fresh-white
 include_footer: true
 ```
 
-- Xxxxxxxx xxxxx xxxxxx xxx xxxxxxxxxx xx xxxxx xxx XxxxXxxxxx
+- Les fichiers Markdown doivent utiliser des codes courts pour intégrer n’importe quel JavaScript
 
-## xxxxxxxxxx
+## Codes courts
 
-Xxxxx xxxxx xxxxxxx xxx xxxxxxx xx xxxxxxx xxxxxxx xxxxxxx xx x xxxxxxxx xxxx. Xxx xxx xxxx xxxx xxxxx xxxxxxxxxx xxxx xxx [Xxxx xxxxxxxxx xxxxxxxxxxxxx](https://gohugo.io/content-management/shortcodes/)
+Les codes courts permettent d’inclure du contenu dynamique dans une page de démarque. Vous pouvez en savoir plus sur les shortcodes à partir du [Documentation du shortcode Hugo](https://gohugo.io/content-management/shortcodes/)
 
-Xxxx xxxxxxx xxxx xxxxxxxx xxxxxxxxxx xxxxxxxxxx
+Ce projet comprend également des codes courts supplémentaires
 
-### Xxxxx xx Xxxxxxxx
+### Table des matières
 
-Xxx xxx **xxx** xxxxxxxxx xxxxxxxxx xx xxxx xxxxxxxx xx xxxxxxx x xxxxx xx xxxxxxx xx xxxxxxxx xxxxxxx xx xxx xxxx xxxxxxxxxx xx \{\{ xxx \}\}
+Ajoutez le **Toc** Suivre le shortcode de votre Markdown pour inclure une table des matières des en-têtes Markdown dans la page entourée de \{\{ et \}\}
 
 ```html
 <toc/>
 ```
 
-### Xxxxxxxx
+### Question
 
-Xxxxxxx x xxx xx xxxxxxxxx xx xxxx xxxx xxxxxxxxxx xx \{\{ xxx \}\}
+Incluez un ensemble de questions dans votre page entourée de \{\{ et \}\}
 
 ```html
 <questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
-Xxxxxxxxxx:
+Paramètres:
 
-- **xxxx** Xxx xxxx xx xxx XXxx xxxx xxxx xxxxxxxx xxxxxxxxx xx xxxxxx. Xxxx [Xxxxxxxxx](/fr/contribution/questions) xxx xxxx xxxxxxxxxxx xx xxxxxxxx xxxx xxxxxx
-- **xxxxxxxxx** Xxx xxxx xx xxxxxxx xxxx xxx xxxxxxxxx xxx xxxxxxxxx
-- **xxxxXxxxxxxxxxXxxxxxx** xxxx/xxxxx xxxxx xx xxxx Xxxx/Xxxx/Xxxxxxxxx xxxxxxxxxx xxxxxxx
+- **nom** Nom du fichier JSon qui inclut les questions à importer. Lire [Questionne](/fr/contribution/questions) Pour plus d’informations sur le format de fichier QUESTION
+- **terminé** Le texte à afficher lorsque les questions sont remplies
+- **showNavigationButtons** Valeur true/false pour chausser les boutons de navigation Suivant/Retour/Terminé
 
-### Xxxxxxxx Xxxxx
+### Image externe
 
-Xxxxxxx x xxxx xxxxx xxxx xx xxxxxxxx xxxxxx xx xxxx xxxx xxxxxxxxxx xx \{\{ xxx \}\}
+Inclure une image de taille provenant d’une source externe dans votre page entourée de \{\{ et \}\}
 
 ```html
 <externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon"/>
 ```
 
-Xxxxxxxxxx:
+Paramètres:
 
-- **xxx** Xxx xxxxxx xxxx xx xxx xxxxx xx xxxxxx
-- **xxxx** Xxx xxxx xx xxxxxx xx xxxxxx xxx xxxxxx xxxxx xx
-- **xxxx** Xxx xxxxxxxxx xxxx xx xxxxxxx xxxx xxx xxxxx
+- **Le** Le chemin source de l’image à importer
+- **taille** Taille en pixels à redimensionner l’image source
+- **SMS** Texte alternatif à inclure avec l’image
 
-## Xxxxx
+## Notes
 
-### XxxXxx Xxxxx Xxxxx
+### Configuration des pages GitHub
 
-Xxx xxxxxxxxx xxxxx xxxxx xxxx xx xxxxx xxx XxxXxx xxxxx xxx xxx xxxx
+Les étapes suivantes ont été utilisées pour configurer les pages GitHub pour le site
 
-1. Xxxxxxx xxx xxxxxxxx xxxxxx xx xxx
+1. Création d’une nouvelle branche orpheline dans git
 
     ```bash
     git checkout --orphan gh-pages
     ```
 
-1. Xxxxx xxx xxxxxxxx xxxxxxx (xxxxx xxx xxxxxxx)
+1. Effacer le contenu existant (fichiers et dossiers)
 
     ```bash
     git clean -d -f
     ```
 
-1. Xxxx xx xxxxxxxxx
+1. Hugo est installé
 
-    - Xxx xxx xxxx xxxxxxx xxxx xxxxxxxxxx xx xxxxxxx
+    - Vous pouvez également installer avec chocolaté sur les fenêtres
  
     ```bash
     choco install hugo-extended -confirm
     ```
 
-1. Xxxx xxxxxx xxxxxxxxxx xx xxxxxx xx /xxxx xxxxxx
+1. Sortie Hugo configurée pour sortir dans le dossier /docs
 
-1. Xxxx xxxx xxxxxxx
+1. Testez vos modifications
 
     ```bash
     hugo serve
     ```
 
-1. Xx xxxxx xxxx xxxxxx xxxx xxxx xxxxxx xxx xxxx xxxxxx xxx xxx xxxxxxxxx xxxxxxx
+1. Pour créer le site html statique à l’intérieur du dossier du site, exécutez la commande suivante
 
     ```bash  
     hugo
     ```
  
-1. Xxxx xxxx xx-xxxxx xxxxxx xx XxxXxx
+1. Poussez votre branche gh-pages vers GitHub
 
-1. Xxxxx XxxXxx xxxxxxx xx xxxxxx Xxxxx
+1. Configurer le projet GitHub pour activer Pages
 
-    - Xxx Xxxxxxxxxxx x xxxxxxxxxx xxxxxx xxx xxxx XxxXxx Xxxxx xxxx - XxxXxx Xxxx
-    - Xxxxxxxx xx-xxxxx xxxxxx xxx /xxxx xxxxxx
+    - Consultez Configuration d’une source de publication pour votre site GitHub Pages - GitHub Docs
+    - Sélection de la branche gh-pages et du dossier /docs
 
-### Xxxxxx Xxxx Xxxx Xxxxx Xxxxx
+### Mettre à jour le badge d’image de la page d’accueil
 
-Xx xxxxxxxxx xxx xxxx xxxx xxxxx xx x Xxxxxx: Xxxxxx xxxxxxx xxxxx X xx xxx xxxxxxxxx:
+Pour personnaliser l’image de la page d’accueil en fonction d’un badge État : Aperçu public, procédez comme suit :
 
-1. Xxxxx xxx xxx-xxxxxx xxxx
+1. Cloner le référentiel svg-badges
 
     ```bash
     git clone https://github.com/anouarhassine/svg-badges.git
     cd svg-badges   
     ```
 
-1. Xxxxxxx xxxxxxx
+1. Installer des modules
 
     ```bash
     npm install
     ```
 
-1. Xxxxx xxx xxx xxxxxx xx xxxxxxxx xxxxxx
+1. Démarrer le serveur Web pour générer des badges
 
     ```bash
     npm run start
     ```
 
-1. Xxxxxxxx xxxxx
+1. Générer un badge
 
     ```link
     http://localhost:9000/static/Status-Public%20Preview-Green
     ```
 
-1. Xxxxxxxx xxx xxx xxxxx
+1. Télécharger le badge svg
 
-1. Xxx xxxxxxxx xx xxxx xxxxxxxx xxx xxx xxxx xxxxxxx
+1. Utiliser inkscape pour éditer des svg existants et enregistrer les résultats
 
-1. Xxxxxx xxx xxxxx xx xxxxxx\xxxxxx\xxxxxxxxxxxxx xxxxxx
+1. Télécharger une nouvelle image dans le dossier static\images\illustrations
 
-1. Xxxxxx xxx xxxxxx.xxxx xxxx xxxxx
+1. Modifier l’image du héros config.yaml
 
     ```yml
     params:
@@ -221,42 +221,42 @@ Xx xxxxxxxxx xxx xxxx xxxx xxxxx xx x Xxxxxx: Xxxxxx xxxxxxx xxxxx X xx xxx xxxx
             image: illustrations/worker-public-preview.svg 
     ```
 
-## Xxxxxxxx xxx Xxxxxx
+## Questions et réponses
 
-### **Xxxxxxxx** Xxx xxx Xxxx xxxxxxxx?
+### **Question** Pourquoi Hugo a-t-il été choisi ?
 
-[Xxxx](https://gohugo.io/) xx x xxxxxxx xxxxxx xxxx xxxxxxxxx xxxx xxxxxx xxxxxxx xx xxx {{<product-name>}} xxxxxxx xxxxxxxxxxxxx xx xx xxxxxxxxxxx xx xxxxxx XXXX xxxx xxx xx xxxxxx xx XxxXxx Xxxxx
+[Hugo](https://gohugo.io/) est un générateur de site statique populaire qui permet le contenu de {{<product-name>}} documentation de démarrage à transformer en HTML statique pouvant être hébergé dans GitHub Pages
 
-### **Xxxxxxxx** Xxx xxx xxx xxx xxxxxx xxxx xxxxx xxxxxx xxxx xxxxxxxxx?
+### **Question** Pourquoi n’avez-vous pas choisi un autre générateur de site statique ?
 
-Xxx xxxx Xxxxx XXX xxxx xxx xxxxxxxx xxxxxxxxxx xxxxx Xxxx
+L’équipe principale de Power CAT avait déjà utilisé Hugo
 
-### **Xxxxxxxx** Xxx xxx Xxxxxxxxx Xxxxx xxx xxxx xxx xxxxxxxxx?
+### **Question** Pourquoi Microsoft Forms n’a-t-il pas été utilisé pour les questions ?
 
-Xxx xxxxxx xxx xxx xx xxxxxxxxx xxx xxxxxxxx xxxxxxx xxxxxxxx xxxx xxx xxxxxxx.
+L’un des objectifs de conception était d’intégrer le processus de questions directement dans le contenu.
 
-### **Xxxxxxxx** Xxx XxxXxx xxxxx xx xxxx xxxxxxx?
+### **Question** Pourquoi des pages GitHub pour héberger du contenu ?
 
-Xxx xxxxxx xxxx xxx xxx {{<product-name>}} xxxxxxx xxxxxx xx XxxXxx xxx xxx xxxxxx XxxXxx xxxxx xxxxxxx xxx xxx xxxxxx xx xxxxx xx xxxx xxx xxxxxxx.
+Le code source de {{<product-name>}} existe déjà sur GitHub et la prise en charge des pages GitHub natives était un choix d’emplacement pour héberger le contenu.
 
-### **Xxxxxxxx** Xxx xx xxxx xxxxxxx xxx xx [http://learn.microsoft.com]()?
+### **Question** Pourquoi ce contenu n’est-il pas activé [http://learn.microsoft.com]()?
 
-- Xx xxxxxxx xxxxxxx xx xxxxxxxx xxxxxxxx xxxxxxxx xx xxx xxxxxxx xx [https://learn.microsoft.com]()
+- Au fur et à mesure que le contenu évolue vers des conseils couramment réutilisables, il peut migrer vers [https://learn.microsoft.com]()
 
-- X xxx xxxxxx xxxx xxx xxxxxxx xx XxxXxx xxxxxxx
+- Un objectif de conception clé est rendu possible par l’hébergement GitHub
 
-   - Xxxxx xxxxxx xxxxxxxxx xxxxxxxxxxxx
+   - Permettre une contribution active de la communauté
    
-   - Xxxxxx Xxxxxx xxxxxxx xx Xxxxxx xx Xxxxxxxxxx xx xxxx xxxxxxxxxxxxx xxx xx xxxxxx xx Xxxxxxxxx xxx Xxxxxxx xxxxxxxxx
+   - Favoriser le processus Nuture du Centre d’Excellence afin que la documentation puisse être réutilisée par les Clients et la communauté des Partenaires
 
-### **Xxxxxxxx** Xxx xx xxxxxxxx xxx xxxxxxx xx xxxxx Xxxxx XXX xxxxxxxx?
+### **Question** Pourquoi l’approche n’est-elle pas appliquée à d’autres projets Power CAT ?
 
-Xxx {{<product-name>}} xx xxxxxxxxxxxxx xxxx xxxx xxxxxxx xx xxxxxxxxxxxxx xx xxxxxxxxxx xxx xxxx xx xxx xxxxxxxx [Xxxxxxxx xxxxxxx](https://aka.ms/automation-kit-learn). Xxxxx xx xxx xxxxxxxx xxx xxxxxxx xx xxxx xxxxxxxxxx xx xxxx xxxxxxxx xx xxxxx Xxxxx XXX xxxxxxx xxxxxxxx xxxx xxxxx x xxxxxxx xxxxxxxx.
+Le {{<product-name>}} expérimente ce canal de documentation pour compléter et lier à notre [Contenu d’apprentissage](https://aka.ms/automation-kit-learn). Sur la base des commentaires et des résultats de cette expérience, nous évaluerons si d’autres projets gérés par Power CAT adopteront une approche similaire.
 
-### **Xxxxxxxx** Xxx xx X xxx xxxx xxxxxxxxxxxxx xxxxxx?
+### **Question** Comment puis-je voir les problèmes de documentation ouverte ?
 
-Xxx xxx xxxxx xxx [Xxxx Xxxxxxxxxxxxx Xxxxxx](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation) xxxx
+Vous pouvez visiter notre [Problèmes liés à la documentation ouverte](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Adocumentation) page
 
-### **Xxxxxxxx** Xxx xx X xxxxx x xxx xxxxxxxxxxxxx xxxxxxx xxxxxxx?
+### **Question** Comment puis-je déclencher une nouvelle demande de fonctionnalité de documentation ?
 
-Xxxxxx xx xxx [Xxxxxxx Xxxxxxx](https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Cenhancement,automation-kit%2Cdocumentation&template=2-automation-kit-feature.yml&title=%5BAutomation+Kit+-+Feature%5D%3A+FEATURE+TITLE)
+Créer un nouveau [Demande de fonctionnalité](https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Cenhancement,automation-kit%2Cdocumentation&template=2-automation-kit-feature.yml&title=%5BAutomation+Kit+-+Feature%5D%3A+FEATURE+TITLE)

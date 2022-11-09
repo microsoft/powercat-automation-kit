@@ -1,15 +1,15 @@
 ---
-title: Xxxxxxx 2022 Xxxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxxx 2023
+title: Version de janvier 2022
+description: Kit d’automatisation - Janvier 2023
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
 <div class="optional">
 
-![Xxxxx Xxxx](/images/nifty-emmy.png)
+![Nifty Emmy](/images/nifty-emmy.png)
 
-Xxx Xxxxxxx xxxxxxx (xxxxx-xxxx) xx xxx {{<product-name>}} xx xxx xxxxx xxxxxx xxxxxxx xxxxxxx. Xxxx xxxxxxx xx xxxxxxxx xx xxxxxxx xxxxxxxxx xxx xxx xxxxxxx xxx xxxx xxxx xxxxxxxxxxxxx xxxxxxxxxx xx xxx Xxxxxxxx xxx Xxxxxxxx xxxxxxxx.
+La sortie en janvier (nifty-emmy) du {{<product-name>}} est la cinquième version d’aperçu publique. Cette version devrait inclure l’amélioration de l’installation Web et des fonctionnalités de pack de données introduites dans les versions de novembre et décembre.
 
 </div>
 
@@ -17,7 +17,7 @@ Xxx Xxxxxxx xxxxxxx (xxxxx-xxxx) xx xxx {{<product-name>}} xx xxx xxxxx xxxxxx x
 
 {{<presentationStyles>}}
 
-## Xxxxxxxx
+## Rétroaction
 
 {{<questions name="/releases/january-2023.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 
@@ -25,42 +25,42 @@ Xxx Xxxxxxx xxxxxxx (xxxxx-xxxx) xx xxx {{<product-name>}} xx xxx xxxxx xxxxxx x
 
 <div class="optional">
 
-## Xxx Xxxxxxx
+## Démarrer
 
-Xxx xxx [Xxx Xxxxxxx Xxxxx](/fr/get-started) xx xxxx xxx [Xxxxxx Xxxxx](/fr/office-hours)
+Expérimenter [Guide de démarrage](/fr/get-started) ou rejoignez notre [Heures d’ouverture](/fr/office-hours)
 
-## Xxxxx Xxxxxxx
+## Libération antérieure
 
-- [Xxxxxxxx 2022](/fr/releases/december-2022) (xxxxxxx-xxxxxxxxx)
+- [Décembre 2022](/fr/releases/december-2022) (Zélé-Antonelli)
 
-## Xxxx Xxxxxxx
+## Prochaine version
 
-- Xxxxxxxx 2023 (xxxxx-xxxx)
+- Février 2023 (nifty-emmy)
 
-## Xxxxxxx Xxxxxxxxxx
+## Jalons du projet
 
-[Xxxxxxxxxx Xxx - Xxxxxxx 2023](https://github.com/orgs/microsoft/projects/486/views/9)
+[Kit d’automatisation - Janvier 2023](https://github.com/orgs/microsoft/projects/486/views/9)
 
-[Xxxxxxxxxx Xxx - Xxxxxxx](https://github.com/orgs/microsoft/projects/486/views/1)
+[Kit d’automatisation - Backlog](https://github.com/orgs/microsoft/projects/486/views/1)
 
-Xxxxxx xxx [Xxxxxxxxx Xxxxx](/fr/releases/milestones) xxx xxxxxxx xxxxxxxxxxx
+Passez en revue le [Notes marquantes](/fr/releases/milestones) Pour plus d’informations
 
-## Xxx Xxxxx
+## Remarques clés
 
-Xxx xxxxxxxx xx xxxx xxxxxxx:
+Principales fonctionnalités de cette version :
 
-- Xx xx xxxxxxx
+- À mettre à jour
 
-## Xxxxxxx Xxxxx
+## Notes de version
 
-Xxxxxxxx xxxx [Xxxxxxxxxx Xxx - Xxxxxxx 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023) xxx xxxx xxx xxxxxx xxxxxx
+Inclus avec [Kit d’automatisation - Janvier 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023) pour les bogues et les problèmes fermés
 
-## Xxxxxxx Xxxxxx
+## Libérer les ressources
 
-- [Xxxxxxxxxx Xxx - Xxxxxxx 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023)
+- [Kit d’automatisation - Janvier 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023)
 
-## Xxxxxxx Xxxxxxx
+## Historique des versions
 
-Xxxx [xxxxxxx xxxxxxx](/fr/releases)
+Plein [Historique des versions](/fr/releases)
 
 </div>

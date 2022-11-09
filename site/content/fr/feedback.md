@@ -1,10 +1,10 @@
 ---
-title: Xxxxxxxx Xxxxxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxxxx Xxxxxxxxx
+title: Questions de rétroaction
+description: Kit d’automatisation - Questions de rétroaction
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xxxxxx xxxxxxx xxxx xxxxxxxx xx xxx xxxxxxxxx xxxxxxxxx:
+Veuillez fournir vos commentaires aux questions suivantes :
 
 {{<questions  name="feedback.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}

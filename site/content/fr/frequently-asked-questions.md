@@ -1,77 +1,77 @@
 ---
-title: Xxxxxxxxxx Xxxxx Xxxxxxxxx
-description: Xxxxxxxxxx Xxx Xxxxxxxxxx Xxxxx Xxxxxxxxx
+title: Foire aux questions
+description: Kit d’automatisation Foire aux questions
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-# Xxxxxxxxxxxx
+# Introduction
 
-Xxxx xxxx xxxxxxxx x xxx xx xxxxxxxxxx xxxxx xxxxxxxxx xxxxxxx xx xxx {{<product-name>}}. Xx xxx xxxxxx xxxx xx xxxxxx xx x xxxxxxxx xxx xxxx xxxxxxxx xxxxxxxx x [Xxxxxxx Xxxxxxx](https://github.com/microsoft/powercat-automation-kit/issues/new/choose) xx xxxxxx xxxx xxxx.
+Cette page contient une série de questions fréquemment posées concernant {{<product-name>}}. Si vous ne trouvez pas de réponse à une question que vous avez, envisagez de créer un [Demande de fonctionnalité](https://github.com/microsoft/powercat-automation-kit/issues/new/choose) pour mettre à jour cette page.
 
-Xxxxxxxx xxxxxx xx xxxx xxxx:
+Groupes de questions dans cette page :
 {{<toc>}}
 
-## Xxxxxxx Xxxxxxx
+## Commencer
 
-### **Xxxxxxxx:** Xxxx xx xxx xxxx xxx xxx xx xx xxx xxxxxxx?
+### **Question:** Quelle est la meilleure façon pour moi de commencer?
 
-Xxxxx xx xxx [Xxx Xxxxxxx](/fr/get-started) xxxx xxx xxxx xxxxxxxxxxx.
+Référez-vous à notre [Démarrer](/fr/get-started) pour plus d’informations.
 
-## Xxxxxxx
+## Soutien
 
-### **Xxxxxxxx:** Xxx xx X xxx xxxxxxx xxxxxxxxxx xx xxxxxxxxx xxx {{<product-name>}}?
+### **Question:** Comment puis-je obtenir de l’aide pour installer ou utiliser le {{<product-name>}}?
 
-Xxxxx xx xxx [Xxxxxxx](/fr/support) xxxx xxx xxxx xxxxxxxxxxx.
+Se référer à out [Soutien](/fr/support) pour plus d’informations.
 
-## Xxxxxxxxxx Xxxxxx xx Xxxxxxxxxx
+## Centre d’excellence en automatisation
 
-### **Xxxxxxxx:** Xxx xx xxx {{<product-name>}} xxxxxxx xx xxx [XxX Xxx](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit)?
+### **Question:** Comment le {{<product-name>}} liés à la [Kit CdE](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit)?
 
-Xxxx xxx xxxxxxxxxxxxx xxxxxxxxx xxxx xxxx Xxxxxx xx Xxxxxxxxxx xxxx xxx xxxxxxx xx xxxx xxxxxx xxxx Xxx Xxxx Xxxxxxxxxxx.
+Il s’agit de solutions complémentaires que votre équipe de centre d’excellence peut installer pour vous aider à gérer votre environnement Low Code.
 
-### **Xxxxxxxx:** Xxx xx xxx {{<product-name>}} xxx x xxxxxxx xxxxxxx xx xxx [XxX Xxx](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit)?
+### **Question:** Pourquoi le {{<product-name>}} pas un autre module du [Kit CdE](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit)?
 
-Xxx {{<product-name>}} xxx x xxxxxxx xx xxx [Xxxxxxxxxx Xxxxxxxxx](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle). Xx xxxxxxxxx xx xxx [Xxxxxxxxxx Xxxxxx Xx Xxxxxxxxxx](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-center-of-excellence) xxxx xx xxx xxxx xxxx xxx xxxxx xx xxxxxxxxx xxxxxxxxxx xxx xxxxxxxxxx xx xxx xxxxxxx xxxxxxx.
+Le {{<product-name>}} s’est concentré sur le [Cycle de vie de l’automatisation](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle). Comme l’indique le [Centre d’excellence en automatisation](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-center-of-excellence) Chacun des kits répond aux besoins des différentes composantes et activités de l’ensemble du processus.
 
-### **Xxxxxxxx:** Xxx xxx {{<product-name>}} xxx [XxX Xxx](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit) xx xxxx xxxxxxxx?
+### **Question:** Le {{<product-name>}} et [Kit CdE](https://learn.microsoft.com/power-platform/guidance/coe/starter-kit) être utilisés ensemble?
 
-Xxxxxxxxxx, xxx XXX Xxxxxxxxxxx xxxxxx xxx XxX Xxx xx xxx xxxxxxx xxxxx Xxxxx Xxxxxxxx Xxxxxxx xxxxxxxxxx xxx xxxxxxxxx xxxx xxx {{<product-name>}} xxx x xxxxxxx xxxxxxxxxxx xx xxxxxxxx xxxxxxxxxxx xxxx xxxxxx xxxxxxx xxx xxxxxxxx xxxxxxxxxx xxxxxxx xxxxxxxxxxxx.
+Absolument, l’accélérateur ALM du kit CoE est un exemple de déploiement et d’intégration de Power Automate Desktop avec le {{<product-name>}} sont une combinaison naturelle pour automatiser l’intégration avec le contrôle de code source et automatiser le déploiement entre les environnements.
 
-### **Xxxxxxxx:** Xxx xx xxxxxxxxxx xxxxxxx xxxxxxx?
+### **Question:** Comment les options de surveillance se comparent-elles?
 
-Xxxxxx xxx [Xxxxxxxxxx xxxxxxxxxx](/fr/monitoring-compare) xxxx xxx xxxxxxx xxxxxxxxxxx
+Passez en revue le [Comparaison des contrôles](/fr/monitoring-compare) page pour plus d’informations
 
-## Xxxxxxx
+## Feuille de route
 
-### **Xxxxxxxx:** Xxx xxx X xxx xxxx xx xxxxxxx xxx xxxxxxxx xxxxxxxx?
+### **Question:** Comment puis-je voir ce qui est prévu pour les prochaines versions ?
 
-Xxxxxx xxx [Xxxx Xxxxxxxxxx](https://github.com/microsoft/powercat-automation-kit/milestones?state=open)
+Consultez notre [Jalons ouverts](https://github.com/microsoft/powercat-automation-kit/milestones?state=open)
 
-### **Xxxxxxxx:** Xxx xxx X xxx xxxx xx xxxxxxxx xxxx xxxx xxxxxxxx xxxxxxxx?
+### **Question:** Comment puis-je voir quelles sont les fonctionnalités récemment publiées ?
 
-Xxxxxx xxx [Xxxxxx Xxxxxxxxxx](https://github.com/microsoft/powercat-automation-kit/milestones?state=closed)
+Consultez notre [Jalons fermés](https://github.com/microsoft/powercat-automation-kit/milestones?state=closed)
 
-### **Xxxxxxxx:** Xxx xxx X xxx xxxx xx xx xxx {{<product-name>}} Xxxxxxx?
+### **Question:** Comment puis-je voir ce qu’il y a sur le {{<product-name>}} Arriéré ?
 
-Xxxxxx xxx [{{<product-name>}} Xxxxxxx xxxxxxx](https://aka.ms/ak4pp/backlog)
+Consultez notre [{{<product-name>}} Arriéré de projets](https://aka.ms/ak4pp/backlog)
 
-## Xxxxxxx
+## Libérer
 
-### **Xxxxxxxx:** Xxx xxx X xxx xxx xxxxxxx xxxxxxx?
+### **Question:** Comment puis-je obtenir la version actuelle ?
 
-Xxxxxx xxx [Xxxxxxxx](https://github.com/microsoft/powercat-automation-kit/releases) xxxx xxx XxxXxx xxxxxxx
+Consultez notre [Versions](https://github.com/microsoft/powercat-automation-kit/releases) de notre projet GitHub
 
-### **Xxxxxxxx:** Xxx xxx X xx xxxxxxxx xx xxx xxxxxxxx?
+### **Question:** Comment puis-je être averti des nouvelles versions ?
 
-Xxx xxx xxxx xx xx xxxx xxxx xxx xxxxxxxx xx xxxxxxxxxxx xx xxxx xx [Xxxxxx Xxxxxxx](https://github.com/microsoft/powercat-automation-kit#latest-release)
+Vous pouvez rester à jour avec nos communiqués en vous abonnant à eux dans [Dernière version](https://github.com/microsoft/powercat-automation-kit#latest-release)
 
-## Xxxxxxxx
+## Rétroaction
 
-### **Xxxxxxxx:** Xxx xxxxxxxxxx xx xxx {{<product-name>}} xxxxxxx xxxxxxxxxxxxx?
+### **Question:** Comment contribuer au {{<product-name>}} Documentation de démarrage ?
 
-Xxxxxx xxx [Xxxxxxxxxxxx](/fr/contribution) xxxx xxx xxxxxxx xxxxxxxxxxx
+Passez en revue le [Contribution](/fr/contribution) page pour plus d’informations
 
-### **Xxxxxxxx:** Xxxx xxx xxxxx xxxx xx xxxx xxxxxxxx?
+### **Question:** Quelles sont les autres façons de donner de la rétroaction?
 
-Xxxxxx xxx [Xxxxxxxx](/fr/contribution/feedback) xxxx xxx xxxxxxx xxxxxxxxxxx
+Passez en revue le [Rétroaction](/fr/contribution/feedback) page pour plus d’informations

@@ -1,45 +1,45 @@
 ---
-title: Xxxxxxxxx Xxxxxxxxx
-description: Xxxxxxxxxx Xxx xxxxxxxxx xxxxxxxxx
+title: Questions de création
+description: Questions sur la création de kits d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-Xxxx xxxx xxxxxxxx xxxxxxxxxxx xxx xxxxxx xxxx xx xxxxxx xxxxxxxxxxx xxxxxxxxx xxxx xxx xxxxxxxx xx xxxx xx xxx {{<product-name>}} xxxxxxx.
+Cette page contient des informations sur le format utilisé pour créer des questions interactives incluses dans le {{<product-name>}} démarreur.
 
 {{<toc>}}
 
-## Xxxxxxx Xxxxxxx
+## Commencer
 
-Xxx xxxxxxxxx xxxx xxxxxx xxx xxx xxxxxxx xxxxx xxx xxxxx xx [Xxxx Xxxxxx Xxxxxx XX Xxxxxxx](https://github.com/surveyjs/survey-library). Xxxxx xxxx xxxxxxx xxxxxx xxx xxx xxx xx xxx xxx xxxxxxxx xxxxxxxxx xx xx xxxx.
+Les questions utilisées dans les pages de démarrage du kit sont basées sur [Bibliothèque JS Open Source Survey](https://github.com/surveyjs/survey-library). L’utilisation de cette bibliothèque permet d’utiliser tous les contrôles prêts à l’emploi pris en charge.
 
-Xx xxxxxxxxxx xxx xxxxxxxxx xxx xxx xxxx xx
+Pour comprendre le cadre, vous pouvez consulter
 
-- Xxx [Xxxxxx XX Xxxx](https://surveyjs.io/form-library/documentation/overview)
+- Le [Enquête JS Docs](https://surveyjs.io/form-library/documentation/overview)
 
-- Xxxxxx xxxxxxxx xxxxx xxxx [Xxxx](https://surveyjs.io/form-library/examples/questiontype-text/reactjs), [Xxxxx Xxxxxx](https://surveyjs.io/form-library/examples/questiontype-radiogroup/reactjs), [Xxxxxxxx](https://surveyjs.io/form-library/examples/questiontype-checkbox/reactjs) xx [Xxxxxxx](https://surveyjs.io/form-library/examples/questiontype-ranking/reactjs)
+- Types de questions simples comme [SMS](https://surveyjs.io/form-library/examples/questiontype-text/reactjs), [Groupes de radio](https://surveyjs.io/form-library/examples/questiontype-radiogroup/reactjs), [Case à cocher](https://surveyjs.io/form-library/examples/questiontype-checkbox/reactjs) ou [Classement](https://surveyjs.io/form-library/examples/questiontype-ranking/reactjs)
 
-- Xxxxx Xxxxxxxxxxx xxxxxxxxxx [xxxxxxxXx](https://surveyjs.io/form-library/examples/condition-kids/reactjs)
+- Utilisation de la visibilité conditionnelle [visibleSi](https://surveyjs.io/form-library/examples/condition-kids/reactjs)
 
-- Xxxxxx xxxx xx xxx xxxxxxxx xxxxxxxxx xxxx xxx xxxx xx xxx xxxx. Xxx xxxxxxx xxx [Xxxxxxxxxx Xxxxxxxxx](https://github.com/microsoft/powercat-automation-kit/blob/gh-pages/site/content/monitoring.json)
+- Passez en revue certaines des questions existantes qui sont utilisées dans le site. Par exemple, l' [Questions de surveillance](https://github.com/microsoft/powercat-automation-kit/blob/gh-pages/site/content/monitoring.json)
 
-- Xxxxxx xxx xx xxxxxxx xxx xxxxx xxxx xx xxxx xxxxxxx xxxxxxxx. Xxx xxxxxxx [Xxxxxxxxxx xxxxxxxx](https://raw.githubusercontent.com/microsoft/powercat-automation-kit/gh-pages/site/content/monitoring-compare.md)
+- Découvrez comment inclure le code court dans votre démarque de contenu. Par exemple [Surveillance de la démarque](https://raw.githubusercontent.com/microsoft/powercat-automation-kit/gh-pages/site/content/monitoring-compare.md)
 
-## Xxxxxxxxx xxxxxxxxx xx xxx xxxxxxx
+## Intégration de questions dans votre contenu
 
-Xx xxxxx x xxx xx xxxxxxxxx xx xxxx xxxx xxxx xxx xxx xxx xxxxxxxxx xx xxxx xxxxxxxx xxx xxxxxx xxx xxxx xx xxx xxxxxxxx xxxx xxx xxxx xx xxxx xxxx
+Pour intégrer un ensemble de questions dans votre page, vous pouvez ajouter ce qui suit à votre démarque et changer le nom du fichier de questions que vous souhaitez lire
 
 {{\<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false \>}}
 
 ## Custom Functions
 
-Xxx {{<product-name>}} xxxx xxxxxxxx xxxx xxxxxxxxxx xxxxxxxxx xxx xxx xxx xxxxxx xxxxxxxxxxx.
+Le {{<product-name>}} inclut également des fonctions supplémentaires que vous pouvez utiliser à l’intérieur des expressions.
 
-### xxx
+### Len
 
-Xxx xxx xxxxxxxx xxxxxxx xxx xxxxxx xx x xxxxxx xx xxxxx
+La fonction len renvoie la longueur d’une chaîne ou d’un tableau
 
-#### xxx xxxxxxx
+#### Exemple len
 
 ```json
 {
@@ -49,13 +49,13 @@ Xxx xxx xxxxxxxx xxxxxxx xxx xxxxxx xx x xxxxxx xx xxxxx
 }
 ```
 
-### xxxxxxxx
+### Contient
 
-Xxx xxxxxxxx xxxxxxxx xxxxxxx xxxx xx xxxxx xx xxx xxxxxx xx xxxxx xx xxxxxxx xxxxx xxx xxxxx xxxxxxxx
+La fonction contains renvoie true ou false si la chaîne ou le tableau de chaînes correspond à la valeur fournie
 
-#### xxxxxxxx xxxxxxx
+#### contient un exemple
 
-Xxxx xxxx xxxxxxx xxxxxxx xx xxx xx xxx xxxxx xxxxxxxx xx xxxxx
+Rendra l’élément visible si l’un des rôles sélectionnés est créateur
 
 ```json
 {
@@ -65,7 +65,7 @@ Xxxx xxxx xxxxxxx xxxxxxx xx xxx xx xxx xxxxx xxxxxxxx xx xxxxx
 }
 ```
 
-Xxxx xxxx xxxxxxx xxxxxxx xx xxx xx xxx xxxxx xxxxxxxx xx xxxxx xx xxxxxxxxx
+Rendra l’élément visible si l’un des rôles sélectionnés est créateur ou architecte
 
 ```json
 {
@@ -75,11 +75,11 @@ Xxxx xxxx xxxxxxx xxxxxxx xx xxx xx xxx xxxxx xxxxxxxx xx xxxxx xx xxxxxxxxx
 }
 ```
 
-## Xxxxxx Xxxxxxx
+## Widgets personnalisés
 
-### Xxxxx Xxxx
+### Tâche d’image
 
-Xxx {{<product-name>}} xxxx xxxxxxxx xxx **xxxxx-xxxx** xxxxxx xxxxxx. Xxxx xxxxxx xxx xx xxxxxxxx xx xxxx xxxxxxxx xxxxxxxx xxxxx xxx xxxxxxxxx xxxx xxxxxxx.
+Le {{<product-name>}} inclut également le **tâche_image** widget personnalisé. Ce widget peut être inclus dans vos éléments de question à l’aide de l’extrait json suivant.
 
 ```json
 {
@@ -89,26 +89,26 @@ Xxx {{<product-name>}} xxxx xxxxxxxx xxx **xxxxx-xxxx** xxxxxx xxxxxx. Xxxx xxxx
 }
 ```
 
-#### Xxxxxxxxxx
+#### Propriétés
 
-- **xxxxx** - Xxx xxxx xx xxxxxxx xx xxx xxxx
-- **xxxx** - Xxxx xx xxxxx-xxxx
-- **xxx** - Xxx xxx xx xxx XXX xxxx xx xxxxxx
+- **titre** - Le texte à afficher à l’utilisateur
+- **type** - Doit être image-tâche
+- **Le** - L’url du fichier SVG à rendre
 
-#### Xxx xx xxxxx
+#### Comment ça marche
 
-Xxx xxxxxx xxx xxxx xxxxxxxx xxx xxxxxxxxx xxxxxx xxxxxxxxx xxxxx xxx xxxxxxxx xx xxxx xxx xxxx
+Le fichier svg source prend en charge les liens hypertexte personnalisés suivants pour les éléments de votre fichier svg
 
-- **xxxxxxxx://xxxx/xxxxxxxx** - Xxxx xxxxxx xxx xxxxxx xx xxx xxxxxx xx xxx xxx xxxxxxxx xxxxxx xx xxx xxxxx
-- **xxxxxxxx://xxxx/xxxxxxxxxx** - Xxxx xxxxxx xxx xxxxxx xx xxx xxxxxx xx xxx xxx xxxxxxxxxx xxxxxx xx xxxxx xx xxx xxxxx
-- **xxxxxxxx://xxxxxxxx-xxxx/xxxxx** - Xxxx xxxxxx xxx xxxxxx xx xxx xxxxxx xx xxx xxx xxxxxxxxxx xxxxxx xx xxxxx xx xxx xxxxx
+- **template://item/selected** - Définira le format de l’objet pour définir le format sélectionné dans l’image
+- **template://item/unselected** - Définira le format de l’objet pour définir le format non sélectionné des éléments de l’image
+- **question://question-name/value** - Définira le format de l’objet pour définir le format non sélectionné des éléments de l’image
 
-Xxxxxx xxxxxxxx xxxx x xxxxx xxxx xx xxxxxxxx:// xxxx xx xxxx xx xxx xx xxxxx xxx xxxxx xx xxxxxx xxxxxx xxx xxx xx xxxxxxxxx. Xxxx xxxxxxx xxxxxxxx xxx xxxxxxx xx xxxxxxxxxxxxx xxxxxx xxx xxxxx xxxxxxxxx xxx xxxxx xx xxx xxxx. Xxx xxxxxxx xx xxx xxx xxxx xxx xxx xxxxxxx xxxx xxx xxxxxxxxx xxxxxxxxxx:
+Des éléments visuels avec un lien hypertexte de question:// seront utilisés pour définir ou annuler le tableau de valeurs à l’intérieur de l’ensemble de questions. Cette capacité offre la possibilité de modifier de manière interactive la façon dont les autres questions sont affichées à l’utilisateur. Par exemple, si le fichier svg comportait deux objets avec les liens hypertexte suivants :
 
-- **xxxxxxxx://xxxxx/xxxxx**
-- **xxxxxxxx://xxxxx/xxxxxxxxx**
+- **question://roles/maker**
+- **question://roles/architect**
 
-Xx xxx xxxx xxxxxxx xxxxx xxxxxxx xxxx xxxxx xxxxxxxx xx xxx xxxx xxxxx xx xxxxx xxx xxxxxxx
+Si l’utilisateur sélectionne ces objets, d’autres éléments de la page peuvent être affichés, par exemple
 
 ```json
 {
@@ -118,36 +118,36 @@ Xx xxx xxxx xxxxxxx xxxxx xxxxxxx xxxx xxxxx xxxxxxxx xx xxx xxxx xxxxx xx xxxxx
 }
 ```
 
-## Xxxxxxxx xxx Xxxxxx
+## Questions et réponses
 
-### **Xxxxxxxx** Xxx xxx xxxx xxxxxxxx xxxx xxxx xxxxxx xxxx Xxxxxxxxx Xxxxx?
+### **Question** Pourquoi cette approche a-t-elle été utilisée plutôt que Microsoft Forms ?
 
-Xxx xxx xx xxx xxxxxxxxx xxxxxxxxx xxxxxx xxx xxxxxxxxx xx xx xxxx xx xxxx xxxxxxx xxxx xxxxxx xxxx x xxxxxxxx xxxx.
+L’utilisation du shortcode des questions permet aux questions de faire partie de chaque page de contenu plutôt que d’un lien séparé.
 
-### **Xxxxxxxx** Xxxx xxxxxxxxxx xxx xxxxx xx xxxx xxxxxxxx?
+### **Question** Quels sont les avantages de cette approche?
 
-Xxx xxxxxxxxx xxxxxxxxxx xx xxxx xxxxxxxx xxxxxxxx
+Les avantages suivants de cette approche sont les suivants :
 
-- Xxx xxxxxxx xx xxx xxx xx xxx xxx xxxxxxxx xxxxx
+- La possibilité d’utiliser des types de questions prêts à l’emploi
 
-- Xxx xxxxxxxx xx xxxxxxxxx xx xxxxxxxxxxxxx xxxxxx xxx xxxx xxxxxxxx xxxxxxxxx xx XXxx xx xxxxx xxxxxxxxx
+- La création de questions est basée sur la configuration et ne nécessite que la connaissance de JSon pour créer des questions
 
-- Xxx xxxxxxxx xxxxxxxxx xx xxxxxxxxxx xxxxxxxx xxx xxxxxxxxx xx xxxxxxx xx xx xxxxx
+- Le cadre de questions est extensible permettant d’ajouter de nouvelles fonctions ou widgets
 
-- Xxxxx XXxx xxx xxx xxxxxxxx xxxxxxxxxxx xxxxxx xxx xxxxxxxxx xx xx xxxxxx xx xxxxxx xxxxxxx xxx xxxxxxxx xxx xxxxxxxxx xxxx xxxx
+- L’utilisation de JSon pour les définitions de questions permet de stocker les questions dans le contrôle de code source, puis de les réviser et de les versionner au fil du temps.
 
-### **Xxxxxxxx** Xxxxx xxxx xxxxxxxx xx xxxx xxxxxx x Xxxxx Xxx xx Xxxxx Xxxx?
+### **Question** Cette approche pourrait-elle être utilisée dans une Power App ou une Power Page ?
 
-Xxxxxxxxxx, xxx xxxx XxxxXxxxxx xxx xxxxxxxx xxxxxxxxxxx xxxxx xx xxxx xx xxxxxxxx x [Xxxx Xxxxxxxxx](https://learn.microsoft.com/power-apps/developer/component-framework/custom-controls-overview)
+Absolument, les mêmes définitions JavaScript et de questions pourraient être utilisées en créant un [Composant de code](https://learn.microsoft.com/power-apps/developer/component-framework/custom-controls-overview)
 
-### **Xxxxxxxx** Xxx xxx X xxxxxx xxx XXX xxxxx-xxxx xxxxxxxxx?
+### **Question** Comment puis-je créer les questions de tâche d’image SVG ?
 
-Xxx xxxxxx xx xxxxxx xxx xxx xxxxx xx [Xxxxxxxxx Xxxxx](https://www.microsoft.com/microsoft-365/visio/) xxxxx xxx xxxxxx xxxxxxxx xx x xxx xxxx xxxx xxx xxxxxxxx xxxxxxxxxx xxxx xx xxxxxxxxxx xxxx **xxxxx-xxxx** xxxxxxxxx.
+Une option pour créer les fichiers svg est [Microsoft Visio](https://www.microsoft.com/microsoft-365/visio/) qui exporte des diagrammes vers un fichier SVG avec les liens hypertexte requis et compatible avec **tâche_image** questionne.
 
-### **Xxxxxxxx** Xxx X xxx Xxxxxxxxx XxxxxXxxxx xx xxxxxx xxxxx-xxxx xxxxxxxxx XXX xxxxx?
+### **Question** Puis-je utiliser Microsoft PowerPoint pour exporter des fichiers SVG de questions de tâche d’image ?
 
-Xxxxx Xxxxxxxxx Xxxxx Xxxxx xxx xxxxxx x xxxxx xx x XXX xxxx xxxxxxx xxxxxxx xxxx xx xxxx xxx xxxxxx xxx xxxxxxxxxx xxxxxxxx xx xxxx xx xxxxxxxxxxx **xxxxx-xxxx** xxxx xxxxxxxxxxxx.
+Bien que Microsoft Power Point puisse exporter une diapositive vers une chaussure de test initiale de fichier SVG, il n’exporte pas les liens hypertexte requis pour créer un fichier interactif **tâche_image** Travaillez avec succès.
 
-### **Xxxxxxxx** Xx xxxxxxxx XXX xxxxx xxx xxxxx xxx X xxxx xxxx xxxxxxx?
+### **Question** Mes fichiers SVG exportés sont volumineux, puis-je les réduire ?
 
-Xxx xxxxxx xxx XXX xxxxx xx xxxx xxxx xxxxxxx xxxxxx xxxxxxxxxx xxxx xx xxxxxx xxxxxxx. Xxxxx xxx xxxxxxxx xxxxx xxxx xxx xx xxxx xx xxxxxx xxx xxxx xx x XXX, xxx xxxxxx xx xxxxxxxx xx [xxxx](https://github.com/svg/svgo) x XxxxXx xxxxx XXX xxxxxxxxx.
+Une option pour les fichiers SVG pour les réduire avant de les valider dans le contrôle de code source. Il existe plusieurs outils qui peuvent être utilisés pour réduire la taille d’un SVG, une option à considérer est [SVGO](https://github.com/svg/svgo) un optimiseur SVG basé sur NodeJs.

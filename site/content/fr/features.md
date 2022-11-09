@@ -1,63 +1,63 @@
 ---
-title: Xxxxxxxx
-description: Xxxxxxxxxx Xxx - Xxxxxxxx
+title: Fonctionnalités
+description: Kit d’automatisation - Fonctionnalités
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
 {{<toc>}}
 
-## Xxxxxx, Xxxxxx xxx Xxxxx
+## Gérer, gouverner et évoluer
 
-Xxxxxx xxxxxxxxxxxxx xx xxxxxx, xxxxxx xxx xxxxx xxxxxxxxxx xxxxxxxx xxxxxxxx xxxxx xx xxxxxxxx’x xxxx xxxxxxxx
+Permettre aux organisations de gérer, de gouverner et de faire évoluer l’adoption de plates-formes d’automatisation en fonction des meilleures pratiques du secteur
 
-## Xxxxxx Xx Xxxxxxxxxx
+## Retour sur investissement
 
-### Xxxx-xxxx xxxx XXX / XXX xx xxxxxxx xxxxx
+### ROI / SLA en temps quasi réel pour surveiller la valeur
 
-Xxxxx- xxx xxxx-xxxx xxxxxxxxx xx xxxxx xxxxxxx xxx xxxxxxx xxxx xxxxxxxx xxxxx
+Analyses à court et à long terme pour atteindre et surveiller vos objectifs commerciaux
 
-### Xxxxx xxx xxx xxxxx
+### Des outils pour tous les utilisateurs
 
-Xxxxxx(xxxxxxx & xxx), Xxxxxxxxxx XxX xxxx, Xxxx xxxxxxxx
+Makers (citoyen & pro), équipe Automation CoE, Sponsors exécutifs
 
-### Xxx-xxx xxxxxxxxxx xxxxxxxxx
+### Cycle de vie de l’automatisation de bout en bout
 
-Xxxxx xx xxxxxxxx & xxxxxx xxx xxxxxxx xx Xxxxx-xxxxxxxxxx xxxxxxxxx xxxxxxxxx XXX, xxxxxxxxx xx xxxxx xxxxxxxxxxx
+Outils pour automatiser et gérer tous les aspects des scénarios d’hyper-automatisation, y compris ALM, modèles pour favoriser la cohérence
 
-![Xxx xx xxx xxxxxxxxx](/images/illustrations/end-to-end.png)
+![Cycle de vie de bout en bout](/images/illustrations/end-to-end.png)
 
-[Xxxxx Xxxx](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle)
+[Pour en savoir plus](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle)
 
-## Xxxxxxxxxx
+## Gouvernance
 
-### Xxxx Xxxx Xxxxxxxxxx xxx XXX (Xxxxxxx Xxxxx)
+### Protection contre la perte de données pour PAD (flux de bureau)
 
-[Xxxxxxxxxxxx xx xxxx xxxx xxxxxxxxxx (XXX) xxxxxxxx. - Xxxxx Xxxxxxxx | Xxxxxxxxx Xxxxx](https://learn.microsoft.com/power-automate/prevent-data-loss#data-loss-prevention-for-desktop-flows-preview)
+[Introduction aux stratégies de protection contre la perte de données (DLP). - Power Automate | Microsoft Learn](https://learn.microsoft.com/power-automate/prevent-data-loss#data-loss-prevention-for-desktop-flows-preview)
 
-### Xxxxxxxxxx XxX Xxxxx & Xxxxxxxxxx Xxxxxxxxxx
+### Livre blanc sur l’administration et la gouvernance du centre d’excellence de l’automatisation
 
-Xxxxxxxxx xxxxxxxxx xxxx [XXXX](https://learn.microsoft.com/power-platform/guidance/automation-coe/heat) xxxx xx xxxxxxxxxx xxxxx & xxxxxxxxxx xxxxxxxxxx. Xxxx xxxxxxxxxx xxxxxxxx xxx xxxxxxxxxxxxxx xxx xxxxxxxx, xxxxxxxxx, xxx xxxxxxxx xx Xxxxxxxxxx Xxxxxx xx Xxxxxxxxxx (XxX) xxx xxxxx xxxxxxxxxx xxxxxxxxx xx Xxxxx Xxxxxxxx. 
+Enseignements condensés tirés de [CHALEUR](https://learn.microsoft.com/power-platform/guidance/automation-coe/heat) dans un livre blanc sur l’administration et la gouvernance de l’automatisation. Ce livre blanc présente les considérations clés pour la planification, le déploiement et la gestion d’un centre d’excellence en automatisation (CoE) pour les scénarios d’hyper-automatisation dans Power Automate. 
 
 [https://aka.ms/autocoeadminwhitepaper](https://aka.ms/autocoeadminwhitepaper)
 
-### Xxxxxxxx Xxxxx Xxxxxxxx xxx xxxxxxx Xxxxxxxx
+### Gestion de Power Automate pour Playbook de bureau
 
 [https://aka.ms/padonwindowspnp](https://aka.ms/padonwindowspnp)
 
-### Xxxxxxxxxx Xxx – XXX XXX Xxxxxx Xxxxxxxx
+### Kit d’automatisation – Analyse d’impact PAD DLP
 
-Xxxxxxxxxx Xxx xxxxxxxx x xxxxxxxxxx xxxxxx xxxx xxxxxxxx XXX xxxxxx xxxxxxxx xxx Xxxxxxx Xxxxx (XXX)
+Le kit d’automatisation comprend un module de gouvernance qui fournit une analyse d’impact DLP pour Desktop Flows (PAD)
 
 {{<border>}}
 
-![Xxxxxxxxxx Xxx XXX XXX Xxxxxx Xxxxxxxx](/images/pad-dlp-impact.png)
+![Kit d’automatisation Analyse d’impact PAD DLP](/images/pad-dlp-impact.png)
 
 {{</border>}}
 
 
 
 
-## Xxxxxxxxx
+## Migration
 
-[Xxxx Xxxx](/fr/migration) xx xxx xxx Xxxxxxxxx Xxxxxx xxxxxxxx xxx x xxxxxx xxx xx xxxxx xxx xxxxxxxx xxxxx xx xxxxxxxxxxx xxxx xxxxxxxxx xx xxxxxxxxxx xxxx xxxxxxxxx xxxxxxx xx Xxxxx Xxxxxxxx Xxxxxxx.
+[Lire la suite](/fr/migration) sur la façon dont le module de migration vous fournit un ensemble éprouvé d’outils et de conseils basés sur les engagements avec les clients pour accélérer votre migration vers Power Automate Desktop.

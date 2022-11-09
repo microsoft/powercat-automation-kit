@@ -1,26 +1,26 @@
 ---
-title: Xxxxxx Xxxxx
-description: Xxxxxxxxxx Xxx xxxxxx xxxxx
+title: Heures d’ouverture
+description: Heures de bureau du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
-## Xxxxxxxx
+## Registre
 
-<g-emoji class="g-emoji" alias="calendar" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png">📆</g-emoji> Xxxxxxxx xxx xxx xxxxxx xxxxx xxxxxxx [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)
+<g-emoji class="g-emoji" alias="calendar" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png">📆</g-emoji> Inscrivez-vous à notre session sur les heures de bureau [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)
 
-> Xxxxx xxx [Xxxxxxxx 2022](/fr/office-hours/november-2022) xxxxxxx xxxx xxx xxxx xxxxxxxxxxx xxx xxxx xxxxxxxx.
+> Visitez notre [Novembre 2022](/fr/office-hours/november-2022) pour plus d’informations et donner votre avis.
 
-![Xxxxxx Xxxxx](/images/office-hours.png)
+![Heures d’ouverture](/images/office-hours.png)
 
-## Xxxxxxx
+## Histoire
 
-Xxxxx xxx [Xxxxxxx](/fr/office-hours/history) xxxx xxx xxxxx xx xxxxxxxx / xxxxxxx xxxxxx xxxxx.
+Visitez notre [Histoire](/fr/office-hours/history) pour les liens vers les heures de bureau précédentes / prévues.
 
-## Xxxx Xx Xxxx
+## Dis m’en plus
 
-Xxxx xxxxxxx xx x xxxxxxx xxxxx xxx xxxxxxxxx xxx xxxxxxxx xx xxxxx xxx xxx xxxxxxxxx xxxxx xxx {{<product-name>}}. Xxxx xxxxxxxx xx xxx xxxxxxxxx xxxxx xxxxxxxx xxxxxxxx, xxxxx xxx xxxxxxxxx xxxxx xxx xxx xxxxxxxx xxx'x xxxx xx xxx. Xxxxxx xxxx: Xxxx xxxxxxx xxxx xx xxxxxxxx xx xxxxxxxx xxxxxxxxx xxx xxxxxxxx xxx xxxx xx xxxxxxxx. Xxxxxx xxxxx xxx xxxxxxxxx xxxx xxx xxxxxxxxxxx xxxxx xx xxxxxx xxx xxxx xxxxxxx xxxxxxxx.
+Cette réunion est un forum régulier permettant aux clients et aux partenaires d’apprendre et de poser des questions sur {{<product-name>}}. Préparez-vous à poser des questions sur les fonctionnalités existantes, à apprendre comment fonctionne quelque chose et les nouvelles fonctionnalités que vous aimeriez voir. Remarque : Plusieurs clients et partenaires assisteront à cette session et seront enregistrés. Veuillez formuler toute question avec le niveau de détail approprié pour ce public plus large.
 
-Xxxx xxxxxxx xx xxx xx {{<product-name>}} xxxxxxxxxxxx xx xxxxxxxx xxxxxxx. Xx xxx xxx xxxxxxx xxx xx xxxxxxxxxxxx xx xxxxxxx xxx xxxxx xxxx: [https://aka.ms/automation-starter]()
+Cette réunion n’est pas un {{<product-name>}} session d’introduction ou de présentation. Si vous cherchez une introduction, nous vous suggérons de commencer ici: [https://aka.ms/automation-starter]()
 
-Xx xxx xxxx xxxxxx xx xx xxxxxx xxxxxxxxxxxxxxx xx xxxxxxxxxx xxx xxxxxxxx xx x xxxxxxx xxxxxxxx xx xxxx xxxxxxx. Xx xxx xxx xxxxxxxxxxxx xxxxxx xxxx xx xxxx xxxxxxxxx xxxxx xxx {{<product-name>}}, xxxxxx xxx'x xxxx xxx xxx xxxx - xxxxxxx xxxxx xxxx xxxxx xx xxxxxxxxx xxx [https://aka.ms/ak4pp-issues]()
+Nous ne sommes pas non plus en mesure d’effectuer un dépannage personnalisé ou des consultations non pertinentes pour un public plus large dans cette session. Si vous rencontrez des problèmes ou avez des questions concernant le {{<product-name>}}, n’attendez pas l’appel - soulevez plutôt votre problème ou vos questions via [https://aka.ms/ak4pp-issues]()
