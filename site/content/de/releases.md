@@ -4,7 +4,9 @@ description: Automation Kit - Versionshistorie
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 05B767C775EE6396E7B53F5B000B257BBA5D2F7A
 ---
+
 Die Seite enthält Links zur Versionshistorie für {{<product-name>}}.
 
 Lesen Sie mehr auf unserer [Meilenstein-Hinweise zur Veröffentlichung](/de/releases/milestones)

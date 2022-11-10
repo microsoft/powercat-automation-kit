@@ -4,7 +4,9 @@ description: 自动化套件反馈
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
 ---
+
 希望将您的反馈贡献给 {{<product-name>}}?您可以使用以下部分来探索不同的反馈类型。
 
 {{<toc>}}
@@ -40,7 +42,7 @@ include_footer: true
 
 ## 其他贡献方式？
 
-查看我们的[贡献](/zh-Hans/contribution)指导页面。
+查看我们的[贡献](/zh-hans/contribution)指导页面。
 
 ## 反馈
 

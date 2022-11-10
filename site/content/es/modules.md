@@ -4,7 +4,9 @@ description: Módulos del kit de automatización
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
 ---
+
 Esta página describe los módulos clave de la vista previa pública del {{<product-name>}}.
 
 ## Retorno de la inversión

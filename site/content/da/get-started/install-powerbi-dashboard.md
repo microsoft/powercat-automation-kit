@@ -4,7 +4,9 @@ description: Power BI-dashboard til automatiseringssæt
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
 ---
+
 Hvis du vil starte Power BI Dashboard til Automatiseringscenter of Excellence, skal du bruge URL-adressen til miljøet for dit hovedmiljø (hvor Automation CoE Main er installeret).
 
 Hvis du vil hente URL-adressen til miljøet, skal du gå til Power Platform Administration, gå til Miljøer, vælge miljøet og notere URL-adressen til miljø:

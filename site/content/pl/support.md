@@ -4,7 +4,9 @@ description: Obsługa zestawów Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
 ---
+
 ## Wprowadzenie
 
 Ten [Wskazówki dotyczące rozpoczynania pracy](/pl/get-started) Zawiera kilka interaktywnych pytań łączących do źródeł informacji, które mogą pomóc w rozpoczęciu pracy.

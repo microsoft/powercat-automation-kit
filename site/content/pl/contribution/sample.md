@@ -4,7 +4,9 @@ description: Przykład tworzenia zestawu Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 ---
+
 <div class="optional">
 
 Ta strona zawiera przykład do tworzenia zawartości

@@ -4,7 +4,9 @@ description: โมดูลชุดระบบอัตโนมัติ
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
 ---
+
 หน้านี้อธิบายโมดูลหลักของการแสดงตัวอย่างสาธารณะของ {{<product-name>}}.
 
 ## ผลตอบแทนจากการลงทุน

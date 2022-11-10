@@ -4,7 +4,9 @@ description: 自动化套件 - 2022 年 11 月
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 73814007AE6E11EB3B434D0C4BBCC21F70C39413
 ---
+
 <div class="optional">
 
 ![夏普·阿基米德](/images/sharp-archimedes.png)
@@ -28,7 +30,7 @@ include_footer: true
 {{<slideStyles>}}
 
 {{<slide  id="slide1" audio="releases/november-2022/DataPacks.mp3" description="Automation Kit Overview" image="releases/november-2022/DataPacks.svg" >}}
-随着 11 月发布”[数据包](/zh-Hans/features/datapacks)“是一个关键的新功能。
+随着 11 月发布”[数据包](/zh-hans/features/datapacks)“是一个关键的新功能。
 
 请参阅**开始**部分以加载您的第一个数据包。
 
@@ -45,7 +47,7 @@ include_footer: true
 
 
 {{<slide id="slide3" audio="releases/november-2022/alm-roadmap.mp3" description="ALM Roadmap" localImage="/images/illustrations/alm-roadmap-2022-11.svg" >}}
-对于此版本，其他 Power CAT 托管套件类似 {{<product-name>}} 已转向使用 ALM 加速器来部署我们的 GitHub 版本。您可以在我们的[铝业管理功能](/zh-Hans/features/alm)页。
+对于此版本，其他 Power CAT 托管套件类似 {{<product-name>}} 已转向使用 ALM 加速器来部署我们的 GitHub 版本。您可以在我们的[铝业管理功能](/zh-hans/features/alm)页。
 
 在未来的里程碑中，我们将改进现有的 ALM 加速器流程，以包括 Power Automate Desktop 特定任务，这些任务将扩展应用于 CI/CD ALM 流程。
 {{</slide>}}
@@ -54,15 +56,15 @@ include_footer: true
 
 ## 开始
 
-试用[入门指南](/zh-Hans/get-started)或加入我们的[办公时间](/zh-Hans/office-hours)
+试用[入门指南](/zh-hans/get-started)或加入我们的[办公时间](/zh-hans/office-hours)
 
 ## 先前版本
 
-- [2022年10月](/zh-Hans/releases/october-2022)（乐观达万）
+- [2022年10月](/zh-hans/releases/october-2022)（乐观达万）
 
 ## 下一个版本
 
-- [2022 年 12 月](/zh-Hans/releases/december-2022)（热心-安东内利）
+- [2022 年 12 月](/zh-hans/releases/december-2022)（热心-安东内利）
 
 ## 项目里程碑
 
@@ -72,13 +74,13 @@ include_footer: true
 
 [自动化套件 - 积压工作](https://github.com/orgs/microsoft/projects/486/views/1)
 
-查看[里程碑注释](/zh-Hans/releases/milestones)欲了解更多信息
+查看[里程碑注释](/zh-hans/releases/milestones)欲了解更多信息
 
 ## 主要说明
 
 此版本中的主要功能：
 
--数据包。阅读更多 关于[数据包功能](/zh-Hans/features/datapacks)
+-数据包。阅读更多 关于[数据包功能](/zh-hans/features/datapacks)
 
 ## 发行说明
 
@@ -90,6 +92,6 @@ include_footer: true
 
 ## 发布历史
 
-满[发布历史](/zh-Hans/releases)
+满[发布历史](/zh-hans/releases)
 
 </div>

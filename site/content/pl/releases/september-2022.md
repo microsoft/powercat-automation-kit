@@ -4,7 +4,9 @@ description: Automation Kit - wrzesień 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 7FF6C6A7661FEEE68BD8F5B9345CA32CFFB86374
 ---
+
 ![Żywy Eloin](/images/vibrant-elion.png)
 
 Wrześniowe wydanie (vibrant-elion) {{<product-name>}} to pierwsza publiczna wersja zapoznawcza.

@@ -4,7 +4,9 @@ description: 자동화 키트 - 릴리스 마일스톤
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![마일스톤 루프](/images/milestone-loop.png)
 
 {{ 관련 참고 사항<product-name>}} 마일스톤

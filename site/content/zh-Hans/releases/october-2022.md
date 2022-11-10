@@ -4,28 +4,30 @@ description: 自动化套件 - 2022 年 10 月
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: B01C5A16D416B4C5208E53540B07F5DDAAA880D4
 ---
+
 ![乐观的达万](/images/upbeat-dhawan.png)
 
 10月发布的{{<product-name>}} 是第二个公共预览版。此版本是一个**仅文档**发布和发布资产自 9 月发布以来保持不变。
 
 ## 开始
 
-试用[入门指南](/zh-Hans/get-started)或加入我们的[办公时间](/zh-Hans/office-hours)
+试用[入门指南](/zh-hans/get-started)或加入我们的[办公时间](/zh-hans/office-hours)
 
 ## 先前版本
 
-- [2022 年 9 月](/zh-Hans/releases/september-2022)（活力-埃利昂）
+- [2022 年 9 月](/zh-hans/releases/september-2022)（活力-埃利昂）
 
 ## 下一个版本
 
-- [2022年11月](/zh-Hans/releases/november-2022)（夏普阿基米德）
+- [2022年11月](/zh-hans/releases/november-2022)（夏普阿基米德）
 
 ## 项目里程碑
 
 [自动化套件 - 2022 年 10 月](https://github.com/orgs/microsoft/projects/486/views/3)
 
-查看[里程碑注释](/zh-Hans/releases/milestones)欲了解更多信息
+查看[里程碑注释](/zh-hans/releases/milestones)欲了解更多信息
 
 ## 主要说明
 
@@ -41,7 +43,7 @@ include_footer: true
 
 -这[学习设置清单](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/setup-checklist)包括安装过程的分步指南
 
--这[安装清单](/zh-Hans/get-started/install-checklist)包括不同安装方案的交互式清单
+-这[安装清单](/zh-hans/get-started/install-checklist)包括不同安装方案的交互式清单
 
 ## 发行说明
 
@@ -70,4 +72,4 @@ include_footer: true
 
 ## 发布历史
 
-满[发布历史](/zh-Hans/releases)
+满[发布历史](/zh-hans/releases)

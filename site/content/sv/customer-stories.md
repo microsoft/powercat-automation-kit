@@ -4,7 +4,9 @@ description: Kundberättelser om Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
 ---
+
 # Införandet
 
 Vill se hur kunder eller partner har använt med [{{<product-name>}}](https://aka.ms/ak4pp)? Den här sidan refererar till offentliga kundberättelser och feedback med hjälp av {{<product-name>}}.

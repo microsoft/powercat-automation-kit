@@ -4,7 +4,9 @@ description: Automatiseringssæt kontortid - Oktober 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
 ---
+
 Velkommen til landingssiden for automatiseringssæt til Power Platform november 2022 i kontortid.
 
 Du kan tilmelde dig mødet i kontortiden [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) afholdes tirsdag den 15. november 2022 mellem kl. 07.00 og 8.00 PDT (Se andre tidszoner UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).

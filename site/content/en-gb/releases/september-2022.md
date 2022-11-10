@@ -4,7 +4,9 @@ description: Automation Kit - September 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 7FF6C6A7661FEEE68BD8F5B9345CA32CFFB86374
 ---
+
 ![Vibrant Eloin](/images/vibrant-elion.png)
 
 The September release (vibrant-elion) of the {{<product-name>}} is the first public preview release.

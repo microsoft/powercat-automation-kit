@@ -4,7 +4,9 @@ description: Automatiseringssett Power BI-instrumentbord
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
 ---
+
 Hvis du vil starte Power BI-instrumentbordet for Automation Center of Excellence, trenger du url-adressen for miljøet for hovedmiljøet (der CoE Main for automatisering er installert).
 
 Hvis du vil hente URL-adressen for miljøet, går du til Power Platform-administrasjonssenteret, går til Miljøer, velger miljøet og noterer URL-adressen for miljøet:

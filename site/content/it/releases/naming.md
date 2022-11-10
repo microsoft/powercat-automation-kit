@@ -4,7 +4,9 @@ description: Kit di automazione - Denominazione
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
 ---
+
 Accanto ai numeri di mese e di versione il {{<product-name>}} utilizza un tag code name ogni versione.
 
 ## Processo di generazione

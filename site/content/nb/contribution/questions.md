@@ -4,7 +4,9 @@ description: Spørsmål om redigering av automatiseringssett
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 Denne siden inneholder informasjon om formatet som brukes til å lage interaktive spørsmål som er inkludert som en del av {{<product-name>}} starter.
 
 {{<toc>}}

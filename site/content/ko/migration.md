@@ -4,7 +4,9 @@ description: 자동화 키트 RPA 마이그레이션
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 3A666C6466A336E9BE4CF1AADD4C0658C83F2D6A
 ---
+
 그 {{<product-name>}} **마이그레이션 모듈** 마이그레이션 여정을 가속화하기 위해 고객과의 계약을 기반으로 입증된 도구 및 지침 집합을 제공합니다. Microsoft Power Platform, Microsoft Azure 및 광범위한 Microsoft Cloud 서비스의 강점을 활용하여 다음을 수행할 수 있습니다.
 
 - 비용 절감을 제공한다는 목표를 실현하십시오.

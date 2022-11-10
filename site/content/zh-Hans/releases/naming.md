@@ -4,7 +4,9 @@ description: 自动化套件 - 命名
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
 ---
+
 除了月份和版本号外，{{<product-name>}} 在每个版本使用代号标记。
 
 ## 生成过程

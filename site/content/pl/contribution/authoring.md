@@ -5,7 +5,9 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
+generated: BA10815D9FEC78E27624D30D5760900841FA742C
 ---
+
 W poniższych sekcjach przedstawiono wskazówki i uwagi dotyczące tworzenia dokumentacji początkowej.
 
 {{<toc>}}

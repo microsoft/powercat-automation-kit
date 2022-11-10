@@ -4,7 +4,9 @@ description: オートメーションキットの営業時間 - 2022年10月
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
 ---
+
 Power Platform の自動化キット 2022 年 11 月の営業時間のランディング ページへようこそ。
 
 オフィスアワーセッションに登録できます[https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)2022年11月15日火曜日の午前7:00から午前8:00(太平洋夏時間)に開催されます(他のタイムゾーンUTC -7[https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).

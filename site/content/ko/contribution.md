@@ -4,7 +4,9 @@ description: 자동화 키트 기여
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
 ---
+
 Power Platform 및 Microsoft 클라우드를 기반으로 구축된 오픈 소스 프로젝트로서 우리의 목표는 하이퍼 자동화 여정을 가속화하는 데 도움이 되는 도구와 지침을 신속하게 제공하는 것입니다.
 
 이 여정의 일환으로 우리는 귀하의 피드백을 기반으로 Core Power Platform 엔지니어링 팀과 인큐베이션하고 성숙하고 협력합니다. 이 피드백을 사용하여 핵심 제품에 학습 내용을 포함하여 요구 사항을 개선하고 대응할 것입니다.

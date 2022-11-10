@@ -4,7 +4,9 @@ description: Automation Kit authoring questions
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 This page contains information the format used to author interactive questions that are included as part of the {{<product-name>}} starter.
 
 {{<toc>}}

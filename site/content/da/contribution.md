@@ -4,7 +4,9 @@ description: Bidrag til automatiseringssæt
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
 ---
+
 Som et Open Source-projekt, der er bygget oven på Power Platform og Microsoft Cloud, er vores mål hurtigt at levere værktøjer og vejledning, der kan hjælpe med at fremskynde din hyperautomatiseringsrejse.
 
 Som en del af denne rejse, hvor vi udknver, modnes og samarbejder med Core Power Platforms ingeniørteam baseret på din feedback. Ved hjælp af denne feedback vil vi se på at inkludere læring i kerneproduktet for at forbedre og reagere på dine behov.

@@ -4,7 +4,9 @@ description: 自動化キット - 2023年1月
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: D39E0237F6C3381D3BF4EB452369A1907E5ED0D3
 ---
+
 <div class="optional">
 
 ![ニフティエミー賞](/images/nifty-emmy.png)

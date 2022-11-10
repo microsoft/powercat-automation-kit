@@ -4,7 +4,9 @@ description: 자동화 키트 - 2022년 12월
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 51182A2D941E81195362DDD5F64F44229C321384
 ---
+
 <div class="optional">
 
 ![열성적인 안토넬리스](/images/zealous-antonelli.png)

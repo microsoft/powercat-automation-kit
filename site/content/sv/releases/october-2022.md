@@ -4,7 +4,9 @@ description: Automation Kit - Oktober 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: B01C5A16D416B4C5208E53540B07F5DDAAA880D4
 ---
+
 ![Optimistisk Dhawan](/images/upbeat-dhawan.png)
 
 Oktoberutgåvan (upbeat-dhawan) av {{<product-name>}} är den andra offentliga förhandsversionen. Den här versionen är en **Endast dokumentation** release och release-tillgångarna förblir oförändrade sedan septemberversionen.

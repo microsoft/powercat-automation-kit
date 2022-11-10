@@ -4,7 +4,9 @@ description: 自动化套件常见问题解答
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 4A9EE4B3AC308DB76B690C04F20C9ED04D001229
 ---
+
 # 介绍
 
 此页面包含一组与 {{<product-name>}}.如果您找不到问题的答案，请考虑创建一个[功能请求](https://github.com/microsoft/powercat-automation-kit/issues/new/choose)以更新此页面。
@@ -16,13 +18,13 @@ include_footer: true
 
 ### **问题：**我最好的入门方法是什么？
 
-请参阅我们的[开始](/zh-Hans/get-started)页面了解更多信息。
+请参阅我们的[开始](/zh-hans/get-started)页面了解更多信息。
 
 ## 支持
 
 ### **问题：**如何获得安装或操作 {{<product-name>}}?
 
-参考出[支持](/zh-Hans/support)页面了解更多信息。
+参考出[支持](/zh-hans/support)页面了解更多信息。
 
 ## 自动化卓越中心
 
@@ -40,7 +42,7 @@ include_footer: true
 
 ### **问题：**监控选项如何比较？
 
-查看[监控比较](/zh-Hans/monitoring-compare)页面了解更多信息
+查看[监控比较](/zh-hans/monitoring-compare)页面了解更多信息
 
 ## 路线图
 
@@ -70,8 +72,8 @@ include_footer: true
 
 ### **问题：**如何为 {{<product-name>}} 入门文档？
 
-查看[贡献](/zh-Hans/contribution)页面了解更多信息
+查看[贡献](/zh-hans/contribution)页面了解更多信息
 
 ### **问题：**还有哪些其他方式可以提供反馈？
 
-查看[反馈](/zh-Hans/contribution/feedback)页面了解更多信息
+查看[反馈](/zh-hans/contribution/feedback)页面了解更多信息

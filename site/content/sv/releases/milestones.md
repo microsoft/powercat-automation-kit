@@ -4,7 +4,9 @@ description: Automation Kit - Släpp milstolpar
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![Milstolpe loop](/images/milestone-loop.png)
 
 Anmärkningar om {{<product-name>}} milstolpar

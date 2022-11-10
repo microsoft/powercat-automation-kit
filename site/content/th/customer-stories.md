@@ -4,7 +4,9 @@ description: เรื่องราวของลูกค้า Automation K
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
 ---
+
 # แนะ นำ
 
 ต้องการดูว่าลูกค้าหรือคู่ค้าใช้กับ [{{<product-name>}}](https://aka.ms/ak4pp)? หน้านี้จะอ้างอิงเรื่องราวและคําติชมของลูกค้าสาธารณะโดยใช้ {{<product-name>}}.

@@ -4,7 +4,9 @@ description: Automation Kit office hours - October 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 58C42C28512C7E46B9C130A26D4C063EEF23E382
 ---
+
 Welcome to the Automation Kit for Power Platform October 2022 office hours landing page.
 
 You can register for the office hours session [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) to be held on Tuesday 11th October 2022 between 7:00AM and 8:00AM PDT (See other times timezones [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).

@@ -4,7 +4,9 @@ description: 自動化キットのRPA移行
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 51BFE919A428B5868AA76A825CB86C2620E0173B
 ---
+
 オートメーション キットには、RPA 移行の旅を支援する一連のローコードおよび Microsoft Cloud ツールとガイダンスが用意されています。
 
 オートメーション キットの移行モジュールは、既存のお客様と協力して、既存のソリューションを Power Platform ロボティック プロセス オートメーション (RPA) に移行するのを支援してきた経験に基づいています。

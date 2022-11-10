@@ -4,7 +4,9 @@ description: Kit d’automatisation - Historique des versions
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 05B767C775EE6396E7B53F5B000B257BBA5D2F7A
 ---
+
 La page contient des liens vers l’historique des versions de {{<product-name>}}.
 
 En savoir plus sur notre [Notes d’étape de publication](/fr/releases/milestones)

@@ -4,7 +4,9 @@ description: 자동화 키트 - 2022년 9월
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 7FF6C6A7661FEEE68BD8F5B9345CA32CFFB86374
 ---
+
 ![활기찬 엘로인](/images/vibrant-elion.png)
 
 9 월 릴리스 (활기찬 엘리온) {{<product-name>}}는 첫 번째 공개 미리 보기 릴리스입니다.

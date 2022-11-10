@@ -4,7 +4,9 @@ description: 自動化キットの貢献
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
 ---
+
 Power Platform と Microsoft Cloud の上に構築されたオープン ソース プロジェクトとしての目標は、ハイパーオートメーションの旅を加速するのに役立つツールとガイダンスを迅速に提供することです。
 
 この旅の一環として、お客様のフィードバックに基づいて、コア Power Platform エンジニアリング チームをインキュベートし、成熟させ、協力します。このフィードバックを使用して、コア製品に学習内容を含め、お客様のニーズを改善して対応します。

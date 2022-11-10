@@ -4,7 +4,9 @@ description: 自動化キット - マイルストーンのリリース
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![マイルストーンループ](/images/milestone-loop.png)
 
 {{ に関する注意事項<product-name>}} マイルストーン

@@ -4,7 +4,9 @@ description: Støtte for automatiseringssett
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
 ---
+
 ## Komme i gang
 
 Den [Veiledning for å komme i gang](/nb/get-started) gir noen interaktive spørsmål for å koble deg til informasjonskilder som kan hjelpe deg med å komme i gang.

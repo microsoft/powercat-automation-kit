@@ -4,7 +4,9 @@ description: Kit di automazione - Milestone di rilascio
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![Ciclo Milestone](/images/milestone-loop.png)
 
 Note su {{<product-name>}} pietre miliari

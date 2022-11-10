@@ -4,7 +4,9 @@ description: Fragen zur Erstellung von Automation Kits
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 Diese Seite enthält Informationen über das Format, das zum Erstellen interaktiver Fragen verwendet wird, die als Teil der {{<product-name>}} Starter.
 
 {{<toc>}}

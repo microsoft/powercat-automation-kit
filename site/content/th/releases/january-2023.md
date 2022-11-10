@@ -4,7 +4,9 @@ description: ชุดระบบอัตโนมัติ - มกราค�
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: D39E0237F6C3381D3BF4EB452369A1907E5ED0D3
 ---
+
 <div class="optional">
 
 ![ดีเอ็มมี่](/images/nifty-emmy.png)

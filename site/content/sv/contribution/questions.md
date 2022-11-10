@@ -4,7 +4,9 @@ description: Frågor om redigering av Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 Den här sidan innehåller information om det format som används för att skapa interaktiva frågor som ingår som en del av {{<product-name>}} förrätt.
 
 {{<toc>}}

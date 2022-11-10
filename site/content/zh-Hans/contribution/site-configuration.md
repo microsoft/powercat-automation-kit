@@ -4,7 +4,9 @@ description: 自动化套件文档站点配置
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 1688C7B8A47C92E5EE49BF96C767EF56803F7EC9
 ---
+
 
 在 gh 页面分支中，有一个**site/config.yaml**文件。此文件包含可以更新的密钥配置。你可以在master参考hugo-fresh/config.yaml[https://www.github.com/StefMa/hugo-fresh]()（github.com）为例。
 

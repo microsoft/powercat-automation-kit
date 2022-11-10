@@ -4,7 +4,9 @@ description: Panel de Power BI del Kit de automatización
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
 ---
+
 Para iniciar el panel de Power BI para el Centro de excelencia de automatización, necesitará la dirección URL del entorno principal (donde está instalado Automation CoE Main).
 
 Para obtener la dirección URL del entorno, vaya al Centro de administración de Power Platform, vaya a Entornos, seleccione el entorno y anote la dirección URL del entorno:

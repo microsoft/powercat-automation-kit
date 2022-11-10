@@ -4,7 +4,9 @@ description: Documentazione del kit di automazione Configurazione del sito
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 1688C7B8A47C92E5EE49BF96C767EF56803F7EC9
 ---
+
 
 Nel ramo gh-pages c'è un **site/config.yaml** file. Questo file contiene la configurazione delle chiavi che può essere aggiornata. Puoi fare riferimento a hugo-fresh/config.yaml su master [https://www.github.com/StefMa/hugo-fresh]() (github.com) per esempio.
 

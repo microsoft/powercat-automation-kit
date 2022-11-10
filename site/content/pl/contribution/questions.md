@@ -4,7 +4,9 @@ description: Pytania dotyczące tworzenia zestawu Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 Ta strona zawiera informacje o formacie używanym do tworzenia interaktywnych pytań, które są zawarte jako część {{<product-name>}} rozrusznik.
 
 {{<toc>}}

@@ -4,7 +4,9 @@ description: 자동화 키트 근무 시간
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 75BA1AFEE4864B0410FB50B34100F7CE685D4052
 ---
+
 ## 등록기
 
 <g-emoji class="g-emoji" alias="calendar" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png">📆</g-emoji> 근무 시간 세션에 등록하십시오. [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)

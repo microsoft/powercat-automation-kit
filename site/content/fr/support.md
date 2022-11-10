@@ -4,7 +4,9 @@ description: Prise en charge des kits d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
 ---
+
 ## Commencer
 
 Le [Conseils de mise en route](/fr/get-started) fournit des questions interactives pour vous diriger vers des sources d’information qui pourraient vous aider à démarrer.

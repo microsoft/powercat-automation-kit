@@ -4,7 +4,9 @@ description: Automatiseringskit - Naamgeving
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
 ---
+
 Naast de maand- en versienummers de {{<product-name>}} gebruikt elke release een codenaamtag.
 
 ## Generatieproces

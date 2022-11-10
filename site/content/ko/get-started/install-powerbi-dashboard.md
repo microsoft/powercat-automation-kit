@@ -4,7 +4,9 @@ description: 자동화 키트 Power BI 대시보드
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
 ---
+
 자동화 우수 센터에 대한 Power BI 대시보드를 시작하려면 주 환경(자동화 CoE Main이 설치된 위치)에 대한 환경 URL이 필요합니다.
 
 환경 URL을 가져오려면 Power Platform 관리 센터로 이동하고, 환경으로 이동하고, 환경을 선택하고, 환경 URL을 기록해 둡니다.

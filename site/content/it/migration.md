@@ -4,7 +4,9 @@ description: Migrazione RPA del kit di automazione
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 3A666C6466A336E9BE4CF1AADD4C0658C83F2D6A
 ---
+
 Il {{<product-name>}} **Modulo di migrazione** Ti fornisce un set collaudato di strumenti e indicazioni basati sugli impegni con i clienti per accelerare il percorso di migrazione. Sfruttando la forza di Microsoft Power Platform, Microsoft Azure e dei più ampi servizi Microsoft Cloud puoi:
 
 - Realizza i tuoi obiettivi di fornire risparmi sui costi.

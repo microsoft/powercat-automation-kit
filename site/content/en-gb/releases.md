@@ -4,7 +4,9 @@ description: Automation Kit - Release History
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 05B767C775EE6396E7B53F5B000B257BBA5D2F7A
 ---
+
 The page contains links to the release history for the {{<product-name>}}.
 
 Read more on our [Release Milestone Notes](/en-gb/releases/milestones)

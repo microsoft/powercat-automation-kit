@@ -4,7 +4,9 @@ description: 自动化套件 - 发布里程碑
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![里程碑循环](/images/milestone-loop.png)
 
 关于{{的注意事项<product-name>}} 里程碑
@@ -23,7 +25,7 @@ include_footer: true
 
 -如果未使用功能，请提供对功能进行撤资的途径，以便我们可以专注于更高优先级的功能
 
-- [办公时间](/zh-Hans/office-hours)将用于共享路线图并协助确定要包含在每个里程碑中的新功能和错误的优先级
+- [办公时间](/zh-hans/office-hours)将用于共享路线图并协助确定要包含在每个里程碑中的新功能和错误的优先级
 
 -每个里程碑可能包括功能特性和非功能特性的混合，涵盖文档和质量测试改进
 
@@ -35,8 +37,8 @@ include_footer: true
 
 随着时间的推移，头像和命名的使用应该使我们能够回顾一系列版本，并以图形方式指出随着时间的推移发布的关键功能。
 
-我们[发布命名](/zh-Hans/releases/naming)页面包含有关此过程的更多信息。
+我们[发布命名](/zh-hans/releases/naming)页面包含有关此过程的更多信息。
 
 ## 发布历史
 
-阅读更多关于我们的[发布历史](/zh-Hans/releases/)
+阅读更多关于我们的[发布历史](/zh-hans/releases/)

@@ -4,7 +4,9 @@ description: オートメーションキット - リリース履歴
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 05B767C775EE6396E7B53F5B000B257BBA5D2F7A
 ---
+
 このページには、{{<product-name>}}.
 
 私たちについてもっと読む[リリースマイルストーンノート](/ja/releases/milestones)

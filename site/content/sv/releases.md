@@ -4,7 +4,9 @@ description: Automation Kit - Utgivningshistorik
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 05B767C775EE6396E7B53F5B000B257BBA5D2F7A
 ---
+
 Sidan innehåller länkar till versionshistoriken för {{<product-name>}}.
 
 Läs mer på vår [Viktiga milstolpar](/sv/releases/milestones)

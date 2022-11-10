@@ -4,7 +4,9 @@ description: Moduły zestawów automatyki
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
 ---
+
 Na tej stronie opisano kluczowe moduły publicznej wersji zapoznawczej {{<product-name>}}.
 
 ## Zwrot z inwestycji

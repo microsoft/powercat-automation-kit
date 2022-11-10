@@ -4,7 +4,9 @@ description: 自动化工具包 RPA 迁移
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 3A666C6466A336E9BE4CF1AADD4C0658C83F2D6A
 ---
+
 该 {{<product-name>}}**迁移模块**根据与客户的互动，为您提供一组经过验证的工具和指导，以加快您的迁移之旅。通过利用 Microsoft Power Platform、Microsoft Azure 和更广泛的 Microsoft 云服务的优势，您可以：
 
 -实现节省成本的目标。
@@ -25,11 +27,11 @@ include_footer: true
 
 ## 里程碑状态
 
-我们正在积极利用低代码 Power Platform 和 Microsoft Azure 资源向 {{<product-name>}}.新功能正在被视为[夏普·阿基米德](/zh-Hans/releases/november-2022)里程碑及以后。
+我们正在积极利用低代码 Power Platform 和 Microsoft Azure 资源向 {{<product-name>}}.新功能正在被视为[夏普·阿基米德](/zh-hans/releases/november-2022)里程碑及以后。
 
 ![夏普·阿基米德](/images/sharp-archimedes.png)
 
-要了解有关我们里程碑流程的更多信息，请查看我们的[里程碑发行说明](/zh-Hans/releases/milestones).
+要了解有关我们里程碑流程的更多信息，请查看我们的[里程碑发行说明](/zh-hans/releases/milestones).
 
 ## 重点领域
 

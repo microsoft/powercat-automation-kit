@@ -4,7 +4,9 @@ description: 자동화 키트 고객 사례
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
 ---
+
 # 소개
 
 고객 또는 파트너가 어떻게 사용했는지 확인하고 싶습니다. [{{<product-name>}}](https://aka.ms/ak4pp)? 이 페이지는 {{<product-name>}}.

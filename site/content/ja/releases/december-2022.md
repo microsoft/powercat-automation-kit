@@ -4,7 +4,9 @@ description: 自動化キット - 2022年12月
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 51182A2D941E81195362DDD5F64F44229C321384
 ---
+
 <div class="optional">
 
 ![熱心なアントネリス](/images/zealous-antonelli.png)

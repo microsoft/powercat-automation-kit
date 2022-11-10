@@ -4,7 +4,9 @@ description: 自动化套件 - 2023 年 1 月
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: D39E0237F6C3381D3BF4EB452369A1907E5ED0D3
 ---
+
 <div class="optional">
 
 ![漂亮的艾美奖](/images/nifty-emmy.png)
@@ -27,11 +29,11 @@ include_footer: true
 
 ## 开始
 
-试用[入门指南](/zh-Hans/get-started)或加入我们的[办公时间](/zh-Hans/office-hours)
+试用[入门指南](/zh-hans/get-started)或加入我们的[办公时间](/zh-hans/office-hours)
 
 ## 先前版本
 
-- [2022 年 12 月](/zh-Hans/releases/december-2022)（热心-安东内利）
+- [2022 年 12 月](/zh-hans/releases/december-2022)（热心-安东内利）
 
 ## 下一个版本
 
@@ -43,7 +45,7 @@ include_footer: true
 
 [自动化套件 - 积压工作](https://github.com/orgs/microsoft/projects/486/views/1)
 
-查看[里程碑注释](/zh-Hans/releases/milestones)欲了解更多信息
+查看[里程碑注释](/zh-hans/releases/milestones)欲了解更多信息
 
 ## 主要说明
 
@@ -61,6 +63,6 @@ include_footer: true
 
 ## 发布历史
 
-满[发布历史](/zh-Hans/releases)
+满[发布历史](/zh-hans/releases)
 
 </div>

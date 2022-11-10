@@ -4,7 +4,9 @@ description: Kit d’automatisation Foire aux questions
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 4A9EE4B3AC308DB76B690C04F20C9ED04D001229
 ---
+
 # Introduction
 
 Cette page contient une série de questions fréquemment posées concernant {{<product-name>}}. Si vous ne trouvez pas de réponse à une question que vous avez, envisagez de créer un [Demande de fonctionnalité](https://github.com/microsoft/powercat-automation-kit/issues/new/choose) pour mettre à jour cette page.

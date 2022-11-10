@@ -4,7 +4,9 @@ description: Aide à la mise en route du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 ---
+
 ## Introduction
 
 La mise en route peut être l’un des principaux obstacles à l’évaluation et à l’utilisation du {{<product-name>}} dans votre organisation. Vous pouvez utiliser le formulaire interactif ci-dessous pour vous guider tout au long du processus de démarrage.

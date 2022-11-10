@@ -4,7 +4,9 @@ description: Contributo del kit di automazione
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
 ---
+
 Come progetto Open Source basato su Power Platform e Microsoft Cloud, il nostro obiettivo è fornire rapidamente strumenti e indicazioni per accelerare il percorso di iperautomazione.
 
 Come parte di questo viaggio, mentre incubamo, maturiamo e collaboriamo con il team di ingegneri di Core Power Platform in base al tuo feedback. Utilizzando questo feedback cercheremo di includere gli apprendimenti nel prodotto principale per migliorare e rispondere alle tue esigenze.

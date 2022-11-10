@@ -4,7 +4,9 @@ description: Zestaw automatyki - ALM
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9879BCED5F4B223A5305D8514B67FB43AA12FDDD
 ---
+
 {{<slideStyles>}}
 
 <div class="optional">

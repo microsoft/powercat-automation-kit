@@ -4,7 +4,9 @@ description: Kundenreferenzen zum Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
 ---
+
 # Einleitung
 
 Möchten Sie sehen, wie Kunden oder Partner mit dem [{{<product-name>}}](https://aka.ms/ak4pp)? Diese Seite verweist auf öffentliche Kundenberichte und Feedback mit dem {{<product-name>}}.

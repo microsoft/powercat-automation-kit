@@ -4,7 +4,9 @@ description: Automation Kit getting started helper
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 ---
+
 ## Introduction
 
 Getting started can be one of the key blockers to evaluating and using the {{<product-name>}} in your organization. You can use the interactive form below to step you through the getting started process.

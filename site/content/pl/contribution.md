@@ -4,7 +4,9 @@ description: Wkład zestawu Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
 ---
+
 Jako projekt Open Source oparty na platformie Power Platform i Microsoft Cloud naszym celem jest szybkie dostarczenie narzędzi i wskazówek, które pomogą przyspieszyć podróż hiperautomatyzacji.
 
 W ramach tej podróży inkubujemy, dojrzewamy i współpracujemy z zespołem inżynierów Core Power Platform w oparciu o Wasze opinie. Korzystając z tych opinii, postaramy się uwzględnić wiedzę w podstawowym produkcie, aby ulepszyć i odpowiedzieć na Twoje potrzeby.

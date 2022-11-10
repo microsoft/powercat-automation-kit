@@ -4,7 +4,9 @@ description: Automation Kit Beitrag
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
 ---
+
 Als Open-Source-Projekt, das auf der Power Platform und der Microsoft Cloud aufbaut, ist es unser Ziel, schnell Tools und Anleitungen bereitzustellen, um Ihre Hyperautomatisierung zu beschleunigen.
 
 Als Teil dieser Reise inkubieren, reifen und arbeiten wir mit dem Core Power Platform Engineering-Team basierend auf Ihrem Feedback zusammen. Mit diesem Feedback werden wir versuchen, Erkenntnisse in das Kernprodukt aufzunehmen, um Ihre Bedürfnisse zu verbessern und darauf zu reagieren.

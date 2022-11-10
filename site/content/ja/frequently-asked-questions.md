@@ -4,7 +4,9 @@ description: オートメーションキットのよくある質問
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 4A9EE4B3AC308DB76B690C04F20C9ED04D001229
 ---
+
 # 紹介
 
 このページには、{{<product-name>}}.質問に対する回答が見つからない場合は、[機能要求](https://github.com/microsoft/powercat-automation-kit/issues/new/choose)をクリックしてこのページを更新します。

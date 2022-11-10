@@ -4,7 +4,9 @@ description: 자동화 키트 근무 시간 - 2022년 10월
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 58C42C28512C7E46B9C130A26D4C063EEF23E382
 ---
+
 Power Platform용 자동화 키트 2022년 10월 근무 시간 랜딩 페이지에 오신 것을 환영합니다.
 
 근무 시간 세션에 등록할 수 있습니다. [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) 2022년 10월 11일 화요일 오전 7:00에서 오전 8:00 PDT 사이에 개최됩니다(다른 시간대 참조). [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).

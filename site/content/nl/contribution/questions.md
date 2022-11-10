@@ -4,7 +4,9 @@ description: Vragen over het ontwerpen van Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 Deze pagina bevat informatie over de indeling die wordt gebruikt om interactieve vragen te stellen die zijn opgenomen als onderdeel van de {{<product-name>}} starter.
 
 {{<toc>}}

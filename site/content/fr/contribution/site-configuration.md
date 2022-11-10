@@ -4,7 +4,9 @@ description: Configuration du site de documentation du kit d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 1688C7B8A47C92E5EE49BF96C767EF56803F7EC9
 ---
+
 
 Dans la branche gh-pages, il y a un **site/config.yaml** lime. Ce fichier contient la configuration des clés qui peuvent être mises à jour. Vous pouvez vous référer à hugo-fresh/config.yaml à master [https://www.github.com/StefMa/hugo-fresh]() (github.com) par exemple.
 

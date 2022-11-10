@@ -4,7 +4,9 @@ description: Heures de bureau du kit d’automatisation - Octobre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 58C42C28512C7E46B9C130A26D4C063EEF23E382
 ---
+
 Bienvenue sur la page d’accueil Automation Kit for Power Platform d’octobre 2022 sur les heures de bureau.
 
 Vous pouvez vous inscrire à la session des heures de bureau [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) qui se tiendra le mardi 11 octobre 2022 entre 7h00 et 8h00 PDT (Voir autres fuseaux horaires [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).

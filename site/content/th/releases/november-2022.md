@@ -4,7 +4,9 @@ description: ชุดระบบอัตโนมัติ - พฤศจิ�
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 73814007AE6E11EB3B434D0C4BBCC21F70C39413
 ---
+
 <div class="optional">
 
 ![อาร์คิมิดีสชาร์ป](/images/sharp-archimedes.png)

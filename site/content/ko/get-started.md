@@ -4,7 +4,9 @@ description: 자동화 키트 시작 도우미
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 ---
+
 ## 소개
 
 시작하는 것은 {{<product-name>}} 조직에서. 아래의 대화형 양식을 사용하여 시작 프로세스를 단계별로 진행할 수 있습니다.

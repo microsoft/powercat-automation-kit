@@ -4,18 +4,20 @@ description: 自动化套件办公时间
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 75BA1AFEE4864B0410FB50B34100F7CE685D4052
 ---
+
 ## 注册
 
 <g-emoji class="g-emoji" alias="calendar" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png">📆</g-emoji>注册我们的办公时间会议[https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)
 
-> 访问我们的[2022年11月](/zh-Hans/office-hours/november-2022)登陆页面以获取更多信息并提供反馈。
+> 访问我们的[2022年11月](/zh-hans/office-hours/november-2022)登陆页面以获取更多信息并提供反馈。
 
 ![办公时间](/images/office-hours.png)
 
 ## 历史
 
-访问我们的[历史](/zh-Hans/office-hours/history)页面链接到以前的/计划的办公时间。
+访问我们的[历史](/zh-hans/office-hours/history)页面链接到以前的/计划的办公时间。
 
 ## 告诉我更多
 

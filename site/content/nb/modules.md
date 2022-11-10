@@ -4,7 +4,9 @@ description: Moduler for automatiseringssett
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
 ---
+
 Denne siden beskriver nøkkelmodulene i den offentlige forhåndsversjonen av {{<product-name>}}.
 
 ## Avkastning på investeringen

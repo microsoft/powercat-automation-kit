@@ -4,7 +4,9 @@ description: 自动化套件模块
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
 ---
+
 本页介绍 {{<product-name>}}.
 
 ## 投资回报
@@ -21,4 +23,4 @@ include_footer: true
 
 ## 迁移
 
-可选迁移根据与客户的互动为您提供一组经过验证的工具和指导，以加快迁移之旅。[阅读更多](/zh-Hans/migration)
+可选迁移根据与客户的互动为您提供一组经过验证的工具和指导，以加快迁移之旅。[阅读更多](/zh-hans/migration)

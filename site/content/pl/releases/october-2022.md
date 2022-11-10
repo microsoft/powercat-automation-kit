@@ -4,7 +4,9 @@ description: Automation Kit - październik 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: B01C5A16D416B4C5208E53540B07F5DDAAA880D4
 ---
+
 ![Optymistyczny Dhawan](/images/upbeat-dhawan.png)
 
 Październikowe wydanie (upbeat-dhawan) {{<product-name>}} jest drugim publicznym wydaniem zapoznawczego. To wydanie jest **Tylko dokumentacja** i zasoby wydania pozostają niezmienione od wrześniowej wersji.

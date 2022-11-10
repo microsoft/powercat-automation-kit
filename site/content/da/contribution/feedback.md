@@ -4,7 +4,9 @@ description: Feedback om automatiseringssæt
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
 ---
+
 Ønsker at bidrage med din feedback til {{<product-name>}}? Du kan bruge afsnittene nedenfor til at udforske de forskellige feedbacktyper.
 
 {{<toc>}}

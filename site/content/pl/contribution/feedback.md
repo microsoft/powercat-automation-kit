@@ -4,7 +4,9 @@ description: Informacje zwrotne o zestawie Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
 ---
+
 Chcemy podzielić się swoją opinią na temat {{<product-name>}}? Możesz skorzystać z poniższych sekcji, aby zapoznać się z różnymi typami opinii.
 
 {{<toc>}}

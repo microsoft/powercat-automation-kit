@@ -4,7 +4,9 @@ description: Ayudante de introducción del kit de automatización
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 ---
+
 ## Introducción
 
 Comenzar puede ser uno de los bloqueadores clave para evaluar y usar el {{<product-name>}} en su organización. Puede usar el formulario interactivo a continuación para guiarlo a través del proceso de introducción.

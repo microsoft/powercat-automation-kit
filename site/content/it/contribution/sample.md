@@ -4,7 +4,9 @@ description: Esempio di creazione di kit di automazione
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 ---
+
 <div class="optional">
 
 In questa pagina viene fornito un esempio per la creazione di contenuto

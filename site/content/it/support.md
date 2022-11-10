@@ -4,7 +4,9 @@ description: Supporto kit di automazione
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
 ---
+
 ## Introduttiva
 
 Le [Guida introduttiva](/it/get-started) Vengono fornite alcune domande interattive per collegare l'utente a fonti di informazioni che potrebbero aiutare a iniziare.

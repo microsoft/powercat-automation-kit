@@ -4,7 +4,9 @@ description: Konfigurasjon av nettstedskonfigurasjon for automatiseringssett
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 1688C7B8A47C92E5EE49BF96C767EF56803F7EC9
 ---
+
 
 I gh-sider grenen er det en **nettsted/config.yaml** fil. Denne filen inneholder nøkkelkonfigurasjon som kan oppdateres. Du kan referere til hugo-fresh/config.yaml på master [https://www.github.com/StefMa/hugo-fresh]() (github.com) for eksempler.
 

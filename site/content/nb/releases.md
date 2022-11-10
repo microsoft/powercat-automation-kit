@@ -4,7 +4,9 @@ description: Automatiseringssett – utgivelseshistorikk
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 05B767C775EE6396E7B53F5B000B257BBA5D2F7A
 ---
+
 Siden inneholder lenker til utgivelseshistorikken for {{<product-name>}}.
 
 Les mer på vår [Fotnoter for utgivelser](/nb/releases/milestones)

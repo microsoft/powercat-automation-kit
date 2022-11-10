@@ -4,7 +4,9 @@ description: 自动化工具包创作问题
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 此页面包含用于创作交互式问题的格式的信息，这些问题作为 {{ 的一部分包含在<product-name>}} 启动器。
 
 {{<toc>}}

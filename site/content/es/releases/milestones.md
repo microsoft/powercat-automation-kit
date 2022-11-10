@@ -4,7 +4,9 @@ description: Kit de automatización - Hitos de lanzamiento
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![Bucle de hito](/images/milestone-loop.png)
 
 Notas sobre {{<product-name>}} hitos

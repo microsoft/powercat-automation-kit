@@ -4,7 +4,9 @@ description: 자동화 키트 지원
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
 ---
+
 ## 시작
 
 그 [시작 지침](/ko/get-started) 시작하는 데 도움이 될 수 있는 정보 소스로 연결되는 몇 가지 대화형 질문을 제공합니다.

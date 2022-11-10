@@ -4,7 +4,9 @@ description: Domande sulla creazione di Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 Questa pagina contiene informazioni sul formato utilizzato per creare domande interattive incluse come parte del {{<product-name>}} antipasto.
 
 {{<toc>}}

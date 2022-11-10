@@ -4,7 +4,9 @@ description: Ofte stillede spørgsmål om Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 4A9EE4B3AC308DB76B690C04F20C9ED04D001229
 ---
+
 # Indførelsen
 
 Denne side indeholder et sæt ofte stillede spørgsmål relateret til {{<product-name>}}. Hvis du ikke kan finde svar på et spørgsmål, du har, kan du overveje at oprette en [Anmodning om funktion](https://github.com/microsoft/powercat-automation-kit/issues/new/choose) for at opdatere denne side.

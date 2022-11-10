@@ -4,7 +4,9 @@ description: Automation Kit - Release mijlpalen
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![Mijlpaal Loop](/images/milestone-loop.png)
 
 Opmerkingen over {{<product-name>}} mijlpalen

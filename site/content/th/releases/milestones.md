@@ -4,7 +4,9 @@ description: ชุดระบบอัตโนมัติ - เผยแพ�
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![ลูปไมล์สโตน](/images/milestone-loop.png)
 
 หมายเหตุเกี่ยวกับ {{<product-name>}} เหตุการณ์สําคัญ

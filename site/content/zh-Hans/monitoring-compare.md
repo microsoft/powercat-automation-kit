@@ -4,7 +4,9 @@ description: 自动化工具包 RPA 迁移
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 51BFE919A428B5868AA76A825CB86C2620E0173B
 ---
+
 自动化工具包提供了一组低代码和 Microsoft 云工具和指南，可帮助你完成 RPA 迁移之旅。
 
 自动化套件迁移模块基于我们与现有客户合作的经验，帮助他们将现有解决方案迁移到 Power Platform 机器人流程自动化 （RPA）。
@@ -13,9 +15,9 @@ include_footer: true
 
 ## 地位
 
-作为[夏普·阿基米德](/zh-Hans/releases/november-2022)里程碑及以后，自动化工具包团队正在计划持续更新，以优先处理和响应更广泛的 Microsoft Power Platform RPA 迁移问题，以便我们的合作伙伴和客户加速激活 Microsoft Power Automate Desktop 迁移解决方案。
+作为[夏普·阿基米德](/zh-hans/releases/november-2022)里程碑及以后，自动化工具包团队正在计划持续更新，以优先处理和响应更广泛的 Microsoft Power Platform RPA 迁移问题，以便我们的合作伙伴和客户加速激活 Microsoft Power Automate Desktop 迁移解决方案。
 
-有关我们迁移计划流程的进一步说明，请查看[发布里程碑说明](/zh-Hans/releases/milestones)
+有关我们迁移计划流程的进一步说明，请查看[发布里程碑说明](/zh-hans/releases/milestones)
 
 ![夏普·阿基米德](/images/sharp-archimedies.png)
 

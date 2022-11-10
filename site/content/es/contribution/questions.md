@@ -4,7 +4,9 @@ description: Preguntas sobre la creación del Kit de automatización
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 Esta página contiene información sobre el formato utilizado para crear preguntas interactivas que se incluyen como parte del {{<product-name>}} iniciador.
 
 {{<toc>}}

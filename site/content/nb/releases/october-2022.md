@@ -4,7 +4,9 @@ description: Automatiseringssett - Oktober 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: B01C5A16D416B4C5208E53540B07F5DDAAA880D4
 ---
+
 ![Optimistisk Dhawan](/images/upbeat-dhawan.png)
 
 Oktober-utgivelsen (upbeat-dhawan) av {{<product-name>}} er den andre offentlige forhåndsversjonen. Denne utgivelsen er en **bare dokumentasjon** utgivelses- og utgivelsesressursene forblir uendret siden utgivelsen i september.

@@ -4,7 +4,9 @@ description: Comentarios sobre el kit de automatización
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
 ---
+
 Buscando contribuir con sus comentarios al {{<product-name>}}? Puede utilizar las secciones siguientes para explorar los diferentes tipos de comentarios.
 
 {{<toc>}}

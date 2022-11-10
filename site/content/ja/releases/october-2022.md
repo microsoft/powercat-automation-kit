@@ -4,7 +4,9 @@ description: 自動化キット - 2022 年 10 月
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: B01C5A16D416B4C5208E53540B07F5DDAAA880D4
 ---
+
 ![明るいダーワン](/images/upbeat-dhawan.png)
 
 10月のリリース(アップビートダーワン)の{{<product-name>}} は 2 番目のパブリック プレビュー リリースです。このリリースは**ドキュメントのみ**リリースとリリースアセットは、9月のリリースから変更されていません。

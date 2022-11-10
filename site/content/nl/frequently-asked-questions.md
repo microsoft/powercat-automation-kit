@@ -4,7 +4,9 @@ description: Automation Kit - Veelgestelde vragen
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 4A9EE4B3AC308DB76B690C04F20C9ED04D001229
 ---
+
 # Introductie
 
 Deze pagina bevat een reeks veelgestelde vragen met betrekking tot de {{<product-name>}}. Als u geen antwoord kunt vinden op een vraag die u hebt overwogen om een [Functieverzoek](https://github.com/microsoft/powercat-automation-kit/issues/new/choose) om deze pagina bij te werken.

@@ -4,7 +4,9 @@ description: Automation Kit kantooruren - oktober 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 58C42C28512C7E46B9C130A26D4C063EEF23E382
 ---
+
 Welkom op de landingspagina van de Automation Kit for Power Platform voor kantooruren oktober 2022.
 
 U kunt zich aanmelden voor de kantoorurensessie [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) wordt gehouden op dinsdag 11 oktober 2022 tussen 07:00 en 08:00 uur PDT (zie tijdzones van andere tijden [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).

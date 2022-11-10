@@ -4,7 +4,9 @@ description: Kit di automazione - Settembre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 7FF6C6A7661FEEE68BD8F5B9345CA32CFFB86374
 ---
+
 ![Eloin vibrante](/images/vibrant-elion.png)
 
 La versione di settembre (vibrant-elion) del {{<product-name>}} è la prima versione di anteprima pubblica.

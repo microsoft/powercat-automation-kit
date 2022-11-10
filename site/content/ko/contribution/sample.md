@@ -4,7 +4,9 @@ description: 자동화 키트 작성 샘플
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 ---
+
 <div class="optional">
 
 이 페이지에서는 콘텐츠 작성을 위한 샘플을 제공합니다.

@@ -4,7 +4,9 @@ description: Automation Kit - Nazewnictwo
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
 ---
+
 Oprócz numeru miesiąca i wersji {{<product-name>}} używa znacznika nazwy kodowej w każdym wydaniu.
 
 ## Proces generowania

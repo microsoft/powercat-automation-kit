@@ -4,7 +4,9 @@ description: 自動化キット - フィードバックに関する質問
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 0F36F3A970837B178BEC0CF01C6C0E7B29C88A01
 ---
+
 次の質問に対するフィードバックをお寄せください。
 
 {{<questions  name="feedback.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}

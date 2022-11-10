@@ -4,7 +4,9 @@ description: 自動化キットのサポート
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
 ---
+
 ## はじめ
 
 ザ[入門ガイダンス](/ja/get-started)は、作業を開始するのに役立つ情報源にリンクするためのインタラクティブな質問をいくつか提供します。

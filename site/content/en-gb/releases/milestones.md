@@ -4,7 +4,9 @@ description: Automation Kit - Release Milestones
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![Milestone Loop](/images/milestone-loop.png)
 
 Notes about {{<product-name>}} milestones

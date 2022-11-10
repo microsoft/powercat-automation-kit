@@ -4,7 +4,9 @@ description: 자동화 키트 피드백
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
 ---
+
 {{<product-name>}}? 아래 섹션을 사용하여 다양한 피드백 유형을 탐색할 수 있습니다.
 
 {{<toc>}}

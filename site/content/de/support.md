@@ -4,7 +4,9 @@ description: Support für Automation Kits
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
 ---
+
 ## Erste Schritte
 
 Das [Anleitung zu den ersten Schritten](/de/get-started) Enthält einige interaktive Fragen, um Sie mit Informationsquellen zu verknüpfen, die Ihnen den Einstieg erleichtern könnten.

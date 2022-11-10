@@ -4,7 +4,9 @@ description: Spørgsmål om oprettelse af automatiseringssæt
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 Denne side indeholder oplysninger om det format, der bruges til at oprette interaktive spørgsmål, der er inkluderet som en del af {{<product-name>}} starter.
 
 {{<toc>}}

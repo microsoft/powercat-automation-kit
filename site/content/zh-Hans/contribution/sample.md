@@ -4,7 +4,9 @@ description: 自动化工具包创作示例
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 ---
+
 <div class="optional">
 
 此页面提供创作内容的示例
@@ -40,7 +42,7 @@ include_footer: true
 
 {{<slide  id="slide2" audio="authoring/goals.mp3" description="Authoring Goals" localImage="/images/illustrations/Authoring-Goals.svg" >}}
 
-的设计目标[创作](/zh-Hans/contribution/authoring)过程是允许一个共同创造模型作为核心团队建设和维护{{<product-name>}}和社区。此社区可以与客户或合作伙伴一起。
+的设计目标[创作](/zh-hans/contribution/authoring)过程是允许一个共同创造模型作为核心团队建设和维护{{<product-name>}}和社区。此社区可以与客户或合作伙伴一起。
 
 内容创作于[降价](https://learn.microsoft.com/contribute/markdown-reference)类似于[微软学习网站](https://learn.microsoft.com).
 

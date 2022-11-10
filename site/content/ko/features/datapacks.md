@@ -4,7 +4,9 @@ description: 자동화 키트 데이터 팩
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: BEA89993168AC33B19A338208B6665AE7E726557
 ---
+
 {{<toc>}}
 
 ## 소개

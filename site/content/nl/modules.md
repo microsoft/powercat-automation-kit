@@ -4,7 +4,9 @@ description: Automatisering Kit Modules
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
 ---
+
 Op deze pagina worden de belangrijkste modules van de openbare preview van de {{<product-name>}}.
 
 ## Rendement op investering

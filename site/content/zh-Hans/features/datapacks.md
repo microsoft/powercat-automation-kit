@@ -4,7 +4,9 @@ description: 自动化套件数据包
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: BEA89993168AC33B19A338208B6665AE7E726557
 ---
+
 {{<toc>}}
 
 ## 介绍
@@ -17,9 +19,9 @@ include_footer: true
 
 <br/>
 
-作为[2022年11月](/zh-Hans/releases/november-2022)，则数据包使您能够选择性地导入示例数据。
+作为[2022年11月](/zh-hans/releases/november-2022)，则数据包使您能够选择性地导入示例数据。
 
-投资回报 （ROI） 数据包允许你通过自动化工具包 Power BI 仪表板快速演示投资回报的规划、计量和监视。您可以使用[开始](/zh-Hans#getting-started)部分。
+投资回报 （ROI） 数据包允许你通过自动化工具包 Power BI 仪表板快速演示投资回报的规划、计量和监视。您可以使用[开始](/zh-hans#getting-started)部分。
 
 随着时间的推移，我们会将其他数据包添加到积压工作中以确定优先级，并记录如何协作将数据包发布到社区。
 
@@ -65,7 +67,7 @@ pac auth create --url https://contoso.crm.dynamics.com/
 pac data import -d AutomationKit-SampleData.zip --environment https://contoso.crm.dynamics.com/ 
 ```
 
--将从中下载的 Power BI 仪表板与环境连接，以浏览导入的数据。用[安装 Power BI 仪表板](/zh-Hans/get-started/install-powerbi-dashboard)欲了解更多信息
+-将从中下载的 Power BI 仪表板与环境连接，以浏览导入的数据。用[安装 Power BI 仪表板](/zh-hans/get-started/install-powerbi-dashboard)欲了解更多信息
 
 ## 反馈
 

@@ -4,7 +4,9 @@ description: Automation Kit Power BI-dashboard
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
 ---
+
 Als u het Power BI-dashboard voor het Automation Center of Excellence wilt starten, hebt u de omgevings-URL nodig voor uw hoofdomgeving (waar Automation CoE Main is geïnstalleerd).
 
 Als u de omgevings-URL wilt verkrijgen, navigeert u naar het Power Platform Admin Center, gaat u naar Omgevingen, selecteert u de omgeving en noteert u de omgevings-URL:

@@ -4,7 +4,9 @@ description: Kit d’automatisation - Dénomination
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
 ---
+
 À côté des numéros de mois et de version, le {{<product-name>}} utilise une balise de nom de code pour chaque version.
 
 ## Processus de génération

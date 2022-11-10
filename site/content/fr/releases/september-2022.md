@@ -4,7 +4,9 @@ description: Kit d’automatisation - Septembre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 7FF6C6A7661FEEE68BD8F5B9345CA32CFFB86374
 ---
+
 ![Filiforme vibrante](/images/vibrant-elion.png)
 
 La sortie en septembre (vibrant-elion) du {{<product-name>}} est la première version d’aperçu publique.

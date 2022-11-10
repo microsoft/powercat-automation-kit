@@ -4,7 +4,9 @@ description: Bidrag från Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
 ---
+
 Som ett projekt med öppen källkod som bygger på Power Platform och Microsoft Cloud är vårt mål att snabbt tillhandahålla verktyg och vägledning som hjälper dig att påskynda din hyperautomatiseringsresa.
 
 Som en del av den här resan när vi inkuberar, mognar och samarbetar med Core Power Platform-teknikteamet baserat på din feedback. Med hjälp av denna feedback kommer vi att försöka inkludera lärdomar i kärnprodukten för att förbättra och svara på dina behov.

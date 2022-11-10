@@ -4,7 +4,9 @@ description: 自动化套件 - 2022 年 12 月
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 51182A2D941E81195362DDD5F64F44229C321384
 ---
+
 <div class="optional">
 
 ![热心的安东尼利斯](/images/zealous-antonelli.png)
@@ -27,15 +29,15 @@ include_footer: true
 
 ## 开始
 
-试用[入门指南](/zh-Hans/get-started)或加入我们的[办公时间](/zh-Hans/office-hours)
+试用[入门指南](/zh-hans/get-started)或加入我们的[办公时间](/zh-hans/office-hours)
 
 ## 先前版本
 
-- [2022年11月](/zh-Hans/releases/november-2022)（夏普阿基米德）
+- [2022年11月](/zh-hans/releases/november-2022)（夏普阿基米德）
 
 ## 下一个版本
 
-- [2023 年 1 月](/zh-Hans/releases/january-2023)（漂亮的艾美奖）
+- [2023 年 1 月](/zh-hans/releases/january-2023)（漂亮的艾美奖）
 
 ## 项目里程碑
 
@@ -43,7 +45,7 @@ include_footer: true
 
 [自动化套件 - 积压工作](https://github.com/orgs/microsoft/projects/486/views/1)
 
-查看[里程碑注释](/zh-Hans/releases/milestones)欲了解更多信息
+查看[里程碑注释](/zh-hans/releases/milestones)欲了解更多信息
 
 ## 主要说明
 
@@ -61,6 +63,6 @@ include_footer: true
 
 ## 发布历史
 
-满[发布历史](/zh-Hans/releases)
+满[发布历史](/zh-hans/releases)
 
 </div>

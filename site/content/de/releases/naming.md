@@ -4,7 +4,9 @@ description: Automation Kit - Namensgebung
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
 ---
+
 Neben den Monats- und Versionsnummern wird {{<product-name>}} verwendet bei jeder Version ein Codenamen-Tag.
 
 ## Generierungsprozess

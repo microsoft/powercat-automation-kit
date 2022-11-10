@@ -4,7 +4,9 @@ description: 自动化套件客户案例
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
 ---
+
 # 介绍
 
 想要了解客户或合作伙伴如何使用[{{<product-name>}}](https://aka.ms/ak4pp)?此页面将使用 {{<product-name>}}.

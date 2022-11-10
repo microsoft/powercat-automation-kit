@@ -4,7 +4,9 @@ description: Migrazione RPA del kit di automazione
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 51BFE919A428B5868AA76A825CB86C2620E0173B
 ---
+
 L'Automation Kit fornisce un set di strumenti low code e Microsoft Cloud e indicazioni per assisterti nel percorso di migrazione RPA.
 
 Il modulo Automation Kit Migration si basa sulla nostra esperienza di lavoro con i clienti esistenti per aiutarli a migrare le soluzioni esistenti a Power Platform Robotic Process Automation (RPA).

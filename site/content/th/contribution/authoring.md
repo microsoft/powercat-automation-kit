@@ -5,7 +5,9 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
+generated: BA10815D9FEC78E27624D30D5760900841FA742C
 ---
+
 ส่วนต่อไปนี้จะสรุปแนวทางและหมายเหตุสําหรับการเขียนเอกสารเริ่มต้น
 
 {{<toc>}}

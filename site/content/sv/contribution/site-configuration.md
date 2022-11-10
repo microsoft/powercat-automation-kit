@@ -4,7 +4,9 @@ description: Webbplatskonfiguration för dokumentation för automatiseringspaket
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 1688C7B8A47C92E5EE49BF96C767EF56803F7EC9
 ---
+
 
 I gh-sidornas gren finns en **webbplats/config.yaml** fil. Den här filen innehåller nyckelkonfiguration som kan uppdateras. Du kan referera till hugo-fresh/config.yaml på master [https://www.github.com/StefMa/hugo-fresh]() (github.com) för exempel.
 

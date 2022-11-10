@@ -4,7 +4,9 @@ description: Konfiguration der Automation Kit-Dokumentation Site
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 1688C7B8A47C92E5EE49BF96C767EF56803F7EC9
 ---
+
 
 Im Zweig gh-pages gibt es eine **site/config.yaml** Datei. Diese Datei enthält die Schlüsselkonfiguration, die aktualisiert werden kann. Sie können auf hugo-fresh/config.yaml bei master verweisen [https://www.github.com/StefMa/hugo-fresh]() (github.com) für Beispiele.
 

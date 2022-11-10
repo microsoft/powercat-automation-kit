@@ -4,7 +4,9 @@ description: 자동화 키트 자주 묻는 질문
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 4A9EE4B3AC308DB76B690C04F20C9ED04D001229
 ---
+
 # 소개
 
 이 페이지에는 {{<product-name>}}. 질문에 대한 답변을 찾을 수 없으면 [기능 요청](https://github.com/microsoft/powercat-automation-kit/issues/new/choose) 이 페이지를 업데이트합니다.

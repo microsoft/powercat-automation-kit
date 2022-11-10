@@ -4,7 +4,9 @@ description: Kit di automazione - Dicembre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 51182A2D941E81195362DDD5F64F44229C321384
 ---
+
 <div class="optional">
 
 ![Lo zelante Antonellis](/images/zealous-antonelli.png)

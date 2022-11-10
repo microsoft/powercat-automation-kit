@@ -3,7 +3,9 @@ title: 概述
 description: 自动化套件 - 概述
 sidebar: false
 sidebarlogo: fresh-white
+generated: E841F2B13005D1C9AEDB5A8BB90283DCDDD3DDE2
 ---
+
 <div class="optional">
 
 {{<toc>}}
@@ -26,9 +28,9 @@ sidebarlogo: fresh-white
 
 ## 后续步骤
 
-- [开始](/zh-Hans/get-started)设置自动化套件
--探索可选[数据包](/zh-Hans/features/datapacks)加载示例数据
--调查如何[桫椤](/zh-Hans/features/alm)可以帮助您自动部署解决方案
+- [开始](/zh-hans/get-started)设置自动化套件
+-探索可选[数据包](/zh-hans/features/datapacks)加载示例数据
+-调查如何[桫椤](/zh-hans/features/alm)可以帮助您自动部署解决方案
 
 ## 反馈
 
@@ -146,7 +148,7 @@ Power BI 仪表板提供自动化项目的端到端视图、预期目标和实�
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 在现有 ALM 加速器功能的基础上，我们计划添加特定于 RPA 的操作，这些操作使将 Power Automate Desktop 组件集成到自动化部署和审查过程中的过程。
 
-阅读更多 关于[托管环境为平台管道和 ALM 加速器提供支持](/zh-Hans/features/alm)以及它们如何帮助您部署和管理自动化解决方案。
+阅读更多 关于[托管环境为平台管道和 ALM 加速器提供支持](/zh-hans/features/alm)以及它们如何帮助您部署和管理自动化解决方案。
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}

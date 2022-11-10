@@ -4,7 +4,9 @@ description: ชุดระบบอัตโนมัติ - ธันวา�
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 51182A2D941E81195362DDD5F64F44229C321384
 ---
+
 <div class="optional">
 
 ![แอนโทเนลลิสที่กระตือรือร้น](/images/zealous-antonelli.png)

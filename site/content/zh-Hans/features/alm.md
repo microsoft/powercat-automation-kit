@@ -4,7 +4,9 @@ description: 自动化套件 - ALM
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9879BCED5F4B223A5305D8514B67FB43AA12FDDD
 ---
+
 {{<slideStyles>}}
 
 <div class="optional">
@@ -35,7 +37,7 @@ include_footer: true
 
 ## 向电源猫学习
 
-您还可以阅读更多我们作为 Power CAT 团队如何使用 ALM 加速器来运送[电源 CAT 自动化套件 ALM](/zh-Hans/features/alm/powercat).
+您还可以阅读更多我们作为 Power CAT 团队如何使用 ALM 加速器来运送[电源 CAT 自动化套件 ALM](/zh-hans/features/alm/powercat).
 
 ## 资源
 

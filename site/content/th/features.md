@@ -4,7 +4,9 @@ description: ชุดระบบอัตโนมัติ - คุณสม�
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 45A0D5867A5EBFB5473D0873BC8AC61FCD780559
 ---
+
 {{<toc>}}
 
 ## จัดการ ควบคุม และปรับขนาด

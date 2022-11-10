@@ -4,7 +4,9 @@ description: Automation Kit - Namngivning
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
 ---
+
 Vid sidan av månaden och versionsnumren {{<product-name>}} använder en kodnamnstagg varje version.
 
 ## Generering Process

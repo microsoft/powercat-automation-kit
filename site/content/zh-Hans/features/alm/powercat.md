@@ -4,7 +4,9 @@ description: 自动化套件 - ALM 电源卡特
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 0087DF5B505764347AC2AF0B6C170474826A5D65
 ---
+
 {{<slideStyles>}}
 
 <div class="optional">
@@ -58,7 +60,7 @@ Power CAT 团队使用 ALM 加速器来构建和部署我们的每个[释放](ht
 
 每个版本都会促进从我们的开发到测试和生产环境的更改。工具包中的 Power Platform 解决方案使用自动化流程打包资产以部署到公共 GitHub 版本。
 
-在未来的里程碑中，我们将在现有平台上进行扩展[铝业管理功能](/zh-Hans/features/alm)提供示例，说明如何将验证规则和 RPA 示例的可视化比较作为 DevOps 过程的一部分。
+在未来的里程碑中，我们将在现有平台上进行扩展[铝业管理功能](/zh-hans/features/alm)提供示例，说明如何将验证规则和 RPA 示例的可视化比较作为 DevOps 过程的一部分。
 
 {{</slide>}}
 

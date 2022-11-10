@@ -5,7 +5,9 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
+generated: BA10815D9FEC78E27624D30D5760900841FA742C
 ---
+
 The following sections outline guidelines and notes for authoring starter documentation.
 
 {{<toc>}}

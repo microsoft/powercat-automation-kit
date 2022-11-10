@@ -4,7 +4,9 @@ description: オートメーションキットのお客様事例
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
 ---
+
 # 紹介
 
 顧客またはパートナーが[{{<product-name>}}](https://aka.ms/ak4pp)?このページでは、公開されている顧客事例とフィードバックを {{<product-name>}}.

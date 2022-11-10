@@ -4,7 +4,9 @@ description: Paquetes de datos del kit de automatización
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: BEA89993168AC33B19A338208B6665AE7E726557
 ---
+
 {{<toc>}}
 
 ## Introducción

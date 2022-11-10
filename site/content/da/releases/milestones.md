@@ -4,7 +4,9 @@ description: Automationssæt - Milepæle for udgivelse
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![Milepæl Løkke](/images/milestone-loop.png)
 
 Bemærkninger om {{<product-name>}} milepæle

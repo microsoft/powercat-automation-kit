@@ -4,7 +4,9 @@ description: Kundehistorier fra Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
 ---
+
 # Indførelsen
 
 Vil du se, hvordan kunder eller partnere har brugt med [{{<product-name>}}](https://aka.ms/ak4pp)? Denne side vil referere til offentlige kundehistorier og feedback ved hjælp af {{<product-name>}}.

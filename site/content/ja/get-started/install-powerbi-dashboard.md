@@ -4,7 +4,9 @@ description: Automation Kit Power BI ダッシュボード
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
 ---
+
 オートメーション センター オブ エクセレンスの Power BI ダッシュボードを起動するには、メイン環境 (Automation CoE Main がインストールされている場所) の環境 URL が必要です。
 
 環境 URL を取得するには、Power Platform 管理センターに移動し、環境 に移動して環境を選択し、環境 URL をメモします。

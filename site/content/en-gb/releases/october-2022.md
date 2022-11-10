@@ -4,7 +4,9 @@ description: Automation Kit - October 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: B01C5A16D416B4C5208E53540B07F5DDAAA880D4
 ---
+
 ![Upbeat Dhawan](/images/upbeat-dhawan.png)
 
 The October release (upbeat-dhawan) of the {{<product-name>}} is the second public preview release. This release is a **documentation only** release and the release assets remain unchanged since the September release.

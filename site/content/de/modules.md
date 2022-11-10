@@ -4,7 +4,9 @@ description: Automation Kit Module
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
 ---
+
 Diese Seite beschreibt die wichtigsten Module der öffentlichen Vorschau der {{<product-name>}}.
 
 ## Return On Investment

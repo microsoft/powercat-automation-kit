@@ -4,7 +4,9 @@ description: 自动化套件办公时间 - 2022 年 10 月
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
 ---
+
 欢迎来到电源平台自动化工具包 2022 年 11 月办公时间登录页面。
 
 您可以注册办公时间会议[https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)将于太平洋夏令时 2022 年 11 月 15 日星期二上午 7：00 至上午 8：00 举行（请参阅其他时间时区 UTC -7[https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
@@ -18,7 +20,7 @@ include_footer: true
 -新主题。在下面提供有关您希望优先讨论的可能主题的反馈。
 -计划的路线图。根据您的需求，我们应该优先考虑哪些下一组投资？
 -来自社区的“问我任何事情”风格的问题。
-    -查看我们的[常见问题](/zh-Hans/frequently-asked-questions)
+    -查看我们的[常见问题](/zh-hans/frequently-asked-questions)
     -在下面的反馈中添加您的问题。
 
 ## 提供反馈

@@ -4,7 +4,9 @@ description: Questions sur la création de kits d’automatisation
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
 ---
+
 Cette page contient des informations sur le format utilisé pour créer des questions interactives incluses dans le {{<product-name>}} démarreur.
 
 {{<toc>}}

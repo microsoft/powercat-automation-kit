@@ -4,7 +4,9 @@ description: 自动化工具包入门助手
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 ---
+
 ## 介绍
 
 入门可能是评估和使用 {{<product-name>}} 在您的组织中。您可以使用下面的交互式表单逐步完成入门过程。
@@ -13,7 +15,7 @@ include_footer: true
 
 这[自动化卓越中心战略与{{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy)还可用于提供有关 {{<product-name>}} 可以帮助您的自动化卓越中心。
 
-> 📋 想要直接进入安装？查看[安装清单](/zh-Hans/get-started/install-checklist).
+> 📋 想要直接进入安装？查看[安装清单](/zh-hans/get-started/install-checklist).
 
 ## 清单
 

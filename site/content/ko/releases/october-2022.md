@@ -4,7 +4,9 @@ description: 자동화 키트 - 2022년 10월
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: B01C5A16D416B4C5208E53540B07F5DDAAA880D4
 ---
+
 ![낙관적 인 다완](/images/upbeat-dhawan.png)
 
 10 월 릴리스 (낙관적 인 dhawan) {{<product-name>}}는 두 번째 공개 미리 보기 릴리스입니다. 이 릴리스는 **문서만** 릴리스 및 릴리스 자산은 9월 릴리스 이후 변경되지 않은 상태로 유지됩니다.

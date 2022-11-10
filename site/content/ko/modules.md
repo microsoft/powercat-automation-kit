@@ -4,7 +4,9 @@ description: 자동화 키트 모듈
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
 ---
+
 이 페이지에서는 {{<product-name>}}.
 
 ## 투자 수익

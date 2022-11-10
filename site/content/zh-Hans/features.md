@@ -4,7 +4,9 @@ description: 自动化套件 - 特点
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 45A0D5867A5EBFB5473D0873BC8AC61FCD780559
 ---
+
 {{<toc>}}
 
 ## 管理、治理和扩展
@@ -60,4 +62,4 @@ include_footer: true
 
 ## 迁移
 
-[阅读更多](/zh-Hans/migration)了解迁移模块如何根据与客户的互动为您提供一组经过验证的工具和指导，以加快您迁移到 Power Automate Desktop 的过程。
+[阅读更多](/zh-hans/migration)了解迁移模块如何根据与客户的互动为您提供一组经过验证的工具和指导，以加快您迁移到 Power Automate Desktop 的过程。

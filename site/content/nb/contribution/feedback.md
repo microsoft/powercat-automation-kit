@@ -4,7 +4,9 @@ description: Tilbakemelding fra automatiseringssett
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
 ---
+
 Ønsker å bidra med tilbakemeldinger til {{<product-name>}}? Du kan bruke avsnittene nedenfor til å utforske de forskjellige tilbakemeldingstypene.
 
 {{<toc>}}

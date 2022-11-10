@@ -4,7 +4,9 @@ description: Historie klientów Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
 ---
+
 # Wprowadzenie
 
 Chcesz zobaczyć, jak klienci lub partnerzy korzystali z [{{<product-name>}}](https://aka.ms/ak4pp)? Na tej stronie będą odwoływać się do publicznych historii klientów i opinii za pomocą {{<product-name>}}.

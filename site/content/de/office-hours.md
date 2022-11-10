@@ -4,7 +4,9 @@ description: Automation Kit Bürozeiten
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 75BA1AFEE4864B0410FB50B34100F7CE685D4052
 ---
+
 ## Registrieren
 
 <g-emoji class="g-emoji" alias="calendar" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c6.png">📆</g-emoji> Melden Sie sich für unsere Sprechstunde an [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)

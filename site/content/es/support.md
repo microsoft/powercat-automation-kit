@@ -4,7 +4,9 @@ description: Soporte de Automation Kit
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
 ---
+
 ## Empezar
 
 El [Guía de introducción](/es/get-started) proporciona algunas preguntas interactivas para vincularlo a fuentes de información que podrían ayudarlo a comenzar.

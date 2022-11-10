@@ -5,7 +5,9 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
+generated: BA10815D9FEC78E27624D30D5760900841FA742C
 ---
+
 以下各节概述了创作初学者文档的准则和说明。
 
 {{<toc>}}
@@ -38,7 +40,7 @@ include_footer: true
 
 ### 源代码管理
 
--您已完成[文档](/zh-Hans/contribution/documentation)下载更改并将其推送到 GitHub 存储库的步骤
+-您已完成[文档](/zh-hans/contribution/documentation)下载更改并将其推送到 GitHub 存储库的步骤
 -新更改将推送到新分支，并具有拉取请求以查看更改
 -所有文档都应该是 markdown、JSon 或静态资产，这些资产可以是版本控制并使用标准拉取请求流程进行审查
 
@@ -54,7 +56,7 @@ include_footer: true
 -帮助用户管理超自动化项目的功能摘要列表
 -常见链接的页脚导航。
 
-阅读[站点配置](/zh-Hans/contribution/site-configuration)有关配置主页的详细信息。
+阅读[站点配置](/zh-hans/contribution/site-configuration)有关配置主页的详细信息。
 
 ### 再使用
 
@@ -113,7 +115,7 @@ include_footer: true
 
 参数：
 
-- **名字**包含要导入的问题的 JSon 文件的名称。读[问题](/zh-Hans/contribution/questions)有关问题文件格式的更多信息
+- **名字**包含要导入的问题的 JSon 文件的名称。读[问题](/zh-hans/contribution/questions)有关问题文件格式的更多信息
 - **完成**完成问题时要显示的文本
 - **显示导航按钮**鞋的真/假值 下一个/返回/已完成的导航按钮
 

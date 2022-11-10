@@ -4,7 +4,9 @@ description: 自動化キット - ネーミング
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
 ---
+
 月とバージョン番号の横に{{<product-name>}} は、リリースごとにコード名タグを使用します。
 
 ## 生成プロセス

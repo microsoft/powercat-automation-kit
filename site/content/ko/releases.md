@@ -4,7 +4,9 @@ description: 자동화 키트 - 릴리스 기록
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 05B767C775EE6396E7B53F5B000B257BBA5D2F7A
 ---
+
 이 페이지에는 {{<product-name>}}.
 
 우리의 자세한 내용을 읽어보십시오 [릴리스 마일스톤 노트](/ko/releases/milestones)

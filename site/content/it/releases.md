@@ -4,7 +4,9 @@ description: Automation Kit - Cronologia delle versioni
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 05B767C775EE6396E7B53F5B000B257BBA5D2F7A
 ---
+
 La pagina contiene collegamenti alla cronologia delle versioni per il {{<product-name>}}.
 
 Leggi di più sul nostro [Note sulle attività cardine di rilascio](/it/releases/milestones)

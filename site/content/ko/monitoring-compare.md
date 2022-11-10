@@ -4,7 +4,9 @@ description: 자동화 키트 RPA 마이그레이션
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 51BFE919A428B5868AA76A825CB86C2620E0173B
 ---
+
 자동화 키트는 RPA 마이그레이션 여정을 지원하는 로우 코드 및 Microsoft 클라우드 도구 및 지침을 제공합니다.
 
 자동화 키트 마이그레이션 모듈은 기존 고객과 협력하여 기존 솔루션을 RPA(로봇 프로세스 자동화)로 마이그레이션할 수 있도록 지원한 경험을 기반으로 합니다.

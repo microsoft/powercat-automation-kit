@@ -4,7 +4,9 @@ description: Automation Kit Authoring Sample
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 ---
+
 <div class="optional">
 
 This page provides a sample for authoring content

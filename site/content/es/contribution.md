@@ -4,7 +4,9 @@ description: Contribución del kit de automatización
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
 ---
+
 Como proyecto de código abierto creado sobre Power Platform y Microsoft Cloud, nuestro objetivo es proporcionar rápidamente herramientas y orientación para ayudar a acelerar su viaje de hiperautomatización.
 
 Como parte de este viaje a medida que incubamos, maduramos y colaboramos con el equipo de ingeniería de Core Power Platform en función de sus comentarios. Usando estos comentarios, buscaremos incluir aprendizajes en el producto principal para mejorar y responder a sus necesidades.

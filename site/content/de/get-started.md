@@ -4,7 +4,9 @@ description: Automation Kit-Hilfe "Erste Schritte"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 ---
+
 ## Einleitung
 
 Die ersten Schritte können einer der wichtigsten Hindernisse für die Bewertung und Verwendung von {{<product-name>}} in Ihrer Organisation. Sie können das interaktive Formular unten verwenden, um Sie schrittweise durch den ersten Schritt zu führen.

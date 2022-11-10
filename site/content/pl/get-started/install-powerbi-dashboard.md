@@ -4,6 +4,7 @@ description: Zestaw automatyzacji Pulpit nawigacyjny usługi Power BI
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
 ---
 
 Aby uruchomić pulpit nawigacyjny usługi Power BI dla Centrum doskonałości automatyzacji, będziesz potrzebować adresu URL środowiska dla środowiska głównego (gdzie jest zainstalowana główna infrastruktura automatyzacji).

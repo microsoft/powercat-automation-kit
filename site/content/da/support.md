@@ -4,7 +4,9 @@ description: Understøttelse af automatiseringssæt
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
 ---
+
 ## Introduktion
 
 Den [Vejledning til introduktion](/da/get-started) giver nogle interaktive spørgsmål til at linke dig til informationskilder, der kan hjælpe dig med at komme i gang.

@@ -4,7 +4,9 @@ description: Automation Kit - Meilensteine der Veröffentlichung
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 79CF7A3D9EB709F73D289D8572BC2FAE3EB28ADE
 ---
+
 ![Meilenstein-Schleife](/images/milestone-loop.png)
 
 Hinweise zu {{<product-name>}} Meilensteine

@@ -4,7 +4,9 @@ description: Kit de automatización - Noviembre 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 73814007AE6E11EB3B434D0C4BBCC21F70C39413
 ---
+
 <div class="optional">
 
 ![Arquímedes agudo](/images/sharp-archimedes.png)

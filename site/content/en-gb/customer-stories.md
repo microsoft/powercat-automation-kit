@@ -4,7 +4,9 @@ description: Automation Kit customer stories
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
 ---
+
 # Introduction
 
 Want to see how customers or partners have used with the [{{<product-name>}}](https://aka.ms/ak4pp)? This page will reference public customer stories and feedback using the {{<product-name>}}.

@@ -4,7 +4,9 @@ description: Exempel på redigering av automatiseringspaket
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 ---
+
 <div class="optional">
 
 Den här sidan innehåller ett exempel på hur du redigerar innehåll
