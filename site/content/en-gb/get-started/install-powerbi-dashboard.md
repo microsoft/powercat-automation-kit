@@ -1,10 +1,10 @@
 ---
-title: Setup Automation Kit Power BI dashboard
-description: Automation Kit Power BI dashboard
+title: "Setup Automation Kit Power BI dashboard"
+description: "Automation Kit - Power BI dashboard"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 To launch the Power BI Dashboard for the Automation Center of Excellence, you will require the environment URL for your Main environment (Where Automation CoE Main is installed).

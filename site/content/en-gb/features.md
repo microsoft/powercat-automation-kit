@@ -1,6 +1,6 @@
 ---
-title: Features
-description: Automation Kit - Features
+title: "Features"
+description: "Automation Kit - Features"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

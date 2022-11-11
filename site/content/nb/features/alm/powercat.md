@@ -1,6 +1,6 @@
 ---
-title: Administrasjon av Power CAT-programmets livssyklus (ALM)
-description: Automatiseringssett – ALM Power CAT
+title: "Administrasjon av Power CAT-programmets livssyklus (ALM)"
+description: "Automatiseringssett – ALM Power CAT"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

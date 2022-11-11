@@ -1,10 +1,10 @@
 ---
-title: ตั้งค่าชุดระบบอัตโนมัติ แดชบอร์ด Power BI
-description: ชุดระบบอัตโนมัติ แดชบอร์ด Power BI
+title: "ตั้งค่าชุดระบบอัตโนมัติ แดชบอร์ด Power BI"
+description: "ชุดระบบอัตโนมัติ - แดชบอร์ด Power BI"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 เมื่อต้องการเปิดใช้งานแดชบอร์ด Power BI สําหรับศูนย์ความเป็นเลิศของระบบอัตโนมัติ คุณจะต้องใช้ URL สภาพแวดล้อมสําหรับสภาพแวดล้อมหลักของคุณ (ที่ติดตั้งระบบอัตโนมัติ CoE Main)

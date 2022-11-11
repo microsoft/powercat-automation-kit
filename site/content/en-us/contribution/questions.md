@@ -1,6 +1,6 @@
 ---
 title: Authoring Questions
-description: Automation Kit authoring questions
+description: Automation Kit - Authoring Questions
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

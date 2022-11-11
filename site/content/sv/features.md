@@ -1,6 +1,6 @@
 ---
-title: Funktioner
-description: Automation Kit - Funktioner
+title: "Funktioner"
+description: "Automation Kit - Funktioner"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

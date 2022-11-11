@@ -1,6 +1,6 @@
 ---
 title: Give Feedback
-description: Automation Kit feedback
+description: Automation Kit - Contribution Feedback
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

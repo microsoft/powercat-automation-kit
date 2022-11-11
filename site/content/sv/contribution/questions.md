@@ -1,10 +1,10 @@
 ---
-title: Frågor om redigering
-description: Frågor om redigering av Automation Kit
+title: "Frågor om redigering"
+description: "Automation Kit - Frågor om redigering"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
+generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
 ---
 
 Den här sidan innehåller information om det format som används för att skapa interaktiva frågor som ingår som en del av {{<product-name>}} förrätt.

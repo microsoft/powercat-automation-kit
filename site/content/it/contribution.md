@@ -1,10 +1,10 @@
 ---
-title: Contributo
-description: Contributo del kit di automazione
+title: "Contributo"
+description: "Kit di automazione - Contributo"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 Come progetto Open Source basato su Power Platform e Microsoft Cloud, il nostro obiettivo è fornire rapidamente strumenti e indicazioni per accelerare il percorso di iperautomazione.

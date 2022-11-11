@@ -1,6 +1,6 @@
 ---
-title: Släppa
-description: Automation Kit - Utgivningshistorik
+title: "Släppa"
+description: "Automation Kit - Utgivningshistorik"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

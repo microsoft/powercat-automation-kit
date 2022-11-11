@@ -1,10 +1,10 @@
 ---
-title: Feedback geben
-description: Feedback zum Automation Kit
+title: "Feedback geben"
+description: "Automation Kit - Feedback zum Beitrag"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
+generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 ---
 
 Ich möchte Ihr Feedback zum {{<product-name>}}? Sie können die folgenden Abschnitte verwenden, um die verschiedenen Feedbacktypen zu erkunden.

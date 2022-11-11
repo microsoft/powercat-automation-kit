@@ -1,10 +1,11 @@
 ---
-title: Unregister Confirmation
-description: Automation Kit office hours - Unregister Confirmation
+title: "Unregister Confirmation"
+description: "Automation Kit - Office Hours Unregister Confirmation"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 74A4EF4CCA7939DF35FE293B8736D7D5A8EF0C86
+index: false
+generated: 0EC6C87878D97132CB5E26CB117387283315219D
 ---
 
 Please use the questions below to confirm your unregistration.

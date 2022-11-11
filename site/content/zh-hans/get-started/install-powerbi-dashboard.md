@@ -1,10 +1,10 @@
 ---
-title: 设置自动化工具包 Power BI 仪表板
-description: 自动化工具包 Power BI 仪表板
+title: "设置自动化工具包 Power BI 仪表板"
+description: "自动化工具包 - Power BI 仪表板"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 若要启动自动化卓越中心的 Power BI 仪表板，需要主环境（安装自动化 CoE Main 环境的位置）的环境 URL。

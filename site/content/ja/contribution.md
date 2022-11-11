@@ -1,10 +1,10 @@
 ---
-title: 寄付
-description: 自動化キットの貢献
+title: "寄付"
+description: "自動化キット - 貢献"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 Power Platform と Microsoft Cloud の上に構築されたオープン ソース プロジェクトとしての目標は、ハイパーオートメーションの旅を加速するのに役立つツールとガイダンスを迅速に提供することです。

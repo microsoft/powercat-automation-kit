@@ -1,6 +1,6 @@
 ---
-title: หน้าตา
-description: ชุดระบบอัตโนมัติ - คุณสมบัติ
+title: "หน้าตา"
+description: "ชุดระบบอัตโนมัติ - คุณสมบัติ"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

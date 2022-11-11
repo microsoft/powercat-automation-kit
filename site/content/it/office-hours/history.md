@@ -1,10 +1,10 @@
 ---
-title: Storia
-description: Orario d'ufficio del kit di automazione - Storia
+title: "Storia"
+description: "Kit di automazione - Cronologia degli orari d'ufficio"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: C28F6544C6800EB7071456A4A24A41BECA1FE8C9
+generated: 40033B469AA6176C7CDA1348E522DFF476199C83
 ---
 
 Questa pagina include collegamenti alle sessioni passate e future dell'orario d'ufficio

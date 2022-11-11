@@ -1,6 +1,6 @@
 ---
-title: Udgivelse januar 2022
-description: Automatiseringssæt - januar 2023
+title: "Udgivelse januar 2022"
+description: "Automatiseringssæt - januar 2023"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

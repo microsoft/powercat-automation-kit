@@ -1,6 +1,6 @@
 ---
-title: Oktober 2022-utgivelsen
-description: Automatiseringssett - Oktober 2022
+title: "Oktober 2022-utgivelsen"
+description: "Automatiseringssett - Oktober 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

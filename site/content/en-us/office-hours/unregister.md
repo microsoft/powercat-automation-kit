@@ -1,6 +1,6 @@
 ---
 title: Unregister
-description: Automation Kit office hours - Unregister
+description: Automation Kit - Office Hours Unregister
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,6 +1,6 @@
 ---
-title: Release
-description: Automation Kit - Release History
+title: "Release"
+description: "Automation Kit - Release History"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,10 +1,10 @@
 ---
-title: Questions de création
-description: Questions sur la création de kits d’automatisation
+title: "Questions de création"
+description: "Kit d’automatisation - Questions de création"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
+generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
 ---
 
 Cette page contient des informations sur le format utilisé pour créer des questions interactives incluses dans le {{<product-name>}} démarreur.

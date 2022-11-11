@@ -1,6 +1,6 @@
 ---
-title: Udgivelse november 2022
-description: Automatiseringssæt - november 2022
+title: "Udgivelse november 2022"
+description: "Automatiseringssæt - november 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

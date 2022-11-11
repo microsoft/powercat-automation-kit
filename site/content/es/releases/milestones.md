@@ -1,6 +1,6 @@
 ---
-title: Hitos
-description: Kit de automatización - Hitos de lanzamiento
+title: "Hitos"
+description: "Kit de automatización - Hitos de lanzamiento"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

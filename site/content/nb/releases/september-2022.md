@@ -1,6 +1,6 @@
 ---
-title: Utgivelse september 2022
-description: Automatiseringssett – september 2022
+title: "Utgivelse september 2022"
+description: "Automatiseringssett – september 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

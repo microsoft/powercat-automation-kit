@@ -1,10 +1,10 @@
 ---
-title: Giv feedback
-description: Feedback om automatiseringssæt
+title: "Giv feedback"
+description: "Automatiseringssæt - Feedback om bidrag"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
+generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 ---
 
 Ønsker at bidrage med din feedback til {{<product-name>}}? Du kan bruge afsnittene nedenfor til at udforske de forskellige feedbacktyper.

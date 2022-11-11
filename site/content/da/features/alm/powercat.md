@@ -1,6 +1,6 @@
 ---
-title: Power CAT Application Lifecycle Management (ALM)
-description: Automatiseringssæt - ALM Power CAT
+title: "Power CAT Application Lifecycle Management (ALM)"
+description: "Automatiseringssæt - ALM Power CAT"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

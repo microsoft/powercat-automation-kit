@@ -1,10 +1,10 @@
 ---
-title: Horario de oficina
-description: Horario de oficina de Automation Kit - Octubre 2022
+title: "Horario de oficina"
+description: "Kit de automatización - Horario de oficina noviembre 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
+generated: E71CE811F0900FD477E5AB42197E1FDBE4D633F3
 ---
 
 Bienvenido a la página de inicio del horario de oficina de noviembre de 2022 de Automation Kit for Power Platform.

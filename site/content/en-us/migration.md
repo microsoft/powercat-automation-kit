@@ -1,6 +1,6 @@
 ---
 title: RPA Migration
-description: Automation Kit RPA Migration
+description: Automation Kit - RPA Migration
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

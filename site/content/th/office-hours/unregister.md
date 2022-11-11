@@ -1,10 +1,10 @@
 ---
-title: ยกเลิกการลงทะเบียน
-description: ชุดระบบอัตโนมัติเวลาทําการ - ยกเลิกการลงทะเบียน
+title: "ยกเลิกการลงทะเบียน"
+description: "ชุดระบบอัตโนมัติ - ยกเลิกการลงทะเบียนเวลาทําการ"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 33B929E74896C20B83D938F1F6A144F398062624
+generated: DBF1D93EB5CF342892E9C69DB15B1DC338DE80F9
 ---
 
 โปรดใช้คําถามด้านล่างเพื่อยกเลิกการลงทะเบียนอัตโนมัติของคุณสําหรับ {{<product-name>}}. เราจะส่งรหัสยืนยันที่คุณสามารถใช้เพื่อ [ยืนยันการยกเลิกการลงทะเบียน](/th/office-hours/unregister-confirm)

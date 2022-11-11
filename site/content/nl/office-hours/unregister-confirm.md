@@ -1,10 +1,11 @@
 ---
-title: Bevestiging van registratie ongedaan maken
-description: Automation Kit kantooruren - Registratiebevestiging ongedaan maken
+title: "Bevestiging van registratie ongedaan maken"
+description: "Automation Kit - Kantooruren Registratiebevestiging ongedaan maken"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 74A4EF4CCA7939DF35FE293B8736D7D5A8EF0C86
+index: false
+generated: 0EC6C87878D97132CB5E26CB117387283315219D
 ---
 
 Gebruik de onderstaande vragen om uw afmelding te bevestigen.

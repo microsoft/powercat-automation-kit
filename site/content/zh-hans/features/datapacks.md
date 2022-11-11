@@ -1,10 +1,10 @@
 ---
-title: 数据包
-description: 自动化套件数据包
+title: "数据包"
+description: "自动化套件 - 数据包"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: BEA89993168AC33B19A338208B6665AE7E726557
+generated: 16D52F35701BF93D5BAB05162D94D9E9866918C6
 ---
 
 {{<toc>}}

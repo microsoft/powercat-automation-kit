@@ -1,10 +1,10 @@
 ---
-title: Panel de Power BI del Kit de automatización de configuración
-description: Panel de Power BI del Kit de automatización
+title: "Panel de Power BI del Kit de automatización de configuración"
+description: "Kit de automatización: panel de Power BI"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 Para iniciar el panel de Power BI para el Centro de excelencia de automatización, necesitará la dirección URL del entorno principal (donde está instalado Automation CoE Main).

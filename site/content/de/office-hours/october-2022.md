@@ -1,10 +1,10 @@
 ---
-title: Sprechstunde
-description: Automation Kit Bürozeiten - Oktober 2022
+title: "Sprechstunde"
+description: "Automation Kit - Bürozeiten Oktober 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 58C42C28512C7E46B9C130A26D4C063EEF23E382
+generated: AB3E1309FFD973AC61BC2CFA6C628DDC274E8874
 ---
 
 Willkommen auf der Zielseite zu den Bürozeiten des Automation Kit for Power Platform Oktober 2022.

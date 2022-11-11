@@ -1,6 +1,6 @@
 ---
-title: Loslaten
-description: Automation Kit - Releasegeschiedenis
+title: "Loslaten"
+description: "Automation Kit - Releasegeschiedenis"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

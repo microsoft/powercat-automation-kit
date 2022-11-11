@@ -1,10 +1,10 @@
 ---
-title: Checkliste für die Installation
-description: Checkliste für die Installation des Automation Kits
+title: "Checkliste für die Installation"
+description: "Automation Kit - Checkliste für die Installation"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 4258F6579483A6A56D0E21104A6FE435BECA4CB8
+generated: 6B3C70823CD446692E18C53B960CF80490FFFE10
 ---
 
 > 🎥 Möchten Sie eine visuellere Darstellung des End-to-End-Prozesses und der Installationsschritte? Überprüfen Sie unsere <a href='https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy' target='_blank'>{{<product-name>}} Video-Playlist</a> Für Voraussetzungen, Projektmappeninstallation und {{<product-name>}} Verwendung.

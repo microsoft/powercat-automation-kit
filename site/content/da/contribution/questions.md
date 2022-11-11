@@ -1,10 +1,10 @@
 ---
-title: Forfatter spørgsmål
-description: Spørgsmål om oprettelse af automatiseringssæt
+title: "Forfatter spørgsmål"
+description: "Automationssæt – spørgsmål om oprettelse"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
+generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
 ---
 
 Denne side indeholder oplysninger om det format, der bruges til at oprette interaktive spørgsmål, der er inkluderet som en del af {{<product-name>}} starter.

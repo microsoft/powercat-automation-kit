@@ -1,10 +1,10 @@
 ---
-title: フィードバックを送る
-description: 自動化キットのフィードバック
+title: "フィードバックを送る"
+description: "自動化キット - コントリビューションフィードバック"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
+generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 ---
 
 あなたのフィードバックを{{に貢献しようとしています<product-name>}}?以下のセクションを使用して、さまざまなフィードバックの種類を調べることができます。

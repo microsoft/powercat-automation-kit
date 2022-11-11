@@ -1,6 +1,6 @@
 ---
-title: Rilascio
-description: Automation Kit - Cronologia delle versioni
+title: "Rilascio"
+description: "Automation Kit - Cronologia delle versioni"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

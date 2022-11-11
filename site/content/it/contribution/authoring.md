@@ -1,11 +1,11 @@
 ---
-title: Linee guida per la creazione
-description: Linee guida per la creazione della documentazione di Automation Kit
+title: "Linee guida per la creazione"
+description: "Automation Kit - Linee guida per la creazione della documentazione"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: BA10815D9FEC78E27624D30D5760900841FA742C
+generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
 ---
 
 Nelle sezioni seguenti vengono illustrate le linee guida e le note per la creazione della documentazione introduttiva.

@@ -1,6 +1,6 @@
 ---
-title: Mijlpalen
-description: Automation Kit - Release mijlpalen
+title: "Mijlpalen"
+description: "Automation Kit - Release mijlpalen"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

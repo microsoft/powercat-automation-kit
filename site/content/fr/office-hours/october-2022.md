@@ -1,10 +1,10 @@
 ---
-title: Heures d’ouverture
-description: Heures de bureau du kit d’automatisation - Octobre 2022
+title: "Heures d’ouverture"
+description: "Kit d’automatisation - Heures de bureau Octobre 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 58C42C28512C7E46B9C130A26D4C063EEF23E382
+generated: AB3E1309FFD973AC61BC2CFA6C628DDC274E8874
 ---
 
 Bienvenue sur la page d’accueil Automation Kit for Power Platform d’octobre 2022 sur les heures de bureau.

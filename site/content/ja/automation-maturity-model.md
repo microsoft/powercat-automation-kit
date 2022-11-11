@@ -1,10 +1,11 @@
 ---
-title: 自動化成熟度モデル
-description: 自動化キットの自動化の成熟度
+title: "自動化成熟度モデル"
+description: "自動化キット - 自動化成熟度モデル"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 022DFD9859F935FB5E8447F38203682947EB8EE8
+index: false
+generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 ---
 
 **地位：**{{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 進行中の作業 - レビュー中

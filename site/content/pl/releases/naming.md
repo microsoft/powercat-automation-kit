@@ -1,6 +1,6 @@
 ---
-title: Nazewnictwa
-description: Automation Kit - Nazewnictwo
+title: "Nazewnictwa"
+description: "Automation Kit - Nazewnictwo"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

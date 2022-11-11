@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie cyklem życia aplikacji (ALM)
-description: Zestaw automatyki - ALM
+title: "Zarządzanie cyklem życia aplikacji (ALM)"
+description: "Zestaw automatyki - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

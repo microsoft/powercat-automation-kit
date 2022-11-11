@@ -1,6 +1,6 @@
 ---
-title: 애플리케이션 수명 주기 관리(ALM)
-description: 자동화 키트 - ALM
+title: "애플리케이션 수명 주기 관리(ALM)"
+description: "자동화 키트 - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

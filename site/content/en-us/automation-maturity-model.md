@@ -1,9 +1,10 @@
 ---
 title: Automation Maturity Model
-description: Automation Kit Automation Maturity
+description: Automation Kit - Automation Maturity Model
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+index: false
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Work In Progress - Under Review

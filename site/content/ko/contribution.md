@@ -1,10 +1,10 @@
 ---
-title: 기부
-description: 자동화 키트 기여
+title: "기부"
+description: "자동화 키트 - 기여"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 Power Platform 및 Microsoft 클라우드를 기반으로 구축된 오픈 소스 프로젝트로서 우리의 목표는 하이퍼 자동화 여정을 가속화하는 데 도움이 되는 도구와 지침을 신속하게 제공하는 것입니다.

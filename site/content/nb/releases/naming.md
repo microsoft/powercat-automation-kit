@@ -1,6 +1,6 @@
 ---
-title: Navngi
-description: Automatiseringssett - Navngiving
+title: "Navngi"
+description: "Automatiseringssett - Navngiving"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,6 +1,6 @@
 ---
-title: 2022 年 9 月版
-description: 自动化套件 - 2022 年 9 月
+title: "2022 年 9 月版"
+description: "自动化套件 - 2022 年 9 月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

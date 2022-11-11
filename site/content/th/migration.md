@@ -1,10 +1,10 @@
 ---
-title: การย้ายข้อมูล RPA
-description: การโยกย้าย RPA ของชุดระบบอัตโนมัติ
+title: "การย้ายข้อมูล RPA"
+description: "ชุดระบบอัตโนมัติ - การย้ายข้อมูล RPA"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3A666C6466A336E9BE4CF1AADD4C0658C83F2D6A
+generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 ---
 
 {{<product-name>}} **โมดูลการย้ายข้อมูล** มอบชุดเครื่องมือและคําแนะนําที่ได้รับการพิสูจน์แล้วตามการมีส่วนร่วมกับลูกค้าเพื่อเร่งเส้นทางการโยกย้ายของคุณ ด้วยการใช้ประโยชน์จากความแข็งแกร่งของ Microsoft Power Platform, Microsoft Azure และบริการคลาวด์ของ Microsoft ที่กว้างขึ้น คุณสามารถ:

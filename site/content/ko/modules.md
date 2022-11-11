@@ -1,10 +1,10 @@
 ---
-title: 모듈
-description: 자동화 키트 모듈
+title: "모듈"
+description: "자동화 키트 - 모듈"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
+generated: CF14A0F7FE3505051A57BC56B7C1A7DADC31946E
 ---
 
 이 페이지에서는 {{<product-name>}}.

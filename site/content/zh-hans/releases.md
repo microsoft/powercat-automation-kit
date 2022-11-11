@@ -1,6 +1,6 @@
 ---
-title: 释放
-description: 自动化套件 - 版本历史记录
+title: "释放"
+description: "自动化套件 - 版本历史记录"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

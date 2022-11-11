@@ -1,10 +1,11 @@
 ---
-title: 自动化成熟度模型
-description: 自动化套件自动化成熟度
+title: "自动化成熟度模型"
+description: "自动化套件 - 自动化成熟度模型"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 022DFD9859F935FB5E8447F38203682947EB8EE8
+index: false
+generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 ---
 
 **地位：**{{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 进行中的工作 - 审查中

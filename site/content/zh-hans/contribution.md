@@ -1,10 +1,10 @@
 ---
-title: 贡献
-description: 自动化套件贡献
+title: "贡献"
+description: "自动化套件 - 贡献"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 作为一个基于 Power Platform 和 Microsoft 云构建的开源项目，我们的目标是快速提供工具和指导，以帮助加速您的超自动化之旅。

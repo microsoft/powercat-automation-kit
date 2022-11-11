@@ -1,10 +1,10 @@
 ---
-title: 업무 시간
-description: 자동화 키트 근무 시간 - 2022년 10월
+title: "업무 시간"
+description: "자동화 키트 - 근무 시간 2022년 10월"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 58C42C28512C7E46B9C130A26D4C063EEF23E382
+generated: AB3E1309FFD973AC61BC2CFA6C628DDC274E8874
 ---
 
 Power Platform용 자동화 키트 2022년 10월 근무 시간 랜딩 페이지에 오신 것을 환영합니다.

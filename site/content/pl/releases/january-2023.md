@@ -1,6 +1,6 @@
 ---
-title: Wydanie ze stycznia 2022 r.
-description: Automation Kit - styczeń 2023
+title: "Wydanie ze stycznia 2022 r."
+description: "Automation Kit - styczeń 2023"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

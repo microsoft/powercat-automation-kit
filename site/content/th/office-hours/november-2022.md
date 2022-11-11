@@ -1,10 +1,10 @@
 ---
-title: เวลาทําการ
-description: ชุดระบบอัตโนมัติในเวลาทําการ - ตุลาคม 2022
+title: "เวลาทําการ"
+description: "ชุดระบบอัตโนมัติ - เวลาทําการ พฤศจิกายน 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
+generated: E71CE811F0900FD477E5AB42197E1FDBE4D633F3
 ---
 
 ยินดีต้อนรับสู่หน้า Landing Page ของชุดระบบอัตโนมัติสําหรับ Power Platform ในเวลาทําการเดือนพฤศจิกายน 2022

@@ -1,6 +1,6 @@
 ---
 title: Documentation Site Configuration
-description: Automation Kit Documentation Site Configuration
+description: Automation Kit - Documentation Site Configuration
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

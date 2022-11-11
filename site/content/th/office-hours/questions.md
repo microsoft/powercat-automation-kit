@@ -1,10 +1,11 @@
 ---
-title: คําถามเกี่ยวกับเวลาทําการ
-description: ชุดทํางานอัตโนมัติ - คําถามเกี่ยวกับเวลาทําการ
+title: "คําถามเกี่ยวกับเวลาทําการ"
+description: "ชุดระบบอัตโนมัติ - คําถามเกี่ยวกับเวลาทําการ"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 2686FC6E753449C5F18DAE5D21B22F46FF90AA1E
+index: false
+generated: 74620455EAF820F5519A4E619E6E269876A08E9F
 ---
 
 โปรดให้คําติชมของคุณสําหรับคําถามต่อไปนี้:

@@ -1,10 +1,10 @@
 ---
-title: 업무 시간
-description: 자동화 키트 근무 시간
+title: "업무 시간"
+description: "자동화 키트 - 업무 시간"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 75BA1AFEE4864B0410FB50B34100F7CE685D4052
+generated: 625C6FE57925A8A8944907DF2DE575EA9E05D10A
 ---
 
 ## 등록기

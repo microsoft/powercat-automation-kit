@@ -1,6 +1,6 @@
 ---
-title: 2022 年 1 月版
-description: 自动化套件 - 2023 年 1 月
+title: "2022 年 1 月版"
+description: "自动化套件 - 2023 年 1 月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

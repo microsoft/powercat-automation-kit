@@ -1,10 +1,10 @@
 ---
-title: Contribución
-description: Contribución del kit de automatización
+title: "Contribución"
+description: "Kit de automatización - Contribución"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 Como proyecto de código abierto creado sobre Power Platform y Microsoft Cloud, nuestro objetivo es proporcionar rápidamente herramientas y orientación para ayudar a acelerar su viaje de hiperautomatización.

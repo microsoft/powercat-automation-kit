@@ -1,10 +1,10 @@
 ---
-title: ドキュメント サイト構成
-description: 自動化キットのドキュメント サイト構成
+title: "ドキュメント サイト構成"
+description: "自動化キット - ドキュメントサイトの設定"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 1688C7B8A47C92E5EE49BF96C767EF56803F7EC9
+generated: 354D0E4D269259766EC4DE1F88577B07B6095950
 ---
 
 

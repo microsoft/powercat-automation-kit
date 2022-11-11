@@ -1,10 +1,10 @@
 ---
-title: 为文档做出贡献
-description: 自动化套件文档贡献
+title: "为文档做出贡献"
+description: "自动化套件 - 文档贡献"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: ADC10B9A38C13D00FEDF19F44AEE9086C7892B5A
+generated: B8B7872EF04477E38055C5391B3B5E91062AF0C1
 ---
 
 **地位：**{{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 进行中的工作 - 审查中

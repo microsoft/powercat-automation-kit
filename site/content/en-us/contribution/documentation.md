@@ -1,6 +1,6 @@
 ---
 title: Contribute to the documentation
-description: Automation Kit documentation contribution 
+description: Automation Kit - Documentation Contribution 
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

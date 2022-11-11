@@ -1,10 +1,10 @@
 ---
-title: Afmeld
-description: Automatiseringssæt kontortid - Afmeld
+title: "Afmeld"
+description: "Automationssæt - Afmeld kontortid"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 33B929E74896C20B83D938F1F6A144F398062624
+generated: DBF1D93EB5CF342892E9C69DB15B1DC338DE80F9
 ---
 
 Brug venligst nedenstående spørgsmål til at annullere din automatiske registrering til {{<product-name>}}. Vi sender dig en bekræftelseskode, som du kan bruge til at [bekræfte afmelding](/da/office-hours/unregister-confirm)

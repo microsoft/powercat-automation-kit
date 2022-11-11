@@ -1,10 +1,10 @@
 ---
-title: การเขียนคําถาม
-description: คําถามการเขียนชุดระบบอัตโนมัติ
+title: "การเขียนคําถาม"
+description: "ชุดระบบอัตโนมัติ - การเขียนคําถาม"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
+generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
 ---
 
 หน้านี้มีข้อมูลรูปแบบที่ใช้ในการเขียนคําถามแบบโต้ตอบที่รวมเป็นส่วนหนึ่งของ {{<product-name>}} เริ่มต้น

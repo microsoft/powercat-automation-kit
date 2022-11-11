@@ -1,10 +1,10 @@
 ---
-title: Wsparcie
-description: Obsługa zestawów Automation Kit
+title: "Wsparcie"
+description: "Automation Kit - Pomoc techniczna"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A0E188A7F0D2FFBF2F8F74E169DEEE9F546CF922
+generated: 10BC5A3D5359078D4DC2E4D9CDDF13954EFCF8D3
 ---
 
 ## Wprowadzenie

@@ -1,6 +1,6 @@
 ---
-title: 이정표
-description: 자동화 키트 - 릴리스 마일스톤
+title: "이정표"
+description: "자동화 키트 - 릴리스 마일스톤"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

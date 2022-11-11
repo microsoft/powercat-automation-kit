@@ -1,10 +1,10 @@
 ---
-title: Exemple de création
-description: Exemple de création de kit d’automatisation
+title: "Exemple de création"
+description: "Kit d’automatisation - Exemple de création"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
+generated: F08B4581ED304D561DE1C5BC479DEB68A97993CA
 ---
 
 <div class="optional">

@@ -1,10 +1,10 @@
 ---
-title: RPA 迁移
-description: 自动化工具包 RPA 迁移
+title: "RPA 迁移"
+description: "自动化套件 - RPA 迁移"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3A666C6466A336E9BE4CF1AADD4C0658C83F2D6A
+generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 ---
 
 该 {{<product-name>}}**迁移模块**根据与客户的互动，为您提供一组经过验证的工具和指导，以加快您的迁移之旅。通过利用 Microsoft Power Platform、Microsoft Azure 和更广泛的 Microsoft 云服务的优势，您可以：

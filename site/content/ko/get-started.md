@@ -1,10 +1,10 @@
 ---
-title: 시작
-description: 자동화 키트 시작 도우미
+title: "시작"
+description: "자동화 키트 - 시작하기"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
+generated: 454A4990DCD77031642D2EDE36FE235A40DF66E0
 ---
 
 ## 소개

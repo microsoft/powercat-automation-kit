@@ -1,6 +1,6 @@
 ---
-title: Milepæle
-description: Automationssæt - Milepæle for udgivelse
+title: "Milepæle"
+description: "Automationssæt - Milepæle for udgivelse"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

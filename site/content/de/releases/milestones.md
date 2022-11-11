@@ -1,6 +1,6 @@
 ---
-title: Meilensteine
-description: Automation Kit - Meilensteine der Veröffentlichung
+title: "Meilensteine"
+description: "Automation Kit - Meilensteine der Veröffentlichung"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

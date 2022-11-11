@@ -1,10 +1,10 @@
 ---
-title: Packs de données
-description: Packs de données du kit d’automatisation
+title: "Packs de données"
+description: "Kit d’automatisation - Packs de données"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: BEA89993168AC33B19A338208B6665AE7E726557
+generated: 16D52F35701BF93D5BAB05162D94D9E9866918C6
 ---
 
 {{<toc>}}

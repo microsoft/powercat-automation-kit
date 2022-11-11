@@ -1,10 +1,10 @@
 ---
-title: RPA-overføring
-description: RPA-migrering for automatiseringssett
+title: "RPA-overføring"
+description: "Automatiseringssett – RPA-overføring"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3A666C6466A336E9BE4CF1AADD4C0658C83F2D6A
+generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 ---
 
 Den {{<product-name>}} **Modul for overføring** gir deg et velprøvd sett med verktøy og veiledning basert på engasjementer med kunder for å akselerere migreringsreisen. Ved å utnytte styrken til Microsoft Power Platform, Microsoft Azure og de bredere Microsoft Cloud-tjenestene kan du:

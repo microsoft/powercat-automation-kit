@@ -1,10 +1,10 @@
 ---
-title: 办公时间
-description: 自动化套件办公时间 - 2022 年 10 月
+title: "办公时间"
+description: "自动化套件 - 办公时间 2022 年 11 月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
+generated: E71CE811F0900FD477E5AB42197E1FDBE4D633F3
 ---
 
 欢迎来到电源平台自动化工具包 2022 年 11 月办公时间登录页面。

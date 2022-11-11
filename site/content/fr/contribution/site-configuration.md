@@ -1,10 +1,10 @@
 ---
-title: Documentation Site Configuration
-description: Configuration du site de documentation du kit d’automatisation
+title: "Documentation Site Configuration"
+description: "Kit d’automatisation - Configuration du site de documentation"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 1688C7B8A47C92E5EE49BF96C767EF56803F7EC9
+generated: 354D0E4D269259766EC4DE1F88577B07B6095950
 ---
 
 

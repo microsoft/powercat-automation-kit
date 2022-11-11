@@ -1,10 +1,10 @@
 ---
-title: Avregistrera dig
-description: Automation Kit kontorstid - Avregistrera
+title: "Avregistrera dig"
+description: "Automation Kit - Avregistrering av kontorstid"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 33B929E74896C20B83D938F1F6A144F398062624
+generated: DBF1D93EB5CF342892E9C69DB15B1DC338DE80F9
 ---
 
 Använd frågan nedan för att avbryta din automatiska registrering för {{<product-name>}}. Vi skickar dig en bekräftelsekod som du kan använda för att [bekräfta avregistrering](/sv/office-hours/unregister-confirm)

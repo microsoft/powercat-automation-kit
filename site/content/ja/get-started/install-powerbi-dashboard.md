@@ -1,10 +1,10 @@
 ---
-title: セットアップ自動化キット Power BI ダッシュボード
-description: Automation Kit Power BI ダッシュボード
+title: "セットアップ自動化キット Power BI ダッシュボード"
+description: "オートメーション キット - Power BI ダッシュボード"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 オートメーション センター オブ エクセレンスの Power BI ダッシュボードを起動するには、メイン環境 (Automation CoE Main がインストールされている場所) の環境 URL が必要です。

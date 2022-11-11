@@ -1,10 +1,10 @@
 ---
-title: 피드백 제공
-description: 자동화 키트 피드백
+title: "피드백 제공"
+description: "자동화 키트 - 기여 피드백"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
+generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 ---
 
 {{<product-name>}}? 아래 섹션을 사용하여 다양한 피드백 유형을 탐색할 수 있습니다.

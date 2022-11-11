@@ -1,6 +1,6 @@
 ---
 title: Office Hours
-description: Automation Kit office hours
+description: Automation Kit - Office Hours
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

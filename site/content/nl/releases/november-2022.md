@@ -1,6 +1,6 @@
 ---
-title: Versie van november 2022
-description: Automatiseringskit - november 2022
+title: "Versie van november 2022"
+description: "Automatiseringskit - november 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

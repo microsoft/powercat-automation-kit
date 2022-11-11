@@ -1,11 +1,11 @@
 ---
-title: Retningslinjer for redigering
-description: Retningslinjer for redigering av automatiseringssett
+title: "Retningslinjer for redigering"
+description: "Automation Kit – retningslinjer for redigering av dokumentasjon"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: BA10815D9FEC78E27624D30D5760900841FA742C
+generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
 ---
 
 Delene nedenfor beskriver retningslinjer og merknader for redigering av startdokumentasjon.

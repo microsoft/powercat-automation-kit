@@ -1,6 +1,6 @@
 ---
 title: Authoring guidelines
-description: Automation Kit documentation authoring guidelines
+description: Automation Kit - Documentation Authoring Guidelines
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

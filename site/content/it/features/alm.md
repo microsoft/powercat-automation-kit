@@ -1,6 +1,6 @@
 ---
-title: Gestione del ciclo di vita delle applicazioni (ALM)
-description: Kit di automazione - ALM
+title: "Gestione del ciclo di vita delle applicazioni (ALM)"
+description: "Kit di automazione - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

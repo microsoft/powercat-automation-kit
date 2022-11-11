@@ -1,6 +1,6 @@
 ---
-title: Namnge
-description: Automation Kit - Namngivning
+title: "Namnge"
+description: "Automation Kit - Namngivning"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

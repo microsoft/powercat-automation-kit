@@ -1,6 +1,6 @@
 ---
-title: Milepæler
-description: Automatiseringssett – milepæler for utgivelser
+title: "Milepæler"
+description: "Automatiseringssett – milepæler for utgivelser"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

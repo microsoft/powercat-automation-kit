@@ -1,10 +1,10 @@
 ---
-title: Orario d'ufficio
-description: Orario d'ufficio del kit di automazione - ottobre 2022
+title: "Orario d'ufficio"
+description: "Kit di automazione - Orario d'ufficio ottobre 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 58C42C28512C7E46B9C130A26D4C063EEF23E382
+generated: AB3E1309FFD973AC61BC2CFA6C628DDC274E8874
 ---
 
 Benvenuti nella pagina di destinazione dell'orario d'ufficio di ottobre 2022 di Automation Kit for Power Platform.

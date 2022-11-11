@@ -1,6 +1,6 @@
 ---
-title: Versión de enero de 2022
-description: Kit de automatización - Enero 2023
+title: "Versión de enero de 2022"
+description: "Kit de automatización - Enero 2023"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,10 +1,10 @@
 ---
-title: ให้คําติชม
-description: คําติชมของชุดระบบอัตโนมัติ
+title: "ให้คําติชม"
+description: "ชุดระบบอัตโนมัติ - คําติชมการมีส่วนร่วม"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
+generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 ---
 
 ต้องการร่วมแสดงความคิดเห็นของคุณไปยัง {{<product-name>}}? คุณสามารถใช้ส่วนด้านล่างเพื่อสํารวจประเภทคําติชมต่างๆ ได้

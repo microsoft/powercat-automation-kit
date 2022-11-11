@@ -1,6 +1,6 @@
 ---
-title: Naamgeving
-description: Automatiseringskit - Naamgeving
+title: "Naamgeving"
+description: "Automatiseringskit - Naamgeving"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

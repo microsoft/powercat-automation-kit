@@ -1,10 +1,10 @@
 ---
-title: Przykład tworzenia
-description: Przykład tworzenia zestawu Automation Kit
+title: "Przykład tworzenia"
+description: "Automation Kit — przykład tworzenia"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
+generated: F08B4581ED304D561DE1C5BC479DEB68A97993CA
 ---
 
 <div class="optional">

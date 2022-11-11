@@ -1,10 +1,11 @@
 ---
-title: Bestätigung zum Aufheben der Registrierung
-description: Automation Kit Bürozeiten - Abmeldebestätigung
+title: "Bestätigung zum Aufheben der Registrierung"
+description: "Automation Kit - Bestätigung zum Aufheben der Registrierung während der Bürozeiten"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 74A4EF4CCA7939DF35FE293B8736D7D5A8EF0C86
+index: false
+generated: 0EC6C87878D97132CB5E26CB117387283315219D
 ---
 
 Bitte verwenden Sie die folgenden Fragen, um Ihre Abmeldung zu bestätigen.

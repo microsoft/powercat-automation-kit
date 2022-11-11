@@ -1,6 +1,6 @@
 ---
-title: Pietre miliari
-description: Kit di automazione - Milestone di rilascio
+title: "Pietre miliari"
+description: "Kit di automazione - Milestone di rilascio"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

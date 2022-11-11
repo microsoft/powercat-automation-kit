@@ -1,10 +1,10 @@
 ---
-title: Wyrejestrowanie
-description: Godziny pracy Automation Kit - Wyrejestruj się
+title: "Wyrejestrowanie"
+description: "Automation Kit - Wyrejestruj godziny pracy"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 33B929E74896C20B83D938F1F6A144F398062624
+generated: DBF1D93EB5CF342892E9C69DB15B1DC338DE80F9
 ---
 
 Użyj poniższego pytania, aby anulować automatyczną rejestrację {{<product-name>}}. Wyślemy Ci kod potwierdzający, którego możesz użyć do: [Potwierdź wyrejestrowanie](/pl/office-hours/unregister-confirm)

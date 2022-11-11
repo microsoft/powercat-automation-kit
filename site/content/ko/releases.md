@@ -1,6 +1,6 @@
 ---
-title: 석방
-description: 자동화 키트 - 릴리스 기록
+title: "석방"
+description: "자동화 키트 - 릴리스 기록"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

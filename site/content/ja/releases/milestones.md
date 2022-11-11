@@ -1,6 +1,6 @@
 ---
-title: マイルス トーン
-description: 自動化キット - マイルストーンのリリース
+title: "マイルス トーン"
+description: "自動化キット - マイルストーンのリリース"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

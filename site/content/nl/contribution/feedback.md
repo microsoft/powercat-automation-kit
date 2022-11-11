@@ -1,10 +1,10 @@
 ---
-title: Feedback geven
-description: Feedback over de Automatiseringskit
+title: "Feedback geven"
+description: "Automation Kit - Feedback over bijdragen"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
+generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 ---
 
 Op zoek naar uw feedback aan de {{<product-name>}}? U kunt de onderstaande secties gebruiken om de verschillende feedbacktypen te verkennen.

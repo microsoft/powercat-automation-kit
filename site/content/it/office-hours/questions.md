@@ -1,10 +1,11 @@
 ---
-title: Domande sugli orari d'ufficio
-description: Orario d'ufficio del kit di automazione - Domande sugli orari d'ufficio
+title: "Domande sugli orari d'ufficio"
+description: "Kit di automazione - Domande sull'orario d'ufficio"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 2686FC6E753449C5F18DAE5D21B22F46FF90AA1E
+index: false
+generated: 74620455EAF820F5519A4E619E6E269876A08E9F
 ---
 
 Si prega di fornire il proprio feedback alle seguenti domande:

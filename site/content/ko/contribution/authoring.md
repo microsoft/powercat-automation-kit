@@ -1,11 +1,11 @@
 ---
-title: 작성 지침
-description: 자동화 키트 설명서 작성 지침
+title: "작성 지침"
+description: "자동화 키트 - 문서 작성 지침"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: BA10815D9FEC78E27624D30D5760900841FA742C
+generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
 ---
 
 다음 섹션에서는 시작 설명서 작성에 대한 지침과 참고 사항을 간략하게 설명합니다.

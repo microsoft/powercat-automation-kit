@@ -1,10 +1,10 @@
 ---
-title: Se désinscrire
-description: Heures de bureau du kit d’automatisation - Se désinscrire
+title: "Se désinscrire"
+description: "Kit d’automatisation - Heures de bureau Se désinscrire"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 33B929E74896C20B83D938F1F6A144F398062624
+generated: DBF1D93EB5CF342892E9C69DB15B1DC338DE80F9
 ---
 
 Veuillez utiliser la question ci-dessous pour annuler votre inscription automatique pour {{<product-name>}}. Nous vous enverrons un code de confirmation que vous pourrez utiliser pour [Confirmer la désinscription](/fr/office-hours/unregister-confirm)

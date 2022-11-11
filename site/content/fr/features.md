@@ -1,6 +1,6 @@
 ---
-title: Fonctionnalités
-description: Kit d’automatisation - Fonctionnalités
+title: "Fonctionnalités"
+description: "Kit d’automatisation - Fonctionnalités"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

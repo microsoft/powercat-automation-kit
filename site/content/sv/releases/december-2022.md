@@ -1,6 +1,6 @@
 ---
-title: Version december 2022
-description: Automation Kit - December 2022
+title: "Version december 2022"
+description: "Automation Kit - December 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

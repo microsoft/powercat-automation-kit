@@ -1,10 +1,10 @@
 ---
-title: Opsætning af automatiseringssæt Power BI-dashboard
-description: Power BI-dashboard til automatiseringssæt
+title: "Opsætning af automatiseringssæt Power BI-dashboard"
+description: "Automationssæt – Power BI-dashboard"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 Hvis du vil starte Power BI Dashboard til Automatiseringscenter of Excellence, skal du bruge URL-adressen til miljøet for dit hovedmiljø (hvor Automation CoE Main er installeret).

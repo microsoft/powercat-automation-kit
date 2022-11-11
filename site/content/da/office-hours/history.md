@@ -1,10 +1,10 @@
 ---
-title: Historie
-description: Automatiseringssæt kontortid - Historie
+title: "Historie"
+description: "Automatiseringssæt - Oversigt over åbningstider"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: C28F6544C6800EB7071456A4A24A41BECA1FE8C9
+generated: 40033B469AA6176C7CDA1348E522DFF476199C83
 ---
 
 Denne side indeholder links til tidligere og fremtidige kontortidssessioner

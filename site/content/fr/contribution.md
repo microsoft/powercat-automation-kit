@@ -1,10 +1,10 @@
 ---
-title: Contribution
-description: Contribution au kit d’automatisation
+title: "Contribution"
+description: "Kit d’automatisation - Contribution"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 En tant que projet Open Source construit sur Power Platform et Microsoft Cloud, notre objectif est de fournir rapidement des outils et des conseils pour vous aider à accélérer votre parcours d’hyper automatisation.

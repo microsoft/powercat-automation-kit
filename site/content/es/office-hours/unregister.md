@@ -1,10 +1,10 @@
 ---
-title: Anular el registro
-description: Horario de oficina de Automation Kit - Anular registro
+title: "Anular el registro"
+description: "Kit de automatización - Horario de oficina Anular el registro"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 33B929E74896C20B83D938F1F6A144F398062624
+generated: DBF1D93EB5CF342892E9C69DB15B1DC338DE80F9
 ---
 
 Utilice la siguiente pregunta para cancelar su registro automático para {{<product-name>}}. Le enviaremos un código de confirmación que puede utilizar para [Confirmar cancelación del registro](/es/office-hours/unregister-confirm)

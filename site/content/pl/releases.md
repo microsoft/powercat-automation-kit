@@ -1,6 +1,6 @@
 ---
-title: Zwolnić
-description: Automation Kit - Historia wersji
+title: "Zwolnić"
+description: "Automation Kit - Historia wersji"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,6 +1,6 @@
 ---
 title: Customer Stories
-description: Automation Kit customer stories
+description: Automation Kit - Customer stories
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

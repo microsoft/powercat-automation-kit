@@ -1,6 +1,6 @@
 ---
-title: Zarządzanie cyklem życia aplikacji Power CAT (ALM)
-description: Zestaw automatyki - ALM Power CAT
+title: "Zarządzanie cyklem życia aplikacji Power CAT (ALM)"
+description: "Zestaw automatyki - ALM Power CAT"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

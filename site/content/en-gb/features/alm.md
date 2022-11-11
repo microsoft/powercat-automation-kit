@@ -1,6 +1,6 @@
 ---
-title: Application Lifecycle Management (ALM)
-description: Automation Kit - ALM
+title: "Application Lifecycle Management (ALM)"
+description: "Automation Kit - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,6 +1,6 @@
 ---
-title: Nombramiento
-description: Kit de automatización - Nomenclatura
+title: "Nombramiento"
+description: "Kit de automatización - Nomenclatura"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

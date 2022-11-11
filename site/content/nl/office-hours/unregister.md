@@ -1,10 +1,10 @@
 ---
-title: Registratie ongedaan maken
-description: Automation Kit kantooruren - Afmelden
+title: "Registratie ongedaan maken"
+description: "Automation Kit - Kantooruren Uitschrijven"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 33B929E74896C20B83D938F1F6A144F398062624
+generated: DBF1D93EB5CF342892E9C69DB15B1DC338DE80F9
 ---
 
 Gebruik de onderstaande vraag om uw automatische registratie voor {{<product-name>}}. Wij sturen u een bevestigingscode die u kunt gebruiken om [bevestig uitschrijving](/nl/office-hours/unregister-confirm)

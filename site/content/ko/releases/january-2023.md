@@ -1,6 +1,6 @@
 ---
-title: 2022년 1월 릴리스
-description: 자동화 키트 - 2023년 1월
+title: "2022년 1월 릴리스"
+description: "자동화 키트 - 2023년 1월"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

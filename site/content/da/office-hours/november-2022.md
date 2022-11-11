@@ -1,10 +1,10 @@
 ---
-title: Kontortid
-description: Automatiseringssæt kontortid - Oktober 2022
+title: "Kontortid"
+description: "Automatiseringssæt - Kontortid november 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
+generated: E71CE811F0900FD477E5AB42197E1FDBE4D633F3
 ---
 
 Velkommen til landingssiden for automatiseringssæt til Power Platform november 2022 i kontortid.

@@ -1,11 +1,11 @@
 ---
-title: 作成ガイドライン
-description: オートメーションキットのドキュメント作成ガイドライン
+title: "作成ガイドライン"
+description: "自動化キット - ドキュメント作成ガイドライン"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: BA10815D9FEC78E27624D30D5760900841FA742C
+generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
 ---
 
 以下のセクションでは、スターター ドキュメントを作成するためのガイドラインとメモの概要を説明します。

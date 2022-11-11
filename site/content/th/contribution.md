@@ -1,10 +1,10 @@
 ---
-title: การบริจาค
-description: การสนับสนุนชุดระบบอัตโนมัติ
+title: "การบริจาค"
+description: "ชุดระบบอัตโนมัติ - การมีส่วนร่วม"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 ในฐานะโครงการโอเพนซอร์สที่สร้างขึ้นบน Power Platform และ Microsoft Cloud เป้าหมายของเราคือการจัดหาเครื่องมือและคําแนะนําอย่างรวดเร็วเพื่อช่วยเร่งการเดินทางของระบบอัตโนมัติแบบไฮเปอร์ของคุณ

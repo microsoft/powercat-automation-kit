@@ -1,6 +1,6 @@
 ---
-title: September 2022-versionen
-description: Automation Kit - September 2022
+title: "September 2022-versionen"
+description: "Automation Kit - September 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

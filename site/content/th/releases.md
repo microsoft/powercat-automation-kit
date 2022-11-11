@@ -1,6 +1,6 @@
 ---
-title: ปล่อย
-description: ชุดระบบอัตโนมัติ - ประวัติการวางจําหน่าย
+title: "ปล่อย"
+description: "ชุดระบบอัตโนมัติ - ประวัติการวางจําหน่าย"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,10 +1,10 @@
 ---
-title: 创作示例
-description: 自动化工具包创作示例
+title: "创作示例"
+description: "自动化工具包 - 创作示例"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
+generated: F08B4581ED304D561DE1C5BC479DEB68A97993CA
 ---
 
 <div class="optional">

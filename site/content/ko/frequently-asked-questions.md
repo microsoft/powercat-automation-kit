@@ -1,10 +1,10 @@
 ---
-title: 자주 묻는 질문
-description: 자동화 키트 자주 묻는 질문
+title: "자주 묻는 질문"
+description: "자동화 키트 - 자주 묻는 질문"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 4A9EE4B3AC308DB76B690C04F20C9ED04D001229
+generated: 6DF08DD7DAE7CD933CCAC83FFBB1B52BE7A82DCB
 ---
 
 # 소개

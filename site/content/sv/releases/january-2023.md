@@ -1,6 +1,6 @@
 ---
-title: Version från januari 2022
-description: Automation Kit - januari 2023
+title: "Version från januari 2022"
+description: "Automation Kit - januari 2023"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

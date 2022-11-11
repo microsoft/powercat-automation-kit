@@ -1,10 +1,10 @@
 ---
-title: Kit d’automatisation de configuration Tableau de bord Power BI
-description: Tableau de bord Power BI du Kit d’automatisation
+title: "Kit d’automatisation de configuration Tableau de bord Power BI"
+description: "Kit d’automatisation - Tableau de bord Power BI"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 Pour lancer le tableau de bord Power BI pour le centre d’excellence Automation, vous aurez besoin de l’URL de l’environnement principal (où Automation CoE Main est installé).

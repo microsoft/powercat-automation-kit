@@ -1,10 +1,10 @@
 ---
-title: 创作问题
-description: 自动化工具包创作问题
+title: "创作问题"
+description: "自动化工具包 - 创作问题"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
+generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
 ---
 
 此页面包含用于创作交互式问题的格式的信息，这些问题作为 {{ 的一部分包含在<product-name>}} 启动器。

@@ -1,6 +1,6 @@
 ---
-title: Tratti somatici
-description: Kit di automazione - Caratteristiche
+title: "Tratti somatici"
+description: "Kit di automazione - Caratteristiche"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

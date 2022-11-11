@@ -1,6 +1,6 @@
 ---
 title: Authoring Sample
-description: Automation Kit Authoring Sample
+description: Automation Kit - Authoring Sample
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

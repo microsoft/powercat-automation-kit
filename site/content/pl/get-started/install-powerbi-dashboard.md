@@ -1,10 +1,10 @@
 ---
-title: Zestaw automatyzacji konfiguracji Pulpit nawigacyjny usługi Power BI
-description: Zestaw automatyzacji Pulpit nawigacyjny usługi Power BI
+title: "Zestaw automatyzacji konfiguracji Pulpit nawigacyjny usługi Power BI"
+description: "Zestaw automatyzacji — pulpit nawigacyjny usługi Power BI"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 Aby uruchomić pulpit nawigacyjny usługi Power BI dla Centrum doskonałości automatyzacji, będziesz potrzebować adresu URL środowiska dla środowiska głównego (gdzie jest zainstalowana główna infrastruktura automatyzacji).

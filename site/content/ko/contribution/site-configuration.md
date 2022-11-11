@@ -1,10 +1,10 @@
 ---
-title: 문서 사이트 구성
-description: 자동화 키트 문서 사이트 구성
+title: "문서 사이트 구성"
+description: "자동화 키트 - 문서 사이트 구성"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 1688C7B8A47C92E5EE49BF96C767EF56803F7EC9
+generated: 354D0E4D269259766EC4DE1F88577B07B6095950
 ---
 
 

@@ -1,6 +1,6 @@
 ---
-title: Løslade
-description: Automationssæt - Udgivelseshistorik
+title: "Løslade"
+description: "Automationssæt - Udgivelseshistorik"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

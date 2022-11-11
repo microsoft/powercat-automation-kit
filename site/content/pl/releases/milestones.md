@@ -1,6 +1,6 @@
 ---
-title: Kamienie milowe
-description: Automation Kit - Release Milestones
+title: "Kamienie milowe"
+description: "Automation Kit - Release Milestones"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

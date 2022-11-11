@@ -1,6 +1,6 @@
 ---
-title: アプリケーション ライフサイクル管理 (ALM)
-description: オートメーションキット - ALM
+title: "アプリケーション ライフサイクル管理 (ALM)"
+description: "オートメーションキット - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

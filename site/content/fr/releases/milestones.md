@@ -1,6 +1,6 @@
 ---
-title: Étapes
-description: Kit d’automatisation - Jalons de publication
+title: "Étapes"
+description: "Kit d’automatisation - Jalons de publication"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

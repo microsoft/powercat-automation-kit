@@ -1,10 +1,10 @@
 ---
-title: ชุดข้อมูล
-description: ชุดข้อมูลอัตโนมัติ
+title: "ชุดข้อมูล"
+description: "ชุดระบบอัตโนมัติ - ชุดข้อมูล"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: BEA89993168AC33B19A338208B6665AE7E726557
+generated: 16D52F35701BF93D5BAB05162D94D9E9866918C6
 ---
 
 {{<toc>}}

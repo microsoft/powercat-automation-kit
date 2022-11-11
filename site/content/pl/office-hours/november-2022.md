@@ -1,10 +1,10 @@
 ---
-title: Godziny pracy biura
-description: Godziny pracy Automation Kit - październik 2022
+title: "Godziny pracy biura"
+description: "Automation Kit - Godziny pracy biura listopad 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
+generated: E71CE811F0900FD477E5AB42197E1FDBE4D633F3
 ---
 
 Witamy na stronie docelowej Automation Kit for Power Platform Godziny pracy w listopadzie 2022 r.

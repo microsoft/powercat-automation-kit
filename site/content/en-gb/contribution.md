@@ -1,10 +1,10 @@
 ---
-title: Contribution
-description: Automation Kit contribution
+title: "Contribution"
+description: "Automation Kit - Contribution"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 As an Open Source project built on top of the Power Platform and Microsoft Cloud our goal is to rapidly provide tools and guidance to help accelerate your hyper automation journey.

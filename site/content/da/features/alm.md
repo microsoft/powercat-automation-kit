@@ -1,6 +1,6 @@
 ---
-title: Administration af programlivscyklus (ALM)
-description: Automatiseringssæt - ALM
+title: "Administration af programlivscyklus (ALM)"
+description: "Automatiseringssæt - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

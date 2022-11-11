@@ -1,6 +1,6 @@
 ---
-title: วางจําหน่ายกันยายน 2022
-description: ชุดระบบอัตโนมัติ - กันยายน 2022
+title: "วางจําหน่ายกันยายน 2022"
+description: "ชุดระบบอัตโนมัติ - กันยายน 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

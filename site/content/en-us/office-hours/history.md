@@ -1,6 +1,6 @@
 ---
 title: History
-description: Automation Kit office hours - History
+description: Automation Kit - Office Hours History
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

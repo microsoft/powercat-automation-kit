@@ -1,11 +1,11 @@
 ---
-title: แนวทางการเขียน
-description: แนวทางการเขียนเอกสารของ Automation Kit
+title: "แนวทางการเขียน"
+description: "ชุดระบบอัตโนมัติ - แนวทางการเขียนเอกสาร"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: BA10815D9FEC78E27624D30D5760900841FA742C
+generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
 ---
 
 ส่วนต่อไปนี้จะสรุปแนวทางและหมายเหตุสําหรับการเขียนเอกสารเริ่มต้น

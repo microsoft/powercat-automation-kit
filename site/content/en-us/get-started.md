@@ -1,6 +1,6 @@
 ---
 title: Getting Started
-description: Automation Kit getting started helper
+description: Automation Kit - Getting Started
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

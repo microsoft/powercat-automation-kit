@@ -1,6 +1,6 @@
 ---
-title: 기능
-description: 자동화 키트 - 특징
+title: "기능"
+description: "자동화 키트 - 특징"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

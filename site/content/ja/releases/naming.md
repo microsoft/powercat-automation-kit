@@ -1,6 +1,6 @@
 ---
-title: 命名
-description: 自動化キット - ネーミング
+title: "命名"
+description: "自動化キット - ネーミング"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

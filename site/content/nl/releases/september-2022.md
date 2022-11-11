@@ -1,6 +1,6 @@
 ---
-title: Versie van september 2022
-description: Automatiseringskit - september 2022
+title: "Versie van september 2022"
+description: "Automatiseringskit - september 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

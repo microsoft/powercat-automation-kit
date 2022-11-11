@@ -1,6 +1,6 @@
 ---
-title: Desember 2022-utgivelsen
-description: Automatiseringssett - Desember 2022
+title: "Desember 2022-utgivelsen"
+description: "Automatiseringssett - Desember 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

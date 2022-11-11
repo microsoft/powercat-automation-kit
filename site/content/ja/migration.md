@@ -1,10 +1,10 @@
 ---
-title: RPA移行
-description: 自動化キットのRPA移行
+title: "RPA移行"
+description: "自動化キット - RPA移行"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3A666C6466A336E9BE4CF1AADD4C0658C83F2D6A
+generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 ---
 
 {{<product-name>}}**移行モジュール**顧客とのエンゲージメントに基づく実証済みのツールとガイダンスのセットを提供し、移行の過程を加速します。Microsoft Power Platform、Microsoft Azure、およびより広範なMicrosoft Cloud サービスの強みを活用することで、次のことが可能になります。

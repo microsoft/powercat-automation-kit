@@ -1,10 +1,10 @@
 ---
-title: Moduler
-description: Moduler til automatiseringssæt
+title: "Moduler"
+description: "Automatiseringssæt - Moduler"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
+generated: CF14A0F7FE3505051A57BC56B7C1A7DADC31946E
 ---
 
 På denne side beskrives de vigtigste moduler i den offentlige prøveversion af {{<product-name>}}.

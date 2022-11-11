@@ -1,10 +1,10 @@
 ---
-title: Wkład
-description: Wkład zestawu Automation Kit
+title: "Wkład"
+description: "Automation Kit - Wkład"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 Jako projekt Open Source oparty na platformie Power Platform i Microsoft Cloud naszym celem jest szybkie dostarczenie narzędzi i wskazówek, które pomogą przyspieszyć podróż hiperautomatyzacji.

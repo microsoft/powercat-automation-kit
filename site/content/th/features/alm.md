@@ -1,6 +1,6 @@
 ---
-title: การจัดการวงจรชีวิตของแอปพลิเคชัน (ALM)
-description: ชุดระบบอัตโนมัติ - ALM
+title: "การจัดการวงจรชีวิตของแอปพลิเคชัน (ALM)"
+description: "ชุดระบบอัตโนมัติ - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,10 +1,10 @@
 ---
-title: 提供反馈
-description: 自动化套件反馈
+title: "提供反馈"
+description: "自动化套件 - 贡献反馈"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
+generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 ---
 
 希望将您的反馈贡献给 {{<product-name>}}?您可以使用以下部分来探索不同的反馈类型。

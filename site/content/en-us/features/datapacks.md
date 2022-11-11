@@ -1,6 +1,6 @@
 ---
 title: Data Packs
-description: Automation Kit Data Packs
+description: Automation Kit - Data Packs
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

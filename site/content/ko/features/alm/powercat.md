@@ -1,6 +1,6 @@
 ---
-title: 전력 CAT 애플리케이션 라이프사이클 관리(ALM)
-description: 자동화 키트 - ALM 전원 고양이
+title: "전력 CAT 애플리케이션 라이프사이클 관리(ALM)"
+description: "자동화 키트 - ALM 전원 고양이"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

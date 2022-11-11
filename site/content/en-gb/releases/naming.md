@@ -1,6 +1,6 @@
 ---
-title: Naming
-description: Automation Kit - Naming
+title: "Naming"
+description: "Automation Kit - Naming"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

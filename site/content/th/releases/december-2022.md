@@ -1,6 +1,6 @@
 ---
-title: วางจําหน่ายธันวาคม 2022
-description: ชุดระบบอัตโนมัติ - ธันวาคม 2022
+title: "วางจําหน่ายธันวาคม 2022"
+description: "ชุดระบบอัตโนมัติ - ธันวาคม 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

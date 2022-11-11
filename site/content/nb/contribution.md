@@ -1,10 +1,10 @@
 ---
-title: Bidrag
-description: Bidrag fra automatiseringssett
+title: "Bidrag"
+description: "Automatiseringssett – bidrag"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 13B1D2DFB79714889F5E0CF82C17E1C7506D015C
+generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
 Som et Open Source-prosjekt bygget på toppen av Power Platform og Microsoft Cloud, er målet vårt å raskt tilby verktøy og veiledning for å bidra til å akselerere hyperautomatiseringsreisen.

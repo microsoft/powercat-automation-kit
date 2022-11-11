@@ -1,10 +1,10 @@
 ---
-title: Domande sulla creazione
-description: Domande sulla creazione di Automation Kit
+title: "Domande sulla creazione"
+description: "Kit di automazione - Domande sulla creazione"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
+generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
 ---
 
 Questa pagina contiene informazioni sul formato utilizzato per creare domande interattive incluse come parte del {{<product-name>}} antipasto.

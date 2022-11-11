@@ -1,10 +1,10 @@
 ---
-title: Ge feedback
-description: Feedback om automatiseringssats
+title: "Ge feedback"
+description: "Automation Kit - Feedback om bidrag"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
+generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 ---
 
 Vill bidra med din feedback till {{<product-name>}}? Du kan använda avsnitten nedan för att utforska de olika feedbacktyperna.

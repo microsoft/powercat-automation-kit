@@ -1,6 +1,6 @@
 ---
 title: Contribution
-description: Automation Kit contribution
+description: Automation Kit - Contribution
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

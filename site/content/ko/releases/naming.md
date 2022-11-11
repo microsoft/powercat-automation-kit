@@ -1,6 +1,6 @@
 ---
-title: 명명
-description: 자동화 키트 - 이름 지정
+title: "명명"
+description: "자동화 키트 - 이름 지정"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

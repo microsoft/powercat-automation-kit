@@ -1,6 +1,6 @@
 ---
-title: การจัดการวงจรชีวิตของแอปพลิเคชัน Power CAT (ALM)
-description: ชุดระบบอัตโนมัติ - ALM Power CAT
+title: "การจัดการวงจรชีวิตของแอปพลิเคชัน Power CAT (ALM)"
+description: "ชุดระบบอัตโนมัติ - ALM Power CAT"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

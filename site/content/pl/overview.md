@@ -1,6 +1,6 @@
 ---
-title: Przegląd
-description: Automation Kit - Przegląd
+title: "Przegląd"
+description: "Automation Kit - Przegląd"
 sidebar: false
 sidebarlogo: fresh-white
 generated: E841F2B13005D1C9AEDB5A8BB90283DCDDD3DDE2

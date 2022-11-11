@@ -1,6 +1,6 @@
 ---
-title: January 2022 Release
-description: Automation Kit - January 2023
+title: "January 2022 Release"
+description: "Automation Kit - January 2023"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

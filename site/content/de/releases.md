@@ -1,6 +1,6 @@
 ---
-title: Loslassen
-description: Automation Kit - Versionshistorie
+title: "Loslassen"
+description: "Automation Kit - Versionshistorie"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

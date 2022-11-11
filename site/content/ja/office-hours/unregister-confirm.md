@@ -1,10 +1,11 @@
 ---
-title: 登録解除の確認
-description: 自動化キットの営業時間 - 登録解除の確認
+title: "登録解除の確認"
+description: "自動化キット - 営業時間登録解除の確認"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 74A4EF4CCA7939DF35FE293B8736D7D5A8EF0C86
+index: false
+generated: 0EC6C87878D97132CB5E26CB117387283315219D
 ---
 
 以下の質問を使用して、登録解除を確認してください。

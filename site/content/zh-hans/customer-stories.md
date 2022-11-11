@@ -1,10 +1,10 @@
 ---
-title: 客户案例
-description: 自动化套件客户案例
+title: "客户案例"
+description: "自动化套件 - 客户案例"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
+generated: 1C5F493567A0341C488B792CF9D9BCA522CE847A
 ---
 
 # 介绍

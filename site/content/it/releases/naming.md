@@ -1,6 +1,6 @@
 ---
-title: Denominazione
-description: Kit di automazione - Denominazione
+title: "Denominazione"
+description: "Kit di automazione - Denominazione"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

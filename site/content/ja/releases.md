@@ -1,6 +1,6 @@
 ---
-title: 解放
-description: オートメーションキット - リリース履歴
+title: "解放"
+description: "オートメーションキット - リリース履歴"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

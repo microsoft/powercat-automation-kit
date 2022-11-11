@@ -1,6 +1,6 @@
 ---
-title: November 2022 Release
-description: Automation Kit - November 2022
+title: "November 2022 Release"
+description: "Automation Kit - November 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

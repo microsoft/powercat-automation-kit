@@ -1,10 +1,10 @@
 ---
-title: History
-description: Automation Kit office hours - History
+title: "History"
+description: "Automation Kit - Office Hours History"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: C28F6544C6800EB7071456A4A24A41BECA1FE8C9
+generated: 40033B469AA6176C7CDA1348E522DFF476199C83
 ---
 
 This page includes links to past and future office hours sessions

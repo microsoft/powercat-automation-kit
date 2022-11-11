@@ -1,6 +1,6 @@
 ---
-title: 顔立ち
-description: オートメーションキット - 機能
+title: "顔立ち"
+description: "オートメーションキット - 機能"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

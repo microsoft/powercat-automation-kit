@@ -1,10 +1,11 @@
 ---
-title: 자동화 성숙도 모델
-description: 자동화 키트 자동화 성숙도
+title: "자동화 성숙도 모델"
+description: "자동화 키트 - 자동화 성숙도 모델"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 022DFD9859F935FB5E8447F38203682947EB8EE8
+index: false
+generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 ---
 
 **상태:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 진행 중인 작업 - 검토 중

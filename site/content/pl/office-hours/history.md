@@ -1,10 +1,10 @@
 ---
-title: Historia
-description: Godziny pracy Automation Kit - Historia
+title: "Historia"
+description: "Automation Kit - Historia godzin pracy biura"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: C28F6544C6800EB7071456A4A24A41BECA1FE8C9
+generated: 40033B469AA6176C7CDA1348E522DFF476199C83
 ---
 
 Ta strona zawiera linki do przeszłych i przyszłych sesji w godzinach pracy

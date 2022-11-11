@@ -1,10 +1,10 @@
 ---
-title: カスタマーストーリー
-description: オートメーションキットのお客様事例
+title: "カスタマーストーリー"
+description: "自動化キット - 顧客事例"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
+generated: 1C5F493567A0341C488B792CF9D9BCA522CE847A
 ---
 
 # 紹介

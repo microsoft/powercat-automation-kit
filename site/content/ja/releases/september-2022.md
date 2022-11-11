@@ -1,6 +1,6 @@
 ---
-title: 2022 年 9 月リリース
-description: オートメーションキット - 2022年9月
+title: "2022 年 9 月リリース"
+description: "オートメーションキット - 2022年9月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,6 +1,6 @@
 ---
-title: Funksjoner
-description: Automatiseringssett - Funksjoner
+title: "Funksjoner"
+description: "Automatiseringssett - Funksjoner"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

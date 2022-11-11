@@ -1,6 +1,6 @@
 ---
-title: 命名
-description: 自动化套件 - 命名
+title: "命名"
+description: "自动化套件 - 命名"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

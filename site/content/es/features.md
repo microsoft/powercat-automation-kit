@@ -1,6 +1,6 @@
 ---
-title: Funciones
-description: Automation Kit - Características
+title: "Funciones"
+description: "Automation Kit - Características"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

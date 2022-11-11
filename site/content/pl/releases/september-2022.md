@@ -1,6 +1,6 @@
 ---
-title: Wydanie z września 2022 r.
-description: Automation Kit - wrzesień 2022
+title: "Wydanie z września 2022 r."
+description: "Automation Kit - wrzesień 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

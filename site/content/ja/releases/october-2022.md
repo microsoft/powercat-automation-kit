@@ -1,6 +1,6 @@
 ---
-title: 2022 年 10 月リリース
-description: 自動化キット - 2022 年 10 月
+title: "2022 年 10 月リリース"
+description: "自動化キット - 2022 年 10 月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

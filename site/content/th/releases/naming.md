@@ -1,6 +1,6 @@
 ---
-title: การตั้งชื่อ
-description: ชุดระบบอัตโนมัติ - การตั้งชื่อ
+title: "การตั้งชื่อ"
+description: "ชุดระบบอัตโนมัติ - การตั้งชื่อ"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

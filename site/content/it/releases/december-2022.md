@@ -1,6 +1,6 @@
 ---
-title: Versione dicembre 2022
-description: Kit di automazione - Dicembre 2022
+title: "Versione dicembre 2022"
+description: "Kit di automazione - Dicembre 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

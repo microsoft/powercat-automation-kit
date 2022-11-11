@@ -1,10 +1,10 @@
 ---
-title: Commencer
-description: Aide à la mise en route du kit d’automatisation
+title: "Commencer"
+description: "Kit d’automatisation - Mise en route"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
+generated: 454A4990DCD77031642D2EDE36FE235A40DF66E0
 ---
 
 ## Introduction

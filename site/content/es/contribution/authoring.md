@@ -1,11 +1,11 @@
 ---
-title: Directrices de creación
-description: Directrices de creación de documentación de Automation Kit
+title: "Directrices de creación"
+description: "Kit de automatización: directrices para la creación de documentación"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: BA10815D9FEC78E27624D30D5760900841FA742C
+generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
 ---
 
 En las secciones siguientes se describen las directrices y notas para crear documentación inicial.

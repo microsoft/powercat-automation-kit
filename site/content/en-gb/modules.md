@@ -1,10 +1,10 @@
 ---
-title: Modules
-description: Automation Kit Modules
+title: "Modules"
+description: "Automation Kit - Modules"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: CDC4CEB3BCA47EC6ED56A1BC5C52AC6F32019EDF
+generated: CF14A0F7FE3505051A57BC56B7C1A7DADC31946E
 ---
 
 This page describes the key modules of the public preview of the {{<product-name>}}.

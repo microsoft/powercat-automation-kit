@@ -1,6 +1,6 @@
 ---
-title: Frigivelse
-description: Automatiseringssett – utgivelseshistorikk
+title: "Frigivelse"
+description: "Automatiseringssett – utgivelseshistorikk"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

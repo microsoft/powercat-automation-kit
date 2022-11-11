@@ -1,6 +1,6 @@
 ---
-title: Frigivelse december 2022
-description: Automatiseringssæt - december 2022
+title: "Frigivelse december 2022"
+description: "Automatiseringssæt - december 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,6 +1,6 @@
 ---
 title: Setup Automation Kit Power BI dashboard
-description: Automation Kit Power BI dashboard
+description: Automation Kit - Power BI dashboard
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

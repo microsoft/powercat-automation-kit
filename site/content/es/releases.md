@@ -1,6 +1,6 @@
 ---
-title: Lanzamiento
-description: Automation Kit - Historial de versiones
+title: "Lanzamiento"
+description: "Automation Kit - Historial de versiones"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

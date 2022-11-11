@@ -1,10 +1,10 @@
 ---
-title: Vragen over het schrijven
-description: Vragen over het ontwerpen van Automation Kit
+title: "Vragen over het schrijven"
+description: "Automation Kit - Vragen over het schrijven"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
+generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
 ---
 
 Deze pagina bevat informatie over de indeling die wordt gebruikt om interactieve vragen te stellen die zijn opgenomen als onderdeel van de {{<product-name>}} starter.

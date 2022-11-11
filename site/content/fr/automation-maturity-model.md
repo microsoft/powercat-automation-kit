@@ -1,10 +1,11 @@
 ---
-title: Modèle de maturité de l’automatisation
-description: Maturité de l’automatisation du kit d’automatisation
+title: "Modèle de maturité de l’automatisation"
+description: "Kit d’automatisation - Modèle de maturité de l’automatisation"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 022DFD9859F935FB5E8447F38203682947EB8EE8
+index: false
+generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 ---
 
 **Statut:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Travaux en cours - À l’étude

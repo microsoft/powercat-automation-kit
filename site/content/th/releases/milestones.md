@@ -1,6 +1,6 @@
 ---
-title: เหตุการณ์สําคัญ
-description: ชุดระบบอัตโนมัติ - เผยแพร่เหตุการณ์สําคัญ
+title: "เหตุการณ์สําคัญ"
+description: "ชุดระบบอัตโนมัติ - เผยแพร่เหตุการณ์สําคัญ"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

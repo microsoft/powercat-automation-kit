@@ -1,6 +1,6 @@
 ---
-title: Functies
-description: Automation Kit - Kenmerken
+title: "Functies"
+description: "Automation Kit - Kenmerken"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

@@ -1,6 +1,6 @@
 ---
-title: Livscykelhantering för program (ALM)
-description: Automation Kit - ALM
+title: "Livscykelhantering för program (ALM)"
+description: "Automation Kit - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

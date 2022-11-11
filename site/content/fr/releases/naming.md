@@ -1,6 +1,6 @@
 ---
-title: Nommage
-description: Kit d’automatisation - Dénomination
+title: "Nommage"
+description: "Kit d’automatisation - Dénomination"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

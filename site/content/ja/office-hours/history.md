@@ -1,10 +1,10 @@
 ---
-title: 歴史
-description: 自動化キットの営業時間-歴史
+title: "歴史"
+description: "自動化キット - オフィスアワー履歴"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: C28F6544C6800EB7071456A4A24A41BECA1FE8C9
+generated: 40033B469AA6176C7CDA1348E522DFF476199C83
 ---
 
 このページには、過去および将来のオフィスアワーセッションへのリンクが含まれています

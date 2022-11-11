@@ -1,6 +1,6 @@
 ---
-title: วางจําหน่ายมกราคม 2022
-description: ชุดระบบอัตโนมัติ - มกราคม 2023
+title: "วางจําหน่ายมกราคม 2022"
+description: "ชุดระบบอัตโนมัติ - มกราคม 2023"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

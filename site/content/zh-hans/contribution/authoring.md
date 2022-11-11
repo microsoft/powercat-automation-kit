@@ -1,11 +1,11 @@
 ---
-title: 创作准则
-description: 自动化工具包文档创作指南
+title: "创作准则"
+description: "自动化工具包 - 文档创作指南"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: BA10815D9FEC78E27624D30D5760900841FA742C
+generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
 ---
 
 以下各节概述了创作初学者文档的准则和说明。

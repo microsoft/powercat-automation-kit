@@ -1,10 +1,10 @@
 ---
-title: オーサリングの質問
-description: 自動化キットの作成に関する質問
+title: "オーサリングの質問"
+description: "自動化キット - 質問の作成"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 8C2038D431EFDD6FFB6D2527457388FBDDC6F954
+generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
 ---
 
 このページには、{{<product-name>}} スターター。

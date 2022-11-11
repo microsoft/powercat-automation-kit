@@ -1,6 +1,6 @@
 ---
-title: Version d’octobre 2022
-description: Kit d’automatisation - Octobre 2022
+title: "Version d’octobre 2022"
+description: "Kit d’automatisation - Octobre 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

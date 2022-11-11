@@ -1,6 +1,6 @@
 ---
 title: Office Hours
-description: Automation Kit office hours - October 2022
+description: Automation Kit - Office Hours October 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

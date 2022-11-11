@@ -1,6 +1,6 @@
 ---
 title: Modules
-description: Automation Kit Modules
+description: Automation Kit - Modules
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

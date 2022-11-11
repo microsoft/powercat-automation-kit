@@ -1,6 +1,6 @@
 ---
-title: 2022 年 1 月リリース
-description: 自動化キット - 2023年1月
+title: "2022 年 1 月リリース"
+description: "自動化キット - 2023年1月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

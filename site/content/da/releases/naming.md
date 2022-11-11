@@ -1,6 +1,6 @@
 ---
-title: Navngivning
-description: Automatiseringssæt - navngivning
+title: "Navngivning"
+description: "Automatiseringssæt - navngivning"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

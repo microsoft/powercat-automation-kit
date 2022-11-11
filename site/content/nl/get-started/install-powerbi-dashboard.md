@@ -1,10 +1,10 @@
 ---
-title: Power BI-dashboard van de Automatiseringskit instellen
-description: Automation Kit Power BI-dashboard
+title: "Power BI-dashboard van de Automatiseringskit instellen"
+description: "Automation Kit - Power BI-dashboard"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 Als u het Power BI-dashboard voor het Automation Center of Excellence wilt starten, hebt u de omgevings-URL nodig voor uw hoofdomgeving (waar Automation CoE Main is geïnstalleerd).

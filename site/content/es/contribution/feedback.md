@@ -1,10 +1,10 @@
 ---
-title: Dar retroalimentación
-description: Comentarios sobre el kit de automatización
+title: "Dar retroalimentación"
+description: "Kit de automatización - Comentarios sobre contribuciones"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
+generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 ---
 
 Buscando contribuir con sus comentarios al {{<product-name>}}? Puede utilizar las secciones siguientes para explorar los diferentes tipos de comentarios.

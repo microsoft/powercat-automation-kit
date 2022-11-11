@@ -1,10 +1,10 @@
 ---
-title: Konfigurera Automation Kit Power BI-instrumentpanel
-description: Automation Kit Power BI-instrumentpanel
+title: "Konfigurera Automation Kit Power BI-instrumentpanel"
+description: "Automation Kit – Power BI-instrumentpanel"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38B90FAAAD83EC06DAD9FE1B02DA2F76E8433F69
+generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 ---
 
 Om du vill starta Power BI-instrumentpanelen för Automation Center of Excellence behöver du miljö-URL:en för din huvudmiljö (där Automation CoE Main är installerat).

@@ -1,10 +1,10 @@
 ---
-title: オフィスアワー
-description: オートメーションキットの営業時間 - 2022年10月
+title: "オフィスアワー"
+description: "自動化キット - 営業時間 11 月 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
+generated: E71CE811F0900FD477E5AB42197E1FDBE4D633F3
 ---
 
 Power Platform の自動化キット 2022 年 11 月の営業時間のランディング ページへようこそ。

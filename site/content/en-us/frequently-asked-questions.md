@@ -1,6 +1,6 @@
 ---
 title: Frequently Asked Questions
-description: Automation Kit Frequently Asked Questions
+description: Automation Kit - Frequently Asked Questions
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

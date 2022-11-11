@@ -1,6 +1,6 @@
 ---
-title: 2022년 12월 릴리스
-description: 자동화 키트 - 2022년 12월
+title: "2022년 12월 릴리스"
+description: "자동화 키트 - 2022년 12월"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

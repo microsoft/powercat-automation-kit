@@ -1,6 +1,6 @@
 ---
-title: 特征
-description: 自动化套件 - 特点
+title: "特征"
+description: "自动化套件 - 特点"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

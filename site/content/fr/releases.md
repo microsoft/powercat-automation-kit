@@ -1,6 +1,6 @@
 ---
-title: Libérer
-description: Kit d’automatisation - Historique des versions
+title: "Libérer"
+description: "Kit d’automatisation - Historique des versions"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

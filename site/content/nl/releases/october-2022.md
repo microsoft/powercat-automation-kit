@@ -1,6 +1,6 @@
 ---
-title: Versie van oktober 2022
-description: Automation Kit - oktober 2022
+title: "Versie van oktober 2022"
+description: "Automation Kit - oktober 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

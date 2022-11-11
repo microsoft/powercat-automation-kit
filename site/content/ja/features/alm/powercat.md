@@ -1,6 +1,6 @@
 ---
-title: パワー CAT アプリケーション ライフサイクル管理 (ALM)
-description: オートメーションキット - ALMパワーキャット
+title: "パワー CAT アプリケーション ライフサイクル管理 (ALM)"
+description: "オートメーションキット - ALMパワーキャット"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true

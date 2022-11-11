@@ -1,10 +1,10 @@
 ---
-title: เรื่องราวของลูกค้า
-description: เรื่องราวของลูกค้า Automation Kit
+title: "เรื่องราวของลูกค้า"
+description: "ชุดระบบอัตโนมัติ - เรื่องราวของลูกค้า"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5DAF1EBDE6782308925E54D40EE46C985E74D07F
+generated: 1C5F493567A0341C488B792CF9D9BCA522CE847A
 ---
 
 # แนะ นำ

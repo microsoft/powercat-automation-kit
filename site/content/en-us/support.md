@@ -1,6 +1,6 @@
 ---
 title: Support
-description: Automation Kit Support
+description: Automation Kit - Support
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
