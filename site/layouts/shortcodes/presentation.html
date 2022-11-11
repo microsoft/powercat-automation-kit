@@ -1,4 +1,6 @@
 {{ $slides := .Get "slides" }}
+{{ $audioNotAvailable := $.Site.Params.audioNotAvailable }}
+{{ $fullScreen := $.Site.Params.fullScreen }}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" integrity="sha512-V5fKCVKOFy36w8zJmLzPH5R6zU6KvuHOvxfMRczx2ZeqTjKRGSBO9yiZjCKEJS3n6EmENwrH/xvSwXqxje+VVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -50,13 +52,13 @@
 <div class="header">
     <audio id="slideAudio" controls="controls" style="height:50px">
         <source src="" type="audio/mpeg">
-    Your browser does not support the audio element.
+    {{ $audioNotAvailable }}
     </audio>
 
 
     <a id="fullScreen" class="navbar-item">
         <span class="button signup-button rounded secondary-btn raised">
-        Full Screen
+        {{ $fullScreen }}
         </span>
     </a>
 </div>

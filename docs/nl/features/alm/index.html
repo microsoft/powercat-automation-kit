@@ -142,6 +142,8 @@
 </div>
 
 
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" integrity="sha512-V5fKCVKOFy36w8zJmLzPH5R6zU6KvuHOvxfMRczx2ZeqTjKRGSBO9yiZjCKEJS3n6EmENwrH/xvSwXqxje+VVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" integrity="sha512-0BwgQfciYCCQc2rKINa7wL2k5vGAjF5dyL90A598QMimsVDie6M/4ShOLG07HJpNtSc9JB6m2s9B9OGam3rmTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -192,13 +194,13 @@
 <div class="header">
     <audio id="slideAudio" controls="controls" style="height:50px">
         <source src="" type="audio/mpeg">
-    Your browser does not support the audio element.
+    Uw browser ondersteunt het audio-element niet.
     </audio>
 
 
     <a id="fullScreen" class="navbar-item">
         <span class="button signup-button rounded secondary-btn raised">
-        Full Screen
+        Volledig scherm
         </span>
     </a>
 </div>
@@ -303,6 +305,13 @@
 
 
 
+
+
+
+
+
+
+
 <script>
     
     
@@ -320,7 +329,7 @@
 </div>
 
 <noscript>
-    <p>JavaScript must be enabled to view this content</p>
+    <p>JavaScript moet zijn ingeschakeld om deze inhoud te kunnen bekijken</p>
 </noscript>
 
 <script>
@@ -409,7 +418,7 @@
                     return question.getType() === "feedback-task";
                 },
                 isDefaultRender: false,
-                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>Complete questions and send feedback</a>",
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>Vragen invullen en feedback sturen</a>",
                 activatedByChanged: function (activatedBy) {
                     Survey.JsonObject.metaData.addClass(
                         "feedback-task", [
@@ -431,7 +440,7 @@
                     function initWidget() {
                         $("#sendFeedback").on("click", function() {
                             if ( question.survey.completeLastPage() ) {
-                                question.survey.setValue(question.name + "-status", 'Sending feedback')
+                                question.survey.setValue(question.name + "-status", 'Feedback verzenden')
 
                                 $.ajax({
                                         type: "GET",
@@ -449,13 +458,13 @@
                                                     question.survey.setValue(question.name + "-status", result.status)
                                                 },
                                                 error: function() {
-                                                    question.survey.setValue(question.name + "-status", 'Unable to send feedback')
+                                                    question.survey.setValue(question.name + "-status", 'Kan geen feedback verzenden')
                                                 }
                                             });
                                             }
                                     });
                             } else {
-                                question.survey.setValue(question.name + "-status", 'Validate questions are complete')
+                                question.survey.setValue(question.name + "-status", 'Valideervragen zijn voltooid')
                             }
                         })  
                     };
@@ -514,7 +523,7 @@
                                 if (response.ok) {
                                     return response.text();
                                 }
-                                throw new Error('Network response was not ok.');
+                                throw new Error('Netwerkrespons was niet ok.');
                             })
                             .then(function (jsonContent) {
                                 question.survey[question.name + '_loaded'] = true;
@@ -623,7 +632,7 @@
                                 if (response.ok) {
                                     return response.text();
                                 }
-                                throw new Error('Network response was not ok.');
+                                throw new Error('Netwerkrespons was niet ok.');
                             })
                             .then(function (svgContent) {
                                 el.innerHTML = svgContent;
@@ -1109,7 +1118,7 @@
                     if (response.ok) {
                         loadData(await response.text());
                     }
-                    throw new Error('Network response was not ok.');
+                    throw new Error('Netwerkrespons was niet ok.');
                 })
         }
     });

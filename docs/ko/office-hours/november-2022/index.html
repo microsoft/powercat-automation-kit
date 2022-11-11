@@ -140,6 +140,13 @@
 
 
 
+
+
+
+
+
+
+
 <script>
     
     
@@ -157,7 +164,7 @@
 </div>
 
 <noscript>
-    <p>JavaScript must be enabled to view this content</p>
+    <p>이 콘텐츠를 보려면 자바스크립트를 사용하도록 설정해야 합니다.</p>
 </noscript>
 
 <script>
@@ -246,7 +253,7 @@
                     return question.getType() === "feedback-task";
                 },
                 isDefaultRender: false,
-                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>Complete questions and send feedback</a>",
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>질문 완료 및 의견 보내기</a>",
                 activatedByChanged: function (activatedBy) {
                     Survey.JsonObject.metaData.addClass(
                         "feedback-task", [
@@ -268,7 +275,7 @@
                     function initWidget() {
                         $("#sendFeedback").on("click", function() {
                             if ( question.survey.completeLastPage() ) {
-                                question.survey.setValue(question.name + "-status", 'Sending feedback')
+                                question.survey.setValue(question.name + "-status", '피드백 보내기')
 
                                 $.ajax({
                                         type: "GET",
@@ -286,13 +293,13 @@
                                                     question.survey.setValue(question.name + "-status", result.status)
                                                 },
                                                 error: function() {
-                                                    question.survey.setValue(question.name + "-status", 'Unable to send feedback')
+                                                    question.survey.setValue(question.name + "-status", '피드백을 보낼 수 없음')
                                                 }
                                             });
                                             }
                                     });
                             } else {
-                                question.survey.setValue(question.name + "-status", 'Validate questions are complete')
+                                question.survey.setValue(question.name + "-status", '질문이 완료되었는지 확인')
                             }
                         })  
                     };
@@ -351,7 +358,7 @@
                                 if (response.ok) {
                                     return response.text();
                                 }
-                                throw new Error('Network response was not ok.');
+                                throw new Error('네트워크 응답이 정상이 아닙니다.');
                             })
                             .then(function (jsonContent) {
                                 question.survey[question.name + '_loaded'] = true;
@@ -460,7 +467,7 @@
                                 if (response.ok) {
                                     return response.text();
                                 }
-                                throw new Error('Network response was not ok.');
+                                throw new Error('네트워크 응답이 정상이 아닙니다.');
                             })
                             .then(function (svgContent) {
                                 el.innerHTML = svgContent;
@@ -946,7 +953,7 @@
                     if (response.ok) {
                         loadData(await response.text());
                     }
-                    throw new Error('Network response was not ok.');
+                    throw new Error('네트워크 응답이 정상이 아닙니다.');
                 })
         }
     });

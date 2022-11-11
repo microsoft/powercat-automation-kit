@@ -127,6 +127,13 @@
 
 
 
+
+
+
+
+
+
+
 <script>
     
     
@@ -144,7 +151,7 @@
 </div>
 
 <noscript>
-    <p>JavaScript must be enabled to view this content</p>
+    <p>JavaScript debe estar habilitado para ver este contenido</p>
 </noscript>
 
 <script>
@@ -233,7 +240,7 @@
                     return question.getType() === "feedback-task";
                 },
                 isDefaultRender: false,
-                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>Complete questions and send feedback</a>",
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>Complete preguntas y envíe comentarios</a>",
                 activatedByChanged: function (activatedBy) {
                     Survey.JsonObject.metaData.addClass(
                         "feedback-task", [
@@ -255,7 +262,7 @@
                     function initWidget() {
                         $("#sendFeedback").on("click", function() {
                             if ( question.survey.completeLastPage() ) {
-                                question.survey.setValue(question.name + "-status", 'Sending feedback')
+                                question.survey.setValue(question.name + "-status", 'Envío de comentarios')
 
                                 $.ajax({
                                         type: "GET",
@@ -273,13 +280,13 @@
                                                     question.survey.setValue(question.name + "-status", result.status)
                                                 },
                                                 error: function() {
-                                                    question.survey.setValue(question.name + "-status", 'Unable to send feedback')
+                                                    question.survey.setValue(question.name + "-status", 'No se pueden enviar comentarios')
                                                 }
                                             });
                                             }
                                     });
                             } else {
-                                question.survey.setValue(question.name + "-status", 'Validate questions are complete')
+                                question.survey.setValue(question.name + "-status", 'Validar que las preguntas estén completas')
                             }
                         })  
                     };
@@ -338,7 +345,7 @@
                                 if (response.ok) {
                                     return response.text();
                                 }
-                                throw new Error('Network response was not ok.');
+                                throw new Error('La respuesta de la red no fue correcta.');
                             })
                             .then(function (jsonContent) {
                                 question.survey[question.name + '_loaded'] = true;
@@ -447,7 +454,7 @@
                                 if (response.ok) {
                                     return response.text();
                                 }
-                                throw new Error('Network response was not ok.');
+                                throw new Error('La respuesta de la red no fue correcta.');
                             })
                             .then(function (svgContent) {
                                 el.innerHTML = svgContent;
@@ -933,7 +940,7 @@
                     if (response.ok) {
                         loadData(await response.text());
                     }
-                    throw new Error('Network response was not ok.');
+                    throw new Error('La respuesta de la red no fue correcta.');
                 })
         }
     });

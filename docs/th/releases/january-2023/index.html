@@ -137,6 +137,13 @@
 
 
 
+
+
+
+
+
+
+
 <script>
     
     
@@ -154,7 +161,7 @@
 </div>
 
 <noscript>
-    <p>JavaScript must be enabled to view this content</p>
+    <p>ต้องเปิดใช้งานจาวาสคริปต์เพื่อดูเนื้อหานี้</p>
 </noscript>
 
 <script>
@@ -243,7 +250,7 @@
                     return question.getType() === "feedback-task";
                 },
                 isDefaultRender: false,
-                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>Complete questions and send feedback</a>",
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='sendFeedback'>กรอกคําถามและส่งความคิดเห็น</a>",
                 activatedByChanged: function (activatedBy) {
                     Survey.JsonObject.metaData.addClass(
                         "feedback-task", [
@@ -265,7 +272,7 @@
                     function initWidget() {
                         $("#sendFeedback").on("click", function() {
                             if ( question.survey.completeLastPage() ) {
-                                question.survey.setValue(question.name + "-status", 'Sending feedback')
+                                question.survey.setValue(question.name + "-status", 'การส่งความคิดเห็น')
 
                                 $.ajax({
                                         type: "GET",
@@ -283,13 +290,13 @@
                                                     question.survey.setValue(question.name + "-status", result.status)
                                                 },
                                                 error: function() {
-                                                    question.survey.setValue(question.name + "-status", 'Unable to send feedback')
+                                                    question.survey.setValue(question.name + "-status", 'ไม่สามารถส่งความคิดเห็น')
                                                 }
                                             });
                                             }
                                     });
                             } else {
-                                question.survey.setValue(question.name + "-status", 'Validate questions are complete')
+                                question.survey.setValue(question.name + "-status", 'คําถามตรวจสอบเสร็จสมบูรณ์')
                             }
                         })  
                     };
@@ -348,7 +355,7 @@
                                 if (response.ok) {
                                     return response.text();
                                 }
-                                throw new Error('Network response was not ok.');
+                                throw new Error('การตอบสนองของเครือข่ายไม่โอเค');
                             })
                             .then(function (jsonContent) {
                                 question.survey[question.name + '_loaded'] = true;
@@ -457,7 +464,7 @@
                                 if (response.ok) {
                                     return response.text();
                                 }
-                                throw new Error('Network response was not ok.');
+                                throw new Error('การตอบสนองของเครือข่ายไม่โอเค');
                             })
                             .then(function (svgContent) {
                                 el.innerHTML = svgContent;
@@ -943,7 +950,7 @@
                     if (response.ok) {
                         loadData(await response.text());
                     }
-                    throw new Error('Network response was not ok.');
+                    throw new Error('การตอบสนองของเครือข่ายไม่โอเค');
                 })
         }
     });
