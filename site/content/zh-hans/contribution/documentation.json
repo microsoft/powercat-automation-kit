@@ -1,0 +1,191 @@
+{
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "tool",
+          "title": {
+            "default": "Which of the following is the best match for you?",
+            "zh-hans": "以下哪项最适合您？"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "role",
+          "title": {
+            "default": "What is your role in the Automation Kit project",
+            "zh-hans": "您在自动化工具包项目中的角色是什么"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Complete the followings commands",
+            "zh-hans": "完成以下命令"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Clone the repository",
+            "zh-hans": "克隆存储库"
+          },
+          "html": {
+            "default": "git clone https://github.com/microsoft/powercat-automation-kit.git",
+            "zh-hans": "git 克隆 https://github.com/microsoft/powercat-automation-kit.git"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'core'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Fork the repository",
+            "zh-hans": "分叉存储库"
+          },
+          "html": {
+            "default": "Complete the <a href='https://docs.github.com/get-started/quickstart/fork-a-repo' target='_blank'>Fork a repo</a> to fork the project",
+            "zh-hans": "完成<a href='https：//docs.github.com/get-started/quickstart/fork-a-repo' target='_blank'>Fork a repo</a> 以分叉项目"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'community'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Clone the your forked repository",
+            "zh-hans": "克隆分支存储库"
+          },
+          "html": {
+            "default": "git clone https://github.com/YOUR-USERNAME/powercat-automation-kit.git",
+            "zh-hans": "git 克隆 https://github.com/YOUR-USERNAME/powercat-automation-kit.git"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'community'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Switch to gh-pages",
+            "zh-hans": "切换到 gh 页面"
+          },
+          "html": {
+            "default": "git checkout gh-pages",
+            "zh-hans": "git 结帐 gh-pages"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Create your branch for changes",
+            "zh-hans": "为更改创建分支"
+          },
+          "html": {
+            "default": "git checkout -b yourname-gh-pages",
+            "zh-hans": "git checkout -b yourname-gh-pages"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Make you changes",
+            "zh-hans": "让你做出改变"
+          },
+          "html": {
+            "default": "<b>Edit Changes</b> Make your the changes to markdown and questions",
+            "zh-hans": "<b>编辑更改</b>让你成为降价和问题的改变"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Commit changes",
+            "zh-hans": "提交更改"
+          },
+          "html": {
+            "default": "git commit -m 'Your summary' .",
+            "zh-hans": "git commit -m 'Your summary' ."
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Push the repository",
+            "zh-hans": "推送存储库"
+          },
+          "html": {
+            "default": "git push",
+            "zh-hans": "git push"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Create pull request",
+            "zh-hans": "创建拉取请求"
+          },
+          "html": {
+            "default": "Read and complete steps in <a href='https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request' target='_blank'>Creating a pull request</a>",
+            "zh-hans": "阅读并完成<a href='https：//docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/createating-a-pull-request' target='_blank'>创建拉取请求中的步骤</a>"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "radiogroup",
+          "name": "setup-complete",
+          "title": {
+            "default": "GitHub download successfully completed?",
+            "zh-hans": "GitHub 下载成功完成？"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Note</b> Visual Studio steps still need to be documented",
+            "zh-hans": "<b>注意</b>Visual Studio步骤仍需要记录在案"
+          },
+          "visibleIf": "({tool} = 'vscode') and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Note</b> GitHub Desktop steps still need to be documented",
+            "zh-hans": "<b>注意</b>GitHub 桌面步骤仍需要记录"
+          },
+          "visibleIf": "({tool} = 'app') and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Review the <a href='/contribution/authoring'>Authoring Guidelines</a>",
+            "zh-hans": "查看<a href='/contribution/authoring'>创作指南</a>"
+          },
+          "visibleIf": "({setup-complete} = 'yes')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>TIP:</b> In the site folder use the <b>hugo serve</b> command to view content locally and <b>hugo</b> to build static HTML in docs folder",
+            "zh-hans": "<b>提示：</b>在站点文件夹中，使用 <b>hugo serve</b> 命令在本地查看内容，使用 <b>hugo</b> 在 docs 文件夹中构建静态 HTML"
+          },
+          "visibleIf": "({setup-complete} = 'yes')"
+        }
+      ]
+    }
+  ]
+}
