@@ -4,7 +4,7 @@ description: "Automation Kit - Webbplatsindex"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
+generated: EC52F9865215B12E7431E612587049E77099A656
 ---
 
 {{<toc>}}
@@ -22,6 +22,8 @@ generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
 - [Automation Kit - Vanliga frågor och svar](/sv/frequently-asked-questions)
 
 - [Automation Kit - Komma igång](/sv/get-started)
+
+- [Automation Kit - Lokalisering](/sv/localization)
 
 - [Automation Kit – RPA-migrering](/sv/migration)
 

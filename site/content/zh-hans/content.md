@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
+generated: EC52F9865215B12E7431E612587049E77099A656
 ---
 
 {{<toc>}}
@@ -22,6 +22,8 @@ generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
 - [自动化套件 - 常见问题](/zh-hans/frequently-asked-questions)
 
 - [自动化套件 - 入门](/zh-hans/get-started)
+
+- [自动化套件 - 本地化](/zh-hans/localization)
 
 - [自动化套件 - RPA 迁移](/zh-hans/migration)
 

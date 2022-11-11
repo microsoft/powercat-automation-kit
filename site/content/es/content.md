@@ -4,7 +4,7 @@ description: "Kit de automatización - Índice del sitio"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
+generated: EC52F9865215B12E7431E612587049E77099A656
 ---
 
 {{<toc>}}
@@ -22,6 +22,8 @@ generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
 - [Kit de automatización - Preguntas frecuentes](/es/frequently-asked-questions)
 
 - [Kit de automatización - Primeros pasos](/es/get-started)
+
+- [Kit de automatización - Localización](/es/localization)
 
 - [Kit de automatización - Migración de RPA](/es/migration)
 

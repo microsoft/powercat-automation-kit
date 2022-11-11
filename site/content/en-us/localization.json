@@ -1,0 +1,80 @@
+{
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Localization-Feedback"
+        }
+    ],
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "boolean",
+                    "name": "localization-useful",
+                    "title": "Is localization of the starter content useful to you?",
+                    "isRequired": true
+                },
+                {
+                    "type": "comment",
+                    "name": "not-useful",
+                    "title": "Why was the localized content not useful for you?",
+                    "visibleIf": "{localization-useful} = false"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "products",
+                    "title": "What is most important to you?",
+                    "isRequired": false,
+                    "colCount": 1,
+                    "hasOther": true,
+                    "choices": [
+                        "English content is good enough, I do not need a localized version",
+                        "I would rather wait until localized content is on Microsoft Learn platform",
+                        "Being able to contribute to improve localizations",
+                        "Being able to support ability to load localized content into my organization using the same approach",
+                        "Being able to customize the content for my organization and add content that is relevant to our organization",
+                        "Localized diagrams",
+                        "Using learnings to apply localization to Power BI dashboard",
+                        "Using learnings to apply localization to Power Power Apps"
+                    ]
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Any other feedback?"
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "title": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses",
+                    "label": "Send results?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = false",
+                    "html": "We hope these questions will help you determine an idea of topics or questions if you attend"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview."
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}

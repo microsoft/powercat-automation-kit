@@ -22,6 +22,8 @@ include_footer: true
 
 - [Automation Kit - Getting Started](/get-started)
 
+- [Automation Kit - Localization](/localization)
+
 - [Automation Kit - RPA Migration](/migration)
 
 - [Automation Kit - Modules](/modules)

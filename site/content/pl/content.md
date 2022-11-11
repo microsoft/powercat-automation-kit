@@ -4,7 +4,7 @@ description: "Automation Kit - Indeks witryny"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
+generated: EC52F9865215B12E7431E612587049E77099A656
 ---
 
 {{<toc>}}
@@ -22,6 +22,8 @@ generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
 - [Automation Kit - często zadawane pytania](/pl/frequently-asked-questions)
 
 - [Automation Kit - Pierwsze kroki](/pl/get-started)
+
+- [Automation Kit - Lokalizacja](/pl/localization)
 
 - [Automation Kit - migracja RPA](/pl/migration)
 

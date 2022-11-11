@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
+generated: EC52F9865215B12E7431E612587049E77099A656
 ---
 
 {{<toc>}}
@@ -22,6 +22,8 @@ generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
 - [자동화 키트 - 자주 묻는 질문](/ko/frequently-asked-questions)
 
 - [자동화 키트 - 시작하기](/ko/get-started)
+
+- [자동화 키트 - 현지화](/ko/localization)
 
 - [자동화 키트 - RPA 마이그레이션](/ko/migration)
 

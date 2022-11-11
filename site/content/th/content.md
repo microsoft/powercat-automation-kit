@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
+generated: EC52F9865215B12E7431E612587049E77099A656
 ---
 
 {{<toc>}}
@@ -22,6 +22,8 @@ generated: F325698BE69E83ECFB9A0FEAD536D23E2C884DDC
 - [ชุดระบบอัตโนมัติ - คําถามที่พบบ่อย](/th/frequently-asked-questions)
 
 - [ชุดระบบอัตโนมัติ - เริ่มต้นใช้งาน](/th/get-started)
+
+- [ชุดระบบอัตโนมัติ - การแปลเป็นภาษาท้องถิ่น](/th/localization)
 
 - [ชุดระบบอัตโนมัติ - การย้ายข้อมูล RPA](/th/migration)
 
