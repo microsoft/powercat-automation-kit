@@ -1,0 +1,102 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing unregistration",
+    "da": "Tak fordi du gennemførte afmeldingen"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{register-email.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-Unregister"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "reason",
+          "title": {
+            "default": "(Optional) Your feedback helps us improve. Which of the following are reason(s) that you are unregistering?",
+            "da": "(Valgfrit) Din feedback hjælper os med at forbedre os. Hvilken af følgende er årsag(er) til, at du afregistrerer dig?"
+          },
+          "isRequired": false,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "The time does not work",
+              "text": {
+                "default": "The time does not work",
+                "da": "Tiden fungerer ikke"
+              }
+            },
+            {
+              "value": "No longer relevant",
+              "text": {
+                "default": "No longer relevant",
+                "da": "Ikke længere relevant"
+              }
+            },
+            {
+              "value": "Too technical",
+              "text": {
+                "default": "Too technical",
+                "da": "For teknisk"
+              }
+            },
+            {
+              "value": "Not enough business focus",
+              "text": {
+                "default": "Not enough business focus",
+                "da": "Ikke nok forretningsfokus"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "The name that you registered with",
+            "da": "Det navn, du har registreret dig med"
+          }
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "The email address your registered with",
+            "da": "Den e-mailadresse, du har registreret dig med"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your unregistration now?",
+            "da": "Send din afmelding nu?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "da": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

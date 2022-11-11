@@ -23,7 +23,7 @@ generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 
 아래 질문을 사용하여 다양한 피드백 질문 유형을 살펴보세요.
 
-{{<questions name="contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
+{{<questions name="/content/ko/contribution/sample.json" completed="질문을 완료해 주셔서 감사합니다" shownavigationbuttons="false" locale="ko">}}
 
 </div>
 

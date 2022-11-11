@@ -1,0 +1,102 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-November-2022-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of was most useful for you in this release?",
+            "ja": "このリリースで最も役に立ったのはどれですか?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Getting hands on with the Automation Kit",
+              "text": {
+                "default": "Getting hands on with the Automation Kit",
+                "ja": "自動化キットを実際に使用する"
+              }
+            },
+            {
+              "value": "Data packs so that I can show the Automation Kit",
+              "text": {
+                "default": "Data packs so that I can show the Automation Kit",
+                "ja": "自動化キットを表示できるようにするためのデータパック"
+              }
+            },
+            {
+              "value": "New automated ALM GitHub release process",
+              "text": {
+                "default": "New automated ALM GitHub release process",
+                "ja": "新しい自動化された ALM GitHub リリース プロセス"
+              }
+            },
+            {
+              "value": "Roadmap of whats next",
+              "text": {
+                "default": "Roadmap of whats next",
+                "ja": "今後のロードマップ"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "ja": "リリースに関するフィードバックを送信しますか?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "ja": "皆様からのフィードバックをお待ちしております。オートメーションキットのコアチームとして、フィードバックを使用してマイルストーンとガイダンスを改善します"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "ja": "他にフィードバックはありましたか?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ja": "今すぐフィードバックを送信しますか?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ja": "状態: {送信結果の状態}"
+          }
+        }
+      ]
+    }
+  ]
+}

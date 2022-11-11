@@ -23,7 +23,7 @@ generated: 73814007AE6E11EB3B434D0C4BBCC21F70C39413
 
 ## 피드백
 
-{{<questions name="/releases/november-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ko/releases/november-2022.json" completed="피드백을 제공해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}
 
 </div>
 

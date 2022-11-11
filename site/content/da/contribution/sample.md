@@ -23,7 +23,7 @@ Denne side indeholder et eksempel på oprettelse af indhold
 
 Brug spørgsmålene nedenfor til at udforske forskellige typer af feedbackspørgsmål
 
-{{<questions name="contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
+{{<questions name="/content/da/contribution/sample.json" completed="Tak fordi du udfyldte spørgsmål" shownavigationbuttons="false" locale="da">}}
 
 </div>
 

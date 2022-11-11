@@ -1,0 +1,301 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for Providing you feedback",
+    "sv": "Tack för att du ger dig feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Overview-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "content-help",
+          "label": {
+            "default": "Did this overview help?",
+            "sv": "Hjälpte den här översikten?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "sv": "Vilka ämnen var mest användbara för dig?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "sv": "Inte säker"
+              }
+            },
+            {
+              "value": "Return on investment context",
+              "text": {
+                "default": "Return on investment context",
+                "sv": "Kontext för avkastning på investeringar"
+              }
+            },
+            {
+              "value": "Automation Kit key features",
+              "text": {
+                "default": "Automation Kit key features",
+                "sv": "Automation Kit viktiga funktioner"
+              }
+            },
+            {
+              "value": "Automation Center of Excellence Overview",
+              "text": {
+                "default": "Automation Center of Excellence Overview",
+                "sv": "Översikt över Automation Center of Excellence"
+              }
+            },
+            {
+              "value": "Automation Kit vs CoE Kit",
+              "text": {
+                "default": "Automation Kit vs CoE Kit",
+                "sv": "Automation Kit vs CoE Kit"
+              }
+            },
+            {
+              "value": "Corporate Automation Strategy",
+              "text": {
+                "default": "Corporate Automation Strategy",
+                "sv": "Strategi för företagsautomation"
+              }
+            },
+            {
+              "value": "Automation Kit sample lifecycle",
+              "text": {
+                "default": "Automation Kit sample lifecycle",
+                "sv": "Livscykel för Automation Kit-exempel"
+              }
+            },
+            {
+              "value": "Automation Project Application",
+              "text": {
+                "default": "Automation Project Application",
+                "sv": "Ansökan om automationsprojekt"
+              }
+            },
+            {
+              "value": "Automation Center Application",
+              "text": {
+                "default": "Automation Center Application",
+                "sv": "Automation Center-applikation"
+              }
+            },
+            {
+              "value": "Automation Solution Manager",
+              "text": {
+                "default": "Automation Solution Manager",
+                "sv": "Lösningshanterare för automatisering"
+              }
+            },
+            {
+              "value": "Power BI Dashboard",
+              "text": {
+                "default": "Power BI Dashboard",
+                "sv": "Power BI-instrumentpanel"
+              }
+            },
+            {
+              "value": "Automation Maturity Model",
+              "text": {
+                "default": "Automation Maturity Model",
+                "sv": "Mognadsmodell för automatisering"
+              }
+            },
+            {
+              "value": "How to monitor for new releases",
+              "text": {
+                "default": "How to monitor for new releases",
+                "sv": "Hur man övervakar för nya utgåvor"
+              }
+            },
+            {
+              "value": "Latest release information",
+              "text": {
+                "default": "Latest release information",
+                "sv": "Senaste versionsinformation"
+              }
+            },
+            {
+              "value": "How to get started",
+              "text": {
+                "default": "How to get started",
+                "sv": "Så här kommer du igång"
+              }
+            },
+            {
+              "value": "Whats next",
+              "text": {
+                "default": "Whats next",
+                "sv": "Vad händer härnäst?"
+              }
+            },
+            {
+              "value": "Simplifying the install process",
+              "text": {
+                "default": "Simplifying the install process",
+                "sv": "Förenkla installationsprocessen"
+              }
+            },
+            {
+              "value": "Data Packs to load sample data",
+              "text": {
+                "default": "Data Packs to load sample data",
+                "sv": "Datapaket för att läsa in exempeldata"
+              }
+            },
+            {
+              "value": "End to End ALM",
+              "text": {
+                "default": "End to End ALM",
+                "sv": "ALM från slut till slut"
+              }
+            },
+            {
+              "value": "Future areas",
+              "text": {
+                "default": "Future areas",
+                "sv": "Framtida områden"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({most-useful},'How to get started')",
+          "html": {
+            "default": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide",
+            "sv": "<b>komma igång</b> Läs <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide"
+          }
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "sv": "Vänligen rangordna de ämnen som är intressanta för dig (långt tryck på valet med en pekskärm)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "sv": "Någon annan feedback?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "auto-register",
+          "label": {
+            "default": "Would you like to receive an automatic invitation for Office Hours to connect with the community?",
+            "sv": "Vill du få en automatisk inbjudan till kontorstid för att få kontakt med communityn?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+            "sv": "<b>not:</b> Du kan avregistrera dig senare om det behövs genom att besöka <a href='/office-hours/unregister'><a>Avregistrera sida"
+          },
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "Your name to register with",
+            "sv": "Ditt namn att registrera dig med"
+          },
+          "isRequired": true,
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "Your email address to register with",
+            "sv": "Din e-postadress att registrera dig med"
+          },
+          "visibleIf": "{auto-register} = true",
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "sv": "Vill du skicka resultaten av din feedback så att Core Automation Kit-teamet kan skräddarsy kontorstiderna baserat på dina svar"
+          },
+          "label": {
+            "default": "Send results?",
+            "sv": "Skicka resultat?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "sv": "Vi hoppas att dessa frågor hjälper dig att bestämma en uppfattning om ämnen eller frågor om du deltar"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview.",
+            "sv": "Vi ser fram emot att få din feedback. Som ett kärnteam för Automation Kit använder vi feedbacken för att förbättra översikten."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "sv": "Skicka din feedback nu?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "sv": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -9,4 +9,4 @@ generated: 33B929E74896C20B83D938F1F6A144F398062624
 
 Utilice la siguiente pregunta para cancelar su registro automático para {{<product-name>}}. Le enviaremos un código de confirmación que puede utilizar para [Confirmar cancelación del registro](/es/office-hours/unregister-confirm)
 
-{{<questions name="/office-hours/unregister.json" completed="Thank you for completing unregistration questions" showNavigationButtons=false >}}
+{{<questions name="/content/es/office-hours/unregister.json" completed="Gracias por completar las preguntas de cancelación de registro" shownavigationbuttons="false" locale="es">}}

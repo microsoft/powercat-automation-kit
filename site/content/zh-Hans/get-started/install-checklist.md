@@ -11,4 +11,4 @@ generated: 4258F6579483A6A56D0E21104A6FE435BECA4CB8
 
 如果您想尝试或安装 {{<product-name>}}，您可以使用以下问题来指导您的安装过程
 
-{{<questions name="/get-started/install-checklist.json" completed="Thank you for completing install checklist" showNavigationButtons=false >}}
+{{<questions name="/content/zh-hans/get-started/install-checklist.json" completed="感谢您完成安装清单" shownavigationbuttons="false" locale="zh-hans">}}

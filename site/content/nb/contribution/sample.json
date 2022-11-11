@@ -1,0 +1,148 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Sample-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "group",
+          "title": {
+            "default": "Which of the following is the best match for you?",
+            "nb": "Hvilket av følgende passer best for deg?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "nb": "Hvilke emner der det er mest nyttig for deg?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "nb": "Er ikke sikker"
+              }
+            },
+            {
+              "value": "Overview of Authoring",
+              "text": {
+                "default": "Overview of Authoring",
+                "nb": "Oversikt over redigering"
+              }
+            },
+            {
+              "value": "Authoring goals",
+              "text": {
+                "default": "Authoring goals",
+                "nb": "Redigere mål"
+              }
+            }
+          ]
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "nb": "Vennligst ranger emnene av interesse for deg (langt trykk på valg med berøringsskjerm)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "sample-help",
+          "label": {
+            "default": "Did this sample help?",
+            "nb": "Hjalp denne prøven?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "handoff-task",
+          "name": "questionHandoff",
+          "title": {
+            "default": "Test handoff",
+            "nb": "Prøvelevering"
+          },
+          "text": "Open",
+          "destination": "/powercat-automation-kit/contribution/sample?group={group}"
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "nb": "Noen andre tilbakemeldinger?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "nb": "Ønsker du å sende resultatene av tilbakemeldingen din slik at Core Automation Kit-teamet kan skreddersy kontortiden basert på svarene dine"
+          },
+          "label": {
+            "default": "Send results?",
+            "nb": "Sende resultater?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "nb": "Vi håper disse spørsmålene vil hjelpe deg med å bestemme en ide om emner eller spørsmål hvis du deltar"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview.",
+            "nb": "Vi ser frem til å få din tilbakemelding. Som et kjerneteam for automatiseringssett bruker vi tilbakemeldingene til å forbedre oversikten."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nb": "Send tilbakemelding nå?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nb": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

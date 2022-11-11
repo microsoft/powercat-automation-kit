@@ -21,7 +21,7 @@ Januariutgåvan (fiffig-emmy) av {{<product-name>}} är den femte offentliga fö
 
 ## Feedback
 
-{{<questions name="/releases/january-2023.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/sv/releases/january-2023.json" completed="Tack för att du ger feedback" shownavigationbuttons="false" locale="sv">}}
 
 </div>
 

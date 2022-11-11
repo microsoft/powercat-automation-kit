@@ -50,7 +50,7 @@ generated: 0087DF5B505764347AC2AF0B6C170474826A5D65
 
 ## 피드백
 
-{{<questions name="/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ko/features/alm/powercat.json" completed="피드백을 제공해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}
 
 </div>
 

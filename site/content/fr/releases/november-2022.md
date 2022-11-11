@@ -23,7 +23,7 @@ La sortie en novembre (sharp-archimedes) du {{<product-name>}} est la troisième
 
 ## Rétroaction
 
-{{<questions name="/releases/november-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/fr/releases/november-2022.json" completed="Merci de nous avoir fait part de vos commentaires" shownavigationbuttons="false" locale="fr">}}
 
 </div>
 

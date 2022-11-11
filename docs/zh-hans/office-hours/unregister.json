@@ -1,0 +1,102 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing unregistration",
+    "zh-hans": "感谢您完成取消注册"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{register-email.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-Unregister"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "reason",
+          "title": {
+            "default": "(Optional) Your feedback helps us improve. Which of the following are reason(s) that you are unregistering?",
+            "zh-hans": "（可选）您的反馈有助于我们改进。以下哪些是您取消注册的原因？"
+          },
+          "isRequired": false,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "The time does not work",
+              "text": {
+                "default": "The time does not work",
+                "zh-hans": "时间不行"
+              }
+            },
+            {
+              "value": "No longer relevant",
+              "text": {
+                "default": "No longer relevant",
+                "zh-hans": "不再相关"
+              }
+            },
+            {
+              "value": "Too technical",
+              "text": {
+                "default": "Too technical",
+                "zh-hans": "技术性太强"
+              }
+            },
+            {
+              "value": "Not enough business focus",
+              "text": {
+                "default": "Not enough business focus",
+                "zh-hans": "业务重点不够"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "The name that you registered with",
+            "zh-hans": "您注册时使用的名称"
+          }
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "The email address your registered with",
+            "zh-hans": "您注册时使用的电子邮件地址"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your unregistration now?",
+            "zh-hans": "立即发送取消注册？"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "zh-hans": "状态：{发送结果状态}"
+          }
+        }
+      ]
+    }
+  ]
+}

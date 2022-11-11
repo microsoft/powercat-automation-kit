@@ -57,7 +57,7 @@ Granska vår [Automation Kit ALM-relaterad eftersläpning](https://github.com/mi
 
 ## Feedback
 
-{{<questions name="/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/sv/features/alm.json" completed="Tack för att du ger feedback" shownavigationbuttons="false" locale="sv">}}
 
 </div>
 

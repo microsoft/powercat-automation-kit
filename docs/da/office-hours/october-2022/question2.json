@@ -1,0 +1,104 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "da": "Tak, fordi du sendte feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-2"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "What area(s) do you think we should focus on next?",
+            "da": "Hvilke(t) område(r) synes du, vi skal fokusere på næste gang?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Improving getting started experience and documentation",
+              "text": {
+                "default": "Improving getting started experience and documentation",
+                "da": "Forbedring af introduktionsoplevelsen og dokumentationen"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "da": "Forhold til andre sæt og out of the box-funktioner"
+              }
+            },
+            {
+              "value": "Demonstrate end to end Application Lifecycle management (ALM)",
+              "text": {
+                "default": "Demonstrate end to end Application Lifecycle management (ALM)",
+                "da": "Demonstrer styring af programlivscyklus fra start til slut (ALM)"
+              }
+            },
+            {
+              "value": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+              "text": {
+                "default": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+                "da": "Demonstrere, hvordan du overfører til Power Automate Desktop i stor skala?"
+              }
+            },
+            {
+              "value": "Sample data to help me get started?",
+              "text": {
+                "default": "Sample data to help me get started?",
+                "da": "Eksempeldata for at hjælpe mig med at komme i gang?"
+              }
+            },
+            {
+              "value": "Industry specific return on investment samples?",
+              "text": {
+                "default": "Industry specific return on investment samples?",
+                "da": "Branchespecifikke investeringsafkastprøver?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "da": "Ranger venligst de områder, der er af interesse for dig (langt tryk på valg med en berøringsskærm)"
+          },
+          "visibleIf": "{response.length} > 1",
+          "choicesFromQuestion": "response",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "da": "Send din feedback nu?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "da": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

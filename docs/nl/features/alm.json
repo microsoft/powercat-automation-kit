@@ -1,0 +1,116 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-ALM"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of was most useful for related to ALM for your automation solutions?",
+            "nl": "Welke was het meest nuttig voor gerelateerd aan ALM voor uw automatiseringsoplossingen?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "How this relates to in-product ALM roadmap with Managed Environments",
+              "text": {
+                "default": "How this relates to in-product ALM roadmap with Managed Environments",
+                "nl": "Hoe dit zich verhoudt tot de ALM-roadmap in het product met managed environments"
+              }
+            },
+            {
+              "value": "What is the ALM ALM Accelerator for Power Platform",
+              "text": {
+                "default": "What is the ALM ALM Accelerator for Power Platform",
+                "nl": "Wat is de ALM ALM Accelerator voor Power Platform"
+              }
+            },
+            {
+              "value": "What the ALM roadmap is for the Automation Kit",
+              "text": {
+                "default": "What the ALM roadmap is for the Automation Kit",
+                "nl": "Wat de ALM roadmap is voor de Automation Kit"
+              }
+            },
+            {
+              "value": "How we add ALM specific tasks to our Power Automate Desktop process",
+              "text": {
+                "default": "How we add ALM specific tasks to our Power Automate Desktop process",
+                "nl": "Hoe we ALM-specifieke taken toevoegen aan ons Power Automate Desktop-proces"
+              }
+            },
+            {
+              "value": "How to apply unit testing",
+              "text": {
+                "default": "How to apply unit testing",
+                "nl": "Hoe unit testing toe te passen"
+              }
+            },
+            {
+              "value": "How to apply integration / system testing",
+              "text": {
+                "default": "How to apply integration / system testing",
+                "nl": "Integratie/ systeemtesten toepassen"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on ALM?",
+            "nl": "Wilt u de feedback over ALM sturen?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "nl": "We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om onze begeleiding en roadmap te verbeteren."
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "nl": "Heb je nog andere feedback gehad?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nl": "Nu uw feedback verzenden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

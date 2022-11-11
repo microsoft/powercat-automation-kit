@@ -57,7 +57,7 @@ Se gjennom våre [Automation Kit ALM-relatert etterslep](https://github.com/micr
 
 ## Tilbakemelding
 
-{{<questions name="/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/nb/features/alm.json" completed="Takk for at du gir tilbakemelding" shownavigationbuttons="false" locale="nb">}}
 
 </div>
 

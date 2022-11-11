@@ -1,0 +1,102 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing unregistration",
+    "it": "Grazie per aver completato l'annullamento della registrazione"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{register-email.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-Unregister"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "reason",
+          "title": {
+            "default": "(Optional) Your feedback helps us improve. Which of the following are reason(s) that you are unregistering?",
+            "it": "(Facoltativo) Il tuo feedback ci aiuta a migliorare. Quali dei seguenti sono i motivi per cui stai annullando la registrazione?"
+          },
+          "isRequired": false,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "The time does not work",
+              "text": {
+                "default": "The time does not work",
+                "it": "Il tempo non funziona"
+              }
+            },
+            {
+              "value": "No longer relevant",
+              "text": {
+                "default": "No longer relevant",
+                "it": "Non più rilevante"
+              }
+            },
+            {
+              "value": "Too technical",
+              "text": {
+                "default": "Too technical",
+                "it": "Troppo tecnico"
+              }
+            },
+            {
+              "value": "Not enough business focus",
+              "text": {
+                "default": "Not enough business focus",
+                "it": "Attenzione al business insufficiente"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "The name that you registered with",
+            "it": "Il nome con cui ti sei registrato"
+          }
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "The email address your registered with",
+            "it": "L'indirizzo email con cui ti sei registrato"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your unregistration now?",
+            "it": "Invia subito la tua cancellazione?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "it": "Stato: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

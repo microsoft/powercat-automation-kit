@@ -1,0 +1,191 @@
+{
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "tool",
+          "title": {
+            "default": "Which of the following is the best match for you?",
+            "da": "Hvilket af følgende er det bedste match for dig?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "role",
+          "title": {
+            "default": "What is your role in the Automation Kit project",
+            "da": "Hvad er din rolle i Automation Kit-projektet"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Complete the followings commands",
+            "da": "Udfyld følgende kommandoer"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Clone the repository",
+            "da": "Klon depotet"
+          },
+          "html": {
+            "default": "git clone https://github.com/microsoft/powercat-automation-kit.git",
+            "da": "Git Klon https://github.com/microsoft/powercat-automation-kit.git"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'core'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Fork the repository",
+            "da": "Gaffel depotet"
+          },
+          "html": {
+            "default": "Complete the <a href='https://docs.github.com/get-started/quickstart/fork-a-repo' target='_blank'>Fork a repo</a> to fork the project",
+            "da": "Udfyld <a href='https://docs.github.com/get-started/quickstart/fork-a-repo' target='_blank'>Gaffel en repo for at gaffel</a> projektet"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'community'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Clone the your forked repository",
+            "da": "Klon dit gaffellager"
+          },
+          "html": {
+            "default": "git clone https://github.com/YOUR-USERNAME/powercat-automation-kit.git",
+            "da": "Git Klon https://github.com/YOUR-USERNAME/powercat-automation-kit.git"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'community'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Switch to gh-pages",
+            "da": "Skift til gh-sider"
+          },
+          "html": {
+            "default": "git checkout gh-pages",
+            "da": "Git Checkout GH-sider"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Create your branch for changes",
+            "da": "Opret din gren til ændringer"
+          },
+          "html": {
+            "default": "git checkout -b yourname-gh-pages",
+            "da": "git checkout -b yourname-gh-pages"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Make you changes",
+            "da": "Foretag ændringer"
+          },
+          "html": {
+            "default": "<b>Edit Changes</b> Make your the changes to markdown and questions",
+            "da": "<b>Rediger ændringer</b> Foretag dine ændringer i markdown og spørgsmål"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Commit changes",
+            "da": "Forpligt ændringer"
+          },
+          "html": {
+            "default": "git commit -m 'Your summary' .",
+            "da": "git commit -m 'Dit resumé' ."
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Push the repository",
+            "da": "Tryk på lageret"
+          },
+          "html": {
+            "default": "git push",
+            "da": "Git skubbe"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Create pull request",
+            "da": "Opret pull-anmodning"
+          },
+          "html": {
+            "default": "Read and complete steps in <a href='https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request' target='_blank'>Creating a pull request</a>",
+            "da": "Læs og udfør trin i <a href='https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/createing-a-pull-request' target='_blank'>Oprettelse af en pull-anmodning</a>"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "radiogroup",
+          "name": "setup-complete",
+          "title": {
+            "default": "GitHub download successfully completed?",
+            "da": "GitHub-download er fuldført?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Note</b> Visual Studio steps still need to be documented",
+            "da": "<b>seddel</b> Visual Studio-trin skal stadig dokumenteres"
+          },
+          "visibleIf": "({tool} = 'vscode') and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Note</b> GitHub Desktop steps still need to be documented",
+            "da": "<b>seddel</b> GitHub Desktop-trin skal stadig dokumenteres"
+          },
+          "visibleIf": "({tool} = 'app') and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Review the <a href='/contribution/authoring'>Authoring Guidelines</a>",
+            "da": "Gennemgå retningslinjerne for <a href='/bidrag/oprettelse'>Authoring Guidelines</a>"
+          },
+          "visibleIf": "({setup-complete} = 'yes')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>TIP:</b> In the site folder use the <b>hugo serve</b> command to view content locally and <b>hugo</b> to build static HTML in docs folder",
+            "da": "<b>drikkepenge:</b> I webstedsmappen skal du bruge hugo serve-kommandoen til at se indhold lokalt og <b>hugo</b> til at opbygge statisk HTML i docs-mappen <b></b>"
+          },
+          "visibleIf": "({setup-complete} = 'yes')"
+        }
+      ]
+    }
+  ]
+}

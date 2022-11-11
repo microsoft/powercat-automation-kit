@@ -21,7 +21,7 @@ Die Dezember-Veröffentlichung (zealous-antonelli) der {{<product-name>}} ist di
 
 ## Feedback
 
-{{<questions name="/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/de/releases/december-2022.json" completed="Vielen Dank für Ihr Feedback" shownavigationbuttons="false" locale="de">}}
 
 </div>
 

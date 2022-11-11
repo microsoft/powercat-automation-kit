@@ -50,7 +50,7 @@ Sammantaget bygger vi vidare på de befintliga färdiga Power Platform- och Micr
 
 ## Feedback
 
-{{<questions name="/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/sv/features/alm/powercat.json" completed="Tack för att du ger feedback" shownavigationbuttons="false" locale="sv">}}
 
 </div>
 

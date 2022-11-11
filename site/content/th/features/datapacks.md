@@ -71,4 +71,4 @@ pac data import -d AutomationKit-SampleData.zip --environment https://contoso.cr
 
 ## การตอบสนอง
 
-{{<questions name="/features/datapacks.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/th/features/datapacks.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" shownavigationbuttons="false" locale="th">}}

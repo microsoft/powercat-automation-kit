@@ -27,4 +27,4 @@ Each office hours session is an hour long and has the following format:
 
 You can use the interactive set of questions to provide the core {{<product-name>}} team feedback what topics you would like to cover as part of the office hour and provide input into the "any ask me anything" questions.
 
-{{<questions name="/office-hours/november-2022.json" completed="Thank you for completing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-gb/office-hours/november-2022.json" completed="Thank you for completing feedback" shownavigationbuttons="false" locale="en-gb">}}

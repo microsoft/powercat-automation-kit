@@ -1,0 +1,118 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "th": "ขอบคุณสําหรับการส่งความคิดเห็น"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-AMA"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "What questions(s) are top of mind for you?",
+            "th": "คําถามอะไรที่คุณคิดเป็นอันดับแรก?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "What are the differences between the different kits managed by the Power CAT team?",
+              "text": {
+                "default": "What are the differences between the different kits managed by the Power CAT team?",
+                "th": "อะไรคือความแตกต่างระหว่างชุดอุปกรณ์ต่างๆ ที่จัดการโดยทีม Power CAT?"
+              }
+            },
+            {
+              "value": "Do you have examples of end to ALM working with the Automation Kit?",
+              "text": {
+                "default": "Do you have examples of end to ALM working with the Automation Kit?",
+                "th": "คุณมีตัวอย่างของการสิ้นสุดการทํางานของ ALM กับชุดระบบอัตโนมัติหรือไม่?"
+              }
+            },
+            {
+              "value": "Do you have examples of KPIs for my industry?",
+              "text": {
+                "default": "Do you have examples of KPIs for my industry?",
+                "th": "คุณมีตัวอย่างของ KPI สําหรับอุตสาหกรรมของฉันหรือไม่?"
+              }
+            },
+            {
+              "value": "What are frequently asked questions about the Automation Kit?",
+              "text": {
+                "default": "What are frequently asked questions about the Automation Kit?",
+                "th": "คําถามที่พบบ่อยเกี่ยวกับชุดระบบอัตโนมัติคืออะไร"
+              }
+            },
+            {
+              "value": "Are you looking to simplify the install experience?",
+              "text": {
+                "default": "Are you looking to simplify the install experience?",
+                "th": "คุณต้องการทําให้ประสบการณ์การติดตั้งง่ายขึ้นหรือไม่?"
+              }
+            },
+            {
+              "value": "Can you tell me more about localization of Applications and Dashboards?",
+              "text": {
+                "default": "Can you tell me more about localization of Applications and Dashboards?",
+                "th": "คุณช่วยบอกฉันเพิ่มเติมเกี่ยวกับการแปลแอปพลิเคชันและแดชบอร์ดได้ไหม"
+              }
+            },
+            {
+              "value": "Where can I see a list of current issues for the Automation Kit?",
+              "text": {
+                "default": "Where can I see a list of current issues for the Automation Kit?",
+                "th": "ฉันจะดูรายการปัญหาปัจจุบันสําหรับ Kit การทํางานอัตโนมัติได้จากที่ใด"
+              }
+            },
+            {
+              "value": "Can you provide further case studies of how the Automation Kit has been used by and been used to  assist other organizations?",
+              "text": {
+                "default": "Can you provide further case studies of how the Automation Kit has been used by and been used to  assist other organizations?",
+                "th": "คุณสามารถให้กรณีศึกษาเพิ่มเติมเกี่ยวกับวิธีการใช้และมีการใช้ชุดระบบอัตโนมัติเพื่อช่วยเหลือองค์กรอื่น ๆ ได้หรือไม่?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "th": "โปรดจัดอันดับพื้นที่ที่คุณสนใจ (แตะค้างไว้ที่การเลือกด้วยหน้าจอสัมผัส)"
+          },
+          "visibleIf": "{response.length} > 1",
+          "choicesFromQuestion": "response",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "th": "ส่งความคิดเห็นของคุณตอนนี้หรือไม่"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "th": "สถานะ: {ส่ง-ผลลัพธ์-สถานะ}"
+          }
+        }
+      ]
+    }
+  ]
+}

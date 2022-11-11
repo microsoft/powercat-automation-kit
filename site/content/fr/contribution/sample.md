@@ -23,7 +23,7 @@ Cette page fournit un exemple de création de contenu
 
 Utilisez les questions ci-dessous pour explorer différents types de questions de commentaires
 
-{{<questions name="contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
+{{<questions name="/content/fr/contribution/sample.json" completed="Merci d’avoir répondu aux questions" shownavigationbuttons="false" locale="fr">}}
 
 </div>
 

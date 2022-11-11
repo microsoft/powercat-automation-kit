@@ -9,4 +9,4 @@ generated: 74A4EF4CCA7939DF35FE293B8736D7D5A8EF0C86
 
 请使用以下问题确认您的注销。
 
-{{<questions name="/office-hours/unregister-confirm.json" completed="Thank you for completing unregistration confirmation" showNavigationButtons=false >}}
+{{<questions name="/content/zh-hans/office-hours/unregister-confirm.json" completed="感谢您完成取消注册确认" shownavigationbuttons="false" locale="zh-hans">}}

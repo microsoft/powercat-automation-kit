@@ -1,0 +1,78 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "ja": "フィードバックをお送りいただきありがとうございます"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-1"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "Where are you on your Automation Kit Journey?",
+            "ja": "オートメーションキットの旅のどこにいますか?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Just started, learning why I should use it",
+              "text": {
+                "default": "Just started, learning why I should use it",
+                "ja": "始めたばかりで、なぜそれを使うべきかを学びました"
+              }
+            },
+            {
+              "value": "Read the starter content and look to install",
+              "text": {
+                "default": "Read the starter content and look to install",
+                "ja": "スターターコンテンツを読み、インストールを検討します"
+              }
+            },
+            {
+              "value": "Installed in development / demo environment",
+              "text": {
+                "default": "Installed in development / demo environment",
+                "ja": "開発/デモ環境にインストール"
+              }
+            },
+            {
+              "value": "Using in production",
+              "text": {
+                "default": "Using in production",
+                "ja": "本番環境での使用"
+              }
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ja": "今すぐフィードバックを送信しますか?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ja": "状態: {送信結果の状態}"
+          }
+        }
+      ]
+    }
+  ]
+}

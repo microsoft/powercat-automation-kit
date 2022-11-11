@@ -1,0 +1,102 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing unregistration",
+    "de": "Vielen Dank, dass Sie die Abmeldung abgeschlossen haben"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{register-email.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-Unregister"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "reason",
+          "title": {
+            "default": "(Optional) Your feedback helps us improve. Which of the following are reason(s) that you are unregistering?",
+            "de": "(Optional) Ihr Feedback hilft uns, uns zu verbessern. Welche der folgenden Gründe sprechen dafür, dass Sie sich abmelden?"
+          },
+          "isRequired": false,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "The time does not work",
+              "text": {
+                "default": "The time does not work",
+                "de": "Die Zeit funktioniert nicht"
+              }
+            },
+            {
+              "value": "No longer relevant",
+              "text": {
+                "default": "No longer relevant",
+                "de": "Nicht mehr relevant"
+              }
+            },
+            {
+              "value": "Too technical",
+              "text": {
+                "default": "Too technical",
+                "de": "Zu technisch"
+              }
+            },
+            {
+              "value": "Not enough business focus",
+              "text": {
+                "default": "Not enough business focus",
+                "de": "Zu wenig Geschäftsfokus"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "The name that you registered with",
+            "de": "Der Name, mit dem Sie sich registriert haben"
+          }
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "The email address your registered with",
+            "de": "Die E-Mail-Adresse, mit der Sie registriert sind"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your unregistration now?",
+            "de": "Abmeldung jetzt abschicken?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "de": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

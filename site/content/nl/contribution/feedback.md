@@ -46,4 +46,4 @@ Bekijk onze [Bijdrage](/nl/contribution) begeleidingspagina.
 
 ## Terugkoppeling
 
-{{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/nl/contribution/feedback.json" completed="Bedankt voor het geven van feedback" shownavigationbuttons="false" locale="nl">}}

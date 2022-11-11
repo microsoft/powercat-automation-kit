@@ -34,7 +34,7 @@ generated: E841F2B13005D1C9AEDB5A8BB90283DCDDD3DDE2
 
 ## 피드백
 
-{{<questions name="overview.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ko/overview.json" completed="피드백을 제공해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}
 
 </div>
 

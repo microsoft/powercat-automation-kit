@@ -130,10 +130,11 @@
 
 
 
+
 <script>
     
     
-    data = "{\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"title\": \"Please select the components of interest\",\r\n                    \"type\": \"image-task\",\r\n                    \"src\": \"/powercat-automation-kit/images/illustrations/sample.svg\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"html\": \"You selected start\",\r\n                    \"visibleIf\": \"contains({test1},'start')\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"html\": \"You selected condition\",\r\n                    \"visibleIf\": \"contains({test1},'condition')\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"html\": \"You selected end\",\r\n                    \"visibleIf\": \"contains({test1},'end')\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+    data = "{\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"title\": {\r\n            \"default\": \"Please select the components of interest\",\r\n            \"es\": \"Por favor, seleccione los componentes de interés\"\r\n          },\r\n          \"type\": \"image-task\",\r\n          \"src\": \"/powercat-automation-kit/images/illustrations/sample.svg\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"You selected start\",\r\n            \"es\": \"Has seleccionado iniciar\"\r\n          },\r\n          \"visibleIf\": \"contains({test1},'start')\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"You selected condition\",\r\n            \"es\": \"Has seleccionado la condición\"\r\n          },\r\n          \"visibleIf\": \"contains({test1},'condition')\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"You selected end\",\r\n            \"es\": \"Has seleccionado finalizar\"\r\n          },\r\n          \"visibleIf\": \"contains({test1},'end')\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 
@@ -876,8 +877,11 @@
                 
                 options.html = str;
             });
-            questionModel.showNavigationButtons =  false 
+            questionModel.showNavigationButtons = ""
         
+            
+            questionModel.locale = "es"
+            
             questionModel.completedHtml = "";
 
             const targetNode = document.getElementById('preloader');

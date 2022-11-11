@@ -11,4 +11,4 @@ generated: 022DFD9859F935FB5E8447F38203682947EB8EE8
 
 Verwenden Sie die folgenden Fragen, um Ihr Automatisierungsreifegradmodell zu bestimmen und herauszufinden, wie die {{<product-name>}} oder andere verwandte Lösungen können Ihnen helfen, Ihre Automatisierungsreife mithilfe der Power Platform zu verbessern.
 
-{{<questions name="automation-maturity-model.json" completed="" showNavigationButtons=false >}}
+{{<questions name="/content/de/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="de">}}

@@ -21,4 +21,4 @@ generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 
 다음 질문을 사용하여 시작 프로세스를 안내합니다.
 
-{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ko/checklist.json" completed="시작 피드백에 감사드립니다." shownavigationbuttons="false" locale="ko">}}

@@ -1,0 +1,301 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for Providing you feedback",
+    "nl": "Bedankt voor het geven van feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Overview-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "content-help",
+          "label": {
+            "default": "Did this overview help?",
+            "nl": "Heeft dit overzicht geholpen?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "nl": "Welke onderwerpen zijn voor jou het meest nuttig?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "nl": "Ik weet het niet"
+              }
+            },
+            {
+              "value": "Return on investment context",
+              "text": {
+                "default": "Return on investment context",
+                "nl": "Context van rendement op investering"
+              }
+            },
+            {
+              "value": "Automation Kit key features",
+              "text": {
+                "default": "Automation Kit key features",
+                "nl": "Belangrijkste kenmerken van de Automation Kit"
+              }
+            },
+            {
+              "value": "Automation Center of Excellence Overview",
+              "text": {
+                "default": "Automation Center of Excellence Overview",
+                "nl": "Overzicht van automation center of excellence"
+              }
+            },
+            {
+              "value": "Automation Kit vs CoE Kit",
+              "text": {
+                "default": "Automation Kit vs CoE Kit",
+                "nl": "Automatisering Kit vs CoE Kit"
+              }
+            },
+            {
+              "value": "Corporate Automation Strategy",
+              "text": {
+                "default": "Corporate Automation Strategy",
+                "nl": "Corporate Automation Strategie"
+              }
+            },
+            {
+              "value": "Automation Kit sample lifecycle",
+              "text": {
+                "default": "Automation Kit sample lifecycle",
+                "nl": "Voorbeeldlevenscyclus van Automation Kit"
+              }
+            },
+            {
+              "value": "Automation Project Application",
+              "text": {
+                "default": "Automation Project Application",
+                "nl": "Automatiseringsprojecttoepassing"
+              }
+            },
+            {
+              "value": "Automation Center Application",
+              "text": {
+                "default": "Automation Center Application",
+                "nl": "Automation Center Applicatie"
+              }
+            },
+            {
+              "value": "Automation Solution Manager",
+              "text": {
+                "default": "Automation Solution Manager",
+                "nl": "Oplossingsmanager automatisering"
+              }
+            },
+            {
+              "value": "Power BI Dashboard",
+              "text": {
+                "default": "Power BI Dashboard",
+                "nl": "Power BI-dashboard"
+              }
+            },
+            {
+              "value": "Automation Maturity Model",
+              "text": {
+                "default": "Automation Maturity Model",
+                "nl": "Volwassenheidsmodel voor automatisering"
+              }
+            },
+            {
+              "value": "How to monitor for new releases",
+              "text": {
+                "default": "How to monitor for new releases",
+                "nl": "Controleren op nieuwe releases"
+              }
+            },
+            {
+              "value": "Latest release information",
+              "text": {
+                "default": "Latest release information",
+                "nl": "Laatste release-informatie"
+              }
+            },
+            {
+              "value": "How to get started",
+              "text": {
+                "default": "How to get started",
+                "nl": "Aan de slag"
+              }
+            },
+            {
+              "value": "Whats next",
+              "text": {
+                "default": "Whats next",
+                "nl": "Wat is de volgende stap"
+              }
+            },
+            {
+              "value": "Simplifying the install process",
+              "text": {
+                "default": "Simplifying the install process",
+                "nl": "Vereenvoudiging van het installatieproces"
+              }
+            },
+            {
+              "value": "Data Packs to load sample data",
+              "text": {
+                "default": "Data Packs to load sample data",
+                "nl": "Gegevenspakketten om voorbeeldgegevens te laden"
+              }
+            },
+            {
+              "value": "End to End ALM",
+              "text": {
+                "default": "End to End ALM",
+                "nl": "End-to-end ALM"
+              }
+            },
+            {
+              "value": "Future areas",
+              "text": {
+                "default": "Future areas",
+                "nl": "Toekomstige gebieden"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({most-useful},'How to get started')",
+          "html": {
+            "default": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide",
+            "nl": "<b>Slag</b> Bekijk <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> gids"
+          }
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "nl": "Rangschik de onderwerpen die voor u van belang zijn (lang tikken op selectie met een aanraakscherm)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "nl": "Nog andere feedback?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "auto-register",
+          "label": {
+            "default": "Would you like to receive an automatic invitation for Office Hours to connect with the community?",
+            "nl": "Wilt u een automatische uitnodiging voor kantooruren ontvangen om in contact te komen met de community?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+            "nl": "<b>notitie:</b> U kunt zich indien nodig later afmelden door naar <a href='/office-hours/unregistr'>Ontregistreerpagina te gaan<a>"
+          },
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "Your name to register with",
+            "nl": "Uw naam om u bij te registreren"
+          },
+          "isRequired": true,
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "Your email address to register with",
+            "nl": "Uw e-mailadres om u bij te registreren"
+          },
+          "visibleIf": "{auto-register} = true",
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "nl": "Wilt u de resultaten van uw feedback verzenden, zodat het Core Automation Kit-team de kantooruren kan aanpassen op basis van uw antwoorden"
+          },
+          "label": {
+            "default": "Send results?",
+            "nl": "Resultaten verzenden?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "nl": "We hopen dat deze vragen u zullen helpen bij het bepalen van een idee van onderwerpen of vragen als u aanwezig bent"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview.",
+            "nl": "We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om het overzicht te verbeteren."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nl": "Nu uw feedback verzenden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

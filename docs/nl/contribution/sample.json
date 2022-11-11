@@ -1,0 +1,148 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Sample-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "group",
+          "title": {
+            "default": "Which of the following is the best match for you?",
+            "nl": "Welke van de volgende is de beste match voor jou?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "nl": "Welke onderwerpen zijn voor jou het meest nuttig?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "nl": "Ik weet het niet"
+              }
+            },
+            {
+              "value": "Overview of Authoring",
+              "text": {
+                "default": "Overview of Authoring",
+                "nl": "Overzicht van ontwerpen"
+              }
+            },
+            {
+              "value": "Authoring goals",
+              "text": {
+                "default": "Authoring goals",
+                "nl": "Doelen schrijven"
+              }
+            }
+          ]
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "nl": "Rangschik de onderwerpen die voor u van belang zijn (lang tikken op selectie met een aanraakscherm)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "sample-help",
+          "label": {
+            "default": "Did this sample help?",
+            "nl": "Heeft dit voorbeeld geholpen?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "handoff-task",
+          "name": "questionHandoff",
+          "title": {
+            "default": "Test handoff",
+            "nl": "Overdracht van de test"
+          },
+          "text": "Open",
+          "destination": "/powercat-automation-kit/contribution/sample?group={group}"
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "nl": "Nog andere feedback?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "nl": "Wilt u de resultaten van uw feedback verzenden, zodat het Core Automation Kit-team de kantooruren kan aanpassen op basis van uw antwoorden"
+          },
+          "label": {
+            "default": "Send results?",
+            "nl": "Resultaten verzenden?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "nl": "We hopen dat deze vragen u zullen helpen bij het bepalen van een idee van onderwerpen of vragen als u aanwezig bent"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview.",
+            "nl": "We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om het overzicht te verbeteren."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nl": "Nu uw feedback verzenden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

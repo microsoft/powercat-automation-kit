@@ -1,0 +1,116 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-ALM"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of was most useful for related to ALM for your automation solutions?",
+            "fr": "Lequel des éléments les plus utiles pour l’ALM pour vos solutions d’automatisation ?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "How this relates to in-product ALM roadmap with Managed Environments",
+              "text": {
+                "default": "How this relates to in-product ALM roadmap with Managed Environments",
+                "fr": "Comment cela se rapporte à la feuille de route ALM intégrée au produit avec les environnements gérés"
+              }
+            },
+            {
+              "value": "What is the ALM ALM Accelerator for Power Platform",
+              "text": {
+                "default": "What is the ALM ALM Accelerator for Power Platform",
+                "fr": "Qu’est-ce que l’ALM ALM Accelerator for Power Platform"
+              }
+            },
+            {
+              "value": "What the ALM roadmap is for the Automation Kit",
+              "text": {
+                "default": "What the ALM roadmap is for the Automation Kit",
+                "fr": "Quelle est la feuille de route ALM pour le kit d’automatisation"
+              }
+            },
+            {
+              "value": "How we add ALM specific tasks to our Power Automate Desktop process",
+              "text": {
+                "default": "How we add ALM specific tasks to our Power Automate Desktop process",
+                "fr": "Comment nous ajoutons des tâches ALM spécifiques à notre processus Power Automate Desktop"
+              }
+            },
+            {
+              "value": "How to apply unit testing",
+              "text": {
+                "default": "How to apply unit testing",
+                "fr": "Comment appliquer les tests unitaires"
+              }
+            },
+            {
+              "value": "How to apply integration / system testing",
+              "text": {
+                "default": "How to apply integration / system testing",
+                "fr": "Comment appliquer l’intégration / les tests de système"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on ALM?",
+            "fr": "Voulez-vous envoyer vos commentaires sur ALM?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "fr": "Nous sommes impatients de recevoir vos commentaires. En tant qu’équipe de base du kit d’automatisation, nous utilisons les commentaires pour améliorer nos conseils et notre feuille de route"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "fr": "Avez-vous eu d’autres retours ?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "fr": "Envoyer vos commentaires maintenant?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "fr": "État : {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

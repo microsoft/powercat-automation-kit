@@ -1,0 +1,402 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing feedback",
+    "sv": "Tack för att du fyller i feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Office-Hours-Feedback-November-2022"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "new-topics",
+          "title": {
+            "default": "What topics are of most interest to you to cover in new topics section?",
+            "sv": "Vilka ämnen är av störst intresse för dig att täcka i avsnittet om nya ämnen?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "sv": "Inte säker"
+              }
+            },
+            {
+              "value": "New documentation to help get you started",
+              "text": {
+                "default": "New documentation to help get you started",
+                "sv": "Ny dokumentation som hjälper dig att komma igång"
+              }
+            },
+            {
+              "value": "Learning path from starter experience to hands on learning content",
+              "text": {
+                "default": "Learning path from starter experience to hands on learning content",
+                "sv": "Utbildningsväg från startupplevelse till praktiskt utbildningsinnehåll"
+              }
+            },
+            {
+              "value": "How is this open source run and what to expect",
+              "text": {
+                "default": "How is this open source run and what to expect",
+                "sv": "Hur körs denna öppen källkod och vad man kan förvänta sig"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "sv": "Förhållande till andra kit och out of the box-funktioner"
+              }
+            },
+            {
+              "value": "How do I get started?",
+              "text": {
+                "default": "How do I get started?",
+                "sv": "Hur kommer jag igång?"
+              }
+            },
+            {
+              "value": "Configuring Automation Kit data",
+              "text": {
+                "default": "Configuring Automation Kit data",
+                "sv": "Konfigurera Automation Kit-data"
+              }
+            },
+            {
+              "value": "Setting up Automation Projects",
+              "text": {
+                "default": "Setting up Automation Projects",
+                "sv": "Ställa in automatiseringsprojekt"
+              }
+            },
+            {
+              "value": "Monitoring ROI of Automation Projects",
+              "text": {
+                "default": "Monitoring ROI of Automation Projects",
+                "sv": "Övervakning av ROI för automatiseringsprojekt"
+              }
+            },
+            {
+              "value": "How to I setup exceptions?",
+              "text": {
+                "default": "How to I setup exceptions?",
+                "sv": "Hur ställer jag in undantag?"
+              }
+            },
+            {
+              "value": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+              "text": {
+                "default": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+                "sv": "Hur förstår jag effekten av dataförlustskydd (DLP) på av datorflöden?"
+              }
+            },
+            {
+              "value": "How to I contribute to the Automation Kit to improve its features?",
+              "text": {
+                "default": "How to I contribute to the Automation Kit to improve its features?",
+                "sv": "Hur bidrar jag till Automation Kit för att förbättra dess funktioner?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({new-topics},'How do I get started?')",
+          "html": {
+            "default": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide",
+            "sv": "<b>komma igång</b> Läs <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({new-topics},'How to I contribute to the Automation Kit to improve its features?')",
+          "html": {
+            "default": "<b>Contribution</b> Review the <a href='/powercat-automation-kit/contribution' target='_blank'>Contribution</> guide",
+            "sv": "<b>bidrag</b> Läs guiden <a href='/powercat-automation-kit/contribution' target='_blank'>Contribution</>"
+          }
+        },
+        {
+          "name": "ranked-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "sv": "Vänligen rangordna de områden som är intressanta för dig (långt tryck på valet med en pekskärm)"
+          },
+          "visibleIf": "{new-topics.length} > 1",
+          "choicesFromQuestion": "new-topics",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "roadmap",
+          "title": {
+            "default": "What roadmap areas are of most interest to you?",
+            "sv": "Vilka färdplansområden är av störst intresse för dig?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "sv": "Inte säker"
+              }
+            },
+            {
+              "value": "Providing an easier install process",
+              "text": {
+                "default": "Providing an easier install process",
+                "sv": "Ger en enklare installationsprocess"
+              }
+            },
+            {
+              "value": "Providing an sample pre-configured projects and ROI calculations",
+              "text": {
+                "default": "Providing an sample pre-configured projects and ROI calculations",
+                "sv": "Tillhandahålla ett exempel på förkonfigurerade projekt och ROI-beräkningar"
+              }
+            },
+            {
+              "value": "Providing industry specific ROI calculations",
+              "text": {
+                "default": "Providing industry specific ROI calculations",
+                "sv": "Tillhandahålla branschspecifika ROI-beräkningar"
+              }
+            },
+            {
+              "value": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+              "text": {
+                "default": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+                "sv": "Tillhandahålla färdiga dokumentationspaket som vi kan importera till vår organisation för att hjälpa ** vårda ** nya tillverkare"
+              }
+            },
+            {
+              "value": "End to end ALM integration and samples",
+              "text": {
+                "default": "End to end ALM integration and samples",
+                "sv": "ALM-integrering och exempel från slutpunkt till slutpunkt"
+              }
+            },
+            {
+              "value": "Improved Documentation",
+              "text": {
+                "default": "Improved Documentation",
+                "sv": "Förbättrad dokumentation"
+              }
+            },
+            {
+              "value": "Infrastructure Operations Templates",
+              "text": {
+                "default": "Infrastructure Operations Templates",
+                "sv": "Mallar för infrastrukturåtgärder"
+              }
+            },
+            {
+              "value": "Security and compliance safeguards",
+              "text": {
+                "default": "Security and compliance safeguards",
+                "sv": "Säkerhets- och efterlevnadsskydd"
+              }
+            },
+            {
+              "value": "Unit, Integration and System testing roadmap",
+              "text": {
+                "default": "Unit, Integration and System testing roadmap",
+                "sv": "Färdplan för enhets-, integrations- och systemtestning"
+              }
+            },
+            {
+              "value": "More information on RPA Migration",
+              "text": {
+                "default": "More information on RPA Migration",
+                "sv": "Mer information om RPA-migrering"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an easier install process')",
+          "html": {
+            "default": "<b>Easier Install</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>App Source Install</> issue",
+            "sv": "<b>Enklare installation</b> Granska eller kommentera problemet <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>App Source Install</>"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an sample pre-configured projects and ROI calculations')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Optional ability to import sample Automation Projects</> issue",
+            "sv": "<b>Exempel på data</b> Granska eller kommentera problemet <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Valfri möjlighet att importera exempel på automatiseringsprojekt</> problem"
+          }
+        },
+        {
+          "name": "ranked-roadmap",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the roadmap areas of interest for you (long tap on selection with a touch screen)",
+            "sv": "Vänligen rangordna färdplanen områden av intresse för dig (långt tryck på val med pekskärm)"
+          },
+          "visibleIf": "{roadmap.length} > 1",
+          "choicesFromQuestion": "roadmap",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "questions",
+          "title": {
+            "default": "What questions are top of mind for you?",
+            "sv": "Vilka frågor är top of mind för dig?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'FAQ')",
+          "html": {
+            "default": "<b>Frequently Asked Questions</b> Review or comment on the <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>FAQ</> page",
+            "sv": "<b>Vanliga frågor och svar</b> Granska eller kommentera sidan <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>FAQ</>"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'Issues')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>Open issues</>",
+            "sv": "<b>Exempel på data</b> Granska eller kommentera <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>Open issues</>"
+          }
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "sv": "Vänligen rangordna de områden som är intressanta för dig (långt tryck på valet med en pekskärm)"
+          },
+          "visibleIf": "{questions.length} > 1",
+          "choicesFromQuestion": "questions",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "sv": "Någon annan feedback?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "auto-register",
+          "label": {
+            "default": "Send an automatic invitation for each Office Hours?",
+            "sv": "Skicka en automatisk inbjudan för varje kontorstid?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+            "sv": "<b>not:</b> Du kan avregistrera dig senare om det behövs genom att besöka <a href='/office-hours/unregister'><a>Avregistrera sida"
+          },
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "Your name to register with",
+            "sv": "Ditt namn att registrera dig med"
+          },
+          "isRequired": true,
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "Your email address to register with",
+            "sv": "Din e-postadress att registrera dig med"
+          },
+          "visibleIf": "{auto-register} = true",
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "sv": "Vill du skicka resultaten av din feedback så att Core Automation Kit-teamet kan skräddarsy kontorstiderna baserat på dina svar"
+          },
+          "label": {
+            "default": "Send results?",
+            "sv": "Skicka resultat?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "sv": "Vi hoppas att dessa frågor hjälper dig att bestämma en uppfattning om ämnen eller frågor om du deltar"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve office hours.",
+            "sv": "Vi ser fram emot att få din feedback. Som ett kärnteam för Automation Kit använder vi feedbacken för att förbättra kontorstiderna."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "sv": "Skicka din feedback nu?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "sv": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

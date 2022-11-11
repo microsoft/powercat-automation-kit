@@ -1,0 +1,116 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-ALM"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of was most useful for related to ALM for your automation solutions?",
+            "nb": "Hvilken av var mest nyttig for relatert til ALM for automatiseringsløsningene dine?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "How this relates to in-product ALM roadmap with Managed Environments",
+              "text": {
+                "default": "How this relates to in-product ALM roadmap with Managed Environments",
+                "nb": "Hvordan dette er relatert til ALM-veikart i produktet med administrerte miljøer"
+              }
+            },
+            {
+              "value": "What is the ALM ALM Accelerator for Power Platform",
+              "text": {
+                "default": "What is the ALM ALM Accelerator for Power Platform",
+                "nb": "Hva er ALM ALM Accelerator for Power Platform"
+              }
+            },
+            {
+              "value": "What the ALM roadmap is for the Automation Kit",
+              "text": {
+                "default": "What the ALM roadmap is for the Automation Kit",
+                "nb": "Hva ALM-veikartet er for automatiseringssettet"
+              }
+            },
+            {
+              "value": "How we add ALM specific tasks to our Power Automate Desktop process",
+              "text": {
+                "default": "How we add ALM specific tasks to our Power Automate Desktop process",
+                "nb": "Hvordan vi legger til ALM-spesifikke oppgaver i Power Automate Desktop-prosessen"
+              }
+            },
+            {
+              "value": "How to apply unit testing",
+              "text": {
+                "default": "How to apply unit testing",
+                "nb": "Hvordan bruke enhetstesting"
+              }
+            },
+            {
+              "value": "How to apply integration / system testing",
+              "text": {
+                "default": "How to apply integration / system testing",
+                "nb": "Hvordan søke integrasjon / systemtesting"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on ALM?",
+            "nb": "Ønsker du å sende tilbakemeldingene på ALM?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "nb": "Vi ser frem til å få din tilbakemelding. Som et kjerneteam for automatiseringssett bruker vi tilbakemeldingene til å forbedre veiledningen og veikartet vårt"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "nb": "Har du noen andre tilbakemeldinger?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nb": "Send tilbakemelding nå?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nb": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -11,4 +11,4 @@ generated: 022DFD9859F935FB5E8447F38203682947EB8EE8
 
 Gebruik de onderstaande vragen om uw automatiseringsvolwassenheidsmodel te bepalen en ontdek hoe de {{<product-name>}} of andere gerelateerde oplossingen kunnen u helpen uw automatiseringsvolwassenheid te verbeteren met behulp van het Power Platform.
 
-{{<questions name="automation-maturity-model.json" completed="" showNavigationButtons=false >}}
+{{<questions name="/content/nl/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="nl">}}

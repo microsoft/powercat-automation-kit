@@ -1,0 +1,95 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-DataPacks"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of was most useful for related to Data Packs?",
+            "pl": "Który z nich był najbardziej przydatny w przypadku pakietów Data Pack?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Getting hands on as soon as possible",
+              "text": {
+                "default": "Getting hands on as soon as possible",
+                "pl": "Jak najszybciej dostać się w ręce"
+              }
+            },
+            {
+              "value": "Being able to demonstrate a working system to my stakeholders",
+              "text": {
+                "default": "Being able to demonstrate a working system to my stakeholders",
+                "pl": "Możliwość zademonstrowania działającego systemu moim interesariuszom"
+              }
+            },
+            {
+              "value": "What the roadmap for Datapacks",
+              "text": {
+                "default": "What the roadmap for Datapacks",
+                "pl": "Mapa drogowa dla pakietów danych"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on Data Packs?",
+            "pl": "Czy chcesz wysłać opinię na temat pakietów Data Pack?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "pl": "Czekamy na Twoją opinię. Jako główny zespół Automation Kit wykorzystujemy informacje zwrotne, aby ulepszyć nasze wskazówki i plan działania"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "pl": "Czy masz jakieś inne opinie?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "pl": "Wysłać teraz swoją opinię?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "pl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

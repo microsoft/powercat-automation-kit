@@ -1,0 +1,104 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "nl": "Bedankt voor het verzenden van feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-2"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "What area(s) do you think we should focus on next?",
+            "nl": "Op welk(e) gebied(en) moeten we ons volgens jou nu richten?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Improving getting started experience and documentation",
+              "text": {
+                "default": "Improving getting started experience and documentation",
+                "nl": "Verbetering van de ervaring en documentatie om aan de slag te gaan"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "nl": "Relatie met andere kits en kant-en-klare functies"
+              }
+            },
+            {
+              "value": "Demonstrate end to end Application Lifecycle management (ALM)",
+              "text": {
+                "default": "Demonstrate end to end Application Lifecycle management (ALM)",
+                "nl": "Demonstreer end-to-end Application Lifecycle Management (ALM)"
+              }
+            },
+            {
+              "value": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+              "text": {
+                "default": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+                "nl": "Demonstreren hoe u kunt migreren naar Power Automate Desktop als schaal?"
+              }
+            },
+            {
+              "value": "Sample data to help me get started?",
+              "text": {
+                "default": "Sample data to help me get started?",
+                "nl": "Voorbeeldgegevens om me op weg te helpen?"
+              }
+            },
+            {
+              "value": "Industry specific return on investment samples?",
+              "text": {
+                "default": "Industry specific return on investment samples?",
+                "nl": "Branchespecifieke return on investment samples?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "nl": "Rangschik de interessegebieden voor u (lang tikken op selectie met een aanraakscherm)"
+          },
+          "visibleIf": "{response.length} > 1",
+          "choicesFromQuestion": "response",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nl": "Nu uw feedback verzenden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

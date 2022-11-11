@@ -50,7 +50,7 @@ generated: 0087DF5B505764347AC2AF0B6C170474826A5D65
 
 ## 反馈
 
-{{<questions name="/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/zh-hans/features/alm/powercat.json" completed="感谢您提供反馈" shownavigationbuttons="false" locale="zh-hans">}}
 
 </div>
 

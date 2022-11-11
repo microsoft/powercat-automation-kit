@@ -23,7 +23,7 @@ De novemberversie (sharp-archimedes) van de {{<product-name>}} is de derde openb
 
 ## Terugkoppeling
 
-{{<questions name="/releases/november-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/nl/releases/november-2022.json" completed="Bedankt voor het geven van feedback" shownavigationbuttons="false" locale="nl">}}
 
 </div>
 

@@ -15,4 +15,4 @@ generated: ADC10B9A38C13D00FEDF19F44AEE9086C7892B5A
 
 아래 질문을 사용하여 설정 및 기여 경험을 안내할 수 있습니다.
 
-{{<questions name="contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}
+{{<questions name="/content/ko/contribution/documentation.json" completed="설정 질문을 완료해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}

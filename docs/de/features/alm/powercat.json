@@ -1,0 +1,116 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-ALM-PowerCAT"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the follow was most useful for related to Power CAT ALM usage?",
+            "de": "Welche der folgenden Optionen war für die Verwendung von Power CAT ALM am nützlichsten?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Understanding how Power CAT created low code releases",
+              "text": {
+                "default": "Understanding how Power CAT created low code releases",
+                "de": "Verstehen, wie Power CAT Low-Code-Versionen erstellt hat"
+              }
+            },
+            {
+              "value": "What the ALM Roadmap is for the Automation Kit",
+              "text": {
+                "default": "What the ALM Roadmap is for the Automation Kit",
+                "de": "Was die ALM-Roadmap für das Automation Kit ist?"
+              }
+            },
+            {
+              "value": "How we add ALM specific tasks to our Power Automate Desktop process",
+              "text": {
+                "default": "How we add ALM specific tasks to our Power Automate Desktop process",
+                "de": "Wie wir unserem Power Automate Desktop-Prozess ALM-spezifische Aufgaben hinzufügen"
+              }
+            },
+            {
+              "value": "How we apply unit testing",
+              "text": {
+                "default": "How we apply unit testing",
+                "de": "Wie wir Komponententests anwenden"
+              }
+            },
+            {
+              "value": "How we apply integration / system testing",
+              "text": {
+                "default": "How we apply integration / system testing",
+                "de": "Wie wir Integrations- / Systemtests anwenden"
+              }
+            },
+            {
+              "value": "How this relates to in-product ALM roadmap",
+              "text": {
+                "default": "How this relates to in-product ALM roadmap",
+                "de": "Wie dies mit der produktinternen ALM-Roadmap zusammenhängt"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on PowerCAT ALM usage?",
+            "de": "Möchten Sie Feedback zur PowerCAT ALM-Nutzung senden?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "de": "Wir freuen uns auf Ihr Feedback. Als Kernteam von Automation Kit nutzen wir das Feedback, um unsere Anleitung und Roadmap zu verbessern."
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "de": "Hatten Sie weiteres Feedback?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "de": "Jetzt Ihr Feedback senden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "de": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

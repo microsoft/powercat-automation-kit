@@ -1,0 +1,301 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for Providing you feedback",
+    "it": "Grazie per averti fornito feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Overview-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "content-help",
+          "label": {
+            "default": "Did this overview help?",
+            "it": "Questa panoramica ha aiutato?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "it": "Quali argomenti ti sono stati più utili?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "it": "Non sono sicuro"
+              }
+            },
+            {
+              "value": "Return on investment context",
+              "text": {
+                "default": "Return on investment context",
+                "it": "Contesto di ritorno sull'investimento"
+              }
+            },
+            {
+              "value": "Automation Kit key features",
+              "text": {
+                "default": "Automation Kit key features",
+                "it": "Caratteristiche principali di Automation Kit"
+              }
+            },
+            {
+              "value": "Automation Center of Excellence Overview",
+              "text": {
+                "default": "Automation Center of Excellence Overview",
+                "it": "Panoramica del Centro di eccellenza per l'automazione"
+              }
+            },
+            {
+              "value": "Automation Kit vs CoE Kit",
+              "text": {
+                "default": "Automation Kit vs CoE Kit",
+                "it": "Kit di automazione vs kit CoE"
+              }
+            },
+            {
+              "value": "Corporate Automation Strategy",
+              "text": {
+                "default": "Corporate Automation Strategy",
+                "it": "Strategia di automazione aziendale"
+              }
+            },
+            {
+              "value": "Automation Kit sample lifecycle",
+              "text": {
+                "default": "Automation Kit sample lifecycle",
+                "it": "Ciclo di vita del kit di automazione"
+              }
+            },
+            {
+              "value": "Automation Project Application",
+              "text": {
+                "default": "Automation Project Application",
+                "it": "Applicazione del progetto di automazione"
+              }
+            },
+            {
+              "value": "Automation Center Application",
+              "text": {
+                "default": "Automation Center Application",
+                "it": "Applicazione Automation Center"
+              }
+            },
+            {
+              "value": "Automation Solution Manager",
+              "text": {
+                "default": "Automation Solution Manager",
+                "it": "Gestione soluzioni di automazione"
+              }
+            },
+            {
+              "value": "Power BI Dashboard",
+              "text": {
+                "default": "Power BI Dashboard",
+                "it": "Power BI Dashboard"
+              }
+            },
+            {
+              "value": "Automation Maturity Model",
+              "text": {
+                "default": "Automation Maturity Model",
+                "it": "Modello di maturità dell'automazione"
+              }
+            },
+            {
+              "value": "How to monitor for new releases",
+              "text": {
+                "default": "How to monitor for new releases",
+                "it": "Come monitorare le nuove versioni"
+              }
+            },
+            {
+              "value": "Latest release information",
+              "text": {
+                "default": "Latest release information",
+                "it": "Informazioni sull'ultima versione"
+              }
+            },
+            {
+              "value": "How to get started",
+              "text": {
+                "default": "How to get started",
+                "it": "Come iniziare"
+              }
+            },
+            {
+              "value": "Whats next",
+              "text": {
+                "default": "Whats next",
+                "it": "Cosa c'è dopo?"
+              }
+            },
+            {
+              "value": "Simplifying the install process",
+              "text": {
+                "default": "Simplifying the install process",
+                "it": "Semplificazione del processo di installazione"
+              }
+            },
+            {
+              "value": "Data Packs to load sample data",
+              "text": {
+                "default": "Data Packs to load sample data",
+                "it": "Pacchetti di dati per caricare dati di esempio"
+              }
+            },
+            {
+              "value": "End to End ALM",
+              "text": {
+                "default": "End to End ALM",
+                "it": "ALM end-to-end"
+              }
+            },
+            {
+              "value": "Future areas",
+              "text": {
+                "default": "Future areas",
+                "it": "Aree future"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({most-useful},'How to get started')",
+          "html": {
+            "default": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide",
+            "it": "<b>Introduttiva</b> Revisione <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guida"
+          }
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "it": "Si prega di classificare gli argomenti di interesse per voi (toccare a lungo la selezione con un touch screen)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "it": "Altri commenti?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "auto-register",
+          "label": {
+            "default": "Would you like to receive an automatic invitation for Office Hours to connect with the community?",
+            "it": "Vuoi ricevere un invito automatico per Office Hours per connetterti con la community?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+            "it": "<b>nota:</b> È possibile annullare la registrazione in un secondo momento, se necessario, visitando <a href='/office-hours/unregister'>Unregister<a> page"
+          },
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "Your name to register with",
+            "it": "Il tuo nome per registrarti"
+          },
+          "isRequired": true,
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "Your email address to register with",
+            "it": "Il tuo indirizzo email per registrarti"
+          },
+          "visibleIf": "{auto-register} = true",
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "it": "Vuoi inviare i risultati del tuo feedback in modo che il team di Core Automation Kit possa personalizzare gli orari di ufficio in base alle tue risposte"
+          },
+          "label": {
+            "default": "Send results?",
+            "it": "Inviare risultati?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "it": "Speriamo che queste domande ti aiutino a determinare un'idea di argomenti o domande se partecipi"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview.",
+            "it": "Non vediamo l'ora di ricevere il tuo feedback. Come team principale di Automation Kit utilizziamo il feedback per migliorare la panoramica."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "it": "Invia il tuo feedback ora?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "it": "Stato: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

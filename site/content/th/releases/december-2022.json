@@ -1,0 +1,102 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-December-2022-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the following will be most useful for you in this release?",
+            "th": "ข้อใดต่อไปนี้จะเป็นประโยชน์มากที่สุดสําหรับคุณในรุ่นนี้"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Getting hands on with the Automation Kit",
+              "text": {
+                "default": "Getting hands on with the Automation Kit",
+                "th": "เริ่มต้นใช้งานชุดระบบอัตโนมัติ"
+              }
+            },
+            {
+              "value": "Setup automation so I quickly install the Automation Kit",
+              "text": {
+                "default": "Setup automation so I quickly install the Automation Kit",
+                "th": "ตั้งค่าระบบอัตโนมัติ เพื่อให้ฉันติดตั้ง Automation Kit ได้อย่างรวดเร็ว"
+              }
+            },
+            {
+              "value": "ALM Accelerator integration",
+              "text": {
+                "default": "ALM Accelerator integration",
+                "th": "การรวมตัวเร่งความเร็ว ALM"
+              }
+            },
+            {
+              "value": "Roadmap of whats next",
+              "text": {
+                "default": "Roadmap of whats next",
+                "th": "แผนงานของอะไรต่อไป"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "th": "คุณต้องการส่งความคิดเห็นเกี่ยวกับการเปิดตัวหรือไม่"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "th": "เราหวังว่าจะได้รับความคิดเห็นของคุณ ในฐานะทีม Automation Kit หลัก เราใช้คําติชมเพื่อปรับปรุงเหตุการณ์สําคัญและคําแนะนําของเรา"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "th": "คุณมีข้อเสนอแนะอื่น ๆ หรือไม่?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "th": "ส่งความคิดเห็นของคุณตอนนี้หรือไม่"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "th": "สถานะ: {ส่ง-ผลลัพธ์-สถานะ}"
+          }
+        }
+      ]
+    }
+  ]
+}

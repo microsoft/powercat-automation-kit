@@ -34,7 +34,7 @@ Benvenuti all'anteprima pubblica del {{<product-name>}}. Per iniziare selezionar
 
 ## Valutazione
 
-{{<questions name="overview.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/it/overview.json" completed="Grazie per aver fornito feedback" shownavigationbuttons="false" locale="it">}}
 
 </div>
 

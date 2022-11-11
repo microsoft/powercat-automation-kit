@@ -1,0 +1,191 @@
+{
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "tool",
+          "title": {
+            "default": "Which of the following is the best match for you?",
+            "it": "Quale delle seguenti è la migliore corrispondenza per te?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "role",
+          "title": {
+            "default": "What is your role in the Automation Kit project",
+            "it": "Qual è il tuo ruolo nel progetto Automation Kit"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Complete the followings commands",
+            "it": "Completare i seguenti comandi"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Clone the repository",
+            "it": "Clonare il repository"
+          },
+          "html": {
+            "default": "git clone https://github.com/microsoft/powercat-automation-kit.git",
+            "it": "Git clone https://github.com/microsoft/powercat-automation-kit.git"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'core'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Fork the repository",
+            "it": "Fork del repository"
+          },
+          "html": {
+            "default": "Complete the <a href='https://docs.github.com/get-started/quickstart/fork-a-repo' target='_blank'>Fork a repo</a> to fork the project",
+            "it": "Completare il <a href='https://docs.github.com/get-started/quickstart/fork-a-repo' target='_blank'>Fork di un repository per eseguire il fork</a> del progetto"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'community'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Clone the your forked repository",
+            "it": "Clonare il repository biforcuto"
+          },
+          "html": {
+            "default": "git clone https://github.com/YOUR-USERNAME/powercat-automation-kit.git",
+            "it": "Git clone https://github.com/YOUR-USERNAME/powercat-automation-kit.git"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'community'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Switch to gh-pages",
+            "it": "Passa a gh-pages"
+          },
+          "html": {
+            "default": "git checkout gh-pages",
+            "it": "Git Checkout GH-Pages"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Create your branch for changes",
+            "it": "Creare il ramo per le modifiche"
+          },
+          "html": {
+            "default": "git checkout -b yourname-gh-pages",
+            "it": "git checkout -b yourname-gh-pages"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Make you changes",
+            "it": "Apportare modifiche"
+          },
+          "html": {
+            "default": "<b>Edit Changes</b> Make your the changes to markdown and questions",
+            "it": "<b>Modifica modifiche</b> Apporta le modifiche al markdown e alle domande"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Commit changes",
+            "it": "Eseguire il commit delle modifiche"
+          },
+          "html": {
+            "default": "git commit -m 'Your summary' .",
+            "it": "git commit -m 'Il tuo riassunto' ."
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Push the repository",
+            "it": "Eseguire il push del repository"
+          },
+          "html": {
+            "default": "git push",
+            "it": "spinta git"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Create pull request",
+            "it": "Crea richiesta pull"
+          },
+          "html": {
+            "default": "Read and complete steps in <a href='https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request' target='_blank'>Creating a pull request</a>",
+            "it": "Leggi e completa i passaggi in <a href='https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request' target='_blank'>Creazione di una richiesta pull</a>"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "radiogroup",
+          "name": "setup-complete",
+          "title": {
+            "default": "GitHub download successfully completed?",
+            "it": "Download di GitHub completato con successo?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Note</b> Visual Studio steps still need to be documented",
+            "it": "<b>nota</b> I passaggi di Visual Studio devono ancora essere documentati"
+          },
+          "visibleIf": "({tool} = 'vscode') and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Note</b> GitHub Desktop steps still need to be documented",
+            "it": "<b>nota</b> I passaggi di GitHub Desktop devono ancora essere documentati"
+          },
+          "visibleIf": "({tool} = 'app') and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Review the <a href='/contribution/authoring'>Authoring Guidelines</a>",
+            "it": "Consulta le linee guida per l'authoring <a href='/contribution/authoring'></a>"
+          },
+          "visibleIf": "({setup-complete} = 'yes')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>TIP:</b> In the site folder use the <b>hugo serve</b> command to view content locally and <b>hugo</b> to build static HTML in docs folder",
+            "it": "<b>mancia:</b> Nella cartella del sito utilizzare il comando hugo serve per visualizzare il contenuto localmente e <b>hugo</b> per creare HTML <b>statico</b> nella cartella docs"
+          },
+          "visibleIf": "({setup-complete} = 'yes')"
+        }
+      ]
+    }
+  ]
+}

@@ -46,4 +46,4 @@ Revisa nuestro [Contribución](/es/contribution) Página de orientación.
 
 ## Retroalimentación
 
-{{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/es/contribution/feedback.json" completed="Gracias por proporcionar comentarios" shownavigationbuttons="false" locale="es">}}

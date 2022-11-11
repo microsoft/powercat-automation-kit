@@ -11,4 +11,4 @@ generated: 022DFD9859F935FB5E8447F38203682947EB8EE8
 
 Skorzystaj z poniższych pytań, określ model dojrzałości automatyzacji i dowiedz się, jak {{<product-name>}} lub inne powiązane rozwiązania mogą pomóc w poprawie dojrzałości automatyzacji przy użyciu platformy Power Platform.
 
-{{<questions name="automation-maturity-model.json" completed="" showNavigationButtons=false >}}
+{{<questions name="/content/pl/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="pl">}}

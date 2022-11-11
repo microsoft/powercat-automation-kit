@@ -71,4 +71,4 @@ pac data import -d AutomationKit-SampleData.zip --environment https://contoso.cr
 
 ## Retroalimentación
 
-{{<questions name="/features/datapacks.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/es/features/datapacks.json" completed="Gracias por proporcionar comentarios" shownavigationbuttons="false" locale="es">}}

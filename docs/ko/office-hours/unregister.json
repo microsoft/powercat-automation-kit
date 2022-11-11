@@ -1,0 +1,102 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing unregistration",
+    "ko": "등록 취소를 완료해 주셔서 감사합니다."
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{register-email.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-Unregister"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "reason",
+          "title": {
+            "default": "(Optional) Your feedback helps us improve. Which of the following are reason(s) that you are unregistering?",
+            "ko": "(선택 사항) 귀하의 의견은 개선에 도움이 됩니다. 다음 중 등록을 취소하는 이유는 무엇입니까?"
+          },
+          "isRequired": false,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "The time does not work",
+              "text": {
+                "default": "The time does not work",
+                "ko": "시간이 작동하지 않습니다"
+              }
+            },
+            {
+              "value": "No longer relevant",
+              "text": {
+                "default": "No longer relevant",
+                "ko": "더 이상 관련성 없음"
+              }
+            },
+            {
+              "value": "Too technical",
+              "text": {
+                "default": "Too technical",
+                "ko": "너무 기술적 인"
+              }
+            },
+            {
+              "value": "Not enough business focus",
+              "text": {
+                "default": "Not enough business focus",
+                "ko": "비즈니스 초점이 충분하지 않음"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "The name that you registered with",
+            "ko": "등록한 이름"
+          }
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "The email address your registered with",
+            "ko": "등록한 이메일 주소"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your unregistration now?",
+            "ko": "지금 등록 취소를 보내시겠습니까?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ko": "상태: {결과 보내기 상태}"
+          }
+        }
+      ]
+    }
+  ]
+}

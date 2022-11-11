@@ -23,7 +23,7 @@ generated: 73814007AE6E11EB3B434D0C4BBCC21F70C39413
 
 ## การตอบสนอง
 
-{{<questions name="/releases/november-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/th/releases/november-2022.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" shownavigationbuttons="false" locale="th">}}
 
 </div>
 

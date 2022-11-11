@@ -21,4 +21,4 @@ Le [Strategia Automation Center of Excellence con il {{<product-name>}}](https:/
 
 Utilizzare le domande seguenti per guidare l'utente attraverso il processo introduttivo
 
-{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
+{{<questions name="/content/it/checklist.json" completed="Grazie per il tuo feedback introduttivo" shownavigationbuttons="false" locale="it">}}

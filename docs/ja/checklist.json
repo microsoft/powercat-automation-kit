@@ -1,0 +1,490 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "contains({roles},['All', 'Center Of Excellence']) = false",
+      "setToName": "non-technical",
+      "setValue": true
+    },
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-Get-Started-Checklist"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the following role(s) are the best match for you?",
+            "ja": "次の役割のうち、自分に最も適している役割はどれですか?"
+          },
+          "isRequired": true,
+          "colCount": 2,
+          "choices": [
+            {
+              "value": "Goal Setter",
+              "text": {
+                "default": "Goal Setter",
+                "ja": "ゴールセッター"
+              }
+            },
+            {
+              "value": "Process Owner",
+              "text": {
+                "default": "Process Owner",
+                "ja": "プロセス所有者"
+              }
+            },
+            {
+              "value": "Reviewer",
+              "text": {
+                "default": "Reviewer",
+                "ja": "レビューワー"
+              }
+            },
+            {
+              "value": "Center Of Excellence",
+              "text": {
+                "default": "Center Of Excellence",
+                "ja": "センター オブ エクセレンス"
+              }
+            },
+            {
+              "value": "Administrator",
+              "text": {
+                "default": "Administrator",
+                "ja": "管理者"
+              }
+            },
+            {
+              "value": "Compliance",
+              "text": {
+                "default": "Compliance",
+                "ja": "コンプライアンス"
+              }
+            },
+            {
+              "value": "Information Security",
+              "text": {
+                "default": "Information Security",
+                "ja": "情報セキュリティ"
+              }
+            },
+            {
+              "value": "Audit",
+              "text": {
+                "default": "Audit",
+                "ja": "監査"
+              }
+            },
+            {
+              "value": "All",
+              "text": {
+                "default": "All",
+                "ja": "すべての"
+              }
+            }
+          ]
+        },
+        {
+          "name": "roleNotSure",
+          "type": "boolean",
+          "title": {
+            "default": "Not sure of roles, tell me more about selected items",
+            "ja": "役割がわからない、選択したアイテムについて詳しく教えてください"
+          },
+          "defaultValue": false
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Goal Setter</b> - This could be a Corporate or Department decision maker role <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='_blank'>Learn More</a>",
+            "ja": "<b>目標設定者</b> - これは、企業または部門の意思決定者の役割である可能性があります<href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='_blank'>詳細</a>"
+          },
+          "visibleIf": "({roleNotSure} = true) and contains({roles},['Goal Setter','All'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Process Owner</b> - Creates the Automation Projects in the system <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='_blank'>Learn More</a>",
+            "ja": "<b>プロセス所有者</b> - システムに自動化プロジェクトを作成します <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='_blank'>詳細情報</a>"
+          },
+          "visibleIf": "({roleNotSure} = true) and contains({roles},['Process Owner','All'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Reviewer</b> - Validates idea to approve that the idea should be implemented and is justifiable <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='_blank'>Learn More</a>",
+            "ja": "<b>レビュアー</b> - アイデアを検証して、アイデアを実装する必要があり、正当であることを承認します <a href='https://learn.microsoft.com/power-automate/guidance /automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='_blank'>詳細情報</a>"
+          },
+          "visibleIf": "({roleNotSure} = true) and contains({roles},['Reviewer','All'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Center Of Excellence</b> - Sets up and maps solution to a specific environment <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='_blank'>Learn More</a>",
+            "ja": "<b>センター オブ エクセレン</b>ス - ソリューションをセットアップし、特定の環境にマップします <a href='https://learn.microsoft.com/power-automate/guidance /automation-kit/overview/automation-coe-strategy#automation-lifecycle' target='_blank'>詳細情報</a>"
+          },
+          "visibleIf": "({roleNotSure} = true) and contains({roles},['Center Of Excellence','All'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Administrator</b> - May set Power Platform environment management and creation of Data Loss Prevention (DLP) policies that need to be put in place for the organization to scale <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#power-platform-and-microsoft-365-coes' target='_blank'>Learn More</a>",
+            "ja": "<b>管理者</b> - Power Platform 環境管理と、組織がスケーリングするために導入する必要があるデータ損失防止 (DLP) ポリシーの作成を設定できます <a href='https://learn.microsoft.com/power-automate/guidance / automation-kit/overview/automation-coe-strategy#power-platform-and-microsoft-365-coes' target='_blank'>詳細情報</a>"
+          },
+          "visibleIf": "({roleNotSure} = true) and contains({roles},['Administrator','All'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Compliance, Information Security, Audit</b> - Set the corporate rules, regulations, cyber-security, data privacy, and auditing requirements as part of <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#corporate-automation-strategy' target='_blank'>Corporate automation strategy</a>",
+            "ja": "<b>コンプライアンス、情報セキュリティ、監査</b> - <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy#corporate-automation-strategy' target='_blank'>企業自動化戦略の一部として、企業の規則、規制、サイバーセキュリティ、データプライバシー、および監査の要件を設定します。</a>"
+          },
+          "visibleIf": "({roleNotSure} = true) and contains({roles},['Compliance', 'Information Security', 'Audit','All'])"
+        },
+        {
+          "type": "radiogroup",
+          "name": "checkInstalled",
+          "title": {
+            "default": "Does you organization have the Automation Kit for Power Platform installed?",
+            "ja": "Power Platform 用オートメーション キットは組織にインストールされていますか?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Yes",
+              "text": {
+                "default": "Yes",
+                "ja": "はい"
+              }
+            },
+            {
+              "value": "No",
+              "text": {
+                "default": "No",
+                "ja": "いいえ"
+              }
+            },
+            {
+              "value": "Not Sure",
+              "text": {
+                "default": "Not Sure",
+                "ja": "自信がありません"
+              }
+            }
+          ],
+          "visibleIf": "{roles} notempty"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Great you can review the <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit' target='_blank'>Use the Automation Kit</a> for more information",
+            "ja": "詳細については、<a href='https://learn.microsoft.com/power-automate/guidance / automation-kit/use-automation-kit' target='_blank'></a>"
+          },
+          "visibleIf": "{checkInstalled}='Yes'"
+        },
+        {
+          "type": "checkbox",
+          "name": "technicalNotInstalled",
+          "title": {
+            "default": "Ok the Automation Kit is not installed, what technical task do you need help with?",
+            "ja": "自動化キットがインストールされていませんが、どのような技術的なタスクについてサポートが必要ですか?"
+          },
+          "isRequired": true,
+          "colCount": 4,
+          "choices": [
+            {
+              "value": "Help with install",
+              "text": {
+                "default": "Help with install",
+                "ja": "インストールのヘルプ"
+              }
+            },
+            {
+              "value": "Setup instructions",
+              "text": {
+                "default": "Setup instructions",
+                "ja": "セットアップ手順"
+              }
+            },
+            {
+              "value": "Further support",
+              "text": {
+                "default": "Further support",
+                "ja": "さらなるサポート"
+              }
+            }
+          ],
+          "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+        },
+        {
+          "type": "checkbox",
+          "name": "otherNotInstalled",
+          "title": {
+            "default": "Ok the Automation Kit is not installed, what do you need help with?",
+            "ja": "自動化キットがインストールされていませんが、何についてサポートが必要ですか?"
+          },
+          "isRequired": true,
+          "colCount": 4,
+          "choices": [
+            {
+              "value": "Help with install",
+              "text": {
+                "default": "Help with install",
+                "ja": "インストールのヘルプ"
+              }
+            },
+            {
+              "value": "Further support",
+              "text": {
+                "default": "Further support",
+                "ja": "さらなるサポート"
+              }
+            }
+          ],
+          "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = false"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Start by reviewing the install <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>prerequisites</a> for more information",
+            "ja": "詳細については、インストール <a href='https://learn.microsoft.com/power-automate/guidance /automation-kit/setup/prerequisites' target='_blank'>前提条件を確認することから始めます</a>。"
+          },
+          "visibleIf": "contains({technicalNotInstalled},['Help with install', 'Setup instructions']) and contains({roles},['Center Of Excellence','All'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Contact your Center of Excellence to install or check if Automation Kit is installed",
+            "ja": "センターオブエクセレンスに連絡して、Automation Kit がインストールされているか、インストールされているかどうかを確認してください。"
+          },
+          "visibleIf": "contains({otherNotInstalled},['Help with install'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "If you are looking to trial the Automation Kit to determine how it works and what value it can provide you could try a Non production install using the <a href='/get-started/install-checklist' target='_blank'>Install checklist</a> to rapidly get started",
+            "ja": "自動化キットを試して、それがどのように機能し、どのような価値を提供できるかを判断する場合は、<a href='/get-started/install-checklist' target='_blank'>インストールチェックリストを使用して非本番インストールを試して</a>、迅速に開始できます。"
+          },
+          "visibleIf": "contains({otherNotInstalled},['Help with install'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Review walkthrough install videos <a href='https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md' target='_blank'>learn more</a>",
+            "ja": "チュートリアルのインストールビデオを確認する <a href='https://github.com/microsoft/powercat-automation-kit/blob/main/docs/walkthrough.md' target='_blank'>詳細</a>"
+          },
+          "visibleIf": "contains({technicalNotInstalled},['Help with install'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Review our <a href='/support' target='_blank'>support</a> page for more information",
+            "ja": "詳細については、<a href='/support' target='_blank'>サポートページをご覧ください</a>。"
+          },
+          "visibleIf": "contains({technicalNotInstalled},['Further support']) or contains({otherNotInstalled},['Further support'])"
+        },
+        {
+          "type": "checkbox",
+          "name": "technical-Azure",
+          "title": {
+            "default": "Check the best Azure option(s) that apply to you",
+            "ja": "自分に当てはまる最適な Azure オプションを確認する"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Azure pre-requistes met",
+            "ja": "Azure pre-requistes met"
+          },
+          "visibleIf": "contains({technical-Azure},['azure-create','azure-contributor-aad','azure-contributor-kv','azure-delegate']) and contains({technical-Azure},['aad','azure-contributor-aad']) and contains({technical-Azure},['azure-create','azure-contributor-kv'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Refer your Azure team to <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite' target='_blank'>Set up satellites</a> to create Azure App registration and Azure KeyVault Secrets",
+            "ja": "Azure チームに <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite' target='_blank'>Configure Satellites</a> を参照して、Azure アプリの登録と Azure KeyVault シークレットを作成する"
+          },
+          "visibleIf": "contains({technical-Azure},['azure-delegate'])"
+        },
+        {
+          "type": "checkbox",
+          "name": "technical-O365",
+          "title": {
+            "default": "Check the best Office 365 option(s) that apply for you",
+            "ja": "自分に合った最適な Office 365 オプションを確認する"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Office 365 pre-requistes met",
+            "ja": "Office 365 pre-requistes met"
+          },
+          "visibleIf": "contains({technical-O365},['lic'])"
+        },
+        {
+          "type": "checkbox",
+          "name": "technical-PP",
+          "title": {
+            "default": "Check the best Power Platform option(s) that apply for you",
+            "ja": "あなたに適用される最高のパワープラットフォームオプションを確認してください"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Power Platform pre-requistes met",
+            "ja": "Power Platform pre-requistes met"
+          },
+          "visibleIf": "contains({technical-PP},['pp-tenant-admin','pp-environment-admin']) and contains({technical-PP},['power-bi-pro'])"
+        },
+        {
+          "type": "radiogroup",
+          "name": "technical-ALM",
+          "title": {
+            "default": "Check the best ALM option(s) that apply for you for your Power Automation Desktop Deployments",
+            "ja": "Power Automation デスクトップ展開に適用される最適な ALM オプションを確認する"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Review <a href='https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components' target='_blank'>ALM Accelerator</a> for ALM automation install and setup documentation",
+            "ja": "< href='https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components' target='_blank'>ALM Accelerator for ALM</a> Automation インストールおよびセットアップに関するドキュメントを確認します。"
+          },
+          "visibleIf": "{technical-ALM} = 'alm-setup'"
+        },
+        {
+          "type": "radiogroup",
+          "name": "technical-data",
+          "title": {
+            "default": "Check the best data setup option(s) that apply",
+            "ja": "適用される最適なデータ設定オプションを確認してください"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "({checkInstalled}='No' or {checkInstalled}='Not Sure') and contains({roles},['All', 'Center Of Excellence']) = true"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Review <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit' target='_blank'>Configure automation kit</a> learning content",
+            "ja": "レビュー<a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit' target='_blank'>Configure Automation Kit</a> 学習コンテンツ"
+          },
+          "visibleIf": "{technical-data} = 'manual'"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Watch <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Sample Import</a> issue for progress",
+            "ja": "< href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>サンプルインポートの問題を見て</a>進捗状況を確認する"
+          },
+          "visibleIf": "{technical-data} = 'import'"
+        },
+        {
+          "name": "haveQuestionsHelped",
+          "type": "boolean",
+          "title": {
+            "default": "Have these questions helped?",
+            "ja": "これらの質問は役に立ちましたか?"
+          }
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Review our <a href='/frequently-asked-questions' target='_blank'>frequently asked questions</a> page for other common Question and Answers",
+            "ja": "その他の一般的な質問と回答については、<a href='/よくある質問' target='_blank'>よくある質問</a>のページをご覧ください。"
+          },
+          "visibleIf": "{haveQuestionsHelped}=False"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Consider giving feedback below on how we can improve",
+            "ja": "改善方法について、以下のフィードバックを提供することを検討してください"
+          },
+          "visibleIf": "{haveQuestionsHelped}=False"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Consider giving feedback below or create a <a href='https://github.com/microsoft/powercat-automation-kit/issues/new/choose' target='_blank'>New Kudos</a> or comment on an <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Akudos' target='_blank'>existing Kudos</a> to provide feedback",
+            "ja": "以下にフィードバックを提供するか、<</a>a href='https://github.com/microsoft/powercat-automation-kit/issues/new/choose' target='_blank'>新しい称賛を作成するか、<a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Akudos' target='_blank'>既存の称賛</a> フィードバックを提供する"
+          },
+          "visibleIf": "{haveQuestionsHelped}=True"
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the results of the your check list so that the Core Automation Kit team can gather your feedback to improve the process?",
+            "ja": "コアオートメーションキットチームがフィードバックを収集してプロセスを改善しられるように、チェックリストの結果を送信しますか?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our getting started guidance",
+            "ja": "皆様からのフィードバックをお待ちしております。Automation Kit のコア チームとして、フィードバックを使用して入門ガイダンスを改善します"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "ja": "他にフィードバックはありましたか?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ja": "今すぐフィードバックを送信しますか?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ja": "状態: {送信結果の状態}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -9,4 +9,4 @@ generated: 33B929E74896C20B83D938F1F6A144F398062624
 
 Please use the question below to cancel your auto registration for {{<product-name>}}. We will send you a confirmation code that you can use to [confirm unregistration](/en-gb/office-hours/unregister-confirm)
 
-{{<questions name="/office-hours/unregister.json" completed="Thank you for completing unregistration questions" showNavigationButtons=false >}}
+{{<questions name="/content/en-gb/office-hours/unregister.json" completed="Thank you for completing unregistration questions" shownavigationbuttons="false" locale="en-gb">}}

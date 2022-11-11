@@ -1,0 +1,191 @@
+{
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "tool",
+          "title": {
+            "default": "Which of the following is the best match for you?",
+            "th": "ข้อใดต่อไปนี้ตรงกับคุณที่สุด"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "role",
+          "title": {
+            "default": "What is your role in the Automation Kit project",
+            "th": "บทบาทของคุณในโครงการชุดระบบอัตโนมัติคืออะไร"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Complete the followings commands",
+            "th": "ทําคําสั่งต่อไปนี้ให้สมบูรณ์"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Clone the repository",
+            "th": "โคลนพื้นที่เก็บข้อมูล"
+          },
+          "html": {
+            "default": "git clone https://github.com/microsoft/powercat-automation-kit.git",
+            "th": "โคลน Git https://github.com/microsoft/powercat-automation-kit.git"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'core'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Fork the repository",
+            "th": "แยกพื้นที่เก็บข้อมูล"
+          },
+          "html": {
+            "default": "Complete the <a href='https://docs.github.com/get-started/quickstart/fork-a-repo' target='_blank'>Fork a repo</a> to fork the project",
+            "th": "กรอก <a href='https://docs.github.com/get-started/quickstart/fork-a-repo' target='_blank'>แยก repo เพื่อแยก</a>โครงการ"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'community'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Clone the your forked repository",
+            "th": "โคลนพื้นที่เก็บข้อมูลที่แยกออกมาของคุณ"
+          },
+          "html": {
+            "default": "git clone https://github.com/YOUR-USERNAME/powercat-automation-kit.git",
+            "th": "โคลน Git https://github.com/YOUR-USERNAME/powercat-automation-kit.git"
+          },
+          "visibleIf": "{tool} = 'git' and {role} = 'community'"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Switch to gh-pages",
+            "th": "สลับไปยังหน้า gh"
+          },
+          "html": {
+            "default": "git checkout gh-pages",
+            "th": "Git ชําระเงิน GH-หน้า"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Create your branch for changes",
+            "th": "สร้างสาขาของคุณสําหรับการเปลี่ยนแปลง"
+          },
+          "html": {
+            "default": "git checkout -b yourname-gh-pages",
+            "th": "การชําระเงิน Git -b ชื่อของคุณ gh-หน้า"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Make you changes",
+            "th": "ทําการเปลี่ยนแปลง"
+          },
+          "html": {
+            "default": "<b>Edit Changes</b> Make your the changes to markdown and questions",
+            "th": "<b>แก้ไขการเปลี่ยนแปลง</b> ทําให้คุณเป็นการเปลี่ยนแปลงมาร์กดาวน์และคําถาม"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Commit changes",
+            "th": "ยอมรับการเปลี่ยนแปลง"
+          },
+          "html": {
+            "default": "git commit -m 'Your summary' .",
+            "th": "git commit -m 'บทสรุปของคุณ' ."
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Push the repository",
+            "th": "พุชที่เก็บ"
+          },
+          "html": {
+            "default": "git push",
+            "th": "ผลักดัน Git"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "title": {
+            "default": "Create pull request",
+            "th": "สร้างคําขอดึงข้อมูล"
+          },
+          "html": {
+            "default": "Read and complete steps in <a href='https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request' target='_blank'>Creating a pull request</a>",
+            "th": "อ่านและทําตามขั้นตอนใน <a href='https://docs.github.com/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request' target='_blank'>การสร้างคําขอดึงข้อมูล</a>"
+          },
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "radiogroup",
+          "name": "setup-complete",
+          "title": {
+            "default": "GitHub download successfully completed?",
+            "th": "ดาวน์โหลด GitHub เสร็จสมบูรณ์หรือไม่"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{tool} = 'git' and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Note</b> Visual Studio steps still need to be documented",
+            "th": "<b>โน้ต</b> ขั้นตอน Visual Studio ยังคงต้องมีการจัดทําเอกสาร"
+          },
+          "visibleIf": "({tool} = 'vscode') and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Note</b> GitHub Desktop steps still need to be documented",
+            "th": "<b>โน้ต</b> ขั้นตอนเดสก์ท็อป GitHub ยังคงต้องจัดทําเป็นเอกสาร"
+          },
+          "visibleIf": "({tool} = 'app') and len({role}) > 0"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Review the <a href='/contribution/authoring'>Authoring Guidelines</a>",
+            "th": "ทบทวนแนวทางการเขียน <a href='/การมีส่วนร่วม/การเขียน>แนวทางการเขียน</a>"
+          },
+          "visibleIf": "({setup-complete} = 'yes')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>TIP:</b> In the site folder use the <b>hugo serve</b> command to view content locally and <b>hugo</b> to build static HTML in docs folder",
+            "th": "<b>ปลาย:</b> ในโฟลเดอร์ไซต์ให้ใช้คําสั่ง <b>hugo serve</b> เพื่อดูเนื้อหาในเครื่องและ <b>hugo</b> เพื่อสร้าง HTML แบบคงที่ในโฟลเดอร์เอกสาร"
+          },
+          "visibleIf": "({setup-complete} = 'yes')"
+        }
+      ]
+    }
+  ]
+}

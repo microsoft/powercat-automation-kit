@@ -23,7 +23,7 @@ generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 
 以下の質問を使用して、さまざまなフィードバックの質問タイプを調べてください
 
-{{<questions name="contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
+{{<questions name="/content/ja/contribution/sample.json" completed="質問に回答していただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
 
 </div>
 

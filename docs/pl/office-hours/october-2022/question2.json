@@ -1,0 +1,104 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "pl": "Dziękujemy za przesłanie opinii"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-2"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "What area(s) do you think we should focus on next?",
+            "pl": "Jak myślisz, na jakich obszarach powinniśmy się skupić w następnej kolejności?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Improving getting started experience and documentation",
+              "text": {
+                "default": "Improving getting started experience and documentation",
+                "pl": "Ulepszanie środowiska i dokumentacji wprowadzającej"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "pl": "Związek z innymi zestawami i funkcje gotowe do użycia"
+              }
+            },
+            {
+              "value": "Demonstrate end to end Application Lifecycle management (ALM)",
+              "text": {
+                "default": "Demonstrate end to end Application Lifecycle management (ALM)",
+                "pl": "Zademonstruj kompleksowe zarządzanie cyklem życia aplikacji (ALM)"
+              }
+            },
+            {
+              "value": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+              "text": {
+                "default": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+                "pl": "Zademonstrować, jak przeprowadzić migrację do programu Power Automate Desktop w skali?"
+              }
+            },
+            {
+              "value": "Sample data to help me get started?",
+              "text": {
+                "default": "Sample data to help me get started?",
+                "pl": "Przykładowe dane, które pomogą mi zacząć?"
+              }
+            },
+            {
+              "value": "Industry specific return on investment samples?",
+              "text": {
+                "default": "Industry specific return on investment samples?",
+                "pl": "Specyficzne dla branży próbki zwrotu z inwestycji?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "pl": "Proszę uszeregować interesujące Cię obszary (długie dotknięcie wyboru za pomocą ekranu dotykowego)"
+          },
+          "visibleIf": "{response.length} > 1",
+          "choicesFromQuestion": "response",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "pl": "Wysłać teraz swoją opinię?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "pl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

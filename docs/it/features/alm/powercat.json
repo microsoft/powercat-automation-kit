@@ -1,0 +1,116 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-ALM-PowerCAT"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the follow was most useful for related to Power CAT ALM usage?",
+            "it": "Quale delle seguenti affermazioni è stata più utile in relazione all'utilizzo di Power CAT ALM?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Understanding how Power CAT created low code releases",
+              "text": {
+                "default": "Understanding how Power CAT created low code releases",
+                "it": "Informazioni su come Power CAT ha creato versioni di codice basso"
+              }
+            },
+            {
+              "value": "What the ALM Roadmap is for the Automation Kit",
+              "text": {
+                "default": "What the ALM Roadmap is for the Automation Kit",
+                "it": "Cos'è la roadmap ALM per il kit di automazione"
+              }
+            },
+            {
+              "value": "How we add ALM specific tasks to our Power Automate Desktop process",
+              "text": {
+                "default": "How we add ALM specific tasks to our Power Automate Desktop process",
+                "it": "Come aggiungiamo attività specifiche ALM al nostro processo Power Automate Desktop"
+              }
+            },
+            {
+              "value": "How we apply unit testing",
+              "text": {
+                "default": "How we apply unit testing",
+                "it": "Come applichiamo gli unit test"
+              }
+            },
+            {
+              "value": "How we apply integration / system testing",
+              "text": {
+                "default": "How we apply integration / system testing",
+                "it": "Come applichiamo l'integrazione / test di sistema"
+              }
+            },
+            {
+              "value": "How this relates to in-product ALM roadmap",
+              "text": {
+                "default": "How this relates to in-product ALM roadmap",
+                "it": "In che modo questo si collega alla roadmap ALM all'interno del prodotto"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on PowerCAT ALM usage?",
+            "it": "Vuoi inviare il feedback sull'utilizzo di PowerCAT ALM?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "it": "Non vediamo l'ora di ricevere il tuo feedback. Come team principale di Automation Kit, utilizziamo il feedback per migliorare la nostra guida e la nostra tabella di marcia"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "it": "Hai avuto altri feedback?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "it": "Invia il tuo feedback ora?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "it": "Stato: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

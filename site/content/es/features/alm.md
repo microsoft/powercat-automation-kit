@@ -57,7 +57,7 @@ Revisa nuestro [Backlog relacionado con Automation Kit ALM](https://github.com/m
 
 ## Retroalimentación
 
-{{<questions name="/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/es/features/alm.json" completed="Gracias por proporcionar comentarios" shownavigationbuttons="false" locale="es">}}
 
 </div>
 

@@ -9,4 +9,4 @@ generated: 2686FC6E753449C5F18DAE5D21B22F46FF90AA1E
 
 Por favor, proporcione sus comentarios a las siguientes preguntas:
 
-{{<questions showNavigationButtons=false >}}
+{{<questions shownavigationbuttons="false" locale="es">}}

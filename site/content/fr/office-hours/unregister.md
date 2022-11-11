@@ -9,4 +9,4 @@ generated: 33B929E74896C20B83D938F1F6A144F398062624
 
 Veuillez utiliser la question ci-dessous pour annuler votre inscription automatique pour {{<product-name>}}. Nous vous enverrons un code de confirmation que vous pourrez utiliser pour [Confirmer la désinscription](/fr/office-hours/unregister-confirm)
 
-{{<questions name="/office-hours/unregister.json" completed="Thank you for completing unregistration questions" showNavigationButtons=false >}}
+{{<questions name="/content/fr/office-hours/unregister.json" completed="Merci d’avoir répondu aux questions de désinscription" shownavigationbuttons="false" locale="fr">}}

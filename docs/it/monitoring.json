@@ -1,0 +1,203 @@
+{
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "products",
+          "title": {
+            "default": "Which products components do you want to compare?",
+            "it": "Quali componenti dei prodotti vuoi confrontare?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>Out of the box</b> - Learn more <a href='https://learn.microsoft.com/power-platform/admin/analytics-flow' target='_blank'>Analytics for flows</a>, <a href='https://learn.microsoft.com/power-platform/admin/analytics-ui-flow' target='_blank'>Analytics for UI flows</a> and <a href='https://learn.microsoft.com/power-platform/admin/managed-environment-overview' target='_blank'>Managed Environments</a>",
+            "it": "<b>Predefinito</b> - Ulteriori informazioni</a></a></a> <a href='https://learn.microsoft.com/power-platform/admin/analytics-flow' target='_blank'>Analytics per i flussi, <a href='https://learn.microsoft.com/power-platform/admin/analytics-ui-flow' target='_blank'>Analytics per i flussi dell'interfaccia utente e <a href='https://learn.microsoft.com/power-platform/admin/managed-environment-overview' target='_blank'>Ambienti gestiti"
+          },
+          "visibleIf": "contains({products}, ['ootb', 'all'])"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>CoE Kit - Core</b> - Learn more <a href='https://learn.microsoft.com/power-platform/guidance/coe/power-bi' target='_blank'>CoE Dashboard</a>, <a href='https://learn.microsoft.com/power-platform/guidance/coe/overview#how-to-use-the-coe-starter-kit-alongside-power-platform-admin-center' target='_blank'>How to use the CoE Starter Kit alongside Power Platform Admin Center</a>",
+            "it": "<b>Kit</b></a> CoE - Core - Ulteriori informazioni <a href='https://learn.microsoft.com/power-platform/guidance/coe/power-bi' target='_blank'>CoE Dashboard, <a href='https://learn.microsoft.com/power-platform/guidance/coe/overview#how-to-use-the-coe-starter-kit-alongside-power-platform-admin-center' target='_blank'>Come usare lo starter kit CoE insieme all'interfaccia di amministrazione di Power Platform</a>"
+          },
+          "visibleIf": "contains({products}, ['coe-core', 'all'])"
+        },
+        {
+          "type": "checkbox",
+          "name": "licenses",
+          "title": {
+            "default": "Which licenses do you have?",
+            "it": "Quali licenze avete?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "visible": false,
+          "choices": []
+        },
+        {
+          "type": "matrix",
+          "name": "compare",
+          "title": {
+            "default": "Monitoring features compared",
+            "it": "Funzionalità di monitoraggio a confronto"
+          },
+          "columns": [
+            {
+              "value": "ootb",
+              "text": "Out of the box",
+              "visibleIf": "contains({products}, ['ootb', 'all'])"
+            },
+            {
+              "value": "coe-core",
+              "text": "CoE Kit - Core Module",
+              "visibleIf": "contains({products}, ['coe-core', 'all'])"
+            },
+            {
+              "value": "auto-kit",
+              "text": "Automation Kit",
+              "visibleIf": "contains({products}, ['auto-kit', 'all'])"
+            }
+          ],
+          "rows": [
+            {
+              "value": "environment",
+              "text": "Per environment"
+            },
+            {
+              "value": "multiple-environments",
+              "text": "Aggregated dashboard for multiple environments"
+            },
+            {
+              "value": "tenant-analytics",
+              "text": "Tenant level analytics"
+            },
+            {
+              "value": "full-inventory",
+              "text": "Full inventory of all cloud flows"
+            },
+            {
+              "value": "win11-only",
+              "text": "Windows 11 RPA history not called from cloud flow"
+            },
+            {
+              "value": "cloud-flow",
+              "text": "RPA history called from cloud flow"
+            },
+            {
+              "value": "data-lake-export",
+              "text": "Data lake export"
+            },
+            {
+              "value": "data-retention",
+              "text": "History data retention"
+            },
+            {
+              "value": "data-stored",
+              "text": "History Data stored"
+            },
+            {
+              "value": "premium-power-app-lic",
+              "text": "Requires premium Power App license"
+            },
+            {
+              "value": "premium-power-automate-lic",
+              "text": "Requires premium Power Automate license"
+            },
+            {
+              "value": "premium-power-bi-lic",
+              "text": "Requires premium PowerBI professional license"
+            },
+            {
+              "value": "product-focus",
+              "text": "Power Platform product focus"
+            },
+            {
+              "value": "roi-metrics",
+              "text": "Desktop flow ROI metrics"
+            }
+          ],
+          "cells": {
+            "environment": {
+              "ootb": "Yes",
+              "coe-core": "Yes",
+              "auto-kit": "Yes"
+            },
+            "multiple-environments": {
+              "ootb": "No",
+              "coe-core": "Yes",
+              "auto-kit": "Yes"
+            },
+            "tenant-analytics": {
+              "ootb": "Yes",
+              "coe-core": "Yes",
+              "auto-kit": "Yes"
+            },
+            "full-inventory": {
+              "ootb": "Yes",
+              "coe-core": "Yes",
+              "auto-kit": "No"
+            },
+            "win11-only": {
+              "ootb": "No",
+              "coe-core": "No",
+              "auto-kit": "No"
+            },
+            "cloud-flow": {
+              "ootb": "Yes",
+              "coe-core": "Yes",
+              "auto-kit": "Metered flows only"
+            },
+            "data-lake-export": {
+              "ootb": "Yes",
+              "coe-core": "Private preview",
+              "auto-kit": "Under investigation"
+            },
+            "data-retention": {
+              "ootb": "28 Days",
+              "coe-core": "Customer managed",
+              "auto-kit": "Customer managed"
+            },
+            "data-stored": {
+              "ootb": "Platform",
+              "coe-core": "Dataverse, Datalake",
+              "auto-kit": "Dataverse"
+            },
+            "premium-power-app-lic": {
+              "ootb": "No",
+              "coe-core": "Yes",
+              "auto-kit": "Yes"
+            },
+            "premium-power-automate-lic": {
+              "ootb": "No",
+              "coe-core": "Yes",
+              "auto-kit": "Yes"
+            },
+            "premium-power-bi-lic": {
+              "ootb": "No",
+              "coe-core": "Yes",
+              "auto-kit": "Yes"
+            },
+            "product-focus": {
+              "ootb": "Many",
+              "coe-core": "Many",
+              "auto-kit": "Cloud and Desktop Flows"
+            },
+            "roi-metrics": {
+              "ootb": "No",
+              "coe-core": "No",
+              "auto-kit": "Yes"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

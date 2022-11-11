@@ -1,0 +1,95 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-DataPacks"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of was most useful for related to Data Packs?",
+            "ko": "데이터 팩과 관련하여 가장 유용한 것은 무엇입니까?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Getting hands on as soon as possible",
+              "text": {
+                "default": "Getting hands on as soon as possible",
+                "ko": "가능한 한 빨리 손을 잡기"
+              }
+            },
+            {
+              "value": "Being able to demonstrate a working system to my stakeholders",
+              "text": {
+                "default": "Being able to demonstrate a working system to my stakeholders",
+                "ko": "이해 관계자에게 작업 시스템을 시연 할 수 있음"
+              }
+            },
+            {
+              "value": "What the roadmap for Datapacks",
+              "text": {
+                "default": "What the roadmap for Datapacks",
+                "ko": "데이터 팩에 대한 로드맵"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on Data Packs?",
+            "ko": "데이터 팩에 대한 피드백을 보내시겠습니까?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "ko": "여러분의 피드백을 기다리겠습니다. 핵심 자동화 키트 팀으로서 우리는 피드백을 사용하여 지침과 로드맵을 개선합니다."
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "ko": "다른 피드백이 있었나요?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ko": "지금 피드백을 보내시겠습니까?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ko": "상태: {결과 보내기 상태}"
+          }
+        }
+      ]
+    }
+  ]
+}

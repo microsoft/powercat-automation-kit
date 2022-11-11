@@ -1,0 +1,362 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-Install-Checklist"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "install-type",
+          "title": {
+            "default": "Which type of the install are you trying to make?",
+            "ko": "어떤 유형의 설치를 시도하고 있습니까?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "method",
+          "title": {
+            "default": "Which of the following install method do you want to try?",
+            "ko": "다음 중 어떤 설치 방법을 시도해 보시겠습니까?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "checkbox",
+          "name": "components",
+          "title": {
+            "default": "Which of the following components did you want to install?",
+            "ko": "다음 중 어떤 구성 요소를 설치하시겠습니까?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "If you are not sure of these components, the <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction' target='_blank'>Automation Kit Introduction</a> can help provide information",
+            "ko": "이러한 구성 요소를 잘 모르는 경우 <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction' target='_blank'>Automation Kit 소개가</a> 정보를 제공하는 데 도움이 될 수 있습니다."
+          }
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "NOTE: The setup of the satellite solution will require addition <b>Microsoft Azure</b> resources to complete the setup",
+            "ko": "참고: 위성 솔루션을 설치하려면 설치를 완료하기 위해 <b>Microsoft Azure</b> 리소스를 추가해야 합니다."
+          },
+          "visibleIf": "contains({components}, 'satellite')"
+        },
+        {
+          "type": "checkbox",
+          "name": "developmentChecks",
+          "title": {
+            "default": "Which of the following apply?",
+            "ko": "다음 중 어느 것이 적용됩니까?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{method} = 'development'"
+        },
+        {
+          "type": "checkbox",
+          "name": "devLicenseEnv",
+          "title": {
+            "default": "Developer License Environment - Select the items below that apply",
+            "ko": "개발자 라이선스 환경 - 아래에서 적용되는 항목을 선택합니다."
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Can search for your user name",
+              "text": {
+                "default": "Can search for your user name",
+                "ko": "사용자 이름을 검색할 수 있습니다."
+              }
+            },
+            {
+              "value": "Can open user record",
+              "text": {
+                "default": "Can open user record",
+                "ko": "사용자 레코드를 열 수 있습니다."
+              }
+            },
+            {
+              "value": "Can select 'Licenses' for your user",
+              "text": {
+                "default": "Can select 'Licenses' for your user",
+                "ko": "사용자에 대해 '라이선스'를 선택할 수 있습니다."
+              }
+            },
+            {
+              "value": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
+              "text": {
+                "default": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
+                "ko": "<a href='https://make.powerapps.com' target='_blank'을 방문할 수 있습니다>https://make.powerapps.com</a>"
+              }
+            }
+          ],
+          "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-lic')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a developer license. Check if getting a developer or shared environment assigned to you. If this is not option, consider setting up a 30 day trial.",
+            "ko": "🚫 개발자 라이센스로 장애물에 부딪힌 것 같습니다. 개발자 또는 공유 환경이 할당되었는지 확인합니다. 옵션이 아닌 경우 30일 평가판을 설정하는 것이 좋습니다."
+          },
+          "visibleIf": "{method} = 'development' and contains({devLicenseEnv}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "devEnvironmentAssigned",
+          "title": {
+            "default": "Developer Assigned Environment - Select the items below that have been done",
+            "ko": "개발자 할당 환경 - 완료된 아래 항목을 선택합니다."
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-env')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a developer environment. Check if getting a developer license or a shared environment assigned are options in your organization. If not consider setting up a 30 day trial with a Non Production installation",
+            "ko": "🚫 개발자 환경에서 장애물에 부딪힌 것 같습니다. 개발자 라이선스 또는 할당된 공유 환경을 가져오는 것이 조직의 옵션인지 확인합니다. 그렇지 않은 경우 비프로덕션 설치로 30일 평가판 설정을 고려하십시오."
+          },
+          "visibleIf": "{method} = 'development' and contains({devEnvironmentAssigned}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "trial-setup",
+          "title": {
+            "default": "Trial Environment - Select the items below that have been done",
+            "ko": "평가판 환경 - 수행된 아래 항목을 선택합니다."
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Start a <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 free trial</a>",
+              "text": {
+                "default": "Start a <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 free trial</a>",
+                "ko": "<a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 무료 평가판 시작</a>"
+              }
+            },
+            {
+              "value": "Login as free **Dynamics trial admin** created above and sign up for <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Try Microsoft 365 for free</a>",
+              "text": {
+                "default": "Login as free **Dynamics trial admin** created above and sign up for <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Try Microsoft 365 for free</a>",
+                "ko": "위에서 만든 무료 **Dynamics 평가판 관리자**로 로그인하고 <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>무료로 Microsoft 365 사용해 보기에 등록</a>합니다."
+              }
+            },
+            {
+              "value": "As your **Dynamics trial admin** sign up for the <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan</a> to be able to create development environments to install **Main** or **Satellite** solutions",
+              "text": {
+                "default": "As your **Dynamics trial admin** sign up for the <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan</a> to be able to create development environments to install **Main** or **Satellite** solutions",
+                "ko": "**Dynamics 평가판 관리자**가 <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps 개발자 플랜에 등록하여</a> **메인** 또는 **위성** 솔루션을 설치하기 위한 개발 환경을 만들 수 있도록 합니다."
+              }
+            },
+            {
+              "value": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
+              "text": {
+                "default": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
+                "ko": "<</a>a href='https://portal.office.com' target='_blank'>Office Portal 또는 <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal에서 평가판 사용자에게 'Microsoft Power Apps for Developer' 라이선스 할당</a>"
+              }
+            }
+          ],
+          "visibleIf": "{method} = 'trial-30'"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a trial setup. Check if you can get a developer or shared environment assigned within you organization.",
+            "ko": "🚫 시험 설정으로 장애물에 부딪힌 것 같습니다. 조직 내에서 개발자 또는 공유 환경을 할당할 수 있는지 확인합니다."
+          },
+          "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "trial-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "ko": "발생한 문제에 대한 자세한 정보를 제공하시겠습니까?"
+          },
+          "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "environmentSteps",
+          "title": {
+            "default": "Environment Setup - Select the items below that apply",
+            "ko": "환경 설정 - 아래에서 적용되는 항목을 선택합니다."
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a environment setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. If this is not an option you could consider setting up a 30 day trial. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "ko": "🚫 환경 설정으로 장애물에 부딪힌 것 같습니다. <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn 콘텐츠를</a> Center of Excellence 팀과 공유하십시오. 이것이 옵션이 아닌 경우 30일 평가판 설정을 고려할 수 있습니다. <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues 에서 이슈를 만들 수도 있습니다.</a>"
+          },
+          "visibleIf": "contains({environmentSteps},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "mainSetup",
+          "title": {
+            "default": "Main Solution Environment - Select the items below that have been done",
+            "ko": "기본 솔루션 환경 - 완료된 아래 항목을 선택하십시오."
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'main')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a main solution setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "ko": "🚫 메인 솔루션 설정으로 장애물에 부딪힌 것 같습니다. <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn 콘텐츠를</a> Center of Excellence 팀과 공유하십시오. <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues 에서 이슈를 만들 수도 있습니다.</a>"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "main-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "ko": "발생한 문제에 대한 자세한 정보를 제공하시겠습니까?"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "dashboardSetup",
+          "title": {
+            "default": "Dashboard setup - Select the items below that have been done",
+            "ko": "대시보드 설정 - 완료된 아래 항목을 선택합니다."
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'dashboard')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with the Power BI dashboard setup. You could look at creating an issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "ko": "🚫 Power BI 대시보드 설정으로 장애물에 부딪힌 것 같습니다. <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues 에서 문제를 만드는 방법을 살펴볼 수 있습니다.</a>"
+          },
+          "visibleIf": "contains({components},'dashboard') and contains({dashboardSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "dashboard-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "ko": "발생한 문제에 대한 자세한 정보를 제공하시겠습니까?"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "satelliteSetup",
+          "title": {
+            "default": "Satellite Solution Environment - Select the items below that have been done",
+            "ko": "위성 솔루션 환경 - 완료된 아래 항목을 선택하십시오."
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'satellite')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a satellite setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "ko": "🚫 위성 설정으로 도로 블록을 친 것 같습니다. <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn 콘텐츠를</a> Center of Excellence 팀과 공유하십시오. <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues 에서 이슈를 만들 수도 있습니다.</a>"
+          },
+          "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "satellite-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "ko": "발생한 문제에 대한 자세한 정보를 제공하시겠습니까?"
+          },
+          "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the results of the your install check list so that the Core Automation Kit team can learn what worked?",
+            "ko": "핵심 자동화 키트 팀이 효과가 있었던 것을 배울 수 있도록 설치 검사 목록의 결과를 보내시겠습니까?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope this checklist helped you with the non production install",
+            "ko": "이 체크리스트가 비프로덕션 설치에 도움이 되었기를 바랍니다."
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our getting started guidance",
+            "ko": "여러분의 피드백을 기다리겠습니다. 핵심 자동화 키트 팀으로서 피드백을 사용하여 시작 지침을 개선합니다."
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "ko": "다른 피드백이 있었나요?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ko": "지금 피드백을 보내시겠습니까?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ko": "상태: {결과 보내기 상태}"
+          }
+        }
+      ]
+    }
+  ]
+}

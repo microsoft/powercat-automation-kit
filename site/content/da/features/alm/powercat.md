@@ -50,7 +50,7 @@ Samlet set bygger vi videre på de eksisterende Power Platform- og Microsoft Dev
 
 ## Feedback
 
-{{<questions name="/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/da/features/alm/powercat.json" completed="Tak, fordi du gav feedback" shownavigationbuttons="false" locale="da">}}
 
 </div>
 

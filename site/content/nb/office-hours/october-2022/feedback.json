@@ -1,0 +1,118 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "nb": "Takk for at du sender tilbakemelding"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-result} = true",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "rating",
+          "name": "nps_score",
+          "title": {
+            "default": "On a scale of zero to ten, how satisfied with the session today?",
+            "nb": "På en skala fra null til ti, hvor fornøyd med økten i dag?"
+          },
+          "isRequired": true,
+          "rateMin": 0,
+          "rateMax": 10,
+          "minRateDescription": "(Most unsatisfied)",
+          "maxRateDescription": "(Most satisfied)"
+        },
+        {
+          "type": "checkbox",
+          "name": "promoter_features",
+          "visibleIf": "{nps_score} >= 9",
+          "title": {
+            "default": "Which of the following did you value the most?",
+            "nb": "Hvilket av følgende verdsatte du mest?"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "answercount",
+              "text": "Please select no more than three features.",
+              "maxCount": 3
+            }
+          ],
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Demonstrated Features",
+              "text": {
+                "default": "Demonstrated Features",
+                "nb": "Demonstrerte funksjoner"
+              }
+            },
+            {
+              "value": "Roadmap of what is next",
+              "text": {
+                "default": "Roadmap of what is next",
+                "nb": "Veikart for hva som blir det neste"
+              }
+            },
+            {
+              "value": "Question and anwsers",
+              "text": {
+                "default": "Question and anwsers",
+                "nb": "Spørsmål og anwsers"
+              }
+            },
+            {
+              "value": "Learning materials (documentation, demos, code examples)",
+              "text": {
+                "default": "Learning materials (documentation, demos, code examples)",
+                "nb": "Læremidler (dokumentasjon, demoer, kodeeksempler)"
+              }
+            }
+          ],
+          "otherText": "Other features:",
+          "colCount": 2
+        },
+        {
+          "type": "comment",
+          "name": "passive_experience",
+          "visibleIf": "{nps_score} >= 7  and {nps_score} <= 8",
+          "title": {
+            "default": "What can we do to make your session more satisfying?",
+            "nb": "Hva kan vi gjøre for å gjøre økten mer tilfredsstillende?"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "disappointing_experience",
+          "visibleIf": "{nps_score} <= 6",
+          "title": {
+            "default": "Please let us know why you had such a disappointing experience with our session",
+            "nb": "Gi oss beskjed om hvorfor du hadde en så skuffende opplevelse med økten vår"
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nb": "Send tilbakemelding nå?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nb": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

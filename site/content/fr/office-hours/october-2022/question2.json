@@ -1,0 +1,104 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "fr": "Merci d’avoir envoyé vos commentaires"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-2"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "What area(s) do you think we should focus on next?",
+            "fr": "Sur quel(s) domaine(s) pensez-vous que nous devrions nous concentrer ensuite?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Improving getting started experience and documentation",
+              "text": {
+                "default": "Improving getting started experience and documentation",
+                "fr": "Amélioration de l’expérience de démarrage et de la documentation"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "fr": "Relation avec d’autres kits et fonctionnalités prêtes à l’emploi"
+              }
+            },
+            {
+              "value": "Demonstrate end to end Application Lifecycle management (ALM)",
+              "text": {
+                "default": "Demonstrate end to end Application Lifecycle management (ALM)",
+                "fr": "Démonstration de bout en bout de la gestion du cycle de vie des applications (ALM)"
+              }
+            },
+            {
+              "value": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+              "text": {
+                "default": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+                "fr": "Montrer comment migrer vers Power Automate Desktop en tant qu’échelle ?"
+              }
+            },
+            {
+              "value": "Sample data to help me get started?",
+              "text": {
+                "default": "Sample data to help me get started?",
+                "fr": "Des exemples de données pour m’aider à démarrer ?"
+              }
+            },
+            {
+              "value": "Industry specific return on investment samples?",
+              "text": {
+                "default": "Industry specific return on investment samples?",
+                "fr": "Des échantillons de retour sur investissement spécifiques à l’industrie?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "fr": "Veuillez classer les domaines qui vous intéressent (appuyez longuement sur la sélection avec un écran tactile)"
+          },
+          "visibleIf": "{response.length} > 1",
+          "choicesFromQuestion": "response",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "fr": "Envoyer vos commentaires maintenant?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "fr": "État : {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

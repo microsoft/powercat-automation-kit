@@ -1,0 +1,362 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-Install-Checklist"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "install-type",
+          "title": {
+            "default": "Which type of the install are you trying to make?",
+            "pl": "Jakiego typu instalację próbujesz wykonać?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "method",
+          "title": {
+            "default": "Which of the following install method do you want to try?",
+            "pl": "Którą z poniższych metod instalacji chcesz wypróbować?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "checkbox",
+          "name": "components",
+          "title": {
+            "default": "Which of the following components did you want to install?",
+            "pl": "Który z poniższych składników chcesz zainstalować?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "If you are not sure of these components, the <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction' target='_blank'>Automation Kit Introduction</a> can help provide information",
+            "pl": "Jeśli nie masz pewności co do tych składników, pomocne informacje mogą zostać podane w <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction' target='_blank'>Automation Kit Introduction</a>"
+          }
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "NOTE: The setup of the satellite solution will require addition <b>Microsoft Azure</b> resources to complete the setup",
+            "pl": "UWAGA: Konfiguracja rozwiązania satelitarnego będzie wymagać dodatkowych zasobów <b>platformy Microsoft Azure</b> w celu ukończenia instalacji"
+          },
+          "visibleIf": "contains({components}, 'satellite')"
+        },
+        {
+          "type": "checkbox",
+          "name": "developmentChecks",
+          "title": {
+            "default": "Which of the following apply?",
+            "pl": "Które z poniższych sytuacji mają zastosowanie?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{method} = 'development'"
+        },
+        {
+          "type": "checkbox",
+          "name": "devLicenseEnv",
+          "title": {
+            "default": "Developer License Environment - Select the items below that apply",
+            "pl": "Środowisko licencji dewelopera — wybierz poniższe elementy, które mają zastosowanie"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Can search for your user name",
+              "text": {
+                "default": "Can search for your user name",
+                "pl": "Może wyszukiwać Twoją nazwę użytkownika"
+              }
+            },
+            {
+              "value": "Can open user record",
+              "text": {
+                "default": "Can open user record",
+                "pl": "Może otwierać rekord użytkownika"
+              }
+            },
+            {
+              "value": "Can select 'Licenses' for your user",
+              "text": {
+                "default": "Can select 'Licenses' for your user",
+                "pl": "Może wybrać \"Licencje\" dla swojego użytkownika"
+              }
+            },
+            {
+              "value": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
+              "text": {
+                "default": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
+                "pl": "Może odwiedzić <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>"
+              }
+            }
+          ],
+          "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-lic')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a developer license. Check if getting a developer or shared environment assigned to you. If this is not option, consider setting up a 30 day trial.",
+            "pl": "🚫 Wygląda na to, że trafiłeś na blokadę drogową z licencją programisty. Sprawdź, czy masz przypisanego programistę lub środowisko udostępnione. Jeśli nie jest to możliwe, rozważ skonfigurowanie 30-dniowej wersji próbnej."
+          },
+          "visibleIf": "{method} = 'development' and contains({devLicenseEnv}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "devEnvironmentAssigned",
+          "title": {
+            "default": "Developer Assigned Environment - Select the items below that have been done",
+            "pl": "Środowisko przypisane przez programistę — wybierz poniżej elementy, które zostały wykonane"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-env')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a developer environment. Check if getting a developer license or a shared environment assigned are options in your organization. If not consider setting up a 30 day trial with a Non Production installation",
+            "pl": "🚫 Wygląda na to, że trafiłeś na blokadę drogową ze środowiskiem programistycznym. Sprawdź, czy uzyskanie licencji dewelopera lub przypisanego środowiska współużytkowanego jest dostępne w Twojej organizacji. Jeśli nie, rozważ skonfigurowanie 30-dniowej wersji próbnej z instalacją nieprodukcyjną"
+          },
+          "visibleIf": "{method} = 'development' and contains({devEnvironmentAssigned}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "trial-setup",
+          "title": {
+            "default": "Trial Environment - Select the items below that have been done",
+            "pl": "Środowisko próbne — wybierz poniżej elementy, które zostały wykonane"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Start a <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 free trial</a>",
+              "text": {
+                "default": "Start a <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 free trial</a>",
+                "pl": "Rozpocznij < href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 bezpłatnej wersji próbnej</a>"
+              }
+            },
+            {
+              "value": "Login as free **Dynamics trial admin** created above and sign up for <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Try Microsoft 365 for free</a>",
+              "text": {
+                "default": "Login as free **Dynamics trial admin** created above and sign up for <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Try Microsoft 365 for free</a>",
+                "pl": "Zaloguj się jako bezpłatny **Administrator wersji próbnej systemu Dynamics** utworzony powyżej i zarejestruj się w <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Wypróbuj bezpłatnie platformę Microsoft 365</a>"
+              }
+            },
+            {
+              "value": "As your **Dynamics trial admin** sign up for the <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan</a> to be able to create development environments to install **Main** or **Satellite** solutions",
+              "text": {
+                "default": "As your **Dynamics trial admin** sign up for the <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan</a> to be able to create development environments to install **Main** or **Satellite** solutions",
+                "pl": "Jako administrator wersji próbnej systemu Dynamics zarejestruj się w < href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan,</a> aby móc tworzyć środowiska programistyczne do instalowania rozwiązań **Main** lub **Satellite**"
+              }
+            },
+            {
+              "value": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
+              "text": {
+                "default": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
+                "pl": "Przypisywanie licencji \"Microsoft Power Apps for Developer\" użytkownikom wersji próbnej w</a> <a href='https://portal.office.com' target='_blank'>Office Portal lub <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>"
+              }
+            }
+          ],
+          "visibleIf": "{method} = 'trial-30'"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a trial setup. Check if you can get a developer or shared environment assigned within you organization.",
+            "pl": "🚫 Wygląda na to, że trafiłeś na blokadę drogową z konfiguracją próbną. Sprawdź, czy możesz uzyskać dewelopera lub środowisko udostępnione przypisane w Twojej organizacji."
+          },
+          "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "trial-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "pl": "Czy chcesz podać więcej informacji na temat napotkanych problemów?"
+          },
+          "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "environmentSteps",
+          "title": {
+            "default": "Environment Setup - Select the items below that apply",
+            "pl": "Konfiguracja środowiska — wybierz poniższe elementy, które mają zastosowanie"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a environment setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. If this is not an option you could consider setting up a 30 day trial. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "pl": "🚫 Wygląda na to, że trafiłeś na blokadę drogową z konfiguracją środowiska. Postaraj się udostępnić zawartość < href='https://aka.ms/automation-kit-learn' target='_blank'>Learn zespołowi</a> Centrum Doskonałości. Jeśli nie jest to możliwe, możesz rozważyć skonfigurowanie 30-dniowej wersji próbnej. Możesz również utworzyć problem pod adresem <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues.</a>"
+          },
+          "visibleIf": "contains({environmentSteps},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "mainSetup",
+          "title": {
+            "default": "Main Solution Environment - Select the items below that have been done",
+            "pl": "Główne środowisko rozwiązania — wybierz poniżej elementy, które zostały wykonane"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'main')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a main solution setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "pl": "🚫 Wygląda na to, że trafiłeś na blokadę drogową z główną konfiguracją rozwiązania. Postaraj się udostępnić zawartość < href='https://aka.ms/automation-kit-learn' target='_blank'>Learn zespołowi</a> Centrum Doskonałości. Możesz również utworzyć problem pod adresem <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues.</a>"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "main-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "pl": "Czy chcesz podać więcej informacji na temat napotkanych problemów?"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "dashboardSetup",
+          "title": {
+            "default": "Dashboard setup - Select the items below that have been done",
+            "pl": "Konfiguracja pulpitu nawigacyjnego — wybierz poniższe elementy, które zostały wykonane"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'dashboard')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with the Power BI dashboard setup. You could look at creating an issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "pl": "🚫 Wygląda na to, że trafiłeś na przeszkodę z konfiguracją pulpitu nawigacyjnego usługi Power BI. Możesz spojrzeć na tworzenie problemu w <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues.</a>"
+          },
+          "visibleIf": "contains({components},'dashboard') and contains({dashboardSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "dashboard-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "pl": "Czy chcesz podać więcej informacji na temat napotkanych problemów?"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "satelliteSetup",
+          "title": {
+            "default": "Satellite Solution Environment - Select the items below that have been done",
+            "pl": "Satellite Solution Environment - Wybierz poniższe elementy, które zostały wykonane"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'satellite')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a satellite setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "pl": "🚫 Wygląda na to, że trafiłeś na blokadę drogową z ustawieniem satelitarnym. Postaraj się udostępnić zawartość < href='https://aka.ms/automation-kit-learn' target='_blank'>Learn zespołowi</a> Centrum Doskonałości. Możesz również utworzyć problem pod adresem <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues.</a>"
+          },
+          "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "satellite-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "pl": "Czy chcesz podać więcej informacji na temat napotkanych problemów?"
+          },
+          "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the results of the your install check list so that the Core Automation Kit team can learn what worked?",
+            "pl": "Czy chcesz wysłać wyniki listy kontrolnej instalacji, aby zespół Core Automation Kit mógł dowiedzieć się, co zadziałało?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope this checklist helped you with the non production install",
+            "pl": "Mamy nadzieję, że ta lista kontrolna pomogła Ci w instalacji nieprodukcyjnej"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our getting started guidance",
+            "pl": "Czekamy na Twoją opinię. Jako główny zespół Automation Kit wykorzystujemy te informacje zwrotne, aby ulepszyć nasze wskazówki dotyczące rozpoczynania pracy"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "pl": "Czy masz jakieś inne opinie?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "pl": "Wysłać teraz swoją opinię?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "pl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

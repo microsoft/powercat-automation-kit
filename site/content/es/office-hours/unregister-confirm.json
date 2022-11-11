@@ -1,0 +1,47 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for confirming unregistration",
+    "es": "Gracias por confirmar la cancelación del registro"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{confirmation-code.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-Unregister-ConfirmationCode"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "text",
+          "name": "confirmation-code",
+          "isRequired": true,
+          "title": {
+            "default": "Please enter your confirmation code",
+            "es": "Por favor, introduzca su código de confirmación"
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Confirm your unregistration now?",
+            "es": "¿Confirma tu cancelación del registro ahora?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "es": "Estado: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -27,4 +27,4 @@ Hver kontortid session er en time lang og har følgende format:
 
 Du kan bruge det interaktive sæt spørgsmål til at angive kernen {{<product-name>}} team feedback, hvilke emner du gerne vil dække som en del af kontortiden og give input til "any ask me anything" spørgsmålene.
 
-{{<questions name="/office-hours/october-2022.json" completed="Thank you for completing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/da/office-hours/october-2022.json" completed="Tak, fordi du har gennemført feedback" shownavigationbuttons="false" locale="da">}}

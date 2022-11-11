@@ -1,0 +1,362 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-Install-Checklist"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "install-type",
+          "title": {
+            "default": "Which type of the install are you trying to make?",
+            "th": "ซึ่งชนิดของการติดตั้งที่คุณพยายามที่จะทําให้?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "method",
+          "title": {
+            "default": "Which of the following install method do you want to try?",
+            "th": "คุณต้องการลองวิธีการติดตั้งแบบใดต่อไปนี้"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "checkbox",
+          "name": "components",
+          "title": {
+            "default": "Which of the following components did you want to install?",
+            "th": "คุณต้องการติดตั้งคอมโพเนนต์ใดต่อไปนี้"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "If you are not sure of these components, the <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction' target='_blank'>Automation Kit Introduction</a> can help provide information",
+            "th": "หากคุณไม่แน่ใจเกี่ยวกับส่วนประกอบเหล่านี้ <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction' target='_blank'>บทนําชุดระบบอัตโนมัติ</a>สามารถช่วยให้ข้อมูลได้"
+          }
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "NOTE: The setup of the satellite solution will require addition <b>Microsoft Azure</b> resources to complete the setup",
+            "th": "หมายเหตุ: การตั้งค่าโซลูชันดาวเทียมจะต้องเพิ่มทรัพยากร <b>Microsoft Azure</b> เพื่อดําเนินการตั้งค่าให้เสร็จสมบูรณ์"
+          },
+          "visibleIf": "contains({components}, 'satellite')"
+        },
+        {
+          "type": "checkbox",
+          "name": "developmentChecks",
+          "title": {
+            "default": "Which of the following apply?",
+            "th": "ข้อใดต่อไปนี้มีผลบังคับใช้"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{method} = 'development'"
+        },
+        {
+          "type": "checkbox",
+          "name": "devLicenseEnv",
+          "title": {
+            "default": "Developer License Environment - Select the items below that apply",
+            "th": "สภาพแวดล้อมสิทธิ์การใช้งานสําหรับนักพัฒนา - เลือกรายการด้านล่างที่เกี่ยวข้อง"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Can search for your user name",
+              "text": {
+                "default": "Can search for your user name",
+                "th": "สามารถค้นหาชื่อผู้ใช้ของคุณ"
+              }
+            },
+            {
+              "value": "Can open user record",
+              "text": {
+                "default": "Can open user record",
+                "th": "สามารถเปิดเรกคอร์ดผู้ใช้"
+              }
+            },
+            {
+              "value": "Can select 'Licenses' for your user",
+              "text": {
+                "default": "Can select 'Licenses' for your user",
+                "th": "สามารถเลือก 'ใบอนุญาต' สําหรับผู้ใช้ของคุณ"
+              }
+            },
+            {
+              "value": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
+              "text": {
+                "default": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
+                "th": "สามารถเยี่ยมชม <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>"
+              }
+            }
+          ],
+          "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-lic')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a developer license. Check if getting a developer or shared environment assigned to you. If this is not option, consider setting up a 30 day trial.",
+            "th": "🚫 ดูเหมือนว่าคุณได้ตีบล็อกถนนด้วยใบอนุญาตนักพัฒนาซอฟต์แวร์ ตรวจสอบว่าได้รับมอบหมายนักพัฒนาหรือสภาพแวดล้อมที่แชร์ให้กับคุณหรือไม่ หากตัวเลือกนี้ไม่ใช่ตัวเลือก ให้พิจารณาตั้งค่าการทดลองใช้ 30 วัน"
+          },
+          "visibleIf": "{method} = 'development' and contains({devLicenseEnv}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "devEnvironmentAssigned",
+          "title": {
+            "default": "Developer Assigned Environment - Select the items below that have been done",
+            "th": "สภาพแวดล้อมที่นักพัฒนากําหนด - เลือกรายการด้านล่างที่ดําเนินการเสร็จสิ้นแล้ว"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-env')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a developer environment. Check if getting a developer license or a shared environment assigned are options in your organization. If not consider setting up a 30 day trial with a Non Production installation",
+            "th": "🚫 ดูเหมือนว่าคุณได้ตีบล็อกถนนด้วยสภาพแวดล้อมของนักพัฒนา ตรวจสอบว่าการรับสิทธิ์การใช้งานสําหรับนักพัฒนาหรือสภาพแวดล้อมที่ใช้ร่วมกันที่กําหนดเป็นตัวเลือกในองค์กรของคุณหรือไม่ หากไม่พิจารณาตั้งค่าการทดลองใช้ 30 วันด้วยการติดตั้งที่ไม่ใช่การผลิต"
+          },
+          "visibleIf": "{method} = 'development' and contains({devEnvironmentAssigned}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "trial-setup",
+          "title": {
+            "default": "Trial Environment - Select the items below that have been done",
+            "th": "สภาพแวดล้อมการทดลองใช้ - เลือกรายการด้านล่างที่ทําเสร็จแล้ว"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Start a <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 free trial</a>",
+              "text": {
+                "default": "Start a <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 free trial</a>",
+                "th": "เริ่ม <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 ทดลองใช้ฟรี</a>"
+              }
+            },
+            {
+              "value": "Login as free **Dynamics trial admin** created above and sign up for <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Try Microsoft 365 for free</a>",
+              "text": {
+                "default": "Login as free **Dynamics trial admin** created above and sign up for <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Try Microsoft 365 for free</a>",
+                "th": "เข้าสู่ระบบในฐานะผู้ดูแลระบบทดลองใช้ Dynamics ฟรี** ที่สร้างขึ้นด้านบนและลงทะเบียนสําหรับ <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>ลองใช้ Microsoft 365 ฟรี</a>"
+              }
+            },
+            {
+              "value": "As your **Dynamics trial admin** sign up for the <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan</a> to be able to create development environments to install **Main** or **Satellite** solutions",
+              "text": {
+                "default": "As your **Dynamics trial admin** sign up for the <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan</a> to be able to create development environments to install **Main** or **Satellite** solutions",
+                "th": "ในฐานะผู้ดูแลระบบ **Dynamics รุ่นทดลองใช้ของคุณ** ลงทะเบียนสําหรับ <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>แผนสําหรับนักพัฒนา Power Apps</a> เพื่อให้สามารถสร้างสภาพแวดล้อมการพัฒนาเพื่อติดตั้ง **Main** หรือ **ดาวเทียม** โซลูชัน"
+              }
+            },
+            {
+              "value": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
+              "text": {
+                "default": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
+                "th": "กําหนดสิทธิ์การใช้งาน 'Microsoft Power Apps for Developer' ให้กับผู้ใช้รุ่นทดลองใช้ใน</a> <a href='https://portal.office.com' target='_blank'>พอร์ทัลสํานักงาน หรือ <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>"
+              }
+            }
+          ],
+          "visibleIf": "{method} = 'trial-30'"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a trial setup. Check if you can get a developer or shared environment assigned within you organization.",
+            "th": "🚫 ดูเหมือนว่าคุณได้ตีบล็อกถนนที่มีการตั้งค่าการทดลอง ตรวจสอบว่าคุณสามารถรับนักพัฒนาหรือสภาพแวดล้อมที่ใช้ร่วมกันที่ได้รับมอบหมายภายในองค์กรของคุณได้หรือไม่"
+          },
+          "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "trial-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "th": "คุณต้องการให้ข้อมูลเพิ่มเติมเกี่ยวกับปัญหาที่คุณพบหรือไม่?"
+          },
+          "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "environmentSteps",
+          "title": {
+            "default": "Environment Setup - Select the items below that apply",
+            "th": "การตั้งค่าสภาพแวดล้อม - เลือกรายการด้านล่างที่เกี่ยวข้อง"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a environment setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. If this is not an option you could consider setting up a 30 day trial. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "th": "🚫 ดูเหมือนว่าคุณได้ตีบล็อกถนนด้วยการตั้งค่าสภาพแวดล้อม มองหาการแบ่งปัน <a href='https://aka.ms/automation-kit-learn' target='_blank'>เรียนรู้เนื้อหา</a>กับทีมศูนย์ความเป็นเลิศของคุณ หากนี่ไม่ใช่ตัวเลือกคุณสามารถพิจารณาตั้งค่าการทดลองใช้ 30 วันได้ นอกจากนี้คุณยังสามารถดูการสร้างปัญหาที่ <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>"
+          },
+          "visibleIf": "contains({environmentSteps},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "mainSetup",
+          "title": {
+            "default": "Main Solution Environment - Select the items below that have been done",
+            "th": "สภาพแวดล้อมโซลูชันหลัก - เลือกรายการด้านล่างที่ทําเสร็จแล้ว"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'main')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a main solution setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "th": "🚫 ดูเหมือนว่าคุณได้ตีบล็อกถนนด้วยการตั้งค่าโซลูชันหลัก มองหาการแบ่งปัน <a href='https://aka.ms/automation-kit-learn' target='_blank'>เรียนรู้เนื้อหา</a>กับทีมศูนย์ความเป็นเลิศของคุณ นอกจากนี้คุณยังสามารถดูการสร้างปัญหาที่ <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "main-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "th": "คุณต้องการให้ข้อมูลเพิ่มเติมเกี่ยวกับปัญหาที่คุณพบหรือไม่?"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "dashboardSetup",
+          "title": {
+            "default": "Dashboard setup - Select the items below that have been done",
+            "th": "การตั้งค่าแดชบอร์ด - เลือกรายการด้านล่างที่ทําสําเร็จแล้ว"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'dashboard')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with the Power BI dashboard setup. You could look at creating an issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "th": "🚫 ดูเหมือนว่าคุณได้เข้าสู่บล็อกถนนด้วยการตั้งค่าแดชบอร์ด Power BI คุณสามารถดูการสร้างปัญหาได้ที่ <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>"
+          },
+          "visibleIf": "contains({components},'dashboard') and contains({dashboardSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "dashboard-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "th": "คุณต้องการให้ข้อมูลเพิ่มเติมเกี่ยวกับปัญหาที่คุณพบหรือไม่?"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "satelliteSetup",
+          "title": {
+            "default": "Satellite Solution Environment - Select the items below that have been done",
+            "th": "สภาพแวดล้อมโซลูชันดาวเทียม - เลือกรายการด้านล่างที่ทําเสร็จแล้ว"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'satellite')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a satellite setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "th": "🚫 ดูเหมือนว่าคุณได้ตีบล็อกถนนด้วยการตั้งค่าดาวเทียม มองหาการแบ่งปัน <a href='https://aka.ms/automation-kit-learn' target='_blank'>เรียนรู้เนื้อหา</a>กับทีมศูนย์ความเป็นเลิศของคุณ นอกจากนี้คุณยังสามารถดูการสร้างปัญหาที่ <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>"
+          },
+          "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "satellite-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "th": "คุณต้องการให้ข้อมูลเพิ่มเติมเกี่ยวกับปัญหาที่คุณพบหรือไม่?"
+          },
+          "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the results of the your install check list so that the Core Automation Kit team can learn what worked?",
+            "th": "คุณต้องการส่งผลลัพธ์ของรายการตรวจสอบการติดตั้งของคุณเพื่อให้ทีม Core Automation Kit สามารถเรียนรู้ว่าอะไรได้ผลหรือไม่"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope this checklist helped you with the non production install",
+            "th": "เราหวังว่ารายการตรวจสอบนี้จะช่วยคุณในการติดตั้งที่ไม่ใช่การผลิต"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our getting started guidance",
+            "th": "เราหวังว่าจะได้รับความคิดเห็นของคุณ ในฐานะทีม Automation Kit หลัก เราใช้คําติชมเพื่อปรับปรุงคําแนะนําในการเริ่มต้นใช้งานของเรา"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "th": "คุณมีข้อเสนอแนะอื่น ๆ หรือไม่?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "th": "ส่งความคิดเห็นของคุณตอนนี้หรือไม่"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "th": "สถานะ: {ส่ง-ผลลัพธ์-สถานะ}"
+          }
+        }
+      ]
+    }
+  ]
+}

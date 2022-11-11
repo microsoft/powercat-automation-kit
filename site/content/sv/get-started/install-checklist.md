@@ -11,4 +11,4 @@ generated: 4258F6579483A6A56D0E21104A6FE435BECA4CB8
 
 Om du vill prova eller installera {{<product-name>}}, kan du använda frågorna nedan för att vägleda din installationsprocess
 
-{{<questions name="/get-started/install-checklist.json" completed="Thank you for completing install checklist" showNavigationButtons=false >}}
+{{<questions name="/content/sv/get-started/install-checklist.json" completed="Tack för att du fyller i installationschecklistan" shownavigationbuttons="false" locale="sv">}}

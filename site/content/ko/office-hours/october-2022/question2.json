@@ -1,0 +1,104 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "ko": "피드백을 보내 주셔서 감사합니다"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-2"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "What area(s) do you think we should focus on next?",
+            "ko": "다음에 집중해야 할 영역은 무엇이라고 생각하십니까?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Improving getting started experience and documentation",
+              "text": {
+                "default": "Improving getting started experience and documentation",
+                "ko": "시작 환경 및 문서 개선"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "ko": "다른 키트 및 즉시 사용 가능한 기능과의 관계"
+              }
+            },
+            {
+              "value": "Demonstrate end to end Application Lifecycle management (ALM)",
+              "text": {
+                "default": "Demonstrate end to end Application Lifecycle management (ALM)",
+                "ko": "엔드 투 엔드 애플리케이션 수명 주기 관리(ALM) 시연"
+              }
+            },
+            {
+              "value": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+              "text": {
+                "default": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+                "ko": "Power Automate 데스크톱으로 규모로 마이그레이션하는 방법을 보여 주나요?"
+              }
+            },
+            {
+              "value": "Sample data to help me get started?",
+              "text": {
+                "default": "Sample data to help me get started?",
+                "ko": "시작하는 데 도움이 되는 샘플 데이터"
+              }
+            },
+            {
+              "value": "Industry specific return on investment samples?",
+              "text": {
+                "default": "Industry specific return on investment samples?",
+                "ko": "산업별 투자 수익률 샘플?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "ko": "관심 분야의 순위를 매기십시오 (터치 스크린으로 선택 항목을 길게 탭)."
+          },
+          "visibleIf": "{response.length} > 1",
+          "choicesFromQuestion": "response",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ko": "지금 피드백을 보내시겠습니까?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ko": "상태: {결과 보내기 상태}"
+          }
+        }
+      ]
+    }
+  ]
+}

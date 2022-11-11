@@ -27,4 +27,4 @@ generated: 5E822DBE906905F0BAE83AB1FED5E9A886C798F4
 
 您可以使用交互式问题集来提供核心 {{<product-name>}} 团队反馈您希望在办公时间涵盖哪些主题，并为“任何问我任何事情”问题提供输入。
 
-{{<questions name="/office-hours/november-2022.json" completed="Thank you for completing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/zh-hans/office-hours/november-2022.json" completed="感谢您完成反馈" shownavigationbuttons="false" locale="zh-hans">}}

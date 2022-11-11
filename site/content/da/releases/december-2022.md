@@ -21,7 +21,7 @@ December-udgivelsen (nidkær-antonelli) af {{<product-name>}} er den fjerde offe
 
 ## Feedback
 
-{{<questions name="/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/da/releases/december-2022.json" completed="Tak, fordi du gav feedback" shownavigationbuttons="false" locale="da">}}
 
 </div>
 

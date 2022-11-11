@@ -34,7 +34,7 @@ Bienvenido a la vista previa pública del {{<product-name>}}. Para comenzar, sel
 
 ## Retroalimentación
 
-{{<questions name="overview.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/es/overview.json" completed="Gracias por proporcionar comentarios" shownavigationbuttons="false" locale="es">}}
 
 </div>
 

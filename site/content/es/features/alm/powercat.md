@@ -50,7 +50,7 @@ En general, nos basamos en las características existentes de Power Platform y M
 
 ## Retroalimentación
 
-{{<questions name="/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/es/features/alm/powercat.json" completed="Gracias por proporcionar comentarios" shownavigationbuttons="false" locale="es">}}
 
 </div>
 

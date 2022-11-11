@@ -1,0 +1,78 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "en-gb": "Thank you for sending feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-1"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "Where are you on your Automation Kit Journey?",
+            "en-gb": "Where are you on your Automation Kit Journey?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Just started, learning why I should use it",
+              "text": {
+                "default": "Just started, learning why I should use it",
+                "en-gb": "Just started, learning why I should use it"
+              }
+            },
+            {
+              "value": "Read the starter content and look to install",
+              "text": {
+                "default": "Read the starter content and look to install",
+                "en-gb": "Read the starter content and look to install"
+              }
+            },
+            {
+              "value": "Installed in development / demo environment",
+              "text": {
+                "default": "Installed in development / demo environment",
+                "en-gb": "Installed in development / demo environment"
+              }
+            },
+            {
+              "value": "Using in production",
+              "text": {
+                "default": "Using in production",
+                "en-gb": "Using in production"
+              }
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "en-gb": "Send your feedback now?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "en-gb": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -21,7 +21,7 @@ Grudniowe wydanie (gorliwy-antonelli) {{<product-name>}} jest czwartym publiczny
 
 ## Sprzężenie zwrotne
 
-{{<questions name="/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/pl/releases/december-2022.json" completed="Dziękujemy za przekazanie opinii" shownavigationbuttons="false" locale="pl">}}
 
 </div>
 

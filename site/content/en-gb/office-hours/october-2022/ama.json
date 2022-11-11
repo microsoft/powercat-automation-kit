@@ -1,0 +1,118 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "en-gb": "Thank you for sending feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-AMA"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "What questions(s) are top of mind for you?",
+            "en-gb": "What questions(s) are top of mind for you?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "What are the differences between the different kits managed by the Power CAT team?",
+              "text": {
+                "default": "What are the differences between the different kits managed by the Power CAT team?",
+                "en-gb": "What are the differences between the different kits managed by the Power CAT team?"
+              }
+            },
+            {
+              "value": "Do you have examples of end to ALM working with the Automation Kit?",
+              "text": {
+                "default": "Do you have examples of end to ALM working with the Automation Kit?",
+                "en-gb": "Do you have examples of end to ALM working with the Automation Kit?"
+              }
+            },
+            {
+              "value": "Do you have examples of KPIs for my industry?",
+              "text": {
+                "default": "Do you have examples of KPIs for my industry?",
+                "en-gb": "Do you have examples of KPIs for my industry?"
+              }
+            },
+            {
+              "value": "What are frequently asked questions about the Automation Kit?",
+              "text": {
+                "default": "What are frequently asked questions about the Automation Kit?",
+                "en-gb": "What are frequently asked questions about the Automation Kit?"
+              }
+            },
+            {
+              "value": "Are you looking to simplify the install experience?",
+              "text": {
+                "default": "Are you looking to simplify the install experience?",
+                "en-gb": "Are you looking to simplify the install experience?"
+              }
+            },
+            {
+              "value": "Can you tell me more about localization of Applications and Dashboards?",
+              "text": {
+                "default": "Can you tell me more about localization of Applications and Dashboards?",
+                "en-gb": "Can you tell me more about localization of Applications and Dashboards?"
+              }
+            },
+            {
+              "value": "Where can I see a list of current issues for the Automation Kit?",
+              "text": {
+                "default": "Where can I see a list of current issues for the Automation Kit?",
+                "en-gb": "Where can I see a list of current issues for the Automation Kit?"
+              }
+            },
+            {
+              "value": "Can you provide further case studies of how the Automation Kit has been used by and been used to  assist other organizations?",
+              "text": {
+                "default": "Can you provide further case studies of how the Automation Kit has been used by and been used to  assist other organizations?",
+                "en-gb": "Can you provide further case studies of how the Automation Kit has been used by and been used to  assist other organizations?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "en-gb": "Please rank the areas of interest to you (long tap on selection with a touch screen)"
+          },
+          "visibleIf": "{response.length} > 1",
+          "choicesFromQuestion": "response",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "en-gb": "Send your feedback now?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "en-gb": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

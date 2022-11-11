@@ -15,4 +15,4 @@ generated: ADC10B9A38C13D00FEDF19F44AEE9086C7892B5A
 
 以下の質問を使用して、セットアップとコントリビューションの経験をガイドできます
 
-{{<questions name="contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}
+{{<questions name="/content/ja/contribution/documentation.json" completed="セットアップの質問を完了していただきありがとうございます" shownavigationbuttons="false" locale="ja">}}

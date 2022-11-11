@@ -1,0 +1,148 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Sample-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "group",
+          "title": {
+            "default": "Which of the following is the best match for you?",
+            "es": "¿Cuál de las siguientes es la mejor opción para ti?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "es": "¿Qué temas fueron más útiles para ti?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "es": "No estoy seguro"
+              }
+            },
+            {
+              "value": "Overview of Authoring",
+              "text": {
+                "default": "Overview of Authoring",
+                "es": "Información general sobre la creación"
+              }
+            },
+            {
+              "value": "Authoring goals",
+              "text": {
+                "default": "Authoring goals",
+                "es": "Objetivos de creación"
+              }
+            }
+          ]
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "es": "Por favor, clasifique los temas de interés para usted (toque largo en la selección con una pantalla táctil)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "boolean",
+          "name": "sample-help",
+          "label": {
+            "default": "Did this sample help?",
+            "es": "¿Te ayudó este ejemplo?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "handoff-task",
+          "name": "questionHandoff",
+          "title": {
+            "default": "Test handoff",
+            "es": "Traspaso de pruebas"
+          },
+          "text": "Open",
+          "destination": "/powercat-automation-kit/contribution/sample?group={group}"
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "es": "¿Algún otro comentario?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "es": "¿Desea enviar los resultados de sus comentarios para que el equipo de Core Automation Kit pueda adaptar las horas de oficina en función de sus respuestas?"
+          },
+          "label": {
+            "default": "Send results?",
+            "es": "¿Enviar resultados?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "es": "Esperamos que estas preguntas le ayuden a determinar una idea de temas o preguntas si asiste"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview.",
+            "es": "Esperamos recibir sus comentarios. Como equipo central de Automation Kit, utilizamos los comentarios para mejorar la visión general."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "es": "¿Enviar sus comentarios ahora?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "es": "Estado: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

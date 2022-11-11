@@ -46,4 +46,4 @@ Przejrzyj nasze [Wkład](/pl/contribution) Strona z nawigacją.
 
 ## Sprzężenie zwrotne
 
-{{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/pl/contribution/feedback.json" completed="Dziękujemy za przekazanie opinii" shownavigationbuttons="false" locale="pl">}}

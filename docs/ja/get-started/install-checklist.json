@@ -1,0 +1,362 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-Install-Checklist"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "install-type",
+          "title": {
+            "default": "Which type of the install are you trying to make?",
+            "ja": "どのタイプのインストールを実行しようとしていますか?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "method",
+          "title": {
+            "default": "Which of the following install method do you want to try?",
+            "ja": "次のインストール方法のどれを試してみたいですか?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "checkbox",
+          "name": "components",
+          "title": {
+            "default": "Which of the following components did you want to install?",
+            "ja": "次のコンポーネントのうち、インストールしたいコンポーネントはどれですか?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "If you are not sure of these components, the <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction' target='_blank'>Automation Kit Introduction</a> can help provide information",
+            "ja": "これらのコンポーネントが不明な場合は、<a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction' target='_blank'>Automation Kit Introduction</a> が情報の提供に役立ちます。"
+          }
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "NOTE: The setup of the satellite solution will require addition <b>Microsoft Azure</b> resources to complete the setup",
+            "ja": "注: サテライト ソリューションのセットアップでは、セットアップを完了するために追加の <b>Microsoft Azure</b> リソースが必要になります。"
+          },
+          "visibleIf": "contains({components}, 'satellite')"
+        },
+        {
+          "type": "checkbox",
+          "name": "developmentChecks",
+          "title": {
+            "default": "Which of the following apply?",
+            "ja": "次のうちどれが当てはまりますか?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{method} = 'development'"
+        },
+        {
+          "type": "checkbox",
+          "name": "devLicenseEnv",
+          "title": {
+            "default": "Developer License Environment - Select the items below that apply",
+            "ja": "開発者ライセンス環境 - 該当する項目を以下から選択してください"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Can search for your user name",
+              "text": {
+                "default": "Can search for your user name",
+                "ja": "ユーザー名を検索できます"
+              }
+            },
+            {
+              "value": "Can open user record",
+              "text": {
+                "default": "Can open user record",
+                "ja": "ユーザー レコードを開くことができます"
+              }
+            },
+            {
+              "value": "Can select 'Licenses' for your user",
+              "text": {
+                "default": "Can select 'Licenses' for your user",
+                "ja": "ユーザーの「ライセンス」を選択できます"
+              }
+            },
+            {
+              "value": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
+              "text": {
+                "default": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
+                "ja": "<a href='https://make.powerapps.com' target='_blank'にアクセスできます>https://make.powerapps.com</a>"
+              }
+            }
+          ],
+          "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-lic')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a developer license. Check if getting a developer or shared environment assigned to you. If this is not option, consider setting up a 30 day trial.",
+            "ja": "🚫 開発者ライセンスで障害にぶつかったようです。開発者または共有環境が割り当てられているかどうかを確認します。これがオプションでない場合は、30日間の試用版を設定することを検討してください。"
+          },
+          "visibleIf": "{method} = 'development' and contains({devLicenseEnv}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "devEnvironmentAssigned",
+          "title": {
+            "default": "Developer Assigned Environment - Select the items below that have been done",
+            "ja": "開発者割り当て環境 - 完了した以下の項目を選択します"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-env')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a developer environment. Check if getting a developer license or a shared environment assigned are options in your organization. If not consider setting up a 30 day trial with a Non Production installation",
+            "ja": "🚫 開発者環境で障害にぶつかったようです。開発者ライセンスまたは割り当てられた共有環境の取得が組織のオプションであるかどうかを確認します。そうでない場合は、非運用インストールで 30 日間の試用版を設定することを検討してください"
+          },
+          "visibleIf": "{method} = 'development' and contains({devEnvironmentAssigned}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "trial-setup",
+          "title": {
+            "default": "Trial Environment - Select the items below that have been done",
+            "ja": "試用環境 - 完了した項目を以下から選択してください"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Start a <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 free trial</a>",
+              "text": {
+                "default": "Start a <a href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 free trial</a>",
+                "ja": "< href='https://dynamics.microsoft.com/en-us/dynamics-365-free-trial/' target='_blank'>Dynamics 365 無料トライアル</a>を開始する"
+              }
+            },
+            {
+              "value": "Login as free **Dynamics trial admin** created above and sign up for <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Try Microsoft 365 for free</a>",
+              "text": {
+                "default": "Login as free **Dynamics trial admin** created above and sign up for <a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Try Microsoft 365 for free</a>",
+                "ja": "上記で作成した無料の **Dynamics 試用版管理者**としてログインし、<a href='https://www.microsoft.com/en-gb/microsoft-365/try' target='_blank'>Microsoft 365 を無料でお試しください</a>"
+              }
+            },
+            {
+              "value": "As your **Dynamics trial admin** sign up for the <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan</a> to be able to create development environments to install **Main** or **Satellite** solutions",
+              "text": {
+                "default": "As your **Dynamics trial admin** sign up for the <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan</a> to be able to create development environments to install **Main** or **Satellite** solutions",
+                "ja": "**Dynamics 試用版管理者** が <a href='https://powerapps.microsoft.com/en-us/developerplan/' target='_blank'>Power Apps Developer Plan にサインアップ</a>すると、**メイン** または **Satellite** ソリューションをインストールするための開発環境を作成できるようになります。"
+              }
+            },
+            {
+              "value": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
+              "text": {
+                "default": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
+                "ja": "<</a>a href='https://portal.office.com' target='_blank'>Office Portal または <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>"
+              }
+            }
+          ],
+          "visibleIf": "{method} = 'trial-30'"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a trial setup. Check if you can get a developer or shared environment assigned within you organization.",
+            "ja": "🚫 トライアルセットアップで障害物にぶつかったようです。組織内で割り当てられた開発者環境または共有環境を取得できるかどうかを確認します。"
+          },
+          "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "trial-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "ja": "発生した問題に関する詳細情報を提供しますか?"
+          },
+          "visibleIf": "{method} = 'trial-30' and contains({trial-setup}, 'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "environmentSteps",
+          "title": {
+            "default": "Environment Setup - Select the items below that apply",
+            "ja": "環境設定 - 該当する項目を以下から選択してください"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": []
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a environment setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. If this is not an option you could consider setting up a 30 day trial. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "ja": "🚫 環境設定で障害物にぶつかったようです。<a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn コンテンツを</a>センター オブ エクセレンス チームと共有することを検討してください。これがオプションではない場合は、30日間の試用版を設定することを検討できます。また、<a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues で課題を作成することもできます</a>。"
+          },
+          "visibleIf": "contains({environmentSteps},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "mainSetup",
+          "title": {
+            "default": "Main Solution Environment - Select the items below that have been done",
+            "ja": "メインソリューション環境 - 完了した項目を以下から選択します。"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'main')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a main solution setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "ja": "🚫 メインソリューションのセットアップで障害にぶつかったようです。<a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn コンテンツを</a>センター オブ エクセレンス チームと共有することを検討してください。また、<a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues で課題を作成することもできます</a>。"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "main-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "ja": "発生した問題に関する詳細情報を提供しますか?"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "dashboardSetup",
+          "title": {
+            "default": "Dashboard setup - Select the items below that have been done",
+            "ja": "ダッシュボードのセットアップ - 完了した以下の項目を選択します"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'dashboard')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with the Power BI dashboard setup. You could look at creating an issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "ja": "🚫 Power BI ダッシュボードのセットアップで障害にぶつかったようです。<a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues で問題を作成することを検討できます</a>。"
+          },
+          "visibleIf": "contains({components},'dashboard') and contains({dashboardSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "dashboard-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "ja": "発生した問題に関する詳細情報を提供しますか?"
+          },
+          "visibleIf": "contains({mainSetup},'unable-to-complete')"
+        },
+        {
+          "type": "checkbox",
+          "name": "satelliteSetup",
+          "title": {
+            "default": "Satellite Solution Environment - Select the items below that have been done",
+            "ja": "サテライトソリューション環境 - 完了した項目を以下から選択します"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [],
+          "visibleIf": "contains({components},'satellite')"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "🚫 It looks like you have hit a road block with a satellite setup. Look to share <a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn Content</a> with your Center of Excellence team. You can also look to create a issue at <a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues</a>.",
+            "ja": "🚫 衛星のセットアップで障害物にぶつかったようです。<a href='https://aka.ms/automation-kit-learn' target='_blank'>Learn コンテンツを</a>センター オブ エクセレンス チームと共有することを検討してください。また、<a href='https://aka.ms/ak4pp-issues' target='_blank'>https://aka.ms/ak4pp-issues で課題を作成することもできます</a>。"
+          },
+          "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+        },
+        {
+          "type": "comment",
+          "name": "satellite-setup-more-information",
+          "title": {
+            "default": "Would you like to provide more information on what problems you encountered?",
+            "ja": "発生した問題に関する詳細情報を提供しますか?"
+          },
+          "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the results of the your install check list so that the Core Automation Kit team can learn what worked?",
+            "ja": "インストールチェックリストの結果を送信して、コアオートメーションキットチームが何が機能したかを学習できるようにしますか?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope this checklist helped you with the non production install",
+            "ja": "このチェックリストが非本番インストールに役立つことを願っています"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our getting started guidance",
+            "ja": "皆様からのフィードバックをお待ちしております。Automation Kit のコア チームとして、フィードバックを使用して入門ガイダンスを改善します"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "ja": "他にフィードバックはありましたか?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ja": "今すぐフィードバックを送信しますか?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ja": "状態: {送信結果の状態}"
+          }
+        }
+      ]
+    }
+  ]
+}

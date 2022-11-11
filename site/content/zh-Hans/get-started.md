@@ -21,4 +21,4 @@ generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 
 使用以下问题帮助指导您完成入门过程
 
-{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
+{{<questions name="/content/zh-hans/checklist.json" completed="感谢您的入门反馈" shownavigationbuttons="false" locale="zh-hans">}}

@@ -15,4 +15,4 @@ Découvrez comment commencer à contribuer à la documentation de démarrage pou
 
 Vous pouvez utiliser les questions ci-dessous pour guider votre expérience de configuration et de contribution
 
-{{<questions name="contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}
+{{<questions name="/content/fr/contribution/documentation.json" completed="Merci d’avoir répondu aux questions de configuration" shownavigationbuttons="false" locale="fr">}}

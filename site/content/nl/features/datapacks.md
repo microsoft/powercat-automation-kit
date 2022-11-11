@@ -71,4 +71,4 @@ pac data import -d AutomationKit-SampleData.zip --environment https://contoso.cr
 
 ## Terugkoppeling
 
-{{<questions name="/features/datapacks.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/nl/features/datapacks.json" completed="Bedankt voor het geven van feedback" shownavigationbuttons="false" locale="nl">}}

@@ -23,7 +23,7 @@ Den här sidan innehåller ett exempel på hur du redigerar innehåll
 
 Använd frågorna nedan för att utforska olika typer av feedbackfrågor
 
-{{<questions name="contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
+{{<questions name="/content/sv/contribution/sample.json" completed="Tack för att du fyller i frågor" shownavigationbuttons="false" locale="sv">}}
 
 </div>
 

@@ -9,4 +9,4 @@ generated: 33B929E74896C20B83D938F1F6A144F398062624
 
 Użyj poniższego pytania, aby anulować automatyczną rejestrację {{<product-name>}}. Wyślemy Ci kod potwierdzający, którego możesz użyć do: [Potwierdź wyrejestrowanie](/pl/office-hours/unregister-confirm)
 
-{{<questions name="/office-hours/unregister.json" completed="Thank you for completing unregistration questions" showNavigationButtons=false >}}
+{{<questions name="/content/pl/office-hours/unregister.json" completed="Dziękujemy za wypełnienie pytań dotyczących wyrejestrowania" shownavigationbuttons="false" locale="pl">}}

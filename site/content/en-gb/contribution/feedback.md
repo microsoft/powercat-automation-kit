@@ -46,4 +46,4 @@ Review our [Contribution](/en-gb/contribution) guidance page.
 
 ## Feedback
 
-{{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-gb/contribution/feedback.json" completed="Thank you for providing feedback" shownavigationbuttons="false" locale="en-gb">}}

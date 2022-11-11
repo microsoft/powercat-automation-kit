@@ -46,4 +46,4 @@ Consultez notre [Contribution](/fr/contribution) page d’orientation.
 
 ## Rétroaction
 
-{{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/fr/contribution/feedback.json" completed="Merci de nous avoir fait part de vos commentaires" shownavigationbuttons="false" locale="fr">}}

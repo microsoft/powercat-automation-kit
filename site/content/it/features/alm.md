@@ -57,7 +57,7 @@ Recensisci il nostro [Backlog relativo a Automation Kit ALM](https://github.com/
 
 ## Valutazione
 
-{{<questions name="/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/it/features/alm.json" completed="Grazie per aver fornito feedback" shownavigationbuttons="false" locale="it">}}
 
 </div>
 

@@ -21,4 +21,4 @@ generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 
 ใช้คําถามต่อไปนี้เพื่อช่วยแนะนําคุณตลอดกระบวนการเริ่มต้นใช้งาน
 
-{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
+{{<questions name="/content/th/checklist.json" completed="ขอขอบคุณสําหรับความคิดเห็นของคุณเริ่มต้นของคุณ" shownavigationbuttons="false" locale="th">}}

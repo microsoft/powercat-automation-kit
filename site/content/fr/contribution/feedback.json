@@ -1,0 +1,129 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "fr": "Merci d’avoir envoyé vos commentaires"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Contribution-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "content-help",
+          "label": {
+            "default": "Did this overview help?",
+            "fr": "Cette vue d’ensemble vous a-t-elle aidé ?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "fr": "Quels sujets vous ont été les plus utiles?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "fr": "Pas sûr"
+              }
+            },
+            {
+              "value": "Link to public feedback channels on GitHub",
+              "text": {
+                "default": "Link to public feedback channels on GitHub",
+                "fr": "Lien vers les canaux de commentaires du public sur GitHub"
+              }
+            },
+            {
+              "value": "Ability to comment publicly on issues or new features",
+              "text": {
+                "default": "Ability to comment publicly on issues or new features",
+                "fr": "Possibilité de commenter publiquement les problèmes ou les nouvelles fonctionnalités"
+              }
+            },
+            {
+              "value": "Knowledge of how can contribute the Automation Kit",
+              "text": {
+                "default": "Knowledge of how can contribute the Automation Kit",
+                "fr": "Connaissance de la façon dont peut contribuer le kit d’automatisation"
+              }
+            }
+          ]
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "fr": "Veuillez classer les sujets qui vous intéressent (appuyez longuement sur la sélection avec un écran tactile)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "fr": "D’autres commentaires?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor our feedback process?",
+            "fr": "Voulez-vous envoyer les résultats de vos commentaires afin que l’équipe Core Automation Kit puisse adapter notre processus de feedback?"
+          },
+          "label": {
+            "default": "Send results?",
+            "fr": "Envoyer des résultats ?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the contribution feedback.",
+            "fr": "Nous sommes impatients de recevoir vos commentaires. En tant qu’équipe de base du kit d’automatisation, nous utilisons les commentaires pour améliorer les commentaires sur les contributions."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "fr": "Envoyer vos commentaires maintenant?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "fr": "État : {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

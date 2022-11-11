@@ -1,0 +1,78 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "nl": "Bedankt voor het verzenden van feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-1"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "Where are you on your Automation Kit Journey?",
+            "nl": "Waar sta je op je Automation Kit Journey?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Just started, learning why I should use it",
+              "text": {
+                "default": "Just started, learning why I should use it",
+                "nl": "Net begonnen, leren waarom ik het zou moeten gebruiken"
+              }
+            },
+            {
+              "value": "Read the starter content and look to install",
+              "text": {
+                "default": "Read the starter content and look to install",
+                "nl": "Lees de startinhoud en kijk om te installeren"
+              }
+            },
+            {
+              "value": "Installed in development / demo environment",
+              "text": {
+                "default": "Installed in development / demo environment",
+                "nl": "Geïnstalleerd in ontwikkel- / demo-omgeving"
+              }
+            },
+            {
+              "value": "Using in production",
+              "text": {
+                "default": "Using in production",
+                "nl": "Gebruik in productie"
+              }
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nl": "Nu uw feedback verzenden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

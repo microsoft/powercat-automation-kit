@@ -1,0 +1,129 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "nl": "Bedankt voor het verzenden van feedback"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Contribution-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "content-help",
+          "label": {
+            "default": "Did this overview help?",
+            "nl": "Heeft dit overzicht geholpen?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "nl": "Welke onderwerpen zijn voor jou het meest nuttig?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "nl": "Ik weet het niet"
+              }
+            },
+            {
+              "value": "Link to public feedback channels on GitHub",
+              "text": {
+                "default": "Link to public feedback channels on GitHub",
+                "nl": "Koppeling naar openbare feedbackkanalen op GitHub"
+              }
+            },
+            {
+              "value": "Ability to comment publicly on issues or new features",
+              "text": {
+                "default": "Ability to comment publicly on issues or new features",
+                "nl": "Mogelijkheid om publiekelijk commentaar te geven op problemen of nieuwe functies"
+              }
+            },
+            {
+              "value": "Knowledge of how can contribute the Automation Kit",
+              "text": {
+                "default": "Knowledge of how can contribute the Automation Kit",
+                "nl": "Kennis van hoe kan bijdragen aan de Automation Kit"
+              }
+            }
+          ]
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "nl": "Rangschik de onderwerpen die voor u van belang zijn (lang tikken op selectie met een aanraakscherm)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "nl": "Nog andere feedback?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor our feedback process?",
+            "nl": "Wilt u de resultaten van uw feedback verzenden, zodat het Core Automation Kit-team ons feedbackproces kan aanpassen?"
+          },
+          "label": {
+            "default": "Send results?",
+            "nl": "Resultaten verzenden?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the contribution feedback.",
+            "nl": "We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om de feedback van de bijdrage te verbeteren."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nl": "Nu uw feedback verzenden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

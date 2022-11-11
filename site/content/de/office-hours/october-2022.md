@@ -27,4 +27,4 @@ Jede Sprechstunde dauert eine Stunde und hat folgendes Format:
 
 Sie können den interaktiven Fragensatz verwenden, um den Kern {{<product-name>}} Feedback des Teams, welche Themen Sie im Rahmen der Sprechstunde behandeln möchten, und geben Sie Input zu den "Any ask me anything"-Fragen.
 
-{{<questions name="/office-hours/october-2022.json" completed="Thank you for completing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/de/office-hours/october-2022.json" completed="Vielen Dank für Ihr Feedback" shownavigationbuttons="false" locale="de">}}

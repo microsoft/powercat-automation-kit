@@ -57,7 +57,7 @@ Consultez notre [Backlog lié à Automation Kit ALM](https://github.com/microsof
 
 ## Rétroaction
 
-{{<questions name="/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/fr/features/alm.json" completed="Merci de nous avoir fait part de vos commentaires" shownavigationbuttons="false" locale="fr">}}
 
 </div>
 

@@ -1,0 +1,78 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "es": "Gracias por enviar sus comentarios"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-1"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "Where are you on your Automation Kit Journey?",
+            "es": "¿Dónde se encuentra en su viaje hacia el kit de automatización?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Just started, learning why I should use it",
+              "text": {
+                "default": "Just started, learning why I should use it",
+                "es": "Acabo de empezar, aprendiendo por qué debería usarlo"
+              }
+            },
+            {
+              "value": "Read the starter content and look to install",
+              "text": {
+                "default": "Read the starter content and look to install",
+                "es": "Lea el contenido de inicio y busque instalar"
+              }
+            },
+            {
+              "value": "Installed in development / demo environment",
+              "text": {
+                "default": "Installed in development / demo environment",
+                "es": "Instalado en entorno de desarrollo/demo"
+              }
+            },
+            {
+              "value": "Using in production",
+              "text": {
+                "default": "Using in production",
+                "es": "Uso en producción"
+              }
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "es": "¿Enviar sus comentarios ahora?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "es": "Estado: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

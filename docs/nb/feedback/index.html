@@ -123,10 +123,11 @@
 
 
 
+
 <script>
     
     
-    data = "{\r\n    \"completedHtml\": \"Thank you for sending feedback\",\r\n    \"pages\": [\r\n        {\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+    data = "{\r\n  \"completedHtml\": {\r\n    \"default\": \"Thank you for sending feedback\",\r\n    \"nb\": \"Takk for at du sender tilbakemelding\"\r\n  },\r\n  \"pages\": [\r\n    {\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"nb\": \"Send tilbakemelding nå?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"nb\": \"Status: {send-results-status}\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 
@@ -869,9 +870,12 @@
                 
                 options.html = str;
             });
-            questionModel.showNavigationButtons =  false 
+            questionModel.showNavigationButtons = ""
         
-            questionModel.completedHtml = "Thank you for completing questions";
+            
+            questionModel.locale = "nb"
+            
+            questionModel.completedHtml = "Takk for at du fullførte spørsmål";
 
             const targetNode = document.getElementById('preloader');
             const observer = new MutationObserver(() => {

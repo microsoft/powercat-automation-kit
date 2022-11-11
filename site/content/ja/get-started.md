@@ -21,4 +21,4 @@ generated: DCCF34BB2F037A0EF9F8D8D0AA1E29102BEABAB4
 
 次の質問を使用して、開始プロセスをガイドします
 
-{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ja/checklist.json" completed="はじめにフィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}

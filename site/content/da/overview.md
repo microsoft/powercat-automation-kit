@@ -34,7 +34,7 @@ Velkommen til den offentlige forhåndsvisning af {{<product-name>}}. For at begy
 
 ## Feedback
 
-{{<questions name="overview.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/da/overview.json" completed="Tak, fordi du gav feedback" shownavigationbuttons="false" locale="da">}}
 
 </div>
 

@@ -34,7 +34,7 @@ Welcome to the public preview of the {{<product-name>}}. To begin select the fir
 
 ## Feedback
 
-{{<questions name="overview.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-gb/overview.json" completed="Thank you for providing feedback" shownavigationbuttons="false" locale="en-gb">}}
 
 </div>
 

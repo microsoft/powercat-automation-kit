@@ -23,7 +23,7 @@ Die November-Veröffentlichung (sharp-archimedes) der {{<product-name>}} ist die
 
 ## Feedback
 
-{{<questions name="/releases/november-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/de/releases/november-2022.json" completed="Vielen Dank für Ihr Feedback" shownavigationbuttons="false" locale="de">}}
 
 </div>
 

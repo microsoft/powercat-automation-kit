@@ -1,0 +1,129 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "nb": "Takk for at du sender tilbakemelding"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Contribution-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "content-help",
+          "label": {
+            "default": "Did this overview help?",
+            "nb": "Hjalp denne oversikten?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "nb": "Hvilke emner der det er mest nyttig for deg?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "nb": "Er ikke sikker"
+              }
+            },
+            {
+              "value": "Link to public feedback channels on GitHub",
+              "text": {
+                "default": "Link to public feedback channels on GitHub",
+                "nb": "Koble til offentlige tilbakemeldingskanaler på GitHub"
+              }
+            },
+            {
+              "value": "Ability to comment publicly on issues or new features",
+              "text": {
+                "default": "Ability to comment publicly on issues or new features",
+                "nb": "Evne til å kommentere offentlig på problemer eller nye funksjoner"
+              }
+            },
+            {
+              "value": "Knowledge of how can contribute the Automation Kit",
+              "text": {
+                "default": "Knowledge of how can contribute the Automation Kit",
+                "nb": "Kunnskap om hvordan kan bidra med automatiseringssettet"
+              }
+            }
+          ]
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "nb": "Vennligst ranger emnene av interesse for deg (langt trykk på valg med berøringsskjerm)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "nb": "Noen andre tilbakemeldinger?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor our feedback process?",
+            "nb": "Vil du sende resultatene av tilbakemeldingen din slik at Core Automation Kit-teamet kan skreddersy tilbakemeldingsprosessen vår?"
+          },
+          "label": {
+            "default": "Send results?",
+            "nb": "Sende resultater?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the contribution feedback.",
+            "nb": "Vi ser frem til å få din tilbakemelding. Som et kjerneteam for automatiseringssett bruker vi tilbakemeldingene til å forbedre tilbakemeldingene fra bidragene."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nb": "Send tilbakemelding nå?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nb": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

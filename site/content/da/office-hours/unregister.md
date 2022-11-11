@@ -9,4 +9,4 @@ generated: 33B929E74896C20B83D938F1F6A144F398062624
 
 Brug venligst nedenstående spørgsmål til at annullere din automatiske registrering til {{<product-name>}}. Vi sender dig en bekræftelseskode, som du kan bruge til at [bekræfte afmelding](/da/office-hours/unregister-confirm)
 
-{{<questions name="/office-hours/unregister.json" completed="Thank you for completing unregistration questions" showNavigationButtons=false >}}
+{{<questions name="/content/da/office-hours/unregister.json" completed="Tak fordi du udfyldte spørgsmål om afregistrering" shownavigationbuttons="false" locale="da">}}

@@ -15,4 +15,4 @@ Lär dig hur du börjar bidra till startdokumentationen för {{<product-name>}}.
 
 Du kan använda frågorna nedan för att vägleda din konfigurations- och bidragsupplevelse
 
-{{<questions name="contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}
+{{<questions name="/content/sv/contribution/documentation.json" completed="Tack för att du slutförde installationsfrågor" shownavigationbuttons="false" locale="sv">}}

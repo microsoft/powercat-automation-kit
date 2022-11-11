@@ -15,4 +15,4 @@ Dowiedz się, jak rozpocząć tworzenie dokumentacji początkowej dla {{<product
 
 Możesz użyć poniższych pytań, aby poprowadzić swoją konfigurację i doświadczenie związane z wkładem
 
-{{<questions name="contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}
+{{<questions name="/content/pl/contribution/documentation.json" completed="Dziękujemy za wypełnienie pytań konfiguracyjnych" shownavigationbuttons="false" locale="pl">}}

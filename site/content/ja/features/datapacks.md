@@ -71,4 +71,4 @@ pac data import -d AutomationKit-SampleData.zip --environment https://contoso.cr
 
 ## フィードバック
 
-{{<questions name="/features/datapacks.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ja/features/datapacks.json" completed="フィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}

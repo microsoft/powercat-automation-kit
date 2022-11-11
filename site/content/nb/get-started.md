@@ -21,4 +21,4 @@ Den [Strategi for automatiseringssenter for fremragende forskning med {{<product
 
 Bruk følgende spørsmål som veiledning gjennom prosessen med å komme i gang
 
-{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
+{{<questions name="/content/nb/checklist.json" completed="Takk for tilbakemeldingen du har kommet i gang med" shownavigationbuttons="false" locale="nb">}}

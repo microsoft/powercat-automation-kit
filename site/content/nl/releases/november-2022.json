@@ -1,0 +1,102 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-November-2022-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of was most useful for you in this release?",
+            "nl": "Welke van was het meest nuttig voor u in deze release?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Getting hands on with the Automation Kit",
+              "text": {
+                "default": "Getting hands on with the Automation Kit",
+                "nl": "Aan de slag met de Automation Kit"
+              }
+            },
+            {
+              "value": "Data packs so that I can show the Automation Kit",
+              "text": {
+                "default": "Data packs so that I can show the Automation Kit",
+                "nl": "Datapacks zodat ik de Automation Kit kan laten zien"
+              }
+            },
+            {
+              "value": "New automated ALM GitHub release process",
+              "text": {
+                "default": "New automated ALM GitHub release process",
+                "nl": "Nieuw geautomatiseerd ALM GitHub-releaseproces"
+              }
+            },
+            {
+              "value": "Roadmap of whats next",
+              "text": {
+                "default": "Roadmap of whats next",
+                "nl": "Stappenplan van whats next"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "nl": "Wil je de feedback op de release sturen?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "nl": "We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om onze mijlpalen en begeleiding te verbeteren"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "nl": "Heb je nog andere feedback gehad?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nl": "Nu uw feedback verzenden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

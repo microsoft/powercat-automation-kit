@@ -57,7 +57,7 @@ Das Automation Kit-Team arbeitet mit dem ALM Accelerator-Team zusammen, um Power
 
 ## Feedback
 
-{{<questions name="/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/de/features/alm.json" completed="Vielen Dank für Ihr Feedback" shownavigationbuttons="false" locale="de">}}
 
 </div>
 

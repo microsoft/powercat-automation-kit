@@ -71,4 +71,4 @@ pac data import -d AutomationKit-SampleData.zip --environment https://contoso.cr
 
 ## Rétroaction
 
-{{<questions name="/features/datapacks.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/fr/features/datapacks.json" completed="Merci de nous avoir fait part de vos commentaires" shownavigationbuttons="false" locale="fr">}}

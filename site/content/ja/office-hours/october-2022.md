@@ -27,4 +27,4 @@ Power Platform のオートメーション キット 2022 年 10 月の営業時
 
 インタラクティブな質問セットを使用して、コア{{<product-name>}} チームは、オフィスアワーの一部として取り上げたいトピックをフィードバックし、「何でも聞いてください」という質問に情報を提供します。
 
-{{<questions name="/office-hours/october-2022.json" completed="Thank you for completing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ja/office-hours/october-2022.json" completed="フィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}

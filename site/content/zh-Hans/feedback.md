@@ -9,4 +9,4 @@ generated: 0F36F3A970837B178BEC0CF01C6C0E7B29C88A01
 
 请提供您对以下问题的反馈：
 
-{{<questions  name="feedback.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}
+{{<questions name="/content/zh-hans/feedback.json" completed="感谢您完成问题" shownavigationbuttons="false" locale="zh-hans">}}

@@ -1,6 +1,7 @@
 {{ $fileName := .Get "name" }}
 {{ $completedHtml := .Get "completed" }}
 {{ $showNavigationButtons := .Get "showNavigationButtons"}}
+{{ $locale := .Get "locale" }}
 <script>
     
     {{ if $fileName }}
@@ -751,6 +752,9 @@
             });
             questionModel.showNavigationButtons = {{ $showNavigationButtons }}
         
+            {{ if $locale }}
+            questionModel.locale = "{{ $locale }}"
+            {{ end }}
             questionModel.completedHtml = "{{ $completedHtml }}";
 
             const targetNode = document.getElementById('preloader');

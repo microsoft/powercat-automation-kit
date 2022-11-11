@@ -46,4 +46,4 @@ generated: D9A83D311AC25F75B7260241BDA0968068D47FF8
 
 ## 피드백
 
-{{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ko/contribution/feedback.json" completed="피드백을 제공해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}

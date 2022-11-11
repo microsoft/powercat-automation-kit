@@ -23,7 +23,7 @@ generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 
 ใช้คําถามด้านล่างเพื่อสํารวจคําถามคําติชมประเภทต่างๆ
 
-{{<questions name="contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
+{{<questions name="/content/th/contribution/sample.json" completed="ขอบคุณสําหรับการกรอกคําถาม" shownavigationbuttons="false" locale="th">}}
 
 </div>
 

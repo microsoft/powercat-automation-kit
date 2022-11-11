@@ -1,0 +1,102 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-November-2022-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of was most useful for you in this release?",
+            "da": "Hvilken af var mest nyttig for dig i denne udgivelse?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Getting hands on with the Automation Kit",
+              "text": {
+                "default": "Getting hands on with the Automation Kit",
+                "da": "Få fingrene i automatiseringssættet"
+              }
+            },
+            {
+              "value": "Data packs so that I can show the Automation Kit",
+              "text": {
+                "default": "Data packs so that I can show the Automation Kit",
+                "da": "Datapakker, så jeg kan vise automatiseringssættet"
+              }
+            },
+            {
+              "value": "New automated ALM GitHub release process",
+              "text": {
+                "default": "New automated ALM GitHub release process",
+                "da": "Ny automatiseret ALM GitHub-udgivelsesproces"
+              }
+            },
+            {
+              "value": "Roadmap of whats next",
+              "text": {
+                "default": "Roadmap of whats next",
+                "da": "Køreplan for, hvad der nu skal ske?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "da": "Vil du sende feedback på udgivelsen?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "da": "Vi ser frem til at få din feedback. Som et centralt Automation Kit-team bruger vi feedbacken til at forbedre vores milepæle og vejledning"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "da": "Har du andre tilbagemeldinger?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "da": "Send din feedback nu?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "da": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -50,7 +50,7 @@ Insgesamt bauen wir auf den vorhandenen Out-of-the-Box-Power-Plattform- und Micr
 
 ## Feedback
 
-{{<questions name="/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/de/features/alm/powercat.json" completed="Vielen Dank für Ihr Feedback" shownavigationbuttons="false" locale="de">}}
 
 </div>
 

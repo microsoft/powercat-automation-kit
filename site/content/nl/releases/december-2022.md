@@ -21,7 +21,7 @@ De december release (ijverig-antonelli) van de {{<product-name>}} is de vierde o
 
 ## Terugkoppeling
 
-{{<questions name="/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/nl/releases/december-2022.json" completed="Bedankt voor het geven van feedback" shownavigationbuttons="false" locale="nl">}}
 
 </div>
 

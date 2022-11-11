@@ -50,7 +50,7 @@ Dans l’ensemble, nous nous appuyons sur les fonctionnalités existantes de Pow
 
 ## Rétroaction
 
-{{<questions name="/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/fr/features/alm/powercat.json" completed="Merci de nous avoir fait part de vos commentaires" shownavigationbuttons="false" locale="fr">}}
 
 </div>
 

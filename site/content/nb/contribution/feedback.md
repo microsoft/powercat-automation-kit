@@ -46,4 +46,4 @@ Se gjennom våre [Bidrag](/nb/contribution) veiledningsside.
 
 ## Tilbakemelding
 
-{{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/nb/contribution/feedback.json" completed="Takk for at du gir tilbakemelding" shownavigationbuttons="false" locale="nb">}}

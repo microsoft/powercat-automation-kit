@@ -1,0 +1,78 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "fr": "Merci d’avoir envoyé vos commentaires"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-1"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "Where are you on your Automation Kit Journey?",
+            "fr": "Où en êtes-vous dans votre parcours Automation Kit ?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Just started, learning why I should use it",
+              "text": {
+                "default": "Just started, learning why I should use it",
+                "fr": "Je viens de commencer, apprendre pourquoi je devrais l’utiliser"
+              }
+            },
+            {
+              "value": "Read the starter content and look to install",
+              "text": {
+                "default": "Read the starter content and look to install",
+                "fr": "Lisez le contenu de démarrage et cherchez à installer"
+              }
+            },
+            {
+              "value": "Installed in development / demo environment",
+              "text": {
+                "default": "Installed in development / demo environment",
+                "fr": "Installé dans un environnement de développement / démo"
+              }
+            },
+            {
+              "value": "Using in production",
+              "text": {
+                "default": "Using in production",
+                "fr": "Utilisation en production"
+              }
+            }
+          ]
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "fr": "Envoyer vos commentaires maintenant?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "fr": "État : {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

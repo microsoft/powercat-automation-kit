@@ -21,4 +21,4 @@ Ten [Strategia Automation Center of Excellence z {{<product-name>}}](https://lea
 
 Skorzystaj z poniższych pytań, aby przeprowadzić Cię przez proces rozpoczynania pracy
 
-{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
+{{<questions name="/content/pl/checklist.json" completed="Dziękujemy za Twoją opinię na temat rozpoczęcia pracy" shownavigationbuttons="false" locale="pl">}}

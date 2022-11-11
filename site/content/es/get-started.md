@@ -21,4 +21,4 @@ El [Estrategia del Centro de Excelencia de Automatización con el {{<product-nam
 
 Utilice las siguientes preguntas para guiarlo a través del proceso de introducción
 
-{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
+{{<questions name="/content/es/checklist.json" completed="Gracias por sus comentarios iniciales" shownavigationbuttons="false" locale="es">}}

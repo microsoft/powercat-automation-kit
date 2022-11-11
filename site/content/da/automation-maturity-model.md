@@ -11,4 +11,4 @@ generated: 022DFD9859F935FB5E8447F38203682947EB8EE8
 
 Brug nedenstående spørgsmål til at bestemme din automatiseringsmodenhedsmodel og find ud af, hvordan {{<product-name>}} eller andre relaterede løsninger kan hjælpe dig med at forbedre din automatiseringsmodenhed ved hjælp af Power Platform.
 
-{{<questions name="automation-maturity-model.json" completed="" showNavigationButtons=false >}}
+{{<questions name="/content/da/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="da">}}

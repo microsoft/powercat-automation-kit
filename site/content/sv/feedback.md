@@ -9,4 +9,4 @@ generated: 0F36F3A970837B178BEC0CF01C6C0E7B29C88A01
 
 Lämna gärna feedback på följande frågor:
 
-{{<questions  name="feedback.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}
+{{<questions name="/content/sv/feedback.json" completed="Tack för att du fyller i frågor" shownavigationbuttons="false" locale="sv">}}

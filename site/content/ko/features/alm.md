@@ -57,7 +57,7 @@ Power Automate 데스크톱 구성 요소를 포함하는 Power Platform 솔루�
 
 ## 피드백
 
-{{<questions name="/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ko/features/alm.json" completed="피드백을 제공해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}
 
 </div>
 

@@ -1,0 +1,104 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "th": "ขอบคุณสําหรับการส่งความคิดเห็น"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{response.length} > 0",
+      "setToName": "code",
+      "setValue": "Office-Hours-October-2022-Question-2"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "response",
+          "title": {
+            "default": "What area(s) do you think we should focus on next?",
+            "th": "คุณคิดว่าเราควรให้ความสําคัญกับด้านใดต่อไป"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Improving getting started experience and documentation",
+              "text": {
+                "default": "Improving getting started experience and documentation",
+                "th": "การปรับปรุงประสบการณ์เริ่มต้นใช้งานและการจัดทําเอกสาร"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "th": "ความสัมพันธ์กับชุดอุปกรณ์อื่น ๆ และคุณสมบัตินอกกรอบ"
+              }
+            },
+            {
+              "value": "Demonstrate end to end Application Lifecycle management (ALM)",
+              "text": {
+                "default": "Demonstrate end to end Application Lifecycle management (ALM)",
+                "th": "สาธิตการจัดการวงจรชีวิตของแอปพลิเคชัน (ALM) ตั้งแต่ต้นจนจบ"
+              }
+            },
+            {
+              "value": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+              "text": {
+                "default": "Demonstrate how to migrate to Power Automate Desktop as scale?",
+                "th": "สาธิตวิธีการโยกย้ายไปยัง Power Automate Desktop ตามขนาดหรือไม่"
+              }
+            },
+            {
+              "value": "Sample data to help me get started?",
+              "text": {
+                "default": "Sample data to help me get started?",
+                "th": "ข้อมูลตัวอย่างเพื่อช่วยฉันเริ่มต้นใช้งานหรือไม่"
+              }
+            },
+            {
+              "value": "Industry specific return on investment samples?",
+              "text": {
+                "default": "Industry specific return on investment samples?",
+                "th": "ตัวอย่างผลตอบแทนจากการลงทุนเฉพาะอุตสาหกรรม?"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "th": "โปรดจัดอันดับพื้นที่ที่คุณสนใจ (แตะค้างไว้ที่การเลือกด้วยหน้าจอสัมผัส)"
+          },
+          "visibleIf": "{response.length} > 1",
+          "choicesFromQuestion": "response",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "th": "ส่งความคิดเห็นของคุณตอนนี้หรือไม่"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "th": "สถานะ: {ส่ง-ผลลัพธ์-สถานะ}"
+          }
+        }
+      ]
+    }
+  ]
+}

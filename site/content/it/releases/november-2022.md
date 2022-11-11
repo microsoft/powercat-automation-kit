@@ -23,7 +23,7 @@ La versione di novembre (sharp-archimedes) del {{<product-name>}} è la terza ve
 
 ## Valutazione
 
-{{<questions name="/releases/november-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/it/releases/november-2022.json" completed="Grazie per aver fornito feedback" shownavigationbuttons="false" locale="it">}}
 
 </div>
 

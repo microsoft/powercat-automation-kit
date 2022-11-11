@@ -9,4 +9,4 @@ generated: 2686FC6E753449C5F18DAE5D21B22F46FF90AA1E
 
 次の質問に対するフィードバックをお寄せください。
 
-{{<questions showNavigationButtons=false >}}
+{{<questions shownavigationbuttons="false" locale="ja">}}

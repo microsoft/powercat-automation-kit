@@ -15,4 +15,4 @@ generated: ADC10B9A38C13D00FEDF19F44AEE9086C7892B5A
 
 您可以使用以下问题来指导您的设置和贡献体验
 
-{{<questions name="contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}
+{{<questions name="/content/zh-hans/contribution/documentation.json" completed="感谢您完成设置问题" shownavigationbuttons="false" locale="zh-hans">}}

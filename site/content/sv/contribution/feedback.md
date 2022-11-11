@@ -46,4 +46,4 @@ Granska vår [Bidrag](/sv/contribution) vägledningssida.
 
 ## Feedback
 
-{{<questions name="/contribution/feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/sv/contribution/feedback.json" completed="Tack för att du ger feedback" shownavigationbuttons="false" locale="sv">}}

@@ -9,4 +9,4 @@ generated: 0F36F3A970837B178BEC0CF01C6C0E7B29C88A01
 
 次の質問に対するフィードバックをお寄せください。
 
-{{<questions  name="feedback.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}
+{{<questions name="/content/ja/feedback.json" completed="質問に回答していただきありがとうございます" shownavigationbuttons="false" locale="ja">}}

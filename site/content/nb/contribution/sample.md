@@ -23,7 +23,7 @@ Denne siden inneholder et eksempel på redigering av innhold
 
 Bruk spørsmålene nedenfor til å utforske ulike spørsmålstyper for tilbakemelding
 
-{{<questions name="contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
+{{<questions name="/content/nb/contribution/sample.json" completed="Takk for at du fullførte spørsmål" shownavigationbuttons="false" locale="nb">}}
 
 </div>
 

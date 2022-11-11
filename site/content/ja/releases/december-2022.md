@@ -21,7 +21,7 @@ generated: 51182A2D941E81195362DDD5F64F44229C321384
 
 ## フィードバック
 
-{{<questions name="/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/ja/releases/december-2022.json" completed="フィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
 
 </div>
 

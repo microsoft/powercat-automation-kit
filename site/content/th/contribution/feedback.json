@@ -1,0 +1,129 @@
+{
+  "completedHtml": {
+    "default": "Thank you for sending feedback",
+    "th": "ขอบคุณสําหรับการส่งความคิดเห็น"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Contribution-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "content-help",
+          "label": {
+            "default": "Did this overview help?",
+            "th": "ภาพรวมนี้ช่วยได้หรือไม่"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "checkbox",
+          "name": "most-useful",
+          "title": {
+            "default": "What topics where most useful for you?",
+            "th": "หัวข้อใดที่มีประโยชน์มากที่สุดสําหรับคุณ?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "th": "ไม่แน่ใจ"
+              }
+            },
+            {
+              "value": "Link to public feedback channels on GitHub",
+              "text": {
+                "default": "Link to public feedback channels on GitHub",
+                "th": "ลิงก์ไปยังช่องทางการแสดงความคิดเห็นสาธารณะบน GitHub"
+              }
+            },
+            {
+              "value": "Ability to comment publicly on issues or new features",
+              "text": {
+                "default": "Ability to comment publicly on issues or new features",
+                "th": "ความสามารถในการแสดงความคิดเห็นต่อสาธารณะเกี่ยวกับปัญหาหรือคุณลักษณะใหม่ ๆ"
+              }
+            },
+            {
+              "value": "Knowledge of how can contribute the Automation Kit",
+              "text": {
+                "default": "Knowledge of how can contribute the Automation Kit",
+                "th": "ความรู้เกี่ยวกับวิธีการมีส่วนร่วมของชุดระบบอัตโนมัติ"
+              }
+            }
+          ]
+        },
+        {
+          "name": "most-useful-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the topics of interest to you (long tap on selection with a touch screen)",
+            "th": "โปรดจัดอันดับหัวข้อที่คุณสนใจ (แตะค้างไว้ที่การเลือกด้วยหน้าจอสัมผัส)"
+          },
+          "visibleIf": "{most-useful.length} > 1",
+          "choicesFromQuestion": "most-useful",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "th": "ข้อเสนอแนะอื่น ๆ ?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor our feedback process?",
+            "th": "คุณต้องการส่งผลลัพธ์ของคําติชมของคุณเพื่อให้ทีม Core Automation Kit สามารถปรับแต่งกระบวนการแสดงความคิดเห็นของเราได้หรือไม่"
+          },
+          "label": {
+            "default": "Send results?",
+            "th": "ส่งผลลัพธ์?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the contribution feedback.",
+            "th": "เราหวังว่าจะได้รับความคิดเห็นของคุณ ในฐานะทีม Automation Kit หลัก เราใช้คําติชมเพื่อปรับปรุงคําติชมการมีส่วนร่วม"
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "th": "ส่งความคิดเห็นของคุณตอนนี้หรือไม่"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "th": "สถานะ: {ส่ง-ผลลัพธ์-สถานะ}"
+          }
+        }
+      ]
+    }
+  ]
+}

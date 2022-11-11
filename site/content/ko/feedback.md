@@ -9,4 +9,4 @@ generated: 0F36F3A970837B178BEC0CF01C6C0E7B29C88A01
 
 다음 질문에 대한 의견을 보내주십시오.
 
-{{<questions  name="feedback.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}
+{{<questions name="/content/ko/feedback.json" completed="질문을 완료해 주셔서 감사합니다" shownavigationbuttons="false" locale="ko">}}

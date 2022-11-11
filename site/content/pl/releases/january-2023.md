@@ -21,7 +21,7 @@ Styczniowe wydanie (nifty-emmy) {{<product-name>}} jest piątym publicznym wydan
 
 ## Sprzężenie zwrotne
 
-{{<questions name="/releases/january-2023.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/pl/releases/january-2023.json" completed="Dziękujemy za przekazanie opinii" shownavigationbuttons="false" locale="pl">}}
 
 </div>
 

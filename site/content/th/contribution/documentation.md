@@ -15,4 +15,4 @@ generated: ADC10B9A38C13D00FEDF19F44AEE9086C7892B5A
 
 คุณสามารถใช้คําถามด้านล่างเพื่อเป็นแนวทางในการตั้งค่าและประสบการณ์การมีส่วนร่วมของคุณ
 
-{{<questions name="contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}
+{{<questions name="/content/th/contribution/documentation.json" completed="ขอขอบคุณที่ตอบคําถามการตั้งค่าให้เสร็จสิ้น" shownavigationbuttons="false" locale="th">}}

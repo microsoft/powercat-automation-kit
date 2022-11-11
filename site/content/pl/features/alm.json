@@ -1,0 +1,116 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-ALM"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of was most useful for related to ALM for your automation solutions?",
+            "pl": "Które z nich było najbardziej przydatne w związku z ALM dla twoich rozwiązań automatyzacji?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "How this relates to in-product ALM roadmap with Managed Environments",
+              "text": {
+                "default": "How this relates to in-product ALM roadmap with Managed Environments",
+                "pl": "Jak to się ma do planu działania ALM w produkcie z zarządzanymi środowiskami"
+              }
+            },
+            {
+              "value": "What is the ALM ALM Accelerator for Power Platform",
+              "text": {
+                "default": "What is the ALM ALM Accelerator for Power Platform",
+                "pl": "Co to jest ALM ALM Accelerator for Power Platform?"
+              }
+            },
+            {
+              "value": "What the ALM roadmap is for the Automation Kit",
+              "text": {
+                "default": "What the ALM roadmap is for the Automation Kit",
+                "pl": "Jaka jest mapa drogowa ALM dla zestawu Automation Kit"
+              }
+            },
+            {
+              "value": "How we add ALM specific tasks to our Power Automate Desktop process",
+              "text": {
+                "default": "How we add ALM specific tasks to our Power Automate Desktop process",
+                "pl": "Jak dodajemy zadania określone dla ALM do naszego procesu Power Automate Desktop"
+              }
+            },
+            {
+              "value": "How to apply unit testing",
+              "text": {
+                "default": "How to apply unit testing",
+                "pl": "Jak stosować testy jednostkowe"
+              }
+            },
+            {
+              "value": "How to apply integration / system testing",
+              "text": {
+                "default": "How to apply integration / system testing",
+                "pl": "Jak zastosować integrację / testowanie systemu"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on ALM?",
+            "pl": "Chcesz przesłać opinię na temat ALM?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "pl": "Czekamy na Twoją opinię. Jako główny zespół Automation Kit wykorzystujemy informacje zwrotne, aby ulepszyć nasze wskazówki i plan działania"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "pl": "Czy masz jakieś inne opinie?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "pl": "Wysłać teraz swoją opinię?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "pl": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

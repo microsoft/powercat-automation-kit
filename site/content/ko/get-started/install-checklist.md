@@ -11,4 +11,4 @@ generated: 4258F6579483A6A56D0E21104A6FE435BECA4CB8
 
 시도하거나 설치하려는 경우 {{<product-name>}}, 아래 질문을 사용하여 설치 프로세스를 안내 할 수 있습니다.
 
-{{<questions name="/get-started/install-checklist.json" completed="Thank you for completing install checklist" showNavigationButtons=false >}}
+{{<questions name="/content/ko/get-started/install-checklist.json" completed="설치 체크리스트를 작성해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}

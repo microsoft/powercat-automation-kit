@@ -21,7 +21,7 @@ El lanzamiento de enero (nifty-emmy) del {{<product-name>}} es la quinta versió
 
 ## Retroalimentación
 
-{{<questions name="/releases/january-2023.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/es/releases/january-2023.json" completed="Gracias por proporcionar comentarios" shownavigationbuttons="false" locale="es">}}
 
 </div>
 

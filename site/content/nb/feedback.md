@@ -9,4 +9,4 @@ generated: 0F36F3A970837B178BEC0CF01C6C0E7B29C88A01
 
 Gi tilbakemelding på følgende spørsmål:
 
-{{<questions  name="feedback.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}
+{{<questions name="/content/nb/feedback.json" completed="Takk for at du fullførte spørsmål" shownavigationbuttons="false" locale="nb">}}

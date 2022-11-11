@@ -21,4 +21,4 @@ Den [Automation Center of Excellence-strategien med {{<product-name>}}](https://
 
 Brug følgende spørgsmål til at guide dig gennem processen med at komme i gang
 
-{{<questions name="checklist.json" completed="Thank you for your getting started feedback" showNavigationButtons=false >}}
+{{<questions name="/content/da/checklist.json" completed="Tak, fordi du kom i gang med at give feedback" shownavigationbuttons="false" locale="da">}}

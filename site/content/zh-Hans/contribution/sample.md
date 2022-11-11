@@ -23,7 +23,7 @@ generated: 343EF71CE6C7DC6FFBDD2D774CE87B2364EBED52
 
 使用以下问题探索不同的反馈问题类型
 
-{{<questions name="contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
+{{<questions name="/content/zh-hans/contribution/sample.json" completed="感谢您完成问题" shownavigationbuttons="false" locale="zh-hans">}}
 
 </div>
 

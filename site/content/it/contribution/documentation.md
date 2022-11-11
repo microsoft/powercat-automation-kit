@@ -15,4 +15,4 @@ Scopri come iniziare a dare un contributo alla documentazione iniziale per il {{
 
 Puoi utilizzare le domande riportate di seguito per guidare la tua configurazione e l'esperienza di contribuzione
 
-{{<questions name="contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}
+{{<questions name="/content/it/contribution/documentation.json" completed="Grazie per aver completato le domande di configurazione" shownavigationbuttons="false" locale="it">}}
