@@ -1,0 +1,171 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Setup-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "setup-useful",
+          "title": {
+            "default": "Was the setup configuration and process useful to you?",
+            "nb": "Var oppsettkonfigurasjonen og prosessen nyttig for deg?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "not-useful",
+          "title": {
+            "default": "Why was the setup process not useful for you?",
+            "nb": "Hvorfor var ikke installasjonsprosessen nyttig for deg?"
+          },
+          "visibleIf": "{setup-useful} = false"
+        },
+        {
+          "type": "checkbox",
+          "name": "whatIsImportant",
+          "title": {
+            "default": "What is most important to you?",
+            "nb": "Hva er viktigst for deg?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to be guided through connections I need",
+              "text": {
+                "default": "The ability to be guided through connections I need",
+                "nb": "Evnen til å bli guidet gjennom forbindelser jeg trenger"
+              }
+            },
+            {
+              "value": "The ability to set environment variables",
+              "text": {
+                "default": "The ability to set environment variables",
+                "nb": "Muligheten til å angi miljøvariabler"
+              }
+            },
+            {
+              "value": "Being able to assign users to security groups",
+              "text": {
+                "default": "Being able to assign users to security groups",
+                "nb": "Å kunne tilordne brukere til sikkerhetsgrupper"
+              }
+            },
+            {
+              "value": "Being able to use command line install tools",
+              "text": {
+                "default": "Being able to use command line install tools",
+                "nb": "Å kunne bruke kommandolinjeinstallasjonsverktøy"
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "whatElseIsImportant",
+          "title": {
+            "default": "What would improve the process for you?",
+            "nb": "Hva vil forbedre prosessen for deg?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Doing a web only install and not install any local tools needed",
+              "text": {
+                "default": "Doing a web only install and not install any local tools needed",
+                "nb": "Gjør en web bare installere og ikke installere noen lokale verktøy som trengs"
+              }
+            },
+            {
+              "value": "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it",
+              "text": {
+                "default": "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it",
+                "nb": "Å ha installasjonen som en del av [App Source] (https://appsource.microsoft.com/) slik at jeg kan installere den"
+              }
+            },
+            {
+              "value": "Clear security guidance on what is needed",
+              "text": {
+                "default": "Clear security guidance on what is needed",
+                "nb": "Tydelig sikkerhetsveiledning om hva som trengs"
+              }
+            },
+            {
+              "value": "Industry specific data settings and goals",
+              "text": {
+                "default": "Industry specific data settings and goals",
+                "nb": "Bransjespesifikke datainnstillinger og mål"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "nb": "Noen andre tilbakemeldinger?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses",
+            "nb": "Ønsker du å sende resultatene av tilbakemeldingen din slik at Core Automation Kit-teamet kan skreddersy lokaliseringen basert på svarene dine"
+          },
+          "label": {
+            "default": "Send results?",
+            "nb": "Sende resultater?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "nb": "Vi håper disse spørsmålene vil hjelpe deg med å bestemme en ide om emner eller spørsmål hvis du deltar"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process.",
+            "nb": "Vi ser frem til å få din tilbakemelding. Som et kjerneteam for automatiseringssett bruker vi tilbakemeldingene til å forbedre installasjonsprosessen."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nb": "Send tilbakemelding nå?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nb": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

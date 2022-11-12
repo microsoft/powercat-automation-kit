@@ -1,0 +1,138 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "pages": [
+    {
+      "name": "welcome",
+      "title": {
+        "default": "Welcome",
+        "nl": "Welkom"
+      },
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "installType",
+          "title": {
+            "default": "What component(s) are you looking to setup?",
+            "nl": "Welke component(en) wilt u instellen?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Main solution",
+              "text": {
+                "default": "Main solution",
+                "nl": "Hoofdoplossing"
+              }
+            },
+            {
+              "value": "Satellite solution",
+              "text": {
+                "default": "Satellite solution",
+                "nl": "Satelliet oplossing"
+              }
+            },
+            {
+              "value": "Data Import",
+              "text": {
+                "default": "Data Import",
+                "nl": "Gegevens importeren"
+              }
+            },
+            {
+              "value": "Security Group Setup",
+              "text": {
+                "default": "Security Group Setup",
+                "nl": "Beveiligingsgroep instellen"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Connections",
+        "nl": "Hoofdoplossing - Verbindingen"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "paneldynamic",
+          "name": "main-connections",
+          "title": {
+            "default": "Please provide one of each of the following the connections",
+            "nl": "Geef een van de volgende verbindingen op"
+          },
+          "minPanelCount": 5,
+          "maxPanelCount": 5,
+          "templateElements": [
+            {
+              "name": "connectionType",
+              "type": "dropdown",
+              "title": {
+                "default": "Connection",
+                "nl": "Verbinding"
+              },
+              "choices": [
+                {
+                  "value": "Approvals",
+                  "text": {
+                    "default": "Approvals",
+                    "nl": "Goedkeuringen"
+                  }
+                },
+                {
+                  "value": "Microsoft Dataverse",
+                  "text": {
+                    "default": "Microsoft Dataverse",
+                    "nl": "Microsoft Dataverse"
+                  }
+                },
+                {
+                  "value": "Office 365 Users",
+                  "text": {
+                    "default": "Office 365 Users",
+                    "nl": "Office 365-gebruikers"
+                  }
+                },
+                {
+                  "value": "Office 365 Outlook",
+                  "text": {
+                    "default": "Office 365 Outlook",
+                    "nl": "Office 365 Outlook"
+                  }
+                },
+                {
+                  "value": "Power Platform for Admins Automation",
+                  "text": {
+                    "default": "Power Platform for Admins Automation",
+                    "nl": "Power Platform voor beheerdersautomatisering"
+                  }
+                }
+              ],
+              "isRequired": true
+            },
+            {
+              "name": "url",
+              "type": "text",
+              "title": {
+                "default": "Connection Link",
+                "nl": "Verbindingslink"
+              },
+              "isRequired": true,
+              "startWithNewLine": false,
+              "validators": [
+                {
+                  "type": "regex",
+                  "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                  "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

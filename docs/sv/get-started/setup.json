@@ -1,0 +1,138 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "pages": [
+    {
+      "name": "welcome",
+      "title": {
+        "default": "Welcome",
+        "sv": "Välkommen"
+      },
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "installType",
+          "title": {
+            "default": "What component(s) are you looking to setup?",
+            "sv": "Vilka komponenter vill du installera?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Main solution",
+              "text": {
+                "default": "Main solution",
+                "sv": "Huvudlösning"
+              }
+            },
+            {
+              "value": "Satellite solution",
+              "text": {
+                "default": "Satellite solution",
+                "sv": "Satellitlösning"
+              }
+            },
+            {
+              "value": "Data Import",
+              "text": {
+                "default": "Data Import",
+                "sv": "Importera data"
+              }
+            },
+            {
+              "value": "Security Group Setup",
+              "text": {
+                "default": "Security Group Setup",
+                "sv": "Konfiguration av säkerhetsgrupp"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Connections",
+        "sv": "Huvudlösning - Anslutningar"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "paneldynamic",
+          "name": "main-connections",
+          "title": {
+            "default": "Please provide one of each of the following the connections",
+            "sv": "Ange en av följande anslutningar"
+          },
+          "minPanelCount": 5,
+          "maxPanelCount": 5,
+          "templateElements": [
+            {
+              "name": "connectionType",
+              "type": "dropdown",
+              "title": {
+                "default": "Connection",
+                "sv": "Samband"
+              },
+              "choices": [
+                {
+                  "value": "Approvals",
+                  "text": {
+                    "default": "Approvals",
+                    "sv": "Godkännanden"
+                  }
+                },
+                {
+                  "value": "Microsoft Dataverse",
+                  "text": {
+                    "default": "Microsoft Dataverse",
+                    "sv": "Microsoft Dataverse"
+                  }
+                },
+                {
+                  "value": "Office 365 Users",
+                  "text": {
+                    "default": "Office 365 Users",
+                    "sv": "Office 365-användare"
+                  }
+                },
+                {
+                  "value": "Office 365 Outlook",
+                  "text": {
+                    "default": "Office 365 Outlook",
+                    "sv": "Office 365 Outlook"
+                  }
+                },
+                {
+                  "value": "Power Platform for Admins Automation",
+                  "text": {
+                    "default": "Power Platform for Admins Automation",
+                    "sv": "Power Platform för automatisering av administratörer"
+                  }
+                }
+              ],
+              "isRequired": true
+            },
+            {
+              "name": "url",
+              "type": "text",
+              "title": {
+                "default": "Connection Link",
+                "sv": "Anslutning Länk"
+              },
+              "isRequired": true,
+              "startWithNewLine": false,
+              "validators": [
+                {
+                  "type": "regex",
+                  "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                  "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

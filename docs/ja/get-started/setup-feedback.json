@@ -1,0 +1,171 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Setup-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "setup-useful",
+          "title": {
+            "default": "Was the setup configuration and process useful to you?",
+            "ja": "セットアップの構成とプロセスは役に立ちましたか?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "not-useful",
+          "title": {
+            "default": "Why was the setup process not useful for you?",
+            "ja": "セットアッププロセスが役に立たなかったのはなぜですか?"
+          },
+          "visibleIf": "{setup-useful} = false"
+        },
+        {
+          "type": "checkbox",
+          "name": "whatIsImportant",
+          "title": {
+            "default": "What is most important to you?",
+            "ja": "あなたにとって最も重要なことは何ですか?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to be guided through connections I need",
+              "text": {
+                "default": "The ability to be guided through connections I need",
+                "ja": "必要なつながりを案内する能力"
+              }
+            },
+            {
+              "value": "The ability to set environment variables",
+              "text": {
+                "default": "The ability to set environment variables",
+                "ja": "環境変数を設定する機能"
+              }
+            },
+            {
+              "value": "Being able to assign users to security groups",
+              "text": {
+                "default": "Being able to assign users to security groups",
+                "ja": "ユーザーをセキュリティ グループに割り当てることができる"
+              }
+            },
+            {
+              "value": "Being able to use command line install tools",
+              "text": {
+                "default": "Being able to use command line install tools",
+                "ja": "コマンドラインインストールツールを使用できる"
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "whatElseIsImportant",
+          "title": {
+            "default": "What would improve the process for you?",
+            "ja": "何があなたのためにプロセスを改善しますか?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Doing a web only install and not install any local tools needed",
+              "text": {
+                "default": "Doing a web only install and not install any local tools needed",
+                "ja": "Webのみをインストールし、必要なローカルツールをインストールしない"
+              }
+            },
+            {
+              "value": "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it",
+              "text": {
+                "default": "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it",
+                "ja": "[アプリソース](https://appsource.microsoft.com/)の一部としてインストールしてインストールできるように"
+              }
+            },
+            {
+              "value": "Clear security guidance on what is needed",
+              "text": {
+                "default": "Clear security guidance on what is needed",
+                "ja": "必要なものに関する明確なセキュリティガイダンス"
+              }
+            },
+            {
+              "value": "Industry specific data settings and goals",
+              "text": {
+                "default": "Industry specific data settings and goals",
+                "ja": "業界固有のデータ設定と目標"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "ja": "他にフィードバックはありますか?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses",
+            "ja": "コアオートメーションキットチームが回答に基づいてローカリゼーションを調整できるように、フィードバックの結果を送信しますか"
+          },
+          "label": {
+            "default": "Send results?",
+            "ja": "結果を送信しますか?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "ja": "これらの質問が、参加する場合のトピックや質問のアイデアを決定するのに役立つことを願っています"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process.",
+            "ja": "皆様からのフィードバックをお待ちしております。オートメーションキットのコアチームとして、フィードバックを使用してセットアッププロセスを改善します。"
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ja": "今すぐフィードバックを送信しますか?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ja": "状態: {送信結果の状態}"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Setup-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "setup-useful",
+          "title": {
+            "default": "Was the setup configuration and process useful to you?",
+            "fr": "La configuration et le processus d’installation vous ont-ils été utiles ?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "not-useful",
+          "title": {
+            "default": "Why was the setup process not useful for you?",
+            "fr": "Pourquoi le processus d’installation ne vous a-t-il pas été utile ?"
+          },
+          "visibleIf": "{setup-useful} = false"
+        },
+        {
+          "type": "checkbox",
+          "name": "whatIsImportant",
+          "title": {
+            "default": "What is most important to you?",
+            "fr": "Qu’est-ce qui est le plus important pour vous?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to be guided through connections I need",
+              "text": {
+                "default": "The ability to be guided through connections I need",
+                "fr": "La possibilité d’être guidé à travers les connexions dont j’ai besoin"
+              }
+            },
+            {
+              "value": "The ability to set environment variables",
+              "text": {
+                "default": "The ability to set environment variables",
+                "fr": "La possibilité de définir des variables d’environnement"
+              }
+            },
+            {
+              "value": "Being able to assign users to security groups",
+              "text": {
+                "default": "Being able to assign users to security groups",
+                "fr": "Possibilité d’affecter des utilisateurs à des groupes de sécurité"
+              }
+            },
+            {
+              "value": "Being able to use command line install tools",
+              "text": {
+                "default": "Being able to use command line install tools",
+                "fr": "Pouvoir utiliser les outils d’installation en ligne de commande"
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "whatElseIsImportant",
+          "title": {
+            "default": "What would improve the process for you?",
+            "fr": "Qu’est-ce qui améliorerait le processus pour vous?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Doing a web only install and not install any local tools needed",
+              "text": {
+                "default": "Doing a web only install and not install any local tools needed",
+                "fr": "Faire une installation Web uniquement et ne pas installer les outils locaux nécessaires"
+              }
+            },
+            {
+              "value": "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it",
+              "text": {
+                "default": "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it",
+                "fr": "Avoir l’installation dans le cadre de [App Source](https://appsource.microsoft.com/) afin que je puisse l’installer"
+              }
+            },
+            {
+              "value": "Clear security guidance on what is needed",
+              "text": {
+                "default": "Clear security guidance on what is needed",
+                "fr": "Des directives de sécurité claires sur ce qui est nécessaire"
+              }
+            },
+            {
+              "value": "Industry specific data settings and goals",
+              "text": {
+                "default": "Industry specific data settings and goals",
+                "fr": "Paramètres et objectifs de données spécifiques à l’industrie"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "fr": "D’autres commentaires?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses",
+            "fr": "Souhaitez-vous envoyer les résultats de vos commentaires afin que l’équipe Core Automation Kit puisse adapter la localisation en fonction de vos réponses"
+          },
+          "label": {
+            "default": "Send results?",
+            "fr": "Envoyer des résultats ?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "fr": "Nous espérons que ces questions vous aideront à déterminer une idée des sujets ou des questions si vous assistez"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process.",
+            "fr": "Nous sommes impatients de recevoir vos commentaires. En tant qu’équipe de base du kit d’automatisation, nous utilisons les commentaires pour améliorer le processus de configuration."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "fr": "Envoyer vos commentaires maintenant?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "fr": "État : {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}

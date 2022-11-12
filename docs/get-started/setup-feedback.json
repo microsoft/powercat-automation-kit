@@ -1,0 +1,90 @@
+{
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Setup-Feedback"
+        }
+    ],
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "boolean",
+                    "name": "setup-useful",
+                    "title": "Was the setup configuration and process useful to you?",
+                    "isRequired": true
+                },
+                {
+                    "type": "comment",
+                    "name": "not-useful",
+                    "title": "Why was the setup process not useful for you?",
+                    "visibleIf": "{setup-useful} = false"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "whatIsImportant",
+                    "title": "What is most important to you?",
+                    "isRequired": false,
+                    "colCount": 1,
+                    "hasOther": true,
+                    "choices": [
+                        "The ability to be guided through connections I need",
+                        "The ability to set environment variables",
+                        "Being able to assign users to security groups",
+                        "Being able to use command line install tools"
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "name": "whatElseIsImportant",
+                    "title": "What would improve the process for you?",
+                    "isRequired": false,
+                    "colCount": 1,
+                    "hasOther": true,
+                    "choices": [
+                        "Doing a web only install and not install any local tools needed",
+                        "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it",
+                        "Clear security guidance on what is needed",
+                        "Industry specific data settings and goals"
+                    ]
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Any other feedback?"
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "title": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses",
+                    "label": "Send results?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = false",
+                    "html": "We hope these questions will help you determine an idea of topics or questions if you attend"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process."
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}

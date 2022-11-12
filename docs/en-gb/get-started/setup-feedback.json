@@ -1,0 +1,171 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Setup-Feedback"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "setup-useful",
+          "title": {
+            "default": "Was the setup configuration and process useful to you?",
+            "en-gb": "Was the setup configuration and process useful to you?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "not-useful",
+          "title": {
+            "default": "Why was the setup process not useful for you?",
+            "en-gb": "Why was the setup process not useful for you?"
+          },
+          "visibleIf": "{setup-useful} = false"
+        },
+        {
+          "type": "checkbox",
+          "name": "whatIsImportant",
+          "title": {
+            "default": "What is most important to you?",
+            "en-gb": "What is most important to you?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to be guided through connections I need",
+              "text": {
+                "default": "The ability to be guided through connections I need",
+                "en-gb": "The ability to be guided through connections I need"
+              }
+            },
+            {
+              "value": "The ability to set environment variables",
+              "text": {
+                "default": "The ability to set environment variables",
+                "en-gb": "The ability to set environment variables"
+              }
+            },
+            {
+              "value": "Being able to assign users to security groups",
+              "text": {
+                "default": "Being able to assign users to security groups",
+                "en-gb": "Being able to assign users to security groups"
+              }
+            },
+            {
+              "value": "Being able to use command line install tools",
+              "text": {
+                "default": "Being able to use command line install tools",
+                "en-gb": "Being able to use command line install tools"
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "whatElseIsImportant",
+          "title": {
+            "default": "What would improve the process for you?",
+            "en-gb": "What would improve the process for you?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Doing a web only install and not install any local tools needed",
+              "text": {
+                "default": "Doing a web only install and not install any local tools needed",
+                "en-gb": "Doing a web only install and not install any local tools needed"
+              }
+            },
+            {
+              "value": "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it",
+              "text": {
+                "default": "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it",
+                "en-gb": "Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it"
+              }
+            },
+            {
+              "value": "Clear security guidance on what is needed",
+              "text": {
+                "default": "Clear security guidance on what is needed",
+                "en-gb": "Clear security guidance on what is needed"
+              }
+            },
+            {
+              "value": "Industry specific data settings and goals",
+              "text": {
+                "default": "Industry specific data settings and goals",
+                "en-gb": "Industry specific data settings and goals"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "en-gb": "Any other feedback?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses",
+            "en-gb": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses"
+          },
+          "label": {
+            "default": "Send results?",
+            "en-gb": "Send results?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "en-gb": "We hope these questions will help you determine an idea of topics or questions if you attend"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process.",
+            "en-gb": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "en-gb": "Send your feedback now?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "en-gb": "Status: {send-results-status}"
+          }
+        }
+      ]
+    }
+  ]
+}
