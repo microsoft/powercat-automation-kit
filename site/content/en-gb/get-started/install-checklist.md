@@ -11,4 +11,4 @@ generated: 6B3C70823CD446692E18C53B960CF80490FFFE10
 
 If you are looking to try or install the {{<product-name>}}, you can use the questions below to guide your install process
 
-{{<questions name="/content/en-gb/get-started/install-checklist.json" completed="Thank you for completing install checklist" shownavigationbuttons="false" locale="en-gb">}}
+{{<questions name="/content/en-gb/get-started/install-checklist.json" completed="Thank you for completing install checklist" showNavigationButtons="false" locale="en-gb">}}

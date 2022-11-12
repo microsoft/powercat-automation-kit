@@ -27,4 +27,4 @@ Power Platform용 자동화 키트 2022년 10월 근무 시간 랜딩 페이지�
 
 대화형 질문 집합을 사용하여 핵심 {{<product-name>}} 팀 피드백 근무 시간의 일부로 다루고 싶은 주제를 제공하고 "무엇이든 물어보세요" 질문에 대한 입력을 제공합니다.
 
-{{<questions name="/content/ko/office-hours/october-2022.json" completed="피드백을 작성해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}
+{{<questions name="/content/ko/office-hours/october-2022.json" completed="피드백을 작성해 주셔서 감사합니다." showNavigationButtons="false" locale="ko">}}

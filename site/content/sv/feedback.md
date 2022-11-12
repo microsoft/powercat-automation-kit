@@ -10,4 +10,4 @@ generated: 6B043B0D66B03D673094FDFC560E55CE573AAAAD
 
 Lämna gärna feedback på följande frågor:
 
-{{<questions name="/content/sv/feedback.json" completed="Tack för att du fyller i frågor" shownavigationbuttons="false" locale="sv">}}
+{{<questions name="/content/sv/feedback.json" completed="Tack för att du fyller i frågor" showNavigationButtons="false" locale="sv">}}

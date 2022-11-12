@@ -21,4 +21,4 @@ Le [Stratégie du centre d’excellence en automatisation avec le {{<product-nam
 
 Utilisez les questions suivantes pour vous guider tout au long du processus de mise en route
 
-{{<questions name="/content/fr/checklist.json" completed="Merci pour vos commentaires de mise en route" shownavigationbuttons="false" locale="fr">}}
+{{<questions name="/content/fr/checklist.json" completed="Merci pour vos commentaires de mise en route" showNavigationButtons="false" locale="fr">}}

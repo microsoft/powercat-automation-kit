@@ -34,7 +34,7 @@ generated: E841F2B13005D1C9AEDB5A8BB90283DCDDD3DDE2
 
 ## フィードバック
 
-{{<questions name="/content/ja/overview.json" completed="フィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/overview.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}
 
 </div>
 

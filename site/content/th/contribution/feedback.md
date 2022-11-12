@@ -46,4 +46,4 @@ generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 
 ## การตอบสนอง
 
-{{<questions name="/content/th/contribution/feedback.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/contribution/feedback.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}

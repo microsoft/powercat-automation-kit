@@ -23,7 +23,7 @@ generated: 73814007AE6E11EB3B434D0C4BBCC21F70C39413
 
 ## 反馈
 
-{{<questions name="/content/zh-hans/releases/november-2022.json" completed="感谢您提供反馈" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/releases/november-2022.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}
 
 </div>
 

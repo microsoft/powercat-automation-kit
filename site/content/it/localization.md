@@ -69,4 +69,4 @@ Sì, se la lingua è supportata da [Supporto linguistico del servizio cognitivo 
 
 Cosa fornire feedback sul processo di localizzazione?
 
-{{<questions name="/content/it/localization.json" completed="Grazie per aver completato le domande" shownavigationbuttons="false" locale="it">}}
+{{<questions name="/content/it/localization.json" completed="Grazie per aver completato le domande" showNavigationButtons="false" locale="it">}}

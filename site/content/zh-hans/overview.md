@@ -34,7 +34,7 @@ generated: E841F2B13005D1C9AEDB5A8BB90283DCDDD3DDE2
 
 ## 反馈
 
-{{<questions name="/content/zh-hans/overview.json" completed="感谢您提供反馈" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/overview.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}
 
 </div>
 

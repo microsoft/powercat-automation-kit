@@ -21,4 +21,4 @@ De [Automation Center of Excellence strategie met de {{<product-name>}}](https:/
 
 Gebruik de volgende vragen om u te helpen bij het proces om aan de slag te gaan
 
-{{<questions name="/content/nl/checklist.json" completed="Bedankt voor uw feedback om aan de slag te gaan" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/checklist.json" completed="Bedankt voor uw feedback om aan de slag te gaan" showNavigationButtons="false" locale="nl">}}

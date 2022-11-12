@@ -12,4 +12,4 @@ generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 
 Bruk spørsmålene nedenfor til å bestemme modenhetsmodellen for automatisering, og finn ut hvordan {{<product-name>}} eller andre relaterte løsninger kan hjelpe deg med å forbedre modenheten for automatisering ved hjelp av Power Platform.
 
-{{<questions name="/content/nb/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="nb">}}
+{{<questions name="/content/nb/automation-maturity-model.json" completed="" showNavigationButtons="false" locale="nb">}}

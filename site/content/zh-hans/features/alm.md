@@ -57,7 +57,7 @@ generated: 9879BCED5F4B223A5305D8514B67FB43AA12FDDD
 
 ## 反馈
 
-{{<questions name="/content/zh-hans/features/alm.json" completed="感谢您提供反馈" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/features/alm.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}
 
 </div>
 

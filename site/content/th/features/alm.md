@@ -57,7 +57,7 @@ generated: 9879BCED5F4B223A5305D8514B67FB43AA12FDDD
 
 ## การตอบสนอง
 
-{{<questions name="/content/th/features/alm.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/features/alm.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
 
 </div>
 

@@ -10,4 +10,4 @@ generated: 74620455EAF820F5519A4E619E6E269876A08E9F
 
 다음 질문에 대한 의견을 보내주십시오.
 
-{{<questions shownavigationbuttons="false" locale="ko">}}
+{{<questions showNavigationButtons="false" locale="ko">}}

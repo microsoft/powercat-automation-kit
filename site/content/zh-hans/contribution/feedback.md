@@ -46,4 +46,4 @@ generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 
 ## 反馈
 
-{{<questions name="/content/zh-hans/contribution/feedback.json" completed="感谢您提供反馈" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/contribution/feedback.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}

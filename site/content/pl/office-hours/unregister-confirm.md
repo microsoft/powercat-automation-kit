@@ -10,4 +10,4 @@ generated: 0EC6C87878D97132CB5E26CB117387283315219D
 
 Skorzystaj z poniższych pytań, aby potwierdzić wyrejestrowanie.
 
-{{<questions name="/content/pl/office-hours/unregister-confirm.json" completed="Dziękujemy za wypełnienie potwierdzenia wyrejestrowania" shownavigationbuttons="false" locale="pl">}}
+{{<questions name="/content/pl/office-hours/unregister-confirm.json" completed="Dziękujemy za wypełnienie potwierdzenia wyrejestrowania" showNavigationButtons="false" locale="pl">}}

@@ -21,7 +21,7 @@ Die Januar-Veröffentlichung (nifty-emmy) des {{<product-name>}} ist die fünfte
 
 ## Feedback
 
-{{<questions name="/content/de/releases/january-2023.json" completed="Vielen Dank für Ihr Feedback" shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/releases/january-2023.json" completed="Vielen Dank für Ihr Feedback" showNavigationButtons="false" locale="de">}}
 
 </div>
 

@@ -10,4 +10,4 @@ generated: 0EC6C87878D97132CB5E26CB117387283315219D
 
 Bitte verwenden Sie die folgenden Fragen, um Ihre Abmeldung zu bestätigen.
 
-{{<questions name="/content/de/office-hours/unregister-confirm.json" completed="Vielen Dank für das Ausfüllen der Abmeldebestätigung" shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/office-hours/unregister-confirm.json" completed="Vielen Dank für das Ausfüllen der Abmeldebestätigung" showNavigationButtons="false" locale="de">}}

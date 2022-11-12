@@ -11,4 +11,4 @@ generated: 6B3C70823CD446692E18C53B960CF80490FFFE10
 
 Wenn Sie versuchen oder installieren möchten, {{<product-name>}}, können Sie die folgenden Fragen verwenden, um Ihren Installationsprozess zu leiten
 
-{{<questions name="/content/de/get-started/install-checklist.json" completed="Vielen Dank, dass Sie die Checkliste für die Installation ausgefüllt haben." shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/get-started/install-checklist.json" completed="Vielen Dank, dass Sie die Checkliste für die Installation ausgefüllt haben." showNavigationButtons="false" locale="de">}}

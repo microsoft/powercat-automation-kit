@@ -69,4 +69,4 @@ Ja, als de taal wordt ondersteund door [Taalondersteuning voor Azure Cognitive S
 
 Wat moet u feedback geven over het lokalisatieproces?
 
-{{<questions name="/content/nl/localization.json" completed="Bedankt voor het invullen van de vragen" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/localization.json" completed="Bedankt voor het invullen van de vragen" showNavigationButtons="false" locale="nl">}}

@@ -21,4 +21,4 @@ generated: 454A4990DCD77031642D2EDE36FE235A40DF66E0
 
 次の質問を使用して、開始プロセスをガイドします
 
-{{<questions name="/content/ja/checklist.json" completed="はじめにフィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/checklist.json" completed="はじめにフィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}

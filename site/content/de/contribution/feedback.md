@@ -46,4 +46,4 @@ Beachten Sie die Inline-Richtlinien der Problemvorlage.
 
 ## Feedback
 
-{{<questions name="/content/de/contribution/feedback.json" completed="Vielen Dank für Ihr Feedback" shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/contribution/feedback.json" completed="Vielen Dank für Ihr Feedback" showNavigationButtons="false" locale="de">}}

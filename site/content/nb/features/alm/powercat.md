@@ -50,7 +50,7 @@ Alt i alt bygger vi videre på de eksisterende bruksklare Power Platform- og Mic
 
 ## Tilbakemelding
 
-{{<questions name="/content/nb/features/alm/powercat.json" completed="Takk for at du gir tilbakemelding" shownavigationbuttons="false" locale="nb">}}
+{{<questions name="/content/nb/features/alm/powercat.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}
 
 </div>
 

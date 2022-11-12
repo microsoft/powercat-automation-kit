@@ -69,4 +69,4 @@ generated: 8C6838A1498CA84E45F7638050A2F7633E36ADA8
 
 对本地化流程提供哪些反馈？
 
-{{<questions name="/content/zh-hans/localization.json" completed="感谢您完成问题" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/localization.json" completed="感谢您完成问题" showNavigationButtons="false" locale="zh-hans">}}

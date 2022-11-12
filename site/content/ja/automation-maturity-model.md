@@ -12,4 +12,4 @@ generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 
 以下の質問を使用して、自動化成熟度モデルを決定し、{{<product-name>}} またはその他の関連ソリューションは、Power Platform を使用して自動化の成熟度を向上させるのに役立ちます。
 
-{{<questions name="/content/ja/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/automation-maturity-model.json" completed="" showNavigationButtons="false" locale="ja">}}

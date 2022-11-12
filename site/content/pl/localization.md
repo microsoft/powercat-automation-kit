@@ -69,4 +69,4 @@ Tak, jeśli język jest obsługiwany przez [Obsługa języków w usłudze Azure 
 
 Co przekazać opinii na temat procesu lokalizacji?
 
-{{<questions name="/content/pl/localization.json" completed="Dziękujemy za wypełnienie pytań" shownavigationbuttons="false" locale="pl">}}
+{{<questions name="/content/pl/localization.json" completed="Dziękujemy za wypełnienie pytań" showNavigationButtons="false" locale="pl">}}

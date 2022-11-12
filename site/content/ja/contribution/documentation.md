@@ -15,4 +15,4 @@ generated: B8B7872EF04477E38055C5391B3B5E91062AF0C1
 
 以下の質問を使用して、セットアップとコントリビューションの経験をガイドできます
 
-{{<questions name="/content/ja/contribution/documentation.json" completed="セットアップの質問を完了していただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/contribution/documentation.json" completed="セットアップの質問を完了していただきありがとうございます" showNavigationButtons="false" locale="ja">}}

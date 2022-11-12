@@ -23,7 +23,7 @@ This page provides a sample for authoring content
 
 Use the questions below to explore different feedback question types
 
-{{<questions name="/content/en-gb/contribution/sample.json" completed="Thank you for completing questions" shownavigationbuttons="false" locale="en-gb">}}
+{{<questions name="/content/en-gb/contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons="false" locale="en-gb">}}
 
 </div>
 

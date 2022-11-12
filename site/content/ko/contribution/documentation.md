@@ -15,4 +15,4 @@ generated: B8B7872EF04477E38055C5391B3B5E91062AF0C1
 
 아래 질문을 사용하여 설정 및 기여 경험을 안내할 수 있습니다.
 
-{{<questions name="/content/ko/contribution/documentation.json" completed="설정 질문을 완료해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}
+{{<questions name="/content/ko/contribution/documentation.json" completed="설정 질문을 완료해 주셔서 감사합니다." showNavigationButtons="false" locale="ko">}}

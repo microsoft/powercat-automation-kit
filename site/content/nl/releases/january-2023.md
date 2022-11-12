@@ -21,7 +21,7 @@ De januari release (nifty-emmy) van de {{<product-name>}} is de vijfde openbare 
 
 ## Terugkoppeling
 
-{{<questions name="/content/nl/releases/january-2023.json" completed="Bedankt voor het geven van feedback" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/releases/january-2023.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}
 
 </div>
 

@@ -21,7 +21,7 @@ El lanzamiento de diciembre (zealous-antonelli) del {{<product-name>}} es la cua
 
 ## Retroalimentación
 
-{{<questions name="/content/es/releases/december-2022.json" completed="Gracias por proporcionar comentarios" shownavigationbuttons="false" locale="es">}}
+{{<questions name="/content/es/releases/december-2022.json" completed="Gracias por proporcionar comentarios" showNavigationButtons="false" locale="es">}}
 
 </div>
 

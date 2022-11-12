@@ -71,4 +71,4 @@ pac data import -d AutomationKit-SampleData.zip --environment https://contoso.cr
 
 ## Sprzężenie zwrotne
 
-{{<questions name="/content/pl/features/datapacks.json" completed="Dziękujemy za przekazanie opinii" shownavigationbuttons="false" locale="pl">}}
+{{<questions name="/content/pl/features/datapacks.json" completed="Dziękujemy za przekazanie opinii" showNavigationButtons="false" locale="pl">}}

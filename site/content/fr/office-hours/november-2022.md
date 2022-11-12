@@ -27,4 +27,4 @@ Chaque session de bureau dure une heure et a le format suivant :
 
 Vous pouvez utiliser l’ensemble interactif de questions pour fournir le noyau {{<product-name>}} Commentaires de l’équipe sur les sujets que vous aimeriez aborder dans le cadre de l’heure de bureau et donnez votre avis sur les questions « Demandez-moi n’importe quoi ».
 
-{{<questions name="/content/fr/office-hours/november-2022.json" completed="Merci d’avoir répondu à vos commentaires" shownavigationbuttons="false" locale="fr">}}
+{{<questions name="/content/fr/office-hours/november-2022.json" completed="Merci d’avoir répondu à vos commentaires" showNavigationButtons="false" locale="fr">}}

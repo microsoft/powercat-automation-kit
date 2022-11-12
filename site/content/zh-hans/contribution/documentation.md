@@ -15,4 +15,4 @@ generated: B8B7872EF04477E38055C5391B3B5E91062AF0C1
 
 您可以使用以下问题来指导您的设置和贡献体验
 
-{{<questions name="/content/zh-hans/contribution/documentation.json" completed="感谢您完成设置问题" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/contribution/documentation.json" completed="感谢您完成设置问题" showNavigationButtons="false" locale="zh-hans">}}

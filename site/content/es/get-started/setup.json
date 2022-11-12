@@ -1,0 +1,138 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "pages": [
+    {
+      "name": "welcome",
+      "title": {
+        "default": "Welcome",
+        "es": "Bienvenido"
+      },
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "installType",
+          "title": {
+            "default": "What component(s) are you looking to setup?",
+            "es": "¿Qué componente(s) desea configurar?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Main solution",
+              "text": {
+                "default": "Main solution",
+                "es": "Solución principal"
+              }
+            },
+            {
+              "value": "Satellite solution",
+              "text": {
+                "default": "Satellite solution",
+                "es": "Solución satelital"
+              }
+            },
+            {
+              "value": "Data Import",
+              "text": {
+                "default": "Data Import",
+                "es": "Importación de datos"
+              }
+            },
+            {
+              "value": "Security Group Setup",
+              "text": {
+                "default": "Security Group Setup",
+                "es": "Configuración del grupo de seguridad"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Connections",
+        "es": "Solución principal - Conexiones"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "paneldynamic",
+          "name": "main-connections",
+          "title": {
+            "default": "Please provide one of each of the following the connections",
+            "es": "Proporcione una de las siguientes conexiones"
+          },
+          "minPanelCount": 5,
+          "maxPanelCount": 5,
+          "templateElements": [
+            {
+              "name": "connectionType",
+              "type": "dropdown",
+              "title": {
+                "default": "Connection",
+                "es": "Conexión"
+              },
+              "choices": [
+                {
+                  "value": "Approvals",
+                  "text": {
+                    "default": "Approvals",
+                    "es": "Aprobaciones"
+                  }
+                },
+                {
+                  "value": "Microsoft Dataverse",
+                  "text": {
+                    "default": "Microsoft Dataverse",
+                    "es": "Microsoft Dataverse"
+                  }
+                },
+                {
+                  "value": "Office 365 Users",
+                  "text": {
+                    "default": "Office 365 Users",
+                    "es": "Usuarios de Office 365"
+                  }
+                },
+                {
+                  "value": "Office 365 Outlook",
+                  "text": {
+                    "default": "Office 365 Outlook",
+                    "es": "Office 365 Outlook"
+                  }
+                },
+                {
+                  "value": "Power Platform for Admins Automation",
+                  "text": {
+                    "default": "Power Platform for Admins Automation",
+                    "es": "Power Platform para la automatización de administradores"
+                  }
+                }
+              ],
+              "isRequired": true
+            },
+            {
+              "name": "url",
+              "type": "text",
+              "title": {
+                "default": "Connection Link",
+                "es": "Enlace de conexión"
+              },
+              "isRequired": true,
+              "startWithNewLine": false,
+              "validators": [
+                {
+                  "type": "regex",
+                  "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                  "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

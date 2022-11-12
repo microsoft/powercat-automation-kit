@@ -10,4 +10,4 @@ generated: 0EC6C87878D97132CB5E26CB117387283315219D
 
 Använd frågorna nedan för att bekräfta din avregistrering.
 
-{{<questions name="/content/sv/office-hours/unregister-confirm.json" completed="Tack för att du slutförde avregistreringsbekräftelsen" shownavigationbuttons="false" locale="sv">}}
+{{<questions name="/content/sv/office-hours/unregister-confirm.json" completed="Tack för att du slutförde avregistreringsbekräftelsen" showNavigationButtons="false" locale="sv">}}

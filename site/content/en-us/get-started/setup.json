@@ -1,0 +1,64 @@
+{
+    "checkErrorsMode": "onValueChanging",
+    "pages": [
+        {
+            "name": "welcome",
+            "title": "Welcome",
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "installType",
+                    "title": "What component(s) are you looking to setup?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        "Main solution",
+                        "Satellite solution",
+                        "Data Import",
+                        "Security Group Setup"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Main Solution - Connections",
+            "visibleIf": "contains({installType}, 'Main solution')",
+            "elements": [
+                {
+                    "type": "paneldynamic",
+                    "name": "main-connections",
+                    "title": "Please provide one of each of the following the connections",
+                    "minPanelCount": 5,
+                    "maxPanelCount": 5,
+                    "templateElements": [
+                        {
+                          "name": "connectionType",
+                          "type": "dropdown",
+                          "title": "Connection",
+                          "choices": [
+                            "Approvals",
+                            "Microsoft Dataverse",
+                            "Office 365 Users",
+                            "Office 365 Outlook",
+                            "Power Platform for Admins Automation"
+                          ],
+                          "isRequired": true
+                        },
+                        {
+                            "name": "url",
+                            "type": "text",
+                            "title": "Connection Link",
+                            "isRequired": true,
+                            "startWithNewLine": false,
+                            "validators": [{
+                                "type": "regex",
+                                "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                                "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                              }]
+                          }
+                    ]
+                }
+            ]
+        }
+    ]
+}

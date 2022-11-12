@@ -46,4 +46,4 @@ generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 
 ## 피드백
 
-{{<questions name="/content/ko/contribution/feedback.json" completed="피드백을 제공해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}
+{{<questions name="/content/ko/contribution/feedback.json" completed="피드백을 제공해 주셔서 감사합니다." showNavigationButtons="false" locale="ko">}}

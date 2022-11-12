@@ -1,0 +1,138 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "pages": [
+    {
+      "name": "welcome",
+      "title": {
+        "default": "Welcome",
+        "ko": "환영"
+      },
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "installType",
+          "title": {
+            "default": "What component(s) are you looking to setup?",
+            "ko": "어떤 구성 요소를 설정하려고 하십니까?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Main solution",
+              "text": {
+                "default": "Main solution",
+                "ko": "주요 솔루션"
+              }
+            },
+            {
+              "value": "Satellite solution",
+              "text": {
+                "default": "Satellite solution",
+                "ko": "위성 솔루션"
+              }
+            },
+            {
+              "value": "Data Import",
+              "text": {
+                "default": "Data Import",
+                "ko": "데이터 가져오기"
+              }
+            },
+            {
+              "value": "Security Group Setup",
+              "text": {
+                "default": "Security Group Setup",
+                "ko": "보안 그룹 설정"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Connections",
+        "ko": "주요 솔루션 - 연결"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "paneldynamic",
+          "name": "main-connections",
+          "title": {
+            "default": "Please provide one of each of the following the connections",
+            "ko": "다음 연결 중 하나를 제공하십시오."
+          },
+          "minPanelCount": 5,
+          "maxPanelCount": 5,
+          "templateElements": [
+            {
+              "name": "connectionType",
+              "type": "dropdown",
+              "title": {
+                "default": "Connection",
+                "ko": "연결"
+              },
+              "choices": [
+                {
+                  "value": "Approvals",
+                  "text": {
+                    "default": "Approvals",
+                    "ko": "승인"
+                  }
+                },
+                {
+                  "value": "Microsoft Dataverse",
+                  "text": {
+                    "default": "Microsoft Dataverse",
+                    "ko": "마이크로소프트 데이터버스"
+                  }
+                },
+                {
+                  "value": "Office 365 Users",
+                  "text": {
+                    "default": "Office 365 Users",
+                    "ko": "오피스 365 사용자"
+                  }
+                },
+                {
+                  "value": "Office 365 Outlook",
+                  "text": {
+                    "default": "Office 365 Outlook",
+                    "ko": "오피스 365 아웃룩"
+                  }
+                },
+                {
+                  "value": "Power Platform for Admins Automation",
+                  "text": {
+                    "default": "Power Platform for Admins Automation",
+                    "ko": "관리자 자동화를 위한 파워 플랫폼"
+                  }
+                }
+              ],
+              "isRequired": true
+            },
+            {
+              "name": "url",
+              "type": "text",
+              "title": {
+                "default": "Connection Link",
+                "ko": "연결 링크"
+              },
+              "isRequired": true,
+              "startWithNewLine": false,
+              "validators": [
+                {
+                  "type": "regex",
+                  "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                  "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

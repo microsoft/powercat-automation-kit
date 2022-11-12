@@ -21,7 +21,7 @@ Januar-udgivelsen (nifty-emmy) af {{<product-name>}} er den femte offentlige prÃ
 
 ## Feedback
 
-{{<questions name="/content/da/releases/january-2023.json" completed="Tak, fordi du gav feedback" shownavigationbuttons="false" locale="da">}}
+{{<questions name="/content/da/releases/january-2023.json" completed="Tak, fordi du gav feedback" showNavigationButtons="false" locale="da">}}
 
 </div>
 

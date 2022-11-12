@@ -15,4 +15,4 @@ Erfahren Sie, wie Sie einen Beitrag zur Startdokumentation für die {{<product-n
 
 Sie können die folgenden Fragen verwenden, um Ihre Setup- und Beitragserfahrung zu leiten
 
-{{<questions name="/content/de/contribution/documentation.json" completed="Vielen Dank für das Ausfüllen der Setup-Fragen" shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/contribution/documentation.json" completed="Vielen Dank für das Ausfüllen der Setup-Fragen" showNavigationButtons="false" locale="de">}}

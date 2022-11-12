@@ -34,7 +34,7 @@ Bienvenue dans la préversion publique du {{<product-name>}}. Pour commencer, s�
 
 ## Rétroaction
 
-{{<questions name="/content/fr/overview.json" completed="Merci de nous avoir fait part de vos commentaires" shownavigationbuttons="false" locale="fr">}}
+{{<questions name="/content/fr/overview.json" completed="Merci de nous avoir fait part de vos commentaires" showNavigationButtons="false" locale="fr">}}
 
 </div>
 

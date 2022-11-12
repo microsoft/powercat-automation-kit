@@ -23,7 +23,7 @@ generated: 73814007AE6E11EB3B434D0C4BBCC21F70C39413
 
 ## フィードバック
 
-{{<questions name="/content/ja/releases/november-2022.json" completed="フィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/releases/november-2022.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}
 
 </div>
 

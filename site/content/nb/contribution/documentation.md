@@ -15,4 +15,4 @@ Lær hvordan du begynner å gi et bidrag til startdokumentasjonen for {{<product
 
 Du kan bruke spørsmålene nedenfor til å veilede oppsetts- og bidragsopplevelsen
 
-{{<questions name="/content/nb/contribution/documentation.json" completed="Takk for at du fullførte installasjonsspørsmål" shownavigationbuttons="false" locale="nb">}}
+{{<questions name="/content/nb/contribution/documentation.json" completed="Takk for at du fullførte installasjonsspørsmål" showNavigationButtons="false" locale="nb">}}

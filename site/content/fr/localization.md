@@ -69,4 +69,4 @@ Oui, si la langue est prise en charge par [Prise en charge linguistique d’Azur
 
 Que fournir des commentaires sur le processus de localisation ?
 
-{{<questions name="/content/fr/localization.json" completed="Merci d’avoir répondu aux questions" shownavigationbuttons="false" locale="fr">}}
+{{<questions name="/content/fr/localization.json" completed="Merci d’avoir répondu aux questions" showNavigationButtons="false" locale="fr">}}

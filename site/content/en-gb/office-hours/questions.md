@@ -10,4 +10,4 @@ generated: 74620455EAF820F5519A4E619E6E269876A08E9F
 
 Please provide your feedback to the following questions:
 
-{{<questions shownavigationbuttons="false" locale="en-gb">}}
+{{<questions showNavigationButtons="false" locale="en-gb">}}

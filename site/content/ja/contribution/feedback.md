@@ -46,4 +46,4 @@ generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
 
 ## フィードバック
 
-{{<questions name="/content/ja/contribution/feedback.json" completed="フィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/contribution/feedback.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}

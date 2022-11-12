@@ -12,4 +12,4 @@ generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 
 使用以下问题确定自动化成熟度模型，并了解 {{<product-name>}} 或其他相关解决方案可以帮助您使用 Power Platform 提高自动化成熟度。
 
-{{<questions name="/content/zh-hans/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/automation-maturity-model.json" completed="" showNavigationButtons="false" locale="zh-hans">}}

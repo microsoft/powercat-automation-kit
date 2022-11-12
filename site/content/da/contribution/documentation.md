@@ -15,4 +15,4 @@ Lær, hvordan du begynder at yde et bidrag til startdokumentationen til {{<produ
 
 Du kan bruge nedenstående spørgsmål til at guide din opsætnings- og bidragsoplevelse
 
-{{<questions name="/content/da/contribution/documentation.json" completed="Tak, fordi du har besvaret opsætningsspørgsmål" shownavigationbuttons="false" locale="da">}}
+{{<questions name="/content/da/contribution/documentation.json" completed="Tak, fordi du har besvaret opsætningsspørgsmål" showNavigationButtons="false" locale="da">}}

@@ -21,7 +21,7 @@ Desemberutgivelsen (nidkjær-antonelli) av {{<product-name>}} er den fjerde offe
 
 ## Tilbakemelding
 
-{{<questions name="/content/nb/releases/december-2022.json" completed="Takk for at du gir tilbakemelding" shownavigationbuttons="false" locale="nb">}}
+{{<questions name="/content/nb/releases/december-2022.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}
 
 </div>
 

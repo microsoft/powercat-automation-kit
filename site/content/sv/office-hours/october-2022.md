@@ -27,4 +27,4 @@ Varje kontorstid är en timme lång och har följande format:
 
 Du kan använda den interaktiva uppsättningen frågor för att tillhandahålla kärnan {{<product-name>}} Team feedback vilka ämnen du vill täcka som en del av kontorstid och ge input till frågorna "Any Ask Me Anything".
 
-{{<questions name="/content/sv/office-hours/october-2022.json" completed="Tack för att du fyller i feedback" shownavigationbuttons="false" locale="sv">}}
+{{<questions name="/content/sv/office-hours/october-2022.json" completed="Tack för att du fyller i feedback" showNavigationButtons="false" locale="sv">}}

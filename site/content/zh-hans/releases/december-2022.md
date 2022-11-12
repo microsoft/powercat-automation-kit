@@ -21,7 +21,7 @@ generated: 51182A2D941E81195362DDD5F64F44229C321384
 
 ## 反馈
 
-{{<questions name="/content/zh-hans/releases/december-2022.json" completed="感谢您提供反馈" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/releases/december-2022.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}
 
 </div>
 

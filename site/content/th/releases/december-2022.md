@@ -21,7 +21,7 @@ generated: 51182A2D941E81195362DDD5F64F44229C321384
 
 ## การตอบสนอง
 
-{{<questions name="/content/th/releases/december-2022.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/releases/december-2022.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
 
 </div>
 

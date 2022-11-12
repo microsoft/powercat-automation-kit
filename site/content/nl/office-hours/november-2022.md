@@ -27,4 +27,4 @@ Elke kantoorurensessie duurt een uur en heeft de volgende indeling:
 
 U kunt de interactieve set vragen gebruiken om de kern {{<product-name>}} teamfeedback welke onderwerpen u wilt behandelen als onderdeel van het spreekuur en input wilt geven voor de "any ask me anything" vragen.
 
-{{<questions name="/content/nl/office-hours/november-2022.json" completed="Bedankt voor het invullen van de feedback" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/office-hours/november-2022.json" completed="Bedankt voor het invullen van de feedback" showNavigationButtons="false" locale="nl">}}

@@ -34,7 +34,7 @@ generated: E841F2B13005D1C9AEDB5A8BB90283DCDDD3DDE2
 
 ## การตอบสนอง
 
-{{<questions name="/content/th/overview.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/overview.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
 
 </div>
 

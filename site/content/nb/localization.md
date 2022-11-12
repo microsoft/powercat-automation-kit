@@ -69,4 +69,4 @@ Ja, hvis språket støttes av [Språkstøtte for Azure Cognitive Service](https:
 
 Hva skal du gi tilbakemelding på lokaliseringsprosessen?
 
-{{<questions name="/content/nb/localization.json" completed="Takk for at du fullførte spørsmål" shownavigationbuttons="false" locale="nb">}}
+{{<questions name="/content/nb/localization.json" completed="Takk for at du fullførte spørsmål" showNavigationButtons="false" locale="nb">}}

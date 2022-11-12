@@ -12,4 +12,4 @@ generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 
 Use the questions below determine your automation maturity model and discover how the {{<product-name>}} or other related solutions can help you improve your automation maturity using the Power Platform.
 
-{{<questions name="/content/en-gb/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="en-gb">}}
+{{<questions name="/content/en-gb/automation-maturity-model.json" completed="" showNavigationButtons="false" locale="en-gb">}}

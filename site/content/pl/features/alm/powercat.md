@@ -50,7 +50,7 @@ Ogólnie rzecz biorąc, opieramy się na istniejących gotowych funkcjach Power 
 
 ## Sprzężenie zwrotne
 
-{{<questions name="/content/pl/features/alm/powercat.json" completed="Dziękujemy za przekazanie opinii" shownavigationbuttons="false" locale="pl">}}
+{{<questions name="/content/pl/features/alm/powercat.json" completed="Dziękujemy za przekazanie opinii" showNavigationButtons="false" locale="pl">}}
 
 </div>
 

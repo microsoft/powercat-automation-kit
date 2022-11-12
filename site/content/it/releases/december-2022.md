@@ -21,7 +21,7 @@ Il rilascio di dicembre (zelante-antonelli) del {{<product-name>}} è la quarta 
 
 ## Valutazione
 
-{{<questions name="/content/it/releases/december-2022.json" completed="Grazie per aver fornito feedback" shownavigationbuttons="false" locale="it">}}
+{{<questions name="/content/it/releases/december-2022.json" completed="Grazie per aver fornito feedback" showNavigationButtons="false" locale="it">}}
 
 </div>
 

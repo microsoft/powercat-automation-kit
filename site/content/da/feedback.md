@@ -10,4 +10,4 @@ generated: 6B043B0D66B03D673094FDFC560E55CE573AAAAD
 
 Giv din feedback på følgende spørgsmål:
 
-{{<questions name="/content/da/feedback.json" completed="Tak fordi du udfyldte spørgsmål" shownavigationbuttons="false" locale="da">}}
+{{<questions name="/content/da/feedback.json" completed="Tak fordi du udfyldte spørgsmål" showNavigationButtons="false" locale="da">}}

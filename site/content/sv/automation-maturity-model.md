@@ -12,4 +12,4 @@ generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 
 Använd frågorna nedan för att fastställa din automatiseringsmognadsmodell och upptäck hur {{<product-name>}} eller andra relaterade lösningar kan hjälpa dig att förbättra din automatiseringsmognad med hjälp av Power Platform.
 
-{{<questions name="/content/sv/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="sv">}}
+{{<questions name="/content/sv/automation-maturity-model.json" completed="" showNavigationButtons="false" locale="sv">}}

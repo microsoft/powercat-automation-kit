@@ -69,4 +69,4 @@ Ja, om språket stöds av [Språkstöd för Azure Cognitive Service](https://lea
 
 Vad ska man ge feedback om lokaliseringsprocessen?
 
-{{<questions name="/content/sv/localization.json" completed="Tack för att du fyller i frågor" shownavigationbuttons="false" locale="sv">}}
+{{<questions name="/content/sv/localization.json" completed="Tack för att du fyller i frågor" showNavigationButtons="false" locale="sv">}}

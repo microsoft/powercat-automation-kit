@@ -11,4 +11,4 @@ generated: 6B3C70823CD446692E18C53B960CF80490FFFE10
 
 หากคุณต้องการลองหรือติดตั้ง {{<product-name>}} คุณสามารถใช้คําถามด้านล่างเพื่อเป็นแนวทางในกระบวนการติดตั้งของคุณ
 
-{{<questions name="/content/th/get-started/install-checklist.json" completed="ขอขอบคุณที่กรอกรายการตรวจสอบการติดตั้ง" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/get-started/install-checklist.json" completed="ขอขอบคุณที่กรอกรายการตรวจสอบการติดตั้ง" showNavigationButtons="false" locale="th">}}

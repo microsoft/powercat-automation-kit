@@ -50,7 +50,7 @@ Over het algemeen bouwen we voort op de bestaande kant-en-klare Power Platform- 
 
 ## Terugkoppeling
 
-{{<questions name="/content/nl/features/alm/powercat.json" completed="Bedankt voor het geven van feedback" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/features/alm/powercat.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}
 
 </div>
 

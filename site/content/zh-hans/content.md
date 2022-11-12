@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EC52F9865215B12E7431E612587049E77099A656
+generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 ---
 
 {{<toc>}}
@@ -70,6 +70,8 @@ generated: EC52F9865215B12E7431E612587049E77099A656
 - [自动化套件 - 安装清单](/zh-hans/get-started/install-checklist)
 
 - [自动化工具包 - Power BI 仪表板](/zh-hans/get-started/install-powerbi-dashboard)
+
+- [自动化套件 - 设置](/zh-hans/get-started/setup)
 
 
 ### 地点： /办公时间/

@@ -34,7 +34,7 @@ Willkommen zur öffentlichen Vorschau der {{<product-name>}}. Um zu beginnen, w�
 
 ## Feedback
 
-{{<questions name="/content/de/overview.json" completed="Vielen Dank für Ihr Feedback" shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/overview.json" completed="Vielen Dank für Ihr Feedback" showNavigationButtons="false" locale="de">}}
 
 </div>
 

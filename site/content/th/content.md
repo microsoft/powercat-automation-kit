@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EC52F9865215B12E7431E612587049E77099A656
+generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 ---
 
 {{<toc>}}
@@ -70,6 +70,8 @@ generated: EC52F9865215B12E7431E612587049E77099A656
 - [ชุดระบบอัตโนมัติ - ติดตั้งรายการตรวจสอบ](/th/get-started/install-checklist)
 
 - [ชุดระบบอัตโนมัติ - แดชบอร์ด Power BI](/th/get-started/install-powerbi-dashboard)
+
+- [ชุดระบบอัตโนมัติ - การตั้งค่า](/th/get-started/setup)
 
 
 ### ที่ตั้ง: /เวลาทําการ/

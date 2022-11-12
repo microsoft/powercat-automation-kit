@@ -10,4 +10,4 @@ generated: 74620455EAF820F5519A4E619E6E269876A08E9F
 
 Giv din feedback på følgende spørgsmål:
 
-{{<questions shownavigationbuttons="false" locale="da">}}
+{{<questions showNavigationButtons="false" locale="da">}}

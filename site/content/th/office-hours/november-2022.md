@@ -27,4 +27,4 @@ generated: E71CE811F0900FD477E5AB42197E1FDBE4D633F3
 
 คุณสามารถใช้ชุดคําถามแบบโต้ตอบเพื่อให้แกนหลัก {{<product-name>}} ความคิดเห็นของทีมว่าหัวข้อใดที่คุณต้องการครอบคลุมเป็นส่วนหนึ่งของเวลาทําการและให้ข้อมูลในคําถาม "ถามอะไรก็ได้"
 
-{{<questions name="/content/th/office-hours/november-2022.json" completed="ขอขอบคุณสําหรับการทําข้อเสนอแนะ" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/office-hours/november-2022.json" completed="ขอขอบคุณสําหรับการทําข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}

@@ -21,7 +21,7 @@ The January release (nifty-emmy) of the {{<product-name>}} is the fifth public p
 
 ## Feedback
 
-{{<questions name="/content/en-gb/releases/january-2023.json" completed="Thank you for providing feedback" shownavigationbuttons="false" locale="en-gb">}}
+{{<questions name="/content/en-gb/releases/january-2023.json" completed="Thank you for providing feedback" showNavigationButtons="false" locale="en-gb">}}
 
 </div>
 

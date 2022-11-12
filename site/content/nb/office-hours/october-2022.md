@@ -27,4 +27,4 @@ Hver økt i kontortiden er en time lang og har følgende format:
 
 Du kan bruke det interaktive settet med spørsmål for å gi kjernen {{<product-name>}} Team tilbakemelding hvilke emner du ønsker å dekke som en del av kontortiden og gi innspill til "noen spør meg noe" spørsmål.
 
-{{<questions name="/content/nb/office-hours/october-2022.json" completed="Takk for at du fullfører tilbakemeldingen" shownavigationbuttons="false" locale="nb">}}
+{{<questions name="/content/nb/office-hours/october-2022.json" completed="Takk for at du fullfører tilbakemeldingen" showNavigationButtons="false" locale="nb">}}

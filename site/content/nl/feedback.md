@@ -10,4 +10,4 @@ generated: 6B043B0D66B03D673094FDFC560E55CE573AAAAD
 
 Geef uw feedback op de volgende vragen:
 
-{{<questions name="/content/nl/feedback.json" completed="Bedankt voor het invullen van de vragen" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/feedback.json" completed="Bedankt voor het invullen van de vragen" showNavigationButtons="false" locale="nl">}}

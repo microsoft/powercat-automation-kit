@@ -10,4 +10,4 @@ generated: 0EC6C87878D97132CB5E26CB117387283315219D
 
 Si prega di utilizzare le domande qui sotto per confermare la cancellazione.
 
-{{<questions name="/content/it/office-hours/unregister-confirm.json" completed="Grazie per aver completato la conferma di annullamento della registrazione" shownavigationbuttons="false" locale="it">}}
+{{<questions name="/content/it/office-hours/unregister-confirm.json" completed="Grazie per aver completato la conferma di annullamento della registrazione" showNavigationButtons="false" locale="it">}}

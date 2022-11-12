@@ -23,7 +23,7 @@ In questa pagina viene fornito un esempio per la creazione di contenuto
 
 Utilizza le domande seguenti per esplorare diversi tipi di domande di feedback
 
-{{<questions name="/content/it/contribution/sample.json" completed="Grazie per aver completato le domande" shownavigationbuttons="false" locale="it">}}
+{{<questions name="/content/it/contribution/sample.json" completed="Grazie per aver completato le domande" showNavigationButtons="false" locale="it">}}
 
 </div>
 

@@ -15,4 +15,4 @@ generated: B8B7872EF04477E38055C5391B3B5E91062AF0C1
 
 คุณสามารถใช้คําถามด้านล่างเพื่อเป็นแนวทางในการตั้งค่าและประสบการณ์การมีส่วนร่วมของคุณ
 
-{{<questions name="/content/th/contribution/documentation.json" completed="ขอขอบคุณที่ตอบคําถามการตั้งค่าให้เสร็จสิ้น" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/contribution/documentation.json" completed="ขอขอบคุณที่ตอบคําถามการตั้งค่าให้เสร็จสิ้น" showNavigationButtons="false" locale="th">}}

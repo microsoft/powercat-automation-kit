@@ -21,7 +21,7 @@ Decemberutgåvan (nitisk-antonelli) av {{<product-name>}} är den fjärde offent
 
 ## Feedback
 
-{{<questions name="/content/sv/releases/december-2022.json" completed="Tack för att du ger feedback" shownavigationbuttons="false" locale="sv">}}
+{{<questions name="/content/sv/releases/december-2022.json" completed="Tack för att du ger feedback" showNavigationButtons="false" locale="sv">}}
 
 </div>
 

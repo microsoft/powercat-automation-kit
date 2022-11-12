@@ -50,7 +50,7 @@ generated: 0087DF5B505764347AC2AF0B6C170474826A5D65
 
 ## การตอบสนอง
 
-{{<questions name="/content/th/features/alm/powercat.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/features/alm/powercat.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
 
 </div>
 

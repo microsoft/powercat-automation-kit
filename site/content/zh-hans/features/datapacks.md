@@ -71,4 +71,4 @@ pac data import -d AutomationKit-SampleData.zip --environment https://contoso.cr
 
 ## 反馈
 
-{{<questions name="/content/zh-hans/features/datapacks.json" completed="感谢您提供反馈" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/features/datapacks.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}

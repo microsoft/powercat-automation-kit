@@ -23,7 +23,7 @@ generated: F08B4581ED304D561DE1C5BC479DEB68A97993CA
 
 使用以下问题探索不同的反馈问题类型
 
-{{<questions name="/content/zh-hans/contribution/sample.json" completed="感谢您完成问题" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/contribution/sample.json" completed="感谢您完成问题" showNavigationButtons="false" locale="zh-hans">}}
 
 </div>
 

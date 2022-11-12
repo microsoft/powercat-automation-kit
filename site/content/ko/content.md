@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EC52F9865215B12E7431E612587049E77099A656
+generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 ---
 
 {{<toc>}}
@@ -70,6 +70,8 @@ generated: EC52F9865215B12E7431E612587049E77099A656
 - [자동화 키트 - 설치 검사 목록](/ko/get-started/install-checklist)
 
 - [자동화 키트 - Power BI 대시보드](/ko/get-started/install-powerbi-dashboard)
+
+- [자동화 키트 - 설정](/ko/get-started/setup)
 
 
 ### 위치: /근무 시간/

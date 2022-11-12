@@ -15,4 +15,4 @@ Leer hoe u een bijdrage kunt leveren aan de starterdocumentatie voor de {{<produ
 
 U kunt de onderstaande vragen gebruiken om uw installatie- en bijdrage-ervaring te begeleiden
 
-{{<questions name="/content/nl/contribution/documentation.json" completed="Bedankt voor het invullen van de installatievragen" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/contribution/documentation.json" completed="Bedankt voor het invullen van de installatievragen" showNavigationButtons="false" locale="nl">}}

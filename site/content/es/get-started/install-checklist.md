@@ -11,4 +11,4 @@ generated: 6B3C70823CD446692E18C53B960CF80490FFFE10
 
 Si está buscando probar o instalar el {{<product-name>}}, puede utilizar las siguientes preguntas para guiar el proceso de instalación
 
-{{<questions name="/content/es/get-started/install-checklist.json" completed="Gracias por completar la lista de comprobación de instalación" shownavigationbuttons="false" locale="es">}}
+{{<questions name="/content/es/get-started/install-checklist.json" completed="Gracias por completar la lista de comprobación de instalación" showNavigationButtons="false" locale="es">}}

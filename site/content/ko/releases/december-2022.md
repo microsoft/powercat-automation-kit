@@ -21,7 +21,7 @@ generated: 51182A2D941E81195362DDD5F64F44229C321384
 
 ## 피드백
 
-{{<questions name="/content/ko/releases/december-2022.json" completed="피드백을 제공해 주셔서 감사합니다." shownavigationbuttons="false" locale="ko">}}
+{{<questions name="/content/ko/releases/december-2022.json" completed="피드백을 제공해 주셔서 감사합니다." showNavigationButtons="false" locale="ko">}}
 
 </div>
 

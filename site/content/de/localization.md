@@ -69,4 +69,4 @@ Ja, wenn die Sprache von [Sprachunterstützung für Azure Cognitive Service](htt
 
 Was kann man Feedback zum Lokalisierungsprozess geben?
 
-{{<questions name="/content/de/localization.json" completed="Vielen Dank für das Ausfüllen der Fragen" shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/localization.json" completed="Vielen Dank für das Ausfüllen der Fragen" showNavigationButtons="false" locale="de">}}

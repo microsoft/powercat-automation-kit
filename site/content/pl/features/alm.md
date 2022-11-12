@@ -57,7 +57,7 @@ Przejrzyj nasze [Zaległości związane z zestawem automatyzacji ALM](https://gi
 
 ## Sprzężenie zwrotne
 
-{{<questions name="/content/pl/features/alm.json" completed="Dziękujemy za przekazanie opinii" shownavigationbuttons="false" locale="pl">}}
+{{<questions name="/content/pl/features/alm.json" completed="Dziękujemy za przekazanie opinii" showNavigationButtons="false" locale="pl">}}
 
 </div>
 

@@ -27,4 +27,4 @@ Cada sesión de horario de oficina dura una hora y tiene el siguiente formato:
 
 Puede usar el conjunto interactivo de preguntas para proporcionar el núcleo {{<product-name>}} El equipo comenta qué temas le gustaría cubrir como parte del horario de oficina y proporcione información sobre las preguntas "Hágame cualquier cosa".
 
-{{<questions name="/content/es/office-hours/november-2022.json" completed="Gracias por completar sus comentarios" shownavigationbuttons="false" locale="es">}}
+{{<questions name="/content/es/office-hours/november-2022.json" completed="Gracias por completar sus comentarios" showNavigationButtons="false" locale="es">}}

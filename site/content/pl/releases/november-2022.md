@@ -23,7 +23,7 @@ Listopadowe wydanie (sharp-archimedes) {{<product-name>}} jest trzecim publiczny
 
 ## Sprzężenie zwrotne
 
-{{<questions name="/content/pl/releases/november-2022.json" completed="Dziękujemy za przekazanie opinii" shownavigationbuttons="false" locale="pl">}}
+{{<questions name="/content/pl/releases/november-2022.json" completed="Dziękujemy za przekazanie opinii" showNavigationButtons="false" locale="pl">}}
 
 </div>
 

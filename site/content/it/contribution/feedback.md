@@ -46,4 +46,4 @@ Recensisci il nostro [Contributo](/it/contribution) pagina di orientamento.
 
 ## Valutazione
 
-{{<questions name="/content/it/contribution/feedback.json" completed="Grazie per aver fornito feedback" shownavigationbuttons="false" locale="it">}}
+{{<questions name="/content/it/contribution/feedback.json" completed="Grazie per aver fornito feedback" showNavigationButtons="false" locale="it">}}

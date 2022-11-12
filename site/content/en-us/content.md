@@ -70,6 +70,8 @@ include_footer: true
 
 - [Automation Kit - Power BI dashboard](/get-started/install-powerbi-dashboard)
 
+- [Automation Kit - Setup](/get-started/setup)
+
 
 ### Location: /office-hours/
 

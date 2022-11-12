@@ -57,7 +57,7 @@ Gennemgå vores [Automation Kit ALM-relateret efterslæb](https://github.com/mic
 
 ## Feedback
 
-{{<questions name="/content/da/features/alm.json" completed="Tak, fordi du gav feedback" shownavigationbuttons="false" locale="da">}}
+{{<questions name="/content/da/features/alm.json" completed="Tak, fordi du gav feedback" showNavigationButtons="false" locale="da">}}
 
 </div>
 

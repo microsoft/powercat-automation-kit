@@ -21,7 +21,7 @@ Januar-utgivelsen (kjekk-emmy) av {{<product-name>}} er den femte offentlige for
 
 ## Tilbakemelding
 
-{{<questions name="/content/nb/releases/january-2023.json" completed="Takk for at du gir tilbakemelding" shownavigationbuttons="false" locale="nb">}}
+{{<questions name="/content/nb/releases/january-2023.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}
 
 </div>
 

@@ -50,7 +50,7 @@ generated: 0087DF5B505764347AC2AF0B6C170474826A5D65
 
 ## フィードバック
 
-{{<questions name="/content/ja/features/alm/powercat.json" completed="フィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/features/alm/powercat.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}
 
 </div>
 

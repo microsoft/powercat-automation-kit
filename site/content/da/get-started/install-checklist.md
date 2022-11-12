@@ -11,4 +11,4 @@ generated: 6B3C70823CD446692E18C53B960CF80490FFFE10
 
 Hvis du ønsker at prøve at installere {{<product-name>}}, kan du bruge nedenstående spørgsmål til at guide din installationsproces
 
-{{<questions name="/content/da/get-started/install-checklist.json" completed="Tak, fordi du fuldførte installationstjeklisten" shownavigationbuttons="false" locale="da">}}
+{{<questions name="/content/da/get-started/install-checklist.json" completed="Tak, fordi du fuldførte installationstjeklisten" showNavigationButtons="false" locale="da">}}

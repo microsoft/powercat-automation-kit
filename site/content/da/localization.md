@@ -69,4 +69,4 @@ Ja, hvis sproget understøttes af [Sprogunderstøttelse af Azure Cognitive Servi
 
 Hvad skal jeg give feedback om lokaliseringsprocessen?
 
-{{<questions name="/content/da/localization.json" completed="Tak fordi du udfyldte spørgsmål" shownavigationbuttons="false" locale="da">}}
+{{<questions name="/content/da/localization.json" completed="Tak fordi du udfyldte spørgsmål" showNavigationButtons="false" locale="da">}}

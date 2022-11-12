@@ -34,7 +34,7 @@ Welkom bij de openbare preview van de {{<product-name>}}. Om te beginnen selecte
 
 ## Terugkoppeling
 
-{{<questions name="/content/nl/overview.json" completed="Bedankt voor het geven van feedback" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/overview.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}
 
 </div>
 

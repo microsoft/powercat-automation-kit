@@ -69,4 +69,4 @@ Sí, si el idioma es compatible con [Compatibilidad con el lenguaje de Azure Cog
 
 ¿Qué comentarios sobre el proceso de localización?
 
-{{<questions name="/content/es/localization.json" completed="Gracias por completar las preguntas" shownavigationbuttons="false" locale="es">}}
+{{<questions name="/content/es/localization.json" completed="Gracias por completar las preguntas" showNavigationButtons="false" locale="es">}}

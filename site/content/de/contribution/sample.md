@@ -23,7 +23,7 @@ Diese Seite enthält ein Beispiel für die Erstellung von Inhalten
 
 Verwenden Sie die folgenden Fragen, um verschiedene Feedback-Fragetypen zu untersuchen
 
-{{<questions name="/content/de/contribution/sample.json" completed="Vielen Dank für das Ausfüllen der Fragen" shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/contribution/sample.json" completed="Vielen Dank für das Ausfüllen der Fragen" showNavigationButtons="false" locale="de">}}
 
 </div>
 

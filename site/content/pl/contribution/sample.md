@@ -23,7 +23,7 @@ Ta strona zawiera przykład do tworzenia zawartości
 
 Skorzystaj z poniższych pytań, aby poznać różne typy pytań zwrotnych
 
-{{<questions name="/content/pl/contribution/sample.json" completed="Dziękujemy za wypełnienie pytań" shownavigationbuttons="false" locale="pl">}}
+{{<questions name="/content/pl/contribution/sample.json" completed="Dziękujemy za wypełnienie pytań" showNavigationButtons="false" locale="pl">}}
 
 </div>
 

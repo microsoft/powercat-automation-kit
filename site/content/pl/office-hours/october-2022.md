@@ -27,4 +27,4 @@ Każda sesja w godzinach pracy biura trwa godzinę i ma następujący format:
 
 Możesz użyć interaktywnego zestawu pytań, aby podać rdzeń {{<product-name>}} Opinie zespołu, jakie tematy chcesz omówić w ramach godzin pracy i podaj wkład w pytania "Zapytaj mnie o cokolwiek".
 
-{{<questions name="/content/pl/office-hours/october-2022.json" completed="Dziękujemy za wypełnienie opinii" shownavigationbuttons="false" locale="pl">}}
+{{<questions name="/content/pl/office-hours/october-2022.json" completed="Dziękujemy za wypełnienie opinii" showNavigationButtons="false" locale="pl">}}

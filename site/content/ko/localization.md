@@ -69,4 +69,4 @@ generated: 8C6838A1498CA84E45F7638050A2F7633E36ADA8
 
 지역화 프로세스에 대한 피드백을 제공하려면 어떻게 해야 합니까?
 
-{{<questions name="/content/ko/localization.json" completed="질문을 완료해 주셔서 감사합니다" shownavigationbuttons="false" locale="ko">}}
+{{<questions name="/content/ko/localization.json" completed="질문을 완료해 주셔서 감사합니다" showNavigationButtons="false" locale="ko">}}

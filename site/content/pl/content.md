@@ -4,7 +4,7 @@ description: "Automation Kit - Indeks witryny"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EC52F9865215B12E7431E612587049E77099A656
+generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 ---
 
 {{<toc>}}
@@ -70,6 +70,8 @@ generated: EC52F9865215B12E7431E612587049E77099A656
 - [Automation Kit - Lista kontrolna instalacji](/pl/get-started/install-checklist)
 
 - [Zestaw automatyzacji — pulpit nawigacyjny usługi Power BI](/pl/get-started/install-powerbi-dashboard)
+
+- [Automation Kit - Konfiguracja](/pl/get-started/setup)
 
 
 ### Lokalizacja: /office-hours/

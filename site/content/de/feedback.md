@@ -10,4 +10,4 @@ generated: 6B043B0D66B03D673094FDFC560E55CE573AAAAD
 
 Bitte geben Sie uns Ihr Feedback zu folgenden Fragen:
 
-{{<questions name="/content/de/feedback.json" completed="Vielen Dank für das Ausfüllen der Fragen" shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/feedback.json" completed="Vielen Dank für das Ausfüllen der Fragen" showNavigationButtons="false" locale="de">}}

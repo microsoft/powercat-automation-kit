@@ -21,4 +21,4 @@ Das [Automation Center of Excellence Strategie mit der {{<product-name>}}](https
 
 Verwenden Sie die folgenden Fragen, um Sie durch den Prozess der ersten Schritte zu führen
 
-{{<questions name="/content/de/checklist.json" completed="Vielen Dank für Ihr Feedback zu den ersten Schritten" shownavigationbuttons="false" locale="de">}}
+{{<questions name="/content/de/checklist.json" completed="Vielen Dank für Ihr Feedback zu den ersten Schritten" showNavigationButtons="false" locale="de">}}

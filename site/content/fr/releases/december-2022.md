@@ -21,7 +21,7 @@ La sortie en décembre (zealous-antonelli) du {{<product-name>}} est la quatriè
 
 ## Rétroaction
 
-{{<questions name="/content/fr/releases/december-2022.json" completed="Merci de nous avoir fait part de vos commentaires" shownavigationbuttons="false" locale="fr">}}
+{{<questions name="/content/fr/releases/december-2022.json" completed="Merci de nous avoir fait part de vos commentaires" showNavigationButtons="false" locale="fr">}}
 
 </div>
 

@@ -23,7 +23,7 @@ El lanzamiento de noviembre (sharp-archimedes) del {{<product-name>}} es la terc
 
 ## Retroalimentación
 
-{{<questions name="/content/es/releases/november-2022.json" completed="Gracias por proporcionar comentarios" shownavigationbuttons="false" locale="es">}}
+{{<questions name="/content/es/releases/november-2022.json" completed="Gracias por proporcionar comentarios" showNavigationButtons="false" locale="es">}}
 
 </div>
 

@@ -23,7 +23,7 @@ November-utgivelsen (skarp-archimedes) av {{<product-name>}} er den tredje offen
 
 ## Tilbakemelding
 
-{{<questions name="/content/nb/releases/november-2022.json" completed="Takk for at du gir tilbakemelding" shownavigationbuttons="false" locale="nb">}}
+{{<questions name="/content/nb/releases/november-2022.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}
 
 </div>
 

@@ -10,4 +10,4 @@ generated: 0EC6C87878D97132CB5E26CB117387283315219D
 
 以下の質問を使用して、登録解除を確認してください。
 
-{{<questions name="/content/ja/office-hours/unregister-confirm.json" completed="登録解除確認を完了していただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/office-hours/unregister-confirm.json" completed="登録解除確認を完了していただきありがとうございます" showNavigationButtons="false" locale="ja">}}

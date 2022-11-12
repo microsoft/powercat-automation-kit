@@ -23,7 +23,7 @@ Novemberutgåvan (sharp-archimedes) av {{<product-name>}} är den tredje offentl
 
 ## Feedback
 
-{{<questions name="/content/sv/releases/november-2022.json" completed="Tack för att du ger feedback" shownavigationbuttons="false" locale="sv">}}
+{{<questions name="/content/sv/releases/november-2022.json" completed="Tack för att du ger feedback" showNavigationButtons="false" locale="sv">}}
 
 </div>
 

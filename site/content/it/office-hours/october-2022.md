@@ -27,4 +27,4 @@ Ogni sessione di orario d'ufficio dura un'ora e ha il seguente formato:
 
 È possibile utilizzare il set interattivo di domande per fornire il nucleo {{<product-name>}} Feedback del team su quali argomenti vorresti trattare come parte dell'orario di ufficio e fornisci input alle domande "Any ask me anything".
 
-{{<questions name="/content/it/office-hours/october-2022.json" completed="Grazie per aver completato il feedback" shownavigationbuttons="false" locale="it">}}
+{{<questions name="/content/it/office-hours/october-2022.json" completed="Grazie per aver completato il feedback" showNavigationButtons="false" locale="it">}}

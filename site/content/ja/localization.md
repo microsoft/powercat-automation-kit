@@ -69,4 +69,4 @@ generated: 8C6838A1498CA84E45F7638050A2F7633E36ADA8
 
 ローカリゼーションプロセスに関するフィードバックは何ですか?
 
-{{<questions name="/content/ja/localization.json" completed="質問に回答していただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/localization.json" completed="質問に回答していただきありがとうございます" showNavigationButtons="false" locale="ja">}}

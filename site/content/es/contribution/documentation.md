@@ -15,4 +15,4 @@ Aprenda cómo comenzar a hacer una contribución a la documentación de inicio p
 
 Puede usar las siguientes preguntas para guiar su experiencia de configuración y contribución.
 
-{{<questions name="/content/es/contribution/documentation.json" completed="Gracias por completar las preguntas de configuración" shownavigationbuttons="false" locale="es">}}
+{{<questions name="/content/es/contribution/documentation.json" completed="Gracias por completar las preguntas de configuración" showNavigationButtons="false" locale="es">}}

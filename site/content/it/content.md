@@ -4,7 +4,7 @@ description: "Kit di automazione - Indice del sito"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EC52F9865215B12E7431E612587049E77099A656
+generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 ---
 
 {{<toc>}}
@@ -70,6 +70,8 @@ generated: EC52F9865215B12E7431E612587049E77099A656
 - [Automation Kit - Elenco di controllo per l'installazione](/it/get-started/install-checklist)
 
 - [Kit di automazione - Dashboard di Power BI](/it/get-started/install-powerbi-dashboard)
+
+- [Kit di automazione - Configurazione](/it/get-started/setup)
 
 
 ### Luogo: /office-hours/

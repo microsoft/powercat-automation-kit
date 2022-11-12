@@ -12,4 +12,4 @@ generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 
 ใช้คําถามด้านล่างกําหนดรูปแบบการครบกําหนดอัตโนมัติของคุณและค้นพบว่า {{<product-name>}} หรือโซลูชันอื่นๆ ที่เกี่ยวข้องสามารถช่วยคุณปรับปรุงวุฒิภาวะของระบบอัตโนมัติโดยใช้ Power Platform
 
-{{<questions name="/content/th/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/automation-maturity-model.json" completed="" showNavigationButtons="false" locale="th">}}

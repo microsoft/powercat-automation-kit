@@ -50,7 +50,7 @@ Nel complesso, ci basiamo sulle funzionalità esistenti di Power Platform e Micr
 
 ## Valutazione
 
-{{<questions name="/content/it/features/alm/powercat.json" completed="Grazie per aver fornito feedback" shownavigationbuttons="false" locale="it">}}
+{{<questions name="/content/it/features/alm/powercat.json" completed="Grazie per aver fornito feedback" showNavigationButtons="false" locale="it">}}
 
 </div>
 

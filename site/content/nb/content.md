@@ -4,7 +4,7 @@ description: "Automatisering Kit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EC52F9865215B12E7431E612587049E77099A656
+generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 ---
 
 {{<toc>}}
@@ -70,6 +70,8 @@ generated: EC52F9865215B12E7431E612587049E77099A656
 - [Automation Kit - Installer sjekkliste](/nb/get-started/install-checklist)
 
 - [Automatiseringssett – Power BI-instrumentbord](/nb/get-started/install-powerbi-dashboard)
+
+- [Automatiseringssett – oppsett](/nb/get-started/setup)
 
 
 ### Sted: /kontortid/

@@ -21,4 +21,4 @@ generated: 454A4990DCD77031642D2EDE36FE235A40DF66E0
 
 ใช้คําถามต่อไปนี้เพื่อช่วยแนะนําคุณตลอดกระบวนการเริ่มต้นใช้งาน
 
-{{<questions name="/content/th/checklist.json" completed="ขอขอบคุณสําหรับความคิดเห็นของคุณเริ่มต้นของคุณ" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/checklist.json" completed="ขอขอบคุณสําหรับความคิดเห็นของคุณเริ่มต้นของคุณ" showNavigationButtons="false" locale="th">}}

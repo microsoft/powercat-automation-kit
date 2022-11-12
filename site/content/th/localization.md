@@ -69,4 +69,4 @@ generated: 8C6838A1498CA84E45F7638050A2F7633E36ADA8
 
 สิ่งที่จะให้ข้อเสนอแนะเกี่ยวกับกระบวนการแปล?
 
-{{<questions name="/content/th/localization.json" completed="ขอบคุณสําหรับการกรอกคําถาม" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/localization.json" completed="ขอบคุณสําหรับการกรอกคําถาม" showNavigationButtons="false" locale="th">}}

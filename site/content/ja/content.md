@@ -4,7 +4,7 @@ description: "オートメーションキット - サイトインデックス"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EC52F9865215B12E7431E612587049E77099A656
+generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 ---
 
 {{<toc>}}
@@ -70,6 +70,8 @@ generated: EC52F9865215B12E7431E612587049E77099A656
 - [自動化キット - インストール・チェックリスト](/ja/get-started/install-checklist)
 
 - [オートメーション キット - Power BI ダッシュボード](/ja/get-started/install-powerbi-dashboard)
+
+- [オートメーションキット - セットアップ](/ja/get-started/setup)
 
 
 ### 場所: /営業時間/

@@ -10,4 +10,4 @@ generated: 0EC6C87878D97132CB5E26CB117387283315219D
 
 Veuillez utiliser les questions ci-dessous pour confirmer votre désinscription.
 
-{{<questions name="/content/fr/office-hours/unregister-confirm.json" completed="Merci d’avoir complété la confirmation de désinscription" shownavigationbuttons="false" locale="fr">}}
+{{<questions name="/content/fr/office-hours/unregister-confirm.json" completed="Merci d’avoir complété la confirmation de désinscription" showNavigationButtons="false" locale="fr">}}

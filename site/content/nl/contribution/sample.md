@@ -23,7 +23,7 @@ Deze pagina biedt een voorbeeld voor het ontwerpen van inhoud
 
 Gebruik de onderstaande vragen om verschillende soorten feedbackvragen te verkennen
 
-{{<questions name="/content/nl/contribution/sample.json" completed="Bedankt voor het invullen van de vragen" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/contribution/sample.json" completed="Bedankt voor het invullen van de vragen" showNavigationButtons="false" locale="nl">}}
 
 </div>
 

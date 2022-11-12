@@ -57,7 +57,7 @@ Automation Kit チームは、ALM アクセラレータ チームと協力して
 
 ## フィードバック
 
-{{<questions name="/content/ja/features/alm.json" completed="フィードバックをお寄せいただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/features/alm.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}
 
 </div>
 

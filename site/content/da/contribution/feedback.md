@@ -46,4 +46,4 @@ Gennemgå vores [Bidrag](/da/contribution) vejledning side.
 
 ## Feedback
 
-{{<questions name="/content/da/contribution/feedback.json" completed="Tak, fordi du gav feedback" shownavigationbuttons="false" locale="da">}}
+{{<questions name="/content/da/contribution/feedback.json" completed="Tak, fordi du gav feedback" showNavigationButtons="false" locale="da">}}

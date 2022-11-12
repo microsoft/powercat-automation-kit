@@ -21,7 +21,7 @@ La versione di gennaio (nifty-emmy) del {{<product-name>}} è la quinta versione
 
 ## Valutazione
 
-{{<questions name="/content/it/releases/january-2023.json" completed="Grazie per aver fornito feedback" shownavigationbuttons="false" locale="it">}}
+{{<questions name="/content/it/releases/january-2023.json" completed="Grazie per aver fornito feedback" showNavigationButtons="false" locale="it">}}
 
 </div>
 

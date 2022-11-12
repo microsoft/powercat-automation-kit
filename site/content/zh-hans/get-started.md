@@ -21,4 +21,4 @@ generated: 454A4990DCD77031642D2EDE36FE235A40DF66E0
 
 使用以下问题帮助指导您完成入门过程
 
-{{<questions name="/content/zh-hans/checklist.json" completed="感谢您的入门反馈" shownavigationbuttons="false" locale="zh-hans">}}
+{{<questions name="/content/zh-hans/checklist.json" completed="感谢您的入门反馈" showNavigationButtons="false" locale="zh-hans">}}

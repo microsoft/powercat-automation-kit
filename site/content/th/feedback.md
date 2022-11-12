@@ -10,4 +10,4 @@ generated: 6B043B0D66B03D673094FDFC560E55CE573AAAAD
 
 โปรดให้คําติชมของคุณสําหรับคําถามต่อไปนี้:
 
-{{<questions name="/content/th/feedback.json" completed="ขอบคุณสําหรับการกรอกคําถาม" shownavigationbuttons="false" locale="th">}}
+{{<questions name="/content/th/feedback.json" completed="ขอบคุณสําหรับการกรอกคําถาม" showNavigationButtons="false" locale="th">}}

@@ -34,7 +34,7 @@ Välkommen till den offentliga förhandsversionen av {{<product-name>}}. För at
 
 ## Feedback
 
-{{<questions name="/content/sv/overview.json" completed="Tack för att du ger feedback" shownavigationbuttons="false" locale="sv">}}
+{{<questions name="/content/sv/overview.json" completed="Tack för att du ger feedback" showNavigationButtons="false" locale="sv">}}
 
 </div>
 

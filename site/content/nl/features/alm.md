@@ -57,7 +57,7 @@ Bekijk onze [Automation Kit ALM gerelateerde backlog](https://github.com/microso
 
 ## Terugkoppeling
 
-{{<questions name="/content/nl/features/alm.json" completed="Bedankt voor het geven van feedback" shownavigationbuttons="false" locale="nl">}}
+{{<questions name="/content/nl/features/alm.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}
 
 </div>
 

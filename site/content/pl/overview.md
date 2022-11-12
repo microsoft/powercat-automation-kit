@@ -34,7 +34,7 @@ Witamy w publicznej wersji zapoznawczej programu {{<product-name>}}. Aby rozpocz
 
 ## Sprzężenie zwrotne
 
-{{<questions name="/content/pl/overview.json" completed="Dziękujemy za przekazanie opinii" shownavigationbuttons="false" locale="pl">}}
+{{<questions name="/content/pl/overview.json" completed="Dziękujemy za przekazanie opinii" showNavigationButtons="false" locale="pl">}}
 
 </div>
 

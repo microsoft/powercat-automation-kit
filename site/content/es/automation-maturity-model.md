@@ -12,4 +12,4 @@ generated: 16CB02E14D1EF4E3443EAC72E0B77E325F032C42
 
 Utilice las siguientes preguntas para determinar su modelo de madurez de automatización y descubra cómo el {{<product-name>}} u otras soluciones relacionadas pueden ayudarle a mejorar la madurez de la automatización mediante Power Platform.
 
-{{<questions name="/content/es/automation-maturity-model.json" completed="" shownavigationbuttons="false" locale="es">}}
+{{<questions name="/content/es/automation-maturity-model.json" completed="" showNavigationButtons="false" locale="es">}}

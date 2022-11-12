@@ -21,4 +21,4 @@ generated: 454A4990DCD77031642D2EDE36FE235A40DF66E0
 
 다음 질문을 사용하여 시작 프로세스를 안내합니다.
 
-{{<questions name="/content/ko/checklist.json" completed="시작 피드백에 감사드립니다." shownavigationbuttons="false" locale="ko">}}
+{{<questions name="/content/ko/checklist.json" completed="시작 피드백에 감사드립니다." showNavigationButtons="false" locale="ko">}}

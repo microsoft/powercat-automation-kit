@@ -10,4 +10,4 @@ generated: 6B043B0D66B03D673094FDFC560E55CE573AAAAD
 
 Veuillez fournir vos commentaires aux questions suivantes :
 
-{{<questions name="/content/fr/feedback.json" completed="Merci d’avoir répondu aux questions" shownavigationbuttons="false" locale="fr">}}
+{{<questions name="/content/fr/feedback.json" completed="Merci d’avoir répondu aux questions" showNavigationButtons="false" locale="fr">}}

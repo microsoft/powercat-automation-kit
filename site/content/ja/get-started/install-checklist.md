@@ -11,4 +11,4 @@ generated: 6B3C70823CD446692E18C53B960CF80490FFFE10
 
 {{<product-name>}}、以下の質問を使用してインストールプロセスをガイドできます
 
-{{<questions name="/content/ja/get-started/install-checklist.json" completed="インストールチェックリストを完了していただきありがとうございます" shownavigationbuttons="false" locale="ja">}}
+{{<questions name="/content/ja/get-started/install-checklist.json" completed="インストールチェックリストを完了していただきありがとうございます" showNavigationButtons="false" locale="ja">}}
