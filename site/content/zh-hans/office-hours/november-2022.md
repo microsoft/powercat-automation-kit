@@ -4,7 +4,7 @@ description: "自动化套件 - 办公时间 2022 年 11 月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: E71CE811F0900FD477E5AB42197E1FDBE4D633F3
+generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
 欢迎来到电源平台自动化工具包 2022 年 11 月办公时间登录页面。

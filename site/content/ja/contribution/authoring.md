@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 以下のセクションでは、スターター ドキュメントを作成するためのガイドラインとメモの概要を説明します。
@@ -110,7 +110,7 @@ include_footer: true
 で囲まれたページに一連の質問を含めます\{\{ および\}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 パラメーター：

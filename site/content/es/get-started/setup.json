@@ -21,29 +21,29 @@
             {
               "value": "Main solution",
               "text": {
-                "default": "Main solution",
-                "es": "Solución principal"
+                "default": null,
+                "es": null
               }
             },
             {
               "value": "Satellite solution",
               "text": {
-                "default": "Satellite solution",
-                "es": "Solución satelital"
-              }
-            },
-            {
-              "value": "Data Import",
-              "text": {
-                "default": "Data Import",
-                "es": "Importación de datos"
+                "default": null,
+                "es": null
               }
             },
             {
               "value": "Security Group Setup",
               "text": {
-                "default": "Security Group Setup",
-                "es": "Configuración del grupo de seguridad"
+                "default": null,
+                "es": null
+              }
+            },
+            {
+              "value": "Data Import - Main Solution",
+              "text": {
+                "default": null,
+                "es": null
               }
             }
           ]
@@ -52,85 +52,774 @@
     },
     {
       "title": {
-        "default": "Main Solution - Connections",
-        "es": "Solución principal - Conexiones"
+        "default": "Main Solution",
+        "es": "Solución principal"
       },
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
-          "type": "paneldynamic",
-          "name": "main-connections",
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "es": "Para el entorno de instalación, visite <a href='https://make.powerapps.com' target='blank'>make.powerapps.com seleccione el</a> icono Inicio del entorno en el que desea instalar los componentes del Kit de automatización"
+          }
+        },
+        {
+          "name": "main-installEnvironment",
+          "type": "text",
           "title": {
-            "default": "Please provide one of each of the following the connections",
-            "es": "Proporcione una de las siguientes conexiones"
+            "default": "Copy Install Environment home link",
+            "es": "Copiar vínculo de inicio del entorno de instalación"
           },
-          "minPanelCount": 5,
-          "maxPanelCount": 5,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "es": "Debe ser un entorno de Power Platform válido que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "This environment could be the same environment as the CoE Kit. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "es": "Este entorno podría ser el mismo entorno que el kit CoE. Necesitará una configuración de directiva de prevención de pérdida de datos que permita la creación de las conexiones siguientes. Este entorno también requerirá el</a> <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit instalado y <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Habilitar la característica del marco de componentes de Power Apps</a> configurada."
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_approvals",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-approvalConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Approval Connection details page link here",
+            "es": "Copiar enlace de la página de detalles de conexión de aprobación aquí"
+          },
+          "isRequired": true,
+          "startWithNewLine": false,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Approvals connector is used to approve or deny Automation Project requests",
+            "es": "El conector de aprobaciones se utiliza para aprobar o denegar solicitudes de proyectos de automatización"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "es": "Copie el vínculo de la página de detalles de Microsoft Dataverse Connection aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "es": "El conector de Dataverse se usa para almacenar el proyecto del Kit de automatización y los datos de telemetría"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_office365",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "es": "Copie el vínculo de la página de detalles de conexión de Outlook de Office 365 aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "es": "El conector de Office 365 se usa para enviar correos electrónicos como parte del proceso de administración del Kit de automatización"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_office365users",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-offiec365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "es": "Copiar el vínculo de la página de detalles de conexión de usuario de Office 365 aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "es": "El conector de usuarios de Office 365 se usa para consultar información de usuario del gráfico de Office 365"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "es": "Copiar el enlace de la página de detalles de la conexión de automatización de Power Platform for Admins aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "es": "El conector de automatización de Power Platform for Admins se usa para consultar información sobre las soluciones implementadas"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Security Group Setup",
+        "es": "Solución principal: configuración del grupo de seguridad"
+      },
+      "visibleIf": "contains({installType}, 'Main solution') and contains({installType}, 'Security Group Setup')",
+      "elements": [
+        {
+          "type": "paneldynamic",
+          "name": "main-administrators",
+          "title": {
+            "default": "Please add Automation Kit members for the Automation Administrators Security Group",
+            "es": "Agregue miembros del Kit de automatización para el grupo de seguridad Administradores de automatización"
+          },
           "templateElements": [
             {
-              "name": "connectionType",
-              "type": "dropdown",
-              "title": {
-                "default": "Connection",
-                "es": "Conexión"
-              },
-              "choices": [
-                {
-                  "value": "Approvals",
-                  "text": {
-                    "default": "Approvals",
-                    "es": "Aprobaciones"
-                  }
-                },
-                {
-                  "value": "Microsoft Dataverse",
-                  "text": {
-                    "default": "Microsoft Dataverse",
-                    "es": "Microsoft Dataverse"
-                  }
-                },
-                {
-                  "value": "Office 365 Users",
-                  "text": {
-                    "default": "Office 365 Users",
-                    "es": "Usuarios de Office 365"
-                  }
-                },
-                {
-                  "value": "Office 365 Outlook",
-                  "text": {
-                    "default": "Office 365 Outlook",
-                    "es": "Office 365 Outlook"
-                  }
-                },
-                {
-                  "value": "Power Platform for Admins Automation",
-                  "text": {
-                    "default": "Power Platform for Admins Automation",
-                    "es": "Power Platform para la automatización de administradores"
-                  }
-                }
-              ],
-              "isRequired": true
-            },
-            {
-              "name": "url",
+              "name": "user",
               "type": "text",
+              "inputMask": "email",
               "title": {
-                "default": "Connection Link",
-                "es": "Enlace de conexión"
+                "default": "User or group email address",
+                "es": "Dirección de correo electrónico del usuario o grupo"
               },
               "isRequired": true,
-              "startWithNewLine": false,
               "validators": [
                 {
-                  "type": "regex",
-                  "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                  "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "es": "El valor debe ser una dirección de correo electrónico válida"
+                  }
                 }
               ]
             }
           ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-contributors",
+          "title": {
+            "default": "Please add Automation Kit contributors that can view and edit Automation Projects",
+            "es": "Agregue colaboradores del Kit de automatización que puedan ver y editar proyectos de automatización"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "inputMask": "email",
+              "title": {
+                "default": "User or group email address",
+                "es": "Dirección de correo electrónico del usuario o grupo"
+              },
+              "isRequired": true,
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "es": "El valor debe ser una dirección de correo electrónico válida"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-viewers",
+          "title": {
+            "default": "Please add Automation Kit contributors that can review and view Automation Projects",
+            "es": "Agregue colaboradores del Kit de automatización que puedan revisar y ver los proyectos de automatización"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "title": {
+                "default": "User or group email address",
+                "es": "Dirección de correo electrónico del usuario o grupo"
+              },
+              "isRequired": true,
+              "inputMask": "email",
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "es": "El valor debe ser una dirección de correo electrónico válida"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your main configuration file that will be used to customize your deployment",
+            "es": "Use el botón de descarga siguiente para obtener el archivo de configuración principal que se usará para personalizar la implementación"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "es": "Descargar resultados"
+          },
+          "text": {
+            "default": "Download",
+            "es": "Descargar"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-main-install.json",
+          "filter": "main"
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Connections",
+        "es": "Solución satelital - Conexiones"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "es": "Para el entorno de instalación, visite <a href='https://make.powerapps.com' target='blank'>make.powerapps.com seleccione el</a> icono Inicio del entorno en el que desea instalar los componentes del Kit de automatización"
+          }
+        },
+        {
+          "name": "satellite-installEnvironment",
+          "type": "text",
+          "title": {
+            "default": "Copy Install Environment home link",
+            "es": "Copiar vínculo de inicio del entorno de instalación"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "es": "Debe ser un entorno de Power Platform válido que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "es": "<b>nota:</b> Este entorno DEBE ser diferente al entorno principal. Necesitará una configuración de directiva de prevención de pérdida de datos que permita la creación de las conexiones siguientes. Este entorno también requerirá el</a> <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit instalado y <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Habilitar la característica del marco de componentes de Power Apps</a> configurada."
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_commondataservice",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseLegacyConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse (Legacy) Connection details page link here",
+            "es": "Copie el vínculo de la página de detalles de conexión de Microsoft Dataverse (heredado) aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse Legacy connector is used to connect to your main Dataverse environment",
+            "es": "El conector Dataverse Legacy se utiliza para conectarse a su entorno principal de Dataverse"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "es": "Copie el vínculo de la página de detalles de Microsoft Dataverse Connection aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "es": "El conector de Dataverse se usa para almacenar el proyecto del Kit de automatización y los datos de telemetría"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_flowmanagement",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-flowManagementConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Flow Management Connection details page link here",
+            "es": "Enlace a la página de detalles de conexión de Copy Flow Management aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Flow Management connector is used to query Power Automate flows in the environment",
+            "es": "El conector de administración de flujo se usa para consultar flujos de Power Automate en el entorno"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_office365",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "es": "Copie el vínculo de la página de detalles de conexión de Outlook de Office 365 aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "es": "El conector de Office 365 se usa para enviar correos electrónicos como parte del proceso de administración del Kit de automatización"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_office365users",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "es": "Copiar el vínculo de la página de detalles de conexión de usuario de Office 365 aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "es": "El conector de usuarios de Office 365 se usa para consultar información de usuario del gráfico de Office 365"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "es": "Crear"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "es": "Copiar el enlace de la página de detalles de la conexión de automatización de Power Platform for Admins aquí"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "es": "Debe ser un vínculo de conexión válido de Power Platform que comience por https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "es": "El conector de automatización de Power Platform for Admins se usa para consultar información sobre las soluciones implementadas"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Environment Variables",
+        "es": "Solución satelital - Variables de entorno"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below",
+            "es": "Siga [Guía de configuración de variables de entorno] (https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) para obtener los valores de los elementos siguientes"
+          }
+        },
+        {
+          "name": "satellite-azureKeyVaultClientId",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Id Secret",
+            "es": "Secreto de ID de cliente de AKV"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultClientSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Secret Secret",
+            "es": "Secreto de cliente de AKV"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultTenantIdSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Tenant Id Secret",
+            "es": "Secreto de ID de inquilino de AKV"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationCoEAlertEmailRecipient",
+          "type": "text",
+          "title": {
+            "default": "Automation CoE Alert Email Recipient",
+            "es": "Destinatario de correo electrónico de alerta del CoE de automatización"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationProjectAppId",
+          "type": "text",
+          "title": {
+            "default": "Automation Project app Id",
+            "es": "Identificador de aplicación de proyecto de automatización"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-desktopFlowsBaseUrl",
+          "type": "text",
+          "title": {
+            "default": "Desktop Flows Base URL",
+            "es": "Dirección URL base de flujos de escritorio"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentId",
+          "type": "text",
+          "title": {
+            "default": "Environment Id",
+            "es": "ID de entorno"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentName",
+          "type": "text",
+          "title": {
+            "default": "Environment Name",
+            "es": "Nombre del entorno"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentRegion",
+          "type": "text",
+          "title": {
+            "default": "Environment Region",
+            "es": "Región de Medio Ambiente"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueName",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name",
+            "es": "Nombre único del entorno"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueNameMain",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name (Automation Kit Main)",
+            "es": "Nombre único del entorno (Automation Kit Main)"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUrl",
+          "type": "text",
+          "title": {
+            "default": "Environment Url",
+            "es": "Dirección URL del entorno"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-flowSessionTraceRecordOwnerId",
+          "type": "text",
+          "title": {
+            "default": "Flow Session Trace Record Owner Id",
+            "es": "ID de propietario del registro de seguimiento de sesión de flujo"
+          },
+          "isRequired": true
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your satellite configuration file that will be used to customize your deployment",
+            "es": "Use el botón de descarga siguiente para obtener el archivo de configuración de satélite que se usará para personalizar la implementación"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "es": "Descargar resultados"
+          },
+          "text": {
+            "default": "Download",
+            "es": "Descargar"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-satellite-install.json",
+          "filter": "satellite"
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
+            "es": "<b>nota:</b> Use la página de documentación <a href='/features/datapack' target='blank'>Data Packs</a> para obtener instrucciones sobre cómo instalar la solución principal con datos de ejemplo"
+          }
         }
       ]
     }

@@ -209,6 +209,7 @@
 
 
 
+
 <script>
     
     
@@ -235,7 +236,69 @@
             this.feedbackTask();
             this.importTask();
             this.imageTask();
+            this.downloadTask();
             this.handoffTask();
+        }
+
+        downloadTask() {
+            var widget = {
+                name: "download-task",
+                title: "Download Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "download-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='downloadLink'>Herunterladen</a><a id='downloadData' style='display:none'></a></div>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "download-task", [
+                        {
+                            name: "filter",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "text",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        question.survey.setValue(question.name + '_loaded', true)
+                        $("#downloadLink").html(question.text);
+                        $("#downloadLink").on("click", function() {
+                            var jsonString = JSON.stringify(question.survey.data);
+                            var blob = new Blob([jsonString], { type: 'application/json' });
+                            var anchor = document.getElementById('downloadData');
+                            anchor.download = 'results.json';
+                            anchor.href = window.URL.createObjectURL(blob);
+                            anchor.dataset.downloadUrl = [ 'application/json', anchor.download, anchor.href].join(':');
+                            anchor.click()
+                        });
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
         handoffTask() {

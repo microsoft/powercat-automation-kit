@@ -4,7 +4,7 @@ description: "Automation Kit - Dezember 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 51182A2D941E81195362DDD5F64F44229C321384
+generated: 28D5F6EB75D3937AB213D31DF16FC48616F1C6E9
 ---
 
 <div class="optional">

@@ -28,6 +28,8 @@ include_footer: true
 
 - [Automation Kit - Modules](/modules)
 
+- [Automation Kit - Monitoring Compare](/monitoring-compare)
+
 - [Automation Kit - Office Hours](/office-hours)
 
 - [Automation Kit - Overview](/overview)

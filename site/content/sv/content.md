@@ -4,7 +4,7 @@ description: "Automation Kit - Webbplatsindex"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7C1A1321B728D0B762F1109973D5940D127743A1
+generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 ---
 
 {{<toc>}}
@@ -28,6 +28,8 @@ generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 - [Automation Kit – RPA-migrering](/sv/migration)
 
 - [Automation Kit - Moduler](/sv/modules)
+
+- [Automation Kit - Övervakning Jämför](/sv/monitoring-compare)
 
 - [Automation Kit - Kontorstid](/sv/office-hours)
 

@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 Nelle sezioni seguenti vengono illustrate le linee guida e le note per la creazione della documentazione introduttiva.
@@ -110,7 +110,7 @@ Aggiungere il comando **Toc** seguendo lo shortcode al markdown per includere un
 Includi una serie di domande nella tua pagina circondata da \{\{ e \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 Parametri:

@@ -21,29 +21,29 @@
             {
               "value": "Main solution",
               "text": {
-                "default": "Main solution",
-                "nl": "Hoofdoplossing"
+                "default": null,
+                "nl": null
               }
             },
             {
               "value": "Satellite solution",
               "text": {
-                "default": "Satellite solution",
-                "nl": "Satelliet oplossing"
-              }
-            },
-            {
-              "value": "Data Import",
-              "text": {
-                "default": "Data Import",
-                "nl": "Gegevens importeren"
+                "default": null,
+                "nl": null
               }
             },
             {
               "value": "Security Group Setup",
               "text": {
-                "default": "Security Group Setup",
-                "nl": "Beveiligingsgroep instellen"
+                "default": null,
+                "nl": null
+              }
+            },
+            {
+              "value": "Data Import - Main Solution",
+              "text": {
+                "default": null,
+                "nl": null
               }
             }
           ]
@@ -52,85 +52,774 @@
     },
     {
       "title": {
-        "default": "Main Solution - Connections",
-        "nl": "Hoofdoplossing - Verbindingen"
+        "default": "Main Solution",
+        "nl": "Hoofdoplossing"
       },
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
-          "type": "paneldynamic",
-          "name": "main-connections",
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "nl": "Ga voor de installatieomgeving naar <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> selecteer het startpictogram voor uw omgeving waarin u de Automation Kit-componenten wilt installeren"
+          }
+        },
+        {
+          "name": "main-installEnvironment",
+          "type": "text",
           "title": {
-            "default": "Please provide one of each of the following the connections",
-            "nl": "Geef een van de volgende verbindingen op"
+            "default": "Copy Install Environment home link",
+            "nl": "Koppeling Installatieomgeving kopiëren"
           },
-          "minPanelCount": 5,
-          "maxPanelCount": 5,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-omgeving zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "This environment could be the same environment as the CoE Kit. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "nl": "Deze omgeving zou dezelfde omgeving kunnen zijn als de CoE Kit. U hebt een beleidsinstelling voor preventie van gegevensverlies nodig waarmee de onderstaande verbindingen kunnen worden gemaakt. Voor deze omgeving is ook de <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> geïnstalleerd en <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Het power Apps-componentframework configureren</a>."
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_approvals",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-approvalConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Approval Connection details page link here",
+            "nl": "Kopieer goedkeuring Verbindingsdetails pagina link hier"
+          },
+          "isRequired": true,
+          "startWithNewLine": false,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Approvals connector is used to approve or deny Automation Project requests",
+            "nl": "De connector Goedkeuringen wordt gebruikt om aanvragen voor automatiseringsprojecten goed te keuren of te weigeren"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "nl": "Kopieer microsoft dataverse verbinding details pagina link hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "nl": "De Dataverse-connector wordt gebruikt om uw Automation Kit-project en telemetriegegevens op te slaan"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_office365",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "nl": "Kopieer office 365 Outlook Connection details pagina koppeling hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "nl": "De Office 365-connector wordt gebruikt om e-mails te verzenden als onderdeel van het Automation Kit-beheerproces"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_office365users",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-offiec365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "nl": "Kopieer de koppeling naar de pagina Met details van Office 365-gebruikersverbinding hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "nl": "De Office 365-gebruikersconnector wordt gebruikt om gebruikersgegevens op te vragen uit de Office 365-grafiek"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "nl": "Kopieer Power Platform for Admins Automation Connection details pagina link hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "nl": "De Power Platform for Admins Automation-connector wordt gebruikt om informatie over uw geïmplementeerde oplossingen op te vragen"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Security Group Setup",
+        "nl": "Hoofdoplossing - Beveiligingsgroep instellen"
+      },
+      "visibleIf": "contains({installType}, 'Main solution') and contains({installType}, 'Security Group Setup')",
+      "elements": [
+        {
+          "type": "paneldynamic",
+          "name": "main-administrators",
+          "title": {
+            "default": "Please add Automation Kit members for the Automation Administrators Security Group",
+            "nl": "Voeg Automation Kit-leden toe voor de Automation Administrators Security Group"
+          },
           "templateElements": [
             {
-              "name": "connectionType",
-              "type": "dropdown",
-              "title": {
-                "default": "Connection",
-                "nl": "Verbinding"
-              },
-              "choices": [
-                {
-                  "value": "Approvals",
-                  "text": {
-                    "default": "Approvals",
-                    "nl": "Goedkeuringen"
-                  }
-                },
-                {
-                  "value": "Microsoft Dataverse",
-                  "text": {
-                    "default": "Microsoft Dataverse",
-                    "nl": "Microsoft Dataverse"
-                  }
-                },
-                {
-                  "value": "Office 365 Users",
-                  "text": {
-                    "default": "Office 365 Users",
-                    "nl": "Office 365-gebruikers"
-                  }
-                },
-                {
-                  "value": "Office 365 Outlook",
-                  "text": {
-                    "default": "Office 365 Outlook",
-                    "nl": "Office 365 Outlook"
-                  }
-                },
-                {
-                  "value": "Power Platform for Admins Automation",
-                  "text": {
-                    "default": "Power Platform for Admins Automation",
-                    "nl": "Power Platform voor beheerdersautomatisering"
-                  }
-                }
-              ],
-              "isRequired": true
-            },
-            {
-              "name": "url",
+              "name": "user",
               "type": "text",
+              "inputMask": "email",
               "title": {
-                "default": "Connection Link",
-                "nl": "Verbindingslink"
+                "default": "User or group email address",
+                "nl": "E-mailadres van gebruiker of groep"
               },
               "isRequired": true,
-              "startWithNewLine": false,
               "validators": [
                 {
-                  "type": "regex",
-                  "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                  "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "nl": "Waarde moet een geldig e-mailadres zijn"
+                  }
                 }
               ]
             }
           ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-contributors",
+          "title": {
+            "default": "Please add Automation Kit contributors that can view and edit Automation Projects",
+            "nl": "Voeg Automation Kit-bijdragers toe die automatiseringsprojecten kunnen bekijken en bewerken"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "inputMask": "email",
+              "title": {
+                "default": "User or group email address",
+                "nl": "E-mailadres van gebruiker of groep"
+              },
+              "isRequired": true,
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "nl": "Waarde moet een geldig e-mailadres zijn"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-viewers",
+          "title": {
+            "default": "Please add Automation Kit contributors that can review and view Automation Projects",
+            "nl": "Voeg Automation Kit-bijdragers toe die automatiseringsprojecten kunnen bekijken en bekijken"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "title": {
+                "default": "User or group email address",
+                "nl": "E-mailadres van gebruiker of groep"
+              },
+              "isRequired": true,
+              "inputMask": "email",
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "nl": "Waarde moet een geldig e-mailadres zijn"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your main configuration file that will be used to customize your deployment",
+            "nl": "Gebruik de onderstaande downloadknop om uw hoofdconfiguratiebestand te verkrijgen dat wordt gebruikt om uw implementatie aan te passen"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "nl": "Resultaten downloaden"
+          },
+          "text": {
+            "default": "Download",
+            "nl": "Downloaden"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-main-install.json",
+          "filter": "main"
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Connections",
+        "nl": "Satellietoplossing - Verbindingen"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "nl": "Ga voor de installatieomgeving naar <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> selecteer het startpictogram voor uw omgeving waarin u de Automation Kit-componenten wilt installeren"
+          }
+        },
+        {
+          "name": "satellite-installEnvironment",
+          "type": "text",
+          "title": {
+            "default": "Copy Install Environment home link",
+            "nl": "Koppeling Installatieomgeving kopiëren"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-omgeving zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "nl": "<b>notitie:</b> Deze omgeving MOET anders zijn dan de hoofdomgeving. U hebt een beleidsinstelling voor preventie van gegevensverlies nodig waarmee de onderstaande verbindingen kunnen worden gemaakt. Voor deze omgeving is ook de <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> geïnstalleerd en <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Het power Apps-componentframework configureren</a>."
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_commondataservice",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseLegacyConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse (Legacy) Connection details page link here",
+            "nl": "Kopieer microsoft dataverse (legacy) verbinding details pagina link hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse Legacy connector is used to connect to your main Dataverse environment",
+            "nl": "De Dataverse Legacy-connector wordt gebruikt om verbinding te maken met uw hoofdomgeving"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "nl": "Kopieer microsoft dataverse verbinding details pagina link hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "nl": "De Dataverse-connector wordt gebruikt om uw Automation Kit-project en telemetriegegevens op te slaan"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_flowmanagement",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-flowManagementConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Flow Management Connection details page link here",
+            "nl": "Kopieer flow management verbindingsdetails pagina link hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Flow Management connector is used to query Power Automate flows in the environment",
+            "nl": "De flowmanagementconnector wordt gebruikt om Power Automate-stromen in de omgeving op te vragen"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_office365",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "nl": "Kopieer office 365 Outlook Connection details pagina koppeling hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "nl": "De Office 365-connector wordt gebruikt om e-mails te verzenden als onderdeel van het Automation Kit-beheerproces"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_office365users",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "nl": "Kopieer de koppeling naar de pagina Met details van Office 365-gebruikersverbinding hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "nl": "De Office 365-gebruikersconnector wordt gebruikt om gebruikersgegevens op te vragen uit de Office 365-grafiek"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "nl": "Scheppen"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "nl": "Kopieer Power Platform for Admins Automation Connection details pagina link hier"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "nl": "Moet een geldige Power Platform-verbindingskoppeling zijn die begint met https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "nl": "De Power Platform for Admins Automation-connector wordt gebruikt om informatie over uw geïmplementeerde oplossingen op te vragen"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Environment Variables",
+        "nl": "Satellietoplossing - Omgevingsvariabelen"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below",
+            "nl": "Volg [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) om de waarden voor de onderstaande items te verkrijgen"
+          }
+        },
+        {
+          "name": "satellite-azureKeyVaultClientId",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Id Secret",
+            "nl": "AKV Client Id Geheim"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultClientSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Secret Secret",
+            "nl": "AKV Client Geheim Geheim"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultTenantIdSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Tenant Id Secret",
+            "nl": "AKV Tenant Id Geheim"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationCoEAlertEmailRecipient",
+          "type": "text",
+          "title": {
+            "default": "Automation CoE Alert Email Recipient",
+            "nl": "Domotica CoE Alert E-mail ontvanger"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationProjectAppId",
+          "type": "text",
+          "title": {
+            "default": "Automation Project app Id",
+            "nl": "Id van de Automation Project-app"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-desktopFlowsBaseUrl",
+          "type": "text",
+          "title": {
+            "default": "Desktop Flows Base URL",
+            "nl": "Basis-URL voor desktopstromen"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentId",
+          "type": "text",
+          "title": {
+            "default": "Environment Id",
+            "nl": "Milieu-id"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentName",
+          "type": "text",
+          "title": {
+            "default": "Environment Name",
+            "nl": "Naam omgeving"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentRegion",
+          "type": "text",
+          "title": {
+            "default": "Environment Region",
+            "nl": "Milieu Regio"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueName",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name",
+            "nl": "Omgeving Unieke naam"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueNameMain",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name (Automation Kit Main)",
+            "nl": "Unieke naam omgeving (Automation Kit Main)"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUrl",
+          "type": "text",
+          "title": {
+            "default": "Environment Url",
+            "nl": "Milieu URL"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-flowSessionTraceRecordOwnerId",
+          "type": "text",
+          "title": {
+            "default": "Flow Session Trace Record Owner Id",
+            "nl": "Eigenaar-id van stroomsessietraceringsrecord"
+          },
+          "isRequired": true
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your satellite configuration file that will be used to customize your deployment",
+            "nl": "Gebruik de downloadknop hieronder om uw satellietconfiguratiebestand te verkrijgen dat wordt gebruikt om uw implementatie aan te passen"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "nl": "Resultaten downloaden"
+          },
+          "text": {
+            "default": "Download",
+            "nl": "Downloaden"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-satellite-install.json",
+          "filter": "satellite"
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
+            "nl": "<b>notitie:</b> Gebruik de documentatiepagina <a href='/features/datapack' target='blank'>Data Packs</a> voor richtlijnen voor het installeren van de hoofdoplossing met voorbeeldgegevens"
+          }
         }
       ]
     }

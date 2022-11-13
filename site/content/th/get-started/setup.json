@@ -21,29 +21,29 @@
             {
               "value": "Main solution",
               "text": {
-                "default": "Main solution",
-                "th": "ทางออกหลัก"
+                "default": null,
+                "th": null
               }
             },
             {
               "value": "Satellite solution",
               "text": {
-                "default": "Satellite solution",
-                "th": "โซลูชันดาวเทียม"
-              }
-            },
-            {
-              "value": "Data Import",
-              "text": {
-                "default": "Data Import",
-                "th": "การนําเข้าข้อมูล"
+                "default": null,
+                "th": null
               }
             },
             {
               "value": "Security Group Setup",
               "text": {
-                "default": "Security Group Setup",
-                "th": "การตั้งค่ากลุ่มความปลอดภัย"
+                "default": null,
+                "th": null
+              }
+            },
+            {
+              "value": "Data Import - Main Solution",
+              "text": {
+                "default": null,
+                "th": null
               }
             }
           ]
@@ -52,85 +52,774 @@
     },
     {
       "title": {
-        "default": "Main Solution - Connections",
-        "th": "โซลูชันหลัก - การเชื่อมต่อ"
+        "default": "Main Solution",
+        "th": "ทางออกหลัก"
       },
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
-          "type": "paneldynamic",
-          "name": "main-connections",
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "th": "สําหรับสภาพแวดล้อมการติดตั้ง โปรดไปที่ <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> เลือกไอคอนหน้าแรกสําหรับสภาพแวดล้อมของคุณที่คุณต้องการติดตั้งส่วนประกอบ Automation Kit ลงใน"
+          }
+        },
+        {
+          "name": "main-installEnvironment",
+          "type": "text",
           "title": {
-            "default": "Please provide one of each of the following the connections",
-            "th": "โปรดระบุหนึ่งในการเชื่อมต่อต่อไปนี้"
+            "default": "Copy Install Environment home link",
+            "th": "คัดลอกลิงก์ติดตั้งโฮมของสภาพแวดล้อม"
           },
-          "minPanelCount": 5,
-          "maxPanelCount": 5,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "th": "ต้องเป็นสภาพแวดล้อม Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "This environment could be the same environment as the CoE Kit. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "th": "สภาพแวดล้อมนี้อาจเป็นสภาพแวดล้อมเดียวกับ CoE Kit คุณจะต้องมีการตั้งค่านโยบายการป้องกันการสูญหายของข้อมูลที่อนุญาตให้สร้างการเชื่อมต่อด้านล่าง สภาพแวดล้อมนี้จะต้องมี <</a>a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit ที่ติดตั้งและ <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>เปิดใช้งานคุณลักษณะเฟรมเวิร์กส่วนประกอบ Power Apps</a> ที่กําหนดค่าไว้"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_approvals",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-approvalConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Approval Connection details page link here",
+            "th": "คัดลอกลิงก์หน้ารายละเอียดการเชื่อมต่อการอนุมัติที่นี่"
+          },
+          "isRequired": true,
+          "startWithNewLine": false,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Approvals connector is used to approve or deny Automation Project requests",
+            "th": "ตัวเชื่อมต่อการอนุมัติถูกใช้เพื่ออนุมัติหรือปฏิเสธคําขอโครงการอัตโนมัติ"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "th": "คัดลอกลิงก์หน้ารายละเอียดการเชื่อมต่อ Dataverse ของ Microsoft ที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "th": "ตัวเชื่อมต่อ Dataverse ใช้เพื่อจัดเก็บโครงการชุดระบบอัตโนมัติและข้อมูลการวัดและส่งข้อมูลทางไกลของคุณ"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_office365",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "th": "คัดลอกลิงก์หน้ารายละเอียดการเชื่อมต่อ Outlook ของ Office 365 ที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "th": "ตัวเชื่อมต่อ Office 365 ใช้เพื่อส่งอีเมลเป็นส่วนหนึ่งของกระบวนการจัดการชุดระบบอัตโนมัติ"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_office365users",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-offiec365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "th": "คัดลอกลิงก์หน้ารายละเอียดการเชื่อมต่อผู้ใช้ Office 365 ที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "th": "ตัวเชื่อมต่อผู้ใช้ Office 365 ถูกใช้เพื่อสอบถามข้อมูลผู้ใช้จากกราฟ Office 365"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "th": "คัดลอกลิงก์หน้า รายละเอียดการเชื่อมต่ออัตโนมัติของ Power Platform สําหรับผู้ดูแลระบบที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "th": "ตัวเชื่อมต่อ Power Platform สําหรับผู้ดูแลระบบอัตโนมัติใช้เพื่อสอบถามข้อมูลเกี่ยวกับโซลูชันที่ปรับใช้ของคุณ"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Security Group Setup",
+        "th": "โซลูชันหลัก - การตั้งค่ากลุ่มความปลอดภัย"
+      },
+      "visibleIf": "contains({installType}, 'Main solution') and contains({installType}, 'Security Group Setup')",
+      "elements": [
+        {
+          "type": "paneldynamic",
+          "name": "main-administrators",
+          "title": {
+            "default": "Please add Automation Kit members for the Automation Administrators Security Group",
+            "th": "โปรดเพิ่มสมาชิก Automation Kit สําหรับกลุ่มความปลอดภัยของผู้ดูแลระบบระบบอัตโนมัติ"
+          },
           "templateElements": [
             {
-              "name": "connectionType",
-              "type": "dropdown",
-              "title": {
-                "default": "Connection",
-                "th": "การเชื่อมต่อ"
-              },
-              "choices": [
-                {
-                  "value": "Approvals",
-                  "text": {
-                    "default": "Approvals",
-                    "th": "อนุมัติ"
-                  }
-                },
-                {
-                  "value": "Microsoft Dataverse",
-                  "text": {
-                    "default": "Microsoft Dataverse",
-                    "th": "Microsoft Dataverse"
-                  }
-                },
-                {
-                  "value": "Office 365 Users",
-                  "text": {
-                    "default": "Office 365 Users",
-                    "th": "ผู้ใช้สํานักงาน 365"
-                  }
-                },
-                {
-                  "value": "Office 365 Outlook",
-                  "text": {
-                    "default": "Office 365 Outlook",
-                    "th": "แนวโน้มของ Office 365"
-                  }
-                },
-                {
-                  "value": "Power Platform for Admins Automation",
-                  "text": {
-                    "default": "Power Platform for Admins Automation",
-                    "th": "Power Platform สําหรับระบบอัตโนมัติของผู้ดูแลระบบ"
-                  }
-                }
-              ],
-              "isRequired": true
-            },
-            {
-              "name": "url",
+              "name": "user",
               "type": "text",
+              "inputMask": "email",
               "title": {
-                "default": "Connection Link",
-                "th": "ลิงค์การเชื่อมต่อ"
+                "default": "User or group email address",
+                "th": "ที่อยู่อีเมลของผู้ใช้หรือกลุ่ม"
               },
               "isRequired": true,
-              "startWithNewLine": false,
               "validators": [
                 {
-                  "type": "regex",
-                  "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                  "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "th": "ค่าต้องเป็นที่อยู่อีเมลที่ถูกต้อง"
+                  }
                 }
               ]
             }
           ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-contributors",
+          "title": {
+            "default": "Please add Automation Kit contributors that can view and edit Automation Projects",
+            "th": "โปรดเพิ่มผู้สนับสนุนชุดระบบอัตโนมัติที่สามารถดูและแก้ไขโครงการระบบอัตโนมัติได้"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "inputMask": "email",
+              "title": {
+                "default": "User or group email address",
+                "th": "ที่อยู่อีเมลของผู้ใช้หรือกลุ่ม"
+              },
+              "isRequired": true,
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "th": "ค่าต้องเป็นที่อยู่อีเมลที่ถูกต้อง"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-viewers",
+          "title": {
+            "default": "Please add Automation Kit contributors that can review and view Automation Projects",
+            "th": "โปรดเพิ่มผู้สนับสนุนชุดระบบอัตโนมัติที่สามารถตรวจสอบและดูโครงการระบบอัตโนมัติได้"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "title": {
+                "default": "User or group email address",
+                "th": "ที่อยู่อีเมลของผู้ใช้หรือกลุ่ม"
+              },
+              "isRequired": true,
+              "inputMask": "email",
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "th": "ค่าต้องเป็นที่อยู่อีเมลที่ถูกต้อง"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your main configuration file that will be used to customize your deployment",
+            "th": "ใช้ปุ่มดาวน์โหลดด้านล่างเพื่อขอรับไฟล์การกําหนดค่าหลักของคุณที่จะใช้ในการปรับแต่งการปรับใช้ของคุณ"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "th": "ดาวน์โหลดผลลัพธ์"
+          },
+          "text": {
+            "default": "Download",
+            "th": "ดาวน์โหลด"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-main-install.json",
+          "filter": "main"
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Connections",
+        "th": "โซลูชั่นดาวเทียม - การเชื่อมต่อ"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "th": "สําหรับสภาพแวดล้อมการติดตั้ง โปรดไปที่ <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> เลือกไอคอนหน้าแรกสําหรับสภาพแวดล้อมของคุณที่คุณต้องการติดตั้งส่วนประกอบ Automation Kit ลงใน"
+          }
+        },
+        {
+          "name": "satellite-installEnvironment",
+          "type": "text",
+          "title": {
+            "default": "Copy Install Environment home link",
+            "th": "คัดลอกลิงก์ติดตั้งโฮมของสภาพแวดล้อม"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "th": "ต้องเป็นสภาพแวดล้อม Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "th": "<b>โน้ต:</b> สภาพแวดล้อมนี้ต้องแตกต่างจากสภาพแวดล้อมหลัก คุณจะต้องมีการตั้งค่านโยบายการป้องกันการสูญหายของข้อมูลที่อนุญาตให้สร้างการเชื่อมต่อด้านล่าง สภาพแวดล้อมนี้จะต้องมี <</a>a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit ที่ติดตั้งและ <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>เปิดใช้งานคุณลักษณะเฟรมเวิร์กส่วนประกอบ Power Apps</a> ที่กําหนดค่าไว้"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_commondataservice",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseLegacyConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse (Legacy) Connection details page link here",
+            "th": "คัดลอกลิงก์หน้ารายละเอียดการเชื่อมต่อ Microsoft Dataverse (Legacy) ที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse Legacy connector is used to connect to your main Dataverse environment",
+            "th": "ตัวเชื่อมต่อ Dataverse Legacy ใช้เพื่อเชื่อมต่อกับสภาพแวดล้อม Dataverse หลักของคุณ"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "th": "คัดลอกลิงก์หน้ารายละเอียดการเชื่อมต่อ Dataverse ของ Microsoft ที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "th": "ตัวเชื่อมต่อ Dataverse ใช้เพื่อจัดเก็บโครงการชุดระบบอัตโนมัติและข้อมูลการวัดและส่งข้อมูลทางไกลของคุณ"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_flowmanagement",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-flowManagementConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Flow Management Connection details page link here",
+            "th": "คัดลอกลิงก์หน้ารายละเอียดการเชื่อมต่อการจัดการโฟลว์ที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Flow Management connector is used to query Power Automate flows in the environment",
+            "th": "ตัวเชื่อมต่อการจัดการโฟลว์ถูกใช้เพื่อคิวรีโฟลว์ Power Automate ในสภาพแวดล้อม"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_office365",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "th": "คัดลอกลิงก์หน้ารายละเอียดการเชื่อมต่อ Outlook ของ Office 365 ที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "th": "ตัวเชื่อมต่อ Office 365 ใช้เพื่อส่งอีเมลเป็นส่วนหนึ่งของกระบวนการจัดการชุดระบบอัตโนมัติ"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_office365users",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "th": "คัดลอกลิงก์หน้ารายละเอียดการเชื่อมต่อผู้ใช้ Office 365 ที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "th": "ตัวเชื่อมต่อผู้ใช้ Office 365 ถูกใช้เพื่อสอบถามข้อมูลผู้ใช้จากกราฟ Office 365"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "th": "สร้าง"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "th": "คัดลอกลิงก์หน้า รายละเอียดการเชื่อมต่ออัตโนมัติของ Power Platform สําหรับผู้ดูแลระบบที่นี่"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "th": "ตัวเชื่อมต่อ Power Platform สําหรับผู้ดูแลระบบอัตโนมัติใช้เพื่อสอบถามข้อมูลเกี่ยวกับโซลูชันที่ปรับใช้ของคุณ"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Environment Variables",
+        "th": "โซลูชันดาวเทียม - ตัวแปรสภาพแวดล้อม"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below",
+            "th": "ปฏิบัติตาม [คู่มือการตั้งค่าตัวแปรสภาพแวดล้อม](https://learn.microsoft.com/power-อัตโนมัติ/คําแนะนํา/ชุดอัตโนมัติ/การตั้งค่า/ตัวแปรสภาพแวดล้อม) เพื่อรับค่าสําหรับรายการด้านล่าง"
+          }
+        },
+        {
+          "name": "satellite-azureKeyVaultClientId",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Id Secret",
+            "th": "ความลับของรหัสไคลเอ็นต์ AKV"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultClientSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Secret Secret",
+            "th": "ความลับของลูกค้า AKV"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultTenantIdSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Tenant Id Secret",
+            "th": "ความลับรหัสผู้เช่า AKV"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationCoEAlertEmailRecipient",
+          "type": "text",
+          "title": {
+            "default": "Automation CoE Alert Email Recipient",
+            "th": "ผู้รับอีเมลแจ้งเตือนอัตโนมัติ CoE"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationProjectAppId",
+          "type": "text",
+          "title": {
+            "default": "Automation Project app Id",
+            "th": "รหัสแอปโครงการอัตโนมัติ"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-desktopFlowsBaseUrl",
+          "type": "text",
+          "title": {
+            "default": "Desktop Flows Base URL",
+            "th": "URL ฐานโฟลว์เดสก์ท็อป"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentId",
+          "type": "text",
+          "title": {
+            "default": "Environment Id",
+            "th": "รหัสสภาพแวดล้อม"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentName",
+          "type": "text",
+          "title": {
+            "default": "Environment Name",
+            "th": "ชื่อสภาพแวดล้อม"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentRegion",
+          "type": "text",
+          "title": {
+            "default": "Environment Region",
+            "th": "ภูมิภาคสิ่งแวดล้อม"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueName",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name",
+            "th": "ชื่อที่ไม่ซ้ําของสภาพแวดล้อม"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueNameMain",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name (Automation Kit Main)",
+            "th": "ชื่อที่ไม่ซ้ํากันของสภาพแวดล้อม (ชุดระบบอัตโนมัติหลัก)"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUrl",
+          "type": "text",
+          "title": {
+            "default": "Environment Url",
+            "th": "URL ของสภาพแวดล้อม"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-flowSessionTraceRecordOwnerId",
+          "type": "text",
+          "title": {
+            "default": "Flow Session Trace Record Owner Id",
+            "th": "รหัสเจ้าของเรกคอร์ดการติดตามเซสชันโฟลว์"
+          },
+          "isRequired": true
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your satellite configuration file that will be used to customize your deployment",
+            "th": "ใช้ปุ่มดาวน์โหลดด้านล่างเพื่อขอรับไฟล์การกําหนดค่าดาวเทียมของคุณที่จะใช้ในการปรับแต่งการปรับใช้ของคุณ"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "th": "ดาวน์โหลดผลลัพธ์"
+          },
+          "text": {
+            "default": "Download",
+            "th": "ดาวน์โหลด"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-satellite-install.json",
+          "filter": "satellite"
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
+            "th": "<b>โน้ต:</b> ใช้หน้าเอกสาร <a href='/features/datapack' ='blank'>Data Packs</a> สําหรับคําแนะนําเกี่ยวกับวิธีการติดตั้งโซลูชันหลักด้วยข้อมูลตัวอย่าง"
+          }
         }
       ]
     }

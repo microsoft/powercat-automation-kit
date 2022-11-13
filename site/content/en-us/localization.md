@@ -68,4 +68,4 @@ Yes, if the language is supported by [Azure Cognitive Service Language Support](
 
 What to provide feedback on the localization process?
 
-{{<questions  name="localization.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}
+{{<questions  name="/content/en-us/localization.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}

@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 Les sections suivantes présentent des instructions et des notes pour la création de documentation de démarrage.
@@ -110,7 +110,7 @@ Ajoutez le **Toc** Suivre le shortcode de votre Markdown pour inclure une table 
 Incluez un ensemble de questions dans votre page entourée de \{\{ et \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 Paramètres:

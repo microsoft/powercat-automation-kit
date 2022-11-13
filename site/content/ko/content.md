@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7C1A1321B728D0B762F1109973D5940D127743A1
+generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 ---
 
 {{<toc>}}
@@ -28,6 +28,8 @@ generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 - [자동화 키트 - RPA 마이그레이션](/ko/migration)
 
 - [자동화 키트 - 모듈](/ko/modules)
+
+- [자동화 키트 - 모니터링 비교](/ko/monitoring-compare)
 
 - [자동화 키트 - 업무 시간](/ko/office-hours)
 

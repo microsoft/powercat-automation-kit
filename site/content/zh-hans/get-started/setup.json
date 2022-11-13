@@ -21,29 +21,29 @@
             {
               "value": "Main solution",
               "text": {
-                "default": "Main solution",
-                "zh-hans": "主要解决方案"
+                "default": null,
+                "zh-hans": null
               }
             },
             {
               "value": "Satellite solution",
               "text": {
-                "default": "Satellite solution",
-                "zh-hans": "卫星解决方案"
-              }
-            },
-            {
-              "value": "Data Import",
-              "text": {
-                "default": "Data Import",
-                "zh-hans": "数据导入"
+                "default": null,
+                "zh-hans": null
               }
             },
             {
               "value": "Security Group Setup",
               "text": {
-                "default": "Security Group Setup",
-                "zh-hans": "安全组设置"
+                "default": null,
+                "zh-hans": null
+              }
+            },
+            {
+              "value": "Data Import - Main Solution",
+              "text": {
+                "default": null,
+                "zh-hans": null
               }
             }
           ]
@@ -52,85 +52,774 @@
     },
     {
       "title": {
-        "default": "Main Solution - Connections",
-        "zh-hans": "主要解决方案 - 连接"
+        "default": "Main Solution",
+        "zh-hans": "主要解决方案"
       },
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
-          "type": "paneldynamic",
-          "name": "main-connections",
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "zh-hans": "对于安装环境，请访问 <a href='https：//make.powerapps.com' target='blank'>make.powerapps.com</a> 选择要将自动化工具包组件安装到其中的环境的主图标"
+          }
+        },
+        {
+          "name": "main-installEnvironment",
+          "type": "text",
           "title": {
-            "default": "Please provide one of each of the following the connections",
-            "zh-hans": "请提供以下连接之一"
+            "default": "Copy Install Environment home link",
+            "zh-hans": "复制安装环境主页链接"
           },
-          "minPanelCount": 5,
-          "maxPanelCount": 5,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效 Power Platform 环境"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "This environment could be the same environment as the CoE Kit. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "zh-hans": "此环境可能与 CoE 工具包的环境相同。您将需要数据丢失防护策略设置，以允许创建以下连接。此环境还需要安装<</a>a href='https：//learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit，并<a href='https：//learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>启用已配置的Power Apps 组件框架功能</a>。"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_approvals",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-approvalConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Approval Connection details page link here",
+            "zh-hans": "在此处复制审批连接详细信息页面链接"
+          },
+          "isRequired": true,
+          "startWithNewLine": false,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Approvals connector is used to approve or deny Automation Project requests",
+            "zh-hans": "审批连接器用于批准或拒绝自动化项目请求"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "zh-hans": "在此处复制微软数据节连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "zh-hans": "Dataverse 连接器用于存储自动化工具包项目和遥测数据"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_office365",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "zh-hans": "在此处复制 Office 365 Outlook 连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "zh-hans": "Office 365 连接器用于在自动化工具包管理过程中发送电子邮件"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_office365users",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-offiec365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "zh-hans": "在此处复制 Office 365 用户连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "zh-hans": "Office 365 用户连接器用于从 Office 365 图形查询用户信息"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "zh-hans": "在此处复制适用于管理员的电源平台自动化连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "zh-hans": "适用于管理员的 Power Platform 自动化连接器用于查询有关已部署解决方案的信息"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Security Group Setup",
+        "zh-hans": "主要解决方案 - 安全组设置"
+      },
+      "visibleIf": "contains({installType}, 'Main solution') and contains({installType}, 'Security Group Setup')",
+      "elements": [
+        {
+          "type": "paneldynamic",
+          "name": "main-administrators",
+          "title": {
+            "default": "Please add Automation Kit members for the Automation Administrators Security Group",
+            "zh-hans": "请为自动化管理员安全组添加自动化工具包成员"
+          },
           "templateElements": [
             {
-              "name": "connectionType",
-              "type": "dropdown",
-              "title": {
-                "default": "Connection",
-                "zh-hans": "连接"
-              },
-              "choices": [
-                {
-                  "value": "Approvals",
-                  "text": {
-                    "default": "Approvals",
-                    "zh-hans": "批准"
-                  }
-                },
-                {
-                  "value": "Microsoft Dataverse",
-                  "text": {
-                    "default": "Microsoft Dataverse",
-                    "zh-hans": "微软数据节"
-                  }
-                },
-                {
-                  "value": "Office 365 Users",
-                  "text": {
-                    "default": "Office 365 Users",
-                    "zh-hans": "Office 365 用户"
-                  }
-                },
-                {
-                  "value": "Office 365 Outlook",
-                  "text": {
-                    "default": "Office 365 Outlook",
-                    "zh-hans": "Office 365 展望"
-                  }
-                },
-                {
-                  "value": "Power Platform for Admins Automation",
-                  "text": {
-                    "default": "Power Platform for Admins Automation",
-                    "zh-hans": "适用于管理员自动化的电源平台"
-                  }
-                }
-              ],
-              "isRequired": true
-            },
-            {
-              "name": "url",
+              "name": "user",
               "type": "text",
+              "inputMask": "email",
               "title": {
-                "default": "Connection Link",
-                "zh-hans": "连接链接"
+                "default": "User or group email address",
+                "zh-hans": "用户或组电子邮件地址"
               },
               "isRequired": true,
-              "startWithNewLine": false,
               "validators": [
                 {
-                  "type": "regex",
-                  "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                  "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "zh-hans": "值必须是有效的电子邮件地址"
+                  }
                 }
               ]
             }
           ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-contributors",
+          "title": {
+            "default": "Please add Automation Kit contributors that can view and edit Automation Projects",
+            "zh-hans": "请添加可以查看和编辑自动化项目的自动化工具包参与者"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "inputMask": "email",
+              "title": {
+                "default": "User or group email address",
+                "zh-hans": "用户或组电子邮件地址"
+              },
+              "isRequired": true,
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "zh-hans": "值必须是有效的电子邮件地址"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-viewers",
+          "title": {
+            "default": "Please add Automation Kit contributors that can review and view Automation Projects",
+            "zh-hans": "请添加可以查看和查看自动化项目的自动化工具包参与者"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "title": {
+                "default": "User or group email address",
+                "zh-hans": "用户或组电子邮件地址"
+              },
+              "isRequired": true,
+              "inputMask": "email",
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "zh-hans": "值必须是有效的电子邮件地址"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your main configuration file that will be used to customize your deployment",
+            "zh-hans": "使用下面的下载按钮获取将用于自定义部署的主配置文件"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "zh-hans": "下载结果"
+          },
+          "text": {
+            "default": "Download",
+            "zh-hans": "下载"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-main-install.json",
+          "filter": "main"
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Connections",
+        "zh-hans": "卫星解决方案 - 连接"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "zh-hans": "对于安装环境，请访问 <a href='https：//make.powerapps.com' target='blank'>make.powerapps.com</a> 选择要将自动化工具包组件安装到其中的环境的主图标"
+          }
+        },
+        {
+          "name": "satellite-installEnvironment",
+          "type": "text",
+          "title": {
+            "default": "Copy Install Environment home link",
+            "zh-hans": "复制安装环境主页链接"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效 Power Platform 环境"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "zh-hans": "<b>注意：</b>此环境必须与主环境不同。您将需要数据丢失防护策略设置，以允许创建以下连接。此环境还需要安装<</a>a href='https：//learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit，并<a href='https：//learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>启用已配置的Power Apps 组件框架功能</a>。"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_commondataservice",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseLegacyConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse (Legacy) Connection details page link here",
+            "zh-hans": "在此处复制 Microsoft Dataverse （旧版） 连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse Legacy connector is used to connect to your main Dataverse environment",
+            "zh-hans": "数据节旧版连接器用于连接到主数据节环境"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "zh-hans": "在此处复制微软数据节连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "zh-hans": "Dataverse 连接器用于存储自动化工具包项目和遥测数据"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_flowmanagement",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-flowManagementConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Flow Management Connection details page link here",
+            "zh-hans": "在此处复制流管理连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Flow Management connector is used to query Power Automate flows in the environment",
+            "zh-hans": "流管理连接器用于查询环境中的电源自动化流"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_office365",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "zh-hans": "在此处复制 Office 365 Outlook 连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "zh-hans": "Office 365 连接器用于在自动化工具包管理过程中发送电子邮件"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_office365users",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "zh-hans": "在此处复制 Office 365 用户连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "zh-hans": "Office 365 用户连接器用于从 Office 365 图形查询用户信息"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "zh-hans": "创造"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "zh-hans": "在此处复制适用于管理员的电源平台自动化连接详细信息页面链接"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "zh-hans": "必须是以 https://make.powerapps.com 开头的有效电源平台连接链接"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "zh-hans": "适用于管理员的 Power Platform 自动化连接器用于查询有关已部署解决方案的信息"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Environment Variables",
+        "zh-hans": "卫星解决方案 - 环境变量"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below",
+            "zh-hans": "按照 [环境变量设置指南]（https://learn.microsoft.com/power-自动化/指导/自动化套件/设置/环境变量）获取以下项目的值"
+          }
+        },
+        {
+          "name": "satellite-azureKeyVaultClientId",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Id Secret",
+            "zh-hans": "AKV 客户端 ID 密钥"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultClientSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Secret Secret",
+            "zh-hans": "AKV 客户端密钥密钥"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultTenantIdSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Tenant Id Secret",
+            "zh-hans": "AKV 租户 ID 机密"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationCoEAlertEmailRecipient",
+          "type": "text",
+          "title": {
+            "default": "Automation CoE Alert Email Recipient",
+            "zh-hans": "自动化 CoE 警报电子邮件收件人"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationProjectAppId",
+          "type": "text",
+          "title": {
+            "default": "Automation Project app Id",
+            "zh-hans": "自动化项目应用 ID"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-desktopFlowsBaseUrl",
+          "type": "text",
+          "title": {
+            "default": "Desktop Flows Base URL",
+            "zh-hans": "桌面流基本网址"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentId",
+          "type": "text",
+          "title": {
+            "default": "Environment Id",
+            "zh-hans": "环境标识"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentName",
+          "type": "text",
+          "title": {
+            "default": "Environment Name",
+            "zh-hans": "环境名称"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentRegion",
+          "type": "text",
+          "title": {
+            "default": "Environment Region",
+            "zh-hans": "环境区域"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueName",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name",
+            "zh-hans": "环境唯一名称"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueNameMain",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name (Automation Kit Main)",
+            "zh-hans": "环境唯一名称（自动化套件主）"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUrl",
+          "type": "text",
+          "title": {
+            "default": "Environment Url",
+            "zh-hans": "环境网址"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-flowSessionTraceRecordOwnerId",
+          "type": "text",
+          "title": {
+            "default": "Flow Session Trace Record Owner Id",
+            "zh-hans": "流会话跟踪记录所有者 ID"
+          },
+          "isRequired": true
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your satellite configuration file that will be used to customize your deployment",
+            "zh-hans": "使用下面的下载按钮获取将用于自定义部署的附属配置文件"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "zh-hans": "下载结果"
+          },
+          "text": {
+            "default": "Download",
+            "zh-hans": "下载"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-satellite-install.json",
+          "filter": "satellite"
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
+            "zh-hans": "<b>注意：</b>使用 <a href='/features/datapack' target='blank'>Data Packs</a> 文档页面获取有关如何使用示例数据安装主解决方案的指导"
+          }
         }
       ]
     }

@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 In den folgenden Abschnitten werden Richtlinien und Hinweise zum Erstellen von Startdokumentation beschrieben.
@@ -110,7 +110,7 @@ Fügen Sie die **Toc** Folgen Sie dem Shortcode zu Ihrem Markdown, um ein Inhalt
 Fügen Sie eine Reihe von Fragen in Ihre Seite ein, umgeben von \{\{ und \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 Parameter:

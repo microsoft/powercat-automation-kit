@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 다음 섹션에서는 시작 설명서 작성에 대한 지침과 참고 사항을 간략하게 설명합니다.
@@ -110,7 +110,7 @@ include_footer: true
 페이지에 다음과 같은 일련의 질문을 포함합니다. \{\{ 및 \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 매개 변수:

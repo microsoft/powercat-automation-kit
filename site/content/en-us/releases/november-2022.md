@@ -22,7 +22,7 @@ The November release (sharp-archimedes) of the {{<product-name>}} is the third p
 
 ## Feedback
 
-{{<questions name="/releases/november-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/releases/november-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 
 </div>
 

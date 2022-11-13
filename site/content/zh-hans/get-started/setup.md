@@ -4,7 +4,7 @@ description: "自动化套件 - 设置"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7E07A55BAC04FAAAFEA26DCCFE16FE9966C4F42D
+generated: 118FFCC302703046F1A62CAA9F21BAF122AB0505
 ---
 
 使用以下步骤可帮助您为环境创建配置，以便您可以快速安装和配置安装。

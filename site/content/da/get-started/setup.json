@@ -21,29 +21,29 @@
             {
               "value": "Main solution",
               "text": {
-                "default": "Main solution",
-                "da": "Hovedløsning"
+                "default": null,
+                "da": null
               }
             },
             {
               "value": "Satellite solution",
               "text": {
-                "default": "Satellite solution",
-                "da": "Satellitløsning"
-              }
-            },
-            {
-              "value": "Data Import",
-              "text": {
-                "default": "Data Import",
-                "da": "Data Import"
+                "default": null,
+                "da": null
               }
             },
             {
               "value": "Security Group Setup",
               "text": {
-                "default": "Security Group Setup",
-                "da": "Opsætning af sikkerhedsgruppe"
+                "default": null,
+                "da": null
+              }
+            },
+            {
+              "value": "Data Import - Main Solution",
+              "text": {
+                "default": null,
+                "da": null
               }
             }
           ]
@@ -52,85 +52,774 @@
     },
     {
       "title": {
-        "default": "Main Solution - Connections",
-        "da": "Hovedløsning - Tilslutninger"
+        "default": "Main Solution",
+        "da": "Hovedløsning"
       },
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
-          "type": "paneldynamic",
-          "name": "main-connections",
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "da": "For installationsmiljøet skal du besøge <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> vælg startikonet for dit miljø, du vil installere Automation Kit-komponenterne i"
+          }
+        },
+        {
+          "name": "main-installEnvironment",
+          "type": "text",
           "title": {
-            "default": "Please provide one of each of the following the connections",
-            "da": "Angiv en af følgende forbindelser"
+            "default": "Copy Install Environment home link",
+            "da": "Kopiér startlinket Installer miljø"
           },
-          "minPanelCount": 5,
-          "maxPanelCount": 5,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-miljø startende med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "This environment could be the same environment as the CoE Kit. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "da": "Dette miljø kan være det samme miljø som CoE-sættet. Du skal bruge en politikopsætning til forebyggelse af datatab, der gør det muligt at oprette nedenstående forbindelser. Dette miljø kræver også</a> <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit installeret og <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Aktivér den konfigurerede Power Apps-komponentstrukturfunktion.</a>"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_approvals",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-approvalConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Approval Connection details page link here",
+            "da": "Kopier sidelink til godkendelsesforbindelsesoplysninger her"
+          },
+          "isRequired": true,
+          "startWithNewLine": false,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Approvals connector is used to approve or deny Automation Project requests",
+            "da": "Connectoren Godkendelser bruges til at godkende eller afvise Automation-projektanmodninger"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "da": "Kopiér sidelinket med oplysninger om Microsoft Dataverse-forbindelse her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "da": "Dataverse-connectoren bruges til at gemme dine Automation Kit-projekt- og telemetridata"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_office365",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "da": "Kopiér linket til siden med oplysninger om Office 365 Outlook-forbindelse her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "da": "Office 365-connectoren bruges til at sende mails som en del af automatiseringsprocessen for administration af sæt"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_office365users",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-offiec365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "da": "Kopiér linket med oplysninger om brugerforbindelse i Office 365 her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "da": "Office 365-brugerconnectoren bruges til at forespørge på brugeroplysninger fra Office 365-grafen"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "main-installEnvironment"
+        },
+        {
+          "name": "main-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "da": "Kopiér sidelinket med oplysninger om Power Platform for Administrators-automatiseringsforbindelse her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "da": "Power Platform for Admins Automation-connectoren bruges til at forespørge på oplysninger om dine installerede løsninger"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Security Group Setup",
+        "da": "Hovedløsning - Opsætning af sikkerhedsgruppe"
+      },
+      "visibleIf": "contains({installType}, 'Main solution') and contains({installType}, 'Security Group Setup')",
+      "elements": [
+        {
+          "type": "paneldynamic",
+          "name": "main-administrators",
+          "title": {
+            "default": "Please add Automation Kit members for the Automation Administrators Security Group",
+            "da": "Tilføj venligst Automation Kit-medlemmer til Automation Administrators Security Group"
+          },
           "templateElements": [
             {
-              "name": "connectionType",
-              "type": "dropdown",
-              "title": {
-                "default": "Connection",
-                "da": "Forbindelse"
-              },
-              "choices": [
-                {
-                  "value": "Approvals",
-                  "text": {
-                    "default": "Approvals",
-                    "da": "Godkendelser"
-                  }
-                },
-                {
-                  "value": "Microsoft Dataverse",
-                  "text": {
-                    "default": "Microsoft Dataverse",
-                    "da": "Microsoft Dataverse"
-                  }
-                },
-                {
-                  "value": "Office 365 Users",
-                  "text": {
-                    "default": "Office 365 Users",
-                    "da": "Office 365-brugere"
-                  }
-                },
-                {
-                  "value": "Office 365 Outlook",
-                  "text": {
-                    "default": "Office 365 Outlook",
-                    "da": "Office 365 Outlook"
-                  }
-                },
-                {
-                  "value": "Power Platform for Admins Automation",
-                  "text": {
-                    "default": "Power Platform for Admins Automation",
-                    "da": "Power Platform til automatisering af administratorer"
-                  }
-                }
-              ],
-              "isRequired": true
-            },
-            {
-              "name": "url",
+              "name": "user",
               "type": "text",
+              "inputMask": "email",
               "title": {
-                "default": "Connection Link",
-                "da": "Link til forbindelse"
+                "default": "User or group email address",
+                "da": "Bruger- eller gruppemailadresse"
               },
               "isRequired": true,
-              "startWithNewLine": false,
               "validators": [
                 {
-                  "type": "regex",
-                  "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                  "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "da": "Værdien skal være en gyldig mailadresse"
+                  }
                 }
               ]
             }
           ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-contributors",
+          "title": {
+            "default": "Please add Automation Kit contributors that can view and edit Automation Projects",
+            "da": "Tilføj bidragydere til automatiseringssæt, der kan se og redigere automatiseringsprojekter"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "inputMask": "email",
+              "title": {
+                "default": "User or group email address",
+                "da": "Bruger- eller gruppemailadresse"
+              },
+              "isRequired": true,
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "da": "Værdien skal være en gyldig mailadresse"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "paneldynamic",
+          "name": "main-viewers",
+          "title": {
+            "default": "Please add Automation Kit contributors that can review and view Automation Projects",
+            "da": "Tilføj bidragydere til automatiseringssæt, der kan gennemgå og se automatiseringsprojekter"
+          },
+          "templateElements": [
+            {
+              "name": "user",
+              "type": "text",
+              "title": {
+                "default": "User or group email address",
+                "da": "Bruger- eller gruppemailadresse"
+              },
+              "isRequired": true,
+              "inputMask": "email",
+              "validators": [
+                {
+                  "type": "email",
+                  "text": {
+                    "default": "Value must be a valid email address",
+                    "da": "Værdien skal være en gyldig mailadresse"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your main configuration file that will be used to customize your deployment",
+            "da": "Brug downloadknappen nedenfor til at hente din primære konfigurationsfil, der skal bruges til at tilpasse din installation"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "da": "Download resultater"
+          },
+          "text": {
+            "default": "Download",
+            "da": "Downloade"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-main-install.json",
+          "filter": "main"
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Connections",
+        "da": "Satellitløsning - Forbindelser"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
+            "da": "For installationsmiljøet skal du besøge <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> vælg startikonet for dit miljø, du vil installere Automation Kit-komponenterne i"
+          }
+        },
+        {
+          "name": "satellite-installEnvironment",
+          "type": "text",
+          "title": {
+            "default": "Copy Install Environment home link",
+            "da": "Kopiér startlinket Installer miljø"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-miljø startende med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
+            "da": "<b>seddel:</b> Dette miljø SKAL være anderledes end hovedmiljøet. Du skal bruge en politikopsætning til forebyggelse af datatab, der gør det muligt at oprette nedenstående forbindelser. Dette miljø kræver også</a> <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit installeret og <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Aktivér den konfigurerede Power Apps-komponentstrukturfunktion.</a>"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_commondataservice",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseLegacyConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse (Legacy) Connection details page link here",
+            "da": "Kopiér sidelinket med Microsoft Dataverse (ældre) forbindelsesoplysninger her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse Legacy connector is used to connect to your main Dataverse environment",
+            "da": "Den ældre Dataverse-connector bruges til at oprette forbindelse til dit primære Dataverse-miljø"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_commondataserviceforapps",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-dataverseConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Microsoft Dataverse Connection details page link here",
+            "da": "Kopiér sidelinket med oplysninger om Microsoft Dataverse-forbindelse her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Dataverse connector is used to store your Automation Kit project and telemetry data",
+            "da": "Dataverse-connectoren bruges til at gemme dine Automation Kit-projekt- og telemetridata"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_flowmanagement",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-flowManagementConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Flow Management Connection details page link here",
+            "da": "Kopier link til siden med oplysninger om flowstyringsforbindelse her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Flow Management connector is used to query Power Automate flows in the environment",
+            "da": "Flowstyringsconnectoren bruges til at forespørge Power Automate-flow i miljøet"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_office365",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365OutlookConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 Outlook Connection details page link here",
+            "da": "Kopiér linket til siden med oplysninger om Office 365 Outlook-forbindelse her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 connector is used to send emails as part of the Automation Kit management process",
+            "da": "Office 365-connectoren bruges til at sende mails som en del af automatiseringsprocessen for administration af sæt"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_office365users",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-office365UserConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Office 365 User Connection details page link here",
+            "da": "Kopiér linket med oplysninger om brugerforbindelse i Office 365 her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Office 365 users connector is used to query user information from the Office 365 graph",
+            "da": "Office 365-brugerconnectoren bruges til at forespørge på brugeroplysninger fra Office 365-grafen"
+          }
+        },
+        {
+          "type": "create-connection",
+          "title": {
+            "default": "Create",
+            "da": "Skabe"
+          },
+          "connector": "shared_powerplatformforadmins",
+          "environment": "satellite-installEnvironment"
+        },
+        {
+          "name": "satellite-powerPlatformAdminConnection",
+          "type": "text",
+          "title": {
+            "default": "Copy Power Platform for Admins Automation Connection details page link here",
+            "da": "Kopiér sidelinket med oplysninger om Power Platform for Administrators-automatiseringsforbindelse her"
+          },
+          "startWithNewLine": false,
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                "da": "Skal være et gyldigt Power Platform-forbindelseslink, der starter med https://make.powerapps.com"
+              },
+              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
+            "da": "Power Platform for Admins Automation-connectoren bruges til at forespørge på oplysninger om dine installerede løsninger"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Environment Variables",
+        "da": "Satellitløsning - Miljøvariabler"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below",
+            "da": "Følg [Environment Variable Setup Guide] (https://learn.microsoft.com/power-automatiser/guidance/automation-kit/setup/environment-variables) for at få vist værdierne for nedenstående elementer"
+          }
+        },
+        {
+          "name": "satellite-azureKeyVaultClientId",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Id Secret",
+            "da": "AKV-klient-id-hemmelighed"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultClientSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Client Secret Secret",
+            "da": "AKV-klient hemmelig hemmelighed"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-azureKeyVaultTenantIdSecret",
+          "type": "text",
+          "title": {
+            "default": "AKV Tenant Id Secret",
+            "da": "AKV lejer id hemmelighed"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationCoEAlertEmailRecipient",
+          "type": "text",
+          "title": {
+            "default": "Automation CoE Alert Email Recipient",
+            "da": "Automatisering CoE Alert e-mail-modtager"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-automationProjectAppId",
+          "type": "text",
+          "title": {
+            "default": "Automation Project app Id",
+            "da": "Automatisering af projektapp-id"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-desktopFlowsBaseUrl",
+          "type": "text",
+          "title": {
+            "default": "Desktop Flows Base URL",
+            "da": "Grundlæggende URL-adresse til skrivebordsflow"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentId",
+          "type": "text",
+          "title": {
+            "default": "Environment Id",
+            "da": "Miljø Id"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentName",
+          "type": "text",
+          "title": {
+            "default": "Environment Name",
+            "da": "Miljø Navn"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentRegion",
+          "type": "text",
+          "title": {
+            "default": "Environment Region",
+            "da": "Miljøregion"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueName",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name",
+            "da": "Miljø unikt navn"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUniqueNameMain",
+          "type": "text",
+          "title": {
+            "default": "Environment Unique Name (Automation Kit Main)",
+            "da": "Entydigt miljønavn (Automation Kit Main)"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-environmentUrl",
+          "type": "text",
+          "title": {
+            "default": "Environment Url",
+            "da": "Url-adresse til miljø"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "satellite-flowSessionTraceRecordOwnerId",
+          "type": "text",
+          "title": {
+            "default": "Flow Session Trace Record Owner Id",
+            "da": "Ejer-id for flowsessionssporing"
+          },
+          "isRequired": true
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "Use the download button below to obtain your satellite configuration file that will be used to customize your deployment",
+            "da": "Brug downloadknappen nedenfor til at hente din satellitkonfigurationsfil, der vil blive brugt til at tilpasse din implementering"
+          }
+        },
+        {
+          "type": "download-task",
+          "title": {
+            "default": "Download results",
+            "da": "Download resultater"
+          },
+          "text": {
+            "default": "Download",
+            "da": "Downloade"
+          },
+          "name": "downloadResults",
+          "fileName": "automation-kit-satellite-install.json",
+          "filter": "satellite"
+        }
+      ]
+    },
+    {
+      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+      "elements": [
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
+            "da": "<b>seddel:</b> Brug dokumentationssiden <a href='/features/datapack' target='blank'>Data Packs</a> til vejledning i, hvordan du installerer hovedløsningen med eksempeldata"
+          }
         }
       ]
     }

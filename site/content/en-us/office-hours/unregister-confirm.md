@@ -9,4 +9,4 @@ index: false
 
 Please use the questions below to confirm your unregistration.
 
-{{<questions name="/office-hours/unregister-confirm.json" completed="Thank you for completing unregistration confirmation" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/office-hours/unregister-confirm.json" completed="Thank you for completing unregistration confirmation" showNavigationButtons=false >}}

@@ -4,7 +4,7 @@ description: "自动化套件 - 办公时间 2022 年 10 月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: AB3E1309FFD973AC61BC2CFA6C628DDC274E8874
+generated: 531F9B8CFD51FA169D951B7C2226592437D35744
 ---
 
 欢迎来到电源平台自动化套件 2022 年 10 月办公时间登录页面。

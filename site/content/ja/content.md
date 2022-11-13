@@ -4,7 +4,7 @@ description: "オートメーションキット - サイトインデックス"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7C1A1321B728D0B762F1109973D5940D127743A1
+generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 ---
 
 {{<toc>}}
@@ -28,6 +28,8 @@ generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 - [自動化キット - RPA移行](/ja/migration)
 
 - [オートメーションキット - モジュール](/ja/modules)
+
+- [オートメーションキット - モニタリング比較](/ja/monitoring-compare)
 
 - [自動化キット - オフィスアワー](/ja/office-hours)
 

@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 Delene nedenfor beskriver retningslinjer og merknader for redigering av startdokumentasjon.
@@ -110,7 +110,7 @@ Legg til **innholdsfortegnelse** følge kortkode til markdown for å inkludere e
 Inkluder et sett med spørsmål på siden din omgitt av \{\{ og \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 Parametere:

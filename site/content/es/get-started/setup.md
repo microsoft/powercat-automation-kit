@@ -4,7 +4,7 @@ description: "Kit de automatización - Configuración"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7E07A55BAC04FAAAFEA26DCCFE16FE9966C4F42D
+generated: 118FFCC302703046F1A62CAA9F21BAF122AB0505
 ---
 
 Siga los pasos siguientes para ayudarle a crear una configuración para su entorno de modo que pueda instalar y configurar rápidamente la instalación.

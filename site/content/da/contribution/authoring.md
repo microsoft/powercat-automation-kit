@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 I de følgende afsnit beskrives retningslinjer og noter til oprettelse af startdokumentation.
@@ -110,7 +110,7 @@ Tilføj **Indholdsfortegnelsen** følgende kortkode til din markdown for at inkl
 Medtag et sæt spørgsmål på din side omgivet af \{\{ og \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 Parametre:

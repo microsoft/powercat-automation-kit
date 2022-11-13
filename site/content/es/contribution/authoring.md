@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 En las secciones siguientes se describen las directrices y notas para crear documentación inicial.
@@ -110,7 +110,7 @@ Agregue el **Toc** Siguiendo el shortcode a su Markdown para incluir una tabla d
 Incluye un conjunto de preguntas en tu página rodeado de \{\{ y \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 Parámetros:

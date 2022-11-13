@@ -109,7 +109,7 @@ Add the **toc** following shortcode to your markdown to include a table of conte
 Include a set of questions in your page surrounded by \{\{ and \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 Parameters:

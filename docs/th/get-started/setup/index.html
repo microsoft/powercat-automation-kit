@@ -132,10 +132,11 @@
 
 
 
+
 <script>
     
     
-    data = "{\r\n  \"checkErrorsMode\": \"onValueChanging\",\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"title\": {\r\n        \"default\": \"Welcome\",\r\n        \"th\": \"ต้อนรับ\"\r\n      },\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"installType\",\r\n          \"title\": {\r\n            \"default\": \"What component(s) are you looking to setup?\",\r\n            \"th\": \"คุณต้องการติดตั้งส่วนประกอบใด\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"Main solution\",\r\n              \"text\": {\r\n                \"default\": \"Main solution\",\r\n                \"th\": \"ทางออกหลัก\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Satellite solution\",\r\n              \"text\": {\r\n                \"default\": \"Satellite solution\",\r\n                \"th\": \"โซลูชันดาวเทียม\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Data Import\",\r\n              \"text\": {\r\n                \"default\": \"Data Import\",\r\n                \"th\": \"การนําเข้าข้อมูล\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Security Group Setup\",\r\n              \"text\": {\r\n                \"default\": \"Security Group Setup\",\r\n                \"th\": \"การตั้งค่ากลุ่มความปลอดภัย\"\r\n              }\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": {\r\n        \"default\": \"Main Solution - Connections\",\r\n        \"th\": \"โซลูชันหลัก - การเชื่อมต่อ\"\r\n      },\r\n      \"visibleIf\": \"contains({installType}, 'Main solution')\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"paneldynamic\",\r\n          \"name\": \"main-connections\",\r\n          \"title\": {\r\n            \"default\": \"Please provide one of each of the following the connections\",\r\n            \"th\": \"โปรดระบุหนึ่งในการเชื่อมต่อต่อไปนี้\"\r\n          },\r\n          \"minPanelCount\": 5,\r\n          \"maxPanelCount\": 5,\r\n          \"templateElements\": [\r\n            {\r\n              \"name\": \"connectionType\",\r\n              \"type\": \"dropdown\",\r\n              \"title\": {\r\n                \"default\": \"Connection\",\r\n                \"th\": \"การเชื่อมต่อ\"\r\n              },\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"Approvals\",\r\n                  \"text\": {\r\n                    \"default\": \"Approvals\",\r\n                    \"th\": \"อนุมัติ\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Microsoft Dataverse\",\r\n                  \"text\": {\r\n                    \"default\": \"Microsoft Dataverse\",\r\n                    \"th\": \"Microsoft Dataverse\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Office 365 Users\",\r\n                  \"text\": {\r\n                    \"default\": \"Office 365 Users\",\r\n                    \"th\": \"ผู้ใช้สํานักงาน 365\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Office 365 Outlook\",\r\n                  \"text\": {\r\n                    \"default\": \"Office 365 Outlook\",\r\n                    \"th\": \"แนวโน้มของ Office 365\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Power Platform for Admins Automation\",\r\n                  \"text\": {\r\n                    \"default\": \"Power Platform for Admins Automation\",\r\n                    \"th\": \"Power Platform สําหรับระบบอัตโนมัติของผู้ดูแลระบบ\"\r\n                  }\r\n                }\r\n              ],\r\n              \"isRequired\": true\r\n            },\r\n            {\r\n              \"name\": \"url\",\r\n              \"type\": \"text\",\r\n              \"title\": {\r\n                \"default\": \"Connection Link\",\r\n                \"th\": \"ลิงค์การเชื่อมต่อ\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"startWithNewLine\": false,\r\n              \"validators\": [\r\n                {\r\n                  \"type\": \"regex\",\r\n                  \"text\": \"Must be a valid Power Platform connection link starting with https://make.powerapps.com\",\r\n                  \"regex\": \"^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)\"\r\n                }\r\n              ]\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"checkErrorsMode\": \"onValueChanging\",\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"title\": {\r\n        \"default\": \"Welcome\",\r\n        \"th\": \"ต้อนรับ\"\r\n      },\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"installType\",\r\n          \"title\": {\r\n            \"default\": \"What component(s) are you looking to setup?\",\r\n            \"th\": \"คุณต้องการติดตั้งส่วนประกอบใด\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"Main solution\",\r\n              \"text\": {\r\n                \"default\": \"Main solution\",\r\n                \"th\": \"ทางออกหลัก\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Satellite solution\",\r\n              \"text\": {\r\n                \"default\": \"Satellite solution\",\r\n                \"th\": \"โซลูชันดาวเทียม\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Data Import\",\r\n              \"text\": {\r\n                \"default\": \"Data Import\",\r\n                \"th\": \"การนําเข้าข้อมูล\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Security Group Setup\",\r\n              \"text\": {\r\n                \"default\": \"Security Group Setup\",\r\n                \"th\": \"การตั้งค่ากลุ่มความปลอดภัย\"\r\n              }\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"title\": {\r\n        \"default\": \"Main Solution - Connections\",\r\n        \"th\": \"โซลูชันหลัก - การเชื่อมต่อ\"\r\n      },\r\n      \"visibleIf\": \"contains({installType}, 'Main solution')\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"paneldynamic\",\r\n          \"name\": \"main-connections\",\r\n          \"title\": {\r\n            \"default\": \"Please provide one of each of the following the connections\",\r\n            \"th\": \"โปรดระบุหนึ่งในการเชื่อมต่อต่อไปนี้\"\r\n          },\r\n          \"minPanelCount\": 5,\r\n          \"maxPanelCount\": 5,\r\n          \"templateElements\": [\r\n            {\r\n              \"name\": \"connectionType\",\r\n              \"type\": \"dropdown\",\r\n              \"title\": {\r\n                \"default\": \"Connection\",\r\n                \"th\": \"การเชื่อมต่อ\"\r\n              },\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"Approvals\",\r\n                  \"text\": {\r\n                    \"default\": \"Approvals\",\r\n                    \"th\": \"อนุมัติ\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Microsoft Dataverse\",\r\n                  \"text\": {\r\n                    \"default\": \"Microsoft Dataverse\",\r\n                    \"th\": \"Microsoft Dataverse\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Office 365 Users\",\r\n                  \"text\": {\r\n                    \"default\": \"Office 365 Users\",\r\n                    \"th\": \"ผู้ใช้สํานักงาน 365\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Office 365 Outlook\",\r\n                  \"text\": {\r\n                    \"default\": \"Office 365 Outlook\",\r\n                    \"th\": \"แนวโน้มของ Office 365\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Power Platform for Admins Automation\",\r\n                  \"text\": {\r\n                    \"default\": \"Power Platform for Admins Automation\",\r\n                    \"th\": \"Power Platform สําหรับระบบอัตโนมัติของผู้ดูแลระบบ\"\r\n                  }\r\n                }\r\n              ],\r\n              \"isRequired\": true\r\n            },\r\n            {\r\n              \"name\": \"url\",\r\n              \"type\": \"text\",\r\n              \"title\": {\r\n                \"default\": \"Connection Link\",\r\n                \"th\": \"ลิงค์การเชื่อมต่อ\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"startWithNewLine\": false,\r\n              \"validators\": [\r\n                {\r\n                  \"type\": \"regex\",\r\n                  \"text\": \"Must be a valid Power Platform connection link starting with https://make.powerapps.com\",\r\n                  \"regex\": \"^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)\"\r\n                }\r\n              ]\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"download-task\",\r\n          \"title\": {\r\n            \"default\": \"Download results\",\r\n            \"th\": \"ดาวน์โหลดผลลัพธ์\"\r\n          },\r\n          \"name\": \"downloadResults\",\r\n          \"filter\": \"main\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 
@@ -158,7 +159,69 @@
             this.feedbackTask();
             this.importTask();
             this.imageTask();
+            this.downloadTask();
             this.handoffTask();
+        }
+
+        downloadTask() {
+            var widget = {
+                name: "download-task",
+                title: "Download Task",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "download-task";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='downloadLink'>ดาวน์โหลด</a><a id='downloadData' style='display:none'></a></div>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "download-task", [
+                        {
+                            name: "filter",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "text",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        question.survey.setValue(question.name + '_loaded', true)
+                        $("#downloadLink").html(question.text);
+                        $("#downloadLink").on("click", function() {
+                            var jsonString = JSON.stringify(question.survey.data);
+                            var blob = new Blob([jsonString], { type: 'application/json' });
+                            var anchor = document.getElementById('downloadData');
+                            anchor.download = 'results.json';
+                            anchor.href = window.URL.createObjectURL(blob);
+                            anchor.dataset.downloadUrl = [ 'application/json', anchor.download, anchor.href].join(':');
+                            anchor.click()
+                        });
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
         handoffTask() {

@@ -49,7 +49,7 @@ Overall we build on the existing out of the box Power Platform and Microsoft Dev
 
 ## Feedback
 
-{{<questions name="/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/features/alm/powercat.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 
 </div>
 

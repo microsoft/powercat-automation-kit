@@ -25,38 +25,82 @@
             "visibleIf": "contains({installType}, 'Main solution')",
             "elements": [
                 {
-                    "type": "paneldynamic",
-                    "name": "main-connections",
-                    "title": "Please provide one of each of the following the connections",
-                    "minPanelCount": 5,
-                    "maxPanelCount": 5,
-                    "templateElements": [
-                        {
-                          "name": "connectionType",
-                          "type": "dropdown",
-                          "title": "Connection",
-                          "choices": [
-                            "Approvals",
-                            "Microsoft Dataverse",
-                            "Office 365 Users",
-                            "Office 365 Outlook",
-                            "Power Platform for Admins Automation"
-                          ],
-                          "isRequired": true
-                        },
-                        {
-                            "name": "url",
-                            "type": "text",
-                            "title": "Connection Link",
-                            "isRequired": true,
-                            "startWithNewLine": false,
-                            "validators": [{
-                                "type": "regex",
-                                "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                                "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
-                              }]
-                          }
-                    ]
+                    "name": "installEnvironment",
+                    "type": "text",
+                    "title": "Install Environment",
+                    "isRequired": true,
+                    "startWithNewLine": false,
+                    "validators": [{
+                        "type": "regex",
+                        "text": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+                      }]
+                },
+                {
+                    "name": "approvalConnection",
+                    "type": "text",
+                    "title": "Approval Connection",
+                    "isRequired": true,
+                    "startWithNewLine": false,
+                    "validators": [{
+                        "type": "regex",
+                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                      }]
+                },
+                {
+                    "name": "dataverseConnection",
+                    "type": "text",
+                    "title": "Microsoft Dataverse Connection",
+                    "isRequired": true,
+                    "startWithNewLine": false,
+                    "validators": [{
+                        "type": "regex",
+                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                      }]
+                },
+                {
+                    "name": "offiec365UserConnection",
+                    "type": "text",
+                    "title": "Office 365 User Connection",
+                    "isRequired": true,
+                    "startWithNewLine": false,
+                    "validators": [{
+                        "type": "regex",
+                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                      }]
+                },
+                {
+                    "name": "offiec365OutlookConnection",
+                    "type": "text",
+                    "title": "Office 365 Outlook Connection",
+                    "isRequired": true,
+                    "startWithNewLine": false,
+                    "validators": [{
+                        "type": "regex",
+                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                      }]
+                },
+                {
+                    "name": "powerPlatformAdminConnection",
+                    "type": "text",
+                    "title": "Power Platform for Admins Automation Connection",
+                    "isRequired": true,
+                    "startWithNewLine": false,
+                    "validators": [{
+                        "type": "regex",
+                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
+                      }]
+                },
+                {
+                    "type": "download-task",
+                    "title": "Download results",
+                    "name": "downloadResults",
+                    "filter": "main"
                 }
             ]
         }

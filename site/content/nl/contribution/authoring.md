@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 In de volgende secties worden richtlijnen en opmerkingen voor het schrijven van startdocumentatie beschreven.
@@ -110,7 +110,7 @@ Voeg de **Inhoudsopgave** het volgen van shortcode naar uw markdown om een tabel
 Neem een reeks vragen op uw pagina op, omringd door \{\{ en \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 Parameters:

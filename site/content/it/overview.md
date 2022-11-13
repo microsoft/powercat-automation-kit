@@ -3,7 +3,7 @@ title: "Panoramica"
 description: "Kit di automazione - Panoramica"
 sidebar: false
 sidebarlogo: fresh-white
-generated: E841F2B13005D1C9AEDB5A8BB90283DCDDD3DDE2
+generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
 ---
 
 <div class="optional">

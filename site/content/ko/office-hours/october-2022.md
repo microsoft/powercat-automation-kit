@@ -4,7 +4,7 @@ description: "자동화 키트 - 근무 시간 2022년 10월"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: AB3E1309FFD973AC61BC2CFA6C628DDC274E8874
+generated: 531F9B8CFD51FA169D951B7C2226592437D35744
 ---
 
 Power Platform용 자동화 키트 2022년 10월 근무 시간 랜딩 페이지에 오신 것을 환영합니다.

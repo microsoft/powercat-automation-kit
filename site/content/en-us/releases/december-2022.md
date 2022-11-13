@@ -20,7 +20,7 @@ The December release (zealous-antonelli) of the {{<product-name>}} is the fourth
 
 ## Feedback
 
-{{<questions name="/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 
 </div>
 

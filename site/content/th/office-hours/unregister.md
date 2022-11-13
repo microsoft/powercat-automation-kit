@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ยกเลิ
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: DBF1D93EB5CF342892E9C69DB15B1DC338DE80F9
+generated: 38A1BD32A8A2D984418B1C28E7309FBF22188319
 ---
 
 โปรดใช้คําถามด้านล่างเพื่อยกเลิกการลงทะเบียนอัตโนมัติของคุณสําหรับ {{<product-name>}}. เราจะส่งรหัสยืนยันที่คุณสามารถใช้เพื่อ [ยืนยันการยกเลิกการลงทะเบียน](/th/office-hours/unregister-confirm)

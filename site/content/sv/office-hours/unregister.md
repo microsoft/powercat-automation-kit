@@ -4,7 +4,7 @@ description: "Automation Kit - Avregistrering av kontorstid"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: DBF1D93EB5CF342892E9C69DB15B1DC338DE80F9
+generated: 38A1BD32A8A2D984418B1C28E7309FBF22188319
 ---
 
 Använd frågan nedan för att avbryta din automatiska registrering för {{<product-name>}}. Vi skickar dig en bekräftelsekod som du kan använda för att [bekräfta avregistrering](/sv/office-hours/unregister-confirm)

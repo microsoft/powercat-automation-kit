@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Index du site"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7C1A1321B728D0B762F1109973D5940D127743A1
+generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 ---
 
 {{<toc>}}
@@ -28,6 +28,8 @@ generated: 7C1A1321B728D0B762F1109973D5940D127743A1
 - [Kit d’automatisation - Migration RPA](/fr/migration)
 
 - [Kit d’automatisation - Modules](/fr/modules)
+
+- [Kit d’automatisation - Monitoring Compare](/fr/monitoring-compare)
 
 - [Kit d’automatisation - Heures de bureau](/fr/office-hours)
 

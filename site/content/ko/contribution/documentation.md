@@ -4,7 +4,7 @@ description: "자동화 키트 - 문서 기여"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: B8B7872EF04477E38055C5391B3B5E91062AF0C1
+generated: ED6953C08CC52AA14ECF68EB4956538220FEC18A
 ---
 
 **상태:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 진행 중인 작업 - 검토 중

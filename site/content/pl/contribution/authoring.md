@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 
-generated: 433D677DF77659E90DB96D781DBB7F15CEACA34E
+generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
 ---
 
 W poniższych sekcjach przedstawiono wskazówki i uwagi dotyczące tworzenia dokumentacji początkowej.
@@ -110,7 +110,7 @@ Dodaj **Toc** podążanie za krótkim kodem do znacznika, aby dołączyć spis t
 Dołącz zestaw pytań do swojej strony otoczony \{\{ oraz \}\}
 
 ```html
-<questions name="foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
+<questions name="/content/en-us/foo.json" completed="Thank you for completing foo" showNavigationButtons=false />
 ```
 
 Parametry:

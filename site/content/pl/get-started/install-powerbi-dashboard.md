@@ -13,6 +13,6 @@ Aby uzyskać adres URL środowiska, przejdź do Centrum administracyjnego Power 
 
 ![Ekran pobierania środowiska — centrum administracyjne Power Platform](/images/get-environment.png)
 
-Wprowadź adres URL środowiska po uruchomieniu szablonu usługi Power BI pobranego z [{{<product-name>}} Wydania](https://github.com/microsoft/powercat-automation-kit/releases)
+Wprowadź adres URL środowiska po uruchomieniu szablonu usługi Power BI pobranego z [{{<product-name>Wydania }}](https://github.com/microsoft/powercat-automation-kit/releases)
 
 ![Przykład importu usługi Power BIPower BI import example](/images/power-bi-import.png)

@@ -4,7 +4,7 @@ description: "Automation Kit - Opsætning"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7E07A55BAC04FAAAFEA26DCCFE16FE9966C4F42D
+generated: 118FFCC302703046F1A62CAA9F21BAF122AB0505
 ---
 
 Følg nedenstående trin for at hjælpe dig med at oprette en konfiguration til dit miljø, så du hurtigt kan installere og konfigurere din installation.

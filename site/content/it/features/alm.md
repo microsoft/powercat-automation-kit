@@ -4,7 +4,7 @@ description: "Kit di automazione - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9879BCED5F4B223A5305D8514B67FB43AA12FDDD
+generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 ---
 
 {{<slideStyles>}}

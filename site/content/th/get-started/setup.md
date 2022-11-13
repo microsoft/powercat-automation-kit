@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - การตั
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7E07A55BAC04FAAAFEA26DCCFE16FE9966C4F42D
+generated: 118FFCC302703046F1A62CAA9F21BAF122AB0505
 ---
 
 ใช้ขั้นตอนด้านล่างเพื่อช่วยคุณในการสร้างการกําหนดค่าสําหรับสภาพแวดล้อมของคุณเพื่อให้คุณสามารถติดตั้งและกําหนดค่าการติดตั้งของคุณได้อย่างรวดเร็ว

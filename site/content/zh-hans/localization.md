@@ -4,7 +4,7 @@ description: "自动化套件 - 本地化"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 8C6838A1498CA84E45F7638050A2F7633E36ADA8
+generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
 ---
 
 **地位：**{{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 进行中的工作 - 实验性

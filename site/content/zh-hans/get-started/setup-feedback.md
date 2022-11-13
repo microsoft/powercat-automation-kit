@@ -5,7 +5,7 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 index: false
-generated: ABDDF2062C438838D84887235AB4B4C631D819C6
+generated: CE4A52107FC6F53E0BB3C895EF72B59B21E06362
 ---
 
 想要提供有关[设置过程](/zh-hans/get-started/setup)?以下问题有助于我们改进流程。
