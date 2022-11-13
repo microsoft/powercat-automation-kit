@@ -135,7 +135,7 @@
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Setup-Feedback\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"setup-useful\",\r\n          \"title\": {\r\n            \"default\": \"Was the setup configuration and process useful to you?\",\r\n            \"da\": \"Var konfigurationen og processen nyttig for dig?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"not-useful\",\r\n          \"title\": {\r\n            \"default\": \"Why was the setup process not useful for you?\",\r\n            \"da\": \"Hvorfor var installationsprocessen ikke nyttig for dig?\"\r\n          },\r\n          \"visibleIf\": \"{setup-useful} = false\"\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"whatIsImportant\",\r\n          \"title\": {\r\n            \"default\": \"What is most important to you?\",\r\n            \"da\": \"Hvad er vigtigst for dig?\"\r\n          },\r\n          \"isRequired\": false,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to be guided through connections I need\",\r\n              \"text\": {\r\n                \"default\": \"The ability to be guided through connections I need\",\r\n                \"da\": \"Evnen til at blive guidet gennem forbindelser, jeg har brug for\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to set environment variables\",\r\n              \"text\": {\r\n                \"default\": \"The ability to set environment variables\",\r\n                \"da\": \"Evnen til at indstille miljøvariabler\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Being able to assign users to security groups\",\r\n              \"text\": {\r\n                \"default\": \"Being able to assign users to security groups\",\r\n                \"da\": \"At kunne tildele brugere til sikkerhedsgrupper\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Being able to use command line install tools\",\r\n              \"text\": {\r\n                \"default\": \"Being able to use command line install tools\",\r\n                \"da\": \"At kunne bruge kommandolinjeinstallationsværktøjer\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"whatElseIsImportant\",\r\n          \"title\": {\r\n            \"default\": \"What would improve the process for you?\",\r\n            \"da\": \"Hvad ville forbedre processen for dig?\"\r\n          },\r\n          \"isRequired\": false,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"Doing a web only install and not install any local tools needed\",\r\n              \"text\": {\r\n                \"default\": \"Doing a web only install and not install any local tools needed\",\r\n                \"da\": \"Gør en web kun installere og ikke installere nogen lokale værktøjer nødvendige\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it\",\r\n              \"text\": {\r\n                \"default\": \"Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it\",\r\n                \"da\": \"At have installationen som en del af [App Source](https://appsource.microsoft.com/), så jeg kan installere den\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Clear security guidance on what is needed\",\r\n              \"text\": {\r\n                \"default\": \"Clear security guidance on what is needed\",\r\n                \"da\": \"Klar sikkerhedsvejledning om, hvad der er behov for\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Industry specific data settings and goals\",\r\n              \"text\": {\r\n                \"default\": \"Industry specific data settings and goals\",\r\n                \"da\": \"Branchespecifikke dataindstillinger og mål\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Any other feedback?\",\r\n            \"da\": \"Nogen anden feedback?\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses\",\r\n            \"da\": \"Vil du sende resultaterne af din feedback, så Core Automation Kit-teamet kan skræddersy lokaliseringen baseret på dine svar\"\r\n          },\r\n          \"label\": {\r\n            \"default\": \"Send results?\",\r\n            \"da\": \"Send resultater?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = false\",\r\n          \"html\": {\r\n            \"default\": \"We hope these questions will help you determine an idea of topics or questions if you attend\",\r\n            \"da\": \"Vi håber, at disse spørgsmål vil hjælpe dig med at bestemme en idé om emner eller spørgsmål, hvis du deltager\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process.\",\r\n            \"da\": \"Vi ser frem til at få din feedback. Som et centralt Automation Kit-team bruger vi feedbacken til at forbedre installationsprocessen.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"da\": \"Send din feedback nu?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"da\": \"Status: {send-results-status}\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Setup-Feedback\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"setup-useful\",\r\n          \"title\": {\r\n            \"default\": \"Was the setup configuration and process useful to you?\",\r\n            \"da\": \"Var konfigurationen og processen nyttig for dig?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"not-useful\",\r\n          \"title\": {\r\n            \"default\": \"Why was the setup process not useful for you?\",\r\n            \"da\": \"Hvorfor var installationsprocessen ikke nyttig for dig?\"\r\n          },\r\n          \"visibleIf\": \"{setup-useful} = false\"\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"whatIsImportant\",\r\n          \"title\": {\r\n            \"default\": \"What is most important to you?\",\r\n            \"da\": \"Hvad er vigtigst for dig?\"\r\n          },\r\n          \"isRequired\": false,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to be guided through connections I need\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"da\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to set environment variables\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"da\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Being able to assign users to security groups\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"da\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Being able to use command line install tools\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"da\": null\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"whatElseIsImportant\",\r\n          \"title\": {\r\n            \"default\": \"What would improve the process for you?\",\r\n            \"da\": \"Hvad ville forbedre processen for dig?\"\r\n          },\r\n          \"isRequired\": false,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"Doing a web only install and not install any local tools needed\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"da\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"da\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Clear security guidance on what is needed\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"da\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Industry specific data settings and goals\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"da\": null\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Any other feedback?\",\r\n            \"da\": \"Nogen anden feedback?\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses\",\r\n            \"da\": \"Vil du sende resultaterne af din feedback, så Core Automation Kit-teamet kan skræddersy lokaliseringen baseret på dine svar\"\r\n          },\r\n          \"label\": {\r\n            \"default\": \"Send results?\",\r\n            \"da\": \"Send resultater?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = false\",\r\n          \"html\": {\r\n            \"default\": \"We hope these questions will help you determine an idea of topics or questions if you attend\",\r\n            \"da\": \"Vi håber, at disse spørgsmål vil hjælpe dig med at bestemme en idé om emner eller spørgsmål, hvis du deltager\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process.\",\r\n            \"da\": \"Vi ser frem til at få din feedback. Som et centralt Automation Kit-team bruger vi feedbacken til at forbedre installationsprocessen.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"da\": \"Send din feedback nu?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"da\": \"Status: {send-results-status}\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 
@@ -160,6 +160,75 @@
             this.imageTask();
             this.downloadTask();
             this.handoffTask();
+            this.createConnection();
+        }
+
+        createConnection() {
+            var widget = {
+                name: "create-connection",
+                title: "Create Connection",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "create-connection";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='createConnection'></a></div>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "create-connection", [
+                        {
+                            name: "name",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "title",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "connector",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "environment",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        question.survey.setValue(question.name + '_loaded', true)
+                        $("#createConnection").attr('id', question.name)
+                        $("#" + question.name).html(question.title);
+                        $("#" + question.name).on("click", function() {
+                            let environment = question.survey.data[question.environment]
+                            environment = environment.replaceAll("/home", "/connections/available?apiName=" + question.connector)
+                            window.open(environment)
+                        });
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
         downloadTask() {
@@ -182,6 +251,11 @@
                     Survey.JsonObject.metaData.addClass(
                         "download-task", [
                         {
+                            name: "name",
+                            type: "text",
+                            default: ""
+                        },
+                        {
                             name: "filter",
                             type: "text",
                             default: ""
@@ -190,6 +264,11 @@
                             name: "text",
                             type: "text",
                             default: ""
+                        },
+                        {
+                            name: "fileName",
+                            type: "text",
+                            default: "results.json"
                         }
                     ], null, "empty");
                 },
@@ -205,10 +284,20 @@
                         question.survey.setValue(question.name + '_loaded', true)
                         $("#downloadLink").html(question.text);
                         $("#downloadLink").on("click", function() {
-                            var jsonString = JSON.stringify(question.survey.data);
+                            var data = question.survey.data;
+                            if ( question.filter.length > 0 ) {
+                                var newData = {}
+                                for (const key in data) {
+                                    if (data.hasOwnProperty(key) && key.startsWith(question.filter + "-")) {
+                                        newData[key] = data[key]
+                                    }
+                                }
+                                data = newData;
+                            }
+                            var jsonString = JSON.stringify(data);
                             var blob = new Blob([jsonString], { type: 'application/json' });
                             var anchor = document.getElementById('downloadData');
-                            anchor.download = 'results.json';
+                            anchor.download = question.fileName;
                             anchor.href = window.URL.createObjectURL(blob);
                             anchor.dataset.downloadUrl = [ 'application/json', anchor.download, anchor.href].join(':');
                             anchor.click()

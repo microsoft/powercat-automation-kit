@@ -168,7 +168,7 @@
 <script>
     
     
-    data = "{\r\n  \"completedHtml\": {\r\n    \"default\": \"Thank you for sending feedback\",\r\n    \"nl\": \"Bedankt voor het verzenden van feedback\"\r\n  },\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Contribution-Feedback\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"content-help\",\r\n          \"label\": {\r\n            \"default\": \"Did this overview help?\",\r\n            \"nl\": \"Heeft dit overzicht geholpen?\"\r\n          },\r\n          \"isRequired\": false\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"most-useful\",\r\n          \"title\": {\r\n            \"default\": \"What topics where most useful for you?\",\r\n            \"nl\": \"Welke onderwerpen zijn voor jou het meest nuttig?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"hasOther\": true,\r\n          \"colCount\": 1,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"Not sure\",\r\n              \"text\": {\r\n                \"default\": \"Not sure\",\r\n                \"nl\": \"Ik weet het niet\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Link to public feedback channels on GitHub\",\r\n              \"text\": {\r\n                \"default\": \"Link to public feedback channels on GitHub\",\r\n                \"nl\": \"Koppeling naar openbare feedbackkanalen op GitHub\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Ability to comment publicly on issues or new features\",\r\n              \"text\": {\r\n                \"default\": \"Ability to comment publicly on issues or new features\",\r\n                \"nl\": \"Mogelijkheid om publiekelijk commentaar te geven op problemen of nieuwe functies\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Knowledge of how can contribute the Automation Kit\",\r\n              \"text\": {\r\n                \"default\": \"Knowledge of how can contribute the Automation Kit\",\r\n                \"nl\": \"Kennis van hoe kan bijdragen aan de Automation Kit\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"most-useful-topics\",\r\n          \"type\": \"ranking\",\r\n          \"title\": {\r\n            \"default\": \"Please rank the topics of interest to you (long tap on selection with a touch screen)\",\r\n            \"nl\": \"Rangschik de onderwerpen die voor u van belang zijn (lang tikken op selectie met een aanraakscherm)\"\r\n          },\r\n          \"visibleIf\": \"{most-useful.length} \u003e 1\",\r\n          \"choicesFromQuestion\": \"most-useful\",\r\n          \"choicesFromQuestionMode\": \"selected\",\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Any other feedback?\",\r\n            \"nl\": \"Nog andere feedback?\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor our feedback process?\",\r\n            \"nl\": \"Wilt u de resultaten van uw feedback verzenden, zodat het Core Automation Kit-team ons feedbackproces kan aanpassen?\"\r\n          },\r\n          \"label\": {\r\n            \"default\": \"Send results?\",\r\n            \"nl\": \"Resultaten verzenden?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the contribution feedback.\",\r\n            \"nl\": \"We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om de feedback van de bijdrage te verbeteren.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"nl\": \"Nu uw feedback verzenden?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"nl\": \"Status: {send-results-status}\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"completedHtml\": {\r\n    \"default\": \"Thank you for sending feedback\",\r\n    \"nl\": \"Bedankt voor het verzenden van feedback\"\r\n  },\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Contribution-Feedback\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"content-help\",\r\n          \"label\": {\r\n            \"default\": \"Did this overview help?\",\r\n            \"nl\": \"Heeft dit overzicht geholpen?\"\r\n          },\r\n          \"isRequired\": false\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"most-useful\",\r\n          \"title\": {\r\n            \"default\": \"What topics where most useful for you?\",\r\n            \"nl\": \"Welke onderwerpen zijn voor jou het meest nuttig?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"hasOther\": true,\r\n          \"colCount\": 1,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"Not sure\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"nl\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Link to public feedback channels on GitHub\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"nl\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Ability to comment publicly on issues or new features\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"nl\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Knowledge of how can contribute the Automation Kit\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"nl\": null\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"most-useful-topics\",\r\n          \"type\": \"ranking\",\r\n          \"title\": {\r\n            \"default\": \"Please rank the topics of interest to you (long tap on selection with a touch screen)\",\r\n            \"nl\": \"Rangschik de onderwerpen die voor u van belang zijn (lang tikken op selectie met een aanraakscherm)\"\r\n          },\r\n          \"visibleIf\": \"{most-useful.length} \u003e 1\",\r\n          \"choicesFromQuestion\": \"most-useful\",\r\n          \"choicesFromQuestionMode\": \"selected\",\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Any other feedback?\",\r\n            \"nl\": \"Nog andere feedback?\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor our feedback process?\",\r\n            \"nl\": \"Wilt u de resultaten van uw feedback verzenden, zodat het Core Automation Kit-team ons feedbackproces kan aanpassen?\"\r\n          },\r\n          \"label\": {\r\n            \"default\": \"Send results?\",\r\n            \"nl\": \"Resultaten verzenden?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the contribution feedback.\",\r\n            \"nl\": \"We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om de feedback van de bijdrage te verbeteren.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"nl\": \"Nu uw feedback verzenden?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"nl\": \"Status: {send-results-status}\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 
@@ -193,6 +193,75 @@
             this.imageTask();
             this.downloadTask();
             this.handoffTask();
+            this.createConnection();
+        }
+
+        createConnection() {
+            var widget = {
+                name: "create-connection",
+                title: "Create Connection",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "create-connection";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='createConnection'></a></div>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "create-connection", [
+                        {
+                            name: "name",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "title",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "connector",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "environment",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        question.survey.setValue(question.name + '_loaded', true)
+                        $("#createConnection").attr('id', question.name)
+                        $("#" + question.name).html(question.title);
+                        $("#" + question.name).on("click", function() {
+                            let environment = question.survey.data[question.environment]
+                            environment = environment.replaceAll("/home", "/connections/available?apiName=" + question.connector)
+                            window.open(environment)
+                        });
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
         downloadTask() {
@@ -215,6 +284,11 @@
                     Survey.JsonObject.metaData.addClass(
                         "download-task", [
                         {
+                            name: "name",
+                            type: "text",
+                            default: ""
+                        },
+                        {
                             name: "filter",
                             type: "text",
                             default: ""
@@ -223,6 +297,11 @@
                             name: "text",
                             type: "text",
                             default: ""
+                        },
+                        {
+                            name: "fileName",
+                            type: "text",
+                            default: "results.json"
                         }
                     ], null, "empty");
                 },
@@ -238,10 +317,20 @@
                         question.survey.setValue(question.name + '_loaded', true)
                         $("#downloadLink").html(question.text);
                         $("#downloadLink").on("click", function() {
-                            var jsonString = JSON.stringify(question.survey.data);
+                            var data = question.survey.data;
+                            if ( question.filter.length > 0 ) {
+                                var newData = {}
+                                for (const key in data) {
+                                    if (data.hasOwnProperty(key) && key.startsWith(question.filter + "-")) {
+                                        newData[key] = data[key]
+                                    }
+                                }
+                                data = newData;
+                            }
+                            var jsonString = JSON.stringify(data);
                             var blob = new Blob([jsonString], { type: 'application/json' });
                             var anchor = document.getElementById('downloadData');
-                            anchor.download = 'results.json';
+                            anchor.download = question.fileName;
                             anchor.href = window.URL.createObjectURL(blob);
                             anchor.dataset.downloadUrl = [ 'application/json', anchor.download, anchor.href].join(':');
                             anchor.click()

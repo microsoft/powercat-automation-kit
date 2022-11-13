@@ -135,7 +135,7 @@
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Setup-Feedback\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"setup-useful\",\r\n          \"title\": {\r\n            \"default\": \"Was the setup configuration and process useful to you?\",\r\n            \"it\": \"La configurazione e il processo di installazione sono stati utili per te?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"not-useful\",\r\n          \"title\": {\r\n            \"default\": \"Why was the setup process not useful for you?\",\r\n            \"it\": \"Perché il processo di configurazione non ti è stato utile?\"\r\n          },\r\n          \"visibleIf\": \"{setup-useful} = false\"\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"whatIsImportant\",\r\n          \"title\": {\r\n            \"default\": \"What is most important to you?\",\r\n            \"it\": \"Qual è la cosa più importante per te?\"\r\n          },\r\n          \"isRequired\": false,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to be guided through connections I need\",\r\n              \"text\": {\r\n                \"default\": \"The ability to be guided through connections I need\",\r\n                \"it\": \"La possibilità di essere guidato attraverso le connessioni di cui ho bisogno\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to set environment variables\",\r\n              \"text\": {\r\n                \"default\": \"The ability to set environment variables\",\r\n                \"it\": \"La possibilità di impostare variabili di ambiente\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Being able to assign users to security groups\",\r\n              \"text\": {\r\n                \"default\": \"Being able to assign users to security groups\",\r\n                \"it\": \"Essere in grado di assegnare gli utenti ai gruppi di sicurezza\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Being able to use command line install tools\",\r\n              \"text\": {\r\n                \"default\": \"Being able to use command line install tools\",\r\n                \"it\": \"Essere in grado di utilizzare gli strumenti di installazione della riga di comando\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"whatElseIsImportant\",\r\n          \"title\": {\r\n            \"default\": \"What would improve the process for you?\",\r\n            \"it\": \"Cosa migliorerebbe il processo per te?\"\r\n          },\r\n          \"isRequired\": false,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"Doing a web only install and not install any local tools needed\",\r\n              \"text\": {\r\n                \"default\": \"Doing a web only install and not install any local tools needed\",\r\n                \"it\": \"Fare un'installazione solo Web e non installare gli strumenti locali necessari\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it\",\r\n              \"text\": {\r\n                \"default\": \"Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it\",\r\n                \"it\": \"Avere l'installazione come parte di [App Source] (https://appsource.microsoft.com/) in modo da poterlo installare\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Clear security guidance on what is needed\",\r\n              \"text\": {\r\n                \"default\": \"Clear security guidance on what is needed\",\r\n                \"it\": \"Chiare indicazioni sulla sicurezza su ciò che è necessario\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Industry specific data settings and goals\",\r\n              \"text\": {\r\n                \"default\": \"Industry specific data settings and goals\",\r\n                \"it\": \"Impostazioni e obiettivi dei dati specifici del settore\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Any other feedback?\",\r\n            \"it\": \"Altri commenti?\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses\",\r\n            \"it\": \"Vuoi inviare i risultati del tuo feedback in modo che il team di Core Automation Kit possa personalizzare la localizzazione in base alle tue risposte\"\r\n          },\r\n          \"label\": {\r\n            \"default\": \"Send results?\",\r\n            \"it\": \"Inviare risultati?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = false\",\r\n          \"html\": {\r\n            \"default\": \"We hope these questions will help you determine an idea of topics or questions if you attend\",\r\n            \"it\": \"Speriamo che queste domande ti aiutino a determinare un'idea di argomenti o domande se partecipi\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process.\",\r\n            \"it\": \"Non vediamo l'ora di ricevere il tuo feedback. Come team principale di Automation Kit, utilizziamo il feedback per migliorare il processo di configurazione.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"it\": \"Invia il tuo feedback ora?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"it\": \"Stato: {send-results-status}\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Setup-Feedback\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"setup-useful\",\r\n          \"title\": {\r\n            \"default\": \"Was the setup configuration and process useful to you?\",\r\n            \"it\": \"La configurazione e il processo di installazione sono stati utili per te?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"not-useful\",\r\n          \"title\": {\r\n            \"default\": \"Why was the setup process not useful for you?\",\r\n            \"it\": \"Perché il processo di configurazione non ti è stato utile?\"\r\n          },\r\n          \"visibleIf\": \"{setup-useful} = false\"\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"whatIsImportant\",\r\n          \"title\": {\r\n            \"default\": \"What is most important to you?\",\r\n            \"it\": \"Qual è la cosa più importante per te?\"\r\n          },\r\n          \"isRequired\": false,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to be guided through connections I need\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"it\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to set environment variables\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"it\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Being able to assign users to security groups\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"it\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Being able to use command line install tools\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"it\": null\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"whatElseIsImportant\",\r\n          \"title\": {\r\n            \"default\": \"What would improve the process for you?\",\r\n            \"it\": \"Cosa migliorerebbe il processo per te?\"\r\n          },\r\n          \"isRequired\": false,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"Doing a web only install and not install any local tools needed\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"it\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Having the install as part of [App Source](https://appsource.microsoft.com/) so I can install it\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"it\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Clear security guidance on what is needed\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"it\": null\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Industry specific data settings and goals\",\r\n              \"text\": {\r\n                \"default\": null,\r\n                \"it\": null\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Any other feedback?\",\r\n            \"it\": \"Altri commenti?\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the localization based on your responses\",\r\n            \"it\": \"Vuoi inviare i risultati del tuo feedback in modo che il team di Core Automation Kit possa personalizzare la localizzazione in base alle tue risposte\"\r\n          },\r\n          \"label\": {\r\n            \"default\": \"Send results?\",\r\n            \"it\": \"Inviare risultati?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = false\",\r\n          \"html\": {\r\n            \"default\": \"We hope these questions will help you determine an idea of topics or questions if you attend\",\r\n            \"it\": \"Speriamo che queste domande ti aiutino a determinare un'idea di argomenti o domande se partecipi\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the setup process.\",\r\n            \"it\": \"Non vediamo l'ora di ricevere il tuo feedback. Come team principale di Automation Kit, utilizziamo il feedback per migliorare il processo di configurazione.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"it\": \"Invia il tuo feedback ora?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"it\": \"Stato: {send-results-status}\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 
@@ -160,6 +160,75 @@
             this.imageTask();
             this.downloadTask();
             this.handoffTask();
+            this.createConnection();
+        }
+
+        createConnection() {
+            var widget = {
+                name: "create-connection",
+                title: "Create Connection",
+                iconName: "",
+                widgetIsLoaded: function () {
+                    return true;
+                },
+                defaultJSON: {
+
+                },
+                isFit: function (question) {
+                    return question.getType() === "create-connection";
+                },
+                isDefaultRender: false,
+                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='createConnection'></a></div>",
+                activatedByChanged: function (activatedBy) {
+                    Survey.JsonObject.metaData.addClass(
+                        "create-connection", [
+                        {
+                            name: "name",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "title",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "connector",
+                            type: "text",
+                            default: ""
+                        },
+                        {
+                            name: "environment",
+                            type: "text",
+                            default: ""
+                        }
+                    ], null, "empty");
+                },
+                afterRender: function (question, el) {
+                    question.valueChangedCallback = initWidget;
+                    question.readOnlyChangedCallback = initWidget;
+
+                    if (!question.survey[question.name + '_loaded']) {
+                        initWidget();
+                    }
+
+                    function initWidget() {
+                        question.survey.setValue(question.name + '_loaded', true)
+                        $("#createConnection").attr('id', question.name)
+                        $("#" + question.name).html(question.title);
+                        $("#" + question.name).on("click", function() {
+                            let environment = question.survey.data[question.environment]
+                            environment = environment.replaceAll("/home", "/connections/available?apiName=" + question.connector)
+                            window.open(environment)
+                        });
+                    };
+                },
+                willUnmount: function (question, el) {
+                    el.innerHTML = null;
+                    question.readOnlyChangedCallback = null;
+                }
+            };
+            Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
         downloadTask() {
@@ -182,6 +251,11 @@
                     Survey.JsonObject.metaData.addClass(
                         "download-task", [
                         {
+                            name: "name",
+                            type: "text",
+                            default: ""
+                        },
+                        {
                             name: "filter",
                             type: "text",
                             default: ""
@@ -190,6 +264,11 @@
                             name: "text",
                             type: "text",
                             default: ""
+                        },
+                        {
+                            name: "fileName",
+                            type: "text",
+                            default: "results.json"
                         }
                     ], null, "empty");
                 },
@@ -205,10 +284,20 @@
                         question.survey.setValue(question.name + '_loaded', true)
                         $("#downloadLink").html(question.text);
                         $("#downloadLink").on("click", function() {
-                            var jsonString = JSON.stringify(question.survey.data);
+                            var data = question.survey.data;
+                            if ( question.filter.length > 0 ) {
+                                var newData = {}
+                                for (const key in data) {
+                                    if (data.hasOwnProperty(key) && key.startsWith(question.filter + "-")) {
+                                        newData[key] = data[key]
+                                    }
+                                }
+                                data = newData;
+                            }
+                            var jsonString = JSON.stringify(data);
                             var blob = new Blob([jsonString], { type: 'application/json' });
                             var anchor = document.getElementById('downloadData');
-                            anchor.download = 'results.json';
+                            anchor.download = question.fileName;
                             anchor.href = window.URL.createObjectURL(blob);
                             anchor.dataset.downloadUrl = [ 'application/json', anchor.download, anchor.href].join(':');
                             anchor.click()

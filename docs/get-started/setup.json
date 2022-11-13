@@ -14,93 +14,524 @@
                     "choices": [
                         "Main solution",
                         "Satellite solution",
-                        "Data Import",
-                        "Security Group Setup"
+                        "Security Group Setup",
+                        "Data Import - Main Solution"
                     ]
                 }
             ]
         },
         {
-            "title": "Main Solution - Connections",
+            "title": "Main Solution",
             "visibleIf": "contains({installType}, 'Main solution')",
             "elements": [
                 {
-                    "name": "installEnvironment",
-                    "type": "text",
-                    "title": "Install Environment",
-                    "isRequired": true,
-                    "startWithNewLine": false,
-                    "validators": [{
-                        "type": "regex",
-                        "text": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
-                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
-                      }]
+                    "type": "html",
+                    "html": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into"
                 },
                 {
-                    "name": "approvalConnection",
+                    "name": "main-installEnvironment",
                     "type": "text",
-                    "title": "Approval Connection",
+                    "title": "Copy Install Environment home link",
                     "isRequired": true,
-                    "startWithNewLine": false,
-                    "validators": [{
-                        "type": "regex",
-                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
-                      }]
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+                        }
+                    ]
                 },
                 {
-                    "name": "dataverseConnection",
-                    "type": "text",
-                    "title": "Microsoft Dataverse Connection",
-                    "isRequired": true,
-                    "startWithNewLine": false,
-                    "validators": [{
-                        "type": "regex",
-                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
-                      }]
+                    "type": "html",
+                    "html": "This environment could be the same environment as the CoE Kit. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured."
                 },
                 {
-                    "name": "offiec365UserConnection",
-                    "type": "text",
-                    "title": "Office 365 User Connection",
-                    "isRequired": true,
-                    "startWithNewLine": false,
-                    "validators": [{
-                        "type": "regex",
-                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
-                      }]
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_approvals",
+                    "environment": "main-installEnvironment"
                 },
                 {
-                    "name": "offiec365OutlookConnection",
+                    "name": "main-approvalConnection",
                     "type": "text",
-                    "title": "Office 365 Outlook Connection",
+                    "title": "Copy Approval Connection details page link here",
                     "isRequired": true,
                     "startWithNewLine": false,
-                    "validators": [{
-                        "type": "regex",
-                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
-                      }]
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
                 },
                 {
-                    "name": "powerPlatformAdminConnection",
+                    "type": "html",
+                    "html": "The Approvals connector is used to approve or deny Automation Project requests"
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_commondataserviceforapps",
+                    "environment": "main-installEnvironment"
+                },
+                {
+                    "name": "main-dataverseConnection",
                     "type": "text",
-                    "title": "Power Platform for Admins Automation Connection",
-                    "isRequired": true,
+                    "title": "Copy Microsoft Dataverse Connection details page link here",
                     "startWithNewLine": false,
-                    "validators": [{
-                        "type": "regex",
-                        "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                        "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_[a-z].*/)[a-zA-Z0-9]{32,32}(/details)"
-                      }]
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Dataverse connector is used to store your Automation Kit project and telemetry data"
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_office365",
+                    "environment": "main-installEnvironment"
+                },
+                {
+                    "name": "main-office365OutlookConnection",
+                    "type": "text",
+                    "title": "Copy Office 365 Outlook Connection details page link here",
+                    "startWithNewLine": false,
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Office 365 connector is used to send emails as part of the Automation Kit management process"
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_office365users",
+                    "environment": "main-installEnvironment"
+                },
+                {
+                    "name": "main-offiec365UserConnection",
+                    "type": "text",
+                    "title": "Copy Office 365 User Connection details page link here",
+                    "startWithNewLine": false,
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Office 365 users connector is used to query user information from the Office 365 graph"
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_powerplatformforadmins",
+                    "environment": "main-installEnvironment"
+                },
+                {
+                    "name": "main-powerPlatformAdminConnection",
+                    "type": "text",
+                    "title": "Copy Power Platform for Admins Automation Connection details page link here",
+                    "startWithNewLine": false,
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions"
+                }
+            ]
+        },
+        {
+            "title": "Main Solution - Security Group Setup",
+            "visibleIf": "contains({installType}, 'Main solution') and contains({installType}, 'Security Group Setup')",
+            "elements": [
+                {
+                    "type": "paneldynamic",
+                    "name": "main-administrators",
+                    "title": "Please add Automation Kit members for the Automation Administrators Security Group",
+                    "templateElements": [
+                        {
+                            "name": "user",
+                            "type": "text",
+                            "inputMask": "email",
+                            "title": "User or group email address",
+                            "isRequired": true,
+                            "validators": [
+                                {
+                                    "type": "email",
+                                    "text": "Value must be a valid email address"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "paneldynamic",
+                    "name": "main-contributors",
+                    "title": "Please add Automation Kit contributors that can view and edit Automation Projects",
+                    "templateElements": [
+                        {
+                            "name": "user",
+                            "type": "text",
+                            "inputMask": "email",
+                            "title": "User or group email address",
+                            "isRequired": true,
+                            "validators": [
+                                {
+                                    "type": "email",
+                                    "text": "Value must be a valid email address"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "type": "paneldynamic",
+                    "name": "main-viewers",
+                    "title": "Please add Automation Kit contributors that can review and view Automation Projects",
+                    "templateElements": [
+                        {
+                            "name": "user",
+                            "type": "text",
+                            "title": "User or group email address",
+                            "isRequired": true,
+                            "inputMask": "email",
+                            "validators": [
+                                {
+                                    "type": "email",
+                                    "text": "Value must be a valid email address"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "visibleIf": "contains({installType}, 'Main solution')",
+            "elements": [
+                {
+                    "type": "html",
+                    "html": "Use the download button below to obtain your main configuration file that will be used to customize your deployment"
                 },
                 {
                     "type": "download-task",
                     "title": "Download results",
+                    "text": "Download",
                     "name": "downloadResults",
+                    "fileName": "automation-kit-main-install.json",
                     "filter": "main"
+                }
+            ]
+        },
+        {
+            "title": "Satellite Solution - Connections",
+            "visibleIf": "contains({installType}, 'Satellite solution')",
+            "elements": [
+                {
+                    "type": "html",
+                    "html": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into"
+                },
+                {
+                    "name": "satellite-installEnvironment",
+                    "type": "text",
+                    "title": "Copy Install Environment home link",
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured."
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_commondataservice",
+                    "environment": "satellite-installEnvironment"
+                },
+                {
+                    "name": "satellite-dataverseLegacyConnection",
+                    "type": "text",
+                    "title": "Copy Microsoft Dataverse (Legacy) Connection details page link here",
+                    "startWithNewLine": false,
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Dataverse Legacy connector is used to connect to your main Dataverse environment"
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_commondataserviceforapps",
+                    "environment": "satellite-installEnvironment"
+                },
+                {
+                    "name": "satellite-dataverseConnection",
+                    "type": "text",
+                    "title": "Copy Microsoft Dataverse Connection details page link here",
+                    "startWithNewLine": false,
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Dataverse connector is used to store your Automation Kit project and telemetry data"
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_flowmanagement",
+                    "environment": "satellite-installEnvironment"
+                },
+                {
+                    "name": "satellite-flowManagementConnection",
+                    "type": "text",
+                    "title": "Copy Flow Management Connection details page link here",
+                    "startWithNewLine": false,
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Flow Management connector is used to query Power Automate flows in the environment"
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_office365",
+                    "environment": "satellite-installEnvironment"
+                },
+                {
+                    "name": "satellite-office365OutlookConnection",
+                    "type": "text",
+                    "title": "Copy Office 365 Outlook Connection details page link here",
+                    "startWithNewLine": false,
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Office 365 connector is used to send emails as part of the Automation Kit management process"
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_office365users",
+                    "environment": "satellite-installEnvironment"
+                },
+                {
+                    "name": "satellite-office365UserConnection",
+                    "type": "text",
+                    "title": "Copy Office 365 User Connection details page link here",
+                    "startWithNewLine": false,
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Office 365 users connector is used to query user information from the Office 365 graph"
+                },
+                {
+                    "type": "create-connection",
+                    "title": "Create",
+                    "connector": "shared_powerplatformforadmins",
+                    "environment": "satellite-installEnvironment"
+                },
+                {
+                    "name": "satellite-powerPlatformAdminConnection",
+                    "type": "text",
+                    "title": "Copy Power Platform for Admins Automation Connection details page link here",
+                    "startWithNewLine": false,
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "regex",
+                            "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
+                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions"
+                }
+            ]
+        },
+        {
+            "title": "Satellite Solution - Environment Variables",
+            "visibleIf": "contains({installType}, 'Satellite solution')",
+            "elements": [
+                {
+                    "type": "html",
+                    "html": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below"
+                },
+                {
+                    "name": "satellite-azureKeyVaultClientId",
+                    "type": "text",
+                    "title": "AKV Client Id Secret",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-azureKeyVaultClientSecret",
+                    "type": "text",
+                    "title": "AKV Client Secret Secret",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-azureKeyVaultTenantIdSecret",
+                    "type": "text",
+                    "title": "AKV Tenant Id Secret",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-automationCoEAlertEmailRecipient",
+                    "type": "text",
+                    "title": "Automation CoE Alert Email Recipient",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-automationProjectAppId",
+                    "type": "text",
+                    "title": "Automation Project app Id",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-desktopFlowsBaseUrl",
+                    "type": "text",
+                    "title": "Desktop Flows Base URL",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-environmentId",
+                    "type": "text",
+                    "title": "Environment Id",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-environmentName",
+                    "type": "text",
+                    "title": "Environment Name",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-environmentRegion",
+                    "type": "text",
+                    "title": "Environment Region",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-environmentUniqueName",
+                    "type": "text",
+                    "title": "Environment Unique Name",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-environmentUniqueNameMain",
+                    "type": "text",
+                    "title": "Environment Unique Name (Automation Kit Main)",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-environmentUrl",
+                    "type": "text",
+                    "title": "Environment Url",
+                    "isRequired": true
+                },
+                {
+                    "name": "satellite-flowSessionTraceRecordOwnerId",
+                    "type": "text",
+                    "title": "Flow Session Trace Record Owner Id",
+                    "isRequired": true
+                }
+            ]
+        },
+        {
+            "visibleIf": "contains({installType}, 'Satellite solution')",
+            "elements": [
+                {
+                    "type": "html",
+                    "html": "Use the download button below to obtain your satellite configuration file that will be used to customize your deployment"
+                },
+                {
+                    "type": "download-task",
+                    "title": "Download results",
+                    "text": "Download",
+                    "name": "downloadResults",
+                    "fileName": "automation-kit-satellite-install.json",
+                    "filter": "satellite"
+                }
+            ]
+        },
+        {
+            "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+            "elements": [
+                {
+                    "type": "html",
+                    "html": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data"
                 }
             ]
         }
