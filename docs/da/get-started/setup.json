@@ -118,10 +118,40 @@
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
+          "name": "main-instanceUrl",
+          "type": "text",
+          "title": {
+            "default": "Copy instance url",
+            "da": "Kopier forekomst url"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid environment instance url like https://contoso.crm.dyanamics.com/",
+                "da": "Skal være en gyldig url-adresse til miljøforekomst som https://contoso.crm.dyanamics.com/"
+              },
+              "regex": "https://([-a-z0-9].*?)\\.crm(.*?)\\.dynamics\\.com/"
+            }
+          ]
+        },
+        {
           "type": "html",
           "html": {
-            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
-            "da": "For at få installationsmiljøparametrene skal du besøge <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> vælge ikonet **hjem** for det miljø, du vil installere hovedløsningskomponenter i"
+            "default": "Get the instance url from <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> Settings -> Session details dialog",
+            "da": "Hent forekomstens url-adresse fra <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> Settings -> Dialogboksen Sessionsdetaljer"
+          }
+        },
+        {
+          "type": "markdown",
+          "title": {
+            "default": "Installation home link Notes",
+            "da": "Installation hjem link Noter"
+          },
+          "markdown": {
+            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
+            "da": "Hvis du vil hente installationsmiljøparametrene, skal du gå til <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> vælge ikonet **hjem** for det miljø, du vil installere hovedløsningskomponenter i"
           }
         },
         {

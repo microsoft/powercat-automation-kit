@@ -118,10 +118,40 @@
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
+          "name": "main-instanceUrl",
+          "type": "text",
+          "title": {
+            "default": "Copy instance url",
+            "pl": "Kopiowanie adresu URL wystąpienia"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid environment instance url like https://contoso.crm.dyanamics.com/",
+                "pl": "Musi to być prawidłowy adres URL wystąpienia środowiska, taki jak https://contoso.crm.dyanamics.com/"
+              },
+              "regex": "https://([-a-z0-9].*?)\\.crm(.*?)\\.dynamics\\.com/"
+            }
+          ]
+        },
+        {
           "type": "html",
           "html": {
-            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
-            "pl": "Aby uzyskać parametry środowiska instalacji, odwiedź stronę <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> wybierz ikonę **home** dla środowiska, w którym chcesz zainstalować główne składniki rozwiązania"
+            "default": "Get the instance url from <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> Settings -> Session details dialog",
+            "pl": "Pobierz adres URL wystąpienia z < href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> Ustawienia -> Szczegóły sesji"
+          }
+        },
+        {
+          "type": "markdown",
+          "title": {
+            "default": "Installation home link Notes",
+            "pl": "Instalacja link do strony głównej Uwagi"
+          },
+          "markdown": {
+            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
+            "pl": "Aby uzyskać parametry środowiska instalacyjnego, odwiedź <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> wybierz ikonę **home** dla środowiska, w którym chcesz zainstalować główne składniki rozwiązania"
           }
         },
         {

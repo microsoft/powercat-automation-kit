@@ -118,10 +118,40 @@
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
+          "name": "main-instanceUrl",
+          "type": "text",
+          "title": {
+            "default": "Copy instance url",
+            "th": "คัดลอก URL ของอินสแตนซ์"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid environment instance url like https://contoso.crm.dyanamics.com/",
+                "th": "ต้องเป็น URL อินสแตนซ์สภาพแวดล้อมที่ถูกต้อง เช่น https://contoso.crm.dyanamics.com/"
+              },
+              "regex": "https://([-a-z0-9].*?)\\.crm(.*?)\\.dynamics\\.com/"
+            }
+          ]
+        },
+        {
           "type": "html",
           "html": {
-            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
-            "th": "เมื่อต้องการขอรับพารามิเตอร์สภาพแวดล้อมการติดตั้ง โปรดไปที่ <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> เลือกไอคอน **home** สําหรับสภาพแวดล้อมของคุณที่คุณต้องการติดตั้งส่วนประกอบโซลูชันหลักลงใน"
+            "default": "Get the instance url from <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> Settings -> Session details dialog",
+            "th": "รับ URL อินสแตนซ์จาก <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> การตั้งค่า -> กล่องโต้ตอบรายละเอียดเซสชัน"
+          }
+        },
+        {
+          "type": "markdown",
+          "title": {
+            "default": "Installation home link Notes",
+            "th": "การติดตั้งลิงค์บ้านหมายเหตุ"
+          },
+          "markdown": {
+            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
+            "th": "เมื่อต้องการขอรับพารามิเตอร์สภาพแวดล้อมการติดตั้ง โปรดไปที่ <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> เลือกไอคอน **home** สําหรับสภาพแวดล้อมของคุณที่คุณต้องการติดตั้งส่วนประกอบโซลูชันหลักลงใน"
           }
         },
         {

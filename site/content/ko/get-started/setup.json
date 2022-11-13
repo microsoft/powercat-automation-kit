@@ -118,10 +118,40 @@
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
+          "name": "main-instanceUrl",
+          "type": "text",
+          "title": {
+            "default": "Copy instance url",
+            "ko": "인스턴스 URL 복사"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "regex",
+              "text": {
+                "default": "Must be a valid environment instance url like https://contoso.crm.dyanamics.com/",
+                "ko": "다음과 같은 유효한 환경 인스턴스 URL이어야 https://contoso.crm.dyanamics.com/"
+              },
+              "regex": "https://([-a-z0-9].*?)\\.crm(.*?)\\.dynamics\\.com/"
+            }
+          ]
+        },
+        {
           "type": "html",
           "html": {
-            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
-            "ko": "설치 환경 매개 변수를 얻으려면 <a href='https://make.powerapps.com' target='blank'를 방문하십시오>make.powerapps.com</a> 기본 솔루션 구성 요소를 설치할 환경에 대한 **홈 아이콘**을 선택합니다."
+            "default": "Get the instance url from <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> Settings -> Session details dialog",
+            "ko": "<a href='https://make.powerapps.com' target='blank'에서 인스턴스 URL을 가져옵니다>http://make.powerapps.com</a> 설정 -> 세션 세부 정보 대화 상자"
+          }
+        },
+        {
+          "type": "markdown",
+          "title": {
+            "default": "Installation home link Notes",
+            "ko": "설치 홈 링크 노트"
+          },
+          "markdown": {
+            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
+            "ko": "설치 환경 매개 변수를 얻으려면 <a href='https://make.powerapps.com' target='blank'를 방문합니다>http://make.powerapps.com</a> 기본 솔루션 구성 요소를 설치할 환경에 대한 **홈 아이콘**을 선택합니다."
           }
         },
         {
