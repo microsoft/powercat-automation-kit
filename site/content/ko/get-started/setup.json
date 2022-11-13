@@ -52,6 +52,66 @@
     },
     {
       "title": {
+        "default": "Main Solution - Prerequisites",
+        "ko": "기본 솔루션 - 전제 조건"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "checkbox",
+          "title": {
+            "default": "Verify that the following has been setup for the environment you will install the Automation Kit Main solution",
+            "ko": "자동화 키트를 설치할 환경에 대해 다음이 설정되었는지 확인합니다. 기본 솔루션"
+          },
+          "choices": [
+            {
+              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "DLP policy that allows [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "Power Apps Per User, Per App or Pays as you go license for users who will be Administrators, Contributors or viewers of Automation Projects",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
         "default": "Main Solution",
         "ko": "주요 솔루션"
       },
@@ -60,8 +120,8 @@
         {
           "type": "html",
           "html": {
-            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
-            "ko": "설치 환경의 경우 <a href='https://make.powerapps.com' target='blank'를 방문합니다>make.powerapps.com</a> 자동화 키트 구성 요소를 설치하려는 환경의 홈 아이콘을 선택합니다."
+            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
+            "ko": "설치 환경 매개 변수를 얻으려면 <a href='https://make.powerapps.com' target='blank'를 방문하십시오>make.powerapps.com</a> 기본 솔루션 구성 요소를 설치할 환경에 대한 **홈 아이콘**을 선택합니다."
           }
         },
         {
@@ -86,8 +146,8 @@
         {
           "type": "html",
           "html": {
-            "default": "This environment could be the same environment as the CoE Kit. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
-            "ko": "이 환경은 CoE 키트와 동일한 환경일 수 있습니다. 아래 연결을 만들 수 있는 데이터 손실 방지 정책 설정이 필요합니다. 또한 이 환경에는</a> <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit가 설치되어 있고 <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Power Apps 구성 요소 프레임워크 기능을 사용하도록 설정해야 합니다.</a>"
+            "default": "This environment could be the same environment as the CoE Kit.",
+            "ko": "이 환경은 CoE 키트와 동일한 환경일 수 있습니다."
           }
         },
         {
@@ -391,6 +451,80 @@
           "name": "downloadResults",
           "fileName": "automation-kit-main-install.json",
           "filter": "main"
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Prerequisites",
+        "ko": "위성 솔루션 - 필수 구성 요소"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "checkbox",
+          "title": {
+            "default": "Verify that the following has been setup for the environment you will install the Automation Kit Satellite solution",
+            "ko": "자동화 키트 위성 솔루션을 설치할 환경에 대해 다음이 설정되었는지 확인합니다."
+          },
+          "choices": [
+            {
+              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "DLP policy that allows [Flow Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "Azure Application Registration",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "Azure Application API Permissions",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "Azure Application ClientId and Secret",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            },
+            {
+              "value": "Azure Key Vault",
+              "text": {
+                "default": null,
+                "ko": null
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Read more in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='blank'>Automation Kit Prerequisites</a>",
+            "ko": "자세한 내용은 <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='blank'>Automation Kit Prerequisites를 참조하십시오</a>."
+          }
         }
       ]
     },

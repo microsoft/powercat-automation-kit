@@ -52,6 +52,66 @@
     },
     {
       "title": {
+        "default": "Main Solution - Prerequisites",
+        "sv": "Huvudlösning - Förutsättningar"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "checkbox",
+          "title": {
+            "default": "Verify that the following has been setup for the environment you will install the Automation Kit Main solution",
+            "sv": "Kontrollera att följande har konfigurerats för den miljö som du ska installera Automation Kit Main-lösningen"
+          },
+          "choices": [
+            {
+              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "DLP policy that allows [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "Power Apps Per User, Per App or Pays as you go license for users who will be Administrators, Contributors or viewers of Automation Projects",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": {
         "default": "Main Solution",
         "sv": "Huvudlösning"
       },
@@ -60,8 +120,8 @@
         {
           "type": "html",
           "html": {
-            "default": "For the install environment visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the home icon for your environment you want to install the Automation Kit components into",
-            "sv": "För installationsmiljön går du till <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> Välj hemikonen för din miljö som du vill installera Automation Kit-komponenterna i"
+            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
+            "sv": "Om du vill hämta installationsmiljöparametrarna går du till <a href='https://make.powerapps.com' target='blank'>make.powerapps.com</a> väljer ikonen **home** för den miljö som du vill installera huvudlösningskomponenter i"
           }
         },
         {
@@ -86,8 +146,8 @@
         {
           "type": "html",
           "html": {
-            "default": "This environment could be the same environment as the CoE Kit. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
-            "sv": "Den här miljön kan vara samma miljö som CoE-paketet. Du behöver en principinställning för dataförlustskydd som gör det möjligt att skapa anslutningarna nedan. Den här miljön kräver också att</a> målet <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' är installerat'>Creator Kit installerat och <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Aktivera Power Apps component framework-funktionen</a> konfigurerad."
+            "default": "This environment could be the same environment as the CoE Kit.",
+            "sv": "Den här miljön kan vara samma miljö som CoE-paketet."
           }
         },
         {
@@ -391,6 +451,80 @@
           "name": "downloadResults",
           "fileName": "automation-kit-main-install.json",
           "filter": "main"
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Prerequisites",
+        "sv": "Satellitlösning - Förutsättningar"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "checkbox",
+          "title": {
+            "default": "Verify that the following has been setup for the environment you will install the Automation Kit Satellite solution",
+            "sv": "Kontrollera att följande har konfigurerats för den miljö som du ska installera Automation Kit Satellite-lösningen"
+          },
+          "choices": [
+            {
+              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "DLP policy that allows [Flow Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "Azure Application Registration",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "Azure Application API Permissions",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "Azure Application ClientId and Secret",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            },
+            {
+              "value": "Azure Key Vault",
+              "text": {
+                "default": null,
+                "sv": null
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Read more in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='blank'>Automation Kit Prerequisites</a>",
+            "sv": "Läs mer i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='blank'>Automation Kit Prerequisites</a>"
+          }
         }
       ]
     },
