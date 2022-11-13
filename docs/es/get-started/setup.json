@@ -21,32 +21,64 @@
             {
               "value": "Main solution",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Main solution",
+                "es": "Solución principal"
               }
             },
             {
               "value": "Satellite solution",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Satellite solution",
+                "es": "Solución satelital"
               }
             },
             {
               "value": "Security Group Setup",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Security Group Setup",
+                "es": "Configuración del grupo de seguridad"
               }
             },
             {
               "value": "Data Import - Main Solution",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Data Import - Main Solution",
+                "es": "Importación de datos - Solución principal"
               }
             }
           ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Main solution')",
+          "html": {
+            "default": "Will collect connection information for Main solution deployment that managed and monitors metered Power Automate Desktop solutions. Normally there will be one Main solution deployment per Power Platform tenant",
+            "es": "Recopilará información de conexión para la implementación de la solución principal que administra y supervisa las soluciones de escritorio de Power Automate de uso medido. Normalmente, habrá una implementación de solución principal por inquilino de Power Platform"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Satellite solution')",
+          "html": {
+            "default": "Will collect information required for a Power Platform environment that you want to monitor so you can send information to the central main solution Automation Kit environment. Normally there will be multiple satellite solution deployments per Power Platform tenant",
+            "es": "Recopilará la información necesaria para un entorno de Power Platform que desee supervisar para que pueda enviar información al entorno central principal de Automation Kit de la solución. Normalmente habrá varias implementaciones de soluciones satélite por inquilino de Power Platform"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Security Group Setup')",
+          "html": {
+            "default": "Will allow you to define users / groups to assign to security groups for Administration, Contribution and View permissions for Automation projects",
+            "es": "Le permitirá definir usuarios / grupos para asignar a grupos de seguridad para permisos de administración, contribución y vista para proyectos de automatización"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+          "html": {
+            "default": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards",
+            "es": "Realice una importación opcional de datos de la solución principal de muestra para ver paneles de supervisión y entrada de datos de ejemplo de extremo a extremo"
+          }
         }
       ]
     },
@@ -65,45 +97,45 @@
           },
           "choices": [
             {
-              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "es": "Haber habilitado [característica de marco de componentes de PowerApps](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
               }
             },
             {
               "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
               "text": {
-                "default": null,
-                "es": null
+                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+                "es": "[Kit de creador] (https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) se ha instalado"
               }
             },
             {
-              "value": "DLP policy that allows [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "value": "The environment DLP policy allows for following connectors [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
               "text": {
-                "default": null,
-                "es": null
+                "default": "The environment DLP policy allows for following connectors [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+                "es": "La directiva DLP del entorno permite los siguientes conectores [Aprobaciones](https://learn.microsoft.com/en-us/conectores/aprobaciones/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Usuarios de Office 365](https://learn.microsoft.com/en-us/connectors/office365users/) y [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/ powerplatformforadmins/)"
               }
             },
             {
-              "value": "Power Apps Per User, Per App or Pays as you go license for users who will be Administrators, Contributors or viewers of Automation Projects",
+              "value": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
               "text": {
-                "default": null,
-                "es": null
+                "default": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
+                "es": "Licencia 'Power Apps por usuario', 'Por aplicación' o 'Pago por uso' para usuarios que serán administradores, colaboradores o espectadores de proyectos de automatización"
               }
             },
             {
               "value": "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
+                "es": "Licencia de Office E3 o superior para la conexión de Office 365 Outlook utilizada por Cloud Flow"
               }
             },
             {
               "value": "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization",
+                "es": "Descarga gratuita de [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) o [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) para compartir el panel dentro de su organización"
               }
             }
           ]
@@ -499,52 +531,52 @@
           },
           "choices": [
             {
-              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "es": "Haber habilitado [característica de marco de componentes de PowerApps](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
               }
             },
             {
               "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
               "text": {
-                "default": null,
-                "es": null
+                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+                "es": "[Kit de creador] (https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) se ha instalado"
               }
             },
             {
-              "value": "DLP policy that allows [Flow Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "value": "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
               "text": {
-                "default": null,
-                "es": null
+                "default": "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+                "es": "La directiva DLP del entorno permite los siguientes conectores [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate  Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) y [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)"
               }
             },
             {
-              "value": "Azure Application Registration",
+              "value": "A Azure Application Registration",
               "text": {
-                "default": null,
-                "es": null
+                "default": "A Azure Application Registration",
+                "es": "Registro de una aplicación de Azure"
               }
             },
             {
-              "value": "Azure Application API Permissions",
+              "value": "Configured Azure Application API Permissions",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Configured Azure Application API Permissions",
+                "es": "Permisos configurados de la API de aplicaciones de Azure"
               }
             },
             {
-              "value": "Azure Application ClientId and Secret",
+              "value": "Configured Azure Application ClientId and Secret",
               "text": {
-                "default": null,
-                "es": null
+                "default": "Configured Azure Application ClientId and Secret",
+                "es": "ClientId y secreto de aplicación de Azure configurados"
               }
             },
             {
-              "value": "Azure Key Vault",
+              "value": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
               "text": {
-                "default": null,
-                "es": null
+                "default": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
+                "es": "Un almacén de claves de Azure para almacenar el IdCliente y el Id. de inquilino"
               }
             }
           ]
@@ -594,8 +626,8 @@
         {
           "type": "html",
           "html": {
-            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
-            "es": "<b>nota:</b> Este entorno DEBE ser diferente al entorno principal. Necesitará una configuración de directiva de prevención de pérdida de datos que permita la creación de las conexiones siguientes. Este entorno también requerirá el</a> <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit instalado y <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Habilitar la característica del marco de componentes de Power Apps</a> configurada."
+            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment.",
+            "es": "<b>nota:</b> Este entorno DEBE ser diferente al entorno principal."
           }
         },
         {

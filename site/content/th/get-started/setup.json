@@ -21,32 +21,64 @@
             {
               "value": "Main solution",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Main solution",
+                "th": "ทางออกหลัก"
               }
             },
             {
               "value": "Satellite solution",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Satellite solution",
+                "th": "โซลูชันดาวเทียม"
               }
             },
             {
               "value": "Security Group Setup",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Security Group Setup",
+                "th": "การตั้งค่ากลุ่มความปลอดภัย"
               }
             },
             {
               "value": "Data Import - Main Solution",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Data Import - Main Solution",
+                "th": "การนําเข้าข้อมูล - โซลูชันหลัก"
               }
             }
           ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Main solution')",
+          "html": {
+            "default": "Will collect connection information for Main solution deployment that managed and monitors metered Power Automate Desktop solutions. Normally there will be one Main solution deployment per Power Platform tenant",
+            "th": "จะรวบรวมข้อมูลการเชื่อมต่อสําหรับการปรับใช้โซลูชันหลักที่จัดการและตรวจสอบโซลูชัน Power Automate Desktop แบบคิดค่าบริการตามปริมาณข้อมูล โดยปกติจะมีการปรับใช้โซลูชันหลักหนึ่งรายการต่อผู้เช่า Power Platform"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Satellite solution')",
+          "html": {
+            "default": "Will collect information required for a Power Platform environment that you want to monitor so you can send information to the central main solution Automation Kit environment. Normally there will be multiple satellite solution deployments per Power Platform tenant",
+            "th": "จะรวบรวมข้อมูลที่จําเป็นสําหรับสภาพแวดล้อม Power Platform ที่คุณต้องการตรวจสอบ เพื่อให้คุณสามารถส่งข้อมูลไปยังสภาพแวดล้อม Automation Kit โซลูชันหลักส่วนกลางได้ โดยปกติจะมีการปรับใช้โซลูชันดาวเทียมหลายรายการต่อผู้เช่า Power Platform"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Security Group Setup')",
+          "html": {
+            "default": "Will allow you to define users / groups to assign to security groups for Administration, Contribution and View permissions for Automation projects",
+            "th": "จะช่วยให้คุณสามารถกําหนดผู้ใช้ / กลุ่มเพื่อกําหนดให้กับกลุ่มความปลอดภัยสําหรับการดูแลระบบการมีส่วนร่วมและดูสิทธิ์สําหรับโครงการอัตโนมัติ"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+          "html": {
+            "default": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards",
+            "th": "ดําเนินการนําเข้าเพิ่มเติมของตัวอย่างข้อมูลโซลูชันหลักเพื่อดูตัวอย่างการป้อนข้อมูลตั้งแต่ต้นจนจบและแดชบอร์ดการตรวจสอบ"
+          }
         }
       ]
     },
@@ -65,45 +97,45 @@
           },
           "choices": [
             {
-              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "th": "ได้เปิดใช้งาน [คุณลักษณะเฟรมเวิร์กส่วนประกอบ PowerApps](https://learn.microsoft.com/power-แอป/นักพัฒนา/คอมโพเนนต์-เฟรมเวิร์ก/คอมโพเนนต์-เฟรมเวิร์ก-สําหรับ-พื้นที่ทํางาน-แอป#เปิดใช้งาน-the-power-apps-component-framework-feature)"
               }
             },
             {
               "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
               "text": {
-                "default": null,
-                "th": null
+                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+                "th": "[ชุดครีเอเตอร์] (https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) ได้รับการติดตั้งแล้ว"
               }
             },
             {
-              "value": "DLP policy that allows [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "value": "The environment DLP policy allows for following connectors [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
               "text": {
-                "default": null,
-                "th": null
+                "default": "The environment DLP policy allows for following connectors [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+                "th": "นโยบาย DLP สภาพแวดล้อมอนุญาตให้มีตัวเชื่อมต่อต่อไปนี้ [การอนุมัติ](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [ผู้ใช้ Office 365](https://learn.microsoft.com/en-us/connectors/office365users/) และ [Power Platform สําหรับผู้ดูแลระบบ](https://learn.microsoft.com/en-us/connectors/ powerplatformforadmins/)"
               }
             },
             {
-              "value": "Power Apps Per User, Per App or Pays as you go license for users who will be Administrators, Contributors or viewers of Automation Projects",
+              "value": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
               "text": {
-                "default": null,
-                "th": null
+                "default": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
+                "th": "สิทธิ์การใช้งาน 'Power Apps ต่อผู้ใช้', 'ต่อแอป' หรือ 'จ่ายตามการใช้งาน' สําหรับผู้ใช้ที่จะเป็นผู้ดูแลระบบ ผู้สนับสนุน หรือผู้ชมโครงการระบบอัตโนมัติ"
               }
             },
             {
               "value": "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
+                "th": "สิทธิ์การใช้งาน Office E3 หรือสูงกว่าสําหรับการเชื่อมต่อ Office 365 Outlook ที่ใช้โดยโฟลว์ระบบคลาวด์"
               }
             },
             {
               "value": "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization",
+                "th": "ดาวน์โหลด [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) หรือ [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) ฟรีเพื่อแชร์แดชบอร์ดภายในองค์กรของคุณ"
               }
             }
           ]
@@ -149,10 +181,7 @@
             "default": "Installation home link Notes",
             "th": "การติดตั้งลิงค์บ้านหมายเหตุ"
           },
-          "markdown": {
-            "default": "To obtain the the install environment parameters, visit <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> select the **home icon** for your environment you want to install main solution components into",
-            "th": "เมื่อต้องการขอรับพารามิเตอร์สภาพแวดล้อมการติดตั้ง โปรดไปที่ <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> เลือกไอคอน **home** สําหรับสภาพแวดล้อมของคุณที่คุณต้องการติดตั้งส่วนประกอบโซลูชันหลักลงใน"
-          }
+          "markdown": "เมื่อต้องการขอรับพารามิเตอร์สภาพแวดล้อมการติดตั้ง โปรดไปที่ <a href='https://make.powerapps.com' target='blank'>http://make.powerapps.com</a> เลือกไอคอน **home** สําหรับสภาพแวดล้อมของคุณที่คุณต้องการติดตั้งส่วนประกอบโซลูชันหลักลงใน"
         },
         {
           "name": "main-installEnvironment",
@@ -499,52 +528,52 @@
           },
           "choices": [
             {
-              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "th": "ได้เปิดใช้งาน [คุณลักษณะเฟรมเวิร์กส่วนประกอบ PowerApps](https://learn.microsoft.com/power-แอป/นักพัฒนา/คอมโพเนนต์-เฟรมเวิร์ก/คอมโพเนนต์-เฟรมเวิร์ก-สําหรับ-พื้นที่ทํางาน-แอป#เปิดใช้งาน-the-power-apps-component-framework-feature)"
               }
             },
             {
               "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
               "text": {
-                "default": null,
-                "th": null
+                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+                "th": "[ชุดครีเอเตอร์] (https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) ได้รับการติดตั้งแล้ว"
               }
             },
             {
-              "value": "DLP policy that allows [Flow Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "value": "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
               "text": {
-                "default": null,
-                "th": null
+                "default": "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+                "th": "นโยบาย DLP สภาพแวดล้อมอนุญาตให้มีตัวเชื่อมต่อต่อไปนี้ [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [ผู้ใช้ Office 365](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate  การจัดการ](https://learn.microsoft.com/en-us/ตัวเชื่อมต่อ/การจัดการโฟลว์/) และ [Power Platform สําหรับผู้ดูแลระบบ](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)"
               }
             },
             {
-              "value": "Azure Application Registration",
+              "value": "A Azure Application Registration",
               "text": {
-                "default": null,
-                "th": null
+                "default": "A Azure Application Registration",
+                "th": "การลงทะเบียนแอปพลิเคชัน Azure"
               }
             },
             {
-              "value": "Azure Application API Permissions",
+              "value": "Configured Azure Application API Permissions",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Configured Azure Application API Permissions",
+                "th": "กําหนดค่าสิทธิ์ API แอปพลิเคชัน Azure"
               }
             },
             {
-              "value": "Azure Application ClientId and Secret",
+              "value": "Configured Azure Application ClientId and Secret",
               "text": {
-                "default": null,
-                "th": null
+                "default": "Configured Azure Application ClientId and Secret",
+                "th": "กําหนดค่า Azure Application ClientId และลับเฉพาะ"
               }
             },
             {
-              "value": "Azure Key Vault",
+              "value": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
               "text": {
-                "default": null,
-                "th": null
+                "default": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
+                "th": "กชุดเก็บคีย์ Azure เพื่อจัดเก็บรหัสไคลเอ็นต์ รหัสลับ และรหัสผู้เช่า"
               }
             }
           ]
@@ -594,8 +623,8 @@
         {
           "type": "html",
           "html": {
-            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
-            "th": "<b>โน้ต:</b> สภาพแวดล้อมนี้ต้องแตกต่างจากสภาพแวดล้อมหลัก คุณจะต้องมีการตั้งค่านโยบายการป้องกันการสูญหายของข้อมูลที่อนุญาตให้สร้างการเชื่อมต่อด้านล่าง สภาพแวดล้อมนี้จะต้องมี <</a>a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit ที่ติดตั้งและ <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>เปิดใช้งานคุณลักษณะเฟรมเวิร์กส่วนประกอบ Power Apps</a> ที่กําหนดค่าไว้"
+            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment.",
+            "th": "<b>โน้ต:</b> สภาพแวดล้อมนี้ต้องแตกต่างจากสภาพแวดล้อมหลัก"
           }
         },
         {

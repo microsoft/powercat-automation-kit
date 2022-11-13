@@ -21,32 +21,64 @@
             {
               "value": "Main solution",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Main solution",
+                "ja": "主な解決策"
               }
             },
             {
               "value": "Satellite solution",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Satellite solution",
+                "ja": "衛星ソリューション"
               }
             },
             {
               "value": "Security Group Setup",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Security Group Setup",
+                "ja": "セキュリティグループのセットアップ"
               }
             },
             {
               "value": "Data Import - Main Solution",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Data Import - Main Solution",
+                "ja": "データインポート - メインソリューション"
               }
             }
           ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Main solution')",
+          "html": {
+            "default": "Will collect connection information for Main solution deployment that managed and monitors metered Power Automate Desktop solutions. Normally there will be one Main solution deployment per Power Platform tenant",
+            "ja": "従量制課金対象の Power Automate デスクトップ ソリューションを管理および監視するメイン ソリューション展開の接続情報を収集します。通常、Power Platform テナントごとに 1 つのメイン ソリューションの展開があります"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Satellite solution')",
+          "html": {
+            "default": "Will collect information required for a Power Platform environment that you want to monitor so you can send information to the central main solution Automation Kit environment. Normally there will be multiple satellite solution deployments per Power Platform tenant",
+            "ja": "中央のメイン ソリューション Automation Kit 環境に情報を送信できるように、監視する Power Platform 環境に必要な情報を収集します。通常、Power Platform テナントごとに複数のサテライト ソリューションの展開があります。"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Security Group Setup')",
+          "html": {
+            "default": "Will allow you to define users / groups to assign to security groups for Administration, Contribution and View permissions for Automation projects",
+            "ja": "自動化プロジェクトの管理、投稿、および表示アクセス許可のセキュリティ グループに割り当てるユーザー/グループを定義できます。"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+          "html": {
+            "default": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards",
+            "ja": "サンプルのメインソリューションデータのオプションのインポートを実行して、サンプルのエンドツーエンドのデータ入力と監視ダッシュボードを確認します"
+          }
         }
       ]
     },
@@ -65,45 +97,45 @@
           },
           "choices": [
             {
-              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "ja": "[PowerAppsコンポーネントフレームワーク機能]を有効にしている(https://learn.microsoft.com/power アプリ/開発者/コンポーネントフレームワーク/キャンバスアプリ用コンポーネントフレームワーク#有効化-パワーアプリ-コンポーネント-フレームワーク-機能)"
               }
             },
             {
               "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+                "ja": "[クリエイターキット](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview)がインストールされています"
               }
             },
             {
-              "value": "DLP policy that allows [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "value": "The environment DLP policy allows for following connectors [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "The environment DLP policy allows for following connectors [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+                "ja": "環境 DLP ポリシーでは、次のコネクタ [承認](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) および [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)"
               }
             },
             {
-              "value": "Power Apps Per User, Per App or Pays as you go license for users who will be Administrators, Contributors or viewers of Automation Projects",
+              "value": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
+                "ja": "自動化プロジェクトの管理者、共同作成者、または閲覧者になるユーザー向けの \"ユーザーごとの Power Apps\"、\"アプリごとの\"、または \"従量課金制\" ライセンス"
               }
             },
             {
               "value": "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
+                "ja": "Office E3 ライセンス以上 (クラウド フローで使用される Office 365 Outlook 接続用)"
               }
             },
             {
               "value": "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization",
+                "ja": "無料の [Power BI デスクトップ](https://powerbi.microsoft.com/en-us/desktop/) または [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) をダウンロードして、組織内でダッシュボードを共有します"
               }
             }
           ]
@@ -499,52 +531,52 @@
           },
           "choices": [
             {
-              "value": "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "ja": "[PowerAppsコンポーネントフレームワーク機能]を有効にしている(https://learn.microsoft.com/power アプリ/開発者/コンポーネントフレームワーク/キャンバスアプリ用コンポーネントフレームワーク#有効化-パワーアプリ-コンポーネント-フレームワーク-機能)"
               }
             },
             {
               "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+                "ja": "[クリエイターキット](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview)がインストールされています"
               }
             },
             {
-              "value": "DLP policy that allows [Flow Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+              "value": "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+                "ja": "環境 DLP ポリシーでは、次のコネクタ [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) および [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)"
               }
             },
             {
-              "value": "Azure Application Registration",
+              "value": "A Azure Application Registration",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "A Azure Application Registration",
+                "ja": "Azure アプリケーションの登録"
               }
             },
             {
-              "value": "Azure Application API Permissions",
+              "value": "Configured Azure Application API Permissions",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Configured Azure Application API Permissions",
+                "ja": "構成された Azure アプリケーション API のアクセス許可"
               }
             },
             {
-              "value": "Azure Application ClientId and Secret",
+              "value": "Configured Azure Application ClientId and Secret",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "Configured Azure Application ClientId and Secret",
+                "ja": "構成された Azure アプリケーションのクライアント ID とシークレット"
               }
             },
             {
-              "value": "Azure Key Vault",
+              "value": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
               "text": {
-                "default": null,
-                "ja": null
+                "default": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
+                "ja": "クライアント ID、シークレット、テナント ID を格納するための Azure Key Vault"
               }
             }
           ]
@@ -594,8 +626,8 @@
         {
           "type": "html",
           "html": {
-            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured.",
-            "ja": "<b>手記：</b>この環境は、メイン環境とは異なる必要があります。以下の接続の作成を許可する情報漏えい対策ポリシーの設定が必要になります。この環境では、<a</a> href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit がインストールされ、<a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Power Apps コンポーネント フレームワーク機能を有効にする</a>必要があります。"
+            "default": "<b>NOTE:</b> This environment MUST be the different than the main environment.",
+            "ja": "<b>手記：</b>この環境は、メイン環境とは異なる必要があります。"
           }
         },
         {

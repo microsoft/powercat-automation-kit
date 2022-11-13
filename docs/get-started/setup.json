@@ -17,6 +17,26 @@
                         "Security Group Setup",
                         "Data Import - Main Solution"
                     ]
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({installType}, 'Main solution')",
+                    "html": "Will collect connection information for Main solution deployment that managed and monitors metered Power Automate Desktop solutions. Normally there will be one Main solution deployment per Power Platform tenant"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({installType}, 'Satellite solution')",
+                    "html": "Will collect information required for a Power Platform environment that you want to monitor so you can send information to the central main solution Automation Kit environment. Normally there will be multiple satellite solution deployments per Power Platform tenant"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({installType}, 'Security Group Setup')",
+                    "html": "Will allow you to define users / groups to assign to security groups for Administration, Contribution and View permissions for Automation projects"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
+                    "html": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards"
                 }
             ]
         },
@@ -28,10 +48,10 @@
                     "type": "checkbox",
                     "title": "Verify that the following has been setup for the environment you will install the Automation Kit Main solution",
                     "choices": [
-                        "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                        "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
                         "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
-                        "DLP policy that allows [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
-                        "Power Apps Per User, Per App or Pays as you go license for users who will be Administrators, Contributors or viewers of Automation Projects",
+                        "The environment DLP policy allows for following connectors [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+                        "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
                         "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
                         "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization"
                     ]
@@ -294,13 +314,13 @@
                     "type": "checkbox",
                     "title": "Verify that the following has been setup for the environment you will install the Automation Kit Satellite solution",
                     "choices": [
-                        "Enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                        "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
                         "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
-                        "DLP policy that allows [Flow Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
-                        "Azure Application Registration",
-                        "Azure Application API Permissions",
-                        "Azure Application ClientId and Secret",
-                        "Azure Key Vault"
+                        "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
+                        "A Azure Application Registration",
+                        "Configured Azure Application API Permissions",
+                        "Configured Azure Application ClientId and Secret",
+                        "An Azure Key Vault to store the ClientId, Secret and Tenant Id"
                     ]
                 },
                 {
@@ -332,7 +352,7 @@
                 },
                 {
                     "type": "html",
-                    "html": "<b>NOTE:</b> This environment MUST be the different than the main environment. You will require a Data Loss Prevention policy setup that allows the creation of the connections below. This environment will also require the <a href='https://learn.microsoft.com/power-platform/guidance/creator-kit/overview' target='blank'>Creator Kit</a> installed and <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Enable the Power Apps component framework feature</a> configured."
+                    "html": "<b>NOTE:</b> This environment MUST be the different than the main environment."
                 },
                 {
                     "type": "create-connection",
