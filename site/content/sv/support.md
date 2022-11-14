@@ -21,7 +21,7 @@ Vägledning om hur du får ytterligare stöd för {{<product-name>}}:
 
 - Använd ikonen [Problem med automatiseringssats](https://aka.ms/ak4pp-issues) mallar för sökning efter kända buggar / funktionsluckor. Om du inte hittar en matchning för ditt problem kan du skapa ett nytt problem med hjälp av en av de medföljande mallarna
 
-- Använd vår [genomgångsvideor] (n varje milstolpe på grund av prioriterade buggar eller funktioner) för att hjälpa dig att visa hur installationsprocessen fungerar
+- Använd vår [genomgångsvideor](n varje milstolpe på grund av prioriterade buggar eller funktioner) för att hjälpa dig att visa hur installationsprocessen fungerar
 
 - Gå med i vår [Kontorstid](/sv/office-hours) för att ställa frågor om vanliga problem eller produktöversikt
 

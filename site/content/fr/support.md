@@ -21,7 +21,7 @@ Conseils sur l’obtention d’un soutien supplémentaire pour le {{<product-nam
 
 - Utilisez le [Problèmes liés au kit d’automatisation](https://aka.ms/ak4pp-issues) modèles pour la recherche de bogues / lacunes de fonctionnalités connus. Si vous ne trouvez pas de correspondance pour votre problème, cherchez à créer un nouveau problème à l’aide de l’un des modèles fournis
 
-- Utilisez notre [Vidéos pas à pas] (à chaque étape en raison de bogues ou de fonctionnalités prioritaires) pour vous aider à montrer comment fonctionne le processus d’installation
+- Utilisez notre [Vidéos pas à pas](à chaque étape en raison de bogues ou de fonctionnalités prioritaires) pour vous aider à montrer comment fonctionne le processus d’installation
 
 - Rejoignez notre [Heures d’ouverture](/fr/office-hours) pour poser des questions sur les problèmes courants ou la feuille de route du produit
 

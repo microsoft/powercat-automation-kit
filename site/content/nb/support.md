@@ -21,7 +21,7 @@ Veiledning om å få ytterligere støtte for {{<product-name>}}:
 
 - Bruk ikonet [Problemer med automatiseringssett](https://aka.ms/ak4pp-issues) maler for søk etter kjente feil / funksjonshull. Hvis du ikke finner samsvar for problemet, kan du se etter å opprette et nytt problem ved hjelp av en av de medfølgende malene
 
-- Bruk vår [gjennomgangsvideoer] (n hver milepæl på grunn av prioriterte feil eller funksjoner) for å hjelpe deg med å vise hvordan installasjonsprosessen fungerer
+- Bruk vår [gjennomgangsvideoer](n hver milepæl på grunn av prioriterte feil eller funksjoner) for å hjelpe deg med å vise hvordan installasjonsprosessen fungerer
 
 - Bli med i vår [Kontortid](/nb/office-hours) for å stille spørsmål om vanlige problemer eller produktveikart
 

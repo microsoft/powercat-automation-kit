@@ -21,7 +21,7 @@ Anleitung zur weiteren Unterstützung für die {{<product-name>}}:
 
 - Verwenden Sie die [Probleme mit dem Automation Kit](https://aka.ms/ak4pp-issues) Vorlagen für die Suche nach bekannten Bugs / Feature Gaps. Wenn Sie keine Übereinstimmung für Ihr Problem finden, erstellen Sie ein neues Problem mit einer der mitgelieferten Vorlagen.
 
-- Nutzen Sie unsere [Exemplarische Vorgehensweisen] (in jedem Meilenstein aufgrund von vorrangigen Fehlern oder Funktionen), um Ihnen zu zeigen, wie der Installationsprozess funktioniert
+- Nutzen Sie unsere [Exemplarische Vorgehensweisen](in jedem Meilenstein aufgrund von vorrangigen Fehlern oder Funktionen), um Ihnen zu zeigen, wie der Installationsprozess funktioniert
 
 - Treten Sie unserem [Sprechstunde](/de/office-hours) um Fragen zu häufigen Problemen oder zur Produkt-Roadmap zu stellen
 

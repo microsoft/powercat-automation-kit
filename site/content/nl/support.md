@@ -21,7 +21,7 @@ Richtsnoeren voor het verkrijgen van verdere ondersteuning voor de {{<product-na
 
 - Gebruik de [Problemen met automation kit](https://aka.ms/ak4pp-issues) sjablonen voor het zoeken naar bekende bugs / functielacunes. Als u geen overeenkomst voor uw probleem vindt, kunt u een nieuw probleem maken met een van de meegeleverde sjablonen
 
-- Gebruik onze [walkthrough-video's] (n elke mijlpaal vanwege prioriteitsfouten of functies) om u te helpen laten zien hoe het installatieproces werkt
+- Gebruik onze [walkthrough-video's](n elke mijlpaal vanwege prioriteitsfouten of functies) om u te helpen laten zien hoe het installatieproces werkt
 
 - Doe mee met onze [Kantooruren](/nl/office-hours) om vragen te stellen over veelvoorkomende problemen of productroadmap
 

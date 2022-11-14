@@ -21,7 +21,7 @@ Wskazówki dotyczące uzyskiwania dalszej pomocy technicznej dla {{<product-name
 
 - Użyj przycisku [Problemy z zestawem automatyzacji](https://aka.ms/ak4pp-issues) szablony do wyszukiwania znanych błędów / luk w funkcjach. Jeśli nie znajdziesz dopasowania do swojego problemu, spróbuj utworzyć nowy problem przy użyciu jednego z dostarczonych szablonów
 
-- Skorzystaj z naszego [filmy instruktażowe] (w każdym kamieniu milowym ze względu na priorytetowe błędy lub funkcje), aby pomóc w pokazaniu sposobu działania procesu instalacji
+- Skorzystaj z naszego [filmy instruktażowe](w każdym kamieniu milowym ze względu na priorytetowe błędy lub funkcje), aby pomóc w pokazaniu sposobu działania procesu instalacji
 
 - Dołącz do naszego [Godziny pracy biura](/pl/office-hours) zadawanie pytań dotyczących typowych problemów lub planu rozwoju produktu
 
