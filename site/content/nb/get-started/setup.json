@@ -87,27 +87,29 @@
         "default": "Main Solution - Prerequisites",
         "nb": "Hovedløsning - Forutsetninger"
       },
+      "name": "prereqTest1",
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
           "type": "checkbox",
+          "name": "prereqTest1",
           "title": {
             "default": "Verify that the following has been setup for the environment you will install the Automation Kit Main solution",
             "nb": "Kontroller at følgende er konfigurert for miljøet du vil installere Automation Kit Main-løsningen"
           },
           "choices": [
             {
-              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
-                "nb": "Har aktivert [Funksjon for rammeverk for PowerApps-komponent](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
+                "default": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "nb": "Du har administratorrettigheter for miljøet, slik at vi kan aktivere [Funksjon for rammeverk for PowerApps-komponent](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
               }
             },
             {
-              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "value": "I DO NOT have environment administrator rights",
               "text": {
-                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
-                "nb": "[Skapersett](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) er installert"
+                "default": "I DO NOT have environment administrator rights",
+                "nb": "Jeg har ikke rettigheter som miljøadministrator"
               }
             },
             {
@@ -146,6 +148,31 @@
               }
             }
           ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights')",
+          "html": {
+            "default": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights.",
+            "nb": "Du må ha en miljøadministrator aktivert <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Funksjon for rammeverk for PowerApps-komponent</a>. Hvis du har aktivert funksjonen PowerApps component framework, trenger du ikke administratorrettigheter for miljøet."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "isSystemCustomizer",
+          "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights')",
+          "title": {
+            "default": "Are you a member of the System Customizer role for the environment?",
+            "nb": "Er du medlem av Systemtilpasser-rollen for miljøet?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+          "html": {
+            "default": "You will need need to have a minimum of System Customizer to import the Automation Kit solutions",
+            "nb": "Du må ha minst systemtilpasning for å importere Automation Kit-løsningene"
+          }
         }
       ]
     },
@@ -205,7 +232,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "nb": "Må være et gyldig Power Platform-miljø som starter med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+              "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
             }
           ]
         },
@@ -529,23 +556,24 @@
       "elements": [
         {
           "type": "checkbox",
+          "name": "prereqTest2",
           "title": {
             "default": "Verify that the following has been setup for the environment you will install the Automation Kit Satellite solution",
             "nb": "Kontroller at følgende er konfigurert for miljøet du vil installere Automation Kit Satellite-løsningen"
           },
           "choices": [
             {
-              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
-                "nb": "Har aktivert [Funksjon for rammeverk for PowerApps-komponent](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
+                "default": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "nb": "Du har administratorrettigheter for miljøet, slik at vi kan aktivere [Funksjon for rammeverk for PowerApps-komponent](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
               }
             },
             {
-              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "value": "I DO NOT have environment administrator rights",
               "text": {
-                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
-                "nb": "[Skapersett](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) er installert"
+                "default": "I DO NOT have environment administrator rights",
+                "nb": "Jeg har ikke rettigheter som miljøadministrator"
               }
             },
             {
@@ -591,6 +619,31 @@
               }
             }
           ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights')",
+          "html": {
+            "default": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights.",
+            "nb": "Du må ha en miljøadministrator aktivert <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Funksjon for rammeverk for PowerApps-komponent</a>. Hvis du har aktivert funksjonen PowerApps component framework, trenger du ikke administratorrettigheter for miljøet."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "isSystemCustomizer",
+          "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights')",
+          "title": {
+            "default": "Are you a member of the System Customizer role for the environment?",
+            "nb": "Er du medlem av Systemtilpasser-rollen for miljøet?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+          "html": {
+            "default": "You will need need to have a minimum of System Customizer to import the Automation Kit solutions",
+            "nb": "Du må ha minst systemtilpasning for å importere Automation Kit-løsningene"
+          }
         },
         {
           "type": "html",

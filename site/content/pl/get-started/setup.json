@@ -87,27 +87,29 @@
         "default": "Main Solution - Prerequisites",
         "pl": "Główne rozwiązanie - wymagania wstępne"
       },
+      "name": "prereqTest1",
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
           "type": "checkbox",
+          "name": "prereqTest1",
           "title": {
             "default": "Verify that the following has been setup for the environment you will install the Automation Kit Main solution",
             "pl": "Sprawdź, czy dla środowiska, w którym zostanie zainstalowane główne rozwiązanie Automation Kit, sprawdź, czy skonfigurowano następujące elementy:"
           },
           "choices": [
             {
-              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
-                "pl": "Włącz [Funkcja struktury składników usługi PowerAppsPowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
+                "default": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "pl": "Masz uprawnienia administratora środowiska, więc możemy włączyć [Funkcja struktury składników usługi PowerAppsPowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
               }
             },
             {
-              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "value": "I DO NOT have environment administrator rights",
               "text": {
-                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
-                "pl": "[Zestaw twórców](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) został zainstalowany"
+                "default": "I DO NOT have environment administrator rights",
+                "pl": "Nie mam uprawnień administratora środowiska"
               }
             },
             {
@@ -146,6 +148,31 @@
               }
             }
           ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights')",
+          "html": {
+            "default": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights.",
+            "pl": "Musisz mieć włączonego administratora środowiska <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Funkcja struktury składników usługi PowerAppsPowerApps component framework feature</a>. Jeśli masz włączoną funkcję struktury składników usługi PowerApps, nie potrzebujesz uprawnień administratora środowiska."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "isSystemCustomizer",
+          "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights')",
+          "title": {
+            "default": "Are you a member of the System Customizer role for the environment?",
+            "pl": "Czy jesteś członkiem roli Konfigurator systemu dla środowiska?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+          "html": {
+            "default": "You will need need to have a minimum of System Customizer to import the Automation Kit solutions",
+            "pl": "Musisz mieć co najmniej Konfigurator systemu, aby zaimportować rozwiązania Automation Kit"
+          }
         }
       ]
     },
@@ -205,7 +232,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "pl": "Musi to być prawidłowe środowisko Power Platform, zaczynające się od [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+              "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
             }
           ]
         },
@@ -529,23 +556,24 @@
       "elements": [
         {
           "type": "checkbox",
+          "name": "prereqTest2",
           "title": {
             "default": "Verify that the following has been setup for the environment you will install the Automation Kit Satellite solution",
             "pl": "Sprawdź, czy dla środowiska, w którym zostanie zainstalowane rozwiązanie Automation Kit Satellite, sprawdź, czy skonfigurowano następujące elementy:"
           },
           "choices": [
             {
-              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
-                "pl": "Włącz [Funkcja struktury składników usługi PowerAppsPowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
+                "default": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "pl": "Masz uprawnienia administratora środowiska, więc możemy włączyć [Funkcja struktury składników usługi PowerAppsPowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
               }
             },
             {
-              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "value": "I DO NOT have environment administrator rights",
               "text": {
-                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
-                "pl": "[Zestaw twórców](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) został zainstalowany"
+                "default": "I DO NOT have environment administrator rights",
+                "pl": "Nie mam uprawnień administratora środowiska"
               }
             },
             {
@@ -591,6 +619,31 @@
               }
             }
           ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights')",
+          "html": {
+            "default": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights.",
+            "pl": "Musisz mieć włączonego administratora środowiska <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Funkcja struktury składników usługi PowerAppsPowerApps component framework feature</a>. Jeśli masz włączoną funkcję struktury składników usługi PowerApps, nie potrzebujesz uprawnień administratora środowiska."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "isSystemCustomizer",
+          "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights')",
+          "title": {
+            "default": "Are you a member of the System Customizer role for the environment?",
+            "pl": "Czy jesteś członkiem roli Konfigurator systemu dla środowiska?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+          "html": {
+            "default": "You will need need to have a minimum of System Customizer to import the Automation Kit solutions",
+            "pl": "Musisz mieć co najmniej Konfigurator systemu, aby zaimportować rozwiązania Automation Kit"
+          }
         },
         {
           "type": "html",

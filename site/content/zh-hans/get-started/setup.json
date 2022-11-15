@@ -87,27 +87,29 @@
         "default": "Main Solution - Prerequisites",
         "zh-hans": "主要解决方案 - 先决条件"
       },
+      "name": "prereqTest1",
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
           "type": "checkbox",
+          "name": "prereqTest1",
           "title": {
             "default": "Verify that the following has been setup for the environment you will install the Automation Kit Main solution",
             "zh-hans": "验证是否已为将要安装自动化工具包主解决方案的环境设置以下内容"
           },
           "choices": [
             {
-              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
-                "zh-hans": "已启用[PowerApps 组件框架功能](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
+                "default": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "zh-hans": "您具有环境管理员权限，因此我们可以启用[PowerApps 组件框架功能](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
               }
             },
             {
-              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "value": "I DO NOT have environment administrator rights",
               "text": {
-                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
-                "zh-hans": "[创作者工具包](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview)已安装"
+                "default": "I DO NOT have environment administrator rights",
+                "zh-hans": "我没有环境管理员权限"
               }
             },
             {
@@ -146,6 +148,31 @@
               }
             }
           ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights')",
+          "html": {
+            "default": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights.",
+            "zh-hans": "您需要启用环境管理员<a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps 组件框架功能</a>.如果启用了 PowerApps 组件框架功能，则不需要环境管理员权限。"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "isSystemCustomizer",
+          "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights')",
+          "title": {
+            "default": "Are you a member of the System Customizer role for the environment?",
+            "zh-hans": "您是环境的系统定制员角色的成员吗？"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+          "html": {
+            "default": "You will need need to have a minimum of System Customizer to import the Automation Kit solutions",
+            "zh-hans": "您需要至少拥有系统定制器才能导入自动化工具包解决方案"
+          }
         }
       ]
     },
@@ -205,7 +232,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "zh-hans": "必须是有效的 Power Platform 环境，以[https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+              "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
             }
           ]
         },
@@ -529,23 +556,24 @@
       "elements": [
         {
           "type": "checkbox",
+          "name": "prereqTest2",
           "title": {
             "default": "Verify that the following has been setup for the environment you will install the Automation Kit Satellite solution",
             "zh-hans": "验证是否已为将要安装自动化工具包卫星解决方案的环境设置以下内容"
           },
           "choices": [
             {
-              "value": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "value": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
               "text": {
-                "default": "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
-                "zh-hans": "已启用[PowerApps 组件框架功能](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
+                "default": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "zh-hans": "您具有环境管理员权限，因此我们可以启用[PowerApps 组件框架功能](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
               }
             },
             {
-              "value": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+              "value": "I DO NOT have environment administrator rights",
               "text": {
-                "default": "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
-                "zh-hans": "[创作者工具包](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview)已安装"
+                "default": "I DO NOT have environment administrator rights",
+                "zh-hans": "我没有环境管理员权限"
               }
             },
             {
@@ -591,6 +619,31 @@
               }
             }
           ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights')",
+          "html": {
+            "default": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights.",
+            "zh-hans": "您需要启用环境管理员<a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps 组件框架功能</a>.如果启用了 PowerApps 组件框架功能，则不需要环境管理员权限。"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "isSystemCustomizer",
+          "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights')",
+          "title": {
+            "default": "Are you a member of the System Customizer role for the environment?",
+            "zh-hans": "您是环境的系统定制员角色的成员吗？"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+          "html": {
+            "default": "You will need need to have a minimum of System Customizer to import the Automation Kit solutions",
+            "zh-hans": "您需要至少拥有系统定制器才能导入自动化工具包解决方案"
+          }
         },
         {
           "type": "html",

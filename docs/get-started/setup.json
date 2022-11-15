@@ -42,22 +42,41 @@
         },
         {
             "title": "Main Solution - Prerequisites",
+            "name": "prereqTest1",
             "visibleIf": "contains({installType}, 'Main solution')",
             "elements": [
                 {
                     "type": "checkbox",
+                    "name": "prereqTest1",
                     "title": "Verify that the following has been setup for the environment you will install the Automation Kit Main solution",
                     "choices": [
-                        "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
-                        "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+                        "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                        "I DO NOT have environment administrator rights",
                         "[Install Microsoft Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli)",
                         "The environment DLP policy allows for following connectors [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
                         "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
                         "Office E3 license or above for Office 365 Outlook connection used by Cloud Flow",
                         "Download of free [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/) or [Power BI Premium](https://powerbi.microsoft.com/en-us/power-bi-premium/) to share your dashboard inside your organization"
                     ]
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights')",
+                    "html": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights."
+                },
+                {
+                    "type": "boolean",
+                    "name": "isSystemCustomizer",
+                    "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights')",
+                    "title": "Are you a member of the System Customizer role for the environment?"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({prereqTest1}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+                    "html": "You will need need to have a minimum of System Customizer to import the Automation Kit solutions"
                 }
             ]
+            
         },
         {
             "title": "Main Solution",
@@ -94,7 +113,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+                            "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
                         }
                     ]
                 },
@@ -313,10 +332,11 @@
             "elements": [
                 {
                     "type": "checkbox",
+                    "name": "prereqTest2",
                     "title": "Verify that the following has been setup for the environment you will install the Automation Kit Satellite solution",
                     "choices": [
-                        "Have enabled [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
-                        "[Creator Kit](https://learn.microsoft.com/power-platform/guidance/creator-kit/overview) has been installed",
+                        "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                        "I DO NOT have environment administrator rights",
                         "[Install Microsoft Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli)",
                         "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
                         "A Azure Application Registration",
@@ -324,6 +344,22 @@
                         "Configured Azure Application ClientId and Secret",
                         "An Azure Key Vault to store the ClientId, Secret and Tenant Id"
                     ]
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights')",
+                    "html": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights."
+                },
+                {
+                    "type": "boolean",
+                    "name": "isSystemCustomizer",
+                    "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights')",
+                    "title": "Are you a member of the System Customizer role for the environment?"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({prereqTest2}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+                    "html": "You will need need to have a minimum of System Customizer to import the Automation Kit solutions"
                 },
                 {
                     "type": "html",
