@@ -4,8 +4,12 @@ description: "自動化キット - RPA移行"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
+generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 ---
+
+{{<toc>}}
+
+<br/>
 
 {{<product-name>}}**移行モジュール**顧客とのエンゲージメントに基づく実証済みのツールとガイダンスのセットを提供し、移行の過程を加速します。Microsoft Power Platform、Microsoft Azure、およびより広範なMicrosoft Cloud サービスの強みを活用することで、次のことが可能になります。
 
@@ -24,14 +28,6 @@ generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 - [Power Automate で RPA アプローチを最新化するための実証済みの手法](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
 -ダウンロード可能なホワイトペーパー[ロボティック プロセス オートメーション (RPA) 移行に関するビジネス リーダー向けガイド。](https://aka.ms/PAD/RPAMigrationWhitepaper)
-
-## マイルストーンステータス
-
-私たちは、ローコードのPower PlatformとMicrosoft Azureリソースを活用して、{{<product-name>}}.新機能は、[シャープアルキメデス](/ja/releases/november-2022)マイルストーン以降。
-
-![シャープアルキメデス](/images/sharp-archimedes.png)
-
-マイルストーンプロセスの詳細については、[マイルストーンリリースノート](/ja/releases/milestones).
 
 ## 重点分野
 
@@ -54,3 +50,37 @@ generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 - **クラウド統合**ソリューションを Power Platform、Microsoft クラウドに移行するための変換プロセスを高速化するために使用できるサンプル コンポーネント。
 
 - **非機能要件**品質テストアプローチ、DevOpsモニタリング、移行されたソリューションのドキュメントをカバーする
+
+### オートメーションセンターオブエクセレンス
+
+Power Automation 移行をオートメーション センター オブ エクセレンスに接続するには、オートメーション キットおよび ALM アクセラレータと重複する移行開発者のスキル セットがあります。
+
+![オートメーションセンターオブエクセレンス](/images/illustrations/automation-kit-migration.svg)
+
+#### 移行開発者
+
+移行開発者プロセスを具体的に見る
+
+![オートメーション センター オブ エクセレンス - 移行開発者](/images/illustrations/automation-kit-migration-developer.svg)
+
+##### 評価と計画
+
+評価と計画は、既存の自動化投資の無料スキャンから始まります。[ブループリントシステム](https://www.blueprintsys.com/)をクリックして、現在の複雑さとスコープを決定します。この情報を使用すると、Power Automate デスクトップに移行できる自動化ソリューションの初期セットを計画するのに役立ちます。
+
+##### マイグレート
+
+ソース移行システムから同等の Power Automate デスクトップ アクションに移行するプロセス。移行開発者が確認および更新する必要があるアクションには、残りの作業を簡単に識別できるように TODO コメントとしてマークされます。
+
+##### ビルドのファイナライズ
+
+識別された TODO コメントを使用して、移行開発者は残りの移行手順を完了し、Power Automate デスクトップ内でソリューションを動作させます。
+
+##### 展開プロセス
+
+ALM アクセラレータ ソリューションを使用すると、検証チェックが適用された開発環境から運用環境に移動して、TODO 項目が削除され、ターゲット システム チェックと DLP チェックが適用されていることを確認できます。
+
+メンテナンスの観点からは、継続的な DLP ガバナンスと検証チェック ルールを引き続き適用して、デプロイされたソリューションを時間の経過と共に微調整および更新できます。
+
+#### その他のレイヤー
+
+移行モジュールは、ALM、インフラストラクチャ コンポーネント、セキュリティとガバナンス、運用レポートと分析をサポートするための既存のガイダンスとツールに基づいて構築されています。

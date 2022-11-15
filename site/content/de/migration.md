@@ -4,8 +4,12 @@ description: "Automation Kit - RPA-Migration"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
+generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 ---
+
+{{<toc>}}
+
+<br/>
 
 Die {{<product-name>}} **Migrationsmodul** bietet Ihnen bewährte Tools und Anleitungen basierend auf Kundengesprächen, um Ihre Migrationsreise zu beschleunigen. Durch die Nutzung der Stärken von Microsoft Power Platform, Microsoft Azure und den breiteren Microsoft Cloud-Diensten können Sie:
 
@@ -24,14 +28,6 @@ Sie können den folgenden Link verwenden, um den RPA-Migrationsprozess für die 
 - [Bewährte Methoden zur Modernisierung Ihres RPA-Ansatzes mit Power Automate](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
 - Whitepaper zum Herunterladen [Business Leaders' Guide to Robotic Process Automation (RPA) Migration.](https://aka.ms/PAD/RPAMigrationWhitepaper)
-
-## Meilenstein-Status
-
-Wir sind dabei, die Low-Code-Power-Plattform und Microsoft Azure-Ressourcen aktiv zu nutzen, um der {{<product-name>}}. Neue Funktionen werden im Rahmen der [Scharfe Archimedes](/de/releases/november-2022) Meilenstein und darüber hinaus.
-
-![Scharfe Archimedes](/images/sharp-archimedes.png)
-
-Um mehr über unseren Meilensteinprozess zu erfahren, lesen Sie unsere [Meilenstein-Versionshinweise](/de/releases/milestones).
 
 ## Schwerpunktbereiche
 
@@ -54,3 +50,37 @@ Die folgende Liste bietet einen Überblick über die Bereiche, die wir für die 
 - **Cloud-Integration** Beispielkomponenten, die verwendet werden können, um den Konvertierungsprozess zu beschleunigen, um Lösungen auf die Power Platform, Microsoft Cloud, zu migrieren.
 
 - **Nicht-funktionale Anforderungen** Qualitätstestansatz, DevOps-Monitoring, Dokumentation migrierter Lösungen
+
+### Kompetenzzentrum Automatisierung
+
+Connecting Power Automation Migration to the Automation Center of Excellence Es gibt eine Reihe von Fähigkeiten für Migrationsentwickler, die sich mit dem Automation Kit und dem ALM Accelerator überschneiden.
+
+![Kompetenzzentrum Automatisierung](/images/illustrations/automation-kit-migration.svg)
+
+#### Migrationsentwickler
+
+Genauer Blick auf den Migrationsentwicklerprozess
+
+![Automation Center of Excellence - Migrationsentwickler](/images/illustrations/automation-kit-migration-developer.svg)
+
+##### Bewerten und Planen
+
+Die Bewertung und Planung beginnt mit einem kostenlosen Scan Ihrer vorhandenen Automatisierungsinvestitionen mit [BluePrint-Systeme](https://www.blueprintsys.com/) um die aktuelle Komplexität und den Umfang zu bestimmen. Mithilfe dieser Informationen können Sie die ersten Automatisierungslösungen planen, die zu Power Automate Desktop migriert werden können.
+
+##### Wandern
+
+Der Prozess der Migration von Ihrem Quellmigrationssystem zu den entsprechenden Power Automate Desktop-Aktionen. Alle Aktionen, die vom Migrationsentwickler überprüft und aktualisiert werden müssen, werden als TODO-Kommentare gekennzeichnet, damit die verbleibende Arbeit leicht identifiziert werden kann.
+
+##### Build abschließen
+
+Mithilfe der identifizierten TODO-Kommentare schließt der Migrationsentwickler die verbleibenden Migrationsschritte ab, damit die Lösung in Power Automate Desktop funktioniert.
+
+##### Bereitstellungsprozess
+
+Die Verwendung der ALM Accelerator-Lösungen können von Entwicklungs- in Produktionsumgebungen verschoben werden, wobei die Validierung überprüft wurde, um sicherzustellen, dass die TODO-Elemente entfernt wurden und Zielsystemprüfungen und DLP-Prüfungen angewendet wurden.
+
+Aus Wartungssicht können fortlaufende DLP-Governance- und Validierungsprüfungsregeln weiterhin angewendet werden, um bereitgestellte Lösungen im Laufe der Zeit zu optimieren und zu aktualisieren.
+
+#### Andere Schichten
+
+Die Migrationsmodule bauen auf den vorhandenen Anleitungen und Tools zur Unterstützung von ALM, Infrastrukturkomponenten zusammen mit Sicherheit und Governance sowie operativer Berichterstattung und Analyse auf.

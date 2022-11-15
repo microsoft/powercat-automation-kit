@@ -4,8 +4,12 @@ description: "Kit d’automatisation - Migration RPA"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
+generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 ---
+
+{{<toc>}}
+
+<br/>
 
 Le {{<product-name>}} **Module de migration** Vous fournit un ensemble éprouvé d’outils et de conseils basés sur les engagements avec les clients pour accélérer votre parcours de migration. En tirant parti de la puissance de Microsoft Power Platform, Microsoft Azure et des services Microsoft Cloud plus larges, vous pouvez :
 
@@ -24,14 +28,6 @@ Vous pouvez utiliser le lien suivant pour comprendre le processus de migration R
 - [Des méthodes éprouvées pour moderniser votre approche RPA avec Power Automate](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
 - Livre blanc téléchargeable [Guide des chefs d’entreprise sur la migration de l’automatisation robotisée des processus (RPA).](https://aka.ms/PAD/RPAMigrationWhitepaper)
-
-## État des jalons
-
-Nous sommes dans un processus actif d’exploitation des ressources Low Code Power Platform et Microsoft Azure pour ajouter des fonctionnalités au {{<product-name>}}. De nouvelles fonctionnalités sont envisagées dans le cadre de l' [Archimède tranchant](/fr/releases/november-2022) jalon et au-delà.
-
-![Archimède tranchant](/images/sharp-archimedes.png)
-
-Pour en savoir plus sur notre processus d’étape, consultez notre [Notes de mise à jour de Milestone](/fr/releases/milestones).
 
 ## Domaines d’intérêt
 
@@ -54,3 +50,37 @@ La liste suivante fournit une vue d’ensemble des domaines que nous avons prior
 - **Intégration Cloud** exemples de composants qui peuvent être utilisés pour accélérer le processus de conversion afin de migrer des solutions vers Power Platform, Microsoft Cloud.
 
 - **Exigences non fonctionnelles** couvrant l’approche de test de qualité, la surveillance DevOps, la documentation des solutions migrées
+
+### Centre d’excellence en automatisation
+
+Connexion de Power Automation Migration au centre d’excellence Automation Il existe un ensemble de compétences de développeur de migration qui chevauchent le kit d’automatisation et l’accélérateur ALM.
+
+![Centre d’excellence en automatisation](/images/illustrations/automation-kit-migration.svg)
+
+#### Développeur de migration
+
+Examen spécifique du processus de développement de migration
+
+![Centre d’excellence en automatisation - Développeur Migration](/images/illustrations/automation-kit-migration-developer.svg)
+
+##### Évaluer et planifier
+
+L’évaluation et la planification commencent par une analyse gratuite de vos investissements Automation existants à l’aide de [Systèmes BluePrint](https://www.blueprintsys.com/) pour déterminer la complexité et la portée actuelles. L’utilisation de ces informations aidera à planifier l’ensemble initial de solutions d’automatisation pouvant être migrées vers Power Automate Desktop.
+
+##### Émigrer
+
+Processus de migration de votre système de migration source vers les actions Power Automate Desktop équivalentes. Toutes les actions qui nécessitent que le développeur de migration examine et mette à jour seront marquées comme des commentaires TODO afin que le travail restant puisse être facilement identifié.
+
+##### Construire Finaliser
+
+À l’aide des commentaires TODO identifiés, le développeur de migration effectue les étapes de migration restantes pour que la solution fonctionne dans Power Automate Desktop.
+
+##### Processus de déploiement
+
+L’utilisation des solutions ALM Accelerator peut être déplacée des environnements de développement vers les environnements de production avec une vérification de validation appliquée pour s’assurer que les éléments TODO ont été supprimés et que les vérifications du système cible et les vérifications DLP ont été appliquées.
+
+Du point de vue de la maintenance, les règles de gouvernance et de validation DLP en cours peuvent continuer à être appliquées pour affiner et mettre à jour les solutions déployées au fil du temps.
+
+#### Autres couches
+
+Les modules de migration s’appuient sur les conseils et les outils existants pour prendre en charge la GAP, les composantes d’infrastructure ainsi que la sécurité et la gouvernance et les rapports et analyses opérationnels.

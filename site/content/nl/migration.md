@@ -4,8 +4,12 @@ description: "Automatiseringskit - RPA-migratie"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
+generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 ---
+
+{{<toc>}}
+
+<br/>
 
 De {{<product-name>}} **Migratie module** biedt u een bewezen set tools en begeleiding op basis van interacties met klanten om uw migratietraject te versnellen. Door gebruik te maken van de kracht van Microsoft Power Platform, Microsoft Azure en de bredere Microsoft Cloud-services kunt u:
 
@@ -24,14 +28,6 @@ U kunt de volgende koppeling gebruiken om het RPA-migratieproces voor het Micros
 - [Beproefde methoden om uw RPA-aanpak te moderniseren met Power Automate](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
 - Downloadbare whitepaper [Business Leaders' Guide to Robotic Process Automation (RPA) Migratie.](https://aka.ms/PAD/RPAMigrationWhitepaper)
-
-## Mijlpaalstatus
-
-We zijn actief bezig met het gebruik van het low-code Power Platform en Microsoft Azure-resources om functies toe te voegen aan de {{<product-name>}}. Nieuwe functies worden overwogen als onderdeel van de [Scherpe Archimedes](/nl/releases/november-2022) mijlpaal en verder.
-
-![Scherpe Archimedes](/images/sharp-archimedes.png)
-
-Om meer te lezen over ons mijlpaalproces, bekijk onze [Opmerkingen bij de release van Milestone](/nl/releases/milestones).
 
 ## Aandachtsgebieden
 
@@ -54,3 +50,37 @@ De volgende lijst geeft een overzicht van gebieden die we prioriteren voor opnam
 - **Cloud integratie** voorbeeldonderdelen die kunnen worden gebruikt om het conversieproces te versnellen om oplossingen te migreren naar het Power Platform, Microsoft Cloud.
 
 - **Niet-functionele vereisten** met betrekking tot kwaliteitstestbenadering, DevOps-monitoring, documentatie van gemigreerde oplossingen
+
+### Automatiseringscentrum van uitmuntendheid
+
+Als u Power Automation Migration verbindt met het Automation Center of Excellence, is er een set vaardigheden voor migratieontwikkelaars die overlappen met de Automation Kit en de ALM Accelerator.
+
+![Automatiseringscentrum van uitmuntendheid](/images/illustrations/automation-kit-migration.svg)
+
+#### Migratie ontwikkelaar
+
+Specifiek kijken naar het Migration Developer-proces
+
+![Automation Center of Excellence - Migratie ontwikkelaar](/images/illustrations/automation-kit-migration-developer.svg)
+
+##### Beoordelen en plannen
+
+Het beoordelen en plannen begint met een gratis scan van uw bestaande automatiseringsinvesteringen met behulp van [BluePrint Systemen](https://www.blueprintsys.com/) om de huidige complexiteit en scope te bepalen. Als u deze informatie gebruikt, kunt u de eerste set automatiseringsoplossingen plannen die kunnen worden gemigreerd naar Power Automate Desktop.
+
+##### Trekken
+
+Het migratieproces van uw bronmigratiesysteem naar de equivalente Power Automate Desktop-acties. Alle acties waarvoor de migratieontwikkelaar moet controleren en bijwerken, worden gemarkeerd als TODO-opmerkingen, zodat het resterende werk gemakkelijk kan worden geïdentificeerd.
+
+##### Build finaliseren
+
+Met behulp van de geïdentificeerde TODO-opmerkingen voltooit de migratieontwikkelaar de resterende migratiestappen om de oplossing te laten werken in Power Automate Desktop.
+
+##### Implementatieproces
+
+Het gebruik van de ALM Accelerator-oplossingen kan worden verplaatst van ontwikkel- naar productieomgevingen waarbij validatie is gecontroleerd om ervoor te zorgen dat de TODO-items zijn verwijderd en doelsysteemcontroles en DLP-controles zijn toegepast.
+
+Vanuit het oogpunt van onderhoud kunnen doorlopende regels voor DLP-governance en validatiecontrole blijven worden toegepast om geïmplementeerde oplossingen in de loop van de tijd te verfijnen en bij te werken.
+
+#### Andere lagen
+
+De migratiemodules bouwen voort op de bestaande richtlijnen en tooling ter ondersteuning van ALM, infrastructuurcomponenten samen met beveiliging en governance en operationele rapportage en analyse.

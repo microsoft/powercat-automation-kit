@@ -4,8 +4,12 @@ description: "자동화 키트 - RPA 마이그레이션"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
+generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 ---
+
+{{<toc>}}
+
+<br/>
 
 그 {{<product-name>}} **마이그레이션 모듈** 마이그레이션 여정을 가속화하기 위해 고객과의 계약을 기반으로 입증된 도구 및 지침 집합을 제공합니다. Microsoft Power Platform, Microsoft Azure 및 광범위한 Microsoft Cloud 서비스의 강점을 활용하여 다음을 수행할 수 있습니다.
 
@@ -24,14 +28,6 @@ generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 - [파워 오토메이트로 RPA 접근 방식을 현대화하는 입증된 방법](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
 - 다운로드 가능한 백서 [비즈니스 리더를 위한 로봇 프로세스 자동화(RPA) 마이그레이션 가이드.](https://aka.ms/PAD/RPAMigrationWhitepaper)
-
-## 마일스톤 상태
-
-우리는 낮은 코드 전원 플랫폼 및 Microsoft Azure 리소스를 활용하여 {{<product-name>}}. 새로운 기능은 [샤프 아르키메데스](/ko/releases/november-2022) 이정표와 그 이상.
-
-![샤프 아르키메데스](/images/sharp-archimedes.png)
-
-마일스톤 프로세스에 대해 자세히 알아보려면 [마일스톤 릴리스 노트](/ko/releases/milestones).
 
 ## 초점 분야
 
@@ -54,3 +50,37 @@ generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 - **클라우드 통합** 솔루션을 Power 플랫폼인 Microsoft 클라우드로 마이그레이션하기 위해 변환 프로세스를 가속화하는 데 사용할 수 있는 샘플 구성 요소입니다.
 
 - **비 기능 요구 사항** 품질 테스트 접근 방식, DevOps 모니터링, 마이그레이션된 솔루션 문서화
+
+### 자동화 우수 센터
+
+Power Automation 마이그레이션을 자동화 우수 센터에 연결하면 자동화 키트 및 ALM 가속기와 겹치는 마이그레이션 개발자 기술 집합이 있습니다.
+
+![자동화 우수 센터](/images/illustrations/automation-kit-migration.svg)
+
+#### 마이그레이션 개발자
+
+마이그레이션 개발자 프로세스를 구체적으로 살펴보기
+
+![자동화 우수 센터 - 마이그레이션 개발자](/images/illustrations/automation-kit-migration-developer.svg)
+
+##### 평가 및 계획
+
+평가 및 계획은 다음을 사용하여 기존 자동화 투자에 대한 무료 스캔으로 시작됩니다. [블루프린트 시스템](https://www.blueprintsys.com/) 현재의 복잡성과 범위를 결정합니다. 이 정보를 사용하면 Power Automate 데스크톱으로 마이그레이션할 수 있는 초기 자동화 솔루션 집합을 계획하는 데 도움이 됩니다.
+
+##### 이주하다
+
+원본 마이그레이션 시스템에서 동등한 Power Automate 데스크톱 작업으로 마이그레이션하는 프로세스입니다. 마이그레이션 개발자가 검토하고 업데이트해야 하는 모든 작업은 남은 작업을 쉽게 식별할 수 있도록 TODO 주석으로 표시됩니다.
+
+##### 빌드 완료
+
+식별된 TODO 주석을 사용하여 마이그레이션 개발자는 나머지 마이그레이션 단계를 완료하여 솔루션이 Power Automate 데스크톱 내에서 작동하도록 합니다.
+
+##### 배포 프로세스
+
+ALM Accelerator 솔루션을 사용하여 유효성 검사가 적용된 개발 환경에서 프로덕션 환경으로 이동하여 TODO 항목이 제거되고 대상 시스템 검사 및 DLP 검사가 적용되었는지 확인할 수 있습니다.
+
+유지 관리 관점에서 지속적인 DLP 거버넌스 및 유효성 검사 규칙을 계속 적용하여 배포된 솔루션을 미세 조정하고 업데이트할 수 있습니다.
+
+#### 다른 레이어
+
+마이그레이션 모듈은 ALM, 인프라 구성 요소, 보안 및 거버넌스, 운영 보고 및 분석을 지원하는 기존 지침 및 도구를 기반으로 합니다.

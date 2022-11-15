@@ -4,8 +4,12 @@ description: "Automatiseringssett – RPA-overføring"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
+generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 ---
+
+{{<toc>}}
+
+<br/>
 
 Den {{<product-name>}} **Modul for overføring** gir deg et velprøvd sett med verktøy og veiledning basert på engasjementer med kunder for å akselerere migreringsreisen. Ved å utnytte styrken til Microsoft Power Platform, Microsoft Azure og de bredere Microsoft Cloud-tjenestene kan du:
 
@@ -24,14 +28,6 @@ Du kan bruke følgende kobling til å forstå RPA-overføringsprosessen for Micr
 - [Utprøvde metoder for å modernisere RPA-tilnærmingen med Power Automate](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
 - Nedlastbart white paper [Veiledning for automatisering av robotisert prosessautomatisering (RPA) for bedriftsledere.](https://aka.ms/PAD/RPAMigrationWhitepaper)
-
-## Milepæl Status
-
-Vi er i en aktiv prosess med å utnytte Power Platform- og Microsoft Azure-ressursene med lav kode for å legge til funksjoner i {{<product-name>}}. Nye funksjoner vurderes som en del av [Skarpe Arkimedes](/nb/releases/november-2022) milepæl og videre.
-
-![Skarpe Arkimedes](/images/sharp-archimedes.png)
-
-For å lese mer om vår milepælprosess, se gjennom vår [Produktmerknader for milepæler](/nb/releases/milestones).
 
 ## Fokusområder
 
@@ -54,3 +50,37 @@ Listen nedenfor gir en oversikt over områder vi prioriterer for inkludering i a
 - **Skyintegrasjon** eksempelkomponenter som kan brukes til å akselerere konverteringsprosessen for å overføre løsninger til Power Platform, Microsoft Cloud.
 
 - **Ikke-funksjonelle krav** dekker tilnærming til kvalitetstesting, DevOps-overvåking, Dokumentasjon av migrerte løsninger
+
+### Kompetansesenter for automatisering
+
+Ved å koble strømautomatiseringsmigrering til Automation Center of Excellence er det et migreringsutviklersett med ferdigheter som overlapper med automatiseringssettet og ALM-akseleratoren.
+
+![Kompetansesenter for automatisering](/images/illustrations/automation-kit-migration.svg)
+
+#### Utvikler av overføring
+
+Ser spesifikt på migreringsutviklerprosessen
+
+![Kompetansesenter for automatisering – utvikler av overføring](/images/illustrations/automation-kit-migration-developer.svg)
+
+##### Vurder og planlegg
+
+Vurder og planlegg begynner med en gratis skanning av eksisterende automatiseringsinvesteringer ved hjelp av [BluePrint-systemer](https://www.blueprintsys.com/) for å bestemme dagens kompleksitet og omfang. Bruk av denne informasjonen vil hjelpe deg med å planlegge det første settet med automatiseringsløsninger som kan overføres til Power Automate Desktop.
+
+##### Trekke
+
+Prosessen med å overføre fra kildeoverføringssystemet til tilsvarende Power Automate Desktop-handlinger. Alle handlinger som krever at overføringsutvikleren gjennomgår og oppdaterer, merkes med TODO-kommentarer slik at gjenstående arbeid enkelt kan identifiseres.
+
+##### Bygg ferdig
+
+Ved hjelp av de identifiserte TOD-kommentarene fullfører overføringsutvikleren de gjenstående overføringstrinnene for å få løsningen til å fungere i Power Automate Desktop.
+
+##### Distribusjonsprosess
+
+Bruk av ALM Accelerator-løsninger kan flyttes fra utviklings- til produksjonsmiljøer der validering er kontrollert for å sikre at TODO-elementene er fjernet og målsystemkontroller og DLP-kontroller er brukt.
+
+Fra et vedlikeholdssynspunkt kan pågående DLP-styring og valideringskontrollregler fortsatt brukes til å finjustere og oppdatere distribuerte løsninger på overtid.
+
+#### Andre lag
+
+Overføringsmodulene bygger på eksisterende veiledning og verktøy for å støtte ALM, infrastrukturkomponenter sammen med sikkerhet og styring og operasjonell rapportering og analyse.

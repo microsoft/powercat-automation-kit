@@ -4,8 +4,12 @@ description: "Automation Kit - migracja RPA"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
+generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 ---
+
+{{<toc>}}
+
+<br/>
 
 Na {{<product-name>}} **Moduł migracji** Zapewnia sprawdzony zestaw narzędzi i wskazówek opartych na kontaktach z klientami, aby przyspieszyć migrację. Wykorzystując zalety platformy Microsoft Power Platform, platformy Microsoft Azure i szerszych usług Microsoft Cloud, można:
 
@@ -24,14 +28,6 @@ Możesz użyć poniższego linku, aby zrozumieć proces migracji RPA dla platfor
 - [Sprawdzone metody modernizacji podejścia RPA za pomocą usługi Power Automate](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
 - Oficjalny dokument do pobrania [Przewodnik liderów biznesu po migracji do zrobotyzowanej automatyzacji procesów (RPA).](https://aka.ms/PAD/RPAMigrationWhitepaper)
-
-## Stan kamienia milowego
-
-Jesteśmy w trakcie aktywnego procesu wykorzystywania zasobów platformy Power Platform i platformy Microsoft Azure o niskim kodzie w celu dodania funkcji do {{<product-name>}}. Nowe funkcje są rozważane w ramach [Ostry Archimedes](/pl/releases/november-2022) kamień milowy i nie tylko.
-
-![Ostry Archimedes](/images/sharp-archimedes.png)
-
-Aby dowiedzieć się więcej o naszym procesie kamieni milowych, zapoznaj się z naszą [Milestone Informacje o wersji](/pl/releases/milestones).
 
 ## Obszary zainteresowania
 
@@ -54,3 +50,37 @@ Poniższa lista zawiera przegląd obszarów, które priorytetowo traktujemy do u
 - **Integracja z chmurą** przykładowe składniki, których można użyć do przyspieszenia procesu konwersji w celu migracji rozwiązań do platformy Power Platform, Microsoft Cloud.
 
 - **Wymagania niefunkcjonalne** obejmujące podejście do testowania jakości, monitorowanie DevOps, dokumentację migrowanych rozwiązań
+
+### Centrum Doskonałości Automatyzacji
+
+Łącząc Power Automation Migration z Automation Center of Excellence, istnieje zestaw umiejętności Migration Developer, które pokrywają się z zestawem Automation Kit i akceleratorem ALM.
+
+![Centrum Doskonałości Automatyzacji](/images/illustrations/automation-kit-migration.svg)
+
+#### Deweloper migracji
+
+Patrząc konkretnie na proces Migration Developer
+
+![Automation Center of Excellence - Migration Developer](/images/illustrations/automation-kit-migration-developer.svg)
+
+##### Ocena i planowanie
+
+Ocena i plan rozpoczyna się od bezpłatnego skanowania istniejących inwestycji w automatyzację przy użyciu [Systemy BluePrint](https://www.blueprintsys.com/) w celu określenia bieżącej złożoności i zakresu. Korzystanie z tych informacji pomoże zaplanować początkowy zestaw rozwiązań automatyzacji, które można migrować do programu Power Automate Desktop.Using these information will help plan for the initial set of automation solutions that can be migrated to Power Automate Desktop.
+
+##### Migrować
+
+Proces migracji ze źródłowego systemu migracji do równoważnych akcji programu Power Automate Desktop. Wszelkie działania, które wymagają przejrzenia i zaktualizowania przez Dewelopera migracji, zostaną oznaczone jako komentarze TODO, aby można było łatwo zidentyfikować pozostałą pracę.
+
+##### Kompilacja Finalizacja
+
+Korzystając ze zidentyfikowanych komentarzy TODO, deweloper migracji wykonuje pozostałe kroki migracji, aby rozwiązanie działało w programie Power Automate Desktop.
+
+##### Proces wdrażania
+
+Korzystając z akceleratora ALM, rozwiązania można przenieść ze środowisk programistycznych do produkcyjnych, stosując sprawdzoną weryfikację, aby upewnić się, że elementy TODO zostały usunięte, a kontrole systemu docelowego i DLP zostały zastosowane.
+
+Z punktu widzenia konserwacji można nadal stosować bieżące reguły zarządzania DLP i sprawdzania poprawności w celu dostrajania i aktualizowania wdrożonych rozwiązań w miarę upływu czasu.
+
+#### Inne warstwy
+
+Moduły migracji opierają się na istniejących wytycznych i narzędziach do obsługi ALM, komponentów infrastruktury wraz z bezpieczeństwem i ładem oraz raportowaniem operacyjnym i analizą.

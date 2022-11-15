@@ -4,8 +4,12 @@ description: "自动化套件 - RPA 迁移"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
+generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 ---
+
+{{<toc>}}
+
+<br/>
 
 该 {{<product-name>}}**迁移模块**根据与客户的互动，为您提供一组经过验证的工具和指导，以加快您的迁移之旅。通过利用 Microsoft Power Platform、Microsoft Azure 和更广泛的 Microsoft 云服务的优势，您可以：
 
@@ -24,14 +28,6 @@ generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 - [通过电源自动化实现 RPA 方法现代化的行之有效的方法](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
 -可下载的白皮书[机器人流程自动化 （RPA） 迁移业务领导者指南。](https://aka.ms/PAD/RPAMigrationWhitepaper)
-
-## 里程碑状态
-
-我们正在积极利用低代码 Power Platform 和 Microsoft Azure 资源向 {{<product-name>}}.新功能正在被视为[夏普·阿基米德](/zh-hans/releases/november-2022)里程碑及以后。
-
-![夏普·阿基米德](/images/sharp-archimedes.png)
-
-要了解有关我们里程碑流程的更多信息，请查看我们的[里程碑发行说明](/zh-hans/releases/milestones).
 
 ## 重点领域
 
@@ -54,3 +50,37 @@ generated: 37EC79D7F80D84723686189C5C83474E0D6ED055
 - **云集成**可用于加速转换过程以将解决方案迁移到 Microsoft 云 Power 平台的示例组件。
 
 - **非功能性需求**涵盖质量测试方法、DevOps 监控、迁移解决方案的文档
+
+### 自动化卓越中心
+
+将电源自动化迁移连接到自动化卓越中心，有一组与自动化工具包和 ALM 加速器重叠的迁移开发人员技能。
+
+![自动化卓越中心](/images/illustrations/automation-kit-migration.svg)
+
+#### 迁移开发人员
+
+专门查看迁移开发人员流程
+
+![自动化卓越中心 - 迁移开发人员](/images/illustrations/automation-kit-migration-developer.svg)
+
+##### 评估和计划
+
+评估和计划首先使用现有自动化投资进行免费扫描[蓝图系统](https://www.blueprintsys.com/)以确定当前的复杂性和范围。使用此信息将有助于规划可迁移到 Power Automate Desktop 的初始自动化解决方案集。
+
+##### 迁移
+
+从源迁移系统迁移到等效的 Power Automate 桌面操作的过程。任何需要迁移开发人员查看和更新的操作都将标记为 TODO 注释，以便轻松识别剩余工作。
+
+##### 构建完成
+
+使用标识的 TODO 注释，迁移开发人员完成剩余的迁移步骤，以使解决方案在 Power Automate Desktop 中工作。
+
+##### 部署过程
+
+使用 ALM 加速器解决方案，可以从应用验证检查的开发环境移动到生产环境，以确保已删除 TODO 项并应用目标系统检查和 DLP 检查。
+
+从维护的角度来看，可以继续应用持续的 DLP 治理和验证检查规则，以随着时间的推移微调和更新部署的解决方案。
+
+#### 其他图层
+
+迁移模块以现有指南和工具为基础，以支持 ALM、基础架构组件以及安全性和治理以及运营报告和分析。
