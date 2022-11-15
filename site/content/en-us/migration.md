@@ -60,7 +60,11 @@ Connecting Power Automation Migration to the Automation Center of Excellence the
 
 Looking specifically at the Migration Developer process
 
+{{<border>}}
+
 ![Automation Center of Excellence - Migration Developer](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### Assess and Plan
 
