@@ -26,7 +26,7 @@ generated: EE6E212FD39B87D233249859750DDF2D7FC71E60
 
 与用于其他 Power CAT 托管套件的发布过程类似，{{<product-name>}} 使用 ALM 加速器将版本部署到我们的公共 GitHub 版本。
 
-我们的内部流程具有用于开发、测试和生产的电源平台环境。一旦我们准备好发布，我们的集成 GitHub 操作会自动打包托管和非托管部署解决方案以及 GitHub 草稿版本的发行说明。
+Our internal process has a <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> environment for Development, Test and Production. Once we are ready for a release our integrated GitHub Actions package the managed and unmanaged deployment solutions along with release notes automatically for a GitHub Draft release.
 
 一旦草稿版本准备就绪，我们可以根据需要发布新版本或修补程序。
 
@@ -46,7 +46,7 @@ generated: EE6E212FD39B87D233249859750DDF2D7FC71E60
 
 您可以在我们的[GitHub 问题注册](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
-总体而言，我们将现有的开箱即用的Power Platform和Microsoft DevOps产品功能一起构建ALM Accelerator。这种组合使我们能够专注于有助于超自动化的特定扩展。
+Overall we build on the existing out of the box <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> and Microsoft DevOps product features together ALM Accelerator. This combination allows us to focus on specific extensions that help with hyperautomtion.
 
 ## 反馈
 
@@ -58,7 +58,7 @@ generated: EE6E212FD39B87D233249859750DDF2D7FC71E60
 
 Power CAT 团队使用 ALM 加速器来构建和部署我们的每个[释放](https://github.com/microsoft/powercat-automation-kit/releases).
 
-每个版本都会促进从我们的开发到测试和生产环境的更改。工具包中的 Power Platform 解决方案使用自动化流程打包资产以部署到公共 GitHub 版本。
+Each release promotes changes from our development into test and production environments. The <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> solutions inside the kit use an automated process to package assets for deployment to public GitHub releases.
 
 在未来的里程碑中，我们将在现有平台上进行扩展[铝业管理功能](/zh-hans/features/alm)提供示例，说明如何将验证规则和 RPA 示例的可视化比较作为 DevOps 过程的一部分。
 
@@ -68,13 +68,13 @@ Power CAT 团队使用 ALM 加速器来构建和部署我们的每个[释放](ht
 
 下面概述了自动化工具包发布过程中的关键步骤：
 
-1.在我们的 Power Platform Dev 环境中所做的更改将保存到公共 GitHub 存储库中的分支
+1. Changes made in our <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> Dev environment are saved to a branch in the public GitHub repository
 
 2.当更改准备好包含在测试版本中时，它们将使用拉取请求合并到主分支中。在完成拉取请求之前，需要成功完成 Azure DevOps 验证管道并审核拉取请求。
 
-3.一旦拉取请求通过自动检查并获得审查批准，它就可以合并到主分支中。此合并会触发测试 Azure DevOps 生成管道，该管道将托管生成发布到测试 Power Platform 环境。
+3. Once the Pull Request has passed the automated checks and received review approval it can be merged into the main branch. This merge triggers the test Azure DevOps build pipeline which publishes the managed build to the test <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> environment.
 
-4.内部测试后，将手动触发 Azure DevOps 生产管道以生成生产电源平台部署。
+4. After internal testing the Azure DevOps production pipeline is manually triggered to generate a Production <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> deployment.
 
 5.准备好发布后，发布 Azure DevOps 管道会创建一个草稿版本，其中包含发行说明和生成资产。最终发布版本将关闭所有未解决的问题并关闭里程碑。已发布的构建标记 GitHub 存储库，并应用了月份和年份标签。
 

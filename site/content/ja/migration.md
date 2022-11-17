@@ -4,14 +4,14 @@ description: "自動化キット - RPA移行"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
+generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 ---
 
 {{<toc>}}
 
 <br/>
 
-{{<product-name>}}**移行モジュール**顧客とのエンゲージメントに基づく実証済みのツールとガイダンスのセットを提供し、移行の過程を加速します。Microsoft Power Platform、Microsoft Azure、およびより広範なMicrosoft Cloud サービスの強みを活用することで、次のことが可能になります。
+{{<product-name>}}**移行モジュール** 顧客とのエンゲージメントに基づく実証済みのツールとガイダンスのセットを提供し、移行の過程を加速します。Microsoft Power Platform、Microsoft Azure、およびより広範な Microsoft Cloud サービスの強みを活用することで、次のことが可能になります。
 
 -コスト削減を実現するという目標を実現します。
 
@@ -47,7 +47,7 @@ generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 
 ### 換算
 
-- **クラウド統合**ソリューションを Power Platform、Microsoft クラウドに移行するための変換プロセスを高速化するために使用できるサンプル コンポーネント。
+- **クラウド統合** ソリューションを Microsoft Cloud Power Platformに移行するための変換プロセスを加速するために使用できるサンプル コンポーネント。
 
 - **非機能要件**品質テストアプローチ、DevOpsモニタリング、移行されたソリューションのドキュメントをカバーする
 
@@ -61,7 +61,11 @@ Power Automation 移行をオートメーション センター オブ エクセ
 
 移行開発者プロセスを具体的に見る
 
+{{<border>}}
+
 ![オートメーション センター オブ エクセレンス - 移行開発者](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### 評価と計画
 

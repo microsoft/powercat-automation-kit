@@ -4,7 +4,7 @@ description: "자동화 키트 - RPA 마이그레이션"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
+generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 ---
 
 {{<toc>}}
@@ -23,7 +23,7 @@ generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 
 ![비즈니스 리더를 위한 로봇 프로세스 자동화(RPA) 마이그레이션 가이드.](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/01/RPAWhitepaper_Img-241x300.png)
 
-다음 링크를 사용하여 Microsoft Power Platform에 대한 RPA 마이그레이션 프로세스를 이해할 수 있습니다.
+다음 링크를 사용하여 Microsoft Power Platform의 RPA 마이그레이션 프로세스를 이해할 수 있습니다.
 
 - [파워 오토메이트로 RPA 접근 방식을 현대화하는 입증된 방법](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
@@ -47,7 +47,7 @@ generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
 
 ### 변환
 
-- **클라우드 통합** 솔루션을 Power 플랫폼인 Microsoft 클라우드로 마이그레이션하기 위해 변환 프로세스를 가속화하는 데 사용할 수 있는 샘플 구성 요소입니다.
+- **클라우드 통합** 솔루션을 Power Platform Microsoft 클라우드로 마이그레이션하기 위해 변환 프로세스를 가속화하는 데 사용할 수 있는 샘플 구성 요소입니다.
 
 - **비 기능 요구 사항** 품질 테스트 접근 방식, DevOps 모니터링, 마이그레이션된 솔루션 문서화
 
@@ -61,7 +61,11 @@ Power Automation 마이그레이션을 자동화 우수 센터에 연결하면 �
 
 마이그레이션 개발자 프로세스를 구체적으로 살펴보기
 
+{{<border>}}
+
 ![자동화 우수 센터 - 마이그레이션 개발자](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### 평가 및 계획
 

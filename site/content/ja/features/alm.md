@@ -11,7 +11,7 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 <div class="optional">
 
-このページでは、に含まれる Power Automate デスクトップ ワークフローのオートメーション キットで ALM を使用する際に役立つコンポーネントの概要について説明します。[パワープラットフォームソリューション](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
+このページでは、に含まれる Power Automate デスクトップ ワークフローのオートメーション キットで ALM を使用する際に役立つコンポーネントの概要について説明します。[Power Platformソリューション](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
 
 </div>
 
@@ -23,17 +23,17 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 ## 概要
 
-Power Automate デスクトップ コンポーネントを含む Power Platform ソリューションの ALM を検討する場合
+Power Automate デスクトップ コンポーネントを含むPower Platformソリューションの ALM を検討する場合
 
-1.マネージド環境 Power Platform パイプラインの機能を確認して、エンタープライズ規模の製品内機能を利用して、環境内のソリューションを管理および制御します。
-
-<br/>
-
-2.必要に応じて、[Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools),[GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions)又は[パワープラットフォーム CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction)を使用して、ALM DevOps プロセスを統合および自動化します。
+1. マネージド環境Power Platformパイプラインの機能を確認して、エンタープライズ規模の製品内機能を利用して、環境内のソリューションを管理および管理します。
 
 <br/>
 
-3.の使用を検討してください[パワープラットフォーム用のALMアクセラレータ](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components).ALM アクセラレータは、統合されたソース管理ガバナンスを使用して Power Platform ALM タスクの多くを自動化する、事前に構築された Azure DevOps テンプレートのセットを提供します。
+2.必要に応じて、[Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools),[GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions)又は[Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction)を使用して、ALM DevOps プロセスを統合および自動化します。
+
+<br/>
+
+3.の使用を検討してください[Power PlatformのためのALMアクセラレータ](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components).ALM アクセラレータには、統合されたソース管理ガバナンスを使用してPower Platform ALM タスクの多くを自動化する、事前に構築された Azure DevOps テンプレートのセットが用意されています。
 
 ## パワーキャットから学ぶ
 
@@ -41,7 +41,7 @@ Power Automate デスクトップ コンポーネントを含む Power Platform 
 
 ## リソース
 
-[パワー プラットフォーム学習カタログの ALM アクセラレータ](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
+[Power Platform学習カタログの ALM アクセラレータ](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
 
 ## ロードマップ
 
@@ -65,7 +65,7 @@ Automation Kit チームは、ALM アクセラレータ チームと協力して
 
 管理環境は、大規模なガバナンスを合理化および簡素化する機能を提供します。管理者は、数回クリックするだけでマネージド環境をアクティブ化し、すべてのローコード資産を管理するためのより少ない労力で、可視性と制御性を高める機能をすぐに点灯できます。
 
-マネージド環境は、AI Builder が当社の製品にインテリジェンスを組み込み、Dataverse がデータ バックボーンを提供するのと同じ方法で、Power Platform ファミリの重要な部分です。管理された環境は、プラットフォームのガバナンスを大規模に合理化します。
+管理環境は、AI Builder が製品にインテリジェンスを組み込み、Dataverse がデータ バックボーンを提供するのと同じ方法で、Power Platform ファミリの重要な部分です。管理された環境は、プラットフォームのガバナンスを大規模に合理化します。
 
 {{</slide>}}
 
@@ -79,7 +79,7 @@ Automation Kit チームは、ALM アクセラレータ チームと協力して
 -ソリューションが管理環境にインポートされるたびにルールを自動的に実行するように、セキュリティまたは信頼性チェック用のソリューション チェッカーを構成する
 -作成者のウェルカムと共有エクスペリエンスをカスタマイズして、ユーザーを正しいパスに導くようにします。
 -少ない労力で、数回クリックするだけですぐにステップを合理化、簡素化、自動化できます。
--Power Platform パイプラインは、アプリケーション ライフサイクル管理 (ALM) プロセスを簡素化する機能を提供します。
+- Power Platform パイプラインは、アプリケーション ライフサイクル管理 (ALM) プロセスを簡略化する機能を提供します。
 
 {{</slide>}}
 
@@ -109,19 +109,19 @@ Automation Kit チームは、ALM アクセラレータ チームと協力して
 
 {{<slide  id="slide5" audio="features/alm/pipeline-extensibility.mp3?v=1" description="Pipeline Extensibility" image="features/alm/pipeline-extensibility.svg?v=1" >}}
 
-Power Platform での ALM の選択について考慮すべきオプションがいくつかあります。マネージド環境 Power Platform パイプラインは、製品のアプリケーション ライフサイクル管理を提供します。
+Power Platformでの ALM の選択について考慮すべきオプションがいくつかあります。マネージド環境Power Platformパイプラインは、製品のアプリケーション ライフサイクル管理で提供されます。
 
-必要に応じて、マネージド環境 Power Platform パイプラインの拡張ポイントを[Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)ザ[GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions)又は[パワープラットフォーム CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction)を使用して、独自のカスタム ALM DevOps プロセスをロールします。
+オプションで、マネージド環境の拡張ポイントを使用してPower Platformパイプラインを [Azure DevOps 用のPower Platformビルド ツール](https://learn.microsoft.com/power-platform/alm/devops-build-tools)ザ[GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions)又は[Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction)を使用して、独自のカスタム ALM DevOps プロセスをロールします。
 
-最後に、[パワープラットフォーム用のALMアクセラレータ](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)を CoE キットから提供し、Azure DevOps を使用したエンドツーエンド ALM 用のビルド済みのテンプレートとサンプルを提供します。ALM アクセラレータには、環境間でソリューションを構築および管理するための多くの一般的なシナリオが用意されています。
+最後に、[Power PlatformのためのALMアクセラレータ](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)を CoE キットから提供し、Azure DevOps を使用したエンドツーエンド ALM 用のビルド済みのテンプレートとサンプルを提供します。ALM アクセラレータには、環境間でソリューションを構築および管理するための多くの一般的なシナリオが用意されています。
 
 {{</slide>}}
 
 {{<slide  id="slide6" audio="features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1" description="ALM Accelerator for Power Platform Overview" image="features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" >}}
 
-パワープラットフォーム用ALMアクセラレータとは何ですか?
+Power Platform の ALM アクセラレータとは何ですか?
 
-Power Platform の ALM アクセラレータには、Azure DevOps Pipelines と Git ソース管理の最上位に位置する Power Apps が含まれています。このアプリは、作成者が Power Platform ソリューションのコンポーネントを定期的にエクスポートしてソース管理し、デプロイ要求を作成して、ターゲット環境にデプロイする前に作業を確認するための簡略化されたインターフェイスを提供します。
+Power Platform 用 ALM アクセラレータには、Azure DevOps Pipelines と Git ソース管理の上にある Power Apps が含まれています。このアプリは、作成者がPower Platformソリューションのコンポーネントを定期的にエクスポートしてソース管理し、デプロイ要求を作成して、ターゲット環境にデプロイする前に作業を確認するための簡略化されたインターフェイスを提供します。
 
 {{</slide>}}
 
@@ -136,9 +136,9 @@ Azure DevOps パイプライン用の ALM アクセラレータ テンプレー�
 ALM アクセラレータには、運用環境への 3 段階のデプロイをサポートするパイプライン テンプレートが含まれています。
 テンプレートは、特定のニーズやシナリオに合わせてカスタマイズできます
 
-Power Platform の ALM アクセラレータは、Azure DevOps パイプラインの上にあるキャンバス アプリであり、作成者が Power Platform での開発作業のプル要求を定期的にコミットして作成するための簡略化されたインターフェイスを提供します。
+Power Platform 用 ALM アクセラレータは、Azure DevOps パイプラインの上にあるキャンバス アプリであり、作成者がPower Platformでの開発作業のプル要求を定期的にコミットして作成するための簡略化されたインターフェイスを提供します。
 
-Azure DevOps パイプラインとキャンバス アプリの組み合わせは、Power Platform ソリューションの完全な ALM アクセラレータを構成するものです。
-パイプラインとアプリは参照実装です。これらは、CoE スターター キットの開発チームが内部で使用するために開発されましたが、Power プラットフォームで健全な ALM を実現する方法を示すためにオープンソース化およびリリースされています。これらは、そのまま使用することも、特定のビジネス シナリオに合わせてカスタマイズすることもできます。
+Azure DevOps パイプラインとキャンバス アプリの組み合わせは、Power Platformソリューションの完全な ALM アクセラレータを構成するものです。
+パイプラインとアプリは参照実装です。これらは、CoE スターター キットの開発チームが内部で使用するために開発されましたが、Power Platformで健全な ALM を実現する方法を実証するためにオープンソース化され、リリースされています。これらは、そのまま使用することも、特定のビジネス シナリオに合わせてカスタマイズすることもできます。
 
 {{</slide>}}

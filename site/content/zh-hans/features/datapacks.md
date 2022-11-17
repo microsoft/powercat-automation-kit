@@ -49,7 +49,7 @@ generated: 59DCC2AA961720CBEBCC57AD3C8C2B774F7B3FD1
 
 -从以下位置安装最新版本的自动化工具包主[https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases)用[学习设置指南](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
--使用 安装 Power Platform 命令行界面[学习设置指南](https://learn.microsoft.com/power-platform/developer/cli/introduction)
+- Install <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> Command Line Interface using [学习设置指南](https://learn.microsoft.com/power-platform/developer/cli/introduction)
 
 -为您的环境创建身份验证
 

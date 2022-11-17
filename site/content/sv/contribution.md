@@ -7,9 +7,9 @@ include_footer: true
 generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
-Som ett projekt med öppen källkod som bygger på Power Platform och Microsoft Cloud är vårt mål att snabbt tillhandahålla verktyg och vägledning som hjälper dig att påskynda din hyperautomatiseringsresa.
+Som ett projekt med öppen källkod som bygger på Power Platform och Microsoft Cloud är vårt mål att snabbt tillhandahålla verktyg och vägledning för att påskynda din hyperautomatiseringsresa.
 
-Som en del av den här resan när vi inkuberar, mognar och samarbetar med Core Power Platform-teknikteamet baserat på din feedback. Med hjälp av denna feedback kommer vi att försöka inkludera lärdomar i kärnprodukten för att förbättra och svara på dina behov.
+Som en del av denna resa när vi inkuberar, mognar och samarbetar med Core Power Platform ingenjörsteamet baserat på din feedback. Med hjälp av denna feedback kommer vi att försöka inkludera lärdomar i kärnprodukten för att förbättra och svara på dina behov.
 
 Med tanke på detta sammanhang finns det flera sätt att bidra till projektet för att förbättra vår färdplan och funktioner:
 

@@ -49,7 +49,7 @@ generated: 59DCC2AA961720CBEBCC57AD3C8C2B774F7B3FD1
 
 -から最新バージョンのオートメーションキットメインをインストールします[https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases)使用[セットアップガイドを学ぶ](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
--を使用して Power Platform コマンド ライン インターフェイスをインストールします。[セットアップガイドを学ぶ](https://learn.microsoft.com/power-platform/developer/cli/introduction)
+- コマンドラインインターフェイスPower Platformインストール [セットアップガイドを学ぶ](https://learn.microsoft.com/power-platform/developer/cli/introduction)
 
 -環境への認証を作成する
 

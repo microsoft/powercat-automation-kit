@@ -4,14 +4,14 @@ description: "Kit d’automatisation - Migration RPA"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
+generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 ---
 
 {{<toc>}}
 
 <br/>
 
-Le {{<product-name>}} **Module de migration** Vous fournit un ensemble éprouvé d’outils et de conseils basés sur les engagements avec les clients pour accélérer votre parcours de migration. En tirant parti de la puissance de Microsoft Power Platform, Microsoft Azure et des services Microsoft Cloud plus larges, vous pouvez :
+Le {{<product-name>}} **Module de migration** Vous fournit un ensemble éprouvé d’outils et de conseils basés sur les engagements avec les clients pour accélérer votre parcours de migration. En tirant parti de la force de Microsoft Power Platform, Microsoft Azure et des services Microsoft Cloud plus larges, vous pouvez :
 
 - Réalisez vos objectifs d’économies de coûts.
 
@@ -47,7 +47,7 @@ La liste suivante fournit une vue d’ensemble des domaines que nous avons prior
 
 ### Conversion
 
-- **Intégration Cloud** exemples de composants qui peuvent être utilisés pour accélérer le processus de conversion afin de migrer des solutions vers Power Platform, Microsoft Cloud.
+- **Intégration Cloud** exemples de composants qui peuvent être utilisés pour accélérer le processus de conversion afin de migrer des solutions vers le Power Platform, Microsoft Cloud.
 
 - **Exigences non fonctionnelles** couvrant l’approche de test de qualité, la surveillance DevOps, la documentation des solutions migrées
 
@@ -61,7 +61,11 @@ Connexion de Power Automation Migration au centre d’excellence Automation Il e
 
 Examen spécifique du processus de développement de migration
 
+{{<border>}}
+
 ![Centre d’excellence en automatisation - Développeur Migration](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### Évaluer et planifier
 

@@ -3,7 +3,7 @@ title: "Überblick"
 description: "Automation Kit - Übersicht"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -50,7 +50,7 @@ Weitere Videos finden Sie auf der [Automation Kit-Wiedergabeliste](https://www.y
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Das Schlüsselszenario des Automation Kit for Power Platform besteht darin, die Nutzung von Power Automate für Desktop-Lösungen zu beschleunigen, indem Sie den Return on Investment durch Automatisierung vorhandener Prozesse nahezu in Echtzeit definieren, überprüfen und überwachen können.
+Das Schlüsselszenario des Automation Kit für Power Platform besteht darin, die Verwendung von Power Automate für Desktop-Lösungen zu beschleunigen, indem Sie den Return on Investment durch Automatisierung vorhandener Prozesse nahezu in Echtzeit definieren, überprüfen und überwachen können.
 {{</slide>}}
 
 {{<slide  id="slide2" audio="overview/Slide02.mp3" description="Automation Kit Features" image="overview/Slide02.SVG" >}}
@@ -74,7 +74,7 @@ Aus Betriebs- und Risikosicht den Zugriff auf Konnektoren und Daten zu kontrolli
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Das Power Platform CoE Kit umfasst einen Fokus auf die Verwaltung breiterer Mandanten und Umgebungen.
+Das Power Platform CoE-Kit umfasst einen Fokus auf eine breitere Mieter- und Umgebungsverwaltung.
 
 Das Automatisierungskit ergänzt diese Tools, indem es sich speziell auf Schlüsselelemente von Power Automate Desktop-Abläufen konzentriert, sodass der ROI und die Auswirkungen nahezu in Echtzeit demonstriert werden können.
 
@@ -148,7 +148,7 @@ Data Packs erweitern den Installationsprozess und bieten die Möglichkeit, vorde
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 In Erweiterung der bestehenden ALM Accelerator-Funktionen planen wir, RPA-spezifische Aktionen hinzuzufügen, die den Prozess der Integration von Power Automate Desktop-Komponenten in einen automatisierten Bereitstellungs- und Überprüfungsprozess ermöglichen.
 
-Lesen Sie mehr über [Verwaltete Umgebungen unterstützen Plattform-Pipelines und den ALM-Beschleuniger](/de/features/alm) und wie sie Ihnen bei der Bereitstellung und Verwaltung Ihrer Automatisierungslösungen helfen können.
+Lesen Sie mehr über [Verwaltete Umgebungen Power Platform Pipelines und der ALM Accelerator](/de/features/alm) und wie sie Ihnen bei der Bereitstellung und Verwaltung Ihrer Automatisierungslösungen helfen können.
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}

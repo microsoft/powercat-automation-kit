@@ -11,7 +11,7 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 <div class="optional">
 
-หน้านี้แสดงภาพรวมของส่วนประกอบที่สามารถช่วยคุณในการใช้ ALM ด้วยชุดระบบอัตโนมัติสําหรับเวิร์กโฟลว์ Power Automate Desktop ที่รวมอยู่ใน [โซลูชันแพลตฟอร์มพลังงาน](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
+หน้านี้แสดงภาพรวมของส่วนประกอบที่สามารถช่วยคุณในการใช้ ALM ด้วยชุดระบบอัตโนมัติสําหรับเวิร์กโฟลว์ Power Automate Desktop ที่รวมอยู่ใน [โซลูชั่นPower Platform](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
 
 </div>
 
@@ -23,17 +23,17 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 ## สรุป
 
-เมื่อมองไปที่ ALM สําหรับโซลูชัน Power Platform ที่มีส่วนประกอบ Power Automate บนเดสก์ท็อป
+เมื่อมองไปที่ ALM สําหรับโซลูชันPower Platformที่มีส่วนประกอบ Power Automate บนเดสก์ท็อป
 
-1. ตรวจสอบคุณลักษณะของไปป์ไลน์ Power Platform สภาพแวดล้อมที่มีการจัดการเพื่อใช้ประโยชน์จากฟีเจอร์ในผลิตภัณฑ์ระดับองค์กรเพื่อจัดการและควบคุมโซลูชันภายในสภาพแวดล้อม
-
-<br/>
-
-2. หากจําเป็นให้ตรวจสอบ [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [การดําเนินการ GitHub สําหรับแพลตฟอร์ม Power ของไมโครซอฟท์](https://learn.microsoft.com/power-platform/alm/devops-github-actions) หรือ [แพลตฟอร์มพลังงาน CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) เพื่อรวมและทําให้กระบวนการ ALM DevOps ของคุณเป็นไปโดยอัตโนมัติ
+1. ตรวจสอบคุณลักษณะของไปป์ไลน์Power Platformสภาพแวดล้อมที่มีการจัดการเพื่อใช้ประโยชน์จากฟีเจอร์ในผลิตภัณฑ์ระดับองค์กรเพื่อจัดการและควบคุมโซลูชันภายในสภาพแวดล้อม
 
 <br/>
 
-3. พิจารณาใช้ปุ่ม [ตัวเร่งความเร็ว ALM สําหรับแพลตฟอร์ม Power](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). ตัวเร่งความเร็ว ALM มีชุดเทมเพลต Azure DevOps ที่สร้างไว้ล่วงหน้าซึ่งทําให้งาน ALM ของ Power Platform จํานวนมากเป็นไปโดยอัตโนมัติโดยใช้การกํากับดูแลการควบคุมต้นทางแบบรวม
+2. หากจําเป็นให้ตรวจสอบ [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [การดําเนินการ GitHub สําหรับไมโครซอฟท์ Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) หรือ [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) เพื่อรวมและทําให้กระบวนการ ALM DevOps ของคุณเป็นไปโดยอัตโนมัติ
+
+<br/>
+
+3. พิจารณาใช้ปุ่ม [ตัวเร่ง ALM สําหรับ Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). ตัวเร่งความเร็ว ALM มีชุดเทมเพลต Azure DevOps ที่สร้างไว้ล่วงหน้าซึ่งทําให้งาน ALM Power Platform จํานวนมากเป็นแบบอัตโนมัติโดยใช้การกํากับดูแลการควบคุมแหล่งที่มาแบบรวม
 
 ## เรียนรู้จากพาวเวอร์แคท
 
@@ -41,7 +41,7 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 ## ทรัพยากร
 
-[ตัวเร่งความเร็ว ALM สําหรับแค็ตตาล็อกการเรียนรู้ Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
+[ตัวเร่ง ALM สําหรับแคตตาล็อกการเรียนรู้Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
 
 ## แผนงาน
 
@@ -65,7 +65,7 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 สภาพแวดล้อมที่มีการจัดการช่วยให้คุณสามารถปรับปรุงและลดความซับซ้อนของการกํากับดูแลในวงกว้างได้ ผู้ดูแลระบบสามารถเปิดใช้งานสภาพแวดล้อมที่มีการจัดการได้ด้วยการคลิกเพียงไม่กี่ครั้งและจุดประกายคุณลักษณะต่างๆ ได้ทันที ซึ่งช่วยให้มองเห็นได้มากขึ้น ควบคุมได้มากขึ้นโดยใช้ความพยายามน้อยลงในการจัดการแอสเซทที่ใช้โค้ดน้อยทั้งหมดของคุณ
 
-สภาพแวดล้อมที่มีการจัดการเป็นส่วนสําคัญของตระกูล Power Platform ในลักษณะเดียวกับที่ AI Builder ผสมผสานความชาญฉลาดเข้ากับผลิตภัณฑ์ของเรา และ Dataverse จะให้แกนหลักของข้อมูล สภาพแวดล้อมที่มีการจัดการช่วยเพิ่มความคล่องตัวในการกํากับดูแลแพลตฟอร์มในวงกว้าง
+สภาพแวดล้อมที่มีการจัดการเป็นส่วนสําคัญของตระกูล Power Platform ในลักษณะเดียวกับที่ AI Builder ผสมผสานความชาญฉลาดเข้ากับผลิตภัณฑ์ของเรา และ Dataverse ให้แกนหลักของข้อมูล สภาพแวดล้อมที่มีการจัดการช่วยเพิ่มความคล่องตัวในการกํากับดูแลแพลตฟอร์มในวงกว้าง
 
 {{</slide>}}
 
@@ -109,19 +109,19 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 {{<slide  id="slide5" audio="features/alm/pipeline-extensibility.mp3?v=1" description="Pipeline Extensibility" image="features/alm/pipeline-extensibility.svg?v=1" >}}
 
-คุณมีตัวเลือกมากมายที่ต้องพิจารณาสําหรับตัวเลือก ALM ของคุณใน Power Platform ไปป์ไลน์ Power Platform สภาพแวดล้อมที่มีการจัดการให้ในการจัดการวงจรชีวิตของแอปพลิเคชันผลิตภัณฑ์
+คุณมีตัวเลือกมากมายที่ต้องพิจารณาสําหรับตัวเลือก ALM ของคุณในPower Platform ไปป์ไลน์Power Platformสภาพแวดล้อมที่มีการจัดการมีให้ในการจัดการวงจรชีวิตของแอปพลิเคชันผลิตภัณฑ์
 
-อีกทางหนึ่งคือคุณสามารถใช้จุดส่วนขยายของไปป์ไลน์แพลตฟอร์มพลังงานสภาพแวดล้อมที่มีการจัดการรวมกับ [เครื่องมือสร้างแพลตฟอร์มพลังงานสําหรับ Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [การดําเนินการ GitHub สําหรับแพลตฟอร์ม Power ของไมโครซอฟท์](https://learn.microsoft.com/power-platform/alm/devops-github-actions) หรือ [แพลตฟอร์มพลังงาน CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) เพื่อม้วนกระบวนการ ALM DevOps แบบกําหนดเองของคุณเอง
+อีกทางหนึ่งคือคุณสามารถใช้จุดส่วนขยายของไปป์ไลน์Power Platformสภาพแวดล้อมที่มีการจัดการรวมกับ [Power Platform สร้างเครื่องมือสําหรับ Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [การดําเนินการ GitHub สําหรับไมโครซอฟท์ Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) หรือ [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) เพื่อม้วนกระบวนการ ALM DevOps แบบกําหนดเองของคุณเอง
 
-ในที่สุดคุณสามารถใช้ประโยชน์จาก [ตัวเร่งความเร็ว ALM สําหรับแพลตฟอร์ม Power](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) จาก CoE Kit เพื่อจัดเตรียมเทมเพลตและตัวอย่างที่สร้างไว้ล่วงหน้าสําหรับ ALM แบบ End-to-End โดยใช้ Azure DevOps ส่วนช่วยดําเนินการ ALM มีสถานการณ์ทั่วไปมากมายเพื่อสร้างและควบคุมโซลูชันของคุณในสภาพแวดล้อมต่างๆ
+ในที่สุดคุณสามารถใช้ประโยชน์จาก [ตัวเร่ง ALM สําหรับ Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) จาก CoE Kit เพื่อจัดเตรียมเทมเพลตและตัวอย่างที่สร้างไว้ล่วงหน้าสําหรับ ALM แบบ End-to-End โดยใช้ Azure DevOps ส่วนช่วยดําเนินการ ALM มีสถานการณ์ทั่วไปมากมายเพื่อสร้างและควบคุมโซลูชันของคุณในสภาพแวดล้อมต่างๆ
 
 {{</slide>}}
 
 {{<slide  id="slide6" audio="features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1" description="ALM Accelerator for Power Platform Overview" image="features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" >}}
 
-ตัวเร่งความเร็ว ALM สําหรับแพลตฟอร์มพลังงานคืออะไร
+ตัวเร่ง ALM สําหรับ Power Platform คืออะไร
 
-ตัวเร่งความเร็ว ALM สําหรับ Power Platform ประกอบด้วย Power Apps ที่อยู่ด้านบนของไปป์ไลน์ Azure DevOps และการควบคุมแหล่งที่มา Git แอปมีอินเทอร์เฟซที่เรียบง่ายสําหรับผู้ผลิตในการส่งออกส่วนประกอบใน Power Platform Solutions ของตนเป็นประจําไปยังการควบคุมต้นทางและสร้างคําขอการปรับใช้เพื่อให้มีการตรวจสอบงานของพวกเขาก่อนที่จะปรับใช้กับสภาพแวดล้อมเป้าหมาย
+ตัวเร่งความเร็ว ALM สําหรับ Power Platform ประกอบด้วย Power Apps ที่อยู่ด้านบนของไปป์ไลน์ Azure DevOps และการควบคุมแหล่งที่มา Git แอพนี้มีอินเทอร์เฟซที่เรียบง่ายสําหรับผู้ผลิตในการส่งออกส่วนประกอบใน Power Platform Solutions ของตนเป็นประจําเพื่อควบคุมแหล่งที่มาและสร้างคําขอการปรับใช้เพื่อให้มีการตรวจสอบงานของพวกเขาก่อนที่จะปรับใช้กับสภาพแวดล้อมเป้าหมาย
 
 {{</slide>}}
 
@@ -136,9 +136,9 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 ALM Accelerator มีเทมเพลตไปป์ไลน์เพื่อรองรับการปรับใช้ 3 ขั้นตอนกับการผลิต
 เทมเพลตสามารถปรับแต่งให้เหมาะกับความต้องการและสถานการณ์เฉพาะได้
 
-ตัวเร่งความเร็ว ALM สําหรับ Power Platform เป็นแอปพื้นที่ทํางานที่อยู่ด้านบนของไปป์ไลน์ Azure DevOps เพื่อจัดเตรียมอินเทอร์เฟซที่เรียบง่ายสําหรับผู้ผลิตเพื่อยอมรับและสร้างคําขอดึงข้อมูลสําหรับงานพัฒนาของพวกเขาใน Power Platform เป็นประจํา 
+ตัวเร่งความเร็ว ALM สําหรับ Power Platform เป็นแอปพื้นที่ทํางานที่อยู่ด้านบนของไปป์ไลน์ Azure DevOps เพื่อจัดเตรียมอินเทอร์เฟซที่เรียบง่ายสําหรับผู้สร้างเพื่อยอมรับและสร้างคําขอดึงข้อมูลสําหรับงานพัฒนาของพวกเขาใน Power Platform เป็นประจํา 
 
 การรวมกันของไปป์ไลน์ Azure DevOps และแอปพื้นที่ทํางานคือสิ่งที่ประกอบขึ้นเป็นตัวเร่ง ALM เต็มรูปแบบสําหรับโซลูชัน Power Platform 
-ไปป์ไลน์และแอพเป็นการใช้งานอ้างอิง พวกเขาได้รับการพัฒนาเพื่อใช้งานโดยทีมพัฒนาสําหรับ CoE Starter Kit ภายใน แต่ได้รับการโอเพ่นซอร์สและเผยแพร่เพื่อแสดงให้เห็นว่า ALM ที่ดีต่อสุขภาพสามารถทําได้ใน Power Platform ได้อย่างไร สามารถใช้ตามที่เป็นอยู่หรือปรับแต่งสําหรับสถานการณ์ทางธุรกิจเฉพาะ
+ไปป์ไลน์และแอพเป็นการใช้งานอ้างอิง พวกเขาได้รับการพัฒนาเพื่อใช้งานโดยทีมพัฒนาสําหรับ CoE Starter Kit ภายใน แต่ได้รับการโอเพ่นซอร์สและเผยแพร่เพื่อแสดงให้เห็นว่า ALM ที่ดีต่อสุขภาพสามารถทําได้ในPower Platformได้อย่างไร สามารถใช้ตามที่เป็นอยู่หรือปรับแต่งสําหรับสถานการณ์ทางธุรกิจเฉพาะ
 
 {{</slide>}}

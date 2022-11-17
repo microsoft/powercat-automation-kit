@@ -11,7 +11,7 @@ Als u het Power BI-dashboard voor het Automation Center of Excellence wilt start
 
 Als u de omgevings-URL wilt verkrijgen, navigeert u naar het Power Platform Admin Center, gaat u naar Omgevingen, selecteert u de omgeving en noteert u de omgevings-URL:
 
-![Scherm Omgeving ophalen - Power Platform-beheercentrum](/images/get-environment.png)
+![Scherm Omgeving ophalen - Power Platform beheercentrum](/images/get-environment.png)
 
 Voer de omgevings-URL in bij het starten van de Power BI-sjabloon die u hebt gedownload van de [{{<product-name>}} releases](https://github.com/microsoft/powercat-automation-kit/releases)
 

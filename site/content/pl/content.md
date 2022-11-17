@@ -4,7 +4,7 @@ description: "Automation Kit - Indeks witryny"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
+generated: 168C5A07790E2772917F905272F5727BB391EF98
 ---
 
 {{<toc>}}
@@ -38,6 +38,11 @@ generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 - [Automation Kit - Historia wersji](/pl/releases)
 
 - [Automation Kit - Pomoc techniczna](/pl/support)
+
+
+### Lokalizacja: /backlog/
+
+- [Automation Kit - integracja Process Advisor](/pl/backlog/process-advisor-integration)
 
 
 ### Lokalizacja: /wkład/

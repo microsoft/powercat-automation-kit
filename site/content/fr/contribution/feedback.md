@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Commentaires sur les contributions"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
+generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
 ---
 
 Vous souhaitez faire part de vos commentaires au {{<product-name>}}? Vous pouvez utiliser les sections ci-dessous pour explorer les différents types de commentaires.

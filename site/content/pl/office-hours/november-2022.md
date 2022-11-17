@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-Witamy na stronie docelowej Automation Kit for Power Platform Godziny pracy w listopadzie 2022 r.
+Witamy na stronie docelowej Automation Kit for Power Platform November 2022 office hours.
 
 Możesz zarejestrować się na sesję godzin pracy biura [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) odbędzie się we wtorek 15 listopada 2022 r. między 7:00 a 8:00 czasu pacyficznego (Zobacz inne strefy czasowe UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

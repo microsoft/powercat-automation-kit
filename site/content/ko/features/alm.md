@@ -11,7 +11,7 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 <div class="optional">
 
-이 페이지에서는 에 포함된 Power Automate 데스크톱 워크플로용 자동화 키트와 함께 ALM을 사용하는 데 도움이 될 수 있는 구성 요소에 대한 개요를 제공합니다. [전력 플랫폼 솔루션](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
+이 페이지에서는 에 포함된 Power Automate 데스크톱 워크플로용 자동화 키트와 함께 ALM을 사용하는 데 도움이 될 수 있는 구성 요소에 대한 개요를 제공합니다. [Power Platform 솔루션](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
 
 </div>
 
@@ -23,17 +23,17 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 ## 요약
 
-Power Automate 데스크톱 구성 요소를 포함하는 Power Platform 솔루션용 ALM을 살펴보면
+Power Automate 데스크톱 구성 요소를 포함하는 Power Platform 솔루션에 대한 ALM을 살펴보는 경우
 
-1. 관리되는 환경 Power Platform Pipelines의 기능을 검토하여 엔터프라이즈 규모의 제품 내 기능을 활용하여 환경 내에서 솔루션을 관리하고 관리합니다.
-
-<br/>
-
-2. 필요한 경우 [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) 또는 [파워 플랫폼 CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) ALM DevOps 프로세스를 통합하고 자동화합니다.
+1. 관리되는 환경 Power Platform 파이프라인의 기능을 검토하여 엔터프라이즈 규모의 제품 내 기능을 활용하여 환경 내에서 솔루션을 관리하고 관리합니다.
 
 <br/>
 
-3. 사용을 고려하십시오 [전력 플랫폼용 ALM 가속기](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). ALM 가속기는 통합 소스 제어 거버넌스를 사용하여 많은 Power Platform ALM 작업을 자동화하는 미리 빌드된 Azure DevOps 템플릿 집합을 제공합니다.
+2. 필요한 경우 [Microsoft Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) 또는 [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) ALM DevOps 프로세스를 통합하고 자동화합니다.
+
+<br/>
+
+3. 사용을 고려하십시오 [Power Platform용 ALM 가속기](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). ALM 가속기는 통합 소스 제어 거버넌스를 사용하여 많은 Power Platform ALM 작업을 자동화하는 미리 빌드된 Azure DevOps 템플릿 집합을 제공합니다.
 
 ## 파워 캣에서 배우기
 
@@ -41,7 +41,7 @@ Power Automate 데스크톱 구성 요소를 포함하는 Power Platform 솔루�
 
 ## 리소스
 
-[전력 플랫폼 학습 카탈로그를 위한 ALM 가속기](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
+[Power Platform 학습 카탈로그를 위한 ALM 가속기](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
 
 ## 로드맵
 
@@ -79,7 +79,7 @@ Power Automate 데스크톱 구성 요소를 포함하는 Power Platform 솔루�
 - 보안 또는 안정성 검사를 위한 솔루션 검사기를 구성하여 솔루션을 관리되는 환경으로 가져올 때마다 규칙을 자동으로 실행합니다.
 - 사용자를 올바른 경로로 안내할 수 있도록 제작자 환영 및 공유 환경을 사용자 지정합니다.
 - 몇 번의 클릭만으로 즉시 사용 가능한 단계를 간소화하고 단순화하며 자동화하는 노력이 줄어듭니다. 
-- Power 플랫폼 파이프라인은 ALM(애플리케이션 수명 주기 관리) 프로세스를 간소화하는 기능을 제공합니다.
+- Power Platform 파이프라인은 ALM(애플리케이션 수명 주기 관리) 프로세스를 간소화하는 기능을 제공합니다.
 
 {{</slide>}}
 
@@ -109,17 +109,17 @@ Power Automate 데스크톱 구성 요소를 포함하는 Power Platform 솔루�
 
 {{<slide  id="slide5" audio="features/alm/pipeline-extensibility.mp3?v=1" description="Pipeline Extensibility" image="features/alm/pipeline-extensibility.svg?v=1" >}}
 
-Power 플랫폼에서 ALM을 선택할 때 고려해야 할 여러 가지 옵션이 있습니다. 관리되는 환경 Power Platform 파이프라인은 제품 응용 프로그램 수명 주기 관리를 제공합니다.
+Power Platform ALM 선택에 대해 고려해야 할 여러 가지 옵션이 있습니다. 관리되는 환경 Power Platform 파이프라인은 제품 응용 프로그램 수명 주기 관리에서 제공합니다.
 
-필요에 따라 다음과 결합된 관리되는 환경 Power Platform 파이프라인의 확장 지점을 사용할 수 있습니다. [Azure DevOps를 위한 Power Platform Build Tools](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) 또는 [파워 플랫폼 CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) 을 사용하여 사용자 지정 ALM DevOps 프로세스를 롤링할 수 있습니다.
+선택적으로 파이프라인Power Platform 결합된 관리되는 환경의 확장 지점을 사용할 수 있습니다. [Power Platform Azure DevOps를 위한 빌드 도구](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) 또는 [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) 을 사용하여 사용자 지정 ALM DevOps 프로세스를 롤링할 수 있습니다.
 
-마지막으로 당신은 활용할 수 있습니다 [전력 플랫폼용 ALM 가속기](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) CoE 키트에서 Azure DevOps를 사용하여 엔드투엔드 ALM에 대한 미리 빌드된 템플릿 및 샘플을 제공합니다. ALM 가속기는 여러 환경에서 솔루션을 빌드하고 제어할 수 있는 많은 일반적인 시나리오를 제공합니다.
+마지막으로 당신은 활용할 수 있습니다 [Power Platform용 ALM 가속기](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) CoE 키트에서 Azure DevOps를 사용하여 엔드투엔드 ALM에 대한 미리 빌드된 템플릿 및 샘플을 제공합니다. ALM 가속기는 여러 환경에서 솔루션을 빌드하고 제어할 수 있는 많은 일반적인 시나리오를 제공합니다.
 
 {{</slide>}}
 
 {{<slide  id="slide6" audio="features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1" description="ALM Accelerator for Power Platform Overview" image="features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" >}}
 
-파워 플랫폼용 ALM 가속기란 무엇입니까?
+Power Platform용 ALM 가속기란 무엇입니까?
 
 Power Platform용 ALM 가속기에는 Azure DevOps 파이프라인 및 Git 원본 제어 위에 있는 Power Apps가 포함되어 있습니다. 이 앱은 제조업체가 Power Platform 솔루션의 구성 요소를 소스 제어로 정기적으로 내보내고 배포 요청을 생성하여 대상 환경에 배포하기 전에 작업을 검토할 수 있는 간소화된 인터페이스를 제공합니다.
 
@@ -136,9 +136,9 @@ Azure DevOps 파이프라인용 ALM 가속기 템플릿은 ALM 가속기 캔버�
 ALM Accelerator에는 프로덕션에 대한 3단계 배포를 지원하는 파이프라인 템플릿이 포함되어 있습니다.
 템플릿은 특정 요구 사항과 시나리오에 맞게 사용자 지정할 수 있습니다.
 
-Power 플랫폼용 ALM 가속기는 Azure DevOps 파이프라인 위에 위치하여 제조업체가 Power 플랫폼에서 개발 작업에 대한 끌어오기 요청을 정기적으로 커밋하고 만들 수 있는 간소화된 인터페이스를 제공하는 캔버스 앱입니다. 
+Power Platform용 ALM 가속기는 Azure DevOps 파이프라인 위에 있는 캔버스 앱으로, 제작자가 Power Platform에서 개발 작업에 대한 끌어오기 요청을 정기적으로 커밋하고 만들 수 있는 간소화된 인터페이스를 제공합니다. 
 
 Azure DevOps 파이프라인과 캔버스 앱의 조합은 Power Platform 솔루션용 전체 ALM 가속기를 구성합니다. 
-파이프라인과 앱은 참조 구현입니다. 내부적으로 CoE 스타터 키트용 개발 팀에서 사용하기 위해 개발되었지만 Power 플랫폼에서 ALM을 얼마나 건강하게 달성할 수 있는지 보여주기 위해 오픈 소스 및 릴리스되었습니다. 있는 그대로 사용하거나 특정 비즈니스 시나리오에 맞게 사용자 지정할 수 있습니다.
+파이프라인과 앱은 참조 구현입니다. 이 제품은 개발 팀이 내부적으로 CoE 스타터 키트용으로 개발했지만 Power Platform ALM을 얼마나 건강하게 달성할 수 있는지 보여주기 위해 오픈 소스로 출시되었습니다. 있는 그대로 사용하거나 특정 비즈니스 시나리오에 맞게 사용자 지정할 수 있습니다.
 
 {{</slide>}}

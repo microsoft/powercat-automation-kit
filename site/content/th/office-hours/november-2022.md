@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-ยินดีต้อนรับสู่หน้า Landing Page ของชุดระบบอัตโนมัติสําหรับ Power Platform ในเวลาทําการเดือนพฤศจิกายน 2022
+ยินดีต้อนรับสู่หน้า Landing Page สําหรับชุดระบบอัตโนมัติสําหรับ Power Platform พฤศจิกายน 2022
 
 คุณสามารถลงทะเบียนสําหรับเวลาทําการ [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) จะจัดขึ้นในวันอังคารที่ 15 พฤศจิกายน 2022 ระหว่างเวลา 7:00 น. ถึง 8:00 น. PDT (ดูเขตเวลาอื่น UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

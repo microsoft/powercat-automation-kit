@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-Välkommen till landningssidan för Automation Kit för Power Platform november 2022 kontorstid.
+Välkommen till Automation Kit för Power Platform november 2022 kontorstid målsida.
 
 Du kan anmäla dig till kontorstidssessionen [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) kommer att hållas tisdagen den 15 november 2022 mellan 7:00 och 8:00 PDT (Se andra tidszoner UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

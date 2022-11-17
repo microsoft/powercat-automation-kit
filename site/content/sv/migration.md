@@ -4,14 +4,14 @@ description: "Automation Kit – RPA-migrering"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
+generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 ---
 
 {{<toc>}}
 
 <br/>
 
-Den {{<product-name>}} **Modul för migrering** ger dig en beprövad uppsättning verktyg och vägledning baserat på engagemang med kunder för att påskynda din migreringsresa. Genom att utnyttja styrkan i Microsoft Power Platform, Microsoft Azure och de bredare Microsoft Cloud-tjänsterna kan du:
+Den {{<product-name>}} **Modul för migrering** ger dig en beprövad uppsättning verktyg och vägledning baserat på engagemang med kunder för att påskynda din migreringsresa. Genom att utnyttja styrkan hos Microsoft Power Platform, Microsoft Azure och de bredare Microsoft Cloud-tjänsterna kan du:
 
 - Förverkliga dina mål att ge kostnadsbesparingar.
 
@@ -61,7 +61,11 @@ Genom att ansluta Power Automation Migration till Automation Center of Excellenc
 
 Titta specifikt på migreringsutvecklarprocessen
 
+{{<border>}}
+
 ![Automation Center of Excellence – Utvecklare av migrering](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### Utvärdera och planera
 

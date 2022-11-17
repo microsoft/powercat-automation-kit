@@ -7,7 +7,7 @@ include_footer: true
 generated: 531F9B8CFD51FA169D951B7C2226592437D35744
 ---
 
-Witamy na stronie docelowej Automation Kit for Power Platform Godziny pracy w październiku 2022 r.
+Witamy na stronie docelowej Automation Kit for Power Platform October 2022 godziny pracy.
 
 Możesz zarejestrować się na sesję godzin pracy biura [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) odbędzie się we wtorek 11 października 2022 r. między 7:00 a 8:00 czasu pacyficznego (Zobacz inne strefy czasowe [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

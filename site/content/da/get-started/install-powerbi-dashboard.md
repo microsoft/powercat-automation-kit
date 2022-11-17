@@ -11,7 +11,7 @@ Hvis du vil starte Power BI Dashboard til Automatiseringscenter of Excellence, s
 
 Hvis du vil hente URL-adressen til miljøet, skal du gå til Power Platform Administration, gå til Miljøer, vælge miljøet og notere URL-adressen til miljø:
 
-![Skærmbilledet Hent miljø – Power Platform Administration](/images/get-environment.png)
+![Skærmbilledet Hent miljø - Power Platform Administration](/images/get-environment.png)
 
 Angiv URL-adressen til miljøet, når du starter Power BI-skabelonen, som du har downloadet fra [{{<product-name>}} udgivelser](https://github.com/microsoft/powercat-automation-kit/releases)
 

@@ -49,7 +49,7 @@ generated: 59DCC2AA961720CBEBCC57AD3C8C2B774F7B3FD1
 
 - ติดตั้งเวอร์ชันล่าสุดของ Automation Kit Main จาก [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) ใช้ [เรียนรู้คู่มือการตั้งค่า](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
-- ติดตั้งอินเตอร์เฟสบรรทัดคําสั่ง Power Platform โดยใช้ [เรียนรู้คู่มือการตั้งค่า](https://learn.microsoft.com/power-platform/developer/cli/introduction)
+- ติดตั้งอินเตอร์เฟสบรรทัดคําสั่งPower Platformโดยใช้ [เรียนรู้คู่มือการตั้งค่า](https://learn.microsoft.com/power-platform/developer/cli/introduction)
 
 - สร้างการรับรองความถูกต้องกับสภาพแวดล้อมของคุณ
 

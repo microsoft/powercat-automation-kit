@@ -49,7 +49,7 @@ Para empezar a utilizar este paquete de datos
 
 - Instale la versión más reciente del Automation Kit Main desde [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) Usando [Aprenda la guía de configuración](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
-- Instalar Power Platform Command Line Interface mediante [Aprenda la guía de configuración](https://learn.microsoft.com/power-platform/developer/cli/introduction)
+- Instalar Power Platform interfaz de línea de comandos mediante [Aprenda la guía de configuración](https://learn.microsoft.com/power-platform/developer/cli/introduction)
 
 - Crear autenticación en su entorno
 

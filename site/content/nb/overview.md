@@ -3,7 +3,7 @@ title: "Oversikt"
 description: "Automation Kit - Oversikt"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -74,7 +74,7 @@ Fra et operasjonelt og risikosynspunkt for å kontrollere tilgangen til koblinge
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Power Platform-coE-settet inkluderer fokus på bredere leier og administrert miljø.
+Det Power Platform CoE-settet inkluderer fokus på bredere leietaker og administrert miljø.
 
 Automatiseringssettet utfyller disse verktøysettene ved å fokusere spesifikt på nøkkelelementer i Power Automate Desktop-flyter, slik at avkastningen og innvirkningen kan demonstreres i nær sanntid.
 
@@ -148,7 +148,7 @@ Ved å utvide installasjonsprosessen vil datapakker gi muligheten til å importe
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 Ved å utvide de eksisterende ALM Accelerator-funksjonene planlegger vi å legge til RPA-spesifikke handlinger som gjør prosessen med å integrere Power Automate Desktop-komponenter i en automatisert distribusjons- og gjennomgangsprosess.
 
-Les mer om [Power Platform-pipeliner for administrerte miljøer og ALM-akseleratoren](/nb/features/alm) og hvordan de kan hjelpe deg med å distribuere og administrere automatiseringsløsninger.
+Les mer om [Administrerte miljøer Power Platform pipeliner og ALM-akseleratoren](/nb/features/alm) og hvordan de kan hjelpe deg med å distribuere og administrere automatiseringsløsninger.
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}

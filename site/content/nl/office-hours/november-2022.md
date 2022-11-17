@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-Welkom op de landingspagina van de Automation Kit for Power Platform november 2022 kantooruren.
+Welkom op de Automation Kit voor Power Platform landingspagina kantooruren november 2022.
 
 U kunt zich aanmelden voor de kantoorurensessie [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) wordt gehouden op dinsdag 15 november 2022 tussen 07:00 en 08:00 uur PDT (zie andere tijdzones UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

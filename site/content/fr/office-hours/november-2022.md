@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-Bienvenue sur la page d’accueil Automation Kit for Power Platform de novembre 2022 sur les heures de bureau.
+Bienvenue sur la page d’accueil du kit d’automatisation pour Power Platform novembre 2022 sur les heures de bureau.
 
 Vous pouvez vous inscrire à la session des heures de bureau [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) qui se tiendra le mardi 15 novembre 2022 entre 7h00 et 8h00 PDT (Voir les autres fuseaux horaires UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

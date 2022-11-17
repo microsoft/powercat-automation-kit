@@ -1,0 +1,136 @@
+{
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "process-advisor-integration-useful",
+          "title": {
+            "default": "Is Process Advisor starter content useful to you?",
+            "fr": "Process Advisor contenu de démarrage vous est-il utile ?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "not-useful",
+          "title": {
+            "default": "Why was the content not useful for you?",
+            "fr": "Pourquoi le contenu n’a-t-il pas été utile pour vous ?"
+          },
+          "visibleIf": "{process-advisor-integration-useful} = false"
+        },
+        {
+          "type": "checkbox",
+          "name": "products",
+          "title": {
+            "default": "What is most important to you?",
+            "fr": "Qu’est-ce qui est le plus important pour vous?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Advise on how Process Advisor can integrate with the Automation Kit",
+              "text": {
+                "default": "Advise on how Process Advisor can integrate with the Automation Kit",
+                "fr": "Conseils sur la façon dont Process Advisor pouvez s’intégrer au kit d’automatisation"
+              }
+            },
+            {
+              "value": "Applications and Templates that automate the process of integrating data",
+              "text": {
+                "default": "Applications and Templates that automate the process of integrating data",
+                "fr": "Applications et modèles qui automatisent le processus d’intégration des données"
+              }
+            },
+            {
+              "value": "How does Process Task mining integrates with Automation Kit",
+              "text": {
+                "default": "How does Process Task mining integrates with Automation Kit",
+                "fr": "Comment l’exploration des tâches de processus s’intègre-t-elle à Automation Kit"
+              }
+            },
+            {
+              "value": "Reference Architecture on how integrate Process Advisor",
+              "text": {
+                "default": "Reference Architecture on how integrate Process Advisor",
+                "fr": "Architecture de référence sur la façon d’intégrer Process Advisor"
+              }
+            },
+            {
+              "value": "Specific data items that can be copied",
+              "text": {
+                "default": "Specific data items that can be copied",
+                "fr": "Éléments de données spécifiques pouvant être copiés"
+              }
+            },
+            {
+              "value": "What extra Automation Kit Project data items can be defaulted as part of common organizational profile as part of data integration",
+              "text": {
+                "default": "What extra Automation Kit Project data items can be defaulted as part of common organizational profile as part of data integration",
+                "fr": "Quels éléments de données supplémentaires du projet Automation Kit peuvent être définis par défaut dans le cadre d’un profil organisationnel commun dans le cadre de l’intégration de données"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "fr": "D’autres commentaires?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the Process Advisor integration based on your responses",
+            "fr": "Voulez-vous envoyer les résultats de vos commentaires afin que l’équipe Core Automation Kit puisse adapter l’intégration Process Advisor en fonction de vos réponses"
+          },
+          "label": {
+            "default": "Send results?",
+            "fr": "Envoyer des résultats ?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "fr": "Nous espérons que ces questions vous aideront à déterminer une idée des sujets ou des questions si vous assistez"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview.",
+            "fr": "Nous sommes impatients de recevoir vos commentaires. En tant qu’équipe de base du kit d’automatisation, nous utilisons les commentaires pour améliorer la vue d’ensemble."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "fr": "Envoyer vos commentaires maintenant?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "fr": "Statut: "
+          }
+        }
+      ]
+    }
+  ]
+}

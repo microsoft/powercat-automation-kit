@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-欢迎来到电源平台自动化工具包 2022 年 11 月办公时间登录页面。
+Welcome to the Automation Kit for <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> November 2022 office hours landing page.
 
 您可以注册办公时间会议[https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)将于太平洋夏令时 2022 年 11 月 15 日星期二上午 7：00 至上午 8：00 举行（请参阅其他时间时区 UTC -7[https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

@@ -11,7 +11,7 @@ Zum Starten des Power BI-Dashboards für das Automation Center of Excellence ben
 
 Um die Umgebungs-URL abzurufen, navigieren Sie zum Power Platform Admin Center, wechseln Sie zu Umgebungen, wählen Sie die Umgebung aus, und notieren Sie sich die Umgebungs-URL:
 
-![Bildschirm "Umgebung abrufen" – Power Platform Admin Center](/images/get-environment.png)
+![Bildschirm "Umgebung abrufen" - Power Platform Admin Center](/images/get-environment.png)
 
 Geben Sie die Umgebungs-URL ein, wenn Sie die Power BI-Vorlage starten, die Sie aus dem [{{<product-name>}} Veröffentlichungen](https://github.com/microsoft/powercat-automation-kit/releases)
 

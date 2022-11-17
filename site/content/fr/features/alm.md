@@ -11,7 +11,7 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 <div class="optional">
 
-Cette page fournit une vue d’ensemble des composants qui peuvent vous aider à utiliser ALM avec le Kit d’automatisation pour les flux de travail Power Automate Desktop inclus dans [Solutions de plate-forme d’alimentation](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
+Cette page fournit une vue d’ensemble des composants qui peuvent vous aider à utiliser ALM avec le Kit d’automatisation pour les flux de travail Power Automate Desktop inclus dans [Solutions Power Platform](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
 
 </div>
 
@@ -23,17 +23,17 @@ Cette page fournit une vue d’ensemble des composants qui peuvent vous aider à
 
 ## Résumé
 
-Lorsque vous examinez les solutions ALM for Power Platform qui incluent des composants Power Automate Desktop
+Lorsque vous examinez ALM pour Power Platform solutions qui incluent des composants Power Automate Desktop
 
-1. Passez en revue les fonctionnalités de Managed Environment Power Platform Pipelines pour tirer parti des fonctionnalités intégrées au produit à l’échelle de l’entreprise afin de gérer et de gouverner les solutions au sein des environnements.
-
-<br/>
-
-2. Au besoin, examinez le [Outils de génération Microsoft Power Platform pour Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [Actions GitHub pour Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) ou [CLI de la plate-forme d’alimentation](https://learn.microsoft.com/power-platform/developer/cli/introduction) pour intégrer et automatiser vos processus ALM DevOps.
+1. Passez en revue les fonctionnalités de l’environnement géré Power Platform des pipelines pour tirer parti des fonctionnalités intégrées au produit à l’échelle de l’entreprise afin de gérer et de gouverner les solutions au sein des environnements.
 
 <br/>
 
-3. Envisagez d’utiliser le [ALM Accelerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). ALM Accelerator fournit un ensemble prédéfini de modèles Azure DevOps qui automatise de nombreuses tâches ALM Power Platform à l’aide de la gouvernance de contrôle de code source intégrée.
+2. Au besoin, examinez le [Outils Microsoft Power Platform Build pour Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [Actions GitHub pour Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) ou [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) pour intégrer et automatiser vos processus ALM DevOps.
+
+<br/>
+
+3. Envisagez d’utiliser le [ALM Accelerator pour Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). L’accélérateur ALM fournit un ensemble prédéfini de modèles Azure DevOps qui automatise de nombreuses tâches ALM Power Platform à l’aide de la gouvernance du contrôle de code source intégré.
 
 ## Apprendre de Power CAT
 
@@ -65,7 +65,7 @@ Consultez notre [Backlog lié à Automation Kit ALM](https://github.com/microsof
 
 Les environnements gérés vous permettent de rationaliser et de simplifier la gouvernance à grande échelle. Les administrateurs peuvent activer les environnements gérés en quelques clics et activer immédiatement les fonctionnalités qui offrent plus de visibilité, plus de contrôle avec moins d’efforts pour gérer toutes vos ressources low code.
 
-Les environnements gérés sont un élément clé de la famille Power Platform, de la même manière qu’AI Builder a insufflé de l’intelligence dans nos produits et Dataverse fournit l’épine dorsale des données. Les environnements gérés rationalisent la gouvernance de la plate-forme à grande échelle.
+Les environnements gérés sont un élément clé de la famille Power Platform, de la même manière qu’AI Builder a insufflé de l’intelligence dans nos produits et que Dataverse fournit l’épine dorsale des données. Les environnements gérés rationalisent la gouvernance de la plate-forme à grande échelle.
 
 {{</slide>}}
 
@@ -79,7 +79,7 @@ Les environnements gérés vous offrent :
 - Configurer le vérificateur de solution pour les contrôles de sécurité ou de fiabilité afin d’exécuter automatiquement des règles chaque fois qu’une solution est importée dans un environnement géré
 - Personnalisez l’expérience d’accueil et de partage du créateur afin de guider les utilisateurs sur le bon chemin.
 - Moins d’efforts rationalisez, simplifiez et automatisez les étapes prêtes à l’emploi en quelques clics. 
-- Power Platform Pipelines permet de simplifier le processus de gestion du cycle de vie des applications (ALM).
+- Le Power Platform Pipelines permet de simplifier le processus de gestion du cycle de vie des applications (ALM).
 
 {{</slide>}}
 
@@ -109,17 +109,17 @@ Dans les semaines et les mois à venir, vous verrez des informations sur l’uti
 
 {{<slide  id="slide5" audio="features/alm/pipeline-extensibility.mp3?v=1" description="Pipeline Extensibility" image="features/alm/pipeline-extensibility.svg?v=1" >}}
 
-Vous disposez d’un certain nombre d’options à prendre en compte pour vos choix ALM dans Power Platform. Les pipelines Managed Environment Power Platform assurent la gestion du cycle de vie des applications.
+Vous avez un certain nombre d’options à considérer pour vos choix ALM dans le Power Platform. L’environnement géré Power Platform les pipelines fournissent dans le produit la gestion du cycle de vie des applications.
 
-Vous pouvez éventuellement utiliser les points d’extension des pipelines Managed Environment Power Platform combinés avec [Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)le [Actions GitHub pour Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) ou [CLI de la plate-forme d’alimentation](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) pour déployer vos propres processus ALM DevOps personnalisés.
+Vous pouvez éventuellement utiliser les points d’extension de l’environnement géré Power Platform pipelines combinés avec [Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)le [Actions GitHub pour Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) ou [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) pour déployer vos propres processus ALM DevOps personnalisés.
 
-Enfin, vous pourriez profiter de la [ALM Accelerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) du Kit CoE pour fournir des modèles et des exemples prédéfinis pour la gestion de patrimoine ALM de bout en bout à l’aide d’Azure DevOps. ALM Accelerator fournit de nombreux scénarios courants pour créer et gérer vos solutions dans tous les environnements.
+Enfin, vous pourriez profiter de la [ALM Accelerator pour Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) du Kit CoE pour fournir des modèles et des exemples prédéfinis pour la gestion de patrimoine ALM de bout en bout à l’aide d’Azure DevOps. ALM Accelerator fournit de nombreux scénarios courants pour créer et gérer vos solutions dans tous les environnements.
 
 {{</slide>}}
 
 {{<slide  id="slide6" audio="features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1" description="ALM Accelerator for Power Platform Overview" image="features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" >}}
 
-Qu’est-ce qu’ALM Accelerator for Power Platform ?
+Qu’est-ce qu’ALM Accelerator for Power Platform?
 
 ALM Accelerator for Power Platform inclut Power Apps qui se trouve au-dessus des pipelines Azure DevOps et du contrôle de code source Git. L’application fournit une interface simplifiée permettant aux fabricants d’exporter régulièrement les composants de leurs solutions Power Platform vers le contrôle de code source et de créer des demandes de déploiement pour que leur travail soit examiné avant de déployer dans des environnements cibles.
 
@@ -136,9 +136,9 @@ Les modèles ALM Accelerator pour les pipelines Azure DevOps facilitent l’auto
 ALM Accelerator inclut des modèles de pipeline pour prendre en charge un déploiement en 3 étapes en production.
 Les modèles peuvent être personnalisés pour répondre à des besoins et des scénarios spécifiques
 
-ALM Accelerator for Power Platform est une application canevas qui repose sur Azure DevOps Pipelines pour fournir une interface simplifiée permettant aux créateurs de valider et de créer régulièrement des demandes d’extraction pour leur travail de développement dans Power Platform. 
+ALM Accelerator for Power Platform est une application canevas qui se trouve au-dessus d’Azure DevOps Pipelines pour fournir une interface simplifiée permettant aux fabricants de valider et de créer régulièrement des demandes d’extraction pour leur travail de développement dans le Power Platform. 
 
-La combinaison des pipelines Azure DevOps et de l’application Canvas constitue la solution complète d’ALM Accelerator for Power Platform. 
-Les pipelines et l’application sont des implémentations de référence. Ils ont été développés pour être utilisés par l’équipe de développement du kit de démarrage CoE en interne, mais ont été open source et publiés afin de démontrer comment une ALM saine peut être obtenue dans la Power Platform. Ils peuvent être utilisés tels quels ou personnalisés pour des scénarios d’entreprise spécifiques.
+La combinaison des pipelines Azure DevOps et de l’application canevas constitue la solution complète d’ALM Accelerator for Power Platform. 
+Les pipelines et l’application sont des implémentations de référence. Ils ont été développés pour être utilisés par l’équipe de développement du kit de démarrage du centre d’excellence en interne, mais ont été open source et publiés afin de démontrer comment une LAG saine peut être atteinte dans le Power Platform. Ils peuvent être utilisés tels quels ou personnalisés pour des scénarios d’entreprise spécifiques.
 
 {{</slide>}}

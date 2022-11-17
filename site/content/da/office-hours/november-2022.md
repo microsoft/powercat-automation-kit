@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-Velkommen til landingssiden for automatiseringssæt til Power Platform november 2022 i kontortid.
+Velkommen til landingssiden for automatiseringssæt til Power Platform. november 2022.
 
 Du kan tilmelde dig mødet i kontortiden [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) afholdes tirsdag den 15. november 2022 mellem kl. 07.00 og 8.00 PDT (Se andre tidszoner UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

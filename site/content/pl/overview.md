@@ -3,7 +3,7 @@ title: "Przegląd"
 description: "Automation Kit - Przegląd"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -74,7 +74,7 @@ Z operacyjnego i ryzyka kontrola dostępu do konektorów i danych oraz dostarcza
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Zestaw Power Platform CoE Kit koncentruje się na szerszej dzierżawie i zarządzanym środowisku.
+Zestaw Power Platform CoE Kit koncentruje się na szerszym zarządzaniu najemcami i środowiskiem.
 
 Zestaw automatyzacji uzupełnia ten zestaw narzędzi, koncentrując się w szczególności na kluczowych elementach przepływów programu Power Automate Desktop, dzięki czemu zwrot z inwestycji i wpływ można wykazać w czasie zbliżonym do rzeczywistego.
 
@@ -148,13 +148,13 @@ Rozszerzając proces instalacji, pakiety Data Pack zapewnią możliwość import
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 Rozszerzając istniejące funkcje akceleratora ALM, planujemy dodać akcje specyficzne dla RPA, które sprawią, że proces integracji składników programu Power Automate Desktop stanie się procesem automatycznego wdrażania i przeglądu.
 
-Czytaj dalej wpis [Środowiska zarządzane, potoki platformy zasilania i akcelerator ALM](/pl/features/alm) oraz w jaki sposób mogą pomóc we wdrażaniu rozwiązań automatyzacji i zarządzaniu nimi.
+Czytaj dalej wpis [Zarządzane środowiska Power Platform potoki i akcelerator ALM](/pl/features/alm) oraz w jaki sposób mogą pomóc we wdrażaniu rozwiązań automatyzacji i zarządzaniu nimi.
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}
 Patrząc dalej w nasze kamienie milowe, cofamy elementy zaległości, aby rozszerzyć nowy moduł migracji do automatyzacji.
 
-Głębsza integracja z doradcą procesowym w celu wsparcia procesu identyfikacji i kwalifikacji oczekiwanego zwrotu z inwestycji w automatyzację
+Głębsza integracja z Process Advisor w celu wsparcia procesu identyfikacji i kwalifikacji oczekiwanego zwrotu z inwestycji w automatyzację
 
 Chcąc rozszerzyć hostowanych agentów RPA, postaramy się podać przykłady, które przyspieszają korzystanie z hostowanych agentów platformy Azure dla klientów, którzy wymagali automatyzacji operacji infrastrukturalnych w celu integracji z wdrożonymi projektami automatyzacji.
 {{</slide>}}

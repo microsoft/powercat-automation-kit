@@ -49,7 +49,7 @@ Slik kommer du i gang med denne datapakken
 
 - Installer den nyeste versjonen av Automation Kit Main fra [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) Bruke [Veiledning for å lære konfigurering](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
-- Installere Power Platform-kommandolinjegrensesnittet ved hjelp av [Veiledning for å lære konfigurering](https://learn.microsoft.com/power-platform/developer/cli/introduction)
+- Installer Power Platform kommandolinjegrensesnitt ved hjelp av [Veiledning for å lære konfigurering](https://learn.microsoft.com/power-platform/developer/cli/introduction)
 
 - Opprett godkjenning i miljøet
 

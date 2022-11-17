@@ -7,7 +7,7 @@ include_footer: true
 generated: 531F9B8CFD51FA169D951B7C2226592437D35744
 ---
 
-Velkommen til landingssiden Automation Kit for Power Platform oktober 2022 i kontortid.
+Velkommen til landingssiden for automatiseringssæt til Power Platform. oktober 2022.
 
 Du kan tilmelde dig mødet i kontortiden [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) afholdes tirsdag den 11. oktober 2022 mellem kl. 07.00 og 08.00 PDT (Se andre tidszoner [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

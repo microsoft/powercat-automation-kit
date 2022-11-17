@@ -4,7 +4,7 @@ description: "Automation Kit - RPA-Migration"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
+generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 ---
 
 {{<toc>}}
@@ -47,7 +47,7 @@ Die folgende Liste bietet einen Überblick über die Bereiche, die wir für die 
 
 ### Umwandlung
 
-- **Cloud-Integration** Beispielkomponenten, die verwendet werden können, um den Konvertierungsprozess zu beschleunigen, um Lösungen auf die Power Platform, Microsoft Cloud, zu migrieren.
+- **Cloud-Integration** Beispielkomponenten, die verwendet werden können, um den Konvertierungsprozess zu beschleunigen, um Lösungen in die Power Platform Microsoft Cloud zu migrieren.
 
 - **Nicht-funktionale Anforderungen** Qualitätstestansatz, DevOps-Monitoring, Dokumentation migrierter Lösungen
 
@@ -61,7 +61,11 @@ Connecting Power Automation Migration to the Automation Center of Excellence Es 
 
 Genauer Blick auf den Migrationsentwicklerprozess
 
+{{<border>}}
+
 ![Automation Center of Excellence - Migrationsentwickler](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### Bewerten und Planen
 

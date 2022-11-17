@@ -3,7 +3,7 @@ title: "概要"
 description: "自動化キット - 概要"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -50,7 +50,7 @@ generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Power Platform 用オートメーション キットの主要なシナリオは、既存のプロセスの自動化による投資収益率をほぼリアルタイムで定義、確認、監視できるようにすることで、デスクトップ ソリューション用 Power Automate の使用を加速することです。
+Automation Kit for Power Platform の主なシナリオは、既存のプロセスの自動化による投資収益率をほぼリアルタイムで定義、確認、監視できるようにすることで、デスクトップ ソリューション向け Power Automate の使用を加速することです。
 {{</slide>}}
 
 {{<slide  id="slide2" audio="overview/Slide02.mp3" description="Automation Kit Features" image="overview/Slide02.SVG" >}}
@@ -148,13 +148,13 @@ Power BI ダッシュボードには、自動化プロジェクト、予想さ�
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 既存の ALM アクセラレータ機能を拡張して、Power Automate デスクトップ コンポーネントを統合するプロセスを自動化されたデプロイおよびレビュー プロセスにする RPA 固有のアクションを追加することを計画しています。
 
-についてもっと読む[マネージド環境 Power Platform パイプラインと ALM アクセラレータ](/ja/features/alm)自動化ソリューションの展開と管理にどのように役立つか。
+についてもっと読む[パイプラインと ALM アクセラレータPower Platform管理環境](/ja/features/alm)自動化ソリューションの展開と管理にどのように役立つか。
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}
 マイルストーンをさらに詳しく調べて、バックログ項目をバックバックして、新しい移行モジュールを自動化に拡張します。
 
-プロセスアドバイザーとのより緊密な統合により、自動化の期待されるROIを特定して認定するプロセスを支援します
+自動化の期待されるROIを特定して認定するプロセスを支援するためのProcess Advisorとのより深い統合
 
 ホストされている RPA エージェントの強化を検討する際には、デプロイされた自動化プロジェクトと統合するためにインフラストラクチャ運用の自動化を必要とするお客様向けに、Azure ホステッド エージェントの使用を加速する例を提供する予定です。
 {{</slide>}}

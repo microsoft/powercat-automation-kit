@@ -11,7 +11,7 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 <div class="optional">
 
-Op deze pagina vindt u een overzicht van onderdelen die u kunnen helpen bij het gebruik van ALM met de Automation Kit for Power Automate Desktop-workflows die zijn opgenomen in [Power Platform Oplossingen](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
+Op deze pagina vindt u een overzicht van onderdelen die u kunnen helpen bij het gebruik van ALM met de Automation Kit for Power Automate Desktop-workflows die zijn opgenomen in [Power Platform oplossingen](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
 
 </div>
 
@@ -23,7 +23,7 @@ Op deze pagina vindt u een overzicht van onderdelen die u kunnen helpen bij het 
 
 ## Samenvatting
 
-Wanneer u kijkt naar ALM for Power Platform-oplossingen die Power Automate Desktop-componenten bevatten
+Wanneer u ALM voor Power Platform oplossingen die Power Automate Desktop-onderdelen bevatten
 
 1. Bekijk de functies van Managed Environment Power Platform Pipelines om te profiteren van in-productfuncties op bedrijfsschaal om oplossingen binnen omgevingen te beheren en te beheren.
 
@@ -109,9 +109,9 @@ In de komende weken en maanden ziet u gebruiksinzichten op de startpagina. Nieuw
 
 {{<slide  id="slide5" audio="features/alm/pipeline-extensibility.mp3?v=1" description="Pipeline Extensibility" image="features/alm/pipeline-extensibility.svg?v=1" >}}
 
-U hebt een aantal opties om te overwegen voor uw ALM-keuzes in het Power Platform. De Managed Environment Power Platform-pijplijnen bieden in product Application Lifecycle Management.
+U hebt een aantal opties om te overwegen voor uw ALM-keuzes in de Power Platform. De managed environment Power Platform pipelines bieden in product Application Lifecycle management.
 
-Optioneel kunt u de uitbreidingspunten van de Managed Environment Power Platform-pijplijnen gebruiken in combinatie met [Hulpprogramma's voor het bouwen van powerplatforms voor Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)de [GitHub-acties voor Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) of [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) om uw eigen aangepaste ALM DevOps-processen te implementeren.
+Optioneel kunt u de uitbreidingspunten van de beheerde omgeving gebruiken Power Platform pijplijnen in combinatie met [Power Platform Build Tools voor Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)de [GitHub-acties voor Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) of [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) om uw eigen aangepaste ALM DevOps-processen te implementeren.
 
 Eindelijk kunt u profiteren van de [ALM Accelerator voor Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) van de CoE Kit om vooraf gebouwde sjablonen en voorbeelden te bieden voor End-to-End ALM met behulp van Azure DevOps. De ALM Accelerator biedt vele veelvoorkomende scenario's om uw oplossingen in verschillende omgevingen te bouwen en te beheren.
 
@@ -121,7 +121,7 @@ Eindelijk kunt u profiteren van de [ALM Accelerator voor Power Platform](https:/
 
 Wat is ALM Accelerator voor Power Platform?
 
-De ALM Accelerator for Power Platform bevat Power Apps die bovenop Azure DevOps Pipelines en Git-bronbeheer zitten. De app biedt een vereenvoudigde interface voor makers om regelmatig de componenten in hun Power Platform Solutions te exporteren naar bronbeheer en implementatieverzoeken te maken om hun werk te laten beoordelen voordat ze in doelomgevingen worden geïmplementeerd.
+De ALM Accelerator voor Power Platform bevat Power Apps die bovenop Azure DevOps Pipelines en Git-bronbeheer zit. De app biedt een vereenvoudigde interface voor makers om regelmatig de componenten in hun Power Platform Solutions te exporteren naar bronbeheer en implementatieverzoeken te maken om hun werk te laten beoordelen voordat ze in doelomgevingen worden geïmplementeerd.
 
 {{</slide>}}
 
@@ -136,9 +136,9 @@ ALM Accelerator-sjablonen voor Azure DevOps-pijplijnen vergemakkelijken de autom
 ALM Accelerator bevat pijplijnsjablonen ter ondersteuning van een implementatie in 3 fasen naar productie.
 Sjablonen kunnen worden aangepast aan specifieke behoeften en scenario's
 
-De ALM Accelerator for Power Platform is een Canvas-app die bovenop Azure DevOps Pipelines zit om een vereenvoudigde interface te bieden voor makers om regelmatig pull-aanvragen voor hun ontwikkelingswerk in het Power Platform te committeren en te maken. 
+De ALM Accelerator for Power Platform is een Canvas-app die bovenop Azure DevOps Pipelines zit om een vereenvoudigde interface te bieden voor makers om regelmatig pull-aanvragen voor hun ontwikkelingswerk in de Power Platform te committeren en te maken. 
 
-De combinatie van de Azure DevOps Pipelines en de Canvas-app vormen de volledige ALM Accelerator for Power Platform-oplossing. 
-De pipelines en de App zijn referentie-implementaties. Ze zijn ontwikkeld voor gebruik door het ontwikkelingsteam voor de CoE Starter Kit intern, maar zijn open source en vrijgegeven om aan te tonen hoe gezonde ALM kan worden bereikt in het Power Platform. Ze kunnen worden gebruikt zoals ze zijn of worden aangepast voor specifieke bedrijfsscenario's.
+De combinatie van de Azure DevOps Pipelines en de Canvas-app vormen de volledige ALM Accelerator voor Power Platform oplossing. 
+De pipelines en de App zijn referentie-implementaties. Ze zijn ontwikkeld voor gebruik door het ontwikkelingsteam voor de CoE Starter Kit intern, maar zijn open source en vrijgegeven om aan te tonen hoe gezonde ALM kan worden bereikt in de Power Platform. Ze kunnen worden gebruikt zoals ze zijn of worden aangepast voor specifieke bedrijfsscenario's.
 
 {{</slide>}}

@@ -4,7 +4,7 @@ description: "Automation Kit - RPA Migration"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
+generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 ---
 
 {{<toc>}}
@@ -61,7 +61,11 @@ Connecting Power Automation Migration to the Automation Center of Excellence the
 
 Looking specifically at the Migration Developer process
 
+{{<border>}}
+
 ![Automation Center of Excellence - Migration Developer](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### Assess and Plan
 

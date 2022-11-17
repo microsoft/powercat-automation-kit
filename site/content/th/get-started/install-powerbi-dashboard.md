@@ -11,7 +11,7 @@ generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
 
 เมื่อต้องการรับ URL สภาพแวดล้อม ให้ไปที่ ศูนย์การจัดการ Power Platform ไปที่ สภาพแวดล้อม เลือกสภาพแวดล้อม และจดบันทึก URL สภาพแวดล้อม:
 
-![รับหน้าจอสภาพแวดล้อม - ศูนย์การจัดการ Power Platform](/images/get-environment.png)
+![รับหน้าจอสภาพแวดล้อม - Power Platformศูนย์การจัดการ](/images/get-environment.png)
 
 ป้อน URL สภาพแวดล้อมเมื่อเปิดใช้งานเทมเพลต Power BI ที่คุณดาวน์โหลดจาก [{{<product-name>}} รีลีส](https://github.com/microsoft/powercat-automation-kit/releases)
 

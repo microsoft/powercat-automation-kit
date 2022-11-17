@@ -26,7 +26,7 @@ Das Automation Kit nutzt die [ALM-Beschleuniger](https://aka.ms/aa4pp) um ALM-Fu
 
 Ähnlich wie bei anderen Power CAT Managed Kits wird der {{<product-name>}} verwendet den ALM Accelerator, um Releases für unsere öffentlichen GitHub-Releases bereitzustellen.
 
-Unser interner Prozess verfügt über eine Power-Plattform-Umgebung für Entwicklung, Test und Produktion. Sobald wir für eine Veröffentlichung bereit sind, packen unsere integrierten GitHub Actions die verwalteten und nicht verwalteten Bereitstellungslösungen zusammen mit den Versionshinweisen automatisch für ein GitHub Draft Release.
+Unser interner Prozess verfügt über eine Power Platform Umgebung für Entwicklung, Test und Produktion. Sobald wir für eine Veröffentlichung bereit sind, packen unsere integrierten GitHub Actions die verwalteten und nicht verwalteten Bereitstellungslösungen zusammen mit den Versionshinweisen automatisch für ein GitHub Draft Release.
 
 Sobald der Release-Entwurf fertig ist, können wir bei Bedarf neue Versionen oder Hotfixes veröffentlichen.
 
@@ -46,7 +46,7 @@ Jetzt, da wir diese Automatisierung eingerichtet haben, hat das automatisierte A
 
 Sie können unsere offenen ALM-bezogenen Backlog-Elemente in unserem [GitHub-Probleme registrieren](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
-Insgesamt bauen wir auf den vorhandenen Out-of-the-Box-Power-Plattform- und Microsoft DevOps-Produktfunktionen zusammen mit ALM Accelerator auf. Diese Kombination ermöglicht es uns, uns auf spezifische Erweiterungen zu konzentrieren, die bei der Hyperautomatisierung helfen.
+Insgesamt bauen wir auf den bestehenden Out-of-the-Box-Power Platform- und Microsoft DevOps-Produktfunktionen zusammen mit ALM Accelerator auf. Diese Kombination ermöglicht es uns, uns auf spezifische Erweiterungen zu konzentrieren, die bei der Hyperautomatisierung helfen.
 
 ## Feedback
 
@@ -58,7 +58,7 @@ Insgesamt bauen wir auf den vorhandenen Out-of-the-Box-Power-Plattform- und Micr
 
 Das Power CAT-Team verwendet den ALM Accelerator, um jeden unserer [Auslösungen](https://github.com/microsoft/powercat-automation-kit/releases).
 
-Jede Version fördert Änderungen von unserer Entwicklung in Test- und Produktionsumgebungen. Die Power Platform-Lösungen innerhalb des Kits verwenden einen automatisierten Prozess, um Assets für die Bereitstellung in öffentlichen GitHub-Versionen zu packen.
+Jede Version fördert Änderungen von unserer Entwicklung in Test- und Produktionsumgebungen. Die Power Platform Lösungen innerhalb des Kits verwenden einen automatisierten Prozess, um Assets für die Bereitstellung in öffentlichen GitHub-Versionen zu packen.
 
 In zukünftigen Meilensteinen werden wir die bestehende Plattform ausbauen [ALM-Funktionen](/de/features/alm) , um Beispiele für das Einbinden von Validierungsregeln und den visuellen Vergleich von RPA-Beispielen als Teil des DevOps-Prozesses bereitzustellen.  
 
@@ -68,13 +68,13 @@ In zukünftigen Meilensteinen werden wir die bestehende Plattform ausbauen [ALM-
 
 Im Folgenden werden die wichtigsten Schritte im Release-Prozess des Automation Kits beschrieben:
 
-1. Änderungen, die in unserer Power Platform Dev-Umgebung vorgenommen werden, werden in einer Zweigstelle im öffentlichen GitHub-Repository gespeichert
+1. Änderungen, die in unserer Power Platform Dev-Umgebung vorgenommen werden, werden in einem Zweig im öffentlichen GitHub-Repository gespeichert
 
 2. Wenn Änderungen für die Aufnahme in ein Testrelease bereit sind, werden sie mithilfe eines Pull Requests mit dem Hauptzweig zusammengeführt. Bevor die Pullanforderung abgeschlossen werden kann, muss die Azure DevOps-Validierungspipeline erfolgreich abgeschlossen und die Pullanforderung überprüft werden.
 
-3. Sobald der Pull Request die automatisierten Prüfungen bestanden und die Überprüfungsgenehmigung erhalten hat, kann er mit dem Hauptzweig zusammengeführt werden. Diese Zusammenführung löst die Azure DevOps-Testbuildpipeline aus, die den verwalteten Build in der Power Platform-Testumgebung veröffentlicht.
+3. Sobald der Pull Request die automatisierten Prüfungen bestanden und die Überprüfungsgenehmigung erhalten hat, kann er mit dem Hauptzweig zusammengeführt werden. Diese Zusammenführung löst die Azure DevOps-Testbuildpipeline aus, die den verwalteten Build in der Testumgebung Power Platform veröffentlicht.
 
-4. Nach internen Tests wird die Azure DevOps-Produktionspipeline manuell ausgelöst, um eine Production Power Platform-Bereitstellung zu generieren.
+4. Nach internen Tests wird die Azure DevOps-Produktionspipeline manuell ausgelöst, um eine Produktionsbereitstellung Power Platform zu generieren.
 
 5. Sobald die Version fertig ist, erstellt die Azure DevOps-Pipeline einen Releaseentwurf, der Versionshinweise und Buildressourcen enthält. Der endgültige Release-Build schließt alle offenen Probleme und schließt den Meilenstein. Veröffentlichtes Build-Tag für das GitHub-Repository mit der Bezeichnung Monat und Jahr.
 

@@ -4,7 +4,7 @@ description: "Automatisering Kit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
+generated: 168C5A07790E2772917F905272F5727BB391EF98
 ---
 
 {{<toc>}}
@@ -38,6 +38,11 @@ generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 - [Automatiseringssett – utgivelseshistorikk](/nb/releases)
 
 - [Automatiseringssett - Støtte](/nb/support)
+
+
+### Sted: /backlog/
+
+- [Automatiseringssett - Process Advisor Integrasjon](/nb/backlog/process-advisor-integration)
 
 
 ### Sted: /bidrag/

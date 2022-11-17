@@ -9,7 +9,7 @@ generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 
 Come progetto Open Source basato su Power Platform e Microsoft Cloud, il nostro obiettivo è fornire rapidamente strumenti e indicazioni per accelerare il percorso di iperautomazione.
 
-Come parte di questo viaggio, mentre incubamo, maturiamo e collaboriamo con il team di ingegneri di Core Power Platform in base al tuo feedback. Utilizzando questo feedback cercheremo di includere gli apprendimenti nel prodotto principale per migliorare e rispondere alle tue esigenze.
+Come parte di questo viaggio, mentre incubamo, maturiamo e collaboriamo con il team di ingegneri Core Power Platform in base al tuo feedback. Utilizzando questo feedback cercheremo di includere gli apprendimenti nel prodotto principale per migliorare e rispondere alle tue esigenze.
 
 Dato questo contesto, ci sono diversi modi in cui puoi contribuire al progetto per migliorare la nostra roadmap e le nostre funzionalità:
 

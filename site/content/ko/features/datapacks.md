@@ -49,7 +49,7 @@ ROI(투자 수익률) 기본 솔루션 데이터 팩에는 자동화 프로젝�
 
 - 다음에서 최신 버전의 자동화 키트 기본 설치 [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) 사용 [설정 가이드 알아보기](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
-- 다음을 사용하여 Power Platform 명령줄 인터페이스 설치 [설정 가이드 알아보기](https://learn.microsoft.com/power-platform/developer/cli/introduction)
+- 다음을 사용하여 명령줄 인터페이스 Power Platform 설치 [설정 가이드 알아보기](https://learn.microsoft.com/power-platform/developer/cli/introduction)
 
 - 환경에 대한 인증 만들기
 

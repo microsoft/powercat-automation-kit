@@ -26,7 +26,7 @@ Automation Kit utnyttjar [ALM-accelerator](https://aka.ms/aa4pp) för att tillha
 
 Liknar den lanseringsprocess som används för andra Power CAT-hanterade kit {{<product-name>}} använder ALM Accelerator för att distribuera versioner till våra offentliga GitHub-versioner.
 
-Vår interna process har en Power Platform-miljö för utveckling, testning och produktion. När vi är redo för en version paketerar våra integrerade GitHub Actions de hanterade och ohanterade distributionslösningarna tillsammans med viktig information automatiskt för en GitHub Draft-version.
+Vår interna process har en Power Platform miljö för utveckling, test och produktion. När vi är redo för en version paketerar våra integrerade GitHub Actions de hanterade och ohanterade distributionslösningarna tillsammans med viktig information automatiskt för en GitHub Draft-version.
 
 När utkastet till version är klart kan vi publicera nya versioner eller snabbkorrigeringar efter behov.
 
@@ -58,7 +58,7 @@ Sammantaget bygger vi vidare på de befintliga färdiga Power Platform- och Micr
 
 Power CAT-teamet använder ALM Accelerator för att bygga och distribuera var och en av våra [Släpper](https://github.com/microsoft/powercat-automation-kit/releases).
 
-Varje version främjar ändringar från vår utveckling till test- och produktionsmiljöer. Power Platform-lösningarna i paketet använder en automatiserad process för att paketera tillgångar för distribution till offentliga GitHub-versioner.
+Varje version främjar ändringar från vår utveckling till test- och produktionsmiljöer. De Power Platform lösningarna i paketet använder en automatiserad process för att paketera tillgångar för distribution till offentliga GitHub-versioner.
 
 I framtida milstolpar kommer vi att expandera på befintlig plattform [ALM-funktioner](/sv/features/alm) för att ge exempel på hur du inkluderar valideringsregler och visuell jämförelse av RPA-exempel som en del av DevOps-processen.  
 
@@ -68,13 +68,13 @@ I framtida milstolpar kommer vi att expandera på befintlig plattform [ALM-funkt
 
 Följande beskriver viktiga steg i Automation Kit-lanseringsprocessen:
 
-1. Ändringar som görs i vår Power Platform Dev-miljö sparas i en gren på den offentliga GitHub-lagringsplatsen
+1. Ändringar som görs i vår Power Platform Dev-miljö sparas i en gren på den offentliga GitHub lagringsplatsen
 
 2. När ändringarna är redo att inkluderas i en testversion slås de samman i huvudgrenen med hjälp av en pull-begäran. Innan pull-begäran kan slutföras måste Azure DevOps-valideringspipelinen slutföras och pull-begäran granskas.
 
-3. När pull-begäran har klarat de automatiska kontrollerna och fått granskningsgodkännande kan den slås samman med huvudgrenen. Den här sammanslagningen utlöser testpipelinen Azure DevOps som publicerar den hanterade versionen till testmiljön Power Platform.
+3. När pull-begäran har klarat de automatiska kontrollerna och fått granskningsgodkännande kan den slås samman med huvudgrenen. Den här sammanslagningen utlöser Azure DevOps-test-byggpipelinen som publicerar den hanterade versionen till test- Power Platform miljön.
 
-4. Efter intern testning utlöses Azure DevOps-produktionspipelinen manuellt för att generera en Power Platform-distribution för produktion.
+4. Efter intern testning utlöses Azure DevOps-produktionspipelinen manuellt för att generera en produktions- Power Platform distribution.
 
 5. När en version är klar skapar Azure DevOps-pipelinen ett utkast till version, inklusive viktig information och byggtillgångar. Den slutliga versionen stänger alla öppna problem och stänger milstolpen. Publicerad build-tagg GitHub-lagringsplatsen med en månads- och årsetikett tillämpad.
 

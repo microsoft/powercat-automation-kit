@@ -4,7 +4,7 @@ description: "Kit di automazione - Indice del sito"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
+generated: 168C5A07790E2772917F905272F5727BB391EF98
 ---
 
 {{<toc>}}
@@ -38,6 +38,11 @@ generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 - [Automation Kit - Cronologia delle versioni](/it/releases)
 
 - [Kit di automazione - Supporto](/it/support)
+
+
+### Posizione: /backlog/
+
+- [Kit di automazione - Integrazione Process Advisor](/it/backlog/process-advisor-integration)
 
 
 ### Località: /contributo/

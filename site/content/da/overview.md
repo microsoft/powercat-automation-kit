@@ -3,7 +3,7 @@ title: "Overblik"
 description: "Automation Kit - Oversigt"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -50,7 +50,7 @@ Du kan se yderligere videoer på [Afspilningsliste til automatiseringssæt](http
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Nøglescenariet i Automation Kit for Power Platform er at fremskynde brugen af Power Automate til skrivebordsløsninger ved at give dig mulighed for at definere, gennemgå og overvåge investeringsafkastet ved automatisering af eksisterende processer i næsten realtid.
+Nøglescenariet i automatiseringspakken til Power Platform er at fremskynde brugen af Power Automate til skrivebordsløsninger ved at give dig mulighed for at definere, gennemgå og overvåge investeringsafkastet ved automatisering af eksisterende processer i næsten realtid.
 {{</slide>}}
 
 {{<slide  id="slide2" audio="overview/Slide02.mp3" description="Automation Kit Features" image="overview/Slide02.SVG" >}}
@@ -74,7 +74,7 @@ Fra et operationelt og risikomæssigt synspunkt at kontrollere adgangen til stik
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Power Platform CoE-sættet indeholder fokus på bredere lejere og miljøadministrerede.
+Det Power Platform CoE-sæt inkluderer fokus på bredere lejere og miljøstyring.
 
 Automatiseringspakken supplerer disse værktøjer ved at fokusere specifikt på nøgleelementer i Power Automate Desktop-flows, så investeringsafkastet og effekten kan demonstreres i næsten realtid.
 
@@ -148,7 +148,7 @@ Data Packs udvider installationsprocessen og giver mulighed for at importere for
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 I forlængelse af de eksisterende ALM Accelerator-funktioner planlægger vi at tilføje RPA-specifikke handlinger, der gør processen med at integrere Power Automate Desktop-komponenter til en automatiseret udrulnings- og gennemgangsproces.
 
-Læs mere om [Administrerede miljøer Power Platform Pipelines og ALM Accelerator](/da/features/alm) og hvordan de kan hjælpe dig med at implementere og administrere dine automatiseringsløsninger.
+Læs mere om [Administrerede miljøer Power Platform pipelines og ALM-acceleratoren](/da/features/alm) og hvordan de kan hjælpe dig med at implementere og administrere dine automatiseringsløsninger.
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}

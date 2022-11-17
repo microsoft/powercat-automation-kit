@@ -3,7 +3,7 @@ title: "개요"
 description: "자동화 키트 - 개요"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -50,7 +50,7 @@ generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Power Platform용 자동화 키트의 주요 시나리오는 기존 프로세스의 자동화를 통해 투자 수익을 거의 실시간으로 정의, 검토 및 모니터링할 수 있도록 하여 데스크톱용 Power Automate의 사용을 가속화하는 것입니다.
+Power Platform용 자동화 키트의 주요 시나리오는 기존 프로세스의 자동화를 통해 투자 수익을 거의 실시간으로 정의, 검토 및 모니터링할 수 있도록 하여 데스크톱용 Power Automate 솔루션의 사용을 가속화하는 것입니다.
 {{</slide>}}
 
 {{<slide  id="slide2" audio="overview/Slide02.mp3" description="Automation Kit Features" image="overview/Slide02.SVG" >}}
@@ -148,13 +148,13 @@ GitHub 사이트에서 다음을 사용할 수 있습니다. **시계** 선택�
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 기존 ALM 가속기 기능을 확장하여 Power Automate 데스크톱 구성 요소를 자동화된 배포 및 검토 프로세스에 통합하는 프로세스를 만드는 RPA 관련 작업을 추가할 계획입니다.
 
-에 대해 자세히 알아보기 [관리되는 환경 전원 플랫폼 파이프라인 및 ALM 가속기](/ko/features/alm) 자동화 솔루션을 배포하고 관리하는 데 어떻게 도움이 될 수 있는지.
+에 대해 자세히 알아보기 [파이프라인 및 ALM 가속기를 Power Platform 관리되는 환경](/ko/features/alm) 자동화 솔루션을 배포하고 관리하는 데 어떻게 도움이 될 수 있는지.
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}
 마일스톤을 자세히 살펴보면 백로그 항목을 백업하여 새 마이그레이션 모듈을 자동화로 확장합니다.
 
-프로세스 어드바이저와의 긴밀한 통합을 통해 자동화의 예상 ROI를 식별하고 검증하는 프로세스를 지원합니다.
+자동화의 예상 ROI를 식별하고 검증하는 프로세스를 지원하기 위해 Process Advisor와의 심층적인 통합
 
 호스트된 RPA 에이전트를 보강하기 위해 배포된 자동화 프로젝트와 통합하기 위해 인프라 운영 자동화가 필요한 고객을 위해 Azure 호스팅 에이전트 사용을 가속화하는 예제를 제공할 것입니다.
 {{</slide>}}

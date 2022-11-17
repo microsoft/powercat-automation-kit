@@ -3,7 +3,7 @@ title: "Överblick"
 description: "Automation Kit - Översikt"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -50,7 +50,7 @@ Du kan titta på fler videor på [Spellista för automatiseringssats](https://ww
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Huvudscenariot i Automation Kit för Power Platform är att påskynda användningen av Power Automate för datorlösningar genom att låta dig definiera, granska och övervaka avkastningen på investeringen i nära realtid genom automatisering av befintliga processer.
+Det viktigaste scenariot i Automation Kit för Power Platform är att påskynda användningen av Power Automate för datorlösningar genom att låta dig definiera, granska och övervaka avkastningen på investeringen i nära realtid genom automatisering av befintliga processer.
 {{</slide>}}
 
 {{<slide  id="slide2" audio="overview/Slide02.mp3" description="Automation Kit Features" image="overview/Slide02.SVG" >}}
@@ -74,7 +74,7 @@ Ur drifts- och risksynpunkt för att kontrollera åtkomsten till anslutningsappa
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Power Platform CoE Kit innehåller fokus på bredare klientorganisation och miljö som hanteras.
+Det Power Platform CoE Kit innehåller fokus på bredare klientorganisation och miljö som hanteras.
 
 Automatiseringspaketet kompletterar dessa uppsättningar verktyg genom att fokusera specifikt på viktiga element i Power Automate Desktop-flöden så att avkastningen och effekten kan demonstreras i nära realtid.
 
@@ -154,7 +154,7 @@ Läs mer om [Hanterade miljöer Power Platform pipelines och ALM-acceleratorn](/
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}
 När vi tittar vidare på våra milstolpar stöder vi eftersläpningsobjekt för att utöka den nya migreringsmodulen till automatiseringen.
 
-Djupare integration med Process advisor för att hjälpa till med processen att identifiera och kvalificera den förväntade avkastningen på automatisering
+Djupare integration med Process Advisor för att hjälpa till med processen att identifiera och kvalificera den förväntade avkastningen på automatisering
 
 När vi vill utöka de värdbaserade RPA-agenterna kommer vi att försöka ge exempel som påskyndar användningen av Azure-värdbaserade agenter för kunder som behövde automatisering av infrastrukturåtgärder för att integrera med distribuerade automatiseringsprojekt.
 {{</slide>}}

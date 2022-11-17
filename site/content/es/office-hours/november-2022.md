@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-Bienvenido a la página de inicio del horario de oficina de noviembre de 2022 de Automation Kit for Power Platform.
+Bienvenido a la página de inicio del horario de oficina de Automation Kit para Power Platform noviembre de 2022.
 
 Puede registrarse para la sesión de horario de oficina [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) que se celebrará el martes 15 de noviembre de 2022 entre las 7:00 a.m. y las 8:00 a.m. PDT (Ver otras zonas horarias UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

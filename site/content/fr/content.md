@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Index du site"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
+generated: 168C5A07790E2772917F905272F5727BB391EF98
 ---
 
 {{<toc>}}
@@ -38,6 +38,11 @@ generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 - [Kit d’automatisation - Historique des versions](/fr/releases)
 
 - [Kit d’automatisation - Support](/fr/support)
+
+
+### Emplacement : /backlog/
+
+- [Kit d’automatisation - Intégration Process Advisor](/fr/backlog/process-advisor-integration)
 
 
 ### Emplacement: /contribution/

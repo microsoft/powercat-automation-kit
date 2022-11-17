@@ -3,7 +3,7 @@ title: "Aperçu"
 description: "Kit d’automatisation - Vue d’ensemble"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -50,7 +50,7 @@ Vous pouvez regarder d’autres vidéos sur le [Liste de lecture du kit d’auto
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Le scénario clé d’Automation Kit for Power Platform est d’accélérer l’utilisation de Power Automate pour les solutions de bureau en vous permettant de définir, d’examiner et de surveiller en temps quasi réel le retour sur investissement de l’automatisation des processus existants.
+Le scénario clé du Kit d’automatisation pour Power Platform est d’accélérer l’utilisation de Power Automate pour les solutions de bureau en vous permettant de définir, d’examiner et de surveiller en temps quasi réel le retour sur investissement de l’automatisation des processus existants.
 {{</slide>}}
 
 {{<slide  id="slide2" audio="overview/Slide02.mp3" description="Automation Kit Features" image="overview/Slide02.SVG" >}}
@@ -148,7 +148,7 @@ En prolongeant le processus d’installation, Data Packs vous permettra d’impo
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 En étendant les fonctionnalités existantes d’ALM Accelerator, nous prévoyons d’ajouter des actions spécifiques à la RPA qui transforment le processus d’intégration des composants Power Automate Desktop en un processus de déploiement et de révision automatisé.
 
-Lire la suite de [Environnements gérés Power Platform Pipelines et ALM Accelerator](/fr/features/alm) et comment ils peuvent vous aider à déployer et à gérer vos solutions d’automatisation.
+Lire la suite de [Environnements gérés Power Platform pipelines et ALM Accelerator](/fr/features/alm) et comment ils peuvent vous aider à déployer et à gérer vos solutions d’automatisation.
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}

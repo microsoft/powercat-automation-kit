@@ -4,7 +4,7 @@ description: "자동화 키트 - 기여 피드백"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
+generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
 ---
 
 {{<product-name>}}? 아래 섹션을 사용하여 다양한 피드백 유형을 탐색할 수 있습니다.

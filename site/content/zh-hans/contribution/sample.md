@@ -4,7 +4,7 @@ description: "自动化工具包 - 创作示例"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: F08B4581ED304D561DE1C5BC479DEB68A97993CA
+generated: C7C3FC08AB869F1C59DE2F7DED67143FFE7ADDBD
 ---
 
 <div class="optional">

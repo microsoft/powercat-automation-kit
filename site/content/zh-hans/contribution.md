@@ -7,9 +7,9 @@ include_footer: true
 generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
-作为一个基于 Power Platform 和 Microsoft 云构建的开源项目，我们的目标是快速提供工具和指导，以帮助加速您的超自动化之旅。
+As an Open Source project built on top of the <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> and Microsoft Cloud our goal is to rapidly provide tools and guidance to help accelerate your hyper automation journey.
 
-作为这一旅程的一部分，我们将根据您的反馈与核心电源平台工程团队进行孵化、成熟和协作。使用此反馈，我们将寻求在核心产品中包含学习内容，以改进和响应您的需求。
+As part of this journey as we incubate, mature and collaborate with the Core <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> engineering team based on your feedback. Using this feedback we will look to include learnings in the core product to improve and respond to your needs.
 
 在这种情况下，您可以通过多种方式为项目做出贡献，以改进我们的路线图和功能：
 

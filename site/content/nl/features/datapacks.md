@@ -49,7 +49,7 @@ Aan de slag met dit gegevenspakket
 
 - Installeer de nieuwste versie van de Automation Kit Main vanaf [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) Gebruik [Meer informatie over de installatiehandleiding](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
-- Power Platform Command Line Interface installeren met behulp van [Meer informatie over de installatiehandleiding](https://learn.microsoft.com/power-platform/developer/cli/introduction)
+- Installeer Power Platform opdrachtregelinterface met [Meer informatie over de installatiehandleiding](https://learn.microsoft.com/power-platform/developer/cli/introduction)
 
 - Verificatie voor uw omgeving maken
 

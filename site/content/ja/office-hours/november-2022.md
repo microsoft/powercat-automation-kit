@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-Power Platform の自動化キット 2022 年 11 月の営業時間のランディング ページへようこそ。
+2022年11月Power Platform営業時間のランディングページの自動化キットへようこそ。
 
 オフィスアワーセッションに登録できます[https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours)2022年11月15日火曜日の午前7:00から午前8:00(太平洋夏時間)に開催されます(他のタイムゾーンUTC -7[https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

@@ -26,7 +26,7 @@ El kit de automatización aprovecha el [Acelerador ALM](https://aka.ms/aa4pp) pa
 
 Similar al proceso de lanzamiento utilizado para otros kits administrados por Power CAT, el {{<product-name>}} usa el acelerador de ALM para implementar versiones en nuestras versiones públicas de GitHub.
 
-Nuestro proceso interno cuenta con un entorno Power Platform para Desarrollo, Prueba y Producción. Una vez que estamos listos para un lanzamiento, nuestras Acciones de GitHub integradas empaquetan las soluciones de implementación administradas y no administradas junto con las notas de la versión automáticamente para una versión de GitHub Draft.
+Nuestro proceso interno tiene un entorno Power Platform para Desarrollo, Prueba y Producción. Una vez que estamos listos para un lanzamiento, nuestras Acciones de GitHub integradas empaquetan las soluciones de implementación administradas y no administradas junto con las notas de la versión automáticamente para una versión de GitHub Draft.
 
 Una vez que el borrador de la versión esté listo, podemos publicar nuevas versiones o revisiones según sea necesario.
 
@@ -46,7 +46,7 @@ Ahora que tenemos esta automatización en su lugar, la versión automatizada de 
 
 Puede investigar nuestros elementos de trabajo pendiente relacionados con ALM abiertos en nuestro [Registro de problemas de GitHub](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
-En general, nos basamos en las características existentes de Power Platform y Microsoft DevOps junto con ALM Accelerator. Esta combinación nos permite centrarnos en extensiones específicas que ayudan con la hiperautomción.
+En general, nos basamos en las características existentes de Power Platform y del producto Microsoft DevOps junto con ALM Accelerator. Esta combinación nos permite centrarnos en extensiones específicas que ayudan con la hiperautomción.
 
 ## Retroalimentación
 
@@ -58,7 +58,7 @@ En general, nos basamos en las características existentes de Power Platform y M
 
 El equipo de Power CAT utiliza el acelerador ALM para crear e implementar cada uno de nuestros [Libera](https://github.com/microsoft/powercat-automation-kit/releases).
 
-Cada versión promueve cambios de nuestro desarrollo en entornos de prueba y producción. Las soluciones de Power Platform dentro del kit usan un proceso automatizado para empaquetar activos para su implementación en versiones públicas de GitHub.
+Cada versión promueve cambios de nuestro desarrollo en entornos de prueba y producción. Las Power Platform soluciones dentro del kit usan un proceso automatizado para empaquetar activos para su implementación en versiones públicas de GitHub.
 
 En futuros hitos ampliaremos la plataforma existente [Características de ALM](/es/features/alm) para proporcionar ejemplos de cómo incluir reglas de validación y comparación visual de muestras de RPA como parte del proceso de DevOps.  
 
@@ -68,13 +68,13 @@ En futuros hitos ampliaremos la plataforma existente [Características de ALM](/
 
 A continuación se describen los pasos clave en el proceso de lanzamiento del Kit de automatización:
 
-1. Los cambios realizados en nuestro entorno de desarrollo de Power Platform se guardan en una rama del repositorio público de GitHub.
+1. Los cambios realizados en nuestro entorno de desarrollo Power Platform se guardan en una rama del repositorio público de GitHub.
 
 2. Cuando los cambios están listos para su inclusión en una versión de prueba, se combinan en la rama principal mediante una solicitud de extracción. Antes de que se pueda completar la solicitud de extracción, la canalización de validación de Azure DevOps debe completarse correctamente y revisar la solicitud de extracción.
 
-3. Una vez que la solicitud de extracción ha pasado las comprobaciones automatizadas y ha recibido la aprobación de revisión, se puede fusionar en la rama principal. Esta combinación desencadena la canalización de compilación de Azure DevOps de prueba, que publica la compilación administrada en el entorno de prueba de Power Platform.
+3. Una vez que la solicitud de extracción ha pasado las comprobaciones automatizadas y ha recibido la aprobación de revisión, se puede fusionar en la rama principal. Esta combinación desencadena la canalización de compilación de Azure DevOps de prueba, que publica la compilación administrada en el entorno de Power Platform de prueba.
 
-4. Después de las pruebas internas, la canalización de producción de Azure DevOps se desencadena manualmente para generar una implementación de Production Power Platform.
+4. Después de las pruebas internas, la canalización de producción de Azure DevOps se desencadena manualmente para generar una implementación de Power Platform de producción.
 
 5. Una vez que está lista una versión, la canalización de Azure DevOps crea un borrador de la versión que incluye notas de la versión y activos de compilación. La compilación final de la versión cerrará todos los problemas abiertos y cerrará el hito. Etiqueta de compilación publicada del repositorio de GitHub con una etiqueta de mes y año aplicada.
 

@@ -4,7 +4,7 @@ description: "Automation Kit - Contribution Feedback"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
+generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
 ---
 
 Chcemy podzielić się swoją opinią na temat {{<product-name>}}? Możesz skorzystać z poniższych sekcji, aby zapoznać się z różnymi typami opinii.

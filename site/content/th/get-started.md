@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - เริ่ม
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 454A4990DCD77031642D2EDE36FE235A40DF66E0
+generated: AA276EEA88682DC81E1FEB1C42402B084FC66754
 ---
 
 ## แนะ นำ

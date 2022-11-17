@@ -1,0 +1,136 @@
+{
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "process-advisor-integration-useful",
+          "title": {
+            "default": "Is Process Advisor starter content useful to you?",
+            "th": "เนื้อหาเริ่มต้นProcess Advisorมีประโยชน์กับคุณหรือไม่"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "not-useful",
+          "title": {
+            "default": "Why was the content not useful for you?",
+            "th": "เหตุใดเนื้อหาจึงไม่เป็นประโยชน์สําหรับคุณ"
+          },
+          "visibleIf": "{process-advisor-integration-useful} = false"
+        },
+        {
+          "type": "checkbox",
+          "name": "products",
+          "title": {
+            "default": "What is most important to you?",
+            "th": "อะไรสําคัญที่สุดสําหรับคุณ?"
+          },
+          "isRequired": false,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Advise on how Process Advisor can integrate with the Automation Kit",
+              "text": {
+                "default": "Advise on how Process Advisor can integrate with the Automation Kit",
+                "th": "ให้คําแนะนําเกี่ยวกับวิธีที่Process Advisorสามารถผสานรวมกับชุดระบบอัตโนมัติ"
+              }
+            },
+            {
+              "value": "Applications and Templates that automate the process of integrating data",
+              "text": {
+                "default": "Applications and Templates that automate the process of integrating data",
+                "th": "แอปพลิเคชันและเทมเพลตที่ทําให้กระบวนการรวมข้อมูลเป็นไปโดยอัตโนมัติ"
+              }
+            },
+            {
+              "value": "How does Process Task mining integrates with Automation Kit",
+              "text": {
+                "default": "How does Process Task mining integrates with Automation Kit",
+                "th": "การทําเหมืองงานกระบวนการผสานรวมกับ Automation Kit อย่างไร"
+              }
+            },
+            {
+              "value": "Reference Architecture on how integrate Process Advisor",
+              "text": {
+                "default": "Reference Architecture on how integrate Process Advisor",
+                "th": "สถาปัตยกรรมอ้างอิงเกี่ยวกับวิธีการรวมProcess Advisor"
+              }
+            },
+            {
+              "value": "Specific data items that can be copied",
+              "text": {
+                "default": "Specific data items that can be copied",
+                "th": "รายการข้อมูลเฉพาะที่สามารถคัดลอกได้"
+              }
+            },
+            {
+              "value": "What extra Automation Kit Project data items can be defaulted as part of common organizational profile as part of data integration",
+              "text": {
+                "default": "What extra Automation Kit Project data items can be defaulted as part of common organizational profile as part of data integration",
+                "th": "รายการข้อมูลโครงการ Automation Kit เพิ่มเติมใดบ้างที่สามารถเป็นค่าเริ่มต้นโดยเป็นส่วนหนึ่งของโปรไฟล์องค์กรทั่วไปซึ่งเป็นส่วนหนึ่งของการรวมข้อมูล"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "th": "ข้อเสนอแนะอื่น ๆ ?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the Process Advisor integration based on your responses",
+            "th": "คุณต้องการส่งผลลัพธ์ของคําติชมของคุณเพื่อให้ทีม Core Automation Kit สามารถปรับแต่งการรวมProcess Advisorตามคําตอบของคุณหรือไม่"
+          },
+          "label": {
+            "default": "Send results?",
+            "th": "ส่งผลลัพธ์?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "th": "เราหวังว่าคําถามเหล่านี้จะช่วยให้คุณกําหนดแนวคิดเกี่ยวกับหัวข้อหรือคําถามหากคุณเข้าร่วม"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview.",
+            "th": "เราหวังว่าจะได้รับความคิดเห็นของคุณ ในฐานะทีม Automation Kit หลักเราใช้ข้อเสนอแนะเพื่อปรับปรุงภาพรวม"
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "th": "ส่งความคิดเห็นของคุณตอนนี้หรือไม่"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "th": "สถานะ: "
+          }
+        }
+      ]
+    }
+  ]
+}

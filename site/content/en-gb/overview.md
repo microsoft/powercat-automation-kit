@@ -3,7 +3,7 @@ title: "Overview"
 description: "Automation Kit - Overview"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -154,7 +154,7 @@ Read more about [Managed Environments Power Platform Pipelines and the ALM Accel
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}
 Looking further into our milestones we back backlog items to expand the new Migration Module to the Automation.
 
-Deeper integration with Process advisor to assist with the process of identify and qualifying the expected ROI of automation
+Deeper integration with Process Advisor to assist with the process of identify and qualifying the expected ROI of automation
 
 As we look to augment the hosted RPA Agents we will look to provide examples that accelerate the use of Azure hosted agents for customers that required Infrastructure Operations automation to integrate with deployed automation projects.
 {{</slide>}}

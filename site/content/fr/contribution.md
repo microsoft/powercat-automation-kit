@@ -7,9 +7,9 @@ include_footer: true
 generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
-En tant que projet Open Source construit sur Power Platform et Microsoft Cloud, notre objectif est de fournir rapidement des outils et des conseils pour vous aider à accélérer votre parcours d’hyper automatisation.
+En tant que projet Open Source construit sur le Power Platform et Microsoft Cloud, notre objectif est de fournir rapidement des outils et des conseils pour vous aider à accélérer votre parcours d’hyper automatisation.
 
-Dans le cadre de ce voyage, nous incubons, mûrissons et collaborons avec l’équipe d’ingénierie de Core Power Platform en fonction de vos commentaires. En utilisant ces commentaires, nous chercherons à inclure des apprentissages dans le produit de base pour améliorer et répondre à vos besoins.
+Dans le cadre de ce voyage, nous incubons, mûrissons et collaborons avec l’équipe d’ingénierie Core Power Platform en fonction de vos commentaires. En utilisant ces commentaires, nous chercherons à inclure des apprentissages dans le produit de base pour améliorer et répondre à vos besoins.
 
 Dans ce contexte, il existe plusieurs façons de contribuer au projet pour améliorer notre feuille de route et nos fonctionnalités :
 

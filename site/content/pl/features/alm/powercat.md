@@ -26,7 +26,7 @@ Zestaw Automation Kit wykorzystuje [Akcelerator ALM](https://aka.ms/aa4pp) aby z
 
 Podobnie jak w przypadku innych zestawów zarządzanych przez Power CAT, {{<product-name>}} używa akceleratora ALM do wdrażania wydań w naszych publicznych wydaniach usługi GitHub.}} uses the ALM Accelerator, to deploy releases to our public GitHub releases.
 
-Nasz wewnętrzny proces obejmuje środowisko Power Platform do rozwoju, testowania i produkcji. Gdy będziemy gotowi do wydania, nasze zintegrowane usługi GitHub Actions pakują zarządzane i niezarządzane rozwiązania wdrożeniowe wraz z informacjami o wersji automatycznie dla wersji roboczej usługi GitHub.Once we are ready for a release our integrated GitHub Actions, the managed and unmanaged deployment solutions along with release notes automatically for a GitHub Draft release.
+Nasz wewnętrzny proces ma Power Platform środowisko dla rozwoju, testowania i produkcji. Gdy będziemy gotowi do wydania, nasze zintegrowane usługi GitHub Actions pakują zarządzane i niezarządzane rozwiązania wdrożeniowe wraz z informacjami o wersji automatycznie dla wersji roboczej usługi GitHub.Once we are ready for a release our integrated GitHub Actions, the managed and unmanaged deployment solutions along with release notes automatically for a GitHub Draft release.
 
 Gdy wersja robocza jest gotowa, możemy opublikować nowe wersje lub poprawki w razie potrzeby.
 
@@ -58,7 +58,7 @@ Ogólnie rzecz biorąc, opieramy się na istniejących gotowych funkcjach Power 
 
 Zespół Power CAT używa akceleratora ALM do budowy i wdrażania każdego z naszych [Zwalnia](https://github.com/microsoft/powercat-automation-kit/releases).
 
-Każda wersja promuje zmiany od naszego rozwoju do środowisk testowych i produkcyjnych. Rozwiązania Power Platform w zestawie używają zautomatyzowanego procesu do pakowania zasobów w celu wdrożenia w publicznych wersjach usługi GitHub.The Power Platform solutions inside the kit use an automated process to package assets for deployment to public GitHub releases.
+Każda wersja promuje zmiany od naszego rozwoju do środowisk testowych i produkcyjnych. Rozwiązania Power Platform wewnątrz zestawu używają zautomatyzowanego procesu do pakowania zasobów do wdrożenia w publicznych wydaniach GitHub.The  solutions inside the kit use an automated process to package assets for deployment to public GitHub releases.
 
 W przyszłych kamieniach milowych będziemy rozwijać istniejącą platformę [Funkcje ALM](/pl/features/alm) , aby podać przykłady uwzględniania reguł sprawdzania poprawności i wizualnego porównania próbek RPA w ramach procesu DevOps.  
 
@@ -68,13 +68,13 @@ W przyszłych kamieniach milowych będziemy rozwijać istniejącą platformę [F
 
 Poniżej przedstawiono kluczowe kroki w procesie wydawania zestawu Automation Kit:
 
-1. Zmiany wprowadzone w naszym środowisku deweloperskim Power Platform są zapisywane w gałęzi w publicznym repozytorium GitHub
+1. Zmiany wprowadzone w naszym środowisku Power Platform Dev są zapisywane w gałęzi w publicznym repozytorium GitHub
 
 2. Gdy zmiany są gotowe do włączenia do wersji testowej, są scalane z główną gałęzią za pomocą żądania ściągnięcia. Przed ukończeniem żądania ściągnięcia potok sprawdzania poprawności usługi Azure DevOps musi zostać pomyślnie ukończony, a żądanie ściągnięcia przejrzane.
 
-3. Gdy żądanie ściągnięcia przejdzie automatyczne kontrole i otrzyma zatwierdzenie przeglądu, może zostać połączone z główną gałęzią. To scalanie wyzwala testowy potok kompilacji usługi Azure DevOps, który publikuje kompilację zarządzaną w testowym środowisku Power Platform.
+3. Gdy żądanie ściągnięcia przejdzie automatyczne kontrole i otrzyma zatwierdzenie przeglądu, może zostać połączone z główną gałęzią. To scalanie wyzwala testowy potok kompilacji usługi Azure DevOps, który publikuje kompilację zarządzaną w środowisku Power Platform testowego.
 
-4. Po testach wewnętrznych potok produkcyjny usługi Azure DevOps jest wyzwalany ręcznie w celu wygenerowania wdrożenia platformy Production Power Platform.
+4. Po testach wewnętrznych potok produkcyjny usługi Azure DevOps jest wyzwalany ręcznie w celu wygenerowania wdrożenia Power Platform produkcyjnego.
 
 5. Gdy wersja jest gotowa, potok Azure DevOps tworzy wersję roboczą zawierającą informacje o wersji i zasoby kompilacji. Ostateczna kompilacja wydania zamknie wszystkie otwarte problemy i zamknie kamień milowy. Opublikowany tag kompilacji repozytorium GitHub z zastosowaną etykietą Miesiąc i rok.
 

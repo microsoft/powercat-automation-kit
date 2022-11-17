@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
+generated: 168C5A07790E2772917F905272F5727BB391EF98
 ---
 
 {{<toc>}}
@@ -38,6 +38,11 @@ generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 - [자동화 키트 - 릴리스 기록](/ko/releases)
 
 - [자동화 키트 - 지원](/ko/support)
+
+
+### 위치: /백로그/
+
+- [자동화 키트 - Process Advisor 통합](/ko/backlog/process-advisor-integration)
 
 
 ### 위치: /기여/

@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
+generated: 168C5A07790E2772917F905272F5727BB391EF98
 ---
 
 {{<toc>}}
@@ -38,6 +38,11 @@ generated: 6809580C6D66F1FE95AD173CC4FF67C3D7102025
 - [自动化套件 - 版本历史记录](/zh-hans/releases)
 
 - [自动化套件 - 支持](/zh-hans/support)
+
+
+### 位置： /积压/
+
+- [Automation Kit - <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> Integration](/zh-hans/backlog/process-advisor-integration)
 
 
 ### 当前位置： /贡献/

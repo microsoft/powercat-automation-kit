@@ -7,7 +7,7 @@ include_footer: true
 generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
-Como proyecto de código abierto creado sobre Power Platform y Microsoft Cloud, nuestro objetivo es proporcionar rápidamente herramientas y orientación para ayudar a acelerar su viaje de hiperautomatización.
+Como proyecto de código abierto construido sobre la nube de Power Platform y Microsoft, nuestro objetivo es proporcionar rápidamente herramientas y orientación para ayudar a acelerar su viaje de hiperautomatización.
 
 Como parte de este viaje a medida que incubamos, maduramos y colaboramos con el equipo de ingeniería de Core Power Platform en función de sus comentarios. Usando estos comentarios, buscaremos incluir aprendizajes en el producto principal para mejorar y responder a sus necesidades.
 

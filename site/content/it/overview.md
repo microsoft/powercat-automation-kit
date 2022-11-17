@@ -3,7 +3,7 @@ title: "Panoramica"
 description: "Kit di automazione - Panoramica"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -50,7 +50,7 @@ Puoi guardare altri video sul [Playlist del kit di automazione](https://www.yout
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Lo scenario chiave dell'Automation Kit for Power Platform consiste nell'accelerare l'utilizzo di Power Automate per le soluzioni desktop consentendoti di definire, rivedere e monitorare quasi in tempo reale il ritorno sull'investimento grazie all'automazione dei processi esistenti.
+Lo scenario chiave di Automation Kit for Power Platform consiste nell'accelerare l'utilizzo di Power Automate per le soluzioni desktop consentendoti di definire, rivedere e monitorare quasi in tempo reale il ritorno sull'investimento grazie all'automazione dei processi esistenti.
 {{</slide>}}
 
 {{<slide  id="slide2" audio="overview/Slide02.mp3" description="Automation Kit Features" image="overview/Slide02.SVG" >}}
@@ -74,7 +74,7 @@ Da un punto di vista operativo e di rischio per controllare l'accesso ai connett
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Il kit CoE di Power Platform include un focus su tenant e ambienti gestiti più ampi.
+Il kit CoE Power Platform include un focus su tenant e ambiente gestiti più ampi.
 
 Il kit di automazione integra questo set di strumenti concentrandosi in particolare sugli elementi chiave dei flussi di Power Automate Desktop in modo che il ROI e l'impatto possano essere dimostrati quasi in tempo reale.
 
@@ -148,13 +148,13 @@ Estendendo il processo di installazione, i Data Pack offriranno la possibilità 
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 Estendendo le funzionalità esistenti di ALM Accelerator, stiamo pianificando di aggiungere azioni specifiche RPA che rendano il processo di integrazione dei componenti di Power Automate Desktop in un processo di distribuzione e revisione automatizzato.
 
-Leggi tutto su [Ambienti gestiti Power Platform Pipelines e ALM Accelerator](/it/features/alm) e come possono aiutarti a implementare e gestire le tue soluzioni di automazione.
+Leggi tutto su [Ambienti gestiti Power Platform pipeline e ALM Accelerator](/it/features/alm) e come possono aiutarti a implementare e gestire le tue soluzioni di automazione.
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}
 Esaminando ulteriormente le nostre pietre miliari, abbiamo eseguito il backlog degli elementi arretrati per espandere il nuovo modulo di migrazione all'automazione.
 
-Integrazione più profonda con Process Advisor per assistere nel processo di identificazione e qualificazione del ROI atteso dell'automazione
+Una più profonda integrazione con Process Advisor per assistere nel processo di identificazione e qualificazione del ROI atteso dell'automazione
 
 Mentre cerchiamo di aumentare gli agenti RPA ospitati, cercheremo di fornire esempi che accelerano l'uso degli agenti ospitati di Azure per i clienti che hanno richiesto l'automazione delle operazioni dell'infrastruttura per l'integrazione con i progetti di automazione distribuiti.
 {{</slide>}}

@@ -3,7 +3,7 @@ title: "Overzicht"
 description: "Automation Kit - Overzicht"
 sidebar: false
 sidebarlogo: fresh-white
-generated: D54DBBDD0CBABEE34BB022E391F605B7BA8717E8
+generated: 93B641280A8851982928F089C74D80495E8889B5
 ---
 
 <div class="optional">
@@ -50,7 +50,7 @@ U kunt verdere video's bekijken op de [Automation Kit-afspeellijst](https://www.
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Het belangrijkste scenario van de Automation Kit for Power Platform is om het gebruik van de Power Automate voor desktop-oplossingen te versnellen door u in staat te stellen het rendement op de investering in bijna realtime te definiëren, te beoordelen en te bewaken door automatisering van bestaande processen.
+Het belangrijkste scenario van de Automation Kit voor Power Platform is om het gebruik van de Power Automate voor desktopoplossingen te versnellen door u in staat te stellen het rendement op de investering in bijna realtime te definiëren, te beoordelen en te bewaken door automatisering van bestaande processen.
 {{</slide>}}
 
 {{<slide  id="slide2" audio="overview/Slide02.mp3" description="Automation Kit Features" image="overview/Slide02.SVG" >}}
@@ -74,7 +74,7 @@ Vanuit operationeel en risicooogpunt om de toegang tot connectoren en gegevens t
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-De Power Platform CoE Kit bevat een focus op bredere tenant- en omgevingsbeheer.
+De Power Platform CoE Kit omvatten een focus op bredere huurder en omgeving beheerd.
 
 De automatiseringskit vult deze set tools aan door zich specifiek te richten op de belangrijkste elementen van Power Automate Desktop-stromen, zodat de ROI en impact in bijna realtime kunnen worden gedemonstreerd.
 
@@ -148,13 +148,13 @@ Data Packs breiden het installatieproces uit en bieden de mogelijkheid om vooraf
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 Voortbouwend op de bestaande ALM Accelerator-functies zijn we van plan om RPA-specifieke acties toe te voegen die het proces van integratie van Power Automate Desktop-componenten in een geautomatiseerd implementatie- en beoordelingsproces maken.
 
-Lees meer over [Beheerde omgevingen Power Platform Pipelines en de ALM Accelerator](/nl/features/alm) en hoe ze u kunnen helpen bij het implementeren en beheren van uw automatiseringsoplossingen.
+Lees meer over [Beheerde omgevingen Power Platform pijplijnen en de ALM-accelerator](/nl/features/alm) en hoe ze u kunnen helpen bij het implementeren en beheren van uw automatiseringsoplossingen.
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}
 Verder kijkend naar onze mijlpalen hebben we backlog items om de nieuwe Migratie Module uit te breiden naar de Automatisering.
 
-Diepere integratie met procesadviseur om te helpen bij het proces van het identificeren en kwalificeren van de verwachte ROI van automatisering
+Diepere integratie met Process Advisor om te helpen bij het proces van het identificeren en kwalificeren van de verwachte ROI van automatisering
 
 Terwijl we de gehoste RPA-agents willen uitbreiden, zullen we voorbeelden geven die het gebruik van door Azure gehoste agents versnellen voor klanten die automatisering van Infrastructure Operations nodig hadden om te integreren met geïmplementeerde automatiseringsprojecten.
 {{</slide>}}

@@ -46,7 +46,7 @@ Ora che abbiamo implementato questa automazione, il rilascio automatico di ALM o
 
 Puoi esaminare i nostri elementi di backlog relativi all'ALM aperti nel nostro [Registro dei problemi di GitHub](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
-Nel complesso, ci basiamo sulle funzionalità esistenti di Power Platform e Microsoft DevOps insieme ad ALM Accelerator. Questa combinazione ci consente di concentrarci su estensioni specifiche che aiutano con l'iperautomzione.
+Nel complesso, ci basiamo sulle funzionalità esistenti del prodotto Power Platform e Microsoft DevOps insieme ad ALM Accelerator. Questa combinazione ci consente di concentrarci su estensioni specifiche che aiutano con l'iperautomzione.
 
 ## Valutazione
 
@@ -74,7 +74,7 @@ Di seguito vengono descritti i passaggi chiave del processo di rilascio di Autom
 
 3. Una volta che la richiesta pull ha superato i controlli automatici e ricevuto l'approvazione della revisione, può essere unita al ramo principale. Questa unione attiva la pipeline di compilazione di Azure DevOps di test che pubblica la build gestita nell'ambiente Power Platform di test.
 
-4. Dopo i test interni, la pipeline di produzione di Azure DevOps viene attivata manualmente per generare una distribuzione di Production Power Platform.
+4. Dopo il test interno, la pipeline di produzione di Azure DevOps viene attivata manualmente per generare una distribuzione di Power Platform di produzione.
 
 5. Una volta che è pronta una release, la pipeline di Azure DevOps di rilascio crea una bozza di rilascio che include note sulla versione e asset di compilazione. La build di rilascio finale chiuderà tutti i problemi aperti e chiuderà la fase cardine. Tag di compilazione pubblicato nel repository GitHub con un'etichetta Month e Year applicata.
 

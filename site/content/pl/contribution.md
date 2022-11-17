@@ -7,9 +7,9 @@ include_footer: true
 generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
 ---
 
-Jako projekt Open Source oparty na platformie Power Platform i Microsoft Cloud naszym celem jest szybkie dostarczenie narzędzi i wskazówek, które pomogą przyspieszyć podróż hiperautomatyzacji.
+Jako projekt Open Source oparty na Power Platform i Microsoft Cloud, naszym celem jest szybkie dostarczenie narzędzi i wskazówek, które pomogą przyspieszyć podróż hiperautomatyzacji.
 
-W ramach tej podróży inkubujemy, dojrzewamy i współpracujemy z zespołem inżynierów Core Power Platform w oparciu o Wasze opinie. Korzystając z tych opinii, postaramy się uwzględnić wiedzę w podstawowym produkcie, aby ulepszyć i odpowiedzieć na Twoje potrzeby.
+W ramach tej podróży inkubujemy, dojrzewamy i współpracujemy z zespołem inżynierów Core Power Platform w oparciu o Twoją opinię. Korzystając z tych opinii, postaramy się uwzględnić wiedzę w podstawowym produkcie, aby ulepszyć i odpowiedzieć na Twoje potrzeby.
 
 Biorąc pod uwagę ten kontekst, istnieje wiele sposobów, w jakie możesz przyczynić się do projektu w celu ulepszenia naszej mapy drogowej i funkcji:
 

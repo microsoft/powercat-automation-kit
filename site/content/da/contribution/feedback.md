@@ -4,7 +4,7 @@ description: "Automatiseringssæt - Feedback om bidrag"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
+generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
 ---
 
 Ønsker at bidrage med din feedback til {{<product-name>}}? Du kan bruge afsnittene nedenfor til at udforske de forskellige feedbacktyper.

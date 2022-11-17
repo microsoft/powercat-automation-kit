@@ -4,7 +4,7 @@ description: "Automatiseringssett – RPA-overføring"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
+generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 ---
 
 {{<toc>}}
@@ -47,7 +47,7 @@ Listen nedenfor gir en oversikt over områder vi prioriterer for inkludering i a
 
 ### Konvertering
 
-- **Skyintegrasjon** eksempelkomponenter som kan brukes til å akselerere konverteringsprosessen for å overføre løsninger til Power Platform, Microsoft Cloud.
+- **Skyintegrasjon** eksempelkomponenter som kan brukes til å akselerere konverteringsprosessen for å migrere løsninger til Power Platform, Microsoft Cloud.
 
 - **Ikke-funksjonelle krav** dekker tilnærming til kvalitetstesting, DevOps-overvåking, Dokumentasjon av migrerte løsninger
 
@@ -61,7 +61,11 @@ Ved å koble strømautomatiseringsmigrering til Automation Center of Excellence 
 
 Ser spesifikt på migreringsutviklerprosessen
 
+{{<border>}}
+
 ![Kompetansesenter for automatisering – utvikler av overføring](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### Vurder og planlegg
 

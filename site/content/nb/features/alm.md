@@ -11,7 +11,7 @@ generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
 
 <div class="optional">
 
-Denne siden gir en oversikt over komponenter som kan hjelpe deg med å bruke ALM med automatiseringssettet for Power Automate Desktop-arbeidsflyter som er inkludert i [Power Platform-løsninger](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
+Denne siden gir en oversikt over komponenter som kan hjelpe deg med å bruke ALM med automatiseringssettet for Power Automate Desktop-arbeidsflyter som er inkludert i [Power Platform løsninger](https://learn.microsoft.com/power-platform/alm/solution-concepts-alm).
 
 </div>
 
@@ -23,9 +23,9 @@ Denne siden gir en oversikt over komponenter som kan hjelpe deg med å bruke ALM
 
 ## Sammendrag
 
-Når du ser på ALM for Power Platform-løsninger som inkluderer Power Automate Desktop-komponenter
+Når du ser på ALM for Power Platform løsninger som inkluderer Power Automate Desktop-komponenter
 
-1. Se gjennom funksjonene i Power Platform-pipeliner for administrert miljø for å dra nytte av funksjoner i bedriftsskala i produktet for å administrere og styre løsninger i miljøer.
+1. Se gjennom funksjonene i Managed Environment Power Platform Pipelines for å dra nytte av funksjoner i bedriftsskala i produktet for å administrere og styre løsninger i miljøer.
 
 <br/>
 
@@ -33,7 +33,7 @@ Når du ser på ALM for Power Platform-løsninger som inkluderer Power Automate 
 
 <br/>
 
-3. Vurder å bruke [ALM-akselerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). ALM Accelerator inneholder et forhåndsbygd sett med Azure DevOps-maler som automatiserer mange av Power Platform ALM-oppgavene ved hjelp av integrert kildekontrollstyring.
+3. Vurder å bruke [ALM-akselerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). ALM Accelerator inneholder et forhåndsbygd sett med Azure DevOps-maler som automatiserer mange av de Power Platform ALM-oppgavene ved hjelp av integrert kildekontrollstyring.
 
 ## Lære av Power CAT
 
@@ -41,7 +41,7 @@ Du kan også lese mer om hvordan vi som Power CAT-team bruker ALM Accelerator ti
 
 ## Ressurser
 
-[ALM Accelerator for Power Platform-læringskatalogen](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
+[ALM-akselerator for Power Platform læringskatalog](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)
 
 ## Veikart
 
@@ -79,7 +79,7 @@ Administrerte miljøer gir deg:
 - Konfigurere løsningskontroll for sikkerhets- eller pålitelighetskontroller for å kjøre regler automatisk når en løsning importeres til et administrert miljø
 - Tilpass velkomst- og delingsopplevelsen for oppretteren slik at du veileder brukerne på riktig vei.
 - Mindre innsats effektiviserer, forenkler og automatiserer trinn ut av esken bare noen få klikk. 
-- Power Platform-pipelinene gir muligheten til å forenkle prosessen for administrasjon av programlivssyklus (ALM).
+- Power Platform Pipelines gir deg muligheten til å forenkle prosessen for administrasjon av programlivssyklus (ALM).
 
 {{</slide>}}
 
@@ -109,9 +109,9 @@ I de kommende ukene og månedene vil du se bruksinnsikt på hjemmesiden. Nye tre
 
 {{<slide  id="slide5" audio="features/alm/pipeline-extensibility.mp3?v=1" description="Pipeline Extensibility" image="features/alm/pipeline-extensibility.svg?v=1" >}}
 
-Du har en rekke alternativer du bør vurdere for ALM-valgene i Power Platform. Power Platform-datasamlebåndene for administrert miljø gir administrasjon av livssyklus for produktprogrammer.
+Du har en rekke alternativer å vurdere for ALM-valgene dine i Power Platform. Det administrerte miljøet Power Platform pipeliner gir i administrasjon av produktprogramlivssyklus.
 
-Du kan eventuelt bruke utvidelsespunktene for Power Platform-pipeliner for administrert miljø kombinert med [Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)den [GitHub-handlinger for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) eller [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) for å rulle dine egne tilpassede ALM DevOps-prosesser.
+Du kan eventuelt bruke utvidelsespunktene for det administrerte miljøet Power Platform pipeliner kombinert med [Power Platform Kompiler verktøy for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)den [GitHub-handlinger for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) eller [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) for å rulle dine egne tilpassede ALM DevOps-prosesser.
 
 Endelig kan du dra nytte av [ALM-akselerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) fra CoE Kit for å levere forhåndsbygde maler og eksempler for ende-til-ende ALM ved hjelp av Azure DevOps. ALM Accelerator inneholder mange vanlige scenarier for å bygge og styre løsningene dine på tvers av miljøer.
 
@@ -119,9 +119,9 @@ Endelig kan du dra nytte av [ALM-akselerator for Power Platform](https://learn.m
 
 {{<slide  id="slide6" audio="features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1" description="ALM Accelerator for Power Platform Overview" image="features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" >}}
 
-Hva er ALM Accelerator for Power Platform?
+Hva er ALM-akselerator for Power Platform?
 
-ALM Accelerator for Power Platform inkluderer Power Apps som sitter oppå Azure DevOps Pipelines og Git-kildekontroll. Appen gir et forenklet grensesnitt der utviklere regelmessig kan eksportere komponentene i Power Platform-løsningene sine for å kildekontrollere og opprette distribusjonsforespørsler for å få arbeidet gjennomgått før distribusjon til målmiljøer.
+ALM Accelerator for Power Platform inkluderer Power Apps som sitter oppå Azure DevOps Pipelines og Git-kildekontroll. Appen har et forenklet grensesnitt der utviklere regelmessig kan eksportere komponentene i sine Power Platform Solutions for å kildekontrollere og opprette distribusjonsforespørsler for å få arbeidet gjennomgått før distribusjon til målmiljøer.
 
 {{</slide>}}
 
@@ -136,9 +136,9 @@ ALM Accelerator-maler for Azure DevOps-datasamlebånd forenkler automatisering a
 ALM Accelerator inkluderer pipelinemaler for å støtte en 3-trinns distribusjon til produksjon.
 Maler kan tilpasses for å passe til spesifikke behov og scenarier
 
-ALM Accelerator for Power Platform er en lerretsapp som sitter oppå Azure DevOps Pipelines for å gi et forenklet grensesnitt der opprettere regelmessig kan utføre og opprette pull-forespørsler for utviklingsarbeidet i Power Platform. 
+ALM-akseleratoren for Power Platform er en lerretsapp som sitter oppå Azure DevOps Pipelines for å gi et forenklet grensesnitt der opprettere regelmessig kan utføre og opprette pull-forespørsler for utviklingsarbeidet i Power Platform. 
 
-Kombinasjonen av Azure DevOps Pipelines og lerretsappen er det som utgjør den fullstendige ALM Accelerator for Power Platform-løsningen. 
+Kombinasjonen av Azure DevOps Pipelines og lerretsappen er det som utgjør den fullstendige ALM Accelerator for Power Platform løsning. 
 Pipelinene og appen er referanseimplementeringer. De ble utviklet for bruk av utviklingsteamet for CoE-startpakken internt, men har blitt åpen kildekode og utgitt for å demonstrere hvordan sunn ALM kan oppnås i Power Platform. De kan brukes som de er eller tilpasses for bestemte forretningsscenarier.
 
 {{</slide>}}

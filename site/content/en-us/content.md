@@ -39,6 +39,11 @@ include_footer: true
 - [Automation Kit - Support](/support)
 
 
+### Location: /backlog/
+
+- [Automation Kit - Process Advisor Integration](/backlog/process-advisor-integration)
+
+
 ### Location: /contribution/
 
 - [Automation Kit - Documentation Authoring Guidelines](/contribution/authoring)

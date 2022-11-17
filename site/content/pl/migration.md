@@ -4,14 +4,14 @@ description: "Automation Kit - migracja RPA"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
+generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 ---
 
 {{<toc>}}
 
 <br/>
 
-Na {{<product-name>}} **Moduł migracji** Zapewnia sprawdzony zestaw narzędzi i wskazówek opartych na kontaktach z klientami, aby przyspieszyć migrację. Wykorzystując zalety platformy Microsoft Power Platform, platformy Microsoft Azure i szerszych usług Microsoft Cloud, można:
+Na {{<product-name>}} **Moduł migracji** Zapewnia sprawdzony zestaw narzędzi i wskazówek opartych na kontaktach z klientami, aby przyspieszyć migrację. Wykorzystując możliwości Microsoft Power Platform, Microsoft Azure i szerszych usług Microsoft Cloud, możesz:
 
 - Zrealizuj swoje cele polegające na zapewnieniu oszczędności.
 
@@ -23,7 +23,7 @@ Na {{<product-name>}} **Moduł migracji** Zapewnia sprawdzony zestaw narzędzi i
 
 ![Przewodnik liderów biznesu po migracji do zrobotyzowanej automatyzacji procesów (RPA).](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/01/RPAWhitepaper_Img-241x300.png)
 
-Możesz użyć poniższego linku, aby zrozumieć proces migracji RPA dla platformy Microsoft Power Platform:
+Możesz użyć poniższego łącza, aby zrozumieć proces migracji RPA dla Power Platform firmy Microsoft:
 
 - [Sprawdzone metody modernizacji podejścia RPA za pomocą usługi Power Automate](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
@@ -47,7 +47,7 @@ Poniższa lista zawiera przegląd obszarów, które priorytetowo traktujemy do u
 
 ### Konwersja
 
-- **Integracja z chmurą** przykładowe składniki, których można użyć do przyspieszenia procesu konwersji w celu migracji rozwiązań do platformy Power Platform, Microsoft Cloud.
+- **Integracja z chmurą** przykładowe komponenty, które można wykorzystać do przyspieszenia procesu konwersji w celu migracji rozwiązań do Power Platform, Microsoft Cloud.
 
 - **Wymagania niefunkcjonalne** obejmujące podejście do testowania jakości, monitorowanie DevOps, dokumentację migrowanych rozwiązań
 
@@ -61,7 +61,11 @@ Poniższa lista zawiera przegląd obszarów, które priorytetowo traktujemy do u
 
 Patrząc konkretnie na proces Migration Developer
 
+{{<border>}}
+
 ![Automation Center of Excellence - Migration Developer](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### Ocena i planowanie
 

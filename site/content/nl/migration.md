@@ -4,7 +4,7 @@ description: "Automatiseringskit - RPA-migratie"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 0C164D26152AE013E48EB24B2650FE444FD5984D
+generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 ---
 
 {{<toc>}}
@@ -23,7 +23,7 @@ De {{<product-name>}} **Migratie module** biedt u een bewezen set tools en begel
 
 ![Business Leaders' Guide to Robotic Process Automation (RPA) Migratie.](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/01/RPAWhitepaper_Img-241x300.png)
 
-U kunt de volgende koppeling gebruiken om het RPA-migratieproces voor het Microsoft Power Platform te begrijpen:
+U kunt de volgende koppeling gebruiken om het RPA-migratieproces voor de Microsoft Power Platform te begrijpen:
 
 - [Beproefde methoden om uw RPA-aanpak te moderniseren met Power Automate](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
@@ -47,7 +47,7 @@ De volgende lijst geeft een overzicht van gebieden die we prioriteren voor opnam
 
 ### Conversie
 
-- **Cloud integratie** voorbeeldonderdelen die kunnen worden gebruikt om het conversieproces te versnellen om oplossingen te migreren naar het Power Platform, Microsoft Cloud.
+- **Cloud integratie** voorbeeldonderdelen die kunnen worden gebruikt om het conversieproces te versnellen om oplossingen te migreren naar de Power Platform, Microsoft Cloud.
 
 - **Niet-functionele vereisten** met betrekking tot kwaliteitstestbenadering, DevOps-monitoring, documentatie van gemigreerde oplossingen
 
@@ -61,7 +61,11 @@ Als u Power Automation Migration verbindt met het Automation Center of Excellenc
 
 Specifiek kijken naar het Migration Developer-proces
 
+{{<border>}}
+
 ![Automation Center of Excellence - Migratie ontwikkelaar](/images/illustrations/automation-kit-migration-developer.svg)
+
+{{</border>}}
 
 ##### Beoordelen en plannen
 

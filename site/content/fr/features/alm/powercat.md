@@ -46,7 +46,7 @@ Maintenant que nous avons mis en place cette automatisation, la version ALM auto
 
 Vous pouvez consulter les éléments de notre arriéré ALM ouvert dans notre [Registre des problèmes GitHub](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
-Dans l’ensemble, nous nous appuyons sur les fonctionnalités existantes de Power Platform et de Microsoft DevOps avec ALM Accelerator. Cette combinaison nous permet de nous concentrer sur des extensions spécifiques qui aident à l’hyperautomtion.
+Dans l’ensemble, nous nous appuyons sur les fonctionnalités existantes du produit Power Platform et Microsoft DevOps pour combiner ALM Accelerator. Cette combinaison nous permet de nous concentrer sur des extensions spécifiques qui aident à l’hyperautomtion.
 
 ## Rétroaction
 
@@ -58,7 +58,7 @@ Dans l’ensemble, nous nous appuyons sur les fonctionnalités existantes de Pow
 
 L’équipe Power CAT utilise l’accélérateur ALM pour créer et déployer chacun de nos [Versions](https://github.com/microsoft/powercat-automation-kit/releases).
 
-Chaque version favorise les changements de notre développement dans les environnements de test et de production. Les solutions Power Platform du kit utilisent un processus automatisé pour empaqueter les ressources à déployer dans des versions publiques de GitHub.
+Chaque version favorise les changements de notre développement dans les environnements de test et de production. Les solutions Power Platform contenues dans le kit utilisent un processus automatisé pour empaqueter les ressources à déployer dans des versions publiques de GitHub.
 
 Dans les prochaines étapes, nous développerons la plate-forme existante [Caractéristiques ALM](/fr/features/alm) fournir des exemples d’inclusion de règles de validation et de comparaison visuelle d’échantillons RPA dans le cadre du processus DevOps.  
 
@@ -72,9 +72,9 @@ Voici les étapes clés du processus de publication du Kit d’automatisation :
 
 2. Lorsque les modifications sont prêtes à être incluses dans une version de test, elles sont fusionnées dans la branche principale à l’aide d’une demande d’extraction. Avant que la demande d’extraction puisse être terminée, le pipeline de validation Azure DevOps doit être terminé avec succès et la demande d’extraction doit être examinée.
 
-3. Une fois que la demande d’extraction a passé les contrôles automatisés et reçu l’approbation de la révision, elle peut être fusionnée dans la branche principale. Cette fusion déclenche le pipeline de génération Azure DevOps de test qui publie la build managée dans l’environnement Power Platform de test.
+3. Une fois que la demande d’extraction a passé les contrôles automatisés et reçu l’approbation de la révision, elle peut être fusionnée dans la branche principale. Cette fusion déclenche le pipeline de génération Azure DevOps de test qui publie la build managée dans l’environnement de Power Platform de test.
 
-4. Après des tests internes, le pipeline de production Azure DevOps est déclenché manuellement pour générer un déploiement Production Power Platform.
+4. Après des tests internes, le pipeline de production Azure DevOps est déclenché manuellement pour générer un déploiement de Power Platform de production.
 
 5. Une fois que la version est prête, le pipeline Azure DevOps de version crée un brouillon de version comprenant des notes de publication et des ressources de génération. La version finale fermera tous les problèmes ouverts et clôturera le jalon. Balise de build publiée dans le référentiel GitHub avec une étiquette Mois et année appliquée.
 

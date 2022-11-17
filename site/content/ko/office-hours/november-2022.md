@@ -7,7 +7,7 @@ include_footer: true
 generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
 ---
 
-Power 플랫폼용 자동화 키트 2022년 11월 근무 시간 랜딩 페이지에 오신 것을 환영합니다.
+2022년 11월 Power Platform 근무 시간 랜딩 페이지를 위한 자동화 키트에 오신 것을 환영합니다.
 
 근무 시간 세션에 등록할 수 있습니다. [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) 2022년 11월 15일 화요일 오전 7:00에서 오전 8:00 PDT 사이에 개최됩니다(다른 시간대 UTC -7 참조 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

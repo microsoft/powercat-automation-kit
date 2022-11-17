@@ -4,7 +4,7 @@ description: "Kit di automazione - Feedback sui contributi"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3D6D080E09B421F2311012B4EDA86F35F6A3B112
+generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
 ---
 
 Cercando di contribuire con il tuo feedback al {{<product-name>}}? Puoi utilizzare le sezioni seguenti per esplorare i diversi tipi di feedback.

@@ -49,7 +49,7 @@ Aby rozpocząć pracę z tym pakietem danych
 
 - Zainstaluj najnowszą wersję Automation Kit Main z [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) Za pomocą [Dowiedz się więcej o konfiguracji](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main)
 
-- Instalowanie interfejsu wiersza polecenia platformy Power Platform przy użyciu [Dowiedz się więcej o konfiguracji](https://learn.microsoft.com/power-platform/developer/cli/introduction)
+- Zainstaluj interfejs wiersza poleceń Power Platform użyciu [Dowiedz się więcej o konfiguracji](https://learn.microsoft.com/power-platform/developer/cli/introduction)
 
 - Tworzenie uwierzytelniania w środowisku
 

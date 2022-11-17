@@ -1,0 +1,71 @@
+{
+    "pages": [
+        {
+            "elements": [
+                {
+                    "type": "boolean",
+                    "name": "process-advisor-integration-useful",
+                    "title": "Is Process Advisor starter content useful to you?",
+                    "isRequired": true
+                },
+                {
+                    "type": "comment",
+                    "name": "not-useful",
+                    "title": "Why was the content not useful for you?",
+                    "visibleIf": "{process-advisor-integration-useful} = false"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "products",
+                    "title": "What is most important to you?",
+                    "isRequired": false,
+                    "colCount": 1,
+                    "hasOther": true,
+                    "choices": [
+                        "Advise on how Process Advisor can integrate with the Automation Kit",
+                        "Applications and Templates that automate the process of integrating data",
+                        "How does Process Task mining integrates with Automation Kit",
+                        "Reference Architecture on how integrate Process Advisor",
+                        "Specific data items that can be copied",
+                        "What extra Automation Kit Project data items can be defaulted as part of common organizational profile as part of data integration"
+                    ]
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Any other feedback?"
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "title": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the Process Advisor integration based on your responses",
+                    "label": "Send results?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = false",
+                    "html": "We hope these questions will help you determine an idea of topics or questions if you attend"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve the overview."
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+ 
+            ]
+        }
+    ]
+}
