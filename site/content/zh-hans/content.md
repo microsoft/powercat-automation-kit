@@ -42,7 +42,7 @@ generated: 168C5A07790E2772917F905272F5727BB391EF98
 
 ### 位置： /积压/
 
-- [Automation Kit - <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> Integration](/zh-hans/backlog/process-advisor-integration)
+- [自动化套件 - Process Advisor集成](/zh-hans/backlog/process-advisor-integration)
 
 
 ### 当前位置： /贡献/

@@ -1,6 +1,6 @@
 ---
-title: "<mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> Integration"
-description: "Automation Kit - <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> Integration"
+title: "Process Advisor集成"
+description: "自动化套件 - Process Advisor集成"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
@@ -37,24 +37,24 @@ You could use out of the box Power BI connector actions and Power Automate cloud
 
 {{<questions name="/content/en-us/backlog/process-advisor-integration.json" completed="Thank you for completing Process Advisor questions" showNavigationButtons=false >}}
 
-该 {{<product-name>}} 集成[<mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary>](https://learn.microsoft.com/en-us/power-automate/process-advisor-overview)以支持以下方案：
+该 {{<product-name>}} 集成[Process Advisor](https://learn.microsoft.com/en-us/power-automate/process-advisor-overview)以支持以下方案：
 
 - **加工采矿**业务流程分析，以识别和支持业务案例，以创建由数据分析支持的自动化项目。
 
-- **数据驱动的自动化项目请求** Use the results of your process analysis to create an Automation Project from <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> results.
+- **数据驱动的自动化项目请求** 使用过程分析的结果根据Process Advisor结果创建自动化项目。
 
-- **半自动化项目创建** Integrate Dataverse data between <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> and Automation Kit to reduce the amount of work to create Automation Project.
+- **半自动化项目创建** 在Process Advisor和自动化工具包之间集成 Dataverse 数据，以减少创建自动化项目的工作量。
 
 - **电源自动化桌面分析**分析 RPA 流程数据，以确定使用任务挖掘实现现代化、提高弹性和可靠性的改进。
 
 ## 加工采矿
 
-Using Process mining with <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> enables you to discover of inefficiencies in organization-wide processes. These insights enables you to gain a deep understanding of your processes using event log files that you can get from your system of recording (apps you use in your processes). Process mining displays maps of your processes with data and metrics to recognize performance issues. Example processes suitable for process mining include accounts receivable and order-to-cash.
+将流程挖掘与Process Advisor结合使用，可以发现组织范围内流程中的低效率。这些见解使你能够使用可从记录系统（在流程中使用的应用）获取的事件日志文件深入了解进程。流程挖掘显示包含数据和指标的流程图，以识别性能问题。适用于流程挖掘的示例流程包括应收账款和订单到现金。
 
 此数据允许您创建数据驱动的自动化项目请求。
 
 ## 自动化项目创建
 
-Using the results of <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> process mining and reporting you can use the following <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> information to support your automation project using <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> calculated analysis results:
+使用Process Advisor流程挖掘和报告的结果，您可以使用以下Process Advisor信息来支持使用Process Advisor计算分析结果的自动化项目：
 
-自动化套件|<mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary>|笔记|
+自动化套件|Process Advisor|笔记|

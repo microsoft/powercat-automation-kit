@@ -11,7 +11,7 @@ generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 
 <br/>
 
-该 {{<product-name>}}**迁移模块** provides you a proven set of tools and guidance based on engagements with customers to accelerate your migration journey. By leveraging the strength of Microsoft <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary>, Microsoft Azure and the wider Microsoft Cloud services you can:
+该 {{<product-name>}}**迁移模块** 根据与客户的互动，为您提供一组经过验证的工具和指导，以加快您的迁移之旅。通过利用 Microsoft Power Platform、Microsoft Azure 和更广泛的 Microsoft 云服务的优势，您可以：
 
 -实现节省成本的目标。
 
@@ -23,7 +23,7 @@ generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
 
 ![机器人流程自动化 （RPA） 迁移业务领导者指南。](https://msflowblogscdn.azureedge.net/wp-content/uploads/2022/01/RPAWhitepaper_Img-241x300.png)
 
-You can use the following link to understand the RPA migration process for the Microsoft <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary>:
+您可以使用以下链接了解 Microsoft Power Platform的 RPA 迁移过程：
 
 - [通过电源自动化实现 RPA 方法现代化的行之有效的方法](https://powerautomate.microsoft.com/blog/proven-methods-to-modernize-your-rpa-approach-with-power-automate/)
 
@@ -47,7 +47,7 @@ You can use the following link to understand the RPA migration process for the M
 
 ### 转换
 
-- **云集成** sample components that can be used to accelerate conversion process to migrate solutions to the <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary>, Microsoft Cloud.
+- **云集成** 可用于加速转换过程以将解决方案迁移到 Microsoft 云Power Platform的示例组件。
 
 - **非功能性需求**涵盖质量测试方法、DevOps 监控、迁移解决方案的文档
 

@@ -50,7 +50,7 @@ generated: 93B641280A8851982928F089C74D80495E8889B5
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-The key scenario of the Automation Kit for <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> is to accelerate the usage of the Power Automate for desktop solutions by allowing you define, review, and monitor in near real time the return on investment by automation of existing processes.
+适用于Power Platform的自动化工具包的关键方案是通过允许您通过现有流程的自动化近乎实时地定义、审查和监控投资回报，从而加速桌面 Power Automate 解决方案的使用。
 {{</slide>}}
 
 {{<slide  id="slide2" audio="overview/Slide02.mp3" description="Automation Kit Features" image="overview/Slide02.SVG" >}}
@@ -74,7 +74,7 @@ The key scenario of the Automation Kit for <mstrans:dictionary translation='Powe
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-The <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> CoE Kit include a focus on wider tenant and environment managed.
+Power Platform CoE 工具包包括对更广泛的租户和环境管理的关注。
 
 自动化工具包通过专门关注 Power Automate Desktop 流的关键元素来补充这些工具集，以便他可以近乎实时地展示投资回报率和影响。
 
@@ -148,13 +148,13 @@ Power BI 仪表板提供自动化项目的端到端视图、预期目标和实�
 {{<slide  id="slide19" audio="overview/Slide19.mp3" description="End to end ALM" image="overview/Slide19.SVG" >}}
 在现有 ALM 加速器功能的基础上，我们计划添加特定于 RPA 的操作，这些操作使将 Power Automate Desktop 组件集成到自动化部署和审查过程中的过程。
 
-阅读更多 关于[Managed Environments <mstrans:dictionary translation='Power Platform'>Power Platform</mstrans:dictionary> Pipelines and the ALM Accelerator](/zh-hans/features/alm)以及它们如何帮助您部署和管理自动化解决方案。
+阅读更多 关于[管道Power Platform托管环境以及 ALM 加速器](/zh-hans/features/alm)以及它们如何帮助您部署和管理自动化解决方案。
 {{</slide>}}
 
 {{<slide  id="slide20" audio="overview/Slide20.mp3" description="Futures" image="overview/Slide20.SVG" >}}
 进一步查看我们的里程碑，我们积压待办事项，以将新的迁移模块扩展到自动化。
 
-Deeper integration with <mstrans:dictionary translation='Process Advisor'>Process Advisor</mstrans:dictionary> to assist with the process of identify and qualifying the expected ROI of automation
+与Process Advisor进行更深入的集成，以协助识别和鉴定自动化的预期投资回报率
 
 在我们希望增强托管 RPA 代理时，我们将提供示例，为需要基础结构操作自动化以与部署的自动化项目集成的客户加速使用 Azure 托管代理。
 {{</slide>}}
