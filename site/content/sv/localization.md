@@ -4,12 +4,28 @@ description: "Automation Kit - Lokalisering"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
+generated: 43D11FFC777543B7748C0F60574831E0EE19A278
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Pågående arbete - Experimentellt
 
 {{<toc>}}
+
+## Främja inkludering och mångfald i Automation Kit med hjälp av lokalisering
+
+{{<border>}}
+
+![Lokalisering av automatiseringssats](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+Det uppskattas av [Förenta Nationerna](https://hr.un.org/unhq/languages/english) att 1,5 miljarder människor talar engelska. Men med tanke på att världens befolkning uppskattas vara [8 miljarder](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) senast i november 2022 utgör detta ett tydligt behov av att stödja andra språk.
+
+Power Platform Automation Kit-teamet arbetar som standard med amerikansk engelska för innehåll som inte ingår i Microsoft Learn-plattformen. För att tillgodose icke-engelsktalande experimenterar vi med en automatiserad process som konverterar innehåll som är en del av vår Automation-startupplevelse. Med hjälp av detta tillvägagångssätt strävar vi efter att skala till ett bredare samhälle.
+
+Det som hjälper oss som team är att få [feedback](/sv#provide-feedback) från vår användargrupp om vikten av lokalisering för dig. Även om den här metoden inte ersätter en professionell översättningsprocess, tar vi gärna emot all feedback du har om den erfarenhet du får av att komma igång och använda Automation Kit. Vi ser fram emot att se hur vi kan stödja en bredare och mer varierad uppsättning upplevelser när vi experimenterar och ständigt förbättras över tiden.
+
+Vi strävar efter att använda dessa lärdomar och tillämpa dem på de instrumentpaneler och applikationer som vi producerar som en del av paketet. Genom att använda den automatiska översättningsprocessen kan vi producera innehåll som du kan importera till din organisation så att du kan stödja och vårda flerspråkig användning av Automation-projekt över hela världen.
 
 ## Mål
 
@@ -39,27 +55,19 @@ Ett av de viktigaste målen för {{<product-name>}} är att stödja inkludering 
 
 - Tillåt en "crowd source"-modell av bidrag som möjliggör förbättrad språkomvandling.
 
-- Använd lärdomarna för att tillåta språkspecifikt "Communication Hub"-innehåll för Automation Kit.
-
-## Främja inkludering och mångfald i Automation Kit med hjälp av lokalisering
-
-{{<border>}}
-
-![Lokalisering av automatiseringssats](/images/automation-kit-localization.png)
-
-{{</border>}}
-
-Det uppskattas av [Förenta Nationerna](https://hr.un.org/unhq/languages/english) att 1,5 miljarder människor talar engelska. Men med tanke på att världens befolkning uppskattas vara [8 miljarder](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) senast i november 2022 är detta tydligt ett behov av att stödja andra språk.
-
-Som ett litet team fungerar Automation Kit som standard med amerikansk engelska för innehåll som inte ingår i Microsoft Lean-plattformen. För att hjälpa till att tillgodose icke-engelsktalande har vi automatiserat processen att konvertera innehåll som ingår i denna webbplats.
-
-Det som hjälper oss i ett team är att få feedback från vår användargrupp om vikten av lokalisering för dig. Vi tar gärna emot all feedback du har om erfarenheterna nedan och ser fram emot att se hur vi kan stödja en bredare och mer varierad uppsättning lokaliseringar över tid.
+- Använd lärdomarna för att tillåta språkspecifikt "Communication Hub"-innehåll för Automation Kit som kan importeras till din organisation.
 
 ## Nuvarande tillstånd
 
 - Stöd för amerikansk engelska till brittisk engelska har ännu inte implementerats
 
 - Standard i förväg Azure Cognitive Service textöversättning av kontext för utvärderingsspråk ovan
+
+## Färdplan
+
+Vi planerar att ta dessa lärdomar och tillämpa dem på de Power BI-instrumentpaneler och Power Apps som vi använder så att vi som team kan skala till automatiserade översättningar med en feedbackloop som gör att vi kan tillhandahålla bredare flerspråkig täckning över tid.
+
+Du kan se vår lokaliseringseftersläpning på vår [GitHub-webbplats](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Alocalization).
 
 ## Fråga och svar
 

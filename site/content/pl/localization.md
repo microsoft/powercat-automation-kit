@@ -4,12 +4,28 @@ description: "Automation Kit - Lokalizacja"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
+generated: 43D11FFC777543B7748C0F60574831E0EE19A278
 ---
 
 **Stan:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Prace w toku - eksperymentalne
 
 {{<toc>}}
+
+## Promowanie integracji i różnorodności w Automation Kit za pomocą lokalizacji
+
+{{<border>}}
+
+![Lokalizacja zestawu Automation Kit](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+Szacuje się ją według [Organizacja Narodów Zjednoczonych](https://hr.un.org/unhq/languages/english) że 1,5 miliarda ludzi mówi po angielsku. Biorąc jednak pod uwagę, że populacja świata jest szacowana na [8 miliardów](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) do listopada 2022 r. wskazuje to na wyraźną potrzebę obsługi innych języków.
+
+Zespół zestawu Power Platform Automation Kit domyślnie pracuje z angielskim (USA) w przypadku zawartości, która nie jest częścią platformy Microsoft Learn. Aby zaspokoić potrzeby osób nieanglojęzycznych, eksperymentujemy z automatycznym procesem, który konwertuje treści, które są częścią naszego środowiska startowego Automation. Stosując to podejście, staramy się skalować do szerszej społeczności.
+
+To, co pomaga nam jako zespołowi, to uzyskać [sprzężenie zwrotne](/pl#provide-feedback) od naszej społeczności użytkowników na temat znaczenia lokalizacji dla Ciebie. Chociaż takie podejście nie zastępuje profesjonalnego procesu tłumaczenia, będziemy wdzięczni za wszelkie informacje zwrotne na temat doświadczenia, jakie zapewnia lokalizacja rozpoczynająca pracę i korzystanie z zestawu Automation Kit. Z niecierpliwością czekamy na to, jak możemy wspierać szerszy i bardziej zróżnicowany zestaw doświadczeń, eksperymentując i stale ulepszając się w czasie.
+
+Naszym celem jest wykorzystanie tych wiedzy i zastosowanie ich do pulpitów nawigacyjnych i aplikacji, które tworzymy w ramach zestawu. Korzystanie z automatycznego procesu tłumaczenia pozwoli nam tworzyć treści, które będziesz mógł zaimportować do swojej organizacji, abyś mógł wspierać i pielęgnować wielojęzyczne wdrażanie projektów automatyzacji na całym świecie.
 
 ## Cele
 
@@ -39,27 +55,19 @@ Jednym z głównych celów {{<product-name>}} ma wspierać inkluzywność poprze
 
 - Pozwól na model "crowd source" wkładów, który pozwala na lepszą transformację językową.
 
-- Skorzystaj z tych informacji, aby zezwolić na specyficzne dla języka treści "Communication Hub" dla zestawu Automation Kit.
-
-## Promowanie integracji i różnorodności w Automation Kit za pomocą lokalizacji
-
-{{<border>}}
-
-![Lokalizacja zestawu Automation Kit](/images/automation-kit-localization.png)
-
-{{</border>}}
-
-Szacuje się ją według [Organizacja Narodów Zjednoczonych](https://hr.un.org/unhq/languages/english) że 1,5 miliarda ludzi mówi po angielsku. Biorąc jednak pod uwagę, że populacja świata jest szacowana na [8 miliardów](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) do listopada 2022 r. jest to oczywiste jako potrzeba obsługi innych języków.
-
-Jako mały zespół zestaw Automation Kit domyślnie działa z amerykańskim angielskim w przypadku zawartości, która nie jest częścią platformy Microsoft Lean. Aby pomóc zaspokoić potrzeby osób nieanglojęzycznych, zautomatyzowaliśmy proces konwersji treści, które są częścią tej witryny.
-
-To, co pomaga nam w zespole, to uzyskanie informacji zwrotnych od naszej społeczności użytkowników na temat znaczenia lokalizacji dla Ciebie. Będziemy wdzięczni za wszelkie opinie na temat poniższych doświadczeń i czekamy na to, jak możemy wspierać szerszy i bardziej zróżnicowany zestaw lokalizacji w czasie.
+- Skorzystaj z tych informacji, aby zezwolić na specyficzną dla języka zawartość "Centrum komunikacyjnego" dla zestawu Automation Kit, którą można zaimportować do organizacji.
 
 ## Stan obecny
 
 - Obsługa amerykańskiego angielskiego na brytyjski angielski nie została jeszcze wdrożona
 
 - Domyślne tłumaczenie tekstu kontekstu dla języków próbnych powyżej
+
+## Mapa drogowa
+
+Planujemy wykorzystać te wnioski i zastosować je do pulpitów nawigacyjnych usługi Power BI i usługi Power Apps, których używamy, abyśmy jako zespół mogli skalować do tłumaczeń automatycznych z pętlą opinii, która pozwala nam z czasem zapewnić szerszy wielojęzyczny zasięg.
+
+Możesz zobaczyć nasze zaległości lokalizacyjne na naszej stronie [Witryna GitHub](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Alocalization).
 
 ## Pytanie i odpowiedź
 

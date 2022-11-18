@@ -4,12 +4,28 @@ description: "Automatiseringskit - Lokalisatie"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
+generated: 43D11FFC777543B7748C0F60574831E0EE19A278
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Werk in uitvoering - experimenteel
 
 {{<toc>}}
+
+## Bevordering van inclusie en diversiteit in de Automation Kit met behulp van lokalisatie
+
+{{<border>}}
+
+![Lokalisatie van automatiseringskits](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+Het wordt geschat door de [Verenigde Naties](https://hr.un.org/unhq/languages/english) dat 1,5 miljard mensen Engels spreken. Maar gezien de wereldbevolking wordt geschat op [8 miljard](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) tegen november 2022 is het duidelijk dat er behoefte is aan ondersteuning van andere talen.
+
+Het Power Platform Automation Kit-team werkt standaard met Amerikaans Engels voor inhoud die geen deel uitmaakt van het Microsoft Learn-platform. Om tegemoet te komen aan niet-Engelstaligen, experimenteren we met een geautomatiseerd proces dat inhoud converteert die deel uitmaakt van onze automatiseringsstartervaring. Met deze aanpak willen we opschalen naar een bredere gemeenschap.
+
+Wat ons als team helpt, is om [terugkoppeling](/nl#provide-feedback) van onze gebruikersgemeenschap over het belang van lokalisatie voor u. Hoewel deze aanpak een professioneel vertaalproces niet vervangt, verwelkomen we alle feedback die u hebt over de ervaring die lokalisatie u biedt om aan de slag te gaan en de Automation Kit te gebruiken. We kijken ernaar uit om te zien hoe we een bredere en meer diverse reeks ervaringen kunnen ondersteunen terwijl we experimenteren en in de loop van de tijd voortdurend verbeteren.
+
+We streven ernaar om deze lessen te gebruiken en toe te passen op de dashboards en applicaties die we produceren als onderdeel van de kit. Door het geautomatiseerde vertaalproces te gebruiken, kunnen we inhoud produceren die u in uw organisatie kunt importeren, zodat u meertalige acceptatie van automatiseringsprojecten over de hele wereld kunt ondersteunen en koesteren.
 
 ## Doelen
 
@@ -39,27 +55,19 @@ Een van de kerndoelen van de {{<product-name>}} is om inclusief te zijn via loka
 
 - Zorg voor een "crowd source"-model van bijdragen dat een verbeterde taaltransformatie mogelijk maakt.
 
-- Gebruik de learnings om taalspecifieke "Communication Hub"-inhoud voor de Automation Kit mogelijk te maken.
-
-## Bevordering van inclusie en diversiteit in de Automation Kit met behulp van lokalisatie
-
-{{<border>}}
-
-![Lokalisatie van automatiseringskits](/images/automation-kit-localization.png)
-
-{{</border>}}
-
-Het wordt geschat door de [Verenigde Naties](https://hr.un.org/unhq/languages/english) dat 1,5 miljard mensen Engels spreken. Maar gezien de wereldbevolking wordt geschat op [8 miljard](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) tegen november 2022 is het duidelijk dat het nodig is om andere talen te ondersteunen.
-
-Als klein team werkt de Automation Kit standaard met Amerikaans Engels voor content die geen deel uitmaakt van het Microsoft Lean platform. Om tegemoet te komen aan niet-Engelstaligen hebben we het proces van het converteren van inhoud die deel uitmaakt van deze site geautomatiseerd.
-
-Wat ons in een team helpt, is om feedback te krijgen van onze gebruikersgemeenschap over het belang van lokalisatie voor u. We zouden graag feedback ontvangen die u hebt over de onderstaande ervaring en kijken ernaar uit om te zien hoe we in de loop van de tijd een bredere en meer diverse reeks lokalisaties kunnen ondersteunen.
+- Gebruik de learnings om taalspecifieke 'Communication Hub'-inhoud voor de Automation Kit mogelijk te maken die in uw organisatie kan worden geïmporteerd.
 
 ## Huidige staat
 
 - Ondersteuning voor Amerikaans Engels naar Brits Engels is nog niet geïmplementeerd
 
 - Standaard standaard azure cognitive service tekstvertaling van context voor proeftalen hierboven
+
+## Routekaart
+
+We zijn van plan deze lessen toe te passen op de Power BI-dashboards en Power Apps die we gebruiken, zodat we als team kunnen schalen naar geautomatiseerde vertalingen met een feedbacklus waarmee we in de loop van de tijd een bredere meertalige dekking kunnen bieden.
+
+U kunt onze lokalisatieachterstand bekijken op onze [GitHub-site](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Alocalization).
 
 ## Vraag en antwoord
 

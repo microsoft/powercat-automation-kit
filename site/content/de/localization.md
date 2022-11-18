@@ -4,12 +4,28 @@ description: "Automation Kit - Lokalisierung"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
+generated: 43D11FFC777543B7748C0F60574831E0EE19A278
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Work In Progress - Experimentell
 
 {{<toc>}}
+
+## Förderung von Inklusion und Vielfalt im Automation Kit mithilfe von Lokalisierung
+
+{{<border>}}
+
+![Lokalisierung von Automation Kits](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+Es wird geschätzt von der [Vereinte Nationen](https://hr.un.org/unhq/languages/english) dass 1,5 Milliarden Menschen Englisch sprechen. Angesichts der Tatsache, dass die Weltbevölkerung jedoch auf [8 Milliarden](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) bis November 2022 stellt dies eindeutig die Notwendigkeit dar, andere Sprachen zu unterstützen.
+
+Das Power Platform Automation Kit-Team arbeitet standardmäßig mit US-Englisch für Inhalte, die nicht Teil der Microsoft Learn-Plattform sind. Um nicht englischsprachigen Benutzern gerecht zu werden, experimentieren wir mit einem automatisierten Prozess, der Inhalte konvertiert, die Teil unserer Automatisierungs-Startererfahrung sind. Mit diesem Ansatz wollen wir auf eine breitere Gemeinschaft skalieren.
+
+Was uns als Team hilft, ist [Feedback](/de#provide-feedback) von unserer Benutzergemeinschaft über die Bedeutung der Lokalisierung für Sie. Obwohl dieser Ansatz einen professionellen Übersetzungsprozess nicht ersetzt, freuen wir uns über Ihr Feedback zu den Erfahrungen, die Ihnen die Lokalisierung bei den ersten Schritten und der Verwendung des Automation Kits bietet. Wir freuen uns darauf, zu sehen, wie wir eine breitere und vielfältigere Palette von Erfahrungen unterstützen können, während wir experimentieren und uns im Laufe der Zeit kontinuierlich verbessern.
+
+Unser Ziel ist es, diese Erkenntnisse zu nutzen und sie auf die Dashboards und Anwendungen anzuwenden, die wir als Teil des Kits erstellen. Die Verwendung des automatisierten Übersetzungsprozesses ermöglicht es uns, Inhalte zu erstellen, die Sie in Ihr Unternehmen importieren können, damit Sie die mehrsprachige Einführung von Automatisierungsprojekten auf der ganzen Welt unterstützen und fördern können.
 
 ## Ziele
 
@@ -39,27 +55,19 @@ Eines der Kernziele der {{<product-name>}} soll die Inklusion durch die Lokalisi
 
 - Ermöglichen Sie ein "Crowd-Source"-Modell von Beiträgen, das eine verbesserte Sprachtransformation ermöglicht.
 
-- Verwenden Sie die Erkenntnisse, um sprachspezifische "Communication Hub"-Inhalte für das Automation Kit zu ermöglichen.
-
-## Förderung von Inklusion und Vielfalt im Automation Kit mithilfe von Lokalisierung
-
-{{<border>}}
-
-![Lokalisierung von Automation Kits](/images/automation-kit-localization.png)
-
-{{</border>}}
-
-Es wird geschätzt von der [Vereinte Nationen](https://hr.un.org/unhq/languages/english) dass 1,5 Milliarden Menschen Englisch sprechen. Angesichts der Tatsache, dass die Weltbevölkerung jedoch auf [8 Milliarden](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) bis November 2022 ist dies eindeutig ein Bedarf, andere Sprachen zu unterstützen.
-
-Als kleines Team arbeitet das Automation Kit standardmäßig mit US-Englisch für Inhalte, die nicht Teil der Microsoft Lean-Plattform sind. Um nicht englischsprachigen Personen gerecht zu werden, haben wir den Prozess der Konvertierung von Inhalten, die Teil dieser Website sind, automatisiert.
-
-Was uns im Team hilft, ist das Feedback unserer Benutzer-Community über die Bedeutung der Lokalisierung für Sie. Wir würden uns über Ihr Feedback zu den folgenden Erfahrungen freuen und freuen uns darauf, zu sehen, wie wir im Laufe der Zeit eine breitere und vielfältigere Palette von Lokalisierungen unterstützen können.
+- Verwenden Sie die Erkenntnisse, um sprachspezifische "Communication Hub"-Inhalte für das Automation Kit zuzulassen, die in Ihre Organisation importiert werden können.
 
 ## Aktueller Zustand
 
 - Unterstützung für amerikanisches Englisch zu britischem Englisch wurde noch nicht implementiert
 
 - Standardmäßige standardmäßige Azure Cognitive Service-Textübersetzung des Kontexts für die oben genannten Testsprachen
+
+## Fahrplan
+
+Wir planen, diese Erkenntnisse auf die von uns verwendeten Power BI-Dashboards und Power Apps anzuwenden, damit wir als Team auf automatisierte Übersetzungen mit einer Feedbackschleife skalieren können, die es uns ermöglicht, im Laufe der Zeit eine breitere mehrsprachige Abdeckung bereitzustellen.
+
+Unseren Lokalisierungsrückstand finden Sie auf unserer [GitHub-Website](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Alocalization).
 
 ## Frage und Antwort
 

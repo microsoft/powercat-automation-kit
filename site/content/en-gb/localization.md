@@ -4,12 +4,28 @@ description: "Automation Kit - Localization"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
+generated: 43D11FFC777543B7748C0F60574831E0EE19A278
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Work In Progress - Experimental
 
 {{<toc>}}
+
+## Promoting inclusion and diversity in the Automation Kit using localization
+
+{{<border>}}
+
+![Automation Kit Localization](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+It is estimated by the [United Nations](https://hr.un.org/unhq/languages/english) that 1.5 billion people speak English. However given the world population is estimated to be [8 billion](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) by November 2022, this presents a clear a need to support other languages.
+
+The Power Platform Automation Kit team works by default with US English, for content that is not part of the Microsoft Learn platform. To help cater to non English speakers we are experimenting with an automated process that converts content that is part of our Automation starter experience. Using this approach we aim to scale to a wider community.
+
+What helps us as a team, is to get [feedback](/en-gb#provide-feedback) from our user community on the importance of localization to you. While this approach does not replace a professional translation process, we would welcome any feedback you have on the experience that localization provides you getting started and using the Automation Kit. We look forward to seeing how we can support a wider and more diverse set of experiences as we experiment and continually improve over time.
+
+We aim to use these learnings and apply them to the Dashboards and Applications we produce as part of the kit. Using the automated translation process will allow us to produce content that you will be able to import into your organization so that you can support and nurture multi lingual adoption of Automation projects across the world.
 
 ## Goals
 
@@ -39,27 +55,19 @@ One of the core goals of the {{<product-name>}} is to support being inclusive vi
 
 - Allow for a "crowd source" model of contributions that allow improved language transformation.
 
-- Use the learnings to allow for language specific "Communication Hub" content for the Automation Kit.
-
-## Promoting inclusion and diversity in the Automation Kit using localization
-
-{{<border>}}
-
-![Automation Kit Localization](/images/automation-kit-localization.png)
-
-{{</border>}}
-
-It is estimated by the [United Nations](https://hr.un.org/unhq/languages/english) that 1.5 billion people speak English. However given the world population is estimated to be [8 billion](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) by November 2022 this is clear a need to support other languages.
-
-As a small team the Automation Kit works by default with US English for content that is not part of the Microsoft Lean platform. To help cater to non English speakers we have Automated the process of converting content that is part of this site.
-
-What helps us at a team, is to get feedback from our user community on the importance of localization to you. We would welcome any feedback you have on the experience below and look forward to seeing how we can support a wider and more diverse set of localizations over time.
+- Use the learnings to allow for language specific "Communication Hub" content for the Automation Kit that can be imported into your organization.
 
 ## Current State
 
 - American English to British English support has not yet been implemented
 
 - Default out of the box Azure Cognitive Service text translation of context for trial languages above
+
+## Roadmap
+
+We plan to take these learnings and apply them to the Power BI dashboards and Power Apps we use so that we as a team can scale to automated translations with a feedback loop that allows us to provide broader multi lingual coverage over time.
+
+You can view our localization backlog on our [GitHub Site](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Alocalization).
 
 ## Question and Answer
 

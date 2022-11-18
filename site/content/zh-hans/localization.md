@@ -4,12 +4,28 @@ description: "自动化套件 - 本地化"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
+generated: 43D11FFC777543B7748C0F60574831E0EE19A278
 ---
 
 **地位：**{{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 进行中的工作 - 实验性
 
 {{<toc>}}
+
+## 使用本地化促进自动化工具包的包容性和多样性
+
+{{<border>}}
+
+![自动化套件本地化](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+估计由[联合国](https://hr.un.org/unhq/languages/english)15亿人说英语。然而，鉴于世界人口估计[80亿](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022)到 2022 年 11 月，这显然需要支持其他语言。
+
+默认情况下，Power Platform自动化工具包团队使用美国英语，适用于不属于 Microsoft Learn 平台的内容。为了帮助迎合非英语人士的需求，我们正在尝试一种自动化流程，该流程可以转换属于我们自动化入门体验一部分的内容。使用这种方法，我们的目标是扩展到更广泛的社区。
+
+作为一个团队，帮助我们的是获得[反馈](/zh-hans#provide-feedback)来自我们的用户社区，了解本地化对您的重要性。虽然这种方法不能取代专业的翻译流程，但我们欢迎您对本地化为您提供入门和使用自动化工具包的体验提供任何反馈。我们期待看到我们如何在试验和不断改进时支持更广泛、更多样化的体验。
+
+我们的目标是利用这些知识，并将其应用于我们作为工具包的一部分生产的仪表板和应用程序。使用自动翻译流程将使我们能够生成您可以导入到您的组织中的内容，以便您可以支持和培养全球自动化项目的多语言采用。
 
 ## 目标
 
@@ -39,27 +55,19 @@ generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
 
 -允许使用“众包”贡献模型，从而改进语言转换。
 
--使用所学知识为自动化工具包提供特定于语言的“通信中心”内容。
-
-## 使用本地化促进自动化工具包的包容性和多样性
-
-{{<border>}}
-
-![自动化套件本地化](/images/automation-kit-localization.png)
-
-{{</border>}}
-
-估计由[联合国](https://hr.un.org/unhq/languages/english)15亿人说英语。然而，鉴于世界人口估计[80亿](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022)到 2022 年 11 月，这显然需要支持其他语言。
-
-作为一个小型团队，自动化工具包默认使用美国英语，用于不属于 Microsoft 精益平台的内容。为了帮助迎合非英语人士，我们自动化了作为本网站一部分的内容转换过程。
-
-在团队中，帮助我们的是从我们的用户社区获得有关本地化对您的重要性的反馈。我们欢迎您对以下体验提供任何反馈，并期待看到我们如何随着时间的推移支持更广泛、更多样化的本地化。
+-使用所学知识为自动化工具包提供可导入到组织中的特定于语言的“通信中心”内容。
 
 ## 当前状态
 
 -尚未实施美式英语到英式英语支持
 
 -上述试用语言上下文的默认值现成 Azure 认知服务文本翻译
+
+## 路线图
+
+我们计划将这些学习应用到我们使用的 Power BI 仪表板和 Power Apps，以便我们作为一个团队可以通过反馈循环扩展到自动翻译，从而使我们能够随着时间的推移提供更广泛的多语言覆盖范围。
+
+您可以在我们的[GitHub 网站](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue+label%3Alocalization).
 
 ## 问与答
 
