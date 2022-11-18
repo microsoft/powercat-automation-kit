@@ -4,7 +4,7 @@ description: "Automatiseringssæt - Lokalisering"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Igangværende arbejde - Eksperimentelt
@@ -31,13 +31,14 @@ Vi sigter mod at bruge disse læringer og anvende dem på de dashboards og appli
 
 Et af kernemålene for {{<product-name>}} er at understøtte at være inkluderende via lokalisering af indhold. For at nå dette mål gælder følgende:
 
-- Indhold, der hostes på [Startside](https://aka.ms/ak4pp/starter) levere automatiseret oversættelse via Azure Cognitive Services og brugerdefinerede tilknytninger.
+- Indhold, der hostes på [Startside](https://aka.ms/ak4pp/starter) leverer automatiseret oversættelse via Azure Cognitive Services og brugerdefinerede tilknytninger.
 
 - Kerneteamet for startwebsted vil arbejde på en-us og omdanne indholdet til følgende sprog:
 
   - [Dansk](https://microsoft.github.io/powercat-automation-kit/da/)
   - [Nederlandsk](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [Fransk](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [Tysk](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [Italiensk](https://microsoft.github.io/powercat-automation-kit/it/)
   - [Koreansk](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [Japansk](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ Overvej at give feedback eller et bidrag for at hjælpe os med at forbedre din l
 
 ### **Spørgsmål:** Hvad er relationen til Microsoft Learn-indholdet?
 
-Startsidens indhold administreres af kernen {{<product-name>}} kun hold. Når indhold overføres til Microsoft Learn-platformen, gennemgår det en separat indholdsgennemgangs- og lokaliseringsproces.
+Startwebstedets indhold administreres af {{<product-name>}} kun team og bidragydere. Når indhold overføres til Microsoft Learn-platformen, gennemgår det en separat indholdsgennemgangs- og lokaliseringsproces.
 
 ### **Spørgsmål:** Kan andre sprog tilføjes?
 

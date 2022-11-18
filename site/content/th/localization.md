@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - การแป
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **สถานะ:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} อยู่ระหว่างดําเนินการ - การทดลอง
@@ -38,6 +38,7 @@ generated: 43D11FFC777543B7748C0F60574831E0EE19A278
   - [เดนมาร์ก](https://microsoft.github.io/powercat-automation-kit/da/)
   - [ดัทช์](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [ฝรั่งเศส](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [เยอรมัน](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [อิตาลี](https://microsoft.github.io/powercat-automation-kit/it/)
   - [เกาหลี](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [ญี่ปุ่น](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ generated: 43D11FFC777543B7748C0F60574831E0EE19A278
 
 ### **ปัญหา:** ความสัมพันธ์กับเนื้อหา Microsoft Learn คืออะไร
 
-เนื้อหาด้านเริ่มต้นได้รับการจัดการโดยแกนหลัก {{<product-name>}} ทีมเท่านั้น เมื่อเนื้อหาย้ายไปยังแพลตฟอร์ม Microsoft Learn เนื้อหานั้นจะต้องผ่านกระบวนการตรวจสอบเนื้อหาและการแปลเป็นภาษาท้องถิ่นแยกต่างหาก
+เนื้อหาของไซต์เริ่มต้นได้รับการจัดการโดย {{<product-name>}} ทีมและผู้ร่วมให้ข้อมูลเท่านั้น เมื่อเนื้อหาย้ายไปยังแพลตฟอร์ม Microsoft Learn เนื้อหานั้นจะต้องผ่านกระบวนการตรวจสอบเนื้อหาและการแปลเป็นภาษาท้องถิ่นแยกต่างหาก
 
 ### **ปัญหา:** สามารถเพิ่มภาษาอื่นได้หรือไม่?
 

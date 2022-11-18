@@ -4,7 +4,7 @@ description: "Kit de automatización - Localización"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **Estado:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Trabajo en Progreso - Experimental
@@ -31,13 +31,14 @@ Nuestro objetivo es utilizar estos aprendizajes y aplicarlos a los paneles y apl
 
 Uno de los objetivos centrales del {{<product-name>}} es apoyar la inclusión a través de la localización de contenido. Para cumplir con este objetivo se aplica lo siguiente:
 
-- Contenido alojado en [Sitio de inicio](https://aka.ms/ak4pp/starter) proporcionar traducción automática a través de Azure Cognitive Services y asignaciones personalizadas.
+- Contenido alojado en [Sitio de inicio](https://aka.ms/ak4pp/starter) proporciona traducción automática a través de Azure Cognitive Services y asignaciones personalizadas.
 
 - El equipo central de contenido del sitio de inicio trabajará en en-us y transformará el contenido a los siguientes idiomas:
 
   - [Danés](https://microsoft.github.io/powercat-automation-kit/da/)
   - [Holandés](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [Francés](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [Alemán](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [Italiano](https://microsoft.github.io/powercat-automation-kit/it/)
   - [Coreano](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [Japonés](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ Considere la posibilidad de proporcionar comentarios o una contribución para ay
 
 ### **Pregunta:** ¿Cuál es la relación con el contenido de Microsoft Learn?
 
-El contenido del lado inicial es administrado por el núcleo {{<product-name>}} solo equipo. Cuando el contenido migra a la plataforma Microsoft Learn, pasa por un proceso independiente de revisión y localización de contenido.
+El contenido del sitio de inicio es administrado por {{<product-name>}} solo equipo y colaboradores. Cuando el contenido migra a la plataforma Microsoft Learn, pasa por un proceso independiente de revisión y localización de contenido.
 
 ### **Pregunta:** ¿Se pueden añadir otros idiomas?
 

@@ -4,7 +4,7 @@ description: "自動化キット - ローカリゼーション"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **地位：**{{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 進行中の作業 - 実験的
@@ -31,13 +31,14 @@ Power Platform Automation Kit チームは、Microsoft Learn プラットフォ�
 
 {{<product-name>}}は、コンテンツのローカリゼーションを通じてインクルーシブであることをサポートすることです。この目標を達成するには、以下が適用されます。
 
--でホストされているコンテンツ[スターターサイト](https://aka.ms/ak4pp/starter)Azure コグニティブ サービスとカスタム マッピングによる自動翻訳を提供します。
+-でホストされているコンテンツ[スターターサイト](https://aka.ms/ak4pp/starter)Azure コグニティブ サービスとカスタム マッピングを介した自動翻訳を提供します。
 
 -コア スターター サイト コンテンツ チームは en-us で作業し、コンテンツを次の言語に変換します。
 
   - [デンマーク語](https://microsoft.github.io/powercat-automation-kit/da/)
   - [オランダ語](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [フランス語](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [ドイツ語](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [イタリア語](https://microsoft.github.io/powercat-automation-kit/it/)
   - [韓国語](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [日本語](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ Power Platform Automation Kit チームは、Microsoft Learn プラットフォ�
 
 ### **質問：**Microsoft Learn コンテンツとの関係はどのようなものですか?
 
-スターター側のコンテンツはコア{{<product-name>}} チームのみ。コンテンツが Microsoft Learn プラットフォームに移行すると、個別のコンテンツ レビューとローカリゼーション プロセスが経ます。
+スターター サイトのコンテンツは、{{<product-name>}} チームとコントリビューターのみ。コンテンツが Microsoft Learn プラットフォームに移行すると、個別のコンテンツ レビューとローカリゼーション プロセスが経ます。
 
 ### **質問：**他の言語を追加できますか?
 

@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Localisation"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **Statut:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Travaux en cours - Expérimentaux
@@ -31,13 +31,14 @@ Nous visons à utiliser ces apprentissages et à les appliquer aux tableaux de b
 
 L’un des principaux objectifs du {{<product-name>}} est de soutenir l’inclusion via la localisation du contenu. Pour atteindre cet objectif, les conditions suivantes s’appliquent :
 
-- Contenu hébergé sur [Site de démarrage](https://aka.ms/ak4pp/starter) fournir une traduction automatique via Azure Cognitive Services et des mappages personnalisés.
+- Contenu hébergé sur [Site de démarrage](https://aka.ms/ak4pp/starter) fournit une traduction automatique via Azure Cognitive Services et des mappages personnalisés.
 
 - L’équipe de contenu du site de démarrage de base travaillera dans en-us et transformera le contenu dans les langues suivantes:
 
   - [Danois](https://microsoft.github.io/powercat-automation-kit/da/)
   - [Néerlandais](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [Français](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [Allemand](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [Italien](https://microsoft.github.io/powercat-automation-kit/it/)
   - [Coréen](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [Japonais](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ Envisagez de nous faire part de vos commentaires ou de nous aider à améliorer 
 
 ### **Question:** Quelle est la relation avec le contenu Microsoft Learn ?
 
-Le contenu côté démarrage est géré par le noyau {{<product-name>}} équipe uniquement. Lorsque le contenu migre vers la plateforme Microsoft Learn, il passe par un processus distinct de révision et de localisation du contenu.
+Le contenu du site de démarrage est géré par le {{<product-name>}} Équipe et contributeurs uniquement. Lorsque le contenu migre vers la plateforme Microsoft Learn, il passe par un processus distinct de révision et de localisation du contenu.
 
 ### **Question:** D’autres langues peuvent-elles être ajoutées ?
 

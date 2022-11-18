@@ -4,7 +4,7 @@ description: "Automation Kit - Lokalizacja"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **Stan:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Prace w toku - eksperymentalne
@@ -31,13 +31,14 @@ Naszym celem jest wykorzystanie tych wiedzy i zastosowanie ich do pulpitów nawi
 
 Jednym z głównych celów {{<product-name>}} ma wspierać inkluzywność poprzez lokalizację treści. Aby osiągnąć ten cel, należy zastosować następujące zasady:
 
-- Zawartość hostowana na [Strona startowa](https://aka.ms/ak4pp/starter) zapewniają automatyczne tłumaczenie za pośrednictwem usług Azure Cognitive Services i mapowań niestandardowych.
+- Zawartość hostowana na [Strona startowa](https://aka.ms/ak4pp/starter) zapewnia automatyczne tłumaczenie za pośrednictwem usług Azure Cognitive Services i mapowań niestandardowych.
 
 - Główny zespół ds. zawartości witryny startowej będzie pracował w en-us i przekształcał zawartość na następujące języki:
 
   - [Duński](https://microsoft.github.io/powercat-automation-kit/da/)
   - [Holenderski](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [Francuski](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [Niemiecki](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [Włoski](https://microsoft.github.io/powercat-automation-kit/it/)
   - [Koreański](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [Japoński](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ Rozważ przekazanie opinii lub wkładu, który pomoże nam ulepszyć Twoją zlok
 
 ### **Pytanie:** Jaki jest związek z zawartością Microsoft Learn?
 
-Zawartość strony startowej jest zarządzana przez rdzeń {{<product-name>}} tylko zespół. Podczas migracji zawartości na platformę Microsoft Learn przechodzi oddzielny proces przeglądu i lokalizacji zawartości.
+Zawartość witryny startowej jest zarządzana przez {{<product-name>}} Tylko zespół i współtwórcy. Podczas migracji zawartości na platformę Microsoft Learn przechodzi oddzielny proces przeglądu i lokalizacji zawartości.
 
 ### **Pytanie:** Czy można dodać inne języki?
 

@@ -4,7 +4,7 @@ description: "自动化套件 - 本地化"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **地位：**{{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 进行中的工作 - 实验性
@@ -31,13 +31,14 @@ generated: 43D11FFC777543B7748C0F60574831E0EE19A278
 
 {{<product-name>}} 是通过内容的本地化来支持包容性。要实现此目标，适用以下条件：
 
--托管在 上的内容[入门网站](https://aka.ms/ak4pp/starter)通过 Azure 认知服务和自定义映射提供自动翻译。
+-托管在 上的内容[入门网站](https://aka.ms/ak4pp/starter)通过 Azure 认知服务和自定义映射提供自动转换。
 
 -核心初学者网站内容团队将在 en-us 中工作，并将内容转换为以下语言：
 
   - [丹麦语](https://microsoft.github.io/powercat-automation-kit/da/)
   - [荷兰语](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [法语](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [德语](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [意大利语](https://microsoft.github.io/powercat-automation-kit/it/)
   - [朝鲜语](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [日语](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ generated: 43D11FFC777543B7748C0F60574831E0EE19A278
 
 ### **问题：**与微软学习内容有什么关系？
 
-入门端内容由核心 {{<product-name>}} 仅限团队。当内容迁移到 Microsoft Learn 平台时，它会经过单独的内容审查和本地化过程。
+初学者网站内容由 {{<product-name>}} 仅限团队和贡献者。当内容迁移到 Microsoft Learn 平台时，它会经过单独的内容审查和本地化过程。
 
 ### **问题：**可以添加其他语言吗？
 

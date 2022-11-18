@@ -30,13 +30,14 @@ We aim to use these learnings and apply them to the Dashboards and Applications 
 
 One of the core goals of the {{<product-name>}} is to support being inclusive via localization of content. To meet this goal the following apply:
 
-- Content hosted on [Starter Site](https://aka.ms/ak4pp/starter) provide automated translation via Azure Cognitive Services and custom mappings.
+- Content hosted on [Starter Site](https://aka.ms/ak4pp/starter) provides automated translation via Azure Cognitive Services and custom mappings.
 
 - The core starter site content team will work in en-us and transform the content to the following languages:
 
   - [Danish](https://microsoft.github.io/powercat-automation-kit/da/)
   - [Dutch](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [French](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [German](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [Italian](https://microsoft.github.io/powercat-automation-kit/it/)
   - [Korean](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [Japanese](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -80,7 +81,7 @@ Consider providing feedback or a contribution to help us improve your localized 
 
 ### **Question:** What is the relationship to the Microsoft Learn content?
 
-The starter side content is managed by the core {{<product-name>}} team only. When content migrates to the Microsoft Learn platform it goes through a separate content review and localization process.
+The starter site content is managed by the {{<product-name>}} team and contributors only. When content migrates to the Microsoft Learn platform it goes through a separate content review and localization process.
 
 ### **Question:** Can other languages be added?
 

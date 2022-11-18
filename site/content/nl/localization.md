@@ -4,7 +4,7 @@ description: "Automatiseringskit - Lokalisatie"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Werk in uitvoering - experimenteel
@@ -31,13 +31,14 @@ We streven ernaar om deze lessen te gebruiken en toe te passen op de dashboards 
 
 Een van de kerndoelen van de {{<product-name>}} is om inclusief te zijn via lokalisatie van inhoud. Om dit doel te bereiken geldt het volgende:
 
-- Inhoud gehost op [Starterssite](https://aka.ms/ak4pp/starter) geautomatiseerde vertaling bieden via Azure Cognitive Services en aangepaste toewijzingen.
+- Inhoud gehost op [Starterssite](https://aka.ms/ak4pp/starter) biedt geautomatiseerde vertaling via Azure Cognitive Services en aangepaste toewijzingen.
 
 - Het kernteam voor de inhoud van de starterssite werkt in en-us en transformeert de inhoud naar de volgende talen:
 
   - [Deens](https://microsoft.github.io/powercat-automation-kit/da/)
   - [Nederlands](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [Frans](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [Duits](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [Italiaans](https://microsoft.github.io/powercat-automation-kit/it/)
   - [Koreaans](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [Japans](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ Overweeg feedback of een bijdrage te geven om ons te helpen uw gelokaliseerde ta
 
 ### **Vraag:** Wat is de relatie met de Inhoud van Microsoft Learn?
 
-De inhoud aan de starterzijde wordt beheerd door de kern {{<product-name>}} alleen team. Wanneer inhoud naar het Microsoft Learn-platform wordt gemigreerd, wordt een afzonderlijk proces voor het beoordelen en lokaliseren van inhoud doorlopen.
+De inhoud van de starterssite wordt beheerd door de {{<product-name>}} alleen team en bijdragers. Wanneer inhoud naar het Microsoft Learn-platform wordt gemigreerd, wordt een afzonderlijk proces voor het beoordelen en lokaliseren van inhoud doorlopen.
 
 ### **Vraag:** Kunnen er andere talen worden toegevoegd?
 

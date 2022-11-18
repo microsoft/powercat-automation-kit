@@ -4,7 +4,7 @@ description: "Automatiseringssett - Lokalisering"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Arbeid pågår - Eksperimentell
@@ -31,13 +31,14 @@ Vi tar sikte på å bruke disse erfaringene og bruke dem på dashbordene og appl
 
 Et av hovedmålene med {{<product-name>}} er å støtte å være inkluderende via lokalisering av innhold. For å nå dette målet gjelder følgende:
 
-- Innhold som driftes på [Startside](https://aka.ms/ak4pp/starter) levere automatisert oversettelse via Azure Cognitive Services og tilpassede tilordninger.
+- Innhold som driftes på [Startside](https://aka.ms/ak4pp/starter) gir automatisert oversettelse via Azure Cognitive Services og tilpassede tilordninger.
 
 - Kjerneteamet for startnettsted vil jobbe i en-us og transformere innholdet til følgende språk:
 
   - [Dansk](https://microsoft.github.io/powercat-automation-kit/da/)
   - [Nederlandsk](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [Fransk](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [Tysk](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [Italiensk](https://microsoft.github.io/powercat-automation-kit/it/)
   - [Koreansk](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [Japansk](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ Vurder å gi tilbakemelding eller et bidrag for å hjelpe oss med å forbedre de
 
 ### **Spørsmål:** Hva er relasjonen til Microsoft Learn-innholdet?
 
-Startsideinnholdet administreres av kjernen {{<product-name>}} bare team. Når innhold overføres til Microsoft Learn-plattformen, går det gjennom en egen innholdsgjennomgang og lokaliseringsprosess.
+Innholdet på startområdet administreres av {{<product-name>}} kun team og bidragsytere. Når innhold overføres til Microsoft Learn-plattformen, går det gjennom en egen innholdsgjennomgang og lokaliseringsprosess.
 
 ### **Spørsmål:** Kan andre språk legges til?
 

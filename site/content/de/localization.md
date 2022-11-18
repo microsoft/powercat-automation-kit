@@ -4,7 +4,7 @@ description: "Automation Kit - Lokalisierung"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Work In Progress - Experimentell
@@ -31,13 +31,14 @@ Unser Ziel ist es, diese Erkenntnisse zu nutzen und sie auf die Dashboards und A
 
 Eines der Kernziele der {{<product-name>}} soll die Inklusion durch die Lokalisierung von Inhalten unterstützen. Um dieses Ziel zu erreichen, gilt Folgendes:
 
-- Inhalte, die auf [Starter-Seite](https://aka.ms/ak4pp/starter) Bereitstellung automatisierter Übersetzungen über Azure Cognitive Services und benutzerdefinierte Zuordnungen.
+- Inhalte, die auf [Starter-Seite](https://aka.ms/ak4pp/starter) bietet automatisierte Übersetzung über Azure Cognitive Services und benutzerdefinierte Zuordnungen.
 
 - Das Kern-Content-Team für Starter-Site wird in en-us arbeiten und den Inhalt in die folgenden Sprachen umwandeln:
 
   - [Dänisch](https://microsoft.github.io/powercat-automation-kit/da/)
   - [Holländisch](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [Französisch](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [Deutsch](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [Italienisch](https://microsoft.github.io/powercat-automation-kit/it/)
   - [Koreanisch](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [Japanisch](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ Erwägen Sie, Feedback oder einen Beitrag zu geben, um uns bei der Verbesserung 
 
 ### **Frage:** Welche Beziehung besteht zu den Microsoft Learn-Inhalten?
 
-Der Inhalt der Starterseite wird vom Kern {{<product-name>}} nur Team. Wenn Inhalte auf die Microsoft Learn-Plattform migriert werden, durchlaufen sie einen separaten Inhaltsüberprüfungs- und Lokalisierungsprozess.
+Der Inhalt der Startersite wird von {{<product-name>}} nur Team und Mitwirkende. Wenn Inhalte auf die Microsoft Learn-Plattform migriert werden, durchlaufen sie einen separaten Inhaltsüberprüfungs- und Lokalisierungsprozess.
 
 ### **Frage:** Können weitere Sprachen hinzugefügt werden?
 

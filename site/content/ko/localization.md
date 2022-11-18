@@ -4,7 +4,7 @@ description: "자동화 키트 - 현지화"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43D11FFC777543B7748C0F60574831E0EE19A278
+generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
 ---
 
 **상태:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 진행 중인 작업 - 실험적
@@ -38,6 +38,7 @@ Power Platform 자동화 키트 팀은 Microsoft Learn 플랫폼의 일부가 �
   - [덴마크어](https://microsoft.github.io/powercat-automation-kit/da/)
   - [네덜란드어](https://microsoft.github.io/powercat-automation-kit/nl/)
   - [프랑스어](https://microsoft.github.io/powercat-automation-kit/fr/)
+  - [독일어](https://microsoft.github.io/powercat-automation-kit/de/) 
   - [이탈리아어](https://microsoft.github.io/powercat-automation-kit/it/)
   - [한국어](https://microsoft.github.io/powercat-automation-kit/ko/)
   - [일본어](https://microsoft.github.io/powercat-automation-kit/ja/)
@@ -81,7 +82,7 @@ Power Platform 자동화 키트 팀은 Microsoft Learn 플랫폼의 일부가 �
 
 ### **질문:** Microsoft Learn 콘텐츠와의 관계는 무엇입니까?
 
-스타터 측 콘텐츠는 코어 {{<product-name>}} 팀만. 콘텐츠가 Microsoft Learn 플랫폼으로 마이그레이션되면 별도의 콘텐츠 검토 및 지역화 프로세스를 거칩니다.
+시작 사이트 콘텐츠는 {{<product-name>}} 팀 및 기여자만 해당됩니다. 콘텐츠가 Microsoft Learn 플랫폼으로 마이그레이션되면 별도의 콘텐츠 검토 및 지역화 프로세스를 거칩니다.
 
 ### **질문:** 다른 언어를 추가할 수 있습니까?
 
