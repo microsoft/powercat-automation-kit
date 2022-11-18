@@ -4,7 +4,9 @@ description: "자동화 키트 - 2022년 10월"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: B01C5A16D416B4C5208E53540B07F5DDAAA880D4
+author: Grant-Archibald-MS
+tags: ['Release']
+generated: 3BB046087B0DD442B1C0B1BCE0EDCDDB79027D75
 ---
 
 ![낙관적 인 다완](/images/upbeat-dhawan.png)

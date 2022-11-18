@@ -4,7 +4,9 @@ description: "Automation Kit - Opsætning"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 118FFCC302703046F1A62CAA9F21BAF122AB0505
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install']
+generated: 80E55373CD6E25BD9BA123EEE6178F988D711B3D
 ---
 
 Følg nedenstående trin for at hjælpe dig med at oprette en konfiguration til dit miljø, så du hurtigt kan installere og konfigurere din installation.

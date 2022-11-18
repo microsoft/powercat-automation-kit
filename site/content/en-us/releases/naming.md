@@ -4,6 +4,8 @@ description: Automation Kit - Naming
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Releases', 'Guidance']
 ---
 
 Alongside the month and version numbers the {{<product-name>}} uses a code name tag each release.

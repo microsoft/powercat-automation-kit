@@ -4,7 +4,9 @@ description: "ชุดระบบอัตโนมัติ - เรื่อ
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 1C5F493567A0341C488B792CF9D9BCA522CE847A
+author: Grant-Archibald-MS
+tags: ['Customer']
+generated: 033CD1DD9E40DA075DEA802704E59C1383364FAA
 ---
 
 # แนะ นำ

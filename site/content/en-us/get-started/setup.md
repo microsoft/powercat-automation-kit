@@ -4,6 +4,8 @@ description: Automation Kit - Setup
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install']
 ---
 
 Use the steps below to assist you with creating a configuration for your environment so that you can rapidly install and configure your install.

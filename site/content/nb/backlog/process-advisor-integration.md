@@ -4,7 +4,9 @@ description: "Automatiseringssett - Process Advisor Integrasjon"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 4B988356292B6E69CAEB1E5D4AFB4A272A7131BE
+author: Grant-Archibald-MS
+tags: ['Process Advisor', 'Integration', 'RPA']
+generated: A51CC6A1EB6E9681ED2302F8F389D50BCC752BB6
 ---
 --------------|---------------|-------------|
 Duration Total (Total Processing Time in minutes)|Duration Total Per activity|Top-level metrics currently only median and average duration which can be transformed with some customization

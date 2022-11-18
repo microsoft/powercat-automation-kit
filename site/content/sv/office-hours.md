@@ -4,7 +4,9 @@ description: "Automation Kit - Kontorstid"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 625C6FE57925A8A8944907DF2DE575EA9E05D10A
+author: Grant-Archibald-MS
+tags: ['Office Hours']
+generated: 69F35A13D32397B69B81B3B7297833706396F76F
 ---
 
 ## Registrera dig

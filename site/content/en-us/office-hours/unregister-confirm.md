@@ -5,6 +5,8 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 index: false
+author: Grant-Archibald-MS
+tags: ['Office Hours']
 ---
 
 Please use the questions below to confirm your unregistration.

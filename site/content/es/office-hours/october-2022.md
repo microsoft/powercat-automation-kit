@@ -4,7 +4,9 @@ description: "Kit de automatización - Horario de oficina octubre de 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 531F9B8CFD51FA169D951B7C2226592437D35744
+author: Grant-Archibald-MS
+tags: ['Office Hours']
+generated: 59825C3BA5D5CC7F7AB170DA1F38BB8F7E3808A9
 ---
 
 Bienvenido a la página de inicio del horario de oficina de Automation Kit para Power Platform octubre de 2022.

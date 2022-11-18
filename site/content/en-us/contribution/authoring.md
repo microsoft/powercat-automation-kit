@@ -4,7 +4,8 @@ description: Automation Kit - Documentation Authoring Guidelines
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Guidelines']
 ---
 
 The following sections outline guidelines and notes for authoring starter documentation.

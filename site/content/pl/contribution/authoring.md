@@ -4,8 +4,9 @@ description: "Automation Kit — wskazówki dotyczące tworzenia dokumentacji"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-
-generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Guidelines']
+generated: ED14A36CD731A55AE5FC328528A10CB645825C47
 ---
 
 W poniższych sekcjach przedstawiono wskazówki i uwagi dotyczące tworzenia dokumentacji początkowej.

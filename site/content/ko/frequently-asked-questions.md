@@ -4,7 +4,9 @@ description: "자동화 키트 - 자주 묻는 질문"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 6DF08DD7DAE7CD933CCAC83FFBB1B52BE7A82DCB
+author: Grant-Archibald-MS
+tags: ['Questions']
+generated: A8F7CF04979FF923EA56D5E15E988740BE402CC2
 ---
 
 # 소개

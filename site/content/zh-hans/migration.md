@@ -4,7 +4,9 @@ description: "自动化套件 - RPA 迁移"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: CCB317C8E5382C83C9C53583C89346A7B6D052F5
+author: Grant-Archibald-MS
+tags: ['Migration', 'Guidance']
+generated: 42940454F8C75C0160E5E7D94767DD18DFFC13C6
 ---
 
 {{<toc>}}

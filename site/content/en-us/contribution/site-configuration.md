@@ -4,6 +4,8 @@ description: Automation Kit - Documentation Site Configuration
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Guidance']
 ---
 
 

@@ -4,7 +4,9 @@ description: "自動化キット - 貢献"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
+author: Grant-Archibald-MS
+tags: ['Contribution', 'Guidance']
+generated: 4F1A86248C4313A15D35FC198A76A7A970A61A37
 ---
 
 Power Platformと Microsoft Cloud の上に構築されたオープン ソース プロジェクトとしての目標は、ハイパーオートメーションの旅を加速するのに役立つツールとガイダンスを迅速に提供することです。

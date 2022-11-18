@@ -4,7 +4,9 @@ description: "Kit di automazione - Annullamento registrazione dell'orario d'uffi
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 38A1BD32A8A2D984418B1C28E7309FBF22188319
+author: Grant-Archibald-MS
+tags: ['Office Hours']
+generated: F2418D2093AF75F27EEB7B01A27A8DDDEAF1E221
 ---
 
 Si prega di utilizzare la domanda qui sotto per annullare la registrazione automatica per {{<product-name>}}. Ti invieremo un codice di conferma che potrai utilizzare per [Conferma l'annullamento della registrazione](/it/office-hours/unregister-confirm)

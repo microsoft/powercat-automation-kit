@@ -4,6 +4,8 @@ description: Automation Kit - Process Advisor Integration
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Process Advisor', 'Integration', 'RPA']
 ---
 
 The {{<product-name>}} integrates with [Process Advisor](https://learn.microsoft.com/en-us/power-automate/process-advisor-overview) to support the following scenarios:

@@ -4,8 +4,9 @@ description: "ชุดระบบอัตโนมัติ - แนวทา
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-
-generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Guidelines']
+generated: ED14A36CD731A55AE5FC328528A10CB645825C47
 ---
 
 ส่วนต่อไปนี้จะสรุปแนวทางและหมายเหตุสําหรับการเขียนเอกสารเริ่มต้น

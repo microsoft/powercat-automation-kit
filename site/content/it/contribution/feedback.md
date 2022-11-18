@@ -4,7 +4,9 @@ description: "Kit di automazione - Feedback sui contributi"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Feedback']
+generated: ACE9F23A95644F4296F9CC9ED3E8CD1ADB0EAA00
 ---
 
 Cercando di contribuire con il tuo feedback al {{<product-name>}}? Puoi utilizzare le sezioni seguenti per esplorare i diversi tipi di feedback.

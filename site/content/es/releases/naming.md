@@ -4,7 +4,9 @@ description: "Kit de automatización - Nomenclatura"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
+author: Grant-Archibald-MS
+tags: ['Releases', 'Guidance']
+generated: 8E15314207C3D6B5AF4E7C6B20C26F8A788C66C1
 ---
 
 Junto con los números de mes y versión, el {{<product-name>}} utiliza una etiqueta de nombre de código en cada versión.

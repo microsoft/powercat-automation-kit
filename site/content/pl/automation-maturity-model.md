@@ -5,7 +5,9 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 index: false
-generated: 514FFDA4043EBCC4E33C4CDFB8EE256B4781AF57
+author: Grant-Archibald-MS
+tags: ['Maturity', 'Guidance']
+generated: 61E85E2F7CD222FF1C8F6693B4504A60C57130A3
 ---
 
 **Stan:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Prace w toku - w trakcie przeglądu

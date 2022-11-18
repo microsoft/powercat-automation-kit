@@ -4,6 +4,8 @@ description: Automation Kit - Getting Started
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install']
 ---
 
 ## Introduction

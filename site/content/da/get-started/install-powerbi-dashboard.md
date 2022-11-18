@@ -4,7 +4,9 @@ description: "Automationssæt – Power BI-dashboard"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install', 'Power BI']
+generated: 382AD969728AB696166C764CCA8233ED06486218
 ---
 
 Hvis du vil starte Power BI Dashboard til Automatiseringscenter of Excellence, skal du bruge URL-adressen til miljøet for dit hovedmiljø (hvor Automation CoE Main er installeret).

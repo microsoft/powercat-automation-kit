@@ -4,7 +4,9 @@ description: "Kit de automatización - Horario de oficina noviembre 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: B8C3667E71221F57908C097D0CD382CD73FA22E5
+author: Grant-Archibald-MS
+tags: ['Office Hours']
+generated: DA3C633A053D3FA4CB87C2593C1692E57A7B8D6D
 ---
 
 Bienvenido a la página de inicio del horario de oficina de Automation Kit para Power Platform noviembre de 2022.

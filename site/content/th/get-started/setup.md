@@ -4,7 +4,9 @@ description: "ชุดระบบอัตโนมัติ - การตั
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 118FFCC302703046F1A62CAA9F21BAF122AB0505
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install']
+generated: 80E55373CD6E25BD9BA123EEE6178F988D711B3D
 ---
 
 ใช้ขั้นตอนด้านล่างเพื่อช่วยคุณในการสร้างการกําหนดค่าสําหรับสภาพแวดล้อมของคุณเพื่อให้คุณสามารถติดตั้งและกําหนดค่าการติดตั้งของคุณได้อย่างรวดเร็ว

@@ -4,7 +4,9 @@ description: "Automation Kit - Beitrag"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
+author: Grant-Archibald-MS
+tags: ['Contribution', 'Guidance']
+generated: 4F1A86248C4313A15D35FC198A76A7A970A61A37
 ---
 
 Als Open-Source-Projekt, das auf der Power Platform und der Microsoft Cloud aufbaut, ist es unser Ziel, schnell Tools und Anleitungen bereitzustellen, um Ihre Hyperautomatisierung zu beschleunigen.

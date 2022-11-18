@@ -4,7 +4,9 @@ description: "Automation Kit - Lokalizacja"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 2FF2232A3FA22363BFD644FE7880F83097A8BBBB
+author: Grant-Archibald-MS
+tags: ['Localization']
+generated: 53AFF7C6E0B1889AF1A221C000C138D19F1390BA
 ---
 
 **Stan:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Prace w toku - eksperymentalne

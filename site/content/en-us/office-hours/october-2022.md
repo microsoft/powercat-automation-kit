@@ -4,6 +4,8 @@ description: Automation Kit - Office Hours October 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Office Hours']
 ---
 
 Welcome to the Automation Kit for Power Platform October 2022 office hours landing page.

@@ -4,8 +4,9 @@ description: "자동화 키트 - 문서 작성 지침"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-
-generated: E4B23EEC2B540A4AF01501764C42DFF50F0CBC8C
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Guidelines']
+generated: ED14A36CD731A55AE5FC328528A10CB645825C47
 ---
 
 다음 섹션에서는 시작 설명서 작성에 대한 지침과 참고 사항을 간략하게 설명합니다.

@@ -4,6 +4,8 @@ description: Automation Kit - RPA Migration
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Migration', 'Guidance']
 ---
 
 {{<toc>}}

@@ -4,7 +4,9 @@ description: "Kit di automazione - Contributo"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
+author: Grant-Archibald-MS
+tags: ['Contribution', 'Guidance']
+generated: 4F1A86248C4313A15D35FC198A76A7A970A61A37
 ---
 
 Come progetto Open Source basato su Power Platform e Microsoft Cloud, il nostro obiettivo è fornire rapidamente strumenti e indicazioni per accelerare il percorso di iperautomazione.

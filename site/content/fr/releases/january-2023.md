@@ -4,7 +4,9 @@ description: "Kit d’automatisation - Janvier 2023"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: F76758A77BC052319CA86B34661B4C938D060160
+author: Grant-Archibald-MS
+tags: ['Release']
+generated: 12E34A38A0B1E6828C24CA77FDE59D5D04CB13B5
 ---
 
 <div class="optional">

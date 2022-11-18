@@ -3,7 +3,9 @@ title: "Przegląd"
 description: "Automation Kit - Przegląd"
 sidebar: false
 sidebarlogo: fresh-white
-generated: 93B641280A8851982928F089C74D80495E8889B5
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Overview', 'Features']
+generated: 3DA70BAB3B432E3C45E4E258EFD38C70FA008495
 ---
 
 <div class="optional">

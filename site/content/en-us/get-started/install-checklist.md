@@ -4,6 +4,8 @@ description: Automation Kit - Install Checklist
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install']
 ---
 
 > 🎥 Want to a more visual presentation of the end to end process and install steps? Review our <a href='https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy' target='_blank'>{{<product-name>}} Video Playlist</a> for prerequisites, solution install and {{<product-name>}} usage.

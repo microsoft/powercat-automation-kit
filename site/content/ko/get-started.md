@@ -4,7 +4,9 @@ description: "자동화 키트 - 시작하기"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: AA276EEA88682DC81E1FEB1C42402B084FC66754
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install']
+generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
 ---
 
 ## 소개

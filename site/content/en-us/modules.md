@@ -4,6 +4,8 @@ description: Automation Kit - Modules
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['ROI', 'Migration', 'Features']
 ---
 
 This page describes the key modules of the public preview of the {{<product-name>}}.

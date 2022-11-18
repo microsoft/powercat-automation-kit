@@ -4,7 +4,9 @@ description: "자동화 키트 - ALM 전원 고양이"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EE6E212FD39B87D233249859750DDF2D7FC71E60
+author: Grant-Archibald-MS
+tags: ['ALM', 'Guidance', 'PowerCAT']
+generated: A0E76BCFAC2095473353C3F9B49077A67DC58228
 ---
 
 {{<slideStyles>}}

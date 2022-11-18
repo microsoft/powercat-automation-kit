@@ -4,7 +4,9 @@ description: "Automation Kit — pakiety danych"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 59DCC2AA961720CBEBCC57AD3C8C2B774F7B3FD1
+author: Grant-Archibald-MS
+tags: ['Data', 'Integration']
+generated: 5695D0411A1BD909454FF04F1BDDAA7D64578032
 ---
 
 {{<toc>}}

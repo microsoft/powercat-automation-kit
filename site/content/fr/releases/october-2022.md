@@ -4,7 +4,9 @@ description: "Kit d’automatisation - Octobre 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: B01C5A16D416B4C5208E53540B07F5DDAAA880D4
+author: Grant-Archibald-MS
+tags: ['Release']
+generated: 3BB046087B0DD442B1C0B1BCE0EDCDDB79027D75
 ---
 
 ![Dhawan optimiste](/images/upbeat-dhawan.png)

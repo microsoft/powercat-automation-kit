@@ -4,7 +4,9 @@ description: "自动化套件 - 办公时间 2022 年 10 月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 531F9B8CFD51FA169D951B7C2226592437D35744
+author: Grant-Archibald-MS
+tags: ['Office Hours']
+generated: 59825C3BA5D5CC7F7AB170DA1F38BB8F7E3808A9
 ---
 
 欢迎来到 2022 年 10 月 Power Platform 日办公时间的自动化工具包登录页面。

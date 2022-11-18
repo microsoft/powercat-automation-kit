@@ -4,6 +4,8 @@ description: Automation Kit - Office Hours
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Office Hours']
 ---
 
 ## Register

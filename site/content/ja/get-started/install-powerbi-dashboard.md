@@ -4,7 +4,9 @@ description: "オートメーション キット - Power BI ダッシュボー�
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install', 'Power BI']
+generated: 382AD969728AB696166C764CCA8233ED06486218
 ---
 
 オートメーション センター オブ エクセレンスの Power BI ダッシュボードを起動するには、メイン環境 (Automation CoE Main がインストールされている場所) の環境 URL が必要です。

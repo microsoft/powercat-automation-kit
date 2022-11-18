@@ -4,7 +4,9 @@ description: "자동화 키트 - 기여"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
+author: Grant-Archibald-MS
+tags: ['Contribution', 'Guidance']
+generated: 4F1A86248C4313A15D35FC198A76A7A970A61A37
 ---
 
 Power Platform 및 Microsoft 클라우드를 기반으로 구축된 오픈 소스 프로젝트로서 우리의 목표는 하이퍼 자동화 여정을 가속화하는 데 도움이 되는 도구와 지침을 신속하게 제공하는 것입니다.

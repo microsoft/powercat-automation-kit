@@ -4,7 +4,9 @@ description: "Automatiseringskit - Installatie"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 118FFCC302703046F1A62CAA9F21BAF122AB0505
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install']
+generated: 80E55373CD6E25BD9BA123EEE6178F988D711B3D
 ---
 
 Gebruik de onderstaande stappen om u te helpen bij het maken van een configuratie voor uw omgeving, zodat u uw installatie snel kunt installeren en configureren.

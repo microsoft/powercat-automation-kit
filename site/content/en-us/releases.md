@@ -4,6 +4,8 @@ description: Automation Kit - Release History
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Release']
 ---
 
 The page contains links to the release history for the {{<product-name>}}.

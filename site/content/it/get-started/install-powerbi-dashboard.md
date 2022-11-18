@@ -4,7 +4,9 @@ description: "Kit di automazione - Dashboard di Power BI"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install', 'Power BI']
+generated: 382AD969728AB696166C764CCA8233ED06486218
 ---
 
 Per avviare il dashboard di Power BI per il Centro di eccellenza per l'automazione, è necessario l'URL dell'ambiente per l'ambiente principale (dove è installato Automation CoE Main).

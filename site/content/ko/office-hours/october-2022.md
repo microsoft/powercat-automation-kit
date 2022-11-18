@@ -4,7 +4,9 @@ description: "자동화 키트 - 근무 시간 2022년 10월"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 531F9B8CFD51FA169D951B7C2226592437D35744
+author: Grant-Archibald-MS
+tags: ['Office Hours']
+generated: 59825C3BA5D5CC7F7AB170DA1F38BB8F7E3808A9
 ---
 
 2022년 10월 근무 시간 랜딩 페이지를 위한 자동화 키트Power Platform 오신 것을 환영합니다.

@@ -4,6 +4,8 @@ description: Automation Kit - Customer stories
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Customer']
 ---
 
 # Introduction

@@ -4,6 +4,8 @@ description: Automation Kit - ALM Power CAT
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['ALM', 'Guidance', 'PowerCAT']
 ---
 
 {{<slideStyles>}}

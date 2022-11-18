@@ -4,6 +4,8 @@ description: Automation Kit - Contribution Feedback
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Feedback']
 ---
 
 Looking to contribute your feedback to the {{<product-name>}}? You can use the sections below to explore the different feedback types.

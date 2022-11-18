@@ -4,7 +4,9 @@ description: "자동화 키트 - 기여 피드백"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Feedback']
+generated: ACE9F23A95644F4296F9CC9ED3E8CD1ADB0EAA00
 ---
 
 {{<product-name>}}? 아래 섹션을 사용하여 다양한 피드백 유형을 탐색할 수 있습니다.

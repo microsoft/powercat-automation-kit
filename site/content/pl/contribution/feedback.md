@@ -4,7 +4,9 @@ description: "Automation Kit - Contribution Feedback"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Feedback']
+generated: ACE9F23A95644F4296F9CC9ED3E8CD1ADB0EAA00
 ---
 
 Chcemy podzielić się swoją opinią na temat {{<product-name>}}? Możesz skorzystać z poniższych sekcji, aby zapoznać się z różnymi typami opinii.

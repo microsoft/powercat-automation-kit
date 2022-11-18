@@ -4,6 +4,8 @@ description: Automation Kit - Authoring Sample
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Feedback']
 ---
 
 <div class="optional">

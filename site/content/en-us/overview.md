@@ -3,6 +3,8 @@ title: Overview
 description: Automation Kit - Overview
 sidebar: false
 sidebarlogo: fresh-white
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Overview', 'Features']
 ---
 
 <div class="optional">

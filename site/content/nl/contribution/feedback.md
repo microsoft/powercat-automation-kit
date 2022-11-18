@@ -4,7 +4,9 @@ description: "Automation Kit - Feedback over bijdragen"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Feedback']
+generated: ACE9F23A95644F4296F9CC9ED3E8CD1ADB0EAA00
 ---
 
 Op zoek naar uw feedback aan de {{<product-name>}}? U kunt de onderstaande secties gebruiken om de verschillende feedbacktypen te verkennen.

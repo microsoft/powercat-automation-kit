@@ -4,7 +4,9 @@ description: "オートメーションキット - ALM"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7A054C4EE36843CB023C64E2B26C68DDF722666D
+author: Grant-Archibald-MS
+tags: ['ALM', 'Guidance']
+generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
 ---
 
 {{<slideStyles>}}

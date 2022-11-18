@@ -4,7 +4,9 @@ description: "자동화 키트 - 2022년 11월"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 3DEC822F794D686283FFA7C180BCB2A41949CC05
+author: Grant-Archibald-MS
+tags: ['Release']
+generated: 5E71DB56BB75FE03C9FD461B6764158AD44F76D1
 ---
 
 <div class="optional">

@@ -4,6 +4,8 @@ description: Automation Kit - December 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Release']
 ---
 
 <div class="optional">

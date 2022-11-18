@@ -4,7 +4,9 @@ description: "自动化套件 - 2022 年 12 月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 28D5F6EB75D3937AB213D31DF16FC48616F1C6E9
+author: Grant-Archibald-MS
+tags: ['Release']
+generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
 ---
 
 <div class="optional">

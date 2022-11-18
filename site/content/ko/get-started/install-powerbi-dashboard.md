@@ -4,7 +4,9 @@ description: "자동화 키트 - Power BI 대시보드"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 90DE8AE4F7BA66E6129D0A2E53A958D7A4BCC91A
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install', 'Power BI']
+generated: 382AD969728AB696166C764CCA8233ED06486218
 ---
 
 자동화 우수 센터에 대한 Power BI 대시보드를 시작하려면 주 환경(자동화 CoE Main이 설치된 위치)에 대한 환경 URL이 필요합니다.

@@ -4,7 +4,9 @@ description: "ชุดระบบอัตโนมัติ - เวลาท
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 531F9B8CFD51FA169D951B7C2226592437D35744
+author: Grant-Archibald-MS
+tags: ['Office Hours']
+generated: 59825C3BA5D5CC7F7AB170DA1F38BB8F7E3808A9
 ---
 
 ยินดีต้อนรับสู่หน้าแลนดิ้งเพจระบบอัตโนมัติสําหรับ Power Platform ตุลาคม 2022

@@ -4,6 +4,8 @@ description: Automation Kit - October 2022
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Release']
 ---
 
 ![Upbeat Dhawan](/images/upbeat-dhawan.png)

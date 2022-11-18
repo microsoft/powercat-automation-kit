@@ -4,7 +4,9 @@ description: "自动化套件 - 贡献反馈"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 18C7C763752F2F14AAB2E74EF2CFECC745C9B836
+author: Grant-Archibald-MS
+tags: ['Documentation', 'Feedback']
+generated: ACE9F23A95644F4296F9CC9ED3E8CD1ADB0EAA00
 ---
 
 希望将您的反馈贡献给 {{<product-name>}}?您可以使用以下部分来探索不同的反馈类型。

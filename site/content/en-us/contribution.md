@@ -4,6 +4,8 @@ description: Automation Kit - Contribution
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Contribution', 'Guidance']
 ---
 
 As an Open Source project built on top of the Power Platform and Microsoft Cloud our goal is to rapidly provide tools and guidance to help accelerate your hyper automation journey.

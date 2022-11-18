@@ -4,7 +4,9 @@ description: "Kit de automatización - Módulos"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: CF14A0F7FE3505051A57BC56B7C1A7DADC31946E
+author: Grant-Archibald-MS
+tags: ['ROI', 'Migration', 'Features']
+generated: 29AC95C4CD2B1338D74F0F855940F2925539E8D2
 ---
 
 Esta página describe los módulos clave de la vista previa pública del {{<product-name>}}.

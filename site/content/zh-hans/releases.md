@@ -4,7 +4,9 @@ description: "自动化套件 - 版本历史记录"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 05B767C775EE6396E7B53F5B000B257BBA5D2F7A
+author: Grant-Archibald-MS
+tags: ['Release']
+generated: E74D9236C5453DCB5931787C4C58870A822B8B04
 ---
 
 该页面包含指向 {{ 的发布历史记录的链接<product-name>}}.

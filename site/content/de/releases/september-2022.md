@@ -4,7 +4,9 @@ description: "Automation Kit - September 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 7FF6C6A7661FEEE68BD8F5B9345CA32CFFB86374
+author: Grant-Archibald-MS
+tags: ['Release']
+generated: 3D6303A1E248D6B82556CD9E43C93C9E464F5AAA
 ---
 
 ![Lebendige Eloin](/images/vibrant-elion.png)

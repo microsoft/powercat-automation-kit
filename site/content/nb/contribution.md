@@ -4,7 +4,9 @@ description: "Automatiseringssett – bidrag"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 297379DDCDB1F6A3D727BD26F7A19FE3EB3FA252
+author: Grant-Archibald-MS
+tags: ['Contribution', 'Guidance']
+generated: 4F1A86248C4313A15D35FC198A76A7A970A61A37
 ---
 
 Som et Open Source-prosjekt bygget på toppen av Power Platform og Microsoft Cloud, er målet vårt å raskt tilby verktøy og veiledning for å bidra til å akselerere din hyperautomatiseringsreise.

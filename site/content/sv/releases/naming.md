@@ -4,7 +4,9 @@ description: "Automation Kit - Namngivning"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9795E07C61E6C47431EB334171CBB72D03B773EF
+author: Grant-Archibald-MS
+tags: ['Releases', 'Guidance']
+generated: 8E15314207C3D6B5AF4E7C6B20C26F8A788C66C1
 ---
 
 Vid sidan av månaden och versionsnumren {{<product-name>}} använder en kodnamnstagg varje version.

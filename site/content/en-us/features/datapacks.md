@@ -4,6 +4,8 @@ description: Automation Kit - Data Packs
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
+author: Grant-Archibald-MS
+tags: ['Data', 'Integration']
 ---
 
 {{<toc>}}

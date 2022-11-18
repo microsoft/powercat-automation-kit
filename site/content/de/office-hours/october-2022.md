@@ -4,7 +4,9 @@ description: "Automation Kit - Bürozeiten Oktober 2022"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 531F9B8CFD51FA169D951B7C2226592437D35744
+author: Grant-Archibald-MS
+tags: ['Office Hours']
+generated: 59825C3BA5D5CC7F7AB170DA1F38BB8F7E3808A9
 ---
 
 Willkommen beim Automation Kit für Power Platform Sprechstunde Oktober 2022 Landing Page.

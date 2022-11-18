@@ -4,7 +4,9 @@ description: "Automatiseringssett – oppsett"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 118FFCC302703046F1A62CAA9F21BAF122AB0505
+author: Grant-Archibald-MS
+tags: ['Get Started', 'Install']
+generated: 80E55373CD6E25BD9BA123EEE6178F988D711B3D
 ---
 
 Bruk fremgangsmåten nedenfor til å hjelpe deg med å opprette en konfigurasjon for miljøet, slik at du raskt kan installere og konfigurere installasjonen.
