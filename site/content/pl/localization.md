@@ -4,7 +4,7 @@ description: "Automation Kit - Lokalizacja"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
+generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
 ---
 
 **Stan:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Prace w toku - eksperymentalne
@@ -40,6 +40,20 @@ Jednym z głównych celów {{<product-name>}} ma wspierać inkluzywność poprze
 - Pozwól na model "crowd source" wkładów, który pozwala na lepszą transformację językową.
 
 - Skorzystaj z tych informacji, aby zezwolić na specyficzne dla języka treści "Communication Hub" dla zestawu Automation Kit.
+
+## Promowanie integracji i różnorodności w Automation Kit za pomocą lokalizacji
+
+{{<border>}}
+
+![Lokalizacja zestawu Automation Kit](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+Szacuje się ją według [Organizacja Narodów Zjednoczonych](https://hr.un.org/unhq/languages/english) że 1,5 miliarda ludzi mówi po angielsku. Biorąc jednak pod uwagę, że populacja świata jest szacowana na [8 miliardów](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) do listopada 2022 r. jest to oczywiste jako potrzeba obsługi innych języków.
+
+Jako mały zespół zestaw Automation Kit domyślnie działa z amerykańskim angielskim w przypadku zawartości, która nie jest częścią platformy Microsoft Lean. Aby pomóc zaspokoić potrzeby osób nieanglojęzycznych, zautomatyzowaliśmy proces konwersji treści, które są częścią tej witryny.
+
+To, co pomaga nam w zespole, to uzyskanie informacji zwrotnych od naszej społeczności użytkowników na temat znaczenia lokalizacji dla Ciebie. Będziemy wdzięczni za wszelkie opinie na temat poniższych doświadczeń i czekamy na to, jak możemy wspierać szerszy i bardziej zróżnicowany zestaw lokalizacji w czasie.
 
 ## Stan obecny
 

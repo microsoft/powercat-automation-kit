@@ -30,6 +30,183 @@
         },
         {
           "type": "checkbox",
+          "name": "important-languages",
+          "visibleIf": "{nps_score} >= 9",
+          "title": {
+            "default": "What language(s) are most important to you for your to assist using the Automation Kit?",
+            "ko": "자동화 키트 사용을 지원하기 위해 가장 중요한 언어는 무엇입니까?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Danish",
+              "text": {
+                "default": "Danish",
+                "ko": "덴마크어"
+              }
+            },
+            {
+              "value": "Dutch",
+              "text": {
+                "default": "Dutch",
+                "ko": "네덜란드어"
+              }
+            },
+            {
+              "value": "English",
+              "text": {
+                "default": "English",
+                "ko": "영어"
+              }
+            },
+            {
+              "value": "French",
+              "text": {
+                "default": "French",
+                "ko": "프랑스어"
+              }
+            },
+            {
+              "value": "Italian",
+              "text": {
+                "default": "Italian",
+                "ko": "이탈리아어"
+              }
+            },
+            {
+              "value": "Korean",
+              "text": {
+                "default": "Korean",
+                "ko": "한국어"
+              }
+            },
+            {
+              "value": "Japanese",
+              "text": {
+                "default": "Japanese",
+                "ko": "일본어"
+              }
+            },
+            {
+              "value": "Norwegian",
+              "text": {
+                "default": "Norwegian",
+                "ko": "노르웨이어"
+              }
+            },
+            {
+              "value": "Polish",
+              "text": {
+                "default": "Polish",
+                "ko": "폴란드어"
+              }
+            },
+            {
+              "value": "Simplified Chinese",
+              "text": {
+                "default": "Simplified Chinese",
+                "ko": "중국어 간체"
+              }
+            },
+            {
+              "value": "Spanish",
+              "text": {
+                "default": "Spanish",
+                "ko": "스페인어"
+              }
+            },
+            {
+              "value": "Swedish",
+              "text": {
+                "default": "Swedish",
+                "ko": "스웨덴어"
+              }
+            }
+          ]
+        },
+        {
+          "type": "rating",
+          "name": "nps_score",
+          "title": {
+            "default": "On a scale of zero to ten, how satisfied with the translation to your language(s)?",
+            "ko": "0에서 10까지의 척도에서 귀하의 언어로 번역하는 데 얼마나 만족하십니까?"
+          },
+          "isRequired": true,
+          "rateMin": 0,
+          "rateMax": 10,
+          "minRateDescription": "(Most unsatisfied)",
+          "maxRateDescription": "(Most satisfied)"
+        },
+        {
+          "type": "checkbox",
+          "name": "promoter_features",
+          "visibleIf": "{nps_score} >= 9",
+          "title": {
+            "default": "Which of the following did you value the most?",
+            "ko": "다음 중 가장 중요하게 생각하는 것은 무엇입니까?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "That a localization was available",
+              "text": {
+                "default": "That a localization was available",
+                "ko": "현지화를 사용할 수 있다는 것"
+              }
+            },
+            {
+              "value": "The ability to support my teams across the world",
+              "text": {
+                "default": "The ability to support my teams across the world",
+                "ko": "전 세계의 팀을 지원하는 능력"
+              }
+            },
+            {
+              "value": "The ability to engage with content, as English is not my first language",
+              "text": {
+                "default": "The ability to engage with content, as English is not my first language",
+                "ko": "영어가 모국어가 아니기 때문에 콘텐츠에 참여하는 능력"
+              }
+            },
+            {
+              "value": "The approach could be used to improve the Power BI dashboards and applications that are included in the Automation Kit",
+              "text": {
+                "default": "The approach could be used to improve the Power BI dashboards and applications that are included in the Automation Kit",
+                "ko": "이 방법을 사용하여 자동화 키트에 포함된 Power BI 대시보드 및 애플리케이션을 개선할 수 있습니다."
+              }
+            },
+            {
+              "value": "The approach provides me an example of how we can support automated localization of content",
+              "text": {
+                "default": "The approach provides me an example of how we can support automated localization of content",
+                "ko": "이 접근 방식은 콘텐츠의 자동화된 현지화를 지원할 수 있는 방법의 예를 제공합니다."
+              }
+            }
+          ],
+          "otherText": "Other features:"
+        },
+        {
+          "type": "comment",
+          "name": "passive_experience",
+          "visibleIf": "{nps_score} >= 7  and {nps_score} <= 8",
+          "title": {
+            "default": "What can we do to make the localized content more satisfying?",
+            "ko": "현지화된 콘텐츠를 더 만족스럽게 만들기 위해 무엇을 할 수 있습니까?"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "disappointing_experience",
+          "visibleIf": "{nps_score} <= 6",
+          "title": {
+            "default": "Please let us know why you had such a disappointing experience with the localized content",
+            "ko": "현지화 된 콘텐츠로 인해 실망스러운 경험을 한 이유를 알려주십시오."
+          }
+        },
+        {
+          "type": "checkbox",
           "name": "products",
           "title": {
             "default": "What is most important to you?",
@@ -75,10 +252,10 @@
               }
             },
             {
-              "value": "Localized diagrams",
+              "value": "Localized images and diagrams",
               "text": {
-                "default": "Localized diagrams",
-                "ko": "지역화된 다이어그램"
+                "default": "Localized images and diagrams",
+                "ko": "현지화된 이미지 및 다이어그램"
               }
             },
             {
@@ -93,6 +270,13 @@
               "text": {
                 "default": "Using learnings to apply localization to Power Power Apps",
                 "ko": "학습을 사용하여 Power Power Apps에 지역화 적용"
+              }
+            },
+            {
+              "value": "The ability to have content also available as Power Point in my language so I can present it to my team",
+              "text": {
+                "default": "The ability to have content also available as Power Point in my language so I can present it to my team",
+                "ko": "내 언어로 된 콘텐츠를 파워 포인트로도 사용할 수 있으므로 팀에 발표 할 수 있습니다."
               }
             }
           ]

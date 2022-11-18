@@ -24,6 +24,66 @@
                 },
                 {
                     "type": "checkbox",
+                    "name": "important-languages",
+                    "visibleIf": "{nps_score} >= 9",
+                    "title": "What language(s) are most important to you for your to assist using the Automation Kit?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "choices": [
+                        "Danish",
+                        "Dutch",
+                        "English",
+                        "French",
+                        "Italian",
+                        "Korean",
+                        "Japanese",
+                        "Norwegian",
+                        "Polish",
+                        "Simplified Chinese",
+                        "Spanish",
+                        "Swedish"
+                    ]
+                },
+                {
+                    "type": "rating",
+                    "name": "nps_score",
+                    "title": "On a scale of zero to ten, how satisfied with the translation to your language(s)?",
+                    "isRequired": true,
+                    "rateMin": 0,
+                    "rateMax": 10,
+                    "minRateDescription": "(Most unsatisfied)",
+                    "maxRateDescription": "(Most satisfied)"
+                },
+                {
+                    "type": "checkbox",
+                    "name": "promoter_features",
+                    "visibleIf": "{nps_score} >= 9",
+                    "title": "Which of the following did you value the most?",
+                    "isRequired": true,
+                    "hasOther": true,
+                    "choices": [
+                        "That a localization was available",
+                        "The ability to support my teams across the world",
+                        "The ability to engage with content, as English is not my first language",
+                        "The approach could be used to improve the Power BI dashboards and applications that are included in the Automation Kit",
+                        "The approach provides me an example of how we can support automated localization of content"
+                    ],
+                    "otherText": "Other features:"
+                },
+                {
+                    "type": "comment",
+                    "name": "passive_experience",
+                    "visibleIf": "{nps_score} >= 7  and {nps_score} <= 8",
+                    "title": "What can we do to make the localized content more satisfying?"
+                },
+                {
+                    "type": "comment",
+                    "name": "disappointing_experience",
+                    "visibleIf": "{nps_score} <= 6",
+                    "title": "Please let us know why you had such a disappointing experience with the localized content"
+                },
+                {
+                    "type": "checkbox",
                     "name": "products",
                     "title": "What is most important to you?",
                     "isRequired": false,
@@ -35,9 +95,10 @@
                         "Being able to contribute to improve localizations",
                         "Being able to support ability to load localized content into my organization using the same approach",
                         "Being able to customize the content for my organization and add content that is relevant to our organization",
-                        "Localized diagrams",
+                        "Localized images and diagrams",
                         "Using learnings to apply localization to Power BI dashboard",
-                        "Using learnings to apply localization to Power Power Apps"
+                        "Using learnings to apply localization to Power Power Apps",
+                        "The ability to have content also available as Power Point in my language so I can present it to my team"
                     ]
                 },
                 {

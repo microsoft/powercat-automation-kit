@@ -4,7 +4,7 @@ description: "Automatiseringssæt - Lokalisering"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
+generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Igangværende arbejde - Eksperimentelt
@@ -40,6 +40,20 @@ Et af kernemålene for {{<product-name>}} er at understøtte at være inkluderen
 - Tillad en "crowd source" -model for bidrag, der muliggør forbedret sprogtransformation.
 
 - Brug læringen til at give mulighed for sprogspecifikt "Communication Hub"-indhold til automatiseringssættet.
+
+## Fremme af inklusion og mangfoldighed i automatiseringspakken ved hjælp af lokalisering
+
+{{<border>}}
+
+![Lokalisering af automatiseringssæt](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+Det anslås af [FN](https://hr.un.org/unhq/languages/english) at 1,5 milliarder mennesker taler engelsk. Men i betragtning af verdens befolkning anslås at være [8 milliarder dollars](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) i november 2022 er dette klart et behov for at understøtte andre sprog.
+
+Som et lille team fungerer Automation Kit som standard med amerikansk engelsk for indhold, der ikke er en del af Microsoft Lean-platformen. For at hjælpe med at imødekomme ikke-engelsktalende har vi automatiseret processen med at konvertere indhold, der er en del af dette websted.
+
+Det, der hjælper os i et team, er at få feedback fra vores brugerfællesskab om vigtigheden af lokalisering for dig. Vi vil gerne have feedback på nedenstående erfaringer og ser frem til at se, hvordan vi kan understøtte et bredere og mere forskelligartet sæt lokaliseringer over tid.
 
 ## Nuværende tilstand
 

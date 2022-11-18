@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Localisation"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
+generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
 ---
 
 **Statut:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Travaux en cours - Expérimentaux
@@ -40,6 +40,20 @@ L’un des principaux objectifs du {{<product-name>}} est de soutenir l’inclus
 - Permettre un modèle de contributions « crowd source » qui permet d’améliorer la transformation linguistique.
 
 - Utilisez les apprentissages pour autoriser le contenu « Hub de communication » spécifique à la langue pour le kit d’automatisation.
+
+## Promotion de l’inclusion et de la diversité dans le kit d’automatisation à l’aide de la localisation
+
+{{<border>}}
+
+![Localisation de kits d’automatisation](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+Il est estimé par le [Organisation des Nations unies](https://hr.un.org/unhq/languages/english) que 1,5 milliard de personnes parlent anglais. Cependant, étant donné que la population mondiale est estimée à [8 milliards](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) d’ici novembre 2022, il est clair qu’il est nécessaire de prendre en charge d’autres langues.
+
+En tant que petite équipe, le kit d’automatisation fonctionne par défaut avec l’anglais américain pour le contenu qui ne fait pas partie de la plate-forme Microsoft Lean. Pour aider à répondre aux besoins des non-anglophones, nous avons automatisé le processus de conversion du contenu qui fait partie de ce site.
+
+Ce qui nous aide en équipe, c’est d’obtenir des commentaires de notre communauté d’utilisateurs sur l’importance de la localisation pour vous. Nous serions heureux de recevoir vos commentaires sur l’expérience ci-dessous et nous sommes impatients de voir comment nous pouvons prendre en charge un ensemble plus large et plus diversifié de localisations au fil du temps.
 
 ## État actuel
 

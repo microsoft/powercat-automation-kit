@@ -30,6 +30,183 @@
         },
         {
           "type": "checkbox",
+          "name": "important-languages",
+          "visibleIf": "{nps_score} >= 9",
+          "title": {
+            "default": "What language(s) are most important to you for your to assist using the Automation Kit?",
+            "es": "¿Qué idioma(s) son más importantes para usted para ayudarle a usar el Kit de automatización?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Danish",
+              "text": {
+                "default": "Danish",
+                "es": "Danés"
+              }
+            },
+            {
+              "value": "Dutch",
+              "text": {
+                "default": "Dutch",
+                "es": "Holandés"
+              }
+            },
+            {
+              "value": "English",
+              "text": {
+                "default": "English",
+                "es": "Inglés"
+              }
+            },
+            {
+              "value": "French",
+              "text": {
+                "default": "French",
+                "es": "Francés"
+              }
+            },
+            {
+              "value": "Italian",
+              "text": {
+                "default": "Italian",
+                "es": "Italiano"
+              }
+            },
+            {
+              "value": "Korean",
+              "text": {
+                "default": "Korean",
+                "es": "Coreano"
+              }
+            },
+            {
+              "value": "Japanese",
+              "text": {
+                "default": "Japanese",
+                "es": "Japonés"
+              }
+            },
+            {
+              "value": "Norwegian",
+              "text": {
+                "default": "Norwegian",
+                "es": "Noruego"
+              }
+            },
+            {
+              "value": "Polish",
+              "text": {
+                "default": "Polish",
+                "es": "Polaco"
+              }
+            },
+            {
+              "value": "Simplified Chinese",
+              "text": {
+                "default": "Simplified Chinese",
+                "es": "Chino simplificado"
+              }
+            },
+            {
+              "value": "Spanish",
+              "text": {
+                "default": "Spanish",
+                "es": "Español"
+              }
+            },
+            {
+              "value": "Swedish",
+              "text": {
+                "default": "Swedish",
+                "es": "Sueco"
+              }
+            }
+          ]
+        },
+        {
+          "type": "rating",
+          "name": "nps_score",
+          "title": {
+            "default": "On a scale of zero to ten, how satisfied with the translation to your language(s)?",
+            "es": "En una escala de cero a diez, ¿qué tan satisfecho con la traducción a su(s) idioma(s)?"
+          },
+          "isRequired": true,
+          "rateMin": 0,
+          "rateMax": 10,
+          "minRateDescription": "(Most unsatisfied)",
+          "maxRateDescription": "(Most satisfied)"
+        },
+        {
+          "type": "checkbox",
+          "name": "promoter_features",
+          "visibleIf": "{nps_score} >= 9",
+          "title": {
+            "default": "Which of the following did you value the most?",
+            "es": "¿Cuál de los siguientes valoró más?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "That a localization was available",
+              "text": {
+                "default": "That a localization was available",
+                "es": "Que una localización estaba disponible"
+              }
+            },
+            {
+              "value": "The ability to support my teams across the world",
+              "text": {
+                "default": "The ability to support my teams across the world",
+                "es": "La capacidad de apoyar a mis equipos en todo el mundo"
+              }
+            },
+            {
+              "value": "The ability to engage with content, as English is not my first language",
+              "text": {
+                "default": "The ability to engage with content, as English is not my first language",
+                "es": "La capacidad de interactuar con el contenido, ya que el inglés no es mi primer idioma"
+              }
+            },
+            {
+              "value": "The approach could be used to improve the Power BI dashboards and applications that are included in the Automation Kit",
+              "text": {
+                "default": "The approach could be used to improve the Power BI dashboards and applications that are included in the Automation Kit",
+                "es": "El enfoque podría usarse para mejorar los paneles y las aplicaciones de Power BI que se incluyen en el Kit de automatización."
+              }
+            },
+            {
+              "value": "The approach provides me an example of how we can support automated localization of content",
+              "text": {
+                "default": "The approach provides me an example of how we can support automated localization of content",
+                "es": "El enfoque me proporciona un ejemplo de cómo podemos apoyar la localización automatizada de contenido"
+              }
+            }
+          ],
+          "otherText": "Other features:"
+        },
+        {
+          "type": "comment",
+          "name": "passive_experience",
+          "visibleIf": "{nps_score} >= 7  and {nps_score} <= 8",
+          "title": {
+            "default": "What can we do to make the localized content more satisfying?",
+            "es": "¿Qué podemos hacer para que el contenido localizado sea más satisfactorio?"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "disappointing_experience",
+          "visibleIf": "{nps_score} <= 6",
+          "title": {
+            "default": "Please let us know why you had such a disappointing experience with the localized content",
+            "es": "Por favor, háganos saber por qué tuvo una experiencia tan decepcionante con el contenido localizado"
+          }
+        },
+        {
+          "type": "checkbox",
           "name": "products",
           "title": {
             "default": "What is most important to you?",
@@ -75,10 +252,10 @@
               }
             },
             {
-              "value": "Localized diagrams",
+              "value": "Localized images and diagrams",
               "text": {
-                "default": "Localized diagrams",
-                "es": "Diagramas localizados"
+                "default": "Localized images and diagrams",
+                "es": "Imágenes y diagramas localizados"
               }
             },
             {
@@ -93,6 +270,13 @@
               "text": {
                 "default": "Using learnings to apply localization to Power Power Apps",
                 "es": "Uso de aprendizajes para aplicar la localización a Power Power Apps"
+              }
+            },
+            {
+              "value": "The ability to have content also available as Power Point in my language so I can present it to my team",
+              "text": {
+                "default": "The ability to have content also available as Power Point in my language so I can present it to my team",
+                "es": "La capacidad de tener contenido también disponible como Power Point en mi idioma para poder presentarlo a mi equipo"
               }
             }
           ]

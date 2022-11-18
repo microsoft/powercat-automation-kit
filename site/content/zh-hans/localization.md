@@ -4,7 +4,7 @@ description: "自动化套件 - 本地化"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
+generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
 ---
 
 **地位：**{{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 进行中的工作 - 实验性
@@ -41,6 +41,20 @@ generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
 
 -使用所学知识为自动化工具包提供特定于语言的“通信中心”内容。
 
+## 使用本地化促进自动化工具包的包容性和多样性
+
+{{<border>}}
+
+![自动化套件本地化](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+估计由[联合国](https://hr.un.org/unhq/languages/english)15亿人说英语。然而，鉴于世界人口估计[80亿](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022)到 2022 年 11 月，这显然需要支持其他语言。
+
+作为一个小型团队，自动化工具包默认使用美国英语，用于不属于 Microsoft 精益平台的内容。为了帮助迎合非英语人士，我们自动化了作为本网站一部分的内容转换过程。
+
+在团队中，帮助我们的是从我们的用户社区获得有关本地化对您的重要性的反馈。我们欢迎您对以下体验提供任何反馈，并期待看到我们如何随着时间的推移支持更广泛、更多样化的本地化。
+
 ## 当前状态
 
 -尚未实施美式英语到英式英语支持
@@ -51,7 +65,7 @@ generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
 
 ### **问题：**本地化内容是否经过专业翻译？
 
-否 默认内容以美国英语创建，并使用 Azure 认知服务和映射术语自动翻译成其他语言。
+否，默认内容以美国英语创建，并使用 Azure 认知服务和映射术语自动翻译成其他语言。
 
 ### **问题：**如何改进我的语言翻译？
 

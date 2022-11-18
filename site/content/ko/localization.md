@@ -4,7 +4,7 @@ description: "자동화 키트 - 현지화"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
+generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
 ---
 
 **상태:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 진행 중인 작업 - 실험적
@@ -41,6 +41,20 @@ generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
 
 - 학습을 사용하여 자동화 키트에 대한 언어별 "통신 허브" 콘텐츠를 허용합니다.
 
+## 현지화를 사용하여 자동화 키트의 포용성과 다양성 촉진
+
+{{<border>}}
+
+![자동화 키트 현지화](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+그것은 추정됩니다 [유엔](https://hr.un.org/unhq/languages/english) 15억 명의 사람들이 영어를 사용한다는 것입니다. 그러나 세계 인구가 추정되는 경우 [80억](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) 2022년 11월까지 다른 언어를 지원해야 할 필요성이 분명합니다.
+
+소규모 팀인 자동화 키트는 Microsoft Lean 플랫폼의 일부가 아닌 콘텐츠에 대해 기본적으로 미국 영어로 작동합니다. 영어가 아닌 사람들을 수용하기 위해 우리는이 사이트의 일부인 콘텐츠를 변환하는 프로세스를 자동화했습니다.
+
+팀에서 도움이 되는 것은 사용자 커뮤니티로부터 현지화의 중요성에 대한 피드백을 받는 것입니다. 아래 경험에 대한 피드백을 환영하며 시간이 지남에 따라 더 광범위하고 다양한 현지화를 지원할 수 있는 방법을 기대합니다.
+
 ## 현재 상태
 
 - 미국 영어에서 영국 영어로의 지원은 아직 구현되지 않았습니다.
@@ -51,7 +65,7 @@ generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
 
 ### **질문:** 지역화된 콘텐츠가 전문적으로 번역된 콘텐츠인가요?
 
-아니요 기본 콘텐츠는 미국 영어로 만들어지고 Azure Cognitive Services 및 매핑 용어를 사용하여 다른 언어로 자동 번역됩니다.
+아니요, 기본 콘텐츠는 미국 영어로 만들어지고 Azure Cognitive Services 및 매핑 용어를 사용하여 다른 언어로 자동 번역됩니다.
 
 ### **질문:** 내 언어의 번역을 개선하려면 어떻게 해야 합니까?
 

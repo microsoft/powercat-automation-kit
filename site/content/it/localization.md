@@ -4,7 +4,7 @@ description: "Kit di automazione - Localizzazione"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
+generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
 ---
 
 **Stato:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Work In Progress - Sperimentale
@@ -41,6 +41,20 @@ Uno degli obiettivi principali del {{<product-name>}} è quello di supportare l'
 
 - Utilizzare le conoscenze acquisite per consentire contenuti "Communication Hub" specifici per la lingua per l'Automation Kit.
 
+## Promuovere l'inclusione e la diversità nell'Automation Kit utilizzando la localizzazione
+
+{{<border>}}
+
+![Localizzazione di kit di automazione](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+È stimato dal [Nazioni Unite](https://hr.un.org/unhq/languages/english) che 1,5 miliardi di persone parlano inglese. Tuttavia, data la popolazione mondiale si stima che sia [8 miliardi](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) entro novembre 2022 è evidente la necessità di supportare altre lingue.
+
+Come piccolo team, Automation Kit funziona per impostazione predefinita con l'inglese americano per il contenuto che non fa parte della piattaforma Microsoft Lean. Per aiutare a soddisfare i non anglofoni abbiamo automatizzato il processo di conversione dei contenuti che fanno parte di questo sito.
+
+Ciò che ci aiuta in un team è ottenere feedback dalla nostra comunità di utenti sull'importanza della localizzazione per te. Saremmo lieti di ricevere qualsiasi feedback sull'esperienza riportata di seguito e non vediamo l'ora di vedere come possiamo supportare un insieme più ampio e diversificato di localizzazioni nel tempo.
+
 ## Stato attuale
 
 - Il supporto dall'inglese americano all'inglese britannico non è ancora stato implementato
@@ -51,7 +65,7 @@ Uno degli obiettivi principali del {{<product-name>}} è quello di supportare l'
 
 ### **Domanda:** I contenuti localizzati sono tradotti professionalmente?
 
-No, il contenuto predefinito viene creato in inglese americano e tradotto automaticamente in altre lingue usando Servizi cognitivi di Azure e i termini di mapping.
+No, il contenuto predefinito viene creato in inglese (Stati Uniti) e tradotto automaticamente in altre lingue usando Servizi cognitivi di Azure e i termini di mapping.
 
 ### **Domanda:** Come posso migliorare la traduzione per la mia lingua?
 

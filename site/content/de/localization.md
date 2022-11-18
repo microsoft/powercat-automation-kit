@@ -4,7 +4,7 @@ description: "Automation Kit - Lokalisierung"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
+generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Work In Progress - Experimentell
@@ -40,6 +40,20 @@ Eines der Kernziele der {{<product-name>}} soll die Inklusion durch die Lokalisi
 - Ermöglichen Sie ein "Crowd-Source"-Modell von Beiträgen, das eine verbesserte Sprachtransformation ermöglicht.
 
 - Verwenden Sie die Erkenntnisse, um sprachspezifische "Communication Hub"-Inhalte für das Automation Kit zu ermöglichen.
+
+## Förderung von Inklusion und Vielfalt im Automation Kit mithilfe von Lokalisierung
+
+{{<border>}}
+
+![Lokalisierung von Automation Kits](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+Es wird geschätzt von der [Vereinte Nationen](https://hr.un.org/unhq/languages/english) dass 1,5 Milliarden Menschen Englisch sprechen. Angesichts der Tatsache, dass die Weltbevölkerung jedoch auf [8 Milliarden](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) bis November 2022 ist dies eindeutig ein Bedarf, andere Sprachen zu unterstützen.
+
+Als kleines Team arbeitet das Automation Kit standardmäßig mit US-Englisch für Inhalte, die nicht Teil der Microsoft Lean-Plattform sind. Um nicht englischsprachigen Personen gerecht zu werden, haben wir den Prozess der Konvertierung von Inhalten, die Teil dieser Website sind, automatisiert.
+
+Was uns im Team hilft, ist das Feedback unserer Benutzer-Community über die Bedeutung der Lokalisierung für Sie. Wir würden uns über Ihr Feedback zu den folgenden Erfahrungen freuen und freuen uns darauf, zu sehen, wie wir im Laufe der Zeit eine breitere und vielfältigere Palette von Lokalisierungen unterstützen können.
 
 ## Aktueller Zustand
 

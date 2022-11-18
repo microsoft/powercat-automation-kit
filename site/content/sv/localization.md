@@ -4,7 +4,7 @@ description: "Automation Kit - Lokalisering"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: E807CB451AFD916D511FFBA8EAC5FA5C8C54BC47
+generated: 95F13FA4929A43C1DBF775B8119315DDEB91E0F5
 ---
 
 **Status:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} Pågående arbete - Experimentellt
@@ -41,6 +41,20 @@ Ett av de viktigaste målen för {{<product-name>}} är att stödja inkludering 
 
 - Använd lärdomarna för att tillåta språkspecifikt "Communication Hub"-innehåll för Automation Kit.
 
+## Främja inkludering och mångfald i Automation Kit med hjälp av lokalisering
+
+{{<border>}}
+
+![Lokalisering av automatiseringssats](/images/automation-kit-localization.png)
+
+{{</border>}}
+
+Det uppskattas av [Förenta Nationerna](https://hr.un.org/unhq/languages/english) att 1,5 miljarder människor talar engelska. Men med tanke på att världens befolkning uppskattas vara [8 miljarder](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) senast i november 2022 är detta tydligt ett behov av att stödja andra språk.
+
+Som ett litet team fungerar Automation Kit som standard med amerikansk engelska för innehåll som inte ingår i Microsoft Lean-plattformen. För att hjälpa till att tillgodose icke-engelsktalande har vi automatiserat processen att konvertera innehåll som ingår i denna webbplats.
+
+Det som hjälper oss i ett team är att få feedback från vår användargrupp om vikten av lokalisering för dig. Vi tar gärna emot all feedback du har om erfarenheterna nedan och ser fram emot att se hur vi kan stödja en bredare och mer varierad uppsättning lokaliseringar över tid.
+
 ## Nuvarande tillstånd
 
 - Stöd för amerikansk engelska till brittisk engelska har ännu inte implementerats
@@ -51,7 +65,7 @@ Ett av de viktigaste målen för {{<product-name>}} är att stödja inkludering 
 
 ### **Fråga:** Är det lokaliserade innehållet professionellt översatt innehåll?
 
-Standardinnehållet skapas på amerikansk engelska och översätts automatiskt till andra språk med hjälp av Azure Cognitive Services och mappningstermer.
+Nej, standardinnehållet skapas på amerikansk engelska och översätts automatiskt till andra språk med hjälp av Azure Cognitive Services och mappningstermer.
 
 ### **Fråga:** Hur kan jag förbättra översättningen för mitt språk?
 
