@@ -38,13 +38,6 @@
                 "default": "Security Group Setup",
                 "fr": "Configuration du groupe de sécurité"
               }
-            },
-            {
-              "value": "Data Import - Main Solution",
-              "text": {
-                "default": "Data Import - Main Solution",
-                "fr": "Importation de données - Solution principale"
-              }
             }
           ]
         },
@@ -70,14 +63,6 @@
           "html": {
             "default": "Configure users / groups that should be assigned to security groups for Administration, Contribution and View permissions for Automation projects",
             "fr": "Configurer les utilisateurs/groupes qui doivent être affectés aux groupes de sécurité pour les autorisations d’administration, de contribution et d’affichage pour les projets Automation"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-          "html": {
-            "default": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards",
-            "fr": "Effectuer une importation facultative de l’échantillon Données de solution principale pour voir les exemples de tableaux de bord de saisie et de surveillance des données de bout en bout"
           }
         }
       ]
@@ -232,7 +217,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "fr": "Doit être un environnement Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
+              "regex": "^https:\\/(.*?).powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
             }
           ]
         },
@@ -268,7 +253,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -304,7 +289,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -340,7 +325,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -376,7 +361,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -412,7 +397,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -421,6 +406,140 @@
           "html": {
             "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
             "fr": "Le connecteur Power Platform for Admins Automation est utilisé pour interroger des informations sur vos solutions déployées"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Options",
+        "fr": "Solution principale - Options"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "main-installSampleData",
+          "isRequired": true,
+          "title": {
+            "default": "Import sample data after main solution is setup?",
+            "fr": "Importer des exemples de données après la configuration de la solution principale ?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == true",
+          "html": {
+            "default": "Sample Corporate Goals, Automation Projects and telemetry data will be imported",
+            "fr": "Des exemples d’objectifs d’entreprise, de projets d’automatisation et de données de télémétrie seront importés"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == false",
+          "html": {
+            "default": "On base data required for solution will be imported",
+            "fr": "Les données de base requises pour la solution seront importées"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableROIFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Return on Investment (ROI) Power Automate cloud flow?",
+            "fr": "Activer le retour sur investissement (ROI) Power Automatiser le flux cloud ?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == true",
+          "html": {
+            "default": "The ROI cloud flow will be enabled so that complexity and ROI are calculated when Automation Projects are inserted or updated",
+            "fr": "Le flux cloud ROI sera activé afin que la complexité et le ROI soient calculés lorsque les projets d’automatisation sont insérés ou mis à jour"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == false",
+          "html": {
+            "default": "You can enable the ROI cloud flow after update",
+            "fr": "Vous pouvez activer le flux cloud ROI après la mise à jour"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableApprovalFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Approval Power Automate cloud flow?",
+            "fr": "Activer Approval Power Automatiser le flux cloud ?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == true",
+          "html": {
+            "default": "The Approval cloud flow will be enabled so that approval requests are sent to approvers",
+            "fr": "Le flux de nuage d’approbation sera activé afin que les demandes d’approbation soient envoyées aux approbateurs"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == false",
+          "html": {
+            "default": "You can enable the Approval cloud flow after update",
+            "fr": "Vous pouvez activer le flux cloud d’approbation après la mise à jour"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableSyncFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Synchronization of Automation Kit data between environments?",
+            "fr": "Activer la synchronisation des données du Kit d’automatisation entre les environnements ?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == true",
+          "html": {
+            "default": "The Synchronization cloud flow will be enabled so data is sychronized with satellite environments",
+            "fr": "Le flux de nuage de synchronisation sera activé afin que les données soient synchronisées avec les environnements satellitaires"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == false",
+          "html": {
+            "default": "You can enable the Synchronization cloud flow after update",
+            "fr": "Vous pouvez activer le flux cloud de synchronisation après la mise à jour"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-disableSyncDesktopFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Disable syncing of desktop flows script?",
+            "fr": "Désactiver la synchronisation du script de flux de bureau ?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == true",
+          "html": {
+            "default": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
+            "fr": "Volonté <b>désactiver</b> la synchronisation du script Desktop Flows definition dans la table Desktop Flow Definition. Ce champ peut contenir des informations sensibles"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == false",
+          "html": {
+            "default": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
+            "fr": "Active la synchronisation du script de définition des flux de bureau dans la table Desktop Flow Definition. Remarque : Ce champ peut contenir des informations sensibles"
           }
         }
       ]
@@ -683,7 +802,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "fr": "Doit être un environnement Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
             }
           ]
         },
@@ -719,7 +838,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -755,7 +874,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -791,7 +910,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -827,7 +946,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -863,7 +982,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -899,7 +1018,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "fr": "Doit être un lien de connexion Power Platform valide commençant par [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -1068,18 +1187,6 @@
           "name": "downloadResults",
           "fileName": "automation-kit-satellite-install.json",
           "filter": "satellite"
-        }
-      ]
-    },
-    {
-      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-      "elements": [
-        {
-          "type": "html",
-          "html": {
-            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
-            "fr": "<b>NOTE:</b> Utilisez le <a href='/features/datapack' target='blank'>Packs de données</a> Page de documentation pour obtenir des conseils sur l’installation de la solution principale avec des exemples de données"
-          }
         }
       ]
     }

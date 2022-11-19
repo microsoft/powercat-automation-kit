@@ -38,13 +38,6 @@
                 "default": "Security Group Setup",
                 "ko": "보안 그룹 설정"
               }
-            },
-            {
-              "value": "Data Import - Main Solution",
-              "text": {
-                "default": "Data Import - Main Solution",
-                "ko": "데이터 가져오기 - 기본 솔루션"
-              }
             }
           ]
         },
@@ -70,14 +63,6 @@
           "html": {
             "default": "Configure users / groups that should be assigned to security groups for Administration, Contribution and View permissions for Automation projects",
             "ko": "자동화 프로젝트에 대한 관리, 기여 및 보기 권한에 대해 보안 그룹에 할당해야 하는 사용자/그룹 구성"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-          "html": {
-            "default": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards",
-            "ko": "샘플 Main 솔루션 데이터의 선택적 가져오기를 수행하여 샘플 종단 간 데이터 입력 및 모니터링 대시보드 확인"
           }
         }
       ]
@@ -232,7 +217,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 환경이어야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
+              "regex": "^https:\\/(.*?).powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
             }
           ]
         },
@@ -268,7 +253,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -304,7 +289,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -340,7 +325,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -376,7 +361,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -412,7 +397,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -421,6 +406,140 @@
           "html": {
             "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
             "ko": "관리자 자동화용 Power Platform 커넥터는 배포된 솔루션에 대한 정보를 쿼리하는 데 사용됩니다."
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Options",
+        "ko": "기본 솔루션 - 옵션"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "main-installSampleData",
+          "isRequired": true,
+          "title": {
+            "default": "Import sample data after main solution is setup?",
+            "ko": "기본 솔루션이 설정된 후 샘플 데이터를 가져 오시겠습니까?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == true",
+          "html": {
+            "default": "Sample Corporate Goals, Automation Projects and telemetry data will be imported",
+            "ko": "샘플 기업 목표, 자동화 프로젝트 및 원격 측정 데이터를 가져옵니다."
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == false",
+          "html": {
+            "default": "On base data required for solution will be imported",
+            "ko": "솔루션에 필요한 기본 데이터를 가져옵니다."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableROIFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Return on Investment (ROI) Power Automate cloud flow?",
+            "ko": "투자 수익률(ROI) 파워 클라우드 흐름을 자동화하시겠습니까?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == true",
+          "html": {
+            "default": "The ROI cloud flow will be enabled so that complexity and ROI are calculated when Automation Projects are inserted or updated",
+            "ko": "ROI 클라우드 흐름이 활성화되어 자동화 프로젝트가 삽입되거나 업데이트될 때 복잡성과 ROI가 계산됩니다."
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == false",
+          "html": {
+            "default": "You can enable the ROI cloud flow after update",
+            "ko": "업데이트 후 ROI 클라우드 흐름을 활성화할 수 있습니다."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableApprovalFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Approval Power Automate cloud flow?",
+            "ko": "승인 권한 사용 클라우드 흐름을 자동화하시겠습니까?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == true",
+          "html": {
+            "default": "The Approval cloud flow will be enabled so that approval requests are sent to approvers",
+            "ko": "승인 요청이 승인자에게 전송되도록 승인 클라우드 흐름이 활성화됩니다."
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == false",
+          "html": {
+            "default": "You can enable the Approval cloud flow after update",
+            "ko": "업데이트 후 승인 클라우드 흐름을 사용하도록 설정할 수 있습니다."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableSyncFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Synchronization of Automation Kit data between environments?",
+            "ko": "환경 간에 자동화 키트 데이터의 동기화를 활성화하시겠습니까?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == true",
+          "html": {
+            "default": "The Synchronization cloud flow will be enabled so data is sychronized with satellite environments",
+            "ko": "동기화 클라우드 흐름이 활성화되어 데이터가 위성 환경과 동기화됩니다."
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == false",
+          "html": {
+            "default": "You can enable the Synchronization cloud flow after update",
+            "ko": "업데이트 후 동기화 클라우드 흐름을 활성화할 수 있습니다."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-disableSyncDesktopFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Disable syncing of desktop flows script?",
+            "ko": "데스크톱 흐름 스크립트의 동기화를 사용하지 않도록 설정하시겠습니까?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == true",
+          "html": {
+            "default": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
+            "ko": "할 것이다 <b>비활성화</b> 데스크톱 흐름 정의 테이블 내의 데스크톱 흐름 정의 스크립트의 동기화. 이 필드에는 중요한 정보가 포함될 수 있습니다."
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == false",
+          "html": {
+            "default": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
+            "ko": "데스크톱 흐름 정의 테이블 내에서 데스크톱 흐름 정의 스크립트의 동기화를 사용하도록 설정합니다. 참고: 이 필드에는 중요한 정보가 포함될 수 있습니다."
           }
         }
       ]
@@ -683,7 +802,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 환경이어야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
             }
           ]
         },
@@ -719,7 +838,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -755,7 +874,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -791,7 +910,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -827,7 +946,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -863,7 +982,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -899,7 +1018,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "ko": "다음으로 시작하는 유효한 Power Platform 연결 링크여야 합니다. [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -1068,18 +1187,6 @@
           "name": "downloadResults",
           "fileName": "automation-kit-satellite-install.json",
           "filter": "satellite"
-        }
-      ]
-    },
-    {
-      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-      "elements": [
-        {
-          "type": "html",
-          "html": {
-            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
-            "ko": "<b>메모:</b> 사용 <a href='/features/datapack' target='blank'>데이터 팩</a> 샘플 데이터가 있는 기본 솔루션을 설치하는 방법에 대한 지침을 제공하는 설명서 페이지"
-          }
         }
       ]
     }

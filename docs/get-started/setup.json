@@ -14,8 +14,7 @@
                     "choices": [
                         "Main solution",
                         "Satellite solution",
-                        "Security Group Setup",
-                        "Data Import - Main Solution"
+                        "Security Group Setup"
                     ]
                 },
                 {
@@ -32,11 +31,6 @@
                     "type": "html",
                     "visibleIf": "contains({installType}, 'Security Group Setup')",
                     "html": "Configure users / groups that should be assigned to security groups for Administration, Contribution and View permissions for Automation projects"
-                },
-                {
-                    "type": "html",
-                    "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-                    "html": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards"
                 }
             ]
         },
@@ -113,7 +107,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
-                            "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
+                            "regex": "^https:\\/(.*?).powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
                         }
                     ]
                 },
@@ -137,7 +131,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -161,7 +155,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -185,7 +179,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -209,7 +203,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -233,13 +227,99 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
                 {
                     "type": "html",
                     "html": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions"
+                }
+            ]
+        },
+        {
+            "title": "Main Solution - Options",
+            "visibleIf": "contains({installType}, 'Main solution')",
+            "elements": [
+                {
+                    "type": "boolean",
+                    "name": "main-installSampleData",
+                    "isRequired": true,
+                    "title": "Import sample data after main solution is setup?"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-installSampleData} == true",
+                    "html": "Sample Corporate Goals, Automation Projects and telemetry data will be imported"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-installSampleData} == false",
+                    "html": "On base data required for solution will be imported"
+                },
+                {
+                    "type": "boolean",
+                    "name": "main-enableROIFlow",
+                    "isRequired": true,
+                    "title": "Enable Return on Investment (ROI) Power Automate cloud flow?"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-enableROIFlow} == true",
+                    "html": "The ROI cloud flow will be enabled so that complexity and ROI are calculated when Automation Projects are inserted or updated"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-enableROIFlow} == false",
+                    "html": "You can enable the ROI cloud flow after update"
+                },
+                {
+                    "type": "boolean",
+                    "name": "main-enableApprovalFlow",
+                    "isRequired": true,
+                    "title": "Enable Approval Power Automate cloud flow?"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-enableApprovalFlow} == true",
+                    "html": "The Approval cloud flow will be enabled so that approval requests are sent to approvers"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-enableApprovalFlow} == false",
+                    "html": "You can enable the Approval cloud flow after update"
+                },
+                {
+                    "type": "boolean",
+                    "name": "main-enableSyncFlow",
+                    "isRequired": true,
+                    "title": "Enable Synchronization of Automation Kit data between environments?"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-enableSyncFlow} == true",
+                    "html": "The Synchronization cloud flow will be enabled so data is sychronized with satellite environments"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-enableSyncFlow} == false",
+                    "html": "You can enable the Synchronization cloud flow after update"
+                },
+                {
+                    "type": "boolean",
+                    "name": "main-disableSyncDesktopFlow",
+                    "isRequired": true,
+                    "title": "Disable syncing of desktop flows script?"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-disableSyncDesktopFlow} == true",
+                    "html": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{main-disableSyncDesktopFlow} == false",
+                    "html": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information"
                 }
             ]
         },
@@ -384,7 +464,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
                         }
                     ]
                 },
@@ -408,7 +488,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -432,7 +512,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -456,7 +536,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -480,7 +560,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -504,7 +584,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -528,7 +608,7 @@
                         {
                             "type": "regex",
                             "text": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
-                            "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+                            "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
                         }
                     ]
                 },
@@ -640,15 +720,6 @@
                     "name": "downloadResults",
                     "fileName": "automation-kit-satellite-install.json",
                     "filter": "satellite"
-                }
-            ]
-        },
-        {
-            "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-            "elements": [
-                {
-                    "type": "html",
-                    "html": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data"
                 }
             ]
         }

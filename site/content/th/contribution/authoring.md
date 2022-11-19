@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 ส่วนต่อไปนี้จะสรุปแนวทางและหมายเหตุสําหรับการเขียนเอกสารเริ่มต้น
@@ -140,19 +140,13 @@ include_footer: true
 
 ขั้นตอนต่อไปนี้ที่ใช้ในการตั้งค่าหน้า GitHub สําหรับไซต์
 
-1. สร้างสาขากําพร้าใหม่ใน git
+1. ตรวจสอบสาขาเอกสาร
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. ล้างเนื้อหาที่มีอยู่ (ไฟล์และโฟลเดอร์)
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. ติดตั้งฮิวโก้แล้ว
+1. ฮิวโก้ขยายมีการติดตั้ง
 
     - คุณยังสามารถติดตั้งด้วยช็อคโกแลตบนหน้าต่าง
  
@@ -160,7 +154,11 @@ include_footer: true
     choco install hugo-extended -confirm
     ```
 
-1. เอาต์พุต Hugo กําหนดค่าให้ส่งออกไปยังโฟลเดอร์ /docs
+1. เปลี่ยนเป็นโฟลเดอร์ของไซต์
+
+    ```bash
+    cd site
+    ```
 
 1. ทดสอบการเปลี่ยนแปลงของคุณ
 

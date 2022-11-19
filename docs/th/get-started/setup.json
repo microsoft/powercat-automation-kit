@@ -38,13 +38,6 @@
                 "default": "Security Group Setup",
                 "th": "การตั้งค่ากลุ่มความปลอดภัย"
               }
-            },
-            {
-              "value": "Data Import - Main Solution",
-              "text": {
-                "default": "Data Import - Main Solution",
-                "th": "การนําเข้าข้อมูล - โซลูชันหลัก"
-              }
             }
           ]
         },
@@ -70,14 +63,6 @@
           "html": {
             "default": "Configure users / groups that should be assigned to security groups for Administration, Contribution and View permissions for Automation projects",
             "th": "กําหนดค่าผู้ใช้ / กลุ่มที่ควรกําหนดให้กับกลุ่มความปลอดภัยสําหรับสิทธิ์การดูแลระบบการมีส่วนร่วมและดูสําหรับโครงการอัตโนมัติ"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-          "html": {
-            "default": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards",
-            "th": "ดําเนินการนําเข้าเพิ่มเติมของตัวอย่างข้อมูลโซลูชันหลักเพื่อดูตัวอย่างการป้อนข้อมูลตั้งแต่ต้นจนจบและแดชบอร์ดการตรวจสอบ"
           }
         }
       ]
@@ -232,7 +217,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "th": "ต้องเป็นสภาพแวดล้อมPower Platformที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
+              "regex": "^https:\\/(.*?).powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
             }
           ]
         },
@@ -268,7 +253,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -304,7 +289,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -340,7 +325,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -376,7 +361,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -412,7 +397,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -421,6 +406,140 @@
           "html": {
             "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
             "th": "ตัวเชื่อมต่อ Power Platform for Admins Automation ถูกใช้เพื่อสอบถามข้อมูลเกี่ยวกับโซลูชันที่ปรับใช้ของคุณ"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Options",
+        "th": "โซลูชันหลัก - ตัวเลือก"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "main-installSampleData",
+          "isRequired": true,
+          "title": {
+            "default": "Import sample data after main solution is setup?",
+            "th": "นําเข้าข้อมูลตัวอย่างหลังจากตั้งค่าโซลูชันหลักแล้วหรือไม่"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == true",
+          "html": {
+            "default": "Sample Corporate Goals, Automation Projects and telemetry data will be imported",
+            "th": "ตัวอย่างเป้าหมายขององค์กรโครงการอัตโนมัติและข้อมูลการวัดและส่งข้อมูลทางไกลจะถูกนําเข้า"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == false",
+          "html": {
+            "default": "On base data required for solution will be imported",
+            "th": "ข้อมูลพื้นฐานที่จําเป็นสําหรับโซลูชันจะถูกนําเข้า"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableROIFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Return on Investment (ROI) Power Automate cloud flow?",
+            "th": "เปิดใช้งานผลตอบแทนจากการลงทุน (ROI) โฟลว์ระบบคลาวด์ Power Automate หรือไม่"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == true",
+          "html": {
+            "default": "The ROI cloud flow will be enabled so that complexity and ROI are calculated when Automation Projects are inserted or updated",
+            "th": "โฟลว์ระบบคลาวด์ ROI จะเปิดใช้งานเพื่อให้มีการคํานวณความซับซ้อนและ ROI เมื่อมีการแทรกหรืออัปเดตโครงการระบบอัตโนมัติ"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == false",
+          "html": {
+            "default": "You can enable the ROI cloud flow after update",
+            "th": "คุณสามารถเปิดใช้งานโฟลว์ระบบคลาวด์ ROI หลังจากอัปเดต"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableApprovalFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Approval Power Automate cloud flow?",
+            "th": "เปิดใช้งานการอนุมัติโฟลว์ระบบคลาวด์ Power Automate หรือไม่"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == true",
+          "html": {
+            "default": "The Approval cloud flow will be enabled so that approval requests are sent to approvers",
+            "th": "โฟลว์ระบบคลาวด์การอนุมัติจะเปิดใช้งานเพื่อให้คําขออนุมัติถูกส่งไปยังผู้อนุมัติ"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == false",
+          "html": {
+            "default": "You can enable the Approval cloud flow after update",
+            "th": "คุณสามารถเปิดใช้งานโฟลว์อนุมัติระบบคลาวด์หลังจากอัปเดต"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableSyncFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Synchronization of Automation Kit data between environments?",
+            "th": "เปิดใช้งานการซิงโครไนซ์ข้อมูล Automation Kit ระหว่างสภาพแวดล้อมหรือไม่"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == true",
+          "html": {
+            "default": "The Synchronization cloud flow will be enabled so data is sychronized with satellite environments",
+            "th": "โฟลว์ระบบคลาวด์การซิงโครไนซ์จะเปิดใช้งานเพื่อให้ข้อมูลถูก sychronized กับสภาพแวดล้อมดาวเทียม"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == false",
+          "html": {
+            "default": "You can enable the Synchronization cloud flow after update",
+            "th": "คุณสามารถเปิดใช้งานโฟลว์ระบบคลาวด์การซิงโครไนซ์หลังจากอัปเดต"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-disableSyncDesktopFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Disable syncing of desktop flows script?",
+            "th": "ปิดใช้งานการซิงค์สคริปต์โฟลว์เดสก์ท็อปใช่หรือไม่"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == true",
+          "html": {
+            "default": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
+            "th": "จะ <b>เก</b> sychronization ของสคริปต์นิยามโฟลว์เดสก์ท็อปภายในตารางข้อกําหนดโฟลว์เดสก์ท็อป ฟิลด์นี้อาจมีข้อมูลที่ละเอียดอ่อน"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == false",
+          "html": {
+            "default": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
+            "th": "จะเปิดใช้งานการเรียงลําดับของสคริปต์คําจํากัดความของโฟลว์เดสก์ท็อปภายในตารางข้อกําหนดโฟลว์เดสก์ท็อป หมายเหตุ: ฟิลด์นี้อาจประกอบด้วยข้อมูลที่ละเอียดอ่อน"
           }
         }
       ]
@@ -683,7 +802,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "th": "ต้องเป็นสภาพแวดล้อมPower Platformที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
             }
           ]
         },
@@ -719,7 +838,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -755,7 +874,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -791,7 +910,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -827,7 +946,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -863,7 +982,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -899,7 +1018,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "th": "ต้องเป็นลิงก์การเชื่อมต่อ Power Platform ที่ถูกต้องโดยเริ่มจาก [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -1068,18 +1187,6 @@
           "name": "downloadResults",
           "fileName": "automation-kit-satellite-install.json",
           "filter": "satellite"
-        }
-      ]
-    },
-    {
-      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-      "elements": [
-        {
-          "type": "html",
-          "html": {
-            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
-            "th": "<b>โน้ต:</b> ใช้ปุ่ม <a href='/features/datapack' target='blank'>ชุดข้อมูล</a> หน้าเอกสารประกอบสําหรับคําแนะนําเกี่ยวกับวิธีการติดตั้งโซลูชันหลักด้วยข้อมูลตัวอย่าง"
-          }
         }
       ]
     }

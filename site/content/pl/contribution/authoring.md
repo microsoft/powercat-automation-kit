@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 W poniższych sekcjach przedstawiono wskazówki i uwagi dotyczące tworzenia dokumentacji początkowej.
@@ -140,19 +140,13 @@ Parametry:
 
 Poniższe kroki, gdzie użyto do skonfigurowania stron GitHub dla witryny
 
-1. Utworzono nową osieroconą gałąź w git
+1. Zapoznaj się z branżą dokumentacji
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. Czyszczenie istniejącej zawartości (plików i folderów)
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. Hugo jest zainstalowany
+1. Hugo extended jest zainstalowany
 
     - Możesz także zainstalować z chocolatey w systemie Windows
  
@@ -160,7 +154,11 @@ Poniższe kroki, gdzie użyto do skonfigurowania stron GitHub dla witryny
     choco install hugo-extended -confirm
     ```
 
-1. Wyjście Hugo skonfigurowane do wyprowadzania do folderu / docs
+1. Zmień na folder witryny
+
+    ```bash
+    cd site
+    ```
 
 1. Testowanie zmian
 

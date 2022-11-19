@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 다음 섹션에서는 시작 설명서 작성에 대한 지침과 참고 사항을 간략하게 설명합니다.
@@ -140,19 +140,13 @@ include_footer: true
 
 사이트의 GitHub 페이지를 설정하는 데 사용되는 다음 단계
 
-1. git에서 새로운 고아 분기를 만들었습니다.
+1. 문서 분기 확인
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. 기존 콘텐츠(파일 및 폴더) 지우기
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. 휴고가 설치되었습니다.
+1. 휴고 확장 설치
 
     - 창문에 초콜릿으로 설치할 수도 있습니다.
  
@@ -160,7 +154,11 @@ include_footer: true
     choco install hugo-extended -confirm
     ```
 
-1. /docs 폴더로 출력하도록 구성된 Hugo 출력
+1. 사이트 폴더로 변경
+
+    ```bash
+    cd site
+    ```
 
 1. 변경 내용 테스트
 

@@ -38,13 +38,6 @@
                 "default": "Security Group Setup",
                 "sv": "Konfiguration av säkerhetsgrupp"
               }
-            },
-            {
-              "value": "Data Import - Main Solution",
-              "text": {
-                "default": "Data Import - Main Solution",
-                "sv": "Dataimport - Huvudlösning"
-              }
             }
           ]
         },
@@ -70,14 +63,6 @@
           "html": {
             "default": "Configure users / groups that should be assigned to security groups for Administration, Contribution and View permissions for Automation projects",
             "sv": "Konfigurera användare/grupper som ska tilldelas säkerhetsgrupper för administrations-, bidrags- och visningsbehörigheter för Automation-projekt"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-          "html": {
-            "default": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards",
-            "sv": "Utför en valfri import av huvudlösningsdata för att se exempel på datainmatning från slutet till slut och instrumentpaneler för övervakning"
           }
         }
       ]
@@ -232,7 +217,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform miljö som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
+              "regex": "^https:\\/(.*?).powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
             }
           ]
         },
@@ -268,7 +253,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -304,7 +289,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -340,7 +325,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -376,7 +361,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -412,7 +397,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -421,6 +406,140 @@
           "html": {
             "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
             "sv": "Anslutningsappen Power Platform for Admins Automation används för att fråga information om dina distribuerade lösningar"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Options",
+        "sv": "Huvudlösning - Alternativ"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "main-installSampleData",
+          "isRequired": true,
+          "title": {
+            "default": "Import sample data after main solution is setup?",
+            "sv": "Importera exempeldata när huvudlösningen har konfigurerats?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == true",
+          "html": {
+            "default": "Sample Corporate Goals, Automation Projects and telemetry data will be imported",
+            "sv": "Exempel på företagsmål, automatiseringsprojekt och telemetridata importeras"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == false",
+          "html": {
+            "default": "On base data required for solution will be imported",
+            "sv": "Basdata som krävs för lösningen importeras"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableROIFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Return on Investment (ROI) Power Automate cloud flow?",
+            "sv": "Aktivera avkastning på investering (ROI) Power Automate molnflöde?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == true",
+          "html": {
+            "default": "The ROI cloud flow will be enabled so that complexity and ROI are calculated when Automation Projects are inserted or updated",
+            "sv": "Roi-molnflödet aktiveras så att komplexitet och ROI beräknas när Automation-projekt infogas eller uppdateras"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == false",
+          "html": {
+            "default": "You can enable the ROI cloud flow after update",
+            "sv": "Du kan aktivera ROI-molnflödet efter uppdatering"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableApprovalFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Approval Power Automate cloud flow?",
+            "sv": "Aktivera godkännande Power Automate molnflöde?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == true",
+          "html": {
+            "default": "The Approval cloud flow will be enabled so that approval requests are sent to approvers",
+            "sv": "Molnflödet för godkännande aktiveras så att godkännandebegäranden skickas till godkännare"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == false",
+          "html": {
+            "default": "You can enable the Approval cloud flow after update",
+            "sv": "Du kan aktivera molnflödet för godkännande efter uppdatering"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableSyncFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Synchronization of Automation Kit data between environments?",
+            "sv": "Aktivera synkronisering av Automation Kit-data mellan miljöer?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == true",
+          "html": {
+            "default": "The Synchronization cloud flow will be enabled so data is sychronized with satellite environments",
+            "sv": "Synkroniseringsmolnflödet aktiveras så att data sykroniseras med satellitmiljöer"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == false",
+          "html": {
+            "default": "You can enable the Synchronization cloud flow after update",
+            "sv": "Du kan aktivera molnflödet för synkronisering efter uppdatering"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-disableSyncDesktopFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Disable syncing of desktop flows script?",
+            "sv": "Inaktivera synkronisering av skript för datorflöden?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == true",
+          "html": {
+            "default": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
+            "sv": "Vilja <b>inaktivera</b> sykroniseringen av skriptet Datorflödesdefinition i tabellen Desktop Flow Definition. Det här fältet kan innehålla känslig information"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == false",
+          "html": {
+            "default": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
+            "sv": "Aktiverar sykronisering av skriptet Datorflödesdefinition i tabellen Desktop Flow Definition. Det här fältet kan innehålla känslig information"
           }
         }
       ]
@@ -683,7 +802,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform miljö som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
             }
           ]
         },
@@ -719,7 +838,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -755,7 +874,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -791,7 +910,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -827,7 +946,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -863,7 +982,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -899,7 +1018,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "sv": "Måste vara en giltig Power Platform anslutningslänk som börjar med [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -1068,18 +1187,6 @@
           "name": "downloadResults",
           "fileName": "automation-kit-satellite-install.json",
           "filter": "satellite"
-        }
-      ]
-    },
-    {
-      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-      "elements": [
-        {
-          "type": "html",
-          "html": {
-            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
-            "sv": "<b>NOT:</b> Använd ikonen <a href='/features/datapack' target='blank'>Datapaket</a> dokumentationssida för vägledning om hur du installerar huvudlösningen med exempeldata"
-          }
         }
       ]
     }

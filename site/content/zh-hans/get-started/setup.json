@@ -38,13 +38,6 @@
                 "default": "Security Group Setup",
                 "zh-hans": "安全组设置"
               }
-            },
-            {
-              "value": "Data Import - Main Solution",
-              "text": {
-                "default": "Data Import - Main Solution",
-                "zh-hans": "数据导入 - 主要解决方案"
-              }
             }
           ]
         },
@@ -70,14 +63,6 @@
           "html": {
             "default": "Configure users / groups that should be assigned to security groups for Administration, Contribution and View permissions for Automation projects",
             "zh-hans": "配置应分配给自动化项目的管理、参与和查看权限安全组的用户/组"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-          "html": {
-            "default": "Perform an optional import of sample Main solution data to see sample end to end data entry and monitoring dashboards",
-            "zh-hans": "执行示例主解决方案数据的可选导入，以查看示例端到端数据输入和监视仪表板"
           }
         }
       ]
@@ -232,7 +217,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^https:\\/\\/make.powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
+              "regex": "^https:\\/(.*?).powerapps.com\\/environments\\/([a-zA-Z0-9\\-].*?)\\/home"
             }
           ]
         },
@@ -268,7 +253,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_approvals/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -304,7 +289,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -340,7 +325,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -376,7 +361,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -412,7 +397,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -421,6 +406,140 @@
           "html": {
             "default": "The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
             "zh-hans": "管理员自动化连接器Power Platform用于查询有关已部署解决方案的信息"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Main Solution - Options",
+        "zh-hans": "主要解决方案 - 选项"
+      },
+      "visibleIf": "contains({installType}, 'Main solution')",
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "main-installSampleData",
+          "isRequired": true,
+          "title": {
+            "default": "Import sample data after main solution is setup?",
+            "zh-hans": "设置主解决方案后导入示例数据？"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == true",
+          "html": {
+            "default": "Sample Corporate Goals, Automation Projects and telemetry data will be imported",
+            "zh-hans": "将导入示例企业目标、自动化项目和遥测数据"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-installSampleData} == false",
+          "html": {
+            "default": "On base data required for solution will be imported",
+            "zh-hans": "将导入解决方案所需的基础数据"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableROIFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Return on Investment (ROI) Power Automate cloud flow?",
+            "zh-hans": "启用投资回报 （ROI） 电源 自动化云端流？"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == true",
+          "html": {
+            "default": "The ROI cloud flow will be enabled so that complexity and ROI are calculated when Automation Projects are inserted or updated",
+            "zh-hans": "将启用 ROI 云端流，以便在插入或更新自动化项目时计算复杂性和 ROI"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableROIFlow} == false",
+          "html": {
+            "default": "You can enable the ROI cloud flow after update",
+            "zh-hans": "您可以在更新后启用 ROI 云端流"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableApprovalFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Approval Power Automate cloud flow?",
+            "zh-hans": "启用审批电源 自动化云端流？"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == true",
+          "html": {
+            "default": "The Approval cloud flow will be enabled so that approval requests are sent to approvers",
+            "zh-hans": "将启用审批云端流，以便将审批请求发送给审批者"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableApprovalFlow} == false",
+          "html": {
+            "default": "You can enable the Approval cloud flow after update",
+            "zh-hans": "您可以在更新后启用审批云端流"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-enableSyncFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Enable Synchronization of Automation Kit data between environments?",
+            "zh-hans": "是否在环境之间同步自动化工具包数据？"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == true",
+          "html": {
+            "default": "The Synchronization cloud flow will be enabled so data is sychronized with satellite environments",
+            "zh-hans": "将启用同步云端流，以便数据与卫星环境同步"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-enableSyncFlow} == false",
+          "html": {
+            "default": "You can enable the Synchronization cloud flow after update",
+            "zh-hans": "您可以在更新后启用同步云端流"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "main-disableSyncDesktopFlow",
+          "isRequired": true,
+          "title": {
+            "default": "Disable syncing of desktop flows script?",
+            "zh-hans": "禁用桌面流脚本的同步？"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == true",
+          "html": {
+            "default": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
+            "zh-hans": "将<b>禁用</b>桌面流定义表中桌面流定义脚本的同步化。此字段可能包含敏感信息"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{main-disableSyncDesktopFlow} == false",
+          "html": {
+            "default": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
+            "zh-hans": "将在桌面流定义表中启用桌面流定义脚本的同步化。注意：此字段可能包含敏感信息"
           }
         }
       ]
@@ -683,7 +802,7 @@
                 "default": "Must be a valid Power Platform environment starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/home)"
             }
           ]
         },
@@ -719,7 +838,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataservice/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -755,7 +874,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_commondataserviceforapps/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -791,7 +910,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_flowmanagement/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -827,7 +946,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -863,7 +982,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_office365users/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -899,7 +1018,7 @@
                 "default": "Must be a valid Power Platform connection link starting with https://make.powerapps.com",
                 "zh-hans": "必须是Power Platform以 [https://make.powerapps.com]()"
               },
-              "regex": "^(https://make.powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
+              "regex": "^(https://(.*?).powerapps.com/environments/)[-a-zA-Z0-9]{36,36}(/connections/shared_powerplatformforadmins/)[a-zA-Z0-9]{32,32}(/details.*)"
             }
           ]
         },
@@ -1068,18 +1187,6 @@
           "name": "downloadResults",
           "fileName": "automation-kit-satellite-install.json",
           "filter": "satellite"
-        }
-      ]
-    },
-    {
-      "visibleIf": "contains({installType}, 'Data Import - Main Solution')",
-      "elements": [
-        {
-          "type": "html",
-          "html": {
-            "default": "<b>NOTE:</b> Use the <a href='/features/datapack' target='blank'>Data Packs</a> documentation page for guidance on how to install the main solution with sample data",
-            "zh-hans": "<b>注意：</b>使用<a href='/features/datapack' target='blank'>数据包</a>文档页面，提供有关如何使用示例数据安装主解决方案的指导"
-          }
         }
       ]
     }

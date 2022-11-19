@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 In de volgende secties worden richtlijnen en opmerkingen voor het schrijven van startdocumentatie beschreven.
@@ -140,19 +140,13 @@ Parameters:
 
 De volgende stappen werden gebruikt om de GitHub-pagina's voor de site in te stellen
 
-1. Nieuwe verweesde tak gemaakt in git
+1. Controleer de documentatietak
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. Wis de bestaande inhoud (bestanden en mappen)
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. Hugo is geïnstalleerd
+1. Hugo extended is geïnstalleerd
 
     - U kunt ook installeren met chocolatey op ramen
  
@@ -160,7 +154,11 @@ De volgende stappen werden gebruikt om de GitHub-pagina's voor de site in te ste
     choco install hugo-extended -confirm
     ```
 
-1. Hugo-uitvoer geconfigureerd om uit te voeren naar de map /docs
+1. Wijzigen in sitemap
+
+    ```bash
+    cd site
+    ```
 
 1. Test uw wijzigingen
 

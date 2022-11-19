@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 以下のセクションでは、スターター ドキュメントを作成するためのガイドラインとメモの概要を説明します。
@@ -140,19 +140,13 @@ include_footer: true
 
 サイトの GitHub ページを設定するために使用される次の手順
 
-1.gitで新しい孤立したブランチを作成しました
+1.ドキュメントブランチを確認する
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1.既存のコンテンツ(ファイルとフォルダ)をクリアする
-
-    ```bash
-    git clean -d -f
-    ```
-
-1.ヒューゴがインストールされています
+1.ヒューゴ拡張がインストールされています
 
     -窓にチョコレートと一緒にインストールすることもできます
  
@@ -160,7 +154,11 @@ include_footer: true
     choco install hugo-extended -confirm
     ```
 
-1./docs フォルダーに出力するように構成された Hugo 出力
+1.サイト フォルダに変更
+
+    ```bash
+    cd site
+    ```
 
 1.変更をテストする
 

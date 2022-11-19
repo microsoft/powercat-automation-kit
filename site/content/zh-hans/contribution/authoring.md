@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 以下各节概述了创作初学者文档的准则和说明。
@@ -140,19 +140,13 @@ include_footer: true
 
 以下步骤用于为网站设置 GitHub 页面
 
-1.在 git 中创建新的孤立分支
+1.检查文档分支
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1.清除现有内容（文件和文件夹）
-
-    ```bash
-    git clean -d -f
-    ```
-
-1.雨果已安装
+1.雨果扩展已安装
 
     -您也可以在窗户上安装巧克力
  
@@ -160,7 +154,11 @@ include_footer: true
     choco install hugo-extended -confirm
     ```
 
-1.雨果输出配置为输出到 /docs 文件夹
+1.更改为网站文件夹
+
+    ```bash
+    cd site
+    ```
 
 1.测试更改
 

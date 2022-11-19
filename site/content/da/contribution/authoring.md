@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 I de følgende afsnit beskrives retningslinjer og noter til oprettelse af startdokumentation.
@@ -140,19 +140,13 @@ Parametre:
 
 Følgende trin blev brugt til at konfigurere GitHub-siderne for webstedet
 
-1. Oprettede ny forældreløs gren i git
+1. Tjek dokumentationsgren
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. Ryd det eksisterende indhold (filer og mapper)
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. Hugo er installeret
+1. Hugo extended er installeret
 
     - Du kan også installere med chokolade på vinduer
  
@@ -160,7 +154,11 @@ Følgende trin blev brugt til at konfigurere GitHub-siderne for webstedet
     choco install hugo-extended -confirm
     ```
 
-1. Hugo-output konfigureret til output til / docs-mappen
+1. Skift til webstedsmappe
+
+    ```bash
+    cd site
+    ```
 
 1. Test dine ændringer
 

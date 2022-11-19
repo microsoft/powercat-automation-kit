@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 The following sections outline guidelines and notes for authoring starter documentation.
@@ -140,19 +140,13 @@ Parameters:
 
 The following steps where used to setup the GitHub pages for the site
 
-1. Created new orphaned branch in git
+1. Check documentation branch
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. Clear the existing content (files and folders)
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. Hugo is installed
+1. Hugo extended is installed
 
     - You can also install with chocolatey on windows
  
@@ -160,7 +154,11 @@ The following steps where used to setup the GitHub pages for the site
     choco install hugo-extended -confirm
     ```
 
-1. Hugo output configured to output to /docs folder
+1. Change to site folder
+
+    ```bash
+    cd site
+    ```
 
 1. Test your changes
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 I följande avsnitt beskrivs riktlinjer och anteckningar för redigering av startdokumentation.
@@ -140,19 +140,13 @@ Parametrar:
 
 Följande steg användes för att konfigurera GitHub-sidorna för webbplatsen
 
-1. Skapade en ny överbliven gren i git
+1. Kontrollera dokumentationsgrenen
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. Rensa befintligt innehåll (filer och mappar)
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. Hugo installeras
+1. Hugo extended är installerat
 
     - Du kan också installera med chocolatey på Windows
  
@@ -160,7 +154,11 @@ Följande steg användes för att konfigurera GitHub-sidorna för webbplatsen
     choco install hugo-extended -confirm
     ```
 
-1. Hugo-utdata konfigurerad för att mata ut till mappen /docs
+1. Ändra till platsmapp
+
+    ```bash
+    cd site
+    ```
 
 1. Testa dina ändringar
 

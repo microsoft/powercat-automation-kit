@@ -139,19 +139,13 @@ Parameters:
 
 The following steps where used to setup the GitHub pages for the site
 
-1. Created new orphaned branch in git
+1. Check documentation branch
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. Clear the existing content (files and folders)
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. Hugo is installed
+1. Hugo extended is installed
 
     - You can also install with chocolatey on windows
  
@@ -159,7 +153,11 @@ The following steps where used to setup the GitHub pages for the site
     choco install hugo-extended -confirm
     ```
 
-1. Hugo output configured to output to /docs folder
+1. Change to site folder
+
+    ```bash
+    cd site
+    ```
 
 1. Test your changes
 

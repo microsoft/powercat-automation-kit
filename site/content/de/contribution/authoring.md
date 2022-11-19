@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 In den folgenden Abschnitten werden Richtlinien und Hinweise zum Erstellen von Startdokumentation beschrieben.
@@ -140,19 +140,13 @@ Parameter:
 
 Die folgenden Schritte wurden verwendet, um die GitHub-Seiten für die Website einzurichten
 
-1. Neuer verwaister Zweig in git erstellt
+1. Überprüfen Sie den Dokumentationszweig
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. Löschen des vorhandenen Inhalts (Dateien und Ordner)
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. Hugo ist installiert
+1. Hugo extended ist installiert
 
     - Sie können auch mit chocolatey unter Windows installieren
  
@@ -160,7 +154,11 @@ Die folgenden Schritte wurden verwendet, um die GitHub-Seiten für die Website e
     choco install hugo-extended -confirm
     ```
 
-1. Hugo-Ausgabe für Ausgabe in den Ordner /docs konfiguriert
+1. Zum Site-Ordner wechseln
+
+    ```bash
+    cd site
+    ```
 
 1. Testen Sie Ihre Änderungen
 

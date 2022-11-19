@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: ED14A36CD731A55AE5FC328528A10CB645825C47
+generated: 14D75C24ABEB1ED3FEA30F2368EA2AB7E9CCEB2C
 ---
 
 Nelle sezioni seguenti vengono illustrate le linee guida e le note per la creazione della documentazione introduttiva.
@@ -140,19 +140,13 @@ Parametri:
 
 I passaggi seguenti sono stati usati per configurare le pagine GitHub per il sito
 
-1. Creato nuovo ramo orfano in git
+1. Controlla il ramo della documentazione
 
     ```bash
-    git checkout --orphan gh-pages
+    git checkout gh-pages
     ```
 
-1. Cancellare il contenuto esistente (file e cartelle)
-
-    ```bash
-    git clean -d -f
-    ```
-
-1. Hugo è installato
+1. Hugo extended è installato
 
     - Puoi anche installare con chocolatey su Windows
  
@@ -160,7 +154,11 @@ I passaggi seguenti sono stati usati per configurare le pagine GitHub per il sit
     choco install hugo-extended -confirm
     ```
 
-1. Output Hugo configurato per l'output nella cartella /docs
+1. Passare alla cartella del sito
+
+    ```bash
+    cd site
+    ```
 
 1. Testare le modifiche
 
