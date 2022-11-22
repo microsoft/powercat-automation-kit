@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyTitle>AutomationKIT_Main</AssemblyTitle>
+    <Product>AutomationKIT_Main</Product>
+    <Copyright>Copyright © 2022</Copyright>	
+	<SignAssembly>True</SignAssembly>
+	<AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+	<Description>This AutomationKIT provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions</Description>
+	<DelaySign>False</DelaySign>	
+  </PropertyGroup>  
+  <ItemGroup>
+    <Content Include="PkgAssets\ImportConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\manifest.ppkg.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>  
+  <ItemGroup>
+    <None Include="PkgAssets\AutomationCoEMain_1.0.20221102.1_managed.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="PkgAssets\AutomationKit-SampleData.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerApps.MSBuild.PDPackage" Version="1.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.1.0.79" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.PackageDeployment" Version="9.1.0.74" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.Composition" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Input.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="logo32x32.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TermsOfUse.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="[Content_Types].xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    
+  </Target>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;powershell Compress-Archive -Path '$(TargetDir)$(TargetFileName)','$(TargetDir)*conten*.xml','$(TargetDir)Input.xml','$(TargetDir)logo32x32.png','$(TargetDir)TermsOfUse.html','$(TargetDir)PkgAssets'-DestinationPath '$(TargetDir)Microsoft_AutomationKIT_Main_Package.zip' -Force;&#xD;&#xA;powershell Copy-Item '$(TargetDir)Microsoft_AutomationKIT_Main_Package.zip' -Destination 'C:\Kotesh\AppSourceFolder' -Force )" />
+  </Target>
+</Project>
