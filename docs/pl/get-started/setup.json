@@ -346,7 +346,7 @@
           "environment": "main-installEnvironment"
         },
         {
-          "name": "main-offiec365UserConnection",
+          "name": "main-office365UserConnection",
           "type": "text",
           "title": {
             "default": "Copy Office 365 User Connection details page link here",
@@ -515,31 +515,6 @@
           "html": {
             "default": "You can enable the Synchronization cloud flow after update",
             "pl": "Przepływ chmury synchronizacji można włączyć po aktualizacji"
-          }
-        },
-        {
-          "type": "boolean",
-          "name": "main-disableSyncDesktopFlow",
-          "isRequired": true,
-          "title": {
-            "default": "Disable syncing of desktop flows script?",
-            "pl": "Wyłączyć synchronizację skryptu przepływów pulpitu?"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "{main-disableSyncDesktopFlow} == true",
-          "html": {
-            "default": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
-            "pl": "Wola <b>wyłączać</b> sytronizacja skryptu definicji przepływów pulpitu wewnątrz tabeli definicji przepływu pulpitu. To pole może zawierać poufne informacje"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "{main-disableSyncDesktopFlow} == false",
-          "html": {
-            "default": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
-            "pl": "Umożliwi sytronizację skryptu definicji przepływów pulpitu wewnątrz tabeli definicji przepływu pulpitu. UWAGA: To pole może zawierać informacje poufne"
           }
         }
       ]
@@ -1161,6 +1136,40 @@
             "pl": "Identyfikator właściciela rekordu śledzenia sesji usługi Flow"
           },
           "isRequired": true
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Options",
+        "pl": "Rozwiązanie satelitarne - Opcje"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "satellite-storeExtractScript",
+          "isRequired": true,
+          "title": {
+            "default": "Store the extracted Power Automate Desktop script in Dataverse?",
+            "pl": "Przechowywać wyodrębniony skrypt programu Power Automate Desktop w Dataverse?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-storeExtractScript} == true",
+          "html": {
+            "default": "Will <b>store</b> Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
+            "pl": "Wola <b>sklep</b> Skrypt definicji przepływów pulpitu wewnątrz tabeli definicji przepływu pulpitu. To pole może zawierać poufne informacje"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-storeExtractScript} == false",
+          "html": {
+            "default": "Will <b>NOT</b> Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
+            "pl": "Wola <b>NIE</b> Skrypt definicji przepływów pulpitu wewnątrz tabeli definicji przepływu pulpitu. UWAGA: To pole może zawierać informacje poufne"
+          }
         }
       ]
     },

@@ -346,7 +346,7 @@
           "environment": "main-installEnvironment"
         },
         {
-          "name": "main-offiec365UserConnection",
+          "name": "main-office365UserConnection",
           "type": "text",
           "title": {
             "default": "Copy Office 365 User Connection details page link here",
@@ -515,31 +515,6 @@
           "html": {
             "default": "You can enable the Synchronization cloud flow after update",
             "fr": "Vous pouvez activer le flux cloud de synchronisation après la mise à jour"
-          }
-        },
-        {
-          "type": "boolean",
-          "name": "main-disableSyncDesktopFlow",
-          "isRequired": true,
-          "title": {
-            "default": "Disable syncing of desktop flows script?",
-            "fr": "Désactiver la synchronisation du script de flux de bureau ?"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "{main-disableSyncDesktopFlow} == true",
-          "html": {
-            "default": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
-            "fr": "Volonté <b>désactiver</b> la synchronisation du script Desktop Flows definition dans la table Desktop Flow Definition. Ce champ peut contenir des informations sensibles"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "{main-disableSyncDesktopFlow} == false",
-          "html": {
-            "default": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
-            "fr": "Active la synchronisation du script de définition des flux de bureau dans la table Desktop Flow Definition. Remarque : Ce champ peut contenir des informations sensibles"
           }
         }
       ]
@@ -1161,6 +1136,40 @@
             "fr": "ID du propriétaire de l’enregistrement de suivi de session de flux"
           },
           "isRequired": true
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Options",
+        "fr": "Satellite Solution - Options"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "satellite-storeExtractScript",
+          "isRequired": true,
+          "title": {
+            "default": "Store the extracted Power Automate Desktop script in Dataverse?",
+            "fr": "Stocker le script Power Automate Desktop extrait dans Dataverse ?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-storeExtractScript} == true",
+          "html": {
+            "default": "Will <b>store</b> Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
+            "fr": "Volonté <b>boutique</b> Script de définition de flux de bureau dans la table Desktop Flow Definition. Ce champ peut contenir des informations sensibles"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-storeExtractScript} == false",
+          "html": {
+            "default": "Will <b>NOT</b> Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
+            "fr": "Volonté <b>NON</b> Script de définition de flux de bureau dans la table Desktop Flow Definition. Remarque : Ce champ peut contenir des informations sensibles"
+          }
         }
       ]
     },

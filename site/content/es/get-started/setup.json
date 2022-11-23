@@ -346,7 +346,7 @@
           "environment": "main-installEnvironment"
         },
         {
-          "name": "main-offiec365UserConnection",
+          "name": "main-office365UserConnection",
           "type": "text",
           "title": {
             "default": "Copy Office 365 User Connection details page link here",
@@ -515,31 +515,6 @@
           "html": {
             "default": "You can enable the Synchronization cloud flow after update",
             "es": "Puede habilitar el flujo de nube de sincronización después de la actualización"
-          }
-        },
-        {
-          "type": "boolean",
-          "name": "main-disableSyncDesktopFlow",
-          "isRequired": true,
-          "title": {
-            "default": "Disable syncing of desktop flows script?",
-            "es": "¿Deshabilitar la sincronización del script de flujos de escritorio?"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "{main-disableSyncDesktopFlow} == true",
-          "html": {
-            "default": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
-            "es": "Será <b>inutilizar</b> la sincronización del script de definición de flujos de escritorio dentro de la tabla Definición de flujo de escritorio. Este campo podría contener información confidencial"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "{main-disableSyncDesktopFlow} == false",
-          "html": {
-            "default": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
-            "es": "Habilitará la sincronización del script de definición de flujos de escritorio dentro de la tabla Definición de flujo de escritorio. NOTA: Este campo podría contener información confidencial"
           }
         }
       ]
@@ -1161,6 +1136,40 @@
             "es": "ID de propietario del registro de seguimiento de sesión de flujo"
           },
           "isRequired": true
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Options",
+        "es": "Solución satelital - Opciones"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "satellite-storeExtractScript",
+          "isRequired": true,
+          "title": {
+            "default": "Store the extracted Power Automate Desktop script in Dataverse?",
+            "es": "¿Almacena el script de Power Automate Desktop extraído en Dataverse?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-storeExtractScript} == true",
+          "html": {
+            "default": "Will <b>store</b> Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
+            "es": "Será <b>tienda</b> Script de definición de flujos de escritorio dentro de la tabla Definición de flujo de escritorio. Este campo podría contener información confidencial"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-storeExtractScript} == false",
+          "html": {
+            "default": "Will <b>NOT</b> Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
+            "es": "Será <b>NO</b> Script de definición de flujos de escritorio dentro de la tabla Definición de flujo de escritorio. NOTA: Este campo podría contener información confidencial"
+          }
         }
       ]
     },

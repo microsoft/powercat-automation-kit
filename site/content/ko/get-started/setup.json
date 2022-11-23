@@ -346,7 +346,7 @@
           "environment": "main-installEnvironment"
         },
         {
-          "name": "main-offiec365UserConnection",
+          "name": "main-office365UserConnection",
           "type": "text",
           "title": {
             "default": "Copy Office 365 User Connection details page link here",
@@ -515,31 +515,6 @@
           "html": {
             "default": "You can enable the Synchronization cloud flow after update",
             "ko": "업데이트 후 동기화 클라우드 흐름을 활성화할 수 있습니다."
-          }
-        },
-        {
-          "type": "boolean",
-          "name": "main-disableSyncDesktopFlow",
-          "isRequired": true,
-          "title": {
-            "default": "Disable syncing of desktop flows script?",
-            "ko": "데스크톱 흐름 스크립트의 동기화를 사용하지 않도록 설정하시겠습니까?"
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "{main-disableSyncDesktopFlow} == true",
-          "html": {
-            "default": "Will <b>disable</b> the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
-            "ko": "할 것이다 <b>비활성화</b> 데스크톱 흐름 정의 테이블 내의 데스크톱 흐름 정의 스크립트의 동기화. 이 필드에는 중요한 정보가 포함될 수 있습니다."
-          }
-        },
-        {
-          "type": "html",
-          "visibleIf": "{main-disableSyncDesktopFlow} == false",
-          "html": {
-            "default": "Will enable the sychronization of the Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
-            "ko": "데스크톱 흐름 정의 테이블 내에서 데스크톱 흐름 정의 스크립트의 동기화를 사용하도록 설정합니다. 참고: 이 필드에는 중요한 정보가 포함될 수 있습니다."
           }
         }
       ]
@@ -1161,6 +1136,40 @@
             "ko": "흐름 세션 추적 레코드 소유자 ID"
           },
           "isRequired": true
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Satellite Solution - Options",
+        "ko": "위성 솔루션 - 옵션"
+      },
+      "visibleIf": "contains({installType}, 'Satellite solution')",
+      "elements": [
+        {
+          "type": "boolean",
+          "name": "satellite-storeExtractScript",
+          "isRequired": true,
+          "title": {
+            "default": "Store the extracted Power Automate Desktop script in Dataverse?",
+            "ko": "추출된 파워 오토메이트 데스크톱 스크립트를 Dataverse에 저장하시겠습니까?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-storeExtractScript} == true",
+          "html": {
+            "default": "Will <b>store</b> Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
+            "ko": "할 것이다 <b>가게</b> 데스크톱 흐름 정의 테이블 내의 데스크톱 흐름 정의 스크립트입니다. 이 필드에는 중요한 정보가 포함될 수 있습니다."
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-storeExtractScript} == false",
+          "html": {
+            "default": "Will <b>NOT</b> Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
+            "ko": "할 것이다 <b>안</b> 데스크톱 흐름 정의 테이블 내의 데스크톱 흐름 정의 스크립트입니다. 참고: 이 필드에는 중요한 정보가 포함될 수 있습니다."
+          }
         }
       ]
     },
