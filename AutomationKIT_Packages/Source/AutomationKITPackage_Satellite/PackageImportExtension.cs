@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 
@@ -34,10 +35,10 @@ namespace AutomationKIT
         /// </summary>
         public override string GetImportPackageDescriptionText => "Automation kit provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions for satellite environment.";
 
-        private bool NeedToImportSatelliteSolution = false;
-        private bool NeedToEnablePCF = false;
+        private bool NeedToImportSatelliteSolution = false;        
         private bool ImportSampleData = false;
-        
+        private bool NeedToActivateAllFlows = false;
+
         #endregion
 
         /// <summary>
@@ -73,12 +74,12 @@ namespace AutomationKIT
                         {
                             bool.TryParse(strValue, out NeedToImportSatelliteSolution);
                             PackageLog.Log("NeedToImportSatelliteSolution=" + NeedToImportSatelliteSolution.ToString());
-                        }
-                        else if (strKey.Contains("enablepcf"))
-                        {
-                            bool.TryParse(strValue, out NeedToEnablePCF);
-                            PackageLog.Log("NeedToEnablePCF=" + NeedToEnablePCF.ToString());
                         }                        
+                        else if (strKey.Contains("activateallflows"))
+                        {
+                            bool.TryParse(strValue, out NeedToActivateAllFlows);
+                            PackageLog.Log("NeedToActivateAllFlows=" + NeedToActivateAllFlows.ToString());
+                        }
                     }
                                                             
                 }                
@@ -87,28 +88,8 @@ namespace AutomationKIT
             catch (Exception ex)
             {
                 PackageLog.Log("Error occured in while reading runtime settings. Please find the original exception details::" + ex.Message.ToString());
-            }
-            
-            if (NeedToEnablePCF)
-            { 
-            try
-            {
-                PackageLog.Log("Started enabling of PCF on " + DateTime.Now.ToString());
-                // Since this solution requires that PCF in canvas is enabled in the envrionment, we need to set that setting.
-                var query = new QueryExpression("organization");
-                query.ColumnSet.AddColumns("iscustomcontrolsincanvasappsenabled");
-                var result = CrmSvc.RetrieveMultiple(query);
-                var environmentSettings = result.Entities[0];
-                // Enable PCF for canvas
-                environmentSettings["iscustomcontrolsincanvasappsenabled"] = true;
-                CrmSvc.Update(environmentSettings);
-                PackageLog.Log("Completed enabling of PCF on " + DateTime.Now.ToString());
-            }
-            catch (Exception ex)
-            {
-                PackageLog.Log("Unable to update pcf components on this enivronment. Please find the original exception details::" + ex.Message.ToString());
-            }
-            }
+            }          
+          
             PackageLog.Log("InitializeCustomExtension is completed on " + DateTime.Now.ToString());
         }
 
@@ -156,9 +137,87 @@ namespace AutomationKIT
         public override bool AfterPrimaryImport()
         {
             PackageLog.Log("AfterPrimaryImport is completed on " + DateTime.Now.ToString());
-            
+            ActivateDeActivateAllCloudFlows();            
             return true;
         }
-        
-    }
+        private void ActivateDeActivateAllCloudFlows()
+        {
+            PackageLog.Log("Started activation/de-activation for all flows" );
+            string solutionName = "AutomationCoESatellite";
+
+            var querysolution = new QueryExpression("solution");
+
+            querysolution.ColumnSet.AddColumns("solutionid");            
+            querysolution.Criteria.AddCondition("uniquename", ConditionOperator.Equal, solutionName);
+
+            var resultsolution = CrmSvc.RetrieveMultiple(querysolution);
+            var results = resultsolution.Entities[0];
+            string solutionid = results["solutionid"].ToString();
+
+            var queryflow = new QueryExpression("workflow");
+            queryflow.ColumnSet.AddColumns("name");
+            queryflow.ColumnSet.AddColumns("workflowid");
+            queryflow.Criteria.AddCondition("solutionid", ConditionOperator.Equal, solutionid);
+            try
+            {
+                var resultflows = CrmSvc.RetrieveMultiple(queryflow);
+
+                string flowid = "";
+                string flowName="";
+
+                foreach (Entity flow in resultflows.Entities)
+                {
+                    flowid = flow["workflowid"].ToString();
+                    flowName = flow["name"].ToString();
+
+                    ActivateDeActivateCloudFlow(flowid, flowName, NeedToActivateAllFlows);
+                }
+                
+            }
+            catch (Exception err)
+            {
+                PackageLog.Log("Error occured while activating / de-activating flows. Error is " + err.Message.ToString());
+                return;
+            }
+
+            PackageLog.Log("Completed activation/de-activation for all flows  successfully.");
+
+        }             
+        private void ActivateDeActivateCloudFlow(string flowId,string flow_Name, bool enableFlow)
+        {
+            PackageLog.Log("Started activation/de-activation for flow '" + flow_Name + "'");
+
+            var queryflow = new QueryExpression("workflow");
+            queryflow.ColumnSet.AddColumns("statecode");
+            queryflow.ColumnSet.AddColumns("statuscode");
+            queryflow.ColumnSet.AddColumns("workflowid");
+            queryflow.Criteria.AddCondition("workflowid", ConditionOperator.Equal, flowId);
+            try
+            {
+                var resultflow = CrmSvc.RetrieveMultiple(queryflow);
+                var results = resultflow.Entities[0];
+
+                if (enableFlow)
+                {
+                    results["statecode"] = new OptionSetValue(1);
+                    results["statuscode"] = new OptionSetValue(2);
+                }
+                else
+                {
+                    results["statecode"] = new OptionSetValue(0);
+                    results["statuscode"] = new OptionSetValue(1);
+                }
+                CrmSvc.Update(results);
+            }
+            catch (Exception err)
+            {
+                PackageLog.Log("Error occured while activating / de-activating the flow '" + flow_Name + "'. Error is " + err.Message.ToString());
+                return;
+            }
+
+            PackageLog.Log("Completed activation/de-activation for flow '" + flow_Name + "' successfully.");
+
+        }
+
+            }
 }

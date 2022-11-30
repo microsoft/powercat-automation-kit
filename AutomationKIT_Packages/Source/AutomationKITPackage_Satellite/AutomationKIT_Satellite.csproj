@@ -7,7 +7,8 @@
 	<SignAssembly>True</SignAssembly>
 	<AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
 	<Description>This AutomationKIT provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions</Description>
-	<DelaySign>False</DelaySign>	
+	<DelaySign>False</DelaySign>
+	<PackageId>$(AssemblyName)</PackageId>	
   </PropertyGroup>  
   <ItemGroup>
     <Content Include="PkgAssets\ImportConfig.xml">
@@ -54,6 +55,6 @@
     
   </Target>
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;powershell Compress-Archive -Path '$(TargetDir)$(TargetFileName)','$(TargetDir)*conten*.xml','$(TargetDir)Input.xml','$(TargetDir)logo32x32.png','$(TargetDir)TermsOfUse.html','$(TargetDir)PkgAssets'-DestinationPath '$(TargetDir)Microsoft_AutomationKIT_Satellite_Package.zip' -Force;&#xD;&#xA;powershell Copy-Item '$(TargetDir)Microsoft_AutomationKIT_Satellite_Package.zip' -Destination 'C:\Kotesh\AppSourceFolder' -Force )" />
+    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;powershell Compress-Archive -Path '$(TargetDir)$(TargetFileName)','$(TargetDir)*conten*.xml','$(TargetDir)Input.xml','$(TargetDir)logo32x32.png','$(TargetDir)TermsOfUse.html','$(TargetDir)PkgAssets'-DestinationPath '$(TargetDir)Microsoft_AutomationKIT_Satellite_Package.zip' -Force;&#xD;&#xA;powershell Copy-Item '$(TargetDir)Microsoft_AutomationKIT_Satellite_Package.zip' -Destination 'C:\Kotesh\AppSourceFolder' -Force )&#xD;&#xA;" />
   </Target>
 </Project>
