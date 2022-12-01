@@ -4,7 +4,7 @@ description: "Automation Kit - Spørsmål om redigering"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 Denne siden inneholder informasjon om formatet som brukes til å lage interaktive spørsmål som er inkludert som en del av {{<product-name>}} starter.
@@ -103,7 +103,6 @@ Kilden svg-filen støtter følgende egendefinerte hyperkoblingskoblinger for ele
 
 - **template://item/selected** - Vil definere formatet på objektet for å angi det valgte formatet i bildet
 - **template://item/unselected** - Vil definere formatet på objektet for å angi det uvalgte formatet for elementer i bildet
-- **question://question-name/value** - Vil definere formatet på objektet for å angi det uvalgte formatet for elementer i bildet
 
 Visuelle elementer med en hyperkobling av question:// vil bli brukt til å angi eller fjerne matrisen med verdier i settet med spørsmål. Denne funksjonen gir muligheten til interaktivt å endre hvordan andre spørsmål vises til brukeren. Hvis svg-filen for eksempel hadde to objekter med følgende hyperkoblinger:
 
@@ -117,6 +116,19 @@ Hvis brukeren velger disse objektene, kan andre elementer på siden vises for ek
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Visuelle elementer med en hyperkobling av option:// vil bli brukt til å angi verdien av et alternativsett eller enkeltverdispørsmål. Hvis svg-filen for eksempel hadde to objekter med følgende hyperkoblinger:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

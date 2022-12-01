@@ -10,6 +10,8 @@ include_footer: true
 
 ## Location: /
 
+- [Automation Kit - Calculator](/calculator)
+
 - [Automation Kit - Site Index](/content)
 
 - [Automation Kit - Contribution](/contribution)

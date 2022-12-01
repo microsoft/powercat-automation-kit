@@ -154,6 +154,7 @@ Currency||In Process Advisor data model</p>
 
 
 
+
 <script>
     
     
@@ -173,6 +174,8 @@ Currency||In Process Advisor data model</p>
 <noscript>
     <p>JavaScript doit être activé pour afficher ce contenu</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -310,6 +313,8 @@ Currency||In Process Advisor data model</p>
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1069,6 +1074,15 @@ Currency||In Process Advisor data model</p>
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1077,7 +1091,12 @@ Currency||In Process Advisor data model</p>
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1094,7 +1113,6 @@ Currency||In Process Advisor data model</p>
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1124,8 +1142,19 @@ Currency||In Process Advisor data model</p>
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1153,6 +1182,7 @@ Currency||In Process Advisor data model</p>
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1174,27 +1204,6 @@ Currency||In Process Advisor data model</p>
         }
     });
 </script>
-<p>Le Kit d’automatisation pour Power Platform s’intègre à <a href="https://learn.microsoft.com/en-us/power-automate/process-advisor-overview">Process Advisor</a> pour prendre en charge les scénarios suivants :</p>
-<ul>
-<li>
-<p><strong>Traitement de l’exploitation minière</strong> Analyse des processus d’affaires pour identifier et soutenir l’analyse de rentabilisation pour créer des projets d’automatisation soutenus par l’analyse des données.</p>
-</li>
-<li>
-<p><strong>Demandes de projets d’automatisation pilotée par les données</strong> Utilisez les résultats de votre analyse de processus pour créer un projet d’automatisation à partir de Process Advisor résultats.</p>
-</li>
-<li>
-<p><strong>Création de projets d’automatisation semi-automatisés</strong> Intégrez les données Dataverse entre Process Advisor et Automation Kit pour réduire la quantité de travail nécessaire à la création d’un projet d’automatisation.</p>
-</li>
-<li>
-<p><strong>Analyse de Power Automate Desktop</strong> Analysez les données de processus RPA pour identifier les améliorations à améliorer, améliorer la résilience et la fiabilité à l’aide de l’exploration de tâches.</p>
-</li>
-</ul>
-<h2 id="traitement-de-lexploitation-minière">Traitement de l’exploitation minière</h2>
-<p>L’utilisation de Process Mining avec Process Advisor vous permet de découvrir les inefficacités dans les processus à l’échelle de l’organisation. Ces informations vous permettent d’acquérir une compréhension approfondie de vos processus à l’aide des fichiers journaux des événements que vous pouvez obtenir à partir de votre système d’enregistrement (applications que vous utilisez dans vos processus). L’exploration de processus affiche des cartes de vos processus avec des données et des mesures pour identifier les problèmes de performances. Des exemples de processus adaptés à l’exploration de processus incluent les comptes clients et la commande à l’encaissement.</p>
-<p>Ces données vous permettent de créer des demandes de projet d’automatisation pilotées par les données.</p>
-<h2 id="création-de-projets-dautomatisation">Création de projets d’automatisation</h2>
-<p>À l’aide des résultats de Process Advisor exploration de processus et de création de rapports, vous pouvez utiliser les informations Process Advisor suivantes pour soutenir votre projet d’automatisation à l’aide de résultats d’analyse Process Advisor calculés :</p>
-<p>Kit d’automatisation|Process Advisor|Notes        |</p>
 
     </div>
   </div>

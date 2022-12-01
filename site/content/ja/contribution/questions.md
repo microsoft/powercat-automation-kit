@@ -4,7 +4,7 @@ description: "自動化キット - 質問の作成"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 このページには、{{<product-name>}} スターター。
@@ -103,7 +103,6 @@ contains 関数は、文字列または文字列の配列が指定された値�
 
 - **template://item/selected**- 画像で選択したフォーマットを設定するオブジェクトのフォーマットを定義します
 - **template://item/unselected**- 画像内のアイテムの未選択のフォーマットを設定するためにオブジェクトのフォーマットを定義します
-- **question://question-name/value**- 画像内のアイテムの未選択のフォーマットを設定するためにオブジェクトのフォーマットを定義します
 
 ハイパーリンクが question:// のビジュアル要素は、一連の質問内の値の配列を設定または設定解除するために使用されます。この機能により、他の質問がユーザーに表示される方法を対話的に変更できます。たとえば、svg ファイルに次のハイパーリンクを持つ 2 つのオブジェクトがあるとします。
 
@@ -117,6 +116,19 @@ contains 関数は、文字列または文字列の配列が指定された値�
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+ハイパーリンクが option:// のビジュアル要素は、オプションセットまたは単一値の質問の値を設定するために使用されます。たとえば、svg ファイルに次のハイパーリンクを持つ 2 つのオブジェクトがあるとします。
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

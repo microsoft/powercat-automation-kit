@@ -4,7 +4,7 @@ description: "Automation Kit - Fragen zur Erstellung"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 Diese Seite enthält Informationen über das Format, das zum Erstellen interaktiver Fragen verwendet wird, die als Teil der {{<product-name>}} Starter.
@@ -103,7 +103,6 @@ Die SVG-Quelldatei unterstützt die folgenden benutzerdefinierten Hyperlinklinks
 
 - **template://item/selected** - Definiert das Format des Objekts, um das ausgewählte Format im Bild festzulegen
 - **template://item/unselected** - Definiert das Format des Objekts, um das nicht ausgewählte Format der Elemente im Bild festzulegen
-- **question://question-name/value** - Definiert das Format des Objekts, um das nicht ausgewählte Format der Elemente im Bild festzulegen
 
 Visuelle Elemente mit einem Hyperlink von question:// werden verwendet, um das Wertearray innerhalb des Fragensatzes festzulegen oder aufzuheben. Diese Fähigkeit bietet die Möglichkeit, interaktiv zu ändern, wie dem Benutzer andere Fragen angezeigt werden. Beispiel: Die SVG-Datei enthält zwei Objekte mit den folgenden Hyperlinks:
 
@@ -117,6 +116,19 @@ Wenn der Benutzer diese Objekte auswählt, können z.B. andere Elemente auf der 
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Visuelle Elemente mit einem Hyperlink von option:// werden verwendet, um den Wert eines Optionssatzes oder einer Einzelwertfrage festzulegen. Beispiel: Die SVG-Datei enthält zwei Objekte mit den folgenden Hyperlinks:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

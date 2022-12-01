@@ -295,6 +295,7 @@
 
 
 
+
 <script>
     
     
@@ -314,6 +315,8 @@
 <noscript>
     <p>이 콘텐츠를 보려면 자바스크립트를 사용하도록 설정해야 합니다.</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -451,6 +454,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1210,6 +1215,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1218,7 +1232,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1235,7 +1254,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1267,8 +1285,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1296,6 +1325,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1317,82 +1347,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/overview.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="Power CAT ALM Overview"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Power CAT 팀은 ALM 가속기를 사용하여 각 <a href="https://github.com/microsoft/powercat-automation-kit/releases">릴리스</a>.</p>
-<p>각 릴리스는 개발에서 테스트 및 프로덕션 환경으로의 변경 사항을 촉진합니다. 키트 내의 Power Platform 솔루션은 자동화된 프로세스를 사용하여 공용 GitHub 릴리스에 배포할 자산을 패키징합니다.</p>
-<p>향후 이정표에서 기존 플랫폼을 확장할 예정입니다. <a href="https://microsoft.github.io/powercat-automation-kit/ko/features/alm">ALM 기능</a> DevOps 프로세스의 일부로 RPA 샘플의 유효성 검사 규칙 및 시각적 비교를 포함하는 방법의 예를 제공합니다.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/release-process.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-powercat-process.svg" alt="Power CAT Automation Kit Release Checker"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>다음은 자동화 키트 릴리스 프로세스의 주요 단계를 간략하게 설명합니다.</p>
-<ol>
-<li>
-<p>Power Platform Dev 환경에서 변경한 내용은 공용 GitHub 리포지토리의 분기에 저장됩니다.</p>
-</li>
-<li>
-<p>변경 내용을 테스트 릴리스에 포함할 준비가 되면 끌어오기 요청을 사용하여 기본 분기에 병합됩니다. 끌어오기 요청을 완료하려면 먼저 Azure DevOps 유효성 검사 파이프라인을 성공적으로 완료하고 끌어오기 요청을 검토해야 합니다.</p>
-</li>
-<li>
-<p>끌어오기 요청이 자동화된 검사를 통과하고 검토 승인을 받으면 주 분기에 병합할 수 있습니다. 이 병합은 관리되는 빌드를 테스트 Power Platform 환경에 게시하는 테스트 Azure DevOps 빌드 파이프라인을 트리거합니다.</p>
-</li>
-<li>
-<p>내부 테스트 후 Azure DevOps 프로덕션 파이프라인이 수동으로 트리거되어 프로덕션 Power Platform 배포를 생성합니다.</p>
-</li>
-<li>
-<p>릴리스가 준비되면 릴리스 Azure DevOps 파이프라인은 릴리스 정보 및 빌드 자산을 포함한 초안 릴리스를 만듭니다. 최종 릴리스 빌드는 열려 있는 모든 문제를 닫고 마일스톤을 닫습니다. 게시된 빌드 태그는 월 및 연도 레이블이 적용된 GitHub 리포지토리에 태그입니다.</p>
-</li>
-</ol>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

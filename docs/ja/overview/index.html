@@ -310,6 +310,7 @@
 
 
 
+
 <script>
     
     
@@ -329,6 +330,8 @@
 <noscript>
     <p>このコンテンツを表示するには、JavaScriptを有効にする必要があります</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -466,6 +469,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1225,6 +1230,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1233,7 +1247,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1250,7 +1269,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1282,8 +1300,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1311,6 +1340,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1332,614 +1362,6 @@
         }
     });
 </script>
-</div>
-<style>
-    .fullscreen.optional {
-        display: none !important
-    }
-    nav > .fullscreen.container {
-        display: none !important
-    }
-    section.fullscreen {
-        padding: 10px !important;
-    }
-    .reveal.fullscreen {
-    }
-}
-</style>
-
-<style>
-     .page { display: none }
-</style>
-
-
-
-
-
-
-
-
-
-<div id="slide0" class="page" data-audio="https://powercat-automation-kit.azureedge.net/">
-
-    
-        
-        <iframe width="860" height="540" src="https://www.youtube-nocookie.com/embed/VNC0PWBTRwA" title="Overview Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
-    
-    
-    <aside class="notes">
-
-    <p>これは、自動化キットの投資収益率(ROI)プロセスのエンドツーエンドの機能を説明する短いビデオです。</p>
-<p>あなたはで他のビデオを見ることができます<a href="https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy">オートメーションキットプレイリスト</a></p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide01.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide01.SVG" alt="Automation Kit Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Automation Kit for Power Platform の主なシナリオは、既存のプロセスの自動化による投資収益率をほぼリアルタイムで定義、確認、監視できるようにすることで、デスクトップ ソリューション向け Power Automate の使用を加速することです。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide02.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide02.SVG" alt="Automation Kit Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Automation Kit の主な機能は、世界中のお客様との協力から得た経験を活用して、自動化の導入を管理、管理、拡張できるようにすることです。</p>
-<p>これは、監視対象の自動化分析に基づいて、実際の節約に対する予測される削減の計画と影響をほぼリアルタイムで監視できるようにすることで実現します。</p>
-<p>このキットは、各ユーザーグループが投資の影響を測定できるように、自動化プロセスと管理チームを作成するためのビジネス意思決定者、プロセス所有者、作成者など、さまざまなペルソナに焦点を当てています。</p>
-<p>このプロセスは、Microsoft Cloud の価値を活用してエンドツーエンドのアプリケーション ライフサイクル管理プロセスを提供するハイパーオートメーションによってサポートされています。</p>
-<p>これらの各部分は、展開されたソリューションを管理および監視できる、より広範な Microsoft セキュリティとガバナンス プロセスによってサポートされています。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide03.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide03.SVG" alt="Automation Center of Excellence Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>オートメーションセンターオブエクセレンスを正常に運用するには、時間の経過とともに構築および拡張する複数のコンポーネントがあります。このプロセスを加速するために、自動化キットとCoEキットを組み合わせることで、実践的なツールとホワイトペーパーのガイダンスを組み合わせて、センターオブエクセレンスのさまざまなコンポーネントを適用できます。</p>
-<p>たとえば、自動化バックログを使用して、潜在的な自動化プロジェクトをブレインストーミングし、自動化するプロジェクトを決定できます。これを堅牢なアプリケーションライフサイクル管理プロセスと組み合わせて、ソリューションを構築、展開、監視できます。</p>
-<p>運用とリスクの観点から、コネクタとデータへのアクセスを制御し、定義されたターゲットに対するデプロイされたソリューションの影響に関する運用テレメトリを提供します。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide4" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide04.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide04.SVG" alt="Automation Kit vs CoE Kit"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Power Platform CoE キットには、より広範なテナントと環境管理に重点を置いています。</p>
-<p>自動化キットは、Power Automate デスクトップ フローの主要な要素に特に焦点を当てることでこれらのツール セットを補完し、ROI と影響をほぼリアルタイムで実証できるようにします。</p>
-<p>時間の経過とともに、ROIを超えて自動化キットにモジュールを追加する予定です。たとえば、レガシ オートメーション プロジェクトを大規模に Power Automate に移行できる移行モジュールを開発しています。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide5" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide05.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide05.SVG" alt="Corporate Automation Strategy"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    企業の自動化戦略は、意思決定者、プロセス所有者、情報技術チーム、リスクチームの主要な関与を組み合わせて、エンドツーエンドの自動化プロセスを正常に定義、監視、および管理します。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide6" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide06.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide06.SVG" alt="Corporate Automation Strategy"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    これらの役割を組み合わせることで、企業目標からプロセスのアイデアと承認プロセスまでのプロセスに従うことができます。選択した自動化プロジェクトのビルドと配信。最後に、さまざまな利害関係者が、予想される目標に対する自動化プロジェクトの影響を監視できます。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide7" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide07.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide07.SVG" alt="Leveraging Automation Kit"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Automation Kit は、カスタマイズ可能な一連のローコード コンポーネントを提供することで、このプロセスを可能にします。これらはサンプル ライフサイクルにマップされ、デプロイされた環境からデータを集計し、Power BI ダッシュボードで利害関係者にほぼリアルタイムで表示できます。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide8" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide08.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide08.SVG" alt="Automation Projects"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    自動化プロジェクト アプリケーションを使用すると、検出と承認のプロセスを管理できます。収集したデータを使用して、組織に最も大きな影響を与えるプロジェクトに優先順位を付けることができます。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide9" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide09.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide09.SVG" alt="Automation Center"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    管理チームは、Automation センター アプリケーションを使用して、配置されたプロジェクトを環境にマップし、予測される目標に対するソリューションを監視できます。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide10" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide10.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide10.SVG" alt="Automation Solution Manager"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Power BI レポートに含めるソリューションの測定を有効にするためにシステム管理者によって使用されます。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide11" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide11.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide11.SVG" alt="Power BI Dashboard"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Power BI ダッシュボードには、自動化プロジェクト、予想される目標、自動化プロジェクトが実装される際の実際の削減額のエンド ツー エンドのビューが表示されます。</p>
-<p>さらに、デプロイされたソリューションの正常性の運用監視も提供します。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide12" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide12.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide12.SVG" alt="Automation Maturity Model"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>自動化成熟度モデルは、自動化ジャーニーのどこにいるかを判断するための便利なフレームワークになります。これらは、より明確で有能で効率的なプロセスに拡張するために、時間の経過とともに自動化できる領域のロードマップを提供できます。</p>
-<p>自動化キットと CoE キットは、高度な自動化への移行を加速するのに役立つ便利なツールとガイダンスを提供します。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide13" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide13.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide13.SVG" alt="Monitor Automation Kit Releases"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    私たちのGitHubサイトからあなたは使用することができます<strong>時計</strong>選択するドロップダウン項目<strong>リリース</strong>自動化キットの更新時に通知されるようにします。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide14" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide14.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide14-Nov2022.SVG" alt="Automation Kit Release"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    各リリースのリリースノートで、変更内容、Automation Kit のインストール方法とアップグレード方法に関するガイダンスを確認できます。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide15" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide15.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide15.SVG" alt="Automation Kit Getting Started"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    主な変更点は、開始プロセスを改善して、自分の役割に合わせて調整し、できるだけ早く開始するための道を案内できるようにすることです。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide16" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide16.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide16.SVG" alt="What&#39;s Next"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>各マイルストーンに含めるために、バックログから優先順位が付けられた項目を確認する継続的なプロセスがあります。各マイルストーンは、機能がリリースされるタイミングのガイドです。このリリーススケジュールは、お客様からの優先的なフィードバックと、リリース前の品質ゲートの遵守に基づいて変更される場合があります。</p>
-<p>オートメーションキットの残業機能は、製品エクスペリエンスの標準に含めることが検討されます。これが発生すると、機能は自動化キットから非推奨になり、製品内の機能に移行できるようになります。</p>
-<p>テレメトリと顧客への影響が限定的な影響を示す機能については、優先度の高い領域に集中できるように、これらの機能からの投資を減らすことを検討します。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide17" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide17.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide17.SVG" alt="Simplifying the Install Process"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    10月からの作業に基づいて、主な焦点は、インストールプロセスをさらに簡素化するための手順を探すことです。目標は、依存関係のインストールと初期データ設定を行い、動作するシステムをはるかに高速に操作できるようにすることです。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide18" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide18.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide18.SVG" alt="Sample Data"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    インストール プロセスを拡張して、Data Pack は、定義済みのサンプル データや業界固有の目標を環境にインポートする機能を提供します。たとえば、エンドツーエンドで動作するプロセスをすばやくセットアップしてデモンストレーションできるため、予想されるプロセスをデモンストレーションし、組織に合わせてカスタマイズできます。
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide19" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide19.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide19.SVG" alt="End to end ALM"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>既存の ALM アクセラレータ機能を拡張して、Power Automate デスクトップ コンポーネントを統合するプロセスを自動化されたデプロイおよびレビュー プロセスにする RPA 固有のアクションを追加することを計画しています。</p>
-<p>についてもっと読む<a href="https://microsoft.github.io/powercat-automation-kit/ja/features/alm">パイプラインと ALM アクセラレータPower Platform管理環境</a>自動化ソリューションの展開と管理にどのように役立つか。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide20" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide20.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide20.SVG" alt="Futures"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>マイルストーンをさらに詳しく調べて、バックログ項目をバックバックして、新しい移行モジュールを自動化に拡張します。</p>
-<p>自動化の期待されるROIを特定して認定するプロセスを支援するためのProcess Advisorとのより深い統合</p>
-<p>ホストされている RPA エージェントの強化を検討する際には、デプロイされた自動化プロジェクトと統合するためにインフラストラクチャ運用の自動化を必要とするお客様向けに、Azure ホステッド エージェントの使用を加速する例を提供する予定です。</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

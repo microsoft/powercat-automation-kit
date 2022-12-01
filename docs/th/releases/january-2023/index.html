@@ -145,6 +145,7 @@
 
 
 
+
 <script>
     
     
@@ -164,6 +165,8 @@
 <noscript>
     <p>ต้องเปิดใช้งานจาวาสคริปต์เพื่อดูเนื้อหานี้</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -301,6 +304,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1060,6 +1065,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1068,7 +1082,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1085,7 +1104,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1117,8 +1135,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1146,6 +1175,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1167,36 +1197,6 @@
         }
     });
 </script>
-</div>
-<div class="optional">
-<h2 id="เรมตนใชงาน">เริ่มต้นใช้งาน</h2>
-<p>ลอง <a href="https://microsoft.github.io/powercat-automation-kit/th/get-started">คู่มือเริ่มต้นใช้งาน</a> หรือเข้าร่วมกับเรา <a href="https://microsoft.github.io/powercat-automation-kit/th/office-hours">เวลาทําการ</a></p>
-<h2 id="รนกอนวางจาหนาย">รุ่นก่อนวางจําหน่าย</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/th/releases/december-2022">ธันวาคม 2022</a> (กระตือรือร้น-แอนโทเนลลี)</li>
-</ul>
-<h2 id="รนถดไป">รุ่นถัดไป</h2>
-<ul>
-<li>กุมภาพันธ์ 2023 (ดี-เอมมี่)</li>
-</ul>
-<h2 id="เหตการณสาคญของโครงการ">เหตุการณ์สําคัญของโครงการ</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/9">ชุดระบบอัตโนมัติ - มกราคม 2023</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">ชุดระบบอัตโนมัติ - งานในมือ</a></p>
-<p>ตรวจสอบปุ่ม <a href="https://microsoft.github.io/powercat-automation-kit/th/releases/milestones">หมายเหตุเหตุการณ์สําคัญ</a> สําหรับข้อมูลเพิ่มเติม</p>
-<h2 id="หมายเหตสาคญ">หมายเหตุสําคัญ</h2>
-<p>คุณสมบัติที่สําคัญในรุ่นนี้:</p>
-<ul>
-<li>จะได้รับการอัปเดต</li>
-</ul>
-<h2 id="บนทกประจารน">บันทึกประจํารุ่น</h2>
-<p>มาพร้อมกับ <a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023">ชุดระบบอัตโนมัติ - มกราคม 2023</a> สําหรับข้อบกพร่องและปัญหาที่ปิด</p>
-<h2 id="ปลอยสนทรพย">ปล่อยสินทรัพย์</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023">ชุดระบบอัตโนมัติ - มกราคม 2023</a></li>
-</ul>
-<h2 id="ประวตการวางจาหนาย">ประวัติการวางจําหน่าย</h2>
-<p>เต็ม <a href="https://microsoft.github.io/powercat-automation-kit/th/releases">ประวัติการวางจําหน่าย</a></p>
-</div>
 
     </div>
   </div>

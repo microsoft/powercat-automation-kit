@@ -257,6 +257,7 @@
 
 
 
+
 <script>
     
     
@@ -276,6 +277,8 @@
 <noscript>
     <p>JavaScript muss aktiviert sein, um diesen Inhalt anzeigen zu können</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -413,6 +416,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1172,6 +1177,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1180,7 +1194,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1197,7 +1216,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1229,8 +1247,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1258,6 +1287,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1279,144 +1309,6 @@
         }
     });
 </script>
-</div>
-<style>
-    .fullscreen.optional {
-        display: none !important
-    }
-    nav > .fullscreen.container {
-        display: none !important
-    }
-    section.fullscreen {
-        padding: 10px !important;
-    }
-    .reveal.fullscreen {
-    }
-}
-</style>
-
-<style>
-     .page { display: none }
-</style>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.svg" alt="Automation Kit Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Mit der November-Veröffentlichung &ldquo;<a href="https://microsoft.github.io/powercat-automation-kit/de/features/datapacks">Datenpakete</a>&rdquo; sind eine wichtige Neuerung.</p>
-<p>Weitere Informationen finden Sie in der <strong>Erste Schritte</strong> , um Ihr erstes Datenpaket zu laden.</p>
-<p>Datapacks bieten Ihnen die Möglichkeit, optional Beispieldaten zu importieren.</p>
-<p>Mit dem ROI-Datenpaket (Return on Investment) können Sie die Planung, Messung und Überwachung der Kapitalrendite über das Automation Kit Power BI-Dashboard schnell demonstrieren.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.svg?v=1" alt="Automation Kit Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>In zukünftigen Meilensteinen werden wir versuchen, die Datenpakete zu verbessern, indem wir sie als optionalen Teil des automatisierten Installationsprozesses des Automation Kits aufnehmen.</p>
-<p>Die Möglichkeit, Data Packs als Teil der Installation einzuschließen, ermöglicht eine webbasierte Installation anstelle des Befehlszeileninstallationsprozesses für diese Version.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/alm-roadmap.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="ALM Roadmap"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Für diese Version ähnlich wie die anderen Power CAT Managed Kits die Automation Kit für Power Platform hat sich auf die Verwendung des ALM Accelerators verlagert, um unsere GitHub-Versionen bereitzustellen. Lesen Sie mehr in unserem <a href="https://microsoft.github.io/powercat-automation-kit/de/features/alm">ALM-Funktionen</a> Seite.</p>
-<p>In zukünftigen Meilensteinen werden wir den bestehenden ALM Accelerator-Prozess verbessern, um Power Automate Desktop-spezifische Aufgaben aufzunehmen, die Erweiterungen auf den CI/CD ALM-Prozess anwenden.</p>
-
-    
-    </aside>
-    
-</div>
-<div class="optional">
-<h2 id="loslegen">Loslegen</h2>
-<p>Ausprobieren <a href="https://microsoft.github.io/powercat-automation-kit/de/get-started">Leitfaden &ldquo;Erste Schritte&rdquo;</a> oder treten Sie unserem <a href="https://microsoft.github.io/powercat-automation-kit/de/office-hours">Sprechstunde</a></p>
-<h2 id="vorherige-veröffentlichung">Vorherige Veröffentlichung</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/de/releases/october-2022">Oktober 2022</a> (Upbeat-Dhawan)</li>
-</ul>
-<h2 id="nächste-version">Nächste Version</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/de/releases/december-2022">Dezember 2022</a> (Eifer-Antonelli)</li>
-</ul>
-<h2 id="meilensteine-des-projekts">Meilensteine des Projekts</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/4">Automation Kit - November 2022</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/5">Automation Kit - Dezember 2022</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">Automation Kit - Backlog</a></p>
-<p>Überprüfen Sie die <a href="https://microsoft.github.io/powercat-automation-kit/de/releases/milestones">Meilenstein-Notizen</a> für weitere Informationen</p>
-<h2 id="wichtige-hinweise">Wichtige Hinweise</h2>
-<p>Hauptmerkmale dieser Version:</p>
-<ul>
-<li>Datenpaket. Lesen Sie mehr über <a href="https://microsoft.github.io/powercat-automation-kit/de/features/datapacks">Datenpaket-Funktion</a></li>
-</ul>
-<h2 id="versionshinweise">Versionshinweise</h2>
-<p>Im Lieferumfang enthalten <a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022">Automation Kit - November 2022</a> für Fehler und Probleme geschlossen</p>
-<h2 id="freigeben-von-assets">Freigeben von Assets</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022">Automation Kit - November 2022</a></li>
-</ul>
-<h2 id="versionshistorie">Versionshistorie</h2>
-<p>Voll <a href="https://microsoft.github.io/powercat-automation-kit/de/releases">Versionshistorie</a></p>
-</div>
 
     </div>
   </div>

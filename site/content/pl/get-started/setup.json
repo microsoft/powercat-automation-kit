@@ -418,6 +418,21 @@
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
+          "type": "text",
+          "name": "main-businessApprover",
+          "isRequired": true,
+          "inputMask": "email",
+          "title": {
+            "default": "What is the email address of the default approver?",
+            "pl": "Jaki jest adres e-mail domyślnej osoby zatwierdzającej?"
+          },
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
           "type": "boolean",
           "name": "main-installSampleData",
           "isRequired": true,
@@ -438,8 +453,8 @@
           "type": "html",
           "visibleIf": "{main-installSampleData} == false",
           "html": {
-            "default": "On base data required for solution will be imported",
-            "pl": "Na podstawie zostaną zaimportowane dane wymagane do rozwiązania"
+            "default": "Only base data required for solution will be imported",
+            "pl": "Zostaną zaimportowane tylko dane podstawowe wymagane dla rozwiązania"
           }
         },
         {
@@ -1148,7 +1163,7 @@
       "elements": [
         {
           "type": "boolean",
-          "name": "satellite-storeExtractScript",
+          "name": "satellite-storeFlowScript",
           "isRequired": true,
           "title": {
             "default": "Store the extracted Power Automate Desktop script in Dataverse?",
@@ -1157,7 +1172,7 @@
         },
         {
           "type": "html",
-          "visibleIf": "{satellite-storeExtractScript} == true",
+          "visibleIf": "{satellite-storeFlowScript} == true",
           "html": {
             "default": "Will <b>store</b> Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
             "pl": "Wola <b>sklep</b> Skrypt definicji przepływów pulpitu wewnątrz tabeli definicji przepływu pulpitu. To pole może zawierać poufne informacje"
@@ -1165,7 +1180,7 @@
         },
         {
           "type": "html",
-          "visibleIf": "{satellite-storeExtractScript} == false",
+          "visibleIf": "{satellite-storeFlowScript} == false",
           "html": {
             "default": "Will <b>NOT</b> Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
             "pl": "Wola <b>NIE</b> Skrypt definicji przepływów pulpitu wewnątrz tabeli definicji przepływu pulpitu. UWAGA: To pole może zawierać informacje poufne"
@@ -1173,7 +1188,7 @@
         },
         {
           "type": "boolean",
-          "name": "satellite-enableFlows",
+          "name": "satellite-activateAllCloudFlows",
           "isRequired": true,
           "title": {
             "default": "Enable satellite flows?",
@@ -1182,10 +1197,36 @@
         },
         {
           "type": "html",
-          "visibleIf": "{satellite-enableFlows} == true",
+          "visibleIf": "{satellite-activateAllCloudFlows} == true",
           "html": {
             "default": "Will enable Cloud flows that are included in the Automation Kit Satellite solution",
             "pl": "Umożliwi przepływy w chmurze, które są zawarte w rozwiązaniu satelitarnym Automation Kit"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "satellite-installSampleData",
+          "isRequired": true,
+          "title": {
+            "default": "Import sample data after solution is setup?",
+            "pl": "Importować przykładowe dane po skonfigurowaniu rozwiązania?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-installSampleData} == true",
+          "html": {
+            "default": "Sample data will be imported",
+            "pl": "Przykładowe dane zostaną zaimportowane"
+          }
+        },
+        {
+          "type": "text",
+          "name": "satellite-azureAppId",
+          "isRequired": true,
+          "title": {
+            "default": "What is the Azure Application Id to register as Application User?",
+            "pl": "Co to jest identyfikator aplikacji platformy Azure, aby zarejestrować się jako użytkownik aplikacji?"
           }
         }
       ]

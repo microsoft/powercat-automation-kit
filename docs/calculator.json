@@ -1,0 +1,368 @@
+{
+    "showQuestionNumbers": "off",
+    "pages": [
+        {
+            "name": "welcome",
+            "elements": [
+                {
+                    "type": "radiogroup",
+                    "name": "scenario",
+                    "title": "What scenario are you trying to calculate?",
+                    "choices": [
+                        {
+                            "value": "calculator",
+                            "text": "Power Automate / Power Automate Desktop license cost"
+                        },
+                        {
+                            "value": "migration-planner",
+                            "text": "Migration planner"
+                        },
+                        {
+                            "value": "samples",
+                            "text": "Sample scenarios"
+                        }
+                    ]
+                },
+                {
+                    "type": "radiogroup",
+                    "name": "sample-scenario",
+                    "visibleIf": "{scenario} = 'samples'",
+                    "title": "What sample scenario did you want to explore?",
+                    "choices": [
+                        {
+                            "value": "migration-single-unattended",
+                            "text": "Migration of a single unattended bot running isolated from other bot process"
+                        },
+                        {
+                            "value": "migration-200",
+                            "text": "Migration of hundreds of bots"
+                        },
+                        {
+                            "value": "process-mining",
+                            "text": "Using Process Advisor to identify Process automation"
+                        },
+                        {
+                            "value": "task-mining",
+                            "text": "Using Process Advisor task mining to analyze and improve bot reliability"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{sample-scenario} = 'migration-single-unattended'",
+                    "html": "Single unattended bot migration. In this example an organization may want to migrate an existing automate an existing automation solution to the Power Platform. The deployed bot will be hosted in an isolated virtual network and Virtual Machine (VM) runner."
+                }
+            ]
+        },
+        {
+            "name": "migration",
+            "title": "Migration Parameters",
+            "visibleIf": "{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')",
+            "elements": [
+                {
+                    "name": "how-many-bots",
+                    "type": "text",
+                    "inputType": "number",
+                    "title": "How many bots to migrate?",
+                    "isRequired": true
+                },
+                {
+                    "name": "attended-percentage",
+                    "type": "text",
+                    "inputType": "number",
+                    "title": "Percentage of attended bots?",
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "expression",
+                            "text": "A value between 0 and 100",
+                            "expression": "{attended-percentage} >= 0 && {attended-percentage} <= 100"
+                        }
+                    ]
+                },
+                {
+                    "name": "unattended-percentage",
+                    "type": "text",
+                    "inputType": "number",
+                    "title": "Percentage of unattended bots?",
+                    "isRequired": true,
+                    "validators": [
+                        {
+                            "type": "expression",
+                            "text": "A value between 0 and 100",
+                            "expression": "{unattended-percentage} >= 0 && {unattended-percentage} <= 100"
+                        }
+                    ]
+                },
+                {
+                    "type": "matrixdynamic",
+                    "name": "migration-groups",
+                    "titleLocation": "none",
+                    "addRowText": "Add new group",
+                    "title": "Migration Groups",
+                    "columns": [
+                        {
+                            "name": "name",
+                            "title": "Migration Group Name",
+                            "cellType": "text"
+                        },
+                        {
+                            "name": "description",
+                            "title": "Description",
+                            "cellType": "text"
+                        }
+                    ]
+                },
+                {
+                    "name": "groups",
+                    "type": "checkbox",
+                    "title": "Groups",
+                    "visibleIf": "false",
+                    "choices": []
+                },
+                {
+                    "type": "matrixdynamic",
+                    "name": "migration-times",
+                    "titleLocation": "none",
+                    "addRowText": "Add new item",
+                    "title": "Duration Plan",
+                    "columns": [
+                        {
+                            "name": "complexity",
+                            "title": "Complexity",
+                            "isRequired": true,
+                            "cellType": "dropdown",
+                            "inputType": "count",
+                            "choices": [
+                                {
+                                    "value": "low",
+                                    "text": "Low"
+                                },
+                                {
+                                    "value": "medium",
+                                    "text": "Medium"
+                                },
+                                {
+                                    "value": "high",
+                                    "text": "High"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "group",
+                            "title": "Group",
+                            "isRequired": true,
+                            "cellType": "dropdown",
+                            "choicesFromQuestion": "groups"
+                        },
+                        {
+                            "name": "percentage",
+                            "title": "Percentage",
+                            "cellType": "text",
+                            "inputType": "number"
+                        },
+                        {
+                            "name": "Bots",
+                            "title": "Bots",
+                            "cellType": "expression",
+                            "expression": "botTotal({row})"
+                        },
+                        {
+                            "name": "botsPerMonth",
+                            "title": "Bots per month",
+                            "cellType": "text",
+                            "inputType": "number"
+                        },
+                        {
+                            "name": "total",
+                            "title": "Total (Business Days)",
+                            "cellType": "expression",
+                            "expression": "migrationTotal({row})"
+                        }
+                    ]
+                },
+                {
+                    "type": "html",
+                    "html": "NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated."
+                },
+                {
+                    "type": "boolean",
+                    "name": "calc-migration-plan",
+                    "title": "Automatically calculate possible migration plan?",
+                    "defaultValue": true
+                },
+                {
+                    "type": "matrixdynamic",
+                    "name": "migration-plan",
+                    "titleLocation": "none",
+                    "addRowText": "Add new item",
+                    "title": "Migration Plan",
+                    "columns": [
+                        {
+                            "name": "name",
+                            "title": "Name",
+                            "cellType": "text"
+                        },
+                        {
+                            "name": "low",
+                            "title": "Low",
+                            "cellType": "text",
+                            "inputType": "number"
+                        },
+                        {
+                            "name": "medium",
+                            "title": "Medium",
+                            "cellType": "text",
+                            "inputType": "number"
+                        },
+                        {
+                            "name": "high",
+                            "title": "High",
+                            "cellType": "text",
+                            "inputType": "number"
+                        },
+                        {
+                            "name": "attended",
+                            "title": "Attended",
+                            "cellType": "text",
+                            "inputType": "number"
+                        },
+                        {
+                            "name": "unattended",
+                            "title": "Unattended",
+                            "cellType": "text",
+                            "inputType": "number"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "calculation",
+            "elements": [
+                {
+                    "name": "tellMeMore",
+                    "type": "boolean",
+                    "title": "Tell me more about each license type",
+                    "defaultValue": false
+                },
+                {
+                    "name": "matrix-image",
+                    "type": "image-task",
+                    "visibleIf": "{tellMeMore} == true",
+                    "title": "Select plans you want more information on",
+                    "src": "/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
+                },
+                {
+                    "type": "html",
+                    "html": "Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at <a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>Buy Power Automate Licenses</a>"
+                },
+                {
+                    "name": "retailPrice",
+                    "type": "boolean",
+                    "title": "Use retail price",
+                    "defaultValue": true
+                },
+                {
+                    "type": "matrixdynamic",
+                    "name": "items",
+                    "rowCount": 1,
+                    "minRowCount": 1,
+                    "titleLocation": "none",
+                    "addRowText": "Add new item",
+                    "columns": [
+                        {
+                            "name": "service",
+                            "title": "Service",
+                            "isRequired": true,
+                            "cellType": "dropdown",
+                            "inputType": "count",
+                            "totalFormat": "Items count: {0}",
+                            "choices": [
+                                {
+                                    "value": "T_RPA_A",
+                                    "text": "Trial, RPA (User attended)"
+                                },
+                                {
+                                    "value": "T_RPA_UA",
+                                    "text": "Trial, RPA (Unattended)"
+                                },
+                                {
+                                    "value": "T_FLOW",
+                                    "text": "Trial, Cloud Flow"
+                                },
+                                {
+                                    "value": "U_RPA_A",
+                                    "text": "Per user plan + RPA (User attended)"
+                                },
+                                {
+                                    "value": "U_RPA_UA",
+                                    "text": "Per user plan + RPA (Unattended)"
+                                },
+                                {
+                                    "value": "U_FLOW",
+                                    "text": "Per user plan (Cloud Flow)"
+                                },
+                                {
+                                    "value": "F_RPA_UA",
+                                    "text": "Per Flow + RPA Addon (Unattended)"
+                                },
+                                {
+                                    "value": "F_FLOW",
+                                    "text": "Per flow plan (Cloud Flow)"
+                                },
+                                {
+                                    "value": "F_FLOW1",
+                                    "text": "Per flow plan (Cloud Flow) - Single"
+                                }
+                            ]
+                        },
+                        {
+                            "name": "price",
+                            "title": "Price",
+                            "cellType": "expression",
+                            "expression": "getItemPrice('service')",
+                            "displayStyle": "currency",
+                            "visibleIf": "{retailPrice} == true"
+                        },
+                        {
+                            "name": "price-manual",
+                            "title": "Price",
+                            "cellType": "text",
+                            "inputType": "number",
+                            "displayStyle": "currency",
+                            "visibleIf": "{retailPrice} == false"
+                        },
+                        {
+                            "name": "quantity",
+                            "title": "Quantity",
+                            "isRequired": true,
+                            "cellType": "text",
+                            "inputType": "number",
+                            "totalType": "sum",
+                            "totalFormat": "Total services: {0}",
+                            "min": 1
+                        },
+                        {
+                            "name": "total",
+                            "title": "Total",
+                            "cellType": "expression",
+                            "expression": "iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})",
+                            "displayStyle": "currency",
+                            "totalType": "sum",
+                            "totalDisplayStyle": "currency",
+                            "totalFormat": "Total: {0}"
+                        }
+                    ]
+                },
+                {
+                    "name": "total",
+                    "type": "expression",
+                    "title": "Total",
+                    "expression": "{orderList-total.total}",
+                    "displayStyle": "currency"
+                }
+            ]
+        }
+    ]
+}

@@ -4,7 +4,7 @@ description: "Kit di automazione - Domande sulla creazione"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 Questa pagina contiene informazioni sul formato utilizzato per creare domande interattive incluse come parte del {{<product-name>}} antipasto.
@@ -103,7 +103,6 @@ Il file svg di origine supporta i seguenti collegamenti ipertestuali personalizz
 
 - **template://item/selected** - Definirà il formato dell'oggetto per impostare il formato selezionato nell'immagine
 - **template://item/unselected** - Definirà il formato dell'oggetto per impostare il formato non selezionato degli elementi nell'immagine
-- **question://question-name/value** - Definirà il formato dell'oggetto per impostare il formato non selezionato degli elementi nell'immagine
 
 Gli elementi visivi con un collegamento ipertestuale di question:// verranno utilizzati per impostare o annullare la matrice di valori all'interno del set di domande. Questa capacità offre la possibilità di modificare in modo interattivo il modo in cui altre domande vengono mostrate all'utente. Ad esempio, se il file svg contiene due oggetti con i seguenti collegamenti ipertestuali:
 
@@ -117,6 +116,19 @@ Se l'utente seleziona questi oggetti, ad esempio potrebbero essere visualizzati 
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Gli elementi visivi con un collegamento ipertestuale di option:// verranno utilizzati per impostare il valore di un set di opzioni o di una domanda a valore singolo. Ad esempio, se il file svg contiene due oggetti con i seguenti collegamenti ipertestuali:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

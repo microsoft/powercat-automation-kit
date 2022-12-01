@@ -4,12 +4,14 @@ description: "オートメーションキット - サイトインデックス"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 168C5A07790E2772917F905272F5727BB391EF98
+generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 ---
 
 {{<toc>}}
 
 ## 場所：/
+
+- [オートメーションキット - 電卓](/ja/calculator)
 
 - [オートメーションキット - サイトインデックス](/ja/content)
 

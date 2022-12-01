@@ -255,6 +255,7 @@
 
 
 
+
 <script>
     
     
@@ -274,6 +275,8 @@
 <noscript>
     <p>このコンテンツを表示するには、JavaScriptを有効にする必要があります</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -411,6 +414,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1170,6 +1175,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1178,7 +1192,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1195,7 +1214,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1227,8 +1245,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1256,6 +1285,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1277,86 +1307,6 @@
         }
     });
 </script>
-</div>
-</div>
-<style>
-    .fullscreen.optional {
-        display: none !important
-    }
-    nav > .fullscreen.container {
-        display: none !important
-    }
-    section.fullscreen {
-        padding: 10px !important;
-    }
-    .reveal.fullscreen {
-    }
-}
-</style>
-
-<style>
-     .page { display: none }
-</style>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/authoring/overview.mp3?v=1">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/Authoring-Overview.svg" alt="Authoring Overview"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>各コンテンツには、簡単な概要を提供する明確なタイトルと説明が必要です。</p>
-<p>各ページには、オプションで、オーディオナレーション、視覚的な要約、スピーカーノートを提供するマルチメディアスライドショーを含めることができます。</p>
-<p>各ページにはフィードバックセクションがあり、ページにアクセスする人が作成者が関心のある特定の質問に答えたり、自由形式のフィードバックを提供したりできます。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/authoring/goals.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/Authoring-Goals.svg" alt="Authoring Goals"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>の設計目標<a href="https://microsoft.github.io/powercat-automation-kit/ja/contribution/authoring">オーサリング</a>プロセスは、コアチームとして共創モデルを構築し、Power Platform用オートメーションキット とコミュニティ。このコミュニティは、お客様またはパートナーと一緒です。</p>
-<p>コンテンツは次の場所で作成されます。<a href="https://learn.microsoft.com/contribute/markdown-reference">値下げ</a>に似ています<a href="https://learn.microsoft.com">マイクロソフト学習サイト</a>.</p>
-<p>インタラクティブなコンテンツを作成するために、作成者はショートコードを使用して読者を引き付け、各ページにインタラクティブなフィードバックとエクスペリエンスを提供できます。</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

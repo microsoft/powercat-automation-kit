@@ -154,6 +154,7 @@ Currency||In Process Advisor data model</p>
 
 
 
+
 <script>
     
     
@@ -173,6 +174,8 @@ Currency||In Process Advisor data model</p>
 <noscript>
     <p>ต้องเปิดใช้งานจาวาสคริปต์เพื่อดูเนื้อหานี้</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -310,6 +313,8 @@ Currency||In Process Advisor data model</p>
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1069,6 +1074,15 @@ Currency||In Process Advisor data model</p>
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1077,7 +1091,12 @@ Currency||In Process Advisor data model</p>
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1094,7 +1113,6 @@ Currency||In Process Advisor data model</p>
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1124,8 +1142,19 @@ Currency||In Process Advisor data model</p>
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1153,6 +1182,7 @@ Currency||In Process Advisor data model</p>
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1174,27 +1204,6 @@ Currency||In Process Advisor data model</p>
         }
     });
 </script>
-<p>ชุดระบบอัตโนมัติสําหรับ Power Platform ผสานรวมกับ <a href="https://learn.microsoft.com/en-us/power-automate/process-advisor-overview">Process Advisor</a> เพื่อสนับสนุนสถานการณ์ต่อไปนี้:</p>
-<ul>
-<li>
-<p><strong>การทําเหมืองแร่แปรรูป</strong> การวิเคราะห์กระบวนการทางธุรกิจเพื่อระบุและสนับสนุนกรณีธุรกิจเพื่อสร้างโครงการอัตโนมัติที่สนับสนุนโดยการวิเคราะห์ข้อมูล</p>
-</li>
-<li>
-<p><strong>คําขอโครงการระบบอัตโนมัติที่ขับเคลื่อนด้วยข้อมูล</strong> ใช้ผลลัพธ์ของการวิเคราะห์กระบวนการของคุณเพื่อสร้างโครงการอัตโนมัติจากผลลัพธ์Process Advisor</p>
-</li>
-<li>
-<p><strong>การสร้างโครงการอัตโนมัติกึ่งอัตโนมัติ</strong> รวมข้อมูล Dataverse ระหว่าง Process Advisor และ Automation Kit เพื่อลดปริมาณงานในการสร้างโครงการอัตโนมัติ</p>
-</li>
-<li>
-<p><strong>การวิเคราะห์ Power Automate บนเดสก์ท็อป</strong> วิเคราะห์ข้อมูลกระบวนการ RPA เพื่อระบุการปรับปรุงเพื่อปรับปรุงความยืดหยุ่นและความน่าเชื่อถือให้ทันสมัยโดยใช้การทําเหมืองงาน</p>
-</li>
-</ul>
-<h2 id="การทาเหมองแรแปรรป">การทําเหมืองแร่แปรรูป</h2>
-<p>การใช้การทําเหมืองกระบวนการกับ Process Advisor ช่วยให้คุณค้นพบความไร้ประสิทธิภาพในกระบวนการทั่วทั้งองค์กร ข้อมูลเชิงลึกเหล่านี้ช่วยให้คุณเข้าใจกระบวนการของคุณอย่างลึกซึ้งโดยใช้ไฟล์บันทึกเหตุการณ์ที่คุณจะได้รับจากระบบการบันทึกของคุณ (แอปที่คุณใช้ในกระบวนการของคุณ) การทําเหมืองกระบวนการจะแสดงแผนที่ของกระบวนการของคุณด้วยข้อมูลและเมตริกเพื่อรับรู้ปัญหาด้านประสิทธิภาพ กระบวนการตัวอย่างที่เหมาะสมสําหรับการทําเหมืองกระบวนการ ได้แก่ บัญชีลูกหนี้และคําสั่งเป็นเงินสด</p>
-<p>ข้อมูลนี้ช่วยให้คุณสร้างคําขอโครงการระบบอัตโนมัติที่ขับเคลื่อนด้วยข้อมูล</p>
-<h2 id="การสรางโครงการอตโนมต">การสร้างโครงการอัตโนมัติ</h2>
-<p>การใช้ผลลัพธ์ของการทําเหมืองกระบวนการและการรายงานProcess Advisorคุณสามารถใช้ข้อมูลProcess Advisorต่อไปนี้เพื่อสนับสนุนโครงการระบบอัตโนมัติของคุณโดยใช้ผลการวิเคราะห์Process Advisorการคํานวณ:</p>
-<p>ชุดระบบอัตโนมัติ|Process Advisor|หมาย เหตุ        |</p>
 
     </div>
   </div>

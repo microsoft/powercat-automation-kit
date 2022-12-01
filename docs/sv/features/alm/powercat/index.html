@@ -295,6 +295,7 @@
 
 
 
+
 <script>
     
     
@@ -314,6 +315,8 @@
 <noscript>
     <p>JavaScript måste vara aktiverat för att visa det här innehållet</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -451,6 +454,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1210,6 +1215,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1218,7 +1232,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1235,7 +1254,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1267,8 +1285,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1296,6 +1325,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1317,82 +1347,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/overview.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="Power CAT ALM Overview"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Power CAT-teamet använder ALM Accelerator för att bygga och distribuera var och en av våra <a href="https://github.com/microsoft/powercat-automation-kit/releases">Släpper</a>.</p>
-<p>Varje version främjar ändringar från vår utveckling till test- och produktionsmiljöer. De Power Platform lösningarna i paketet använder en automatiserad process för att paketera tillgångar för distribution till offentliga GitHub-versioner.</p>
-<p>I framtida milstolpar kommer vi att expandera på befintlig plattform <a href="https://microsoft.github.io/powercat-automation-kit/sv/features/alm">ALM-funktioner</a> för att ge exempel på hur du inkluderar valideringsregler och visuell jämförelse av RPA-exempel som en del av DevOps-processen.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/release-process.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-powercat-process.svg" alt="Power CAT Automation Kit Release Checker"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Följande beskriver viktiga steg i Automation Kit-lanseringsprocessen:</p>
-<ol>
-<li>
-<p>Ändringar som görs i vår Power Platform Dev-miljö sparas i en gren på den offentliga GitHub lagringsplatsen</p>
-</li>
-<li>
-<p>När ändringarna är redo att inkluderas i en testversion slås de samman i huvudgrenen med hjälp av en pull-begäran. Innan pull-begäran kan slutföras måste Azure DevOps-valideringspipelinen slutföras och pull-begäran granskas.</p>
-</li>
-<li>
-<p>När pull-begäran har klarat de automatiska kontrollerna och fått granskningsgodkännande kan den slås samman med huvudgrenen. Den här sammanslagningen utlöser Azure DevOps-test-byggpipelinen som publicerar den hanterade versionen till test- Power Platform miljön.</p>
-</li>
-<li>
-<p>Efter intern testning utlöses Azure DevOps-produktionspipelinen manuellt för att generera en produktions- Power Platform distribution.</p>
-</li>
-<li>
-<p>När en version är klar skapar Azure DevOps-pipelinen ett utkast till version, inklusive viktig information och byggtillgångar. Den slutliga versionen stänger alla öppna problem och stänger milstolpen. Publicerad build-tagg GitHub-lagringsplatsen med en månads- och årsetikett tillämpad.</p>
-</li>
-</ol>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

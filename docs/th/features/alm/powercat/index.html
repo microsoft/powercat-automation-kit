@@ -295,6 +295,7 @@
 
 
 
+
 <script>
     
     
@@ -314,6 +315,8 @@
 <noscript>
     <p>ต้องเปิดใช้งานจาวาสคริปต์เพื่อดูเนื้อหานี้</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -451,6 +454,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1210,6 +1215,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1218,7 +1232,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1235,7 +1254,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1267,8 +1285,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1296,6 +1325,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1317,82 +1347,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/overview.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="Power CAT ALM Overview"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>ทีม Power CAT ใช้ตัวเร่งความเร็ว ALM เพื่อสร้างและปรับใช้แต่ละส่วนของเรา <a href="https://github.com/microsoft/powercat-automation-kit/releases">รุ่น</a>.</p>
-<p>แต่ละรุ่นส่งเสริมการเปลี่ยนแปลงจากการพัฒนาของเราไปสู่สภาพแวดล้อมการทดสอบและการผลิต โซลูชันPower Platformภายในชุดอุปกรณ์ใช้กระบวนการอัตโนมัติเพื่อจัดแพคเกจสินทรัพย์สําหรับการปรับใช้กับการเผยแพร่ GitHub สาธารณะ</p>
-<p>ในเหตุการณ์สําคัญในอนาคตเราจะขยายบนแพลตฟอร์มที่มีอยู่ <a href="https://microsoft.github.io/powercat-automation-kit/th/features/alm">คุณสมบัติของ ALM</a> เพื่อให้ตัวอย่างของวิธีการรวมกฎการตรวจสอบและการเปรียบเทียบภาพของตัวอย่าง RPA เป็นส่วนหนึ่งของกระบวนการ DevOps</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/release-process.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-powercat-process.svg" alt="Power CAT Automation Kit Release Checker"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>ต่อไปนี้แสดงขั้นตอนสําคัญในกระบวนการนําออกใช้ Automation Kit:</p>
-<ol>
-<li>
-<p>การเปลี่ยนแปลงที่เกิดขึ้นในสภาพแวดล้อม Power Platform Dev ของเราจะถูกบันทึกลงในสาขาในที่เก็บ GitHub สาธารณะ</p>
-</li>
-<li>
-<p>เมื่อการเปลี่ยนแปลงพร้อมสําหรับการรวมไว้ในรุ่นทดสอบ พวกเขาจะถูกรวมเข้ากับสาขาหลักโดยใช้คําขอดึงข้อมูล ก่อนที่คําขอดึงข้อมูลจะเสร็จสมบูรณ์ไปป์ไลน์การตรวจสอบ Azure DevOps จําเป็นต้องดําเนินการให้เสร็จสมบูรณ์และคําขอดึงข้อมูลจะได้รับการตรวจสอบแล้ว</p>
-</li>
-<li>
-<p>เมื่อคําขอดึงผ่านการตรวจสอบอัตโนมัติและได้รับการอนุมัติการตรวจสอบแล้วจะสามารถรวมเข้ากับสาขาหลักได้ การผสานนี้ทริกเกอร์ไปป์ไลน์การสร้าง Azure DevOps ทดสอบ ซึ่งเผยแพร่บิลด์ที่มีการจัดการไปยังสภาพแวดล้อมPower Platformทดสอบ</p>
-</li>
-<li>
-<p>หลังจากการทดสอบภายใน ไปป์ไลน์การผลิต Azure DevOps จะถูกทริกเกอร์ด้วยตนเองเพื่อสร้างการปรับใช้การผลิตPower Platform</p>
-</li>
-<li>
-<p>เมื่อพร้อมรีลีส ไปป์ไลน์ Azure DevOps รีลีสจะสร้างรีลีสแบบร่าง รวมถึงบันทึกย่อประจํารุ่นและสร้างแอสเซท บิลด์รีลีสสุดท้ายจะปิดปัญหาที่เปิดอยู่ทั้งหมดและปิดเหตุการณ์สําคัญ แท็กบิลด์ที่เผยแพร่ในที่เก็บ GitHub ที่มีการใช้ป้ายกํากับเดือนและปี</p>
-</li>
-</ol>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

@@ -295,6 +295,7 @@
 
 
 
+
 <script>
     
     
@@ -314,6 +315,8 @@
 <noscript>
     <p>JavaScript musi być włączony, aby wyświetlić tę zawartość</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -451,6 +454,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1210,6 +1215,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1218,7 +1232,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1235,7 +1254,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1267,8 +1285,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1296,6 +1325,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1317,82 +1347,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/overview.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="Power CAT ALM Overview"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Zespół Power CAT używa akceleratora ALM do budowy i wdrażania każdego z naszych <a href="https://github.com/microsoft/powercat-automation-kit/releases">Zwalnia</a>.</p>
-<p>Każda wersja promuje zmiany od naszego rozwoju do środowisk testowych i produkcyjnych. Rozwiązania Power Platform wewnątrz zestawu używają zautomatyzowanego procesu do pakowania zasobów do wdrożenia w publicznych wydaniach GitHub.The  solutions inside the kit use an automated process to package assets for deployment to public GitHub releases.</p>
-<p>W przyszłych kamieniach milowych będziemy rozwijać istniejącą platformę <a href="https://microsoft.github.io/powercat-automation-kit/pl/features/alm">Funkcje ALM</a> , aby podać przykłady uwzględniania reguł sprawdzania poprawności i wizualnego porównania próbek RPA w ramach procesu DevOps.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/release-process.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-powercat-process.svg" alt="Power CAT Automation Kit Release Checker"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Poniżej przedstawiono kluczowe kroki w procesie wydawania zestawu Automation Kit:</p>
-<ol>
-<li>
-<p>Zmiany wprowadzone w naszym środowisku Power Platform Dev są zapisywane w gałęzi w publicznym repozytorium GitHub</p>
-</li>
-<li>
-<p>Gdy zmiany są gotowe do włączenia do wersji testowej, są scalane z główną gałęzią za pomocą żądania ściągnięcia. Przed ukończeniem żądania ściągnięcia potok sprawdzania poprawności usługi Azure DevOps musi zostać pomyślnie ukończony, a żądanie ściągnięcia przejrzane.</p>
-</li>
-<li>
-<p>Gdy żądanie ściągnięcia przejdzie automatyczne kontrole i otrzyma zatwierdzenie przeglądu, może zostać połączone z główną gałęzią. To scalanie wyzwala testowy potok kompilacji usługi Azure DevOps, który publikuje kompilację zarządzaną w środowisku Power Platform testowego.</p>
-</li>
-<li>
-<p>Po testach wewnętrznych potok produkcyjny usługi Azure DevOps jest wyzwalany ręcznie w celu wygenerowania wdrożenia Power Platform produkcyjnego.</p>
-</li>
-<li>
-<p>Gdy wersja jest gotowa, potok Azure DevOps tworzy wersję roboczą zawierającą informacje o wersji i zasoby kompilacji. Ostateczna kompilacja wydania zamknie wszystkie otwarte problemy i zamknie kamień milowy. Opublikowany tag kompilacji repozytorium GitHub z zastosowaną etykietą Miesiąc i rok.</p>
-</li>
-</ol>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

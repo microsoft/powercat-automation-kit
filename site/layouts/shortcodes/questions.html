@@ -9,6 +9,7 @@
 {{ $validateQuestionsAreComplete := $.Site.Params.validateQuestionsAreComplete }}
 {{ $networkResponseError := $.Site.Params.networkResponseError }}
 {{ $downloadText := $.Site.Params.downloadText }}
+{{ $registerJavaScript := .Get "registerJavaScript" }}
 
 <script>
     
@@ -31,6 +32,10 @@
 <noscript>
     <p>{{ $javascriptNotAvailable }}</p>
 </noscript>
+
+{{ if $registerJavaScript }}
+    {{ .Inner }}
+{{ end }}
 
 <script>
     class QuestionExtensions {
@@ -168,6 +173,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -927,6 +934,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -935,7 +951,17 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        {{ if $registerJavaScript }}
+            var parts = {{ $registerJavaScript }}.split(',');
+            for ( var i = 0; i < parts.length; i++) {
+                Survey.FunctionFactory.Instance.register(parts[i], window[parts[i]]);
+            }            
+        {{end}}
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -952,7 +978,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -984,8 +1009,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1013,6 +1049,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)

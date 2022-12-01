@@ -154,6 +154,7 @@ Currency||In Process Advisor data model</p>
 
 
 
+
 <script>
     
     
@@ -173,6 +174,8 @@ Currency||In Process Advisor data model</p>
 <noscript>
     <p>JavaScript muss aktiviert sein, um diesen Inhalt anzeigen zu können</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -310,6 +313,8 @@ Currency||In Process Advisor data model</p>
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1069,6 +1074,15 @@ Currency||In Process Advisor data model</p>
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1077,7 +1091,12 @@ Currency||In Process Advisor data model</p>
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1094,7 +1113,6 @@ Currency||In Process Advisor data model</p>
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1124,8 +1142,19 @@ Currency||In Process Advisor data model</p>
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1153,6 +1182,7 @@ Currency||In Process Advisor data model</p>
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1174,27 +1204,6 @@ Currency||In Process Advisor data model</p>
         }
     });
 </script>
-<p>Die Automation Kit für Power Platform integriert sich in <a href="https://learn.microsoft.com/en-us/power-automate/process-advisor-overview">Process Advisor</a> , um die folgenden Szenarien zu unterstützen:</p>
-<ul>
-<li>
-<p><strong>Verarbeitung Bergbau</strong> Analyse von Geschäftsprozessen zur Identifizierung und Unterstützung des Business Case zur Erstellung von Automatisierungsprojekten, die durch Datenanalyse unterstützt werden.</p>
-</li>
-<li>
-<p><strong>Datengesteuerte Automatisierungsprojektanforderungen</strong> Verwenden Sie die Ergebnisse Ihrer Prozessanalyse, um aus Process Advisor Ergebnissen ein Automatisierungsprojekt zu erstellen.</p>
-</li>
-<li>
-<p><strong>Halbautomatische Automatisierung Projekterstellung</strong> Integrieren Sie Dataverse-Daten zwischen Process Advisor und Automation Kit, um den Arbeitsaufwand für die Erstellung von Automatisierungsprojekten zu reduzieren.</p>
-</li>
-<li>
-<p><strong>Analyse von Power Automate Desktop</strong> Analysieren Sie RPA-Prozessdaten, um Verbesserungen zur Modernisierung, Verbesserung der Ausfallsicherheit und Zuverlässigkeit mithilfe von Task Mining zu identifizieren.</p>
-</li>
-</ul>
-<h2 id="verarbeitung-bergbau">Verarbeitung Bergbau</h2>
-<p>Durch die Verwendung von Process Mining mit Process Advisor können Sie Ineffizienzen in unternehmensweiten Prozessen entdecken. Diese Einblicke ermöglichen es Ihnen, ein tiefes Verständnis Ihrer Prozesse mithilfe von Ereignisprotokolldateien zu erlangen, die Sie von Ihrem Aufzeichnungssystem abrufen können (Apps, die Sie in Ihren Prozessen verwenden). Process Mining zeigt Karten Ihrer Prozesse mit Daten und Metriken an, um Leistungsprobleme zu erkennen. Beispielprozesse, die sich für Process Mining eignen, sind Debitorenbuchhaltung und Order-to-Cash.</p>
-<p>Mit diesen Daten können Sie datengesteuerte Automatisierungsprojektanforderungen erstellen.</p>
-<h2 id="erstellung-von-automatisierungsprojekten">Erstellung von Automatisierungsprojekten</h2>
-<p>Mit den Ergebnissen von Process Advisor Process Mining und Reporting können Sie die folgenden Process Advisor Informationen verwenden, um Ihr Automatisierungsprojekt mit Process Advisor berechneten Analyseergebnissen zu unterstützen:</p>
-<p>Automatisierungs-Kit|Process Advisor|Notizen        |</p>
 
     </div>
   </div>

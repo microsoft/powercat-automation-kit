@@ -1,0 +1,405 @@
+{
+  "showQuestionNumbers": "off",
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "scenario",
+          "title": {
+            "default": "What scenario are you trying to calculate?",
+            "ko": "어떤 시나리오를 계산하려고 합니까?"
+          },
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "sample-scenario",
+          "visibleIf": "{scenario} = 'samples'",
+          "title": {
+            "default": "What sample scenario did you want to explore?",
+            "ko": "어떤 샘플 시나리오를 탐색하고 싶었습니까?"
+          },
+          "choices": []
+        },
+        {
+          "type": "html",
+          "visibleIf": "{sample-scenario} = 'migration-single-unattended'",
+          "html": {
+            "default": "Single unattended bot migration. In this example an organization may want to migrate an existing automate an existing automation solution to the Power Platform. The deployed bot will be hosted in an isolated virtual network and Virtual Machine (VM) runner.",
+            "ko": "단일 무인 봇 마이그레이션. 이 예에서 조직은 기존 자동화 솔루션을 Power Platform 마이그레이션할 수 있습니다. 배포된 봇은 격리된 가상 네트워크 및 VM(가상 머신) 실행기에서 호스트됩니다."
+          }
+        }
+      ]
+    },
+    {
+      "name": "migration",
+      "title": {
+        "default": "Migration Parameters",
+        "ko": "마이그레이션 매개 변수"
+      },
+      "visibleIf": "{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')",
+      "elements": [
+        {
+          "name": "how-many-bots",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "How many bots to migrate?",
+            "ko": "마이그레이션할 봇은 몇 개인가요?"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "attended-percentage",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "Percentage of attended bots?",
+            "ko": "참석한 봇의 비율은?"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "expression",
+              "text": {
+                "default": "A value between 0 and 100",
+                "ko": "0에서 100 사이의 값"
+              },
+              "expression": "{attended-percentage} >= 0 && {attended-percentage} <= 100"
+            }
+          ]
+        },
+        {
+          "name": "unattended-percentage",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "Percentage of unattended bots?",
+            "ko": "무인 봇의 비율?"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "expression",
+              "text": {
+                "default": "A value between 0 and 100",
+                "ko": "0에서 100 사이의 값"
+              },
+              "expression": "{unattended-percentage} >= 0 && {unattended-percentage} <= 100"
+            }
+          ]
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-groups",
+          "titleLocation": "none",
+          "addRowText": "Add new group",
+          "title": {
+            "default": "Migration Groups",
+            "ko": "마이그레이션 그룹"
+          },
+          "columns": [
+            {
+              "name": "name",
+              "title": {
+                "default": "Migration Group Name",
+                "ko": "마이그레이션 그룹 이름"
+              },
+              "cellType": "text"
+            },
+            {
+              "name": "description",
+              "title": {
+                "default": "Description",
+                "ko": "묘사"
+              },
+              "cellType": "text"
+            }
+          ]
+        },
+        {
+          "name": "groups",
+          "type": "checkbox",
+          "title": {
+            "default": "Groups",
+            "ko": "그룹"
+          },
+          "visibleIf": "false",
+          "choices": []
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-times",
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "title": {
+            "default": "Duration Plan",
+            "ko": "기간 계획"
+          },
+          "columns": [
+            {
+              "name": "complexity",
+              "title": {
+                "default": "Complexity",
+                "ko": "복잡성"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "inputType": "count",
+              "choices": []
+            },
+            {
+              "name": "group",
+              "title": {
+                "default": "Group",
+                "ko": "그룹"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choicesFromQuestion": "groups"
+            },
+            {
+              "name": "percentage",
+              "title": {
+                "default": "Percentage",
+                "ko": "백분율"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "Bots",
+              "title": {
+                "default": "Bots",
+                "ko": "봇"
+              },
+              "cellType": "expression",
+              "expression": "botTotal({row})"
+            },
+            {
+              "name": "botsPerMonth",
+              "title": {
+                "default": "Bots per month",
+                "ko": "월별 봇 수"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "total",
+              "title": {
+                "default": "Total (Business Days)",
+                "ko": "합계(영업일)"
+              },
+              "cellType": "expression",
+              "expression": "migrationTotal({row})"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.",
+            "ko": "참고: 값은 설명을 위한 것이며 마이그레이션을 위한 램프 시간, 월별 봇 수 및 총 영업일 수는 마이그레이션되는 특정 봇에 대해 결정해야 합니다."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "calc-migration-plan",
+          "title": {
+            "default": "Automatically calculate possible migration plan?",
+            "ko": "가능한 마이그레이션 계획을 자동으로 계산합니까?"
+          },
+          "defaultValue": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-plan",
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "title": {
+            "default": "Migration Plan",
+            "ko": "마이그레이션 계획"
+          },
+          "columns": [
+            {
+              "name": "name",
+              "title": {
+                "default": "Name",
+                "ko": "이름"
+              },
+              "cellType": "text"
+            },
+            {
+              "name": "low",
+              "title": {
+                "default": "Low",
+                "ko": "낮다"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "medium",
+              "title": {
+                "default": "Medium",
+                "ko": "보통"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "high",
+              "title": {
+                "default": "High",
+                "ko": "높다"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "attended",
+              "title": {
+                "default": "Attended",
+                "ko": "참석"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "unattended",
+              "title": {
+                "default": "Unattended",
+                "ko": "무인"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calculation",
+      "elements": [
+        {
+          "name": "tellMeMore",
+          "type": "boolean",
+          "title": {
+            "default": "Tell me more about each license type",
+            "ko": "각 라이선스 유형에 대해 자세히 알아보기"
+          },
+          "defaultValue": false
+        },
+        {
+          "name": "matrix-image",
+          "type": "image-task",
+          "visibleIf": "{tellMeMore} == true",
+          "title": {
+            "default": "Select plans you want more information on",
+            "ko": "자세한 정보를 원하는 플랜을 선택하십시오."
+          },
+          "src": "/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at <a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>Buy Power Automate Licenses</a>",
+            "ko": "라이선스에 대한 자세한 내용은 Microsoft Office 365, Microsoft Dynamics, Pay as you Go 옵션 및 Windows의 시드 라이선스가 포함되어 있습니다. <a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>파워 오토메이트 라이선스 구매</a>"
+          }
+        },
+        {
+          "name": "retailPrice",
+          "type": "boolean",
+          "title": {
+            "default": "Use retail price",
+            "ko": "소매 가격 사용"
+          },
+          "defaultValue": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "items",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "columns": [
+            {
+              "name": "service",
+              "title": {
+                "default": "Service",
+                "ko": "서비스"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "inputType": "count",
+              "totalFormat": "Items count: {0}",
+              "choices": []
+            },
+            {
+              "name": "price",
+              "title": {
+                "default": "Price",
+                "ko": "값"
+              },
+              "cellType": "expression",
+              "expression": "getItemPrice('service')",
+              "displayStyle": "currency",
+              "visibleIf": "{retailPrice} == true"
+            },
+            {
+              "name": "price-manual",
+              "title": {
+                "default": "Price",
+                "ko": "값"
+              },
+              "cellType": "text",
+              "inputType": "number",
+              "displayStyle": "currency",
+              "visibleIf": "{retailPrice} == false"
+            },
+            {
+              "name": "quantity",
+              "title": {
+                "default": "Quantity",
+                "ko": "양"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "totalType": "sum",
+              "totalFormat": "Total services: {0}",
+              "min": 1
+            },
+            {
+              "name": "total",
+              "title": {
+                "default": "Total",
+                "ko": "합계"
+              },
+              "cellType": "expression",
+              "expression": "iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
+          "name": "total",
+          "type": "expression",
+          "title": {
+            "default": "Total",
+            "ko": "합계"
+          },
+          "expression": "{orderList-total.total}",
+          "displayStyle": "currency"
+        }
+      ]
+    }
+  ]
+}

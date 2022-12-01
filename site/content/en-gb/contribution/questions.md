@@ -4,7 +4,7 @@ description: "Automation Kit - Authoring Questions"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 This page contains information the format used to author interactive questions that are included as part of the {{<product-name>}} starter.
@@ -103,7 +103,6 @@ The source svg file supports the following custom hyperlink links for elements i
 
 - **template://item/selected** - Will define the format of the object to set the selected format in the image
 - **template://item/unselected** - Will define the format of the object to set the unselected format of items in the image
-- **question://question-name/value** - Will define the format of the object to set the unselected format of items in the image
 
 Visual elements with a hyper link of question:// will be used to set or unset the array of values inside the set of questions. This ability provides the ability to interactively change how other questions are shown to the user. For example if the svg file had two objects with the following hyperlinks:
 
@@ -117,6 +116,19 @@ If the user selects these objects then other elements on the page could be shown
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Visual elements with a hyper link of option:// will be used to set the value of an option set or single value question. For example if the svg file had two objects with the following hyperlinks:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

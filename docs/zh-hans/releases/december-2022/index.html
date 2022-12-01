@@ -145,6 +145,7 @@
 
 
 
+
 <script>
     
     
@@ -164,6 +165,8 @@
 <noscript>
     <p>必须启用 JavaScript 才能查看此内容</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -301,6 +304,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1060,6 +1065,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1068,7 +1082,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1085,7 +1104,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1117,8 +1135,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1146,6 +1175,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1167,34 +1197,6 @@
         }
     });
 </script>
-</div>
-<div class="optional">
-<h2 id="开始">开始</h2>
-<p>试用<a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/get-started">入门指南</a>或加入我们的<a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/office-hours">办公时间</a></p>
-<h2 id="先前版本">先前版本</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/releases/november-2022">2022年11月</a>（夏普阿基米德）</li>
-</ul>
-<h2 id="下一个版本">下一个版本</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/releases/january-2023">2023 年 1 月</a>（漂亮的艾美奖）</li>
-</ul>
-<h2 id="项目里程碑">项目里程碑</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/5">自动化套件 - 2022 年 12 月</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">自动化套件 - 积压工作</a></p>
-<p>查看<a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/releases/milestones">里程碑注释</a>欲了解更多信息</p>
-<h2 id="主要说明">主要说明</h2>
-<p>此版本中的主要功能：</p>
-<p>-待更新</p>
-<h2 id="发行说明">发行说明</h2>
-<p>包含在<a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022">自动化套件 - 2022 年 12 月</a>对于已关闭的错误和问题</p>
-<h2 id="释放资产">释放资产</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022">自动化套件 - 2022 年 12 月</a></li>
-</ul>
-<h2 id="发布历史">发布历史</h2>
-<p>满<a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/releases">发布历史</a></p>
-</div>
 
     </div>
   </div>

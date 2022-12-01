@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Questions de création"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 Cette page contient des informations sur le format utilisé pour créer des questions interactives incluses dans le {{<product-name>}} démarreur.
@@ -103,7 +103,6 @@ Le fichier svg source prend en charge les liens hypertexte personnalisés suivan
 
 - **template://item/selected** - Définira le format de l’objet pour définir le format sélectionné dans l’image
 - **template://item/unselected** - Définira le format de l’objet pour définir le format non sélectionné des éléments de l’image
-- **question://question-name/value** - Définira le format de l’objet pour définir le format non sélectionné des éléments de l’image
 
 Des éléments visuels avec un lien hypertexte de question:// seront utilisés pour définir ou annuler le tableau de valeurs à l’intérieur de l’ensemble de questions. Cette capacité offre la possibilité de modifier de manière interactive la façon dont les autres questions sont affichées à l’utilisateur. Par exemple, si le fichier svg comportait deux objets avec les liens hypertexte suivants :
 
@@ -117,6 +116,19 @@ Si l’utilisateur sélectionne ces objets, d’autres éléments de la page peu
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Les éléments visuels avec un lien hypertexte de option:// seront utilisés pour définir la valeur d’un ensemble d’options ou d’une question à valeur unique. Par exemple, si le fichier svg comportait deux objets avec les liens hypertexte suivants :
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

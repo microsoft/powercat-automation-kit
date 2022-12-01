@@ -418,6 +418,21 @@
       "visibleIf": "contains({installType}, 'Main solution')",
       "elements": [
         {
+          "type": "text",
+          "name": "main-businessApprover",
+          "isRequired": true,
+          "inputMask": "email",
+          "title": {
+            "default": "What is the email address of the default approver?",
+            "sv": "Vad är e-postadressen till standardgodkännaren?"
+          },
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
           "type": "boolean",
           "name": "main-installSampleData",
           "isRequired": true,
@@ -438,8 +453,8 @@
           "type": "html",
           "visibleIf": "{main-installSampleData} == false",
           "html": {
-            "default": "On base data required for solution will be imported",
-            "sv": "Basdata som krävs för lösningen importeras"
+            "default": "Only base data required for solution will be imported",
+            "sv": "Endast basdata som krävs för lösningen importeras"
           }
         },
         {
@@ -1148,7 +1163,7 @@
       "elements": [
         {
           "type": "boolean",
-          "name": "satellite-storeExtractScript",
+          "name": "satellite-storeFlowScript",
           "isRequired": true,
           "title": {
             "default": "Store the extracted Power Automate Desktop script in Dataverse?",
@@ -1157,7 +1172,7 @@
         },
         {
           "type": "html",
-          "visibleIf": "{satellite-storeExtractScript} == true",
+          "visibleIf": "{satellite-storeFlowScript} == true",
           "html": {
             "default": "Will <b>store</b> Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information",
             "sv": "Vilja <b>butik</b> Definitionsskript för datorflöden i tabellen Desktop Flow Definition. Det här fältet kan innehålla känslig information"
@@ -1165,7 +1180,7 @@
         },
         {
           "type": "html",
-          "visibleIf": "{satellite-storeExtractScript} == false",
+          "visibleIf": "{satellite-storeFlowScript} == false",
           "html": {
             "default": "Will <b>NOT</b> Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information",
             "sv": "Vilja <b>INTE</b> Definitionsskript för datorflöden i tabellen Desktop Flow Definition. Det här fältet kan innehålla känslig information"
@@ -1173,7 +1188,7 @@
         },
         {
           "type": "boolean",
-          "name": "satellite-enableFlows",
+          "name": "satellite-activateAllCloudFlows",
           "isRequired": true,
           "title": {
             "default": "Enable satellite flows?",
@@ -1182,10 +1197,36 @@
         },
         {
           "type": "html",
-          "visibleIf": "{satellite-enableFlows} == true",
+          "visibleIf": "{satellite-activateAllCloudFlows} == true",
           "html": {
             "default": "Will enable Cloud flows that are included in the Automation Kit Satellite solution",
             "sv": "Aktiverar molnflöden som ingår i Automation Kit Satellite-lösningen"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "satellite-installSampleData",
+          "isRequired": true,
+          "title": {
+            "default": "Import sample data after solution is setup?",
+            "sv": "Importera exempeldata när lösningen har konfigurerats?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{satellite-installSampleData} == true",
+          "html": {
+            "default": "Sample data will be imported",
+            "sv": "Exempeldata importeras"
+          }
+        },
+        {
+          "type": "text",
+          "name": "satellite-azureAppId",
+          "isRequired": true,
+          "title": {
+            "default": "What is the Azure Application Id to register as Application User?",
+            "sv": "Vad är det Azure-program-ID som ska registreras som programanvändare?"
           }
         }
       ]

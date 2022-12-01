@@ -1,0 +1,405 @@
+{
+  "showQuestionNumbers": "off",
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "scenario",
+          "title": {
+            "default": "What scenario are you trying to calculate?",
+            "zh-hans": "您要计算什么方案？"
+          },
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "sample-scenario",
+          "visibleIf": "{scenario} = 'samples'",
+          "title": {
+            "default": "What sample scenario did you want to explore?",
+            "zh-hans": "您想探索哪个示例方案？"
+          },
+          "choices": []
+        },
+        {
+          "type": "html",
+          "visibleIf": "{sample-scenario} = 'migration-single-unattended'",
+          "html": {
+            "default": "Single unattended bot migration. In this example an organization may want to migrate an existing automate an existing automation solution to the Power Platform. The deployed bot will be hosted in an isolated virtual network and Virtual Machine (VM) runner.",
+            "zh-hans": "单个无人值守机器人迁移。在此示例中，组织可能希望将现有的自动化现有自动化解决方案迁移到Power Platform。部署的机器人将托管在隔离的虚拟网络和虚拟机 （VM） 运行器中。"
+          }
+        }
+      ]
+    },
+    {
+      "name": "migration",
+      "title": {
+        "default": "Migration Parameters",
+        "zh-hans": "迁移参数"
+      },
+      "visibleIf": "{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')",
+      "elements": [
+        {
+          "name": "how-many-bots",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "How many bots to migrate?",
+            "zh-hans": "要迁移多少个机器人？"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "attended-percentage",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "Percentage of attended bots?",
+            "zh-hans": "有人值守的机器人百分比？"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "expression",
+              "text": {
+                "default": "A value between 0 and 100",
+                "zh-hans": "介于 0 和 100 之间的值"
+              },
+              "expression": "{attended-percentage} >= 0 && {attended-percentage} <= 100"
+            }
+          ]
+        },
+        {
+          "name": "unattended-percentage",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "Percentage of unattended bots?",
+            "zh-hans": "无人值守机器人的百分比？"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "expression",
+              "text": {
+                "default": "A value between 0 and 100",
+                "zh-hans": "介于 0 和 100 之间的值"
+              },
+              "expression": "{unattended-percentage} >= 0 && {unattended-percentage} <= 100"
+            }
+          ]
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-groups",
+          "titleLocation": "none",
+          "addRowText": "Add new group",
+          "title": {
+            "default": "Migration Groups",
+            "zh-hans": "迁移组"
+          },
+          "columns": [
+            {
+              "name": "name",
+              "title": {
+                "default": "Migration Group Name",
+                "zh-hans": "迁移组名称"
+              },
+              "cellType": "text"
+            },
+            {
+              "name": "description",
+              "title": {
+                "default": "Description",
+                "zh-hans": "描述"
+              },
+              "cellType": "text"
+            }
+          ]
+        },
+        {
+          "name": "groups",
+          "type": "checkbox",
+          "title": {
+            "default": "Groups",
+            "zh-hans": "组"
+          },
+          "visibleIf": "false",
+          "choices": []
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-times",
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "title": {
+            "default": "Duration Plan",
+            "zh-hans": "持续时间计划"
+          },
+          "columns": [
+            {
+              "name": "complexity",
+              "title": {
+                "default": "Complexity",
+                "zh-hans": "复杂性"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "inputType": "count",
+              "choices": []
+            },
+            {
+              "name": "group",
+              "title": {
+                "default": "Group",
+                "zh-hans": "群"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choicesFromQuestion": "groups"
+            },
+            {
+              "name": "percentage",
+              "title": {
+                "default": "Percentage",
+                "zh-hans": "百分比"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "Bots",
+              "title": {
+                "default": "Bots",
+                "zh-hans": "机器人"
+              },
+              "cellType": "expression",
+              "expression": "botTotal({row})"
+            },
+            {
+              "name": "botsPerMonth",
+              "title": {
+                "default": "Bots per month",
+                "zh-hans": "每月机器人数"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "total",
+              "title": {
+                "default": "Total (Business Days)",
+                "zh-hans": "总计（工作日）"
+              },
+              "cellType": "expression",
+              "expression": "migrationTotal({row})"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.",
+            "zh-hans": "注意：这些值仅用于说明目的，需要为要迁移的特定机器人确定爬坡时间、每月机器人数和迁移的总工作日。"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "calc-migration-plan",
+          "title": {
+            "default": "Automatically calculate possible migration plan?",
+            "zh-hans": "自动计算可能的迁移计划？"
+          },
+          "defaultValue": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-plan",
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "title": {
+            "default": "Migration Plan",
+            "zh-hans": "迁移计划"
+          },
+          "columns": [
+            {
+              "name": "name",
+              "title": {
+                "default": "Name",
+                "zh-hans": "名字"
+              },
+              "cellType": "text"
+            },
+            {
+              "name": "low",
+              "title": {
+                "default": "Low",
+                "zh-hans": "低"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "medium",
+              "title": {
+                "default": "Medium",
+                "zh-hans": "中等"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "high",
+              "title": {
+                "default": "High",
+                "zh-hans": "高"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "attended",
+              "title": {
+                "default": "Attended",
+                "zh-hans": "参加"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "unattended",
+              "title": {
+                "default": "Unattended",
+                "zh-hans": "无人 值守"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calculation",
+      "elements": [
+        {
+          "name": "tellMeMore",
+          "type": "boolean",
+          "title": {
+            "default": "Tell me more about each license type",
+            "zh-hans": "告诉我有关每种许可证类型的更多信息"
+          },
+          "defaultValue": false
+        },
+        {
+          "name": "matrix-image",
+          "type": "image-task",
+          "visibleIf": "{tellMeMore} == true",
+          "title": {
+            "default": "Select plans you want more information on",
+            "zh-hans": "选择您想了解更多信息的计划"
+          },
+          "src": "/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at <a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>Buy Power Automate Licenses</a>",
+            "zh-hans": "有关许可证的更多详细信息，包括Microsoft Office 365，Microsoft Dynamics，Pay for you Go选项和Windows的种子许可证，请访问<a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>购买电源自动化许可证</a>"
+          }
+        },
+        {
+          "name": "retailPrice",
+          "type": "boolean",
+          "title": {
+            "default": "Use retail price",
+            "zh-hans": "使用零售价"
+          },
+          "defaultValue": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "items",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "columns": [
+            {
+              "name": "service",
+              "title": {
+                "default": "Service",
+                "zh-hans": "服务"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "inputType": "count",
+              "totalFormat": "Items count: {0}",
+              "choices": []
+            },
+            {
+              "name": "price",
+              "title": {
+                "default": "Price",
+                "zh-hans": "价格"
+              },
+              "cellType": "expression",
+              "expression": "getItemPrice('service')",
+              "displayStyle": "currency",
+              "visibleIf": "{retailPrice} == true"
+            },
+            {
+              "name": "price-manual",
+              "title": {
+                "default": "Price",
+                "zh-hans": "价格"
+              },
+              "cellType": "text",
+              "inputType": "number",
+              "displayStyle": "currency",
+              "visibleIf": "{retailPrice} == false"
+            },
+            {
+              "name": "quantity",
+              "title": {
+                "default": "Quantity",
+                "zh-hans": "数量"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "totalType": "sum",
+              "totalFormat": "Total services: {0}",
+              "min": 1
+            },
+            {
+              "name": "total",
+              "title": {
+                "default": "Total",
+                "zh-hans": "总"
+              },
+              "cellType": "expression",
+              "expression": "iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
+          "name": "total",
+          "type": "expression",
+          "title": {
+            "default": "Total",
+            "zh-hans": "总"
+          },
+          "expression": "{orderList-total.total}",
+          "displayStyle": "currency"
+        }
+      ]
+    }
+  ]
+}

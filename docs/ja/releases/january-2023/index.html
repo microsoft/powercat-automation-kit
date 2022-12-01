@@ -145,6 +145,7 @@
 
 
 
+
 <script>
     
     
@@ -164,6 +165,8 @@
 <noscript>
     <p>このコンテンツを表示するには、JavaScriptを有効にする必要があります</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -301,6 +304,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1060,6 +1065,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1068,7 +1082,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1085,7 +1104,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1117,8 +1135,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1146,6 +1175,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1167,32 +1197,6 @@
         }
     });
 </script>
-</div>
-<div class="optional">
-<h2 id="今すぐ始める">今すぐ始める</h2>
-<p>試してみる<a href="https://microsoft.github.io/powercat-automation-kit/ja/get-started">スタートアップガイド</a>または私たちに参加してください<a href="https://microsoft.github.io/powercat-automation-kit/ja/office-hours">オフィスアワー</a></p>
-<h2 id="以前のリリース">以前のリリース</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/ja/releases/december-2022">2022年12月号</a>(熱心なアントネッリ)</li>
-</ul>
-<h2 id="次のリリース">次のリリース</h2>
-<p>-2023年2月(ニフティエミー賞)</p>
-<h2 id="プロジェクトのマイルストーン">プロジェクトのマイルストーン</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/9">自動化キット - 2023年1月</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">自動化キット - バックログ</a></p>
-<p>レビューする<a href="https://microsoft.github.io/powercat-automation-kit/ja/releases/milestones">マイルストーンノート</a>詳細情報</p>
-<h2 id="キーノート">キーノート</h2>
-<p>このリリースの主な機能:</p>
-<p>-更新予定</p>
-<h2 id="リリースノート">リリースノート</h2>
-<p>に含まれるもの<a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023">自動化キット - 2023年1月</a>クローズされたバグと問題の場合</p>
-<h2 id="アセットのリリース">アセットのリリース</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023">自動化キット - 2023年1月</a></li>
-</ul>
-<h2 id="リリース履歴">リリース履歴</h2>
-<p>一杯<a href="https://microsoft.github.io/powercat-automation-kit/ja/releases">リリース履歴</a></p>
-</div>
 
     </div>
   </div>

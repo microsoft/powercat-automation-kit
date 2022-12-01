@@ -4,7 +4,7 @@ description: "자동화 키트 - 작성 질문"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 이 페이지에는 {{<product-name>}} 스타터.
@@ -103,7 +103,6 @@ contains 함수는 문자열 또는 문자열 배열이 제공된 값과 일치�
 
 - **template://item/selected** - 이미지에서 선택한 형식을 설정하기 위해 개체의 형식을 정의합니다.
 - **template://item/unselected** - 이미지의 선택되지 않은 항목 형식을 설정하기 위해 개체의 형식을 정의합니다.
-- **question://question-name/value** - 이미지의 선택되지 않은 항목 형식을 설정하기 위해 개체의 형식을 정의합니다.
 
 하이퍼 링크가 question:// 있는 시각적 요소는 질문 집합 내에서 값 배열을 설정하거나 설정 해제하는 데 사용됩니다. 이 기능은 다른 질문이 사용자에게 표시되는 방식을 대화형으로 변경할 수 있는 기능을 제공합니다. 예를 들어 svg 파일에 다음 하이퍼링크가 있는 두 개의 개체가 있는 경우:
 
@@ -117,6 +116,19 @@ contains 함수는 문자열 또는 문자열 배열이 제공된 값과 일치�
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+하이퍼 링크가 option:// 있는 시각적 요소는 옵션 집합 또는 단일 값 질문의 값을 설정하는 데 사용됩니다. 예를 들어 svg 파일에 다음 하이퍼링크가 있는 두 개의 개체가 있는 경우:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

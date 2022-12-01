@@ -310,6 +310,7 @@
 
 
 
+
 <script>
     
     
@@ -329,6 +330,8 @@
 <noscript>
     <p>JavaScript debe estar habilitado para ver este contenido</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -466,6 +469,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1225,6 +1230,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1233,7 +1247,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1250,7 +1269,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1282,8 +1300,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1311,6 +1340,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1332,614 +1362,6 @@
         }
     });
 </script>
-</div>
-<style>
-    .fullscreen.optional {
-        display: none !important
-    }
-    nav > .fullscreen.container {
-        display: none !important
-    }
-    section.fullscreen {
-        padding: 10px !important;
-    }
-    .reveal.fullscreen {
-    }
-}
-</style>
-
-<style>
-     .page { display: none }
-</style>
-
-
-
-
-
-
-
-
-
-<div id="slide0" class="page" data-audio="https://powercat-automation-kit.azureedge.net/">
-
-    
-        
-        <iframe width="860" height="540" src="https://www.youtube-nocookie.com/embed/VNC0PWBTRwA" title="Overview Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
-    
-    
-    <aside class="notes">
-
-    <p>Este es un breve video que recorre la funcionalidad integral del proceso de retorno de la inversión (ROI) del kit de automatización.</p>
-<p>Puedes ver más videos en el <a href="https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy">Lista de reproducción del kit de automatización</a></p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide01.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide01.SVG" alt="Automation Kit Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    El escenario clave del Automation Kit for Power Platform es acelerar el uso de Power Automate para soluciones de escritorio al permitirle definir, revisar y supervisar casi en tiempo real el retorno de la inversión mediante la automatización de los procesos existentes.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide02.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide02.SVG" alt="Automation Kit Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Las características clave del kit de automatización son permitirle administrar, gobernar y escalar la adopción de automatización aprovechando las experiencias que hemos adquirido al trabajar con clientes de todo el mundo.</p>
-<p>Hacemos esto permitiéndole monitorear casi en tiempo real, la planificación y el impacto de los ahorros proyectados contra los ahorros reales basados en análisis de automatización monitoreados.</p>
-<p>El kit se centra en una variedad de personas, desde tomadores de decisiones comerciales, propietarios de procesos, fabricantes para crear el proceso de automatización y equipos de administración para que cada grupo de usuarios pueda medir el impacto de la inversión.</p>
-<p>Este proceso está respaldado por la hiperautomatización que aprovecha el valor de la nube de Microsoft para proporcionar un proceso de administración del ciclo de vida de las aplicaciones de extremo a extremo.</p>
-<p>Cada una de estas piezas es compatible con el proceso más amplio de seguridad y gobierno de Microsoft que le permite administrar y supervisar las soluciones implementadas.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide03.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide03.SVG" alt="Automation Center of Excellence Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Para operar con éxito un Centro de Automatización de excelencia, hay múltiples componentes para construir y crecer con el tiempo. Para acelerar este proceso, el kit de automatización junto con el kit CoE le permite combinar herramientas prácticas junto con nuestra guía de documentos técnicos para ayudarlo a aplicar diferentes componentes de su centro de excelencia.</p>
-<p>Por ejemplo, el Automation Backlog se puede utilizar para generar ideas sobre posibles proyectos de automatización y decidir sobre los proyectos a automatizar. Esto se puede combinar con un sólido proceso de administración del ciclo de vida de las aplicaciones para crear, implementar y monitorear la solución.</p>
-<p>Desde un punto de vista operativo y de riesgo para controlar el acceso a conectores y datos y proporcionar telemetría operativa sobre el impacto de las soluciones implementadas contra los objetivos definidos.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide4" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide04.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide04.SVG" alt="Automation Kit vs CoE Kit"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>El kit CoE Power Platform incluye un enfoque en el inquilino más amplio y el entorno administrado.</p>
-<p>El kit de automatización complementa este conjunto de herramientas centrándose específicamente en los elementos clave de los flujos de Power Automate Desktop para que el ROI y el impacto puedan demostrarse casi en tiempo real.</p>
-<p>Con el tiempo, agregaremos módulos adicionales al kit de automatización más allá del ROI. Por ejemplo, estamos desarrollando un módulo de migración que le permite mover proyectos de automatización heredados a Power Automate a escala.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide5" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide05.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide05.SVG" alt="Corporate Automation Strategy"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Su estrategia de automatización corporativa combina la participación clave de sus tomadores de decisiones, propietarios de procesos, equipo de tecnología de la información y equipos de riesgo para definir, monitorear y gobernar con éxito el proceso de automatización de extremo a extremo.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide6" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide06.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide06.SVG" alt="Corporate Automation Strategy"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Combinando estos roles juntos, podemos seguir el proceso desde los Objetivos Corporativos, a través del proceso de ideación y aprobación. En la construcción y entrega del proyecto de automatización seleccionado. Finalmente, las diferentes partes interesadas pueden monitorear el impacto del proyecto de automatización contra los objetivos esperados.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide7" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide07.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide07.SVG" alt="Leveraging Automation Kit"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    El kit de automatización permite este proceso al proporcionar un conjunto de componentes de código bajo que se pueden personalizar. Se asignan al ciclo de vida de la muestra, lo que permite que los datos se agreguen desde entornos implementados y se muestren casi en tiempo real a las partes interesadas en el panel de Power BI.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide8" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide08.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide08.SVG" alt="Automation Projects"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    La aplicación de proyecto de automatización le permite administrar su proceso de descubrimiento y aprobación. Puede utilizar los datos recopilados para que pueda priorizar los proyectos que tendrán el mejor impacto en la organización.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide9" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide09.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide09.SVG" alt="Automation Center"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    El equipo de administración puede utilizar la aplicación Centro de automatización para asignar los proyectos implementados a entornos que permitan la supervisión de las soluciones frente a los objetivos proyectados.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide10" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide10.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide10.SVG" alt="Automation Solution Manager"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Los administradores del sistema lo usan para habilitar la medición de las soluciones para su inclusión en los informes de Power BI.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide11" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide11.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide11.SVG" alt="Power BI Dashboard"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>El panel de Power BI proporciona la vista completa de los proyectos de automatización, los objetivos esperados y los ahorros reales a medida que se implementan los proyectos de automatización.</p>
-<p>Además, proporciona supervisión operativa del estado de las soluciones implementadas.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide12" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide12.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide12.SVG" alt="Automation Maturity Model"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>El modelo de madurez de automatización puede ser un marco útil para determinar dónde se encuentra en su viaje de automatización. Pueden proporcionar una hoja de ruta para áreas que se pueden automatizar con el tiempo para escalar a procesos más definidos, capaces y eficientes.</p>
-<p>El kit de automatización y el kit de CoE le proporcionan herramientas útiles y orientación para ayudarlo a acelerar su viaje para pasar a altos niveles de automatización.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide13" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide13.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide13.SVG" alt="Monitor Automation Kit Releases"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Desde nuestro sitio GitHub puede utilizar el <strong>Reloj</strong> elemento desplegable para seleccionar <strong>Libera</strong> para que se le notifique cuando actualicemos el kit de automatización.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide14" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide14.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide14-Nov2022.SVG" alt="Automation Kit Release"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Puede revisar nuestras notas de la versión para cada versión para obtener orientación sobre lo que ha cambiado, cómo instalar y actualizar el kit de automatización.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide15" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide15.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide15.SVG" alt="Automation Kit Getting Started"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    El cambio clave ha sido mejorar nuestro proceso de inicio para que pueda adaptarse a su función y guiarlo en el camino para comenzar lo más rápido posible.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide16" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide16.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide16.SVG" alt="What&#39;s Next"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Tenemos un proceso continuo de mirar los elementos que se priorizan desde nuestro backlog para su inclusión en cada hito. Cada hito es una guía de cuándo se puede lanzar la característica. Este calendario de lanzamiento puede cambiar en función de los comentarios prioritarios de los clientes y el cumplimiento de nuestras puertas de calidad antes del lanzamiento.</p>
-<p>Las características de horas extras del kit de automatización se considerarán para su inclusión en la experiencia del producto lista para usar. A medida que esto ocurra, las características quedarán obsoletas del Kit de automatización para permitir la migración a las características del producto.</p>
-<p>Para las características en las que la telemetría y el impacto en el cliente muestran un impacto limitado, buscaremos desinvertir de esas características para que podamos centrarnos en áreas de mayor prioridad.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide17" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide17.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide17.SVG" alt="Simplifying the Install Process"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Sobre la base del trabajo de octubre, el enfoque clave será buscar pasos para simplificar aún más el proceso de instalación. El objetivo es hacer que la instalación de dependencias y la configuración inicial de datos para ponerse manos a la obra con un sistema que funcione mucho más rápido.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide18" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide18.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide18.SVG" alt="Sample Data"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Al ampliar el proceso de instalación, los paquetes de datos proporcionarán la capacidad de importar datos de muestra predefinidos y/o objetivos específicos de la industria en su entorno. Por ejemplo, puede configurar y demostrar rápidamente el proceso que funciona de principio a fin, así que demuestre el proceso esperado y personalícelo para su organización.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide19" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide19.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide19.SVG" alt="End to end ALM"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Ampliando las características existentes de ALM Accelerator, planeamos agregar acciones específicas de RPA que hagan que el proceso de integración de los componentes de Power Automate Desktop sea un proceso automatizado de implementación y revisión.</p>
-<p>Leer más sobre <a href="https://microsoft.github.io/powercat-automation-kit/es/features/alm">Entornos administrados Power Platform canalizaciones y ALM Accelerator</a> y cómo pueden ayudarle a implementar y gestionar sus soluciones de automatización.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide20" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide20.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide20.SVG" alt="Futures"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Mirando más a fondo en nuestros hitos, respaldamos los elementos atrasados para expandir el nuevo Módulo de Migración a la Automatización.</p>
-<p>Integración más profunda con Process Advisor para ayudar con el proceso de identificar y calificar el ROI esperado de la automatización</p>
-<p>A medida que busquemos aumentar los agentes de RPA hospedados, proporcionaremos ejemplos que aceleren el uso de agentes hospedados de Azure para los clientes que requerían automatización de operaciones de infraestructura para integrarse con proyectos de automatización implementados.</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

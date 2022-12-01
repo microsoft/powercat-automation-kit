@@ -313,6 +313,7 @@
 
 
 
+
 <script>
     
     
@@ -332,6 +333,8 @@
 <noscript>
     <p>JavaScript moet zijn ingeschakeld om deze inhoud te kunnen bekijken</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -469,6 +472,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1228,6 +1233,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1236,7 +1250,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1253,7 +1272,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1285,8 +1303,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1314,6 +1343,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1335,227 +1365,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.svg" alt="Managed Environments Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Beheerde omgevingen bieden u de mogelijkheid om governance op schaal te stroomlijnen en te vereenvoudigen. Beheerders kunnen beheerde omgevingen met slechts een paar klikken activeren en onmiddellijk functies oplichten die meer zichtbaarheid, meer controle en minder moeite bieden om al uw low-code assets te beheren.</p>
-<p>Beheerde omgevingen zijn een belangrijk onderdeel van de Power Platform-familie, op dezelfde manier waarop AI Builder intelligentie in onze producten heeft gestopt en Dataverse de data-backbone biedt. Beheerde omgevingen stroomlijnen het beheer van het platform op schaal.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.svg" alt="Managed Environments Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Beheerde omgevingen bieden u:</p>
-<ul>
-<li>Meer zichtbaarheid met gebruiksinzichten op de startpagina, e-mails met beheerderssamenvatting, licentierapporten en weergaven van gegevensbeleid</li>
-<li>Meer controle met limieten voor delen, zodat u kunt bepalen hoe breed en met hoeveel mensen canvas-app- en oplossingsstromen kunnen worden gedeeld.</li>
-<li>U kunt het delen ook beperken tot beperkte beveiligingsgroepen.</li>
-<li>Oplossingscontrole configureren voor beveiligings- of betrouwbaarheidscontroles om regels automatisch uit te voeren wanneer een oplossing wordt geïmporteerd in een beheerde omgeving</li>
-<li>Pas de welkomst- en deelervaring van de maker aan, zodat u gebruikers op het juiste pad leidt.</li>
-<li>Minder moeite stroomlijnen, vereenvoudigen en automatiseren stappen uit de doos met slechts een paar klikken.</li>
-<li>De Power Platform Pipelines biedt de mogelijkheid om het APPLICATION LIFECYCLE MANAGEMENT (ALM)-proces te vereenvoudigen.</li>
-</ul>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/">
-
-    
-        <video width="860" height="540" controls>
-            <source src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-power-platform-pipelines-demo.mp4" type="video/mp4"/>
-            Your browser does not support the video tag.
-        </video>
-    
-    
-    <aside class="notes">
-
-    <p>Dit is een oplossing waar ik mee werk in de Maker Portal.</p>
-<p>Ik ben doorgegaan met het selecteren van deze pijplijn die al is ingesteld. Pijplijnen zijn in feite een reeks geautomatiseerde stappen die uw werk van de ene omgeving naar de andere verplaatsen. Deze pijplijn brengt mijn oplossing van de ontwikkelomgeving aan de linkerkant naar de testomgeving. Dan is er nog een fase om het van test naar productie te brengen.</p>
-<p>Laten we implementeren om te testen, selecteer volgende en hier bevestig ik mijn verbindingen om de omgeving te testen om er zeker van te zijn dat ik de juiste referenties gebruik. Vervolgens configureer ik mijn omgevingsvariabelen om er bijvoorbeeld voor te zorgen dat ik in de test naar de juiste SharePoint-site wijs. Dit is belangrijk als de site anders was dan degene die ik in ontwikkeling gebruikte.</p>
-<p>Zodra ik alles heb ingesteld, kan ik gewoon &ldquo;Implementeren&rdquo; selecteren en preflight-validaties worden automatisch uitgevoerd om ervoor te zorgen dat ik de juiste afhankelijkheden heb en dat de oplossing het DLP-beleid in die doelomgeving niet schendt. De pijplijn kan ook zo worden ingesteld dat goedkeuring vereist is voordat de implementatie kan worden uitgevoerd.</p>
-<p>Het lijkt erop dat alles hier succesvol was.</p>
-<p>Nadat ik mijn pijplijn heb uitgevoerd, krijg ik volledige zichtbaarheid en een audittrail van de implementaties in mijn organisatie met elke oplossing waarvan een back-up is gemaakt en een versie is gemaakt.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide4" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.svg?v=1" alt="Managed Environments Availability"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>De functies worden gefaseerd uitgerold. Sommigen van hen, zoals de beheerderssamenvattingen en deellimieten, zijn vandaag beschikbaar. De rest wordt tegen het einde van het jaar uitgerold.</p>
-<p>In de komende weken en maanden ziet u gebruiksinzichten op de startpagina. Nieuwe trends in de beheerderssamenvattingen en rapporten voor gelicentieerd gebruik. Het delen van limieten krijgt meer controles en ondersteunt oplossingsstromen. U kunt onveilige implementaties blokkeren met Solution Checker. De onboarding- en pijplijnmogelijkheden van de klantmaker komen ook later dit jaar.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide5" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.svg?v=1" alt="Pipeline Extensibility"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>U hebt een aantal opties om te overwegen voor uw ALM-keuzes in de Power Platform. De managed environment Power Platform pipelines bieden in product Application Lifecycle management.</p>
-<p>Optioneel kunt u de uitbreidingspunten van de beheerde omgeving gebruiken Power Platform pijplijnen in combinatie met <a href="https://learn.microsoft.com/power-platform/alm/devops-build-tools">Power Platform Build Tools voor Azure DevOps</a>de <a href="https://learn.microsoft.com/power-platform/alm/devops-github-actions">GitHub-acties voor Microsoft Power Platform</a> of <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction">Power Platform CLI</a> om uw eigen aangepaste ALM DevOps-processen te implementeren.</p>
-<p>Eindelijk kunt u profiteren van de <a href="https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog">ALM Accelerator voor Power Platform</a> van de CoE Kit om vooraf gebouwde sjablonen en voorbeelden te bieden voor End-to-End ALM met behulp van Azure DevOps. De ALM Accelerator biedt vele veelvoorkomende scenario&rsquo;s om uw oplossingen in verschillende omgevingen te bouwen en te beheren.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide6" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" alt="ALM Accelerator for Power Platform Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Wat is ALM Accelerator voor Power Platform?</p>
-<p>De ALM Accelerator voor Power Platform bevat Power Apps die bovenop Azure DevOps Pipelines en Git-bronbeheer zit. De app biedt een vereenvoudigde interface voor makers om regelmatig de componenten in hun Power Platform Solutions te exporteren naar bronbeheer en implementatieverzoeken te maken om hun werk te laten beoordelen voordat ze in doelomgevingen worden geïmplementeerd.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide7" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.svg?v=1" alt="ALM Accelerator for Power Platform Workflow"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Kijkend naar de ALM Accelerator workflow begint het met Ontwikkelomgevingen. Hun interactie met het ALM-proces verloopt via de ALM Accelerator Canvas App of Managed Environment Pipelines</p>
-<p>Makers gebruiken de ALM Accelerator Canvas-app voor hun ALM-taken, zoals het importeren van oplossingen vanuit bronbeheer, het exporteren van wijzigingen naar bronbeheer en het maken van een pull-verzoek om wijzigingen samen te voegen</p>
-<p>ALM Accelerator-sjablonen voor Azure DevOps-pijplijnen vergemakkelijken de automatisering van ALM-taken op basis van de interactie van makers met de ALM Accelerator Canvas-app</p>
-<p>ALM Accelerator bevat pijplijnsjablonen ter ondersteuning van een implementatie in 3 fasen naar productie.
-Sjablonen kunnen worden aangepast aan specifieke behoeften en scenario&rsquo;s</p>
-<p>De ALM Accelerator for Power Platform is een Canvas-app die bovenop Azure DevOps Pipelines zit om een vereenvoudigde interface te bieden voor makers om regelmatig pull-aanvragen voor hun ontwikkelingswerk in de Power Platform te committeren en te maken. </p>
-<p>De combinatie van de Azure DevOps Pipelines en de Canvas-app vormen de volledige ALM Accelerator voor Power Platform oplossing. 
-De pipelines en de App zijn referentie-implementaties. Ze zijn ontwikkeld voor gebruik door het ontwikkelingsteam voor de CoE Starter Kit intern, maar zijn open source en vrijgegeven om aan te tonen hoe gezonde ALM kan worden bereikt in de Power Platform. Ze kunnen worden gebruikt zoals ze zijn of worden aangepast voor specifieke bedrijfsscenario&rsquo;s.</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

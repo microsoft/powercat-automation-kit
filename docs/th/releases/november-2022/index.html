@@ -257,6 +257,7 @@
 
 
 
+
 <script>
     
     
@@ -276,6 +277,8 @@
 <noscript>
     <p>ต้องเปิดใช้งานจาวาสคริปต์เพื่อดูเนื้อหานี้</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -413,6 +416,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1172,6 +1177,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1180,7 +1194,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1197,7 +1216,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1229,8 +1247,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1258,6 +1287,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1279,144 +1309,6 @@
         }
     });
 </script>
-</div>
-<style>
-    .fullscreen.optional {
-        display: none !important
-    }
-    nav > .fullscreen.container {
-        display: none !important
-    }
-    section.fullscreen {
-        padding: 10px !important;
-    }
-    .reveal.fullscreen {
-    }
-}
-</style>
-
-<style>
-     .page { display: none }
-</style>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.svg" alt="Automation Kit Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>ด้วยการเปิดตัวพฤศจิกายน&quot;<a href="https://microsoft.github.io/powercat-automation-kit/th/features/datapacks">ชุดข้อมูล</a>&ldquo;เป็นคุณลักษณะใหม่ที่สําคัญ</p>
-<p>อ้างถึง <strong>เริ่มต้นใช้งาน</strong> เพื่อโหลดชุดข้อมูลแรกของคุณ</p>
-<p>Datapacks ช่วยให้คุณสามารถเลือกนําเข้าข้อมูลตัวอย่างได้</p>
-<p>ชุดข้อมูลผลตอบแทนจากการลงทุน (ROI) ช่วยให้คุณสามารถแสดงให้เห็นถึงการวางแผนการวัดแสงและการตรวจสอบผลตอบแทนจากการลงทุนอย่างรวดเร็วผ่านแดชบอร์ด Power BI ของ Automation Kit</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.svg?v=1" alt="Automation Kit Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>ในเหตุการณ์สําคัญในอนาคตเราจะพยายามปรับปรุง datapacks โดยการรวมไว้เป็นส่วนหนึ่งของกระบวนการติดตั้งอัตโนมัติของ Automation Kit</p>
-<p>ความสามารถในการรวม Data Packs เป็นส่วนหนึ่งของการติดตั้งจะช่วยให้สามารถติดตั้งบนเว็บแทนกระบวนการติดตั้งบรรทัดคําสั่งสําหรับรุ่นนี้</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/alm-roadmap.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="ALM Roadmap"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>สําหรับรุ่นนี้คล้ายกับชุดอื่น ๆ Power CAT จัดการ ชุดระบบอัตโนมัติสําหรับ Power Platform ได้เปลี่ยนไปใช้ตัวเร่งความเร็ว ALM เพื่อปรับใช้การเผยแพร่ GitHub ของเรา คุณสามารถอ่านเพิ่มเติมได้ใน <a href="https://microsoft.github.io/powercat-automation-kit/th/features/alm">คุณสมบัติของ ALM</a> หน้า</p>
-<p>ในเหตุการณ์สําคัญในอนาคต เราจะปรับปรุงกระบวนการ ALM Accelerator ที่มีอยู่เพื่อรวมงานเฉพาะของ Power Automate Desktop ที่จะใช้ส่วนขยายกับกระบวนการ CI/CD ALM</p>
-
-    
-    </aside>
-    
-</div>
-<div class="optional">
-<h2 id="เรมตนใชงาน">เริ่มต้นใช้งาน</h2>
-<p>ลอง <a href="https://microsoft.github.io/powercat-automation-kit/th/get-started">คู่มือเริ่มต้นใช้งาน</a> หรือเข้าร่วมกับเรา <a href="https://microsoft.github.io/powercat-automation-kit/th/office-hours">เวลาทําการ</a></p>
-<h2 id="รนกอนวางจาหนาย">รุ่นก่อนวางจําหน่าย</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/th/releases/october-2022">ตุลาคม 2022</a> (อัพบีท-ดาวัน)</li>
-</ul>
-<h2 id="รนถดไป">รุ่นถัดไป</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/th/releases/december-2022">ธันวาคม 2022</a> (กระตือรือร้น-แอนโทเนลลี)</li>
-</ul>
-<h2 id="เหตการณสาคญของโครงการ">เหตุการณ์สําคัญของโครงการ</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/4">ชุดระบบอัตโนมัติ - พฤศจิกายน 2022</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/5">ชุดระบบอัตโนมัติ - ธันวาคม 2022</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">ชุดระบบอัตโนมัติ - งานในมือ</a></p>
-<p>ตรวจสอบปุ่ม <a href="https://microsoft.github.io/powercat-automation-kit/th/releases/milestones">หมายเหตุเหตุการณ์สําคัญ</a> สําหรับข้อมูลเพิ่มเติม</p>
-<h2 id="หมายเหตสาคญ">หมายเหตุสําคัญ</h2>
-<p>คุณสมบัติที่สําคัญในรุ่นนี้:</p>
-<ul>
-<li>ชุดข้อมูล อ่านเพิ่มเติมเกี่ยวกับ <a href="https://microsoft.github.io/powercat-automation-kit/th/features/datapacks">คุณลักษณะชุดข้อมูล</a></li>
-</ul>
-<h2 id="บนทกประจารน">บันทึกประจํารุ่น</h2>
-<p>มาพร้อมกับ <a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022">ชุดระบบอัตโนมัติ - พฤศจิกายน 2022</a> สําหรับข้อบกพร่องและปัญหาที่ปิด</p>
-<h2 id="ปลอยสนทรพย">ปล่อยสินทรัพย์</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022">ชุดระบบอัตโนมัติ - พฤศจิกายน 2022</a></li>
-</ul>
-<h2 id="ประวตการวางจาหนาย">ประวัติการวางจําหน่าย</h2>
-<p>เต็ม <a href="https://microsoft.github.io/powercat-automation-kit/th/releases">ประวัติการวางจําหน่าย</a></p>
-</div>
 
     </div>
   </div>

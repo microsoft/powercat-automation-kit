@@ -1,0 +1,405 @@
+{
+  "showQuestionNumbers": "off",
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "scenario",
+          "title": {
+            "default": "What scenario are you trying to calculate?",
+            "th": "คุณกําลังพยายามคํานวณสถานการณ์ใด"
+          },
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "sample-scenario",
+          "visibleIf": "{scenario} = 'samples'",
+          "title": {
+            "default": "What sample scenario did you want to explore?",
+            "th": "คุณต้องการสํารวจสถานการณ์ตัวอย่างอะไรบ้าง"
+          },
+          "choices": []
+        },
+        {
+          "type": "html",
+          "visibleIf": "{sample-scenario} = 'migration-single-unattended'",
+          "html": {
+            "default": "Single unattended bot migration. In this example an organization may want to migrate an existing automate an existing automation solution to the Power Platform. The deployed bot will be hosted in an isolated virtual network and Virtual Machine (VM) runner.",
+            "th": "การโยกย้ายบอทแบบไม่ต้องใส่ข้อมูลเพียงครั้งเดียว ในตัวอย่างนี้ องค์กรอาจต้องการโยกย้ายโซลูชันระบบอัตโนมัติที่มีอยู่ไปยังPower Platformโดยอัตโนมัติ บอทที่ปรับใช้จะถูกโฮสต์ในเครือข่ายเสมือนที่แยกได้และรันเนอร์เครื่องเสมือน (VM)"
+          }
+        }
+      ]
+    },
+    {
+      "name": "migration",
+      "title": {
+        "default": "Migration Parameters",
+        "th": "พารามิเตอร์การย้ายข้อมูล"
+      },
+      "visibleIf": "{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')",
+      "elements": [
+        {
+          "name": "how-many-bots",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "How many bots to migrate?",
+            "th": "จํานวนบอทที่จะย้าย"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "attended-percentage",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "Percentage of attended bots?",
+            "th": "เปอร์เซ็นต์ของบอทที่เข้าร่วม?"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "expression",
+              "text": {
+                "default": "A value between 0 and 100",
+                "th": "ค่าระหว่าง 0 ถึง 100"
+              },
+              "expression": "{attended-percentage} >= 0 && {attended-percentage} <= 100"
+            }
+          ]
+        },
+        {
+          "name": "unattended-percentage",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "Percentage of unattended bots?",
+            "th": "เปอร์เซ็นต์ของบอทแบบไม่ต้องใส่ข้อมูล?"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "expression",
+              "text": {
+                "default": "A value between 0 and 100",
+                "th": "ค่าระหว่าง 0 ถึง 100"
+              },
+              "expression": "{unattended-percentage} >= 0 && {unattended-percentage} <= 100"
+            }
+          ]
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-groups",
+          "titleLocation": "none",
+          "addRowText": "Add new group",
+          "title": {
+            "default": "Migration Groups",
+            "th": "กลุ่มการย้ายข้อมูล"
+          },
+          "columns": [
+            {
+              "name": "name",
+              "title": {
+                "default": "Migration Group Name",
+                "th": "ชื่อกลุ่มการย้ายข้อมูล"
+              },
+              "cellType": "text"
+            },
+            {
+              "name": "description",
+              "title": {
+                "default": "Description",
+                "th": "การบรรยาย"
+              },
+              "cellType": "text"
+            }
+          ]
+        },
+        {
+          "name": "groups",
+          "type": "checkbox",
+          "title": {
+            "default": "Groups",
+            "th": "กลุ่ม"
+          },
+          "visibleIf": "false",
+          "choices": []
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-times",
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "title": {
+            "default": "Duration Plan",
+            "th": "แผนระยะเวลา"
+          },
+          "columns": [
+            {
+              "name": "complexity",
+              "title": {
+                "default": "Complexity",
+                "th": "ความสลับซับซ้อน"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "inputType": "count",
+              "choices": []
+            },
+            {
+              "name": "group",
+              "title": {
+                "default": "Group",
+                "th": "กลุ่ม"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choicesFromQuestion": "groups"
+            },
+            {
+              "name": "percentage",
+              "title": {
+                "default": "Percentage",
+                "th": "อัตราร้อยละ"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "Bots",
+              "title": {
+                "default": "Bots",
+                "th": "บอ"
+              },
+              "cellType": "expression",
+              "expression": "botTotal({row})"
+            },
+            {
+              "name": "botsPerMonth",
+              "title": {
+                "default": "Bots per month",
+                "th": "บอทต่อเดือน"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "total",
+              "title": {
+                "default": "Total (Business Days)",
+                "th": "ยอดรวม (วันทําการ)"
+              },
+              "cellType": "expression",
+              "expression": "migrationTotal({row})"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.",
+            "th": "หมายเหตุ: ค่านี้มีวัตถุประสงค์เพื่อเป็นภาพประกอบเท่านั้นและเวลา Ramp, บอทต่อเดือนและวันทําการทั้งหมดสําหรับการย้ายข้อมูลจะต้องถูกกําหนดสําหรับบอทเฉพาะที่กําลังย้าย"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "calc-migration-plan",
+          "title": {
+            "default": "Automatically calculate possible migration plan?",
+            "th": "คํานวณแผนการโยกย้ายที่เป็นไปได้โดยอัตโนมัติหรือไม่?"
+          },
+          "defaultValue": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-plan",
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "title": {
+            "default": "Migration Plan",
+            "th": "แผนการโยกย้าย"
+          },
+          "columns": [
+            {
+              "name": "name",
+              "title": {
+                "default": "Name",
+                "th": "ชื่อ"
+              },
+              "cellType": "text"
+            },
+            {
+              "name": "low",
+              "title": {
+                "default": "Low",
+                "th": "ต่ํา"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "medium",
+              "title": {
+                "default": "Medium",
+                "th": "ปานกลาง"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "high",
+              "title": {
+                "default": "High",
+                "th": "สูง"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "attended",
+              "title": {
+                "default": "Attended",
+                "th": "เข้าร่วม"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "unattended",
+              "title": {
+                "default": "Unattended",
+                "th": "ไม่ต้องใส่ข้อมูล"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calculation",
+      "elements": [
+        {
+          "name": "tellMeMore",
+          "type": "boolean",
+          "title": {
+            "default": "Tell me more about each license type",
+            "th": "บอกฉันเพิ่มเติมเกี่ยวกับสิทธิ์การใช้งานแต่ละประเภท"
+          },
+          "defaultValue": false
+        },
+        {
+          "name": "matrix-image",
+          "type": "image-task",
+          "visibleIf": "{tellMeMore} == true",
+          "title": {
+            "default": "Select plans you want more information on",
+            "th": "เลือกแผนที่คุณต้องการข้อมูลเพิ่มเติม"
+          },
+          "src": "/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at <a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>Buy Power Automate Licenses</a>",
+            "th": "รายละเอียดเพิ่มเติมเกี่ยวกับสิทธิ์การใช้งานที่รวมสิทธิ์การใช้งานแบบ seeded กับ Microsoft Office 365, Microsoft Dynamics, ตัวเลือกจ่ายตามการใช้งาน และ Windows สามารถดูได้ที่ <a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>ซื้อสิทธิ์การใช้งาน Power Automate</a>"
+          }
+        },
+        {
+          "name": "retailPrice",
+          "type": "boolean",
+          "title": {
+            "default": "Use retail price",
+            "th": "ใช้ราคาขายปลีก"
+          },
+          "defaultValue": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "items",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "columns": [
+            {
+              "name": "service",
+              "title": {
+                "default": "Service",
+                "th": "บริการ"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "inputType": "count",
+              "totalFormat": "Items count: {0}",
+              "choices": []
+            },
+            {
+              "name": "price",
+              "title": {
+                "default": "Price",
+                "th": "ราคา"
+              },
+              "cellType": "expression",
+              "expression": "getItemPrice('service')",
+              "displayStyle": "currency",
+              "visibleIf": "{retailPrice} == true"
+            },
+            {
+              "name": "price-manual",
+              "title": {
+                "default": "Price",
+                "th": "ราคา"
+              },
+              "cellType": "text",
+              "inputType": "number",
+              "displayStyle": "currency",
+              "visibleIf": "{retailPrice} == false"
+            },
+            {
+              "name": "quantity",
+              "title": {
+                "default": "Quantity",
+                "th": "ปริมาณ"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "totalType": "sum",
+              "totalFormat": "Total services: {0}",
+              "min": 1
+            },
+            {
+              "name": "total",
+              "title": {
+                "default": "Total",
+                "th": "ทั้งหมด"
+              },
+              "cellType": "expression",
+              "expression": "iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
+          "name": "total",
+          "type": "expression",
+          "title": {
+            "default": "Total",
+            "th": "ทั้งหมด"
+          },
+          "expression": "{orderList-total.total}",
+          "displayStyle": "currency"
+        }
+      ]
+    }
+  ]
+}

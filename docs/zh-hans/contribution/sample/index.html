@@ -255,6 +255,7 @@
 
 
 
+
 <script>
     
     
@@ -274,6 +275,8 @@
 <noscript>
     <p>必须启用 JavaScript 才能查看此内容</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -411,6 +414,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1170,6 +1175,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1178,7 +1192,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1195,7 +1214,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1227,8 +1245,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1256,6 +1285,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1277,86 +1307,6 @@
         }
     });
 </script>
-</div>
-</div>
-<style>
-    .fullscreen.optional {
-        display: none !important
-    }
-    nav > .fullscreen.container {
-        display: none !important
-    }
-    section.fullscreen {
-        padding: 10px !important;
-    }
-    .reveal.fullscreen {
-    }
-}
-</style>
-
-<style>
-     .page { display: none }
-</style>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/authoring/overview.mp3?v=1">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/Authoring-Overview.svg" alt="Authoring Overview"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>每条内容都应具有清晰的标题和描述，以提供快速概述。</p>
-<p>每个页面都可以选择包含一个多媒体幻灯片，提供音频旁白、视觉摘要和演讲者备注。</p>
-<p>每个页面都应该有一个反馈部分，允许访问该页面的人回答作者感兴趣的特定问题并提供自由形式的反馈。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/authoring/goals.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/Authoring-Goals.svg" alt="Authoring Goals"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>的设计目标<a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/contribution/authoring">创作</a>过程是允许一个共同创造模型作为核心团队建设和维护Power Platform自动化套件和社区。此社区可以与客户或合作伙伴一起。</p>
-<p>内容创作于<a href="https://learn.microsoft.com/contribute/markdown-reference">降价</a>类似于<a href="https://learn.microsoft.com">微软学习网站</a>.</p>
-<p>要创建交互式内容，作者可以使用短代码来吸引读者，并为每个页面提供交互式反馈和体验。</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

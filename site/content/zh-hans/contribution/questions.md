@@ -4,7 +4,7 @@ description: "自动化工具包 - 创作问题"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 此页面包含用于创作交互式问题的格式的信息，这些问题作为 {{ 的一部分包含在<product-name>}} 启动器。
@@ -103,7 +103,6 @@ len 函数返回字符串或数组的长度
 
 - **template://item/selected**- 将定义对象的格式以设置图像中的选定格式
 - **template://item/unselected**- 将定义对象的格式以设置图像中项目的未选择格式
-- **question://question-name/value**- 将定义对象的格式以设置图像中项目的未选择格式
 
 超链接为 question:// 的可视元素将用于设置或取消设置问题集中的值数组。此功能提供了以交互方式更改向用户显示其他问题的方式的能力。例如，如果 svg 文件有两个具有以下超链接的对象：
 
@@ -117,6 +116,19 @@ len 函数返回字符串或数组的长度
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+超链接为 option:// 的可视元素将用于设置选项集或单值问题的值。例如，如果 svg 文件有两个具有以下超链接的对象：
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

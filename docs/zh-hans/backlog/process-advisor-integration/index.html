@@ -154,6 +154,7 @@ Currency||In Process Advisor data model</p>
 
 
 
+
 <script>
     
     
@@ -173,6 +174,8 @@ Currency||In Process Advisor data model</p>
 <noscript>
     <p>必须启用 JavaScript 才能查看此内容</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -310,6 +313,8 @@ Currency||In Process Advisor data model</p>
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1069,6 +1074,15 @@ Currency||In Process Advisor data model</p>
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1077,7 +1091,12 @@ Currency||In Process Advisor data model</p>
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1094,7 +1113,6 @@ Currency||In Process Advisor data model</p>
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1124,8 +1142,19 @@ Currency||In Process Advisor data model</p>
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1153,6 +1182,7 @@ Currency||In Process Advisor data model</p>
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1174,27 +1204,6 @@ Currency||In Process Advisor data model</p>
         }
     });
 </script>
-<p>该 Power Platform自动化套件 集成<a href="https://learn.microsoft.com/en-us/power-automate/process-advisor-overview">Process Advisor</a>以支持以下方案：</p>
-<ul>
-<li>
-<p><strong>加工采矿</strong>业务流程分析，以识别和支持业务案例，以创建由数据分析支持的自动化项目。</p>
-</li>
-<li>
-<p><strong>数据驱动的自动化项目请求</strong> 使用过程分析的结果根据Process Advisor结果创建自动化项目。</p>
-</li>
-<li>
-<p><strong>半自动化项目创建</strong> 在Process Advisor和自动化工具包之间集成 Dataverse 数据，以减少创建自动化项目的工作量。</p>
-</li>
-<li>
-<p><strong>电源自动化桌面分析</strong>分析 RPA 流程数据，以确定使用任务挖掘实现现代化、提高弹性和可靠性的改进。</p>
-</li>
-</ul>
-<h2 id="加工采矿">加工采矿</h2>
-<p>将流程挖掘与Process Advisor结合使用，可以发现组织范围内流程中的低效率。这些见解使你能够使用可从记录系统（在流程中使用的应用）获取的事件日志文件深入了解进程。流程挖掘显示包含数据和指标的流程图，以识别性能问题。适用于流程挖掘的示例流程包括应收账款和订单到现金。</p>
-<p>此数据允许您创建数据驱动的自动化项目请求。</p>
-<h2 id="自动化项目创建">自动化项目创建</h2>
-<p>使用Process Advisor流程挖掘和报告的结果，您可以使用以下Process Advisor信息来支持使用Process Advisor计算分析结果的自动化项目：</p>
-<p>自动化套件|Process Advisor|笔记|</p>
 
     </div>
   </div>

@@ -4,7 +4,7 @@ description: "Kit de automatización: preguntas sobre la creación"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 Esta página contiene información sobre el formato utilizado para crear preguntas interactivas que se incluyen como parte del {{<product-name>}} iniciador.
@@ -103,7 +103,6 @@ El archivo svg de origen admite los siguientes vínculos de hipervínculo person
 
 - **template://item/selected** - Definirá el formato del objeto para establecer el formato seleccionado en la imagen
 - **template://item/unselected** - Definirá el formato del objeto para establecer el formato no seleccionado de los elementos en la imagen
-- **question://question-name/value** - Definirá el formato del objeto para establecer el formato no seleccionado de los elementos en la imagen
 
 Los elementos visuales con un hipervínculo de question:// se utilizarán para establecer o desestablecer la matriz de valores dentro del conjunto de preguntas. Esta capacidad proporciona la capacidad de cambiar interactivamente la forma en que se muestran otras preguntas al usuario. Por ejemplo, si el archivo svg tenía dos objetos con los siguientes hipervínculos:
 
@@ -117,6 +116,19 @@ Si el usuario selecciona estos objetos, se podrían mostrar otros elementos de l
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Los elementos visuales con un hipervínculo de option:// se utilizarán para establecer el valor de un conjunto de opciones o una pregunta de un solo valor. Por ejemplo, si el archivo svg tenía dos objetos con los siguientes hipervínculos:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

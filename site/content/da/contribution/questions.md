@@ -4,7 +4,7 @@ description: "Automationssæt – spørgsmål om oprettelse"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 Denne side indeholder oplysninger om det format, der bruges til at oprette interaktive spørgsmål, der er inkluderet som en del af {{<product-name>}} starter.
@@ -103,7 +103,6 @@ Kilde-svg-filen understøtter følgende brugerdefinerede hyperlinklinks til elem
 
 - **template://item/selected** - Vil definere objektets format for at indstille det valgte format i billedet
 - **template://item/unselected** - Vil definere objektets format for at indstille det ikke-valgte format af elementer i billedet
-- **question://question-name/value** - Vil definere objektets format for at indstille det ikke-valgte format af elementer i billedet
 
 Visuelle elementer med et hyperlink af question:// vil blive brugt til at indstille eller fjerne matrixen af værdier inde i sættet af spørgsmål. Denne mulighed giver mulighed for interaktivt at ændre, hvordan andre spørgsmål vises til brugeren. For eksempel hvis svg-filen havde to objekter med følgende hyperlinks:
 
@@ -117,6 +116,19 @@ Hvis brugeren vælger disse objekter, kan andre elementer på siden f.eks.
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Visuelle elementer med et hyperlink af option:// bruges til at indstille værdien af et indstillingssæt eller et enkelt værdispørgsmål. For eksempel hvis svg-filen havde to objekter med følgende hyperlinks:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

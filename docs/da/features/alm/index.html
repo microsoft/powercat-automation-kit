@@ -313,6 +313,7 @@
 
 
 
+
 <script>
     
     
@@ -332,6 +333,8 @@
 <noscript>
     <p>JavaScript skal være aktiveret for at vise dette indhold</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -469,6 +472,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1228,6 +1233,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1236,7 +1250,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1253,7 +1272,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1285,8 +1303,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1314,6 +1343,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1335,227 +1365,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.svg" alt="Managed Environments Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Administrerede miljøer giver dig mulighed for at strømline og forenkle styring i stor skala. Administratorer kan aktivere administrerede miljøer med blot et par klik og straks tænde funktioner, der giver mere synlighed, mere kontrol med mindre indsats for at administrere alle dine aktiver med lav kode.</p>
-<p>Administrerede miljøer er en vigtig del af Power Platform-familien på samme måde, som AI Builder tilførte intelligens til vores produkter, og Dataverse leverer rygraden i dataene. Administrerede miljøer strømliner styringen af platformen i stor skala.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.svg" alt="Managed Environments Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Administrerede miljøer giver dig:</p>
-<ul>
-<li>Mere synlighed med brugsindsigt på startsiden, administratoroversigtsmails, licensrapporter og datapolitikvisninger</li>
-<li>Mere kontrol med delingsgrænser, der giver dig kontrol over, hvor bredt og med hvor mange personer lærredapps og løsningsflows kan deles med.</li>
-<li>Du kan også begrænse deling til begrænsede sikkerhedsgrupper.</li>
-<li>Konfigurere løsningskontrol til sikkerheds- eller pålidelighedskontrol for at køre regler automatisk, når en løsning importeres til et administreret miljø</li>
-<li>Tilpas makerens velkomst og delingsoplevelse, så du guider brugerne ned ad den rigtige vej.</li>
-<li>Mindre indsats strømliner, forenkler og automatiserer trin ud af boksen med blot et par klik.</li>
-<li>Power Platform Pipelines giver mulighed for at forenkle ALM-processen (Application Lifecycle Management).</li>
-</ul>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/">
-
-    
-        <video width="860" height="540" controls>
-            <source src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-power-platform-pipelines-demo.mp4" type="video/mp4"/>
-            Your browser does not support the video tag.
-        </video>
-    
-    
-    <aside class="notes">
-
-    <p>Dette er en løsning, som jeg arbejder med i Maker Portal.</p>
-<p>Jeg er gået videre med at vælge denne pipeline, der allerede er konfigureret. Pipelines er dybest set en række automatiserede trin, der flytter dit arbejde fra et miljø til et andet. Denne pipeline vil tage min løsning fra udviklingsmiljøet til venstre til testmiljøet. Så er der en anden fase til at tage det fra test til produktion.</p>
-<p>Lad os implementere for at teste, vælge næste, og her bekræfter jeg mine forbindelser for at teste miljøet for at sikre, at jeg bruger de rigtige legitimationsoplysninger. Dernæst konfigurerer jeg mine miljøvariabler for at sikre, at jeg f.eks. peger på det rigtige SharePoint-websted i test. Dette er vigtigt, hvis webstedet var anderledes end det, jeg brugte i udviklingen.</p>
-<p>Når jeg har konfigureret det hele, kan jeg bare vælge &ldquo;Deploy&rdquo;, og forhåndskontrolvalideringer køres automatisk for at gøre jeg har de rigtige afhængigheder, og løsningen overtræder ikke og DLP-politikker i det pågældende målmiljø. Pipelinen kan også konfigureres, så der kræves godkendelse, før installationen kan køres.</p>
-<p>Det ser ud til, at alt var vellykket her.</p>
-<p>Når jeg har kørt min pipeline, får jeg fuld synlighed og et revisionsspor af implementeringerne på tværs af min organisation med hver løsning sikkerhedskopieret og versioneret.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide4" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.svg?v=1" alt="Managed Environments Availability"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Funktionerne vil blive rullet ud i faser. Nogle af dem kan lide admin fordøjelser og delingsgrænser er tilgængelige i dag. Resten vil blive rullet ud inden årets udgang.</p>
-<p>I de kommende uger og måneder vil du se brugsindsigt på startsiden. Nye tendenser i administratoroversigterne og rapporter til licenseret brug. Delingsgrænser får flere kontroller og understøtter løsningsflow. Du vil være i stand til at blokere usikre implementeringer med Solution Checker. Customer maker onboarding og pipeline kapaciteter vil også komme senere på året.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide5" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.svg?v=1" alt="Pipeline Extensibility"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Du har en række muligheder at overveje for dine ALM-valg i Power Platform. Det administrerede miljø Power Platform pipelines leverer i administration af produktprogramlivscyklus.</p>
-<p>Du kan også bruge udvidelsespunkterne for pipelines administrerede miljø Power Platform kombineret med <a href="https://learn.microsoft.com/power-platform/alm/devops-build-tools">Power Platform Byg værktøjer til Azure DevOps</a>den <a href="https://learn.microsoft.com/power-platform/alm/devops-github-actions">GitHub-handlinger til Microsoft Power Platform</a> eller <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction">Power Platform CLI</a> for at rulle dine egne brugerdefinerede ALM DevOps-processer.</p>
-<p>Endelig kan du drage fordel af <a href="https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog">ALM Accelerator til Power Platform</a> fra CoE-sættet til at levere forudbyggede skabeloner og eksempler til End-to-End ALM ved hjælp af Azure DevOps. ALM Accelerator indeholder mange almindelige scenarier til opbygning og styring af dine løsninger på tværs af miljøer.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide6" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" alt="ALM Accelerator for Power Platform Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Hvad er ALM Accelerator til Power Platform?</p>
-<p>ALM Accelerator til Power Platform omfatter Power Apps, der er placeret oven på Azure DevOps Pipelines og Git-kildekontrol. Appen giver en forenklet grænseflade, hvor udviklere regelmæssigt kan eksportere komponenterne i deres Power Platform Solutions for at hente kontrol og oprette installationsanmodninger for at få deres arbejde gennemgået, før de implementeres i destinationsmiljøer.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide7" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.svg?v=1" alt="ALM Accelerator for Power Platform Workflow"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Når man ser på ALM Accelerator-arbejdsgangen, starter den med udviklingsmiljøer. Deres interaktion med ALM-processen sker via ALM Accelerator Canvas-appen eller Managed Environment Pipelines</p>
-<p>Udviklere bruger ALM Accelerator Canvas-appen til deres ALM-opgaver, f.eks. import af løsning fra kildekontrolelement, eksport af ændringer til kildekontrol og oprettelse af pullanmodninger for at flette ændringer</p>
-<p>ALM Accelerator-skabeloner til Azure DevOps-pipelines letter automatiseringen af ALM-opgaver baseret på Makers-interaktionen med ALM Accelerator Canvas-appen</p>
-<p>ALM Accelerator indeholder pipelineskabeloner, der understøtter en 3-trins implementering til produktion.
-Skabeloner kan tilpasses, så de passer til specifikke behov og scenarier</p>
-<p>ALM Accelerator for Power Platform er en lærredapp, der er placeret oven på Azure DevOps Pipelines for at give en forenklet grænseflade, så udviklere regelmæssigt kan forpligte sig og oprette pullanmodninger til deres udviklingsarbejde i Power Platform. </p>
-<p>Kombinationen af Azure DevOps Pipelines og Canvas-appen er det, der udgør den fulde ALM Accelerator for Power Platform-løsning. 
-Pipelines og appen er referenceimplementeringer. De blev udviklet til brug af udviklingsteamet til CoE Starter Kit internt, men er blevet open source og frigivet for at demonstrere, hvordan sund ALM kan opnås i Power Platform. De kan bruges som de er eller tilpasses til specifikke forretningsscenarier.</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

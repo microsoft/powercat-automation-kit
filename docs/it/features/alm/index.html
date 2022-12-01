@@ -313,6 +313,7 @@
 
 
 
+
 <script>
     
     
@@ -332,6 +333,8 @@
 <noscript>
     <p>JavaScript deve essere abilitato per visualizzare questo contenuto</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -469,6 +472,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1228,6 +1233,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1236,7 +1250,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1253,7 +1272,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1285,8 +1303,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1314,6 +1343,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1335,227 +1365,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.svg" alt="Managed Environments Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Gli ambienti gestiti offrono la possibilità di ottimizzare e semplificare la governance su larga scala. Gli amministratori possono attivare gli ambienti gestiti con pochi clic e illuminare immediatamente le funzionalità che offrono maggiore visibilità, maggiore controllo con meno sforzo per gestire tutte le risorse low code.</p>
-<p>Gli ambienti gestiti sono una parte fondamentale della famiglia Power Platform, nello stesso modo in cui AI Builder ha infuso intelligenza nei nostri prodotti e Common Data Service fornisce la dorsale dei dati. Gli ambienti gestiti semplificano la governance della piattaforma su larga scala.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.svg" alt="Managed Environments Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Gli ambienti gestiti offrono:</p>
-<ul>
-<li>Maggiore visibilità con informazioni dettagliate sull&rsquo;utilizzo nella home page, e-mail di digest amministratori, report sulle licenze e visualizzazioni dei criteri dei dati</li>
-<li>Maggiore controllo con limiti di condivisione che ti consentono di controllare l&rsquo;ampiezza e il numero di persone con cui è possibile condividere i flussi di app canvas e soluzioni.</li>
-<li>È inoltre possibile limitare la condivisione a gruppi di sicurezza limitati.</li>
-<li>Configurare lo strumento di verifica della soluzione per i controlli di sicurezza o affidabilità per l&rsquo;esecuzione automatica delle regole ogni volta che una soluzione viene importata in un ambiente gestito</li>
-<li>Personalizza l&rsquo;esperienza di benvenuto e condivisione del creatore in modo da guidare gli utenti lungo il percorso corretto.</li>
-<li>Meno sforzo per ottimizzare, semplificare e automatizzare i passaggi pronti all&rsquo;uso con pochi clic.</li>
-<li>Le pipeline Power Platform consentono di semplificare il processo ALM (Application Lifecycle Management).</li>
-</ul>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/">
-
-    
-        <video width="860" height="540" controls>
-            <source src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-power-platform-pipelines-demo.mp4" type="video/mp4"/>
-            Your browser does not support the video tag.
-        </video>
-    
-    
-    <aside class="notes">
-
-    <p>Questa è una soluzione con cui sto lavorando nel Maker Portal.</p>
-<p>Sono andato avanti per selezionare questa pipeline che è già stata configurata. Le pipeline sono fondamentalmente una serie di passaggi automatizzati che spostano il lavoro da un ambiente a un altro. Questa pipeline porterà la mia soluzione dall&rsquo;ambiente di sviluppo a sinistra all&rsquo;ambiente di test. Poi c&rsquo;è un&rsquo;altra fase per portarlo dal test alla produzione.</p>
-<p>Consente di eseguire la distribuzione per testare, selezionare avanti e qui, confermerò le mie connessioni per testare l&rsquo;ambiente per assicurarsi di utilizzare le credenziali corrette. Successivamente configurerò le variabili di ambiente per assicurarmi, ad esempio, di puntare al sito di SharePoint corretto in test. Questo è importante se il sito era diverso da quello che stavo usando in fase di sviluppo.</p>
-<p>Una volta impostato tutto, posso semplicemente selezionare &ldquo;Distribuisci&rdquo; e le convalide preflight vengono eseguite automaticamente per avere le giuste dipendenze e la soluzione non viola le politiche DLP in quell&rsquo;ambiente di destinazione. La pipeline può anche essere configurata in modo che sia necessaria l&rsquo;approvazione prima di poter eseguire la distribuzione.</p>
-<p>Sembra che tutto abbia avuto successo qui.</p>
-<p>Dopo aver eseguito la pipeline, ottengo visibilità completa e un audit trail delle distribuzioni all&rsquo;interno dell&rsquo;organizzazione con ogni soluzione sottoposta a backup e controllo delle versioni.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide4" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.svg?v=1" alt="Managed Environments Availability"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Le funzionalità saranno implementate in fasi. Alcuni di loro come i digest di amministrazione e i limiti di condivisione sono disponibili oggi. Il resto sarà lanciato entro la fine dell&rsquo;anno.</p>
-<p>Nelle prossime settimane e mesi, vedrai le informazioni sull&rsquo;utilizzo nella home page. Nuove tendenze nei digest di amministrazione e nei report per l&rsquo;utilizzo con licenza. I limiti di condivisione otterranno più controlli e supporteranno i flussi di soluzioni. Sarà possibile bloccare le distribuzioni non sicure con Solution Checker. Anche le funzionalità di onboarding e pipeline dei customer maker arriveranno entro la fine dell&rsquo;anno.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide5" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.svg?v=1" alt="Pipeline Extensibility"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Hai una serie di opzioni da considerare per le tue scelte ALM nel Power Platform. Le pipeline di Power Platform dell&rsquo;ambiente gestito forniscono la gestione del ciclo di vita delle applicazioni del prodotto.</p>
-<p>Facoltativamente, è possibile utilizzare i punti di estensione dell&rsquo;ambiente gestito Power Platform pipeline combinati con <a href="https://learn.microsoft.com/power-platform/alm/devops-build-tools">Power Platform Build Tools for Azure DevOps</a>Le <a href="https://learn.microsoft.com/power-platform/alm/devops-github-actions">Azioni GitHub per Microsoft Power Platform</a> o <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction">Power Platform CLI</a> per eseguire il rollback dei processi DevOps ALM personalizzati.</p>
-<p>Finalmente potresti approfittare del <a href="https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog">Acceleratore ALM per Power Platform</a> dal kit CoE per fornire modelli ed esempi predefiniti per ALM end-to-end usando Azure DevOps. ALM Accelerator fornisce molti scenari comuni per creare e governare le soluzioni in tutti gli ambienti.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide6" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" alt="ALM Accelerator for Power Platform Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Cos&rsquo;è ALM Accelerator per Power Platform?</p>
-<p>ALM Accelerator for Power Platform include Power Apps che si trova in cima alle pipeline DevOps di Azure e al controllo del codice sorgente Git. L&rsquo;app fornisce un&rsquo;interfaccia semplificata per consentire ai creatori di esportare regolarmente i componenti nelle loro soluzioni Power Platform nel controllo del codice sorgente e creare richieste di distribuzione per esaminare il proprio lavoro prima della distribuzione negli ambienti di destinazione.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide7" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.svg?v=1" alt="ALM Accelerator for Power Platform Workflow"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Osservando il flusso di lavoro di ALM Accelerator, inizia con gli ambienti di sviluppo. La loro interazione con il processo ALM avviene tramite l&rsquo;app Canvas ALM Accelerator o le pipeline dell&rsquo;ambiente gestito</p>
-<p>I creatori utilizzano l&rsquo;app Canvas ALM Accelerator per le loro attività ALM, ad esempio importare soluzioni dal controllo del codice sorgente, esportare le modifiche nel controllo del codice sorgente e creare richieste pull per unire le modifiche</p>
-<p>I modelli di ALM Accelerator per le pipeline DevOps di Azure facilitano l&rsquo;automazione delle attività ALM in base all&rsquo;interazione di Makers con l&rsquo;app Canvas di ALM Accelerator</p>
-<p>ALM Accelerator include modelli di pipeline per supportare una distribuzione in 3 fasi in produzione.
-I modelli possono essere personalizzati per soddisfare esigenze e scenari specifici</p>
-<p>ALM Accelerator for Power Platform è un&rsquo;app canvas che si trova in cima alle pipeline DevOps di Azure per fornire un&rsquo;interfaccia semplificata che consente ai creatori di eseguire regolarmente il commit e creare richieste pull per il loro lavoro di sviluppo in Power Platform. </p>
-<p>La combinazione di Azure DevOps Pipelines e dell&rsquo;app Canvas è ciò che costituisce la soluzione completa di ALM Accelerator for Power Platform. 
-Le pipeline e l&rsquo;App sono implementazioni di riferimento. Sono stati sviluppati internamente per l&rsquo;uso da parte del team di sviluppo per lo starter kit CoE, ma sono stati open source e rilasciati per dimostrare quanto ALM sano possa essere raggiunto nel Power Platform. Possono essere utilizzati così come sono o personalizzati per scenari aziendali specifici.</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

@@ -145,6 +145,7 @@
 
 
 
+
 <script>
     
     
@@ -164,6 +165,8 @@
 <noscript>
     <p>JavaScript deve essere abilitato per visualizzare questo contenuto</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -301,6 +304,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1060,6 +1065,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1068,7 +1082,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1085,7 +1104,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1117,8 +1135,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1146,6 +1175,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1167,36 +1197,6 @@
         }
     });
 </script>
-</div>
-<div class="optional">
-<h2 id="inizia-subito">Inizia subito</h2>
-<p>Prova <a href="https://microsoft.github.io/powercat-automation-kit/it/get-started">Guida introduttiva</a> o unisciti al nostro <a href="https://microsoft.github.io/powercat-automation-kit/it/office-hours">Orario d&rsquo;ufficio</a></p>
-<h2 id="versione-precedente">Versione precedente</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/it/releases/december-2022">dicembre 2022</a> (zelante-Antonelli)</li>
-</ul>
-<h2 id="prossima-versione">Prossima versione</h2>
-<ul>
-<li>Febbraio 2023 (nifty-emmy)</li>
-</ul>
-<h2 id="pietre-miliari-del-progetto">Pietre miliari del progetto</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/9">Kit di automazione - Gennaio 2023</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">Kit di automazione - Backlog</a></p>
-<p>Esaminare il <a href="https://microsoft.github.io/powercat-automation-kit/it/releases/milestones">Note sulle pietre miliari</a> per maggiori informazioni</p>
-<h2 id="note-chiave">Note chiave</h2>
-<p>Caratteristiche principali di questa versione:</p>
-<ul>
-<li>Da aggiornare</li>
-</ul>
-<h2 id="note-sulla-versione">Note sulla versione</h2>
-<p>Incluso con <a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023">Kit di automazione - Gennaio 2023</a> per bug e problemi chiusi</p>
-<h2 id="rilasciare-risorse">Rilasciare risorse</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023">Kit di automazione - Gennaio 2023</a></li>
-</ul>
-<h2 id="cronologia-dei-rilasci">Cronologia dei rilasci</h2>
-<p>Pieno <a href="https://microsoft.github.io/powercat-automation-kit/it/releases">Cronologia dei rilasci</a></p>
-</div>
 
     </div>
   </div>

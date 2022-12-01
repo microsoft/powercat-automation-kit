@@ -310,6 +310,7 @@
 
 
 
+
 <script>
     
     
@@ -329,6 +330,8 @@
 <noscript>
     <p>JavaScript måste vara aktiverat för att visa det här innehållet</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -466,6 +469,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1225,6 +1230,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1233,7 +1247,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1250,7 +1269,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1282,8 +1300,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1311,6 +1340,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1332,614 +1362,6 @@
         }
     });
 </script>
-</div>
-<style>
-    .fullscreen.optional {
-        display: none !important
-    }
-    nav > .fullscreen.container {
-        display: none !important
-    }
-    section.fullscreen {
-        padding: 10px !important;
-    }
-    .reveal.fullscreen {
-    }
-}
-</style>
-
-<style>
-     .page { display: none }
-</style>
-
-
-
-
-
-
-
-
-
-<div id="slide0" class="page" data-audio="https://powercat-automation-kit.azureedge.net/">
-
-    
-        
-        <iframe width="860" height="540" src="https://www.youtube-nocookie.com/embed/VNC0PWBTRwA" title="Overview Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        
-    
-    
-    <aside class="notes">
-
-    <p>Det här är en kort video som går igenom end-to-end-funktionaliteten i avkastningsprocessen (ROI) i Automation Kit.</p>
-<p>Du kan titta på fler videor på <a href="https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy">Spellista för automatiseringssats</a></p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide01.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide01.SVG" alt="Automation Kit Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Det viktigaste scenariot i Automation Kit för Power Platform är att påskynda användningen av Power Automate för datorlösningar genom att låta dig definiera, granska och övervaka avkastningen på investeringen i nära realtid genom automatisering av befintliga processer.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide02.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide02.SVG" alt="Automation Kit Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>De viktigaste funktionerna i Automation Kit är att du ska kunna hantera, styra och skala automatiseringsanpassningen genom att utnyttja de erfarenheter som vi har fått från att arbeta med kunder över hela världen.</p>
-<p>Vi gör detta genom att låta dig i nära realtid övervaka planeringen och effekten av beräknade besparingar mot faktiska besparingar baserat på övervakad automatiseringsanalys.</p>
-<p>Satsen fokuserar på en rad personas från affärsbeslutsfattare, processägare, tillverkare för att skapa automatiseringsprocessen och administrationsteam så att varje användargrupp kan mäta effekten av investeringen.</p>
-<p>Den här processen stöds av hyperautomatisering som utnyttjar värdet av Microsoft Cloud för att tillhandahålla och end-to-end Application Lifecycle-hanteringsprocessen.</p>
-<p>Var och en av dessa delar stöds av den bredare Microsoft-säkerhets- och styrningsprocessen som gör att du kan hantera och övervaka de distribuerade lösningarna.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide03.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide03.SVG" alt="Automation Center of Excellence Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>För att framgångsrikt driva ett Automation Center of excellence finns det flera komponenter att bygga och växa över tid. För att påskynda denna process låter Automation Kit tillsammans med CoE Kit dig kombinera praktiska verktyg tillsammans med vår whitepaper-vägledning för att hjälpa dig att tillämpa olika komponenter i ditt kompetenscentrum.</p>
-<p>Till exempel kan automationseftersläpningen användas för att brainstorma potentiella automatiseringsprojekt och besluta om vilka projekt som ska automatiseras. Detta kan kombineras med en robust process för hantering av programlivscykeln för att skapa, distribuera och övervaka lösningen.</p>
-<p>Ur drifts- och risksynpunkt för att kontrollera åtkomsten till anslutningsappar och data och tillhandahålla drifttelemetri om effekten av de distribuerade lösningarna mot de definierade målen.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide4" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide04.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide04.SVG" alt="Automation Kit vs CoE Kit"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Det Power Platform CoE Kit innehåller fokus på bredare klientorganisation och miljö som hanteras.</p>
-<p>Automatiseringspaketet kompletterar dessa uppsättningar verktyg genom att fokusera specifikt på viktiga element i Power Automate Desktop-flöden så att avkastningen och effekten kan demonstreras i nära realtid.</p>
-<p>Med tiden kommer vi att lägga till ytterligare moduler i Automation Kit utöver ROI. Vi utvecklar till exempel en migreringsmodul som gör att du kan flytta äldre automatiseringsprojekt till Power Automate i stor skala.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide5" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide05.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide05.SVG" alt="Corporate Automation Strategy"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Din företagsautomatiseringsstrategi kombinerar viktig inblandning av dina beslutsfattare, processägare, IT-team och riskteam för att framgångsrikt definiera, övervaka och styra automatiseringsprocessen från början till slut.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide6" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide06.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide06.SVG" alt="Corporate Automation Strategy"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Genom att kombinera dessa roller tillsammans kan vi följa processen från företagsmål, genom processen idé- och godkännandeprocessen. Till byggnation och leverans av det valda automationsprojektet. Slutligen kan de olika intressenterna övervaka effekterna av automatiseringsprojektet mot de förväntade målen.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide7" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide07.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide07.SVG" alt="Leveraging Automation Kit"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Automation Kit möjliggör den här processen genom att tillhandahålla en uppsättning komponenter med lite kod som kan anpassas. De mappar till exempellivscykeln så att data kan aggregeras från distribuerade miljöer och visas nästan i realtid för intressenter i Power BI-instrumentpanelen.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide8" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide08.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide08.SVG" alt="Automation Projects"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Med automatiseringsprojektprogrammet kan du hantera identifierings- och godkännandeprocessen. Du kan använda insamlade data så att du kan prioritera de projekt som har bäst effekt i organisationen.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide9" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide09.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide09.SVG" alt="Automation Center"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Automationscenter-programmet kan användas av administrationsteamet för att mappa de distribuerade projekten till miljöer för att möjliggöra övervakning av lösningarna mot projicerade mål.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide10" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide10.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide10.SVG" alt="Automation Solution Manager"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Används av systemadministratörer för att aktivera mätning av lösningarna för inkludering i Power BI-rapporterna
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide11" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide11.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide11.SVG" alt="Power BI Dashboard"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Power BI-instrumentpanelen ger vyn från slutpunkt till slutpunkt för Automation-projekten, förväntade mål och faktiska besparingar när automatiseringsprojekt implementeras.</p>
-<p>Dessutom ger den driftövervakning av hälsotillståndet för de distribuerade lösningarna.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide12" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide12.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide12.SVG" alt="Automation Maturity Model"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Automatiseringsmognadsmodellen kan vara ett användbart ramverk för att avgöra var du befinner dig på din automatiseringsresa. De kan tillhandahålla en färdplan för områden som kan automatiseras över tid för att skala till mer definierade, kapabla och effektiva processer.</p>
-<p>Automation Kit och CoE Kit ger dig användbara verktyg och vägledning som hjälper dig att påskynda din resa för att gå över till höga automatiseringsnivåer.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide13" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide13.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide13.SVG" alt="Monitor Automation Kit Releases"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Från vår GitHub-webbplats kan du använda <strong>Klocka</strong> listruteobjekt att välja <strong>Släpper</strong> så att du meddelas när vi uppdaterar Automation Kit.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide14" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide14.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide14-Nov2022.SVG" alt="Automation Kit Release"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Du kan läsa vår versionsinformation för varje version för vägledning om vad som har ändrats, hur du installerar och uppgraderar Automation Kit.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide15" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide15.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide15.SVG" alt="Automation Kit Getting Started"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Den viktigaste förändringen har varit att förbättra vår kom igång-process så att den kan skräddarsys efter din roll och vägleda dig på vägen mot att komma igång så snabbt som möjligt.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide16" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide16.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide16.SVG" alt="What&#39;s Next"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Vi har en kontinuerlig process att titta på objekt som prioriteras från utgrund för eftersläpning för inkludering i varje milstolpe. Varje milstolpe är en guide för när funktionen kan släppas. Det här utgivningsschemat kan ändras baserat på prioriterad feedback från kunder och uppfyllande av våra kvalitetsgrindar innan de släpps.</p>
-<p>Övertidsfunktioner från Automation Kit kommer att övervägas för inkludering i out of the box i produktupplevelsen. När detta inträffar kommer funktioner att bli inaktuella från Automation Kit för att tillåta migrering till produktfunktionerna.</p>
-<p>För funktioner där telemetri och kundpåverkan visar begränsad påverkan kommer vi att försöka avinvestera från dessa funktioner så att vi kan fokusera på områden med högre prioritet.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide17" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide17.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide17.SVG" alt="Simplifying the Install Process"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Med utgångspunkt i arbetet från oktober kommer huvudfokus att vara att leta efter steg för att förenkla installationsprocessen ytterligare. Målet är att göra installationen av beroenden och den ursprungliga datainställningen för att komma igång med ett fungerande system mycket snabbare.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide18" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide18.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide18.SVG" alt="Sample Data"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    Datapaket utökas i installationsprocessen och ger möjlighet att importera fördefinierade exempeldata och/eller branschspecifika mål till din miljö. Du kan till exempel snabbt konfigurera och demonstrera processen som fungerar från början till slut så att du demonstrerar den förväntade processen och anpassar den till din organisation.
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide19" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide19.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide19.SVG" alt="End to end ALM"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Vi utökar de befintliga ALM Accelerator-funktionerna och planerar att lägga till RPA-specifika åtgärder som gör processen att integrera Power Automate Desktop-komponenter i en automatiserad distributions- och granskningsprocess.</p>
-<p>Läs mer om <a href="https://microsoft.github.io/powercat-automation-kit/sv/features/alm">Hanterade miljöer Power Platform pipelines och ALM-acceleratorn</a> och hur de kan hjälpa dig att distribuera och hantera automatiseringslösningar.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide20" class="page" data-audio="https://powercat-automation-kit.azureedge.net/overview/Slide20.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/overview/Slide20.SVG" alt="Futures"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>När vi tittar vidare på våra milstolpar stöder vi eftersläpningsobjekt för att utöka den nya migreringsmodulen till automatiseringen.</p>
-<p>Djupare integration med Process Advisor för att hjälpa till med processen att identifiera och kvalificera den förväntade avkastningen på automatisering</p>
-<p>När vi vill utöka de värdbaserade RPA-agenterna kommer vi att försöka ge exempel som påskyndar användningen av Azure-värdbaserade agenter för kunder som behövde automatisering av infrastrukturåtgärder för att integrera med distribuerade automatiseringsprojekt.</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

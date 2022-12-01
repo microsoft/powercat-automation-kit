@@ -295,6 +295,7 @@
 
 
 
+
 <script>
     
     
@@ -314,6 +315,8 @@
 <noscript>
     <p>JavaScript muss aktiviert sein, um diesen Inhalt anzeigen zu können</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -451,6 +454,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1210,6 +1215,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1218,7 +1232,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1235,7 +1254,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1267,8 +1285,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1296,6 +1325,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1317,82 +1347,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/overview.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="Power CAT ALM Overview"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Das Power CAT-Team verwendet den ALM Accelerator, um jeden unserer <a href="https://github.com/microsoft/powercat-automation-kit/releases">Auslösungen</a>.</p>
-<p>Jede Version fördert Änderungen von unserer Entwicklung in Test- und Produktionsumgebungen. Die Power Platform Lösungen innerhalb des Kits verwenden einen automatisierten Prozess, um Assets für die Bereitstellung in öffentlichen GitHub-Versionen zu packen.</p>
-<p>In zukünftigen Meilensteinen werden wir die bestehende Plattform ausbauen <a href="https://microsoft.github.io/powercat-automation-kit/de/features/alm">ALM-Funktionen</a> , um Beispiele für das Einbinden von Validierungsregeln und den visuellen Vergleich von RPA-Beispielen als Teil des DevOps-Prozesses bereitzustellen.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/release-process.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-powercat-process.svg" alt="Power CAT Automation Kit Release Checker"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Im Folgenden werden die wichtigsten Schritte im Release-Prozess des Automation Kits beschrieben:</p>
-<ol>
-<li>
-<p>Änderungen, die in unserer Power Platform Dev-Umgebung vorgenommen werden, werden in einem Zweig im öffentlichen GitHub-Repository gespeichert</p>
-</li>
-<li>
-<p>Wenn Änderungen für die Aufnahme in ein Testrelease bereit sind, werden sie mithilfe eines Pull Requests mit dem Hauptzweig zusammengeführt. Bevor die Pullanforderung abgeschlossen werden kann, muss die Azure DevOps-Validierungspipeline erfolgreich abgeschlossen und die Pullanforderung überprüft werden.</p>
-</li>
-<li>
-<p>Sobald der Pull Request die automatisierten Prüfungen bestanden und die Überprüfungsgenehmigung erhalten hat, kann er mit dem Hauptzweig zusammengeführt werden. Diese Zusammenführung löst die Azure DevOps-Testbuildpipeline aus, die den verwalteten Build in der Testumgebung Power Platform veröffentlicht.</p>
-</li>
-<li>
-<p>Nach internen Tests wird die Azure DevOps-Produktionspipeline manuell ausgelöst, um eine Produktionsbereitstellung Power Platform zu generieren.</p>
-</li>
-<li>
-<p>Sobald die Version fertig ist, erstellt die Azure DevOps-Pipeline einen Releaseentwurf, der Versionshinweise und Buildressourcen enthält. Der endgültige Release-Build schließt alle offenen Probleme und schließt den Meilenstein. Veröffentlichtes Build-Tag für das GitHub-Repository mit der Bezeichnung Monat und Jahr.</p>
-</li>
-</ol>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

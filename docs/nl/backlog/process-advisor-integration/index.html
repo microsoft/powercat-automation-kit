@@ -154,6 +154,7 @@ Currency||In Process Advisor data model</p>
 
 
 
+
 <script>
     
     
@@ -173,6 +174,8 @@ Currency||In Process Advisor data model</p>
 <noscript>
     <p>JavaScript moet zijn ingeschakeld om deze inhoud te kunnen bekijken</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -310,6 +313,8 @@ Currency||In Process Advisor data model</p>
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1069,6 +1074,15 @@ Currency||In Process Advisor data model</p>
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1077,7 +1091,12 @@ Currency||In Process Advisor data model</p>
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1094,7 +1113,6 @@ Currency||In Process Advisor data model</p>
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1124,8 +1142,19 @@ Currency||In Process Advisor data model</p>
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1153,6 +1182,7 @@ Currency||In Process Advisor data model</p>
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1174,27 +1204,6 @@ Currency||In Process Advisor data model</p>
         }
     });
 </script>
-<p>De Automatiseringskit voor Power Platform integreert met <a href="https://learn.microsoft.com/en-us/power-automate/process-advisor-overview">Process Advisor</a> om de volgende scenario&rsquo;s te ondersteunen:</p>
-<ul>
-<li>
-<p><strong>Verwerking Mijnbouw</strong> Analyse van bedrijfsprocessen om de business case te identificeren en te ondersteunen om automatiseringsprojecten te maken die worden ondersteund door gegevensanalyse.</p>
-</li>
-<li>
-<p><strong>Projectaanvragen voor gegevensgestuurde automatisering</strong> Gebruik de resultaten van uw procesanalyse om een automatiseringsproject te maken op basis van Process Advisor resultaten.</p>
-</li>
-<li>
-<p><strong>Semi geautomatiseerde automatisering Project creatie</strong> Integreer Dataverse-gegevens tussen Process Advisor en Automation Kit om de hoeveelheid werk voor het maken van Automation Project te verminderen.</p>
-</li>
-<li>
-<p><strong>Analyse van Power Automate Desktop</strong> Analyseer RPA-procesgegevens om verbeteringen te identificeren om te moderniseren, veerkracht en betrouwbaarheid te verbeteren met behulp van Taakmining.</p>
-</li>
-</ul>
-<h2 id="verwerking-mijnbouw">Verwerking Mijnbouw</h2>
-<p>Het gebruik van Process mining met Process Advisor stelt u in staat om inefficiënties in organisatiebrede processen te ontdekken. Met deze inzichten kunt u een diepgaand inzicht krijgen in uw processen met behulp van gebeurtenislogboekbestanden die u kunt ophalen van uw opnamesysteem (apps die u in uw processen gebruikt). Process mining geeft kaarten van uw processen weer met gegevens en statistieken om prestatieproblemen te herkennen. Voorbeelden van processen die geschikt zijn voor process mining zijn debiteuren en order-to-cash.</p>
-<p>Met deze gegevens kunt u gegevensgestuurde Automation Project-aanvragen maken.</p>
-<h2 id="automatiseringsprojecten-maken">Automatiseringsprojecten maken</h2>
-<p>Met behulp van de resultaten van Process Advisor process mining en rapportage kunt u de volgende Process Advisor informatie gebruiken om uw automatiseringsproject te ondersteunen met behulp van Process Advisor berekende analyseresultaten:</p>
-<p>Automatiseringskit|Process Advisor|Notities        |</p>
 
     </div>
   </div>

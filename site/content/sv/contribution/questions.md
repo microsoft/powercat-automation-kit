@@ -4,7 +4,7 @@ description: "Automation Kit - Frågor om redigering"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 Den här sidan innehåller information om det format som används för att skapa interaktiva frågor som ingår som en del av {{<product-name>}} förrätt.
@@ -103,7 +103,6 @@ Källfilen svg stöder följande anpassade hyperlänklänkar för element i svg-
 
 - **template://item/selected** - Kommer att definiera objektets format för att ställa in det valda formatet i bilden
 - **template://item/unselected** - Kommer att definiera objektets format för att ställa in det omarkerade formatet för objekt i bilden
-- **question://question-name/value** - Kommer att definiera objektets format för att ställa in det omarkerade formatet för objekt i bilden
 
 Visuella element med en hyperlänk av question:// kommer att användas för att ställa in eller ta bort matrisen med värden i uppsättningen frågor. Den här möjligheten ger möjlighet att interaktivt ändra hur andra frågor visas för användaren. Till exempel om svg-filen hade två objekt med följande hyperlänkar:
 
@@ -117,6 +116,19 @@ Om användaren väljer dessa objekt kan andra element på sidan visas till exemp
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Visuella element med en hyperlänk av option:// kommer att användas för att ställa in värdet på en alternativuppsättning eller en enda värdefråga. Till exempel om svg-filen hade två objekt med följande hyperlänkar:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

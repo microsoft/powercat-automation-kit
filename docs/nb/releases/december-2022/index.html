@@ -145,6 +145,7 @@
 
 
 
+
 <script>
     
     
@@ -164,6 +165,8 @@
 <noscript>
     <p>JavaScript må være aktivert for å se dette innholdet</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -301,6 +304,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1060,6 +1065,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1068,7 +1082,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1085,7 +1104,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1117,8 +1135,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1146,6 +1175,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1167,36 +1197,6 @@
         }
     });
 </script>
-</div>
-<div class="optional">
-<h2 id="kom-i-gang">Kom i gang</h2>
-<p>Prøv ut <a href="https://microsoft.github.io/powercat-automation-kit/nb/get-started">Kom i gang-veiledning</a> eller bli med i vår <a href="https://microsoft.github.io/powercat-automation-kit/nb/office-hours">Kontortid</a></p>
-<h2 id="tidligere-utgivelse">Tidligere utgivelse</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/november-2022">desember 2022</a> (skarp-archimedes)</li>
-</ul>
-<h2 id="neste-utgivelse">Neste utgivelse</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/january-2023">januar 2023</a> (Nifty-Emmy)</li>
-</ul>
-<h2 id="milepæler-i-prosjektet">Milepæler i prosjektet</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/5">Automatiseringssett - Desember 2022</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">Automatiseringssett - Etterslep</a></p>
-<p>Se gjennom <a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/milestones">Milepæl Notater</a> for ytterligere informasjon</p>
-<h2 id="viktige-merknader">Viktige merknader</h2>
-<p>Viktige funksjoner i denne versjonen:</p>
-<ul>
-<li>Oppdateres</li>
-</ul>
-<h2 id="produktmerknader">Produktmerknader</h2>
-<p>Inkludert i <a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022">Automatiseringssett - Desember 2022</a> for feil og problemer lukket</p>
-<h2 id="frigi-eiendeler">Frigi eiendeler</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022">Automatiseringssett - Desember 2022</a></li>
-</ul>
-<h2 id="historikk-for-utgivelser">Historikk for utgivelser</h2>
-<p>Full <a href="https://microsoft.github.io/powercat-automation-kit/nb/releases">Historikk for utgivelser</a></p>
-</div>
 
     </div>
   </div>

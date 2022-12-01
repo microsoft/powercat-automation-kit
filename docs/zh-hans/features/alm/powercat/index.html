@@ -285,6 +285,7 @@
 
 
 
+
 <script>
     
     
@@ -304,6 +305,8 @@
 <noscript>
     <p>必须启用 JavaScript 才能查看此内容</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -441,6 +444,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1200,6 +1205,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1208,7 +1222,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1225,7 +1244,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1257,8 +1275,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1286,6 +1315,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1307,78 +1337,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/overview.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="Power CAT ALM Overview"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Power CAT 团队使用 ALM 加速器来构建和部署我们的每个<a href="https://github.com/microsoft/powercat-automation-kit/releases">释放</a>.</p>
-<p>每个版本都会促进从我们的开发到测试和生产环境的更改。工具包中的Power Platform解决方案使用自动化流程打包资产以部署到公共 GitHub 版本。</p>
-<p>在未来的里程碑中，我们将在现有平台上进行扩展<a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/features/alm">铝业管理功能</a>提供示例，说明如何将验证规则和 RPA 示例的可视化比较作为 DevOps 过程的一部分。</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/release-process.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-powercat-process.svg" alt="Power CAT Automation Kit Release Checker"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>下面概述了自动化工具包发布过程中的关键步骤：</p>
-<ol>
-<li>在 Power Platform 开发环境中所做的更改将保存到公共 GitHub 存储库中的分支</li>
-</ol>
-<p>2.当更改准备好包含在测试版本中时，它们将使用拉取请求合并到主分支中。在完成拉取请求之前，需要成功完成 Azure DevOps 验证管道并审核拉取请求。</p>
-<ol start="3">
-<li>
-<p>一旦拉取请求通过自动检查并获得审查批准，它就可以合并到主分支中。此合并会触发测试 Azure DevOps 生成管道，该管道将托管生成发布到测试Power Platform环境。</p>
-</li>
-<li>
-<p>内部测试后，将手动触发 Azure DevOps 生产管道以生成生产Power Platform部署。</p>
-</li>
-</ol>
-<p>5.准备好发布后，发布 Azure DevOps 管道会创建一个草稿版本，其中包含发行说明和生成资产。最终发布版本将关闭所有未解决的问题并关闭里程碑。已发布的构建标记 GitHub 存储库，并应用了月份和年份标签。</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

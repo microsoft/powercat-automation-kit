@@ -4,7 +4,7 @@ description: "Automation Kit - Vragen over het schrijven"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 Deze pagina bevat informatie over de indeling die wordt gebruikt om interactieve vragen te stellen die zijn opgenomen als onderdeel van de {{<product-name>}} starter.
@@ -103,7 +103,6 @@ Het bron svg-bestand ondersteunt de volgende aangepaste hyperlinkkoppelingen voo
 
 - **template://item/selected** - Definieert het formaat van het object om het geselecteerde formaat in de afbeelding in te stellen
 - **template://item/unselected** - Definieert het formaat van het object om het niet-geselecteerde formaat van items in de afbeelding in te stellen
-- **question://question-name/value** - Definieert het formaat van het object om het niet-geselecteerde formaat van items in de afbeelding in te stellen
 
 Visuele elementen met een hyperkoppeling van question:// worden gebruikt om de array met waarden in de set vragen in of uit te stellen. Deze mogelijkheid biedt de mogelijkheid om interactief te wijzigen hoe andere vragen aan de gebruiker worden getoond. Bijvoorbeeld als het svg-bestand twee objecten had met de volgende hyperlinks:
 
@@ -117,6 +116,19 @@ Als de gebruiker deze objecten selecteert, kunnen bijvoorbeeld andere elementen 
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Visuele elementen met een hyperkoppeling van option:// worden gebruikt om de waarde van een optieset of een vraag met één waarde in te stellen. Bijvoorbeeld als het svg-bestand twee objecten had met de volgende hyperlinks:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

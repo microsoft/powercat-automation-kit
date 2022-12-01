@@ -4,7 +4,7 @@ description: "Automation Kit — pytania dotyczące tworzenia"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 37D5A5E89FA4987CACF047AC5907F94874C4EA89
+generated: 2FDE38C6576920DE548EFE209151F9776EB47B41
 ---
 
 Ta strona zawiera informacje o formacie używanym do tworzenia interaktywnych pytań, które są zawarte jako część {{<product-name>}} rozrusznik.
@@ -103,7 +103,6 @@ Na {{<product-name>}} obejmuje również **image-task** Niestandardowy widżet. 
 
 - **template://item/selected** - Zdefiniuje format obiektu, aby ustawić wybrany format na obrazie
 - **template://item/unselected** - Zdefiniuje format obiektu, aby ustawić niewybrany format elementów na obrazie
-- **question://question-name/value** - Zdefiniuje format obiektu, aby ustawić niewybrany format elementów na obrazie
 
 Elementy wizualne z hiperłączem question:// zostaną użyte do ustawienia lub wyłączenia tablicy wartości wewnątrz zestawu pytań. Ta zdolność zapewnia możliwość interaktywnej zmiany sposobu wyświetlania użytkownikowi innych pytań. Na przykład, jeśli plik svg miał dwa obiekty z następującymi hiperłączami:
 
@@ -117,6 +116,19 @@ Jeśli użytkownik wybierze te obiekty, mogą zostać wyświetlone inne elementy
     "type": "html",
     "html": "Makers build Automation Projects to solve business problems",
     "visibleIf": "contains({roles}, 'maker')"
+}
+```
+
+Elementy wizualne z hiperłączem option:// zostaną użyte do ustawienia wartości zestawu opcji lub pytania o jedną wartość. Na przykład, jeśli plik svg miał dwa obiekty z następującymi hiperłączami:
+
+- **option://type/A**
+- **option://type/B**
+
+```json
+{
+    "type": "html",
+    "html": "Type A has been selected",
+    "visibleIf": "{type} == 'A'"
 }
 ```
 

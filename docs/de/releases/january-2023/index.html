@@ -145,6 +145,7 @@
 
 
 
+
 <script>
     
     
@@ -164,6 +165,8 @@
 <noscript>
     <p>JavaScript muss aktiviert sein, um diesen Inhalt anzeigen zu können</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -301,6 +304,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1060,6 +1065,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1068,7 +1082,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1085,7 +1104,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1117,8 +1135,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1146,6 +1175,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1167,36 +1197,6 @@
         }
     });
 </script>
-</div>
-<div class="optional">
-<h2 id="loslegen">Loslegen</h2>
-<p>Ausprobieren <a href="https://microsoft.github.io/powercat-automation-kit/de/get-started">Leitfaden &ldquo;Erste Schritte&rdquo;</a> oder treten Sie unserem <a href="https://microsoft.github.io/powercat-automation-kit/de/office-hours">Sprechstunde</a></p>
-<h2 id="vorherige-veröffentlichung">Vorherige Veröffentlichung</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/de/releases/december-2022">Dezember 2022</a> (Eifer-Antonelli)</li>
-</ul>
-<h2 id="nächste-version">Nächste Version</h2>
-<ul>
-<li>Februar 2023 (nifty-emmy)</li>
-</ul>
-<h2 id="meilensteine-des-projekts">Meilensteine des Projekts</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/9">Automation Kit - Januar 2023</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">Automation Kit - Backlog</a></p>
-<p>Überprüfen Sie die <a href="https://microsoft.github.io/powercat-automation-kit/de/releases/milestones">Meilenstein-Notizen</a> für weitere Informationen</p>
-<h2 id="wichtige-hinweise">Wichtige Hinweise</h2>
-<p>Hauptmerkmale dieser Version:</p>
-<ul>
-<li>Zu aktualisieren</li>
-</ul>
-<h2 id="versionshinweise">Versionshinweise</h2>
-<p>Im Lieferumfang enthalten <a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023">Automation Kit - Januar 2023</a> für Fehler und Probleme geschlossen</p>
-<h2 id="freigeben-von-assets">Freigeben von Assets</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-January2023">Automation Kit - Januar 2023</a></li>
-</ul>
-<h2 id="versionshistorie">Versionshistorie</h2>
-<p>Voll <a href="https://microsoft.github.io/powercat-automation-kit/de/releases">Versionshistorie</a></p>
-</div>
 
     </div>
   </div>

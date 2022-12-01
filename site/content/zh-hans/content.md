@@ -4,12 +4,14 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 168C5A07790E2772917F905272F5727BB391EF98
+generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 ---
 
 {{<toc>}}
 
 ## 位置：/
+
+- [自动化套件 - 计算器](/zh-hans/calculator)
 
 - [自动化套件 - 站点索引](/zh-hans/content)
 

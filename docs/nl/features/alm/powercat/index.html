@@ -295,6 +295,7 @@
 
 
 
+
 <script>
     
     
@@ -314,6 +315,8 @@
 <noscript>
     <p>JavaScript moet zijn ingeschakeld om deze inhoud te kunnen bekijken</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -451,6 +454,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1210,6 +1215,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1218,7 +1232,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1235,7 +1254,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1267,8 +1285,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1296,6 +1325,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1317,82 +1347,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/overview.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="Power CAT ALM Overview"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Het Power CAT-team gebruikt de ALM Accelerator om elk van onze <a href="https://github.com/microsoft/powercat-automation-kit/releases">Releases</a>.</p>
-<p>Elke release bevordert veranderingen van onze ontwikkeling naar test- en productieomgevingen. De Power Platform-oplossingen in de kit gebruiken een geautomatiseerd proces om assets te verpakken voor implementatie naar openbare GitHub-releases.</p>
-<p>In toekomstige mijlpalen zullen we uitbreiden op bestaand platform <a href="https://microsoft.github.io/powercat-automation-kit/nl/features/alm">ALM-functies</a> om voorbeelden te geven van het opnemen van validatieregels en visuele vergelijking van RPA-voorbeelden als onderdeel van het DevOps-proces.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/powercat/release-process.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-powercat-process.svg" alt="Power CAT Automation Kit Release Checker"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Hieronder worden de belangrijkste stappen in het releaseproces van de Automation Kit beschreven:</p>
-<ol>
-<li>
-<p>Wijzigingen in onze Power Platform Dev-omgeving worden opgeslagen in een branch in de openbare GitHub-repository</p>
-</li>
-<li>
-<p>Wanneer wijzigingen klaar zijn voor opname in een testrelease, worden ze samengevoegd met de hoofdtak met behulp van een pull-aanvraag. Voordat de pull-aanvraag kan worden voltooid, moet de Azure DevOps-validatiepijplijn met succes worden voltooid en moet de pull-aanvraag worden beoordeeld.</p>
-</li>
-<li>
-<p>Zodra de Pull Request de geautomatiseerde controles heeft doorstaan en goedkeuring heeft gekregen, kan deze worden samengevoegd met de hoofdtak. Deze samenvoeging activeert de test Azure DevOps-buildpijplijn die de beheerde build publiceert naar de test Power Platform-omgeving.</p>
-</li>
-<li>
-<p>Na interne tests wordt de Azure DevOps-productiepijplijn handmatig geactiveerd om een Productie Power Platform-implementatie te genereren.</p>
-</li>
-<li>
-<p>Zodra de release klaar is, maakt de Release Azure DevOps-pijplijn een conceptrelease inclusief releaseopmerkingen en buildassets. De uiteindelijke release build sluit alle openstaande problemen en sluit de mijlpaal. Gepubliceerde buildtag de GitHub-opslagplaats met een maand- en jaarlabel toegepast.</p>
-</li>
-</ol>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

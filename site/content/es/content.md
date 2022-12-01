@@ -4,12 +4,14 @@ description: "Kit de automatización - Índice del sitio"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 168C5A07790E2772917F905272F5727BB391EF98
+generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 ---
 
 {{<toc>}}
 
 ## Ubicación:/
+
+- [Kit de automatización - Calculadora](/es/calculator)
 
 - [Kit de automatización - Índice del sitio](/es/content)
 

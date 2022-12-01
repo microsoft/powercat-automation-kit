@@ -242,6 +242,18 @@
             "visibleIf": "contains({installType}, 'Main solution')",
             "elements": [
                 {
+                    "type": "text",
+                    "name": "main-businessApprover",
+                    "isRequired": true,
+                    "inputMask": "email",
+                    "title": "What is the email address of the default approver?",
+                    "validators": [
+                        {
+                          "type": "email"
+                        }
+                    ]
+                },
+                {
                     "type": "boolean",
                     "name": "main-installSampleData",
                     "isRequired": true,
@@ -255,7 +267,7 @@
                 {
                     "type": "html",
                     "visibleIf": "{main-installSampleData} == false",
-                    "html": "On base data required for solution will be imported"
+                    "html": "Only base data required for solution will be imported"
                 },
                 {
                     "type": "boolean",
@@ -696,30 +708,47 @@
             "elements": [
                 {
                     "type": "boolean",
-                    "name": "satellite-storeExtractScript",
+                    "name": "satellite-storeFlowScript",
                     "isRequired": true,
                     "title": "Store the extracted Power Automate Desktop script in Dataverse?"
                 },
                 {
                     "type": "html",
-                    "visibleIf": "{satellite-storeExtractScript} == true",
+                    "visibleIf": "{satellite-storeFlowScript} == true",
                     "html": "Will <b>store</b> Desktop flows definition script inside the Desktop Flow Definition table. This field could contain sensitive information"
                 },
                 {
                     "type": "html",
-                    "visibleIf": "{satellite-storeExtractScript} == false",
+                    "visibleIf": "{satellite-storeFlowScript} == false",
                     "html": "Will <b>NOT</b> Desktop flows definition script inside the Desktop Flow Definition table. NOTE: This field could contain sensitive information"
                 },
                 {
                     "type": "boolean",
-                    "name": "satellite-enableFlows",
+                    "name": "satellite-activateAllCloudFlows",
                     "isRequired": true,
                     "title": "Enable satellite flows?"
                 },
                 {
                     "type": "html",
-                    "visibleIf": "{satellite-enableFlows} == true",
+                    "visibleIf": "{satellite-activateAllCloudFlows} == true",
                     "html": "Will enable Cloud flows that are included in the Automation Kit Satellite solution"
+                },
+                {
+                    "type": "boolean",
+                    "name": "satellite-installSampleData",
+                    "isRequired": true,
+                    "title": "Import sample data after solution is setup?"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{satellite-installSampleData} == true",
+                    "html": "Sample data will be imported"
+                },
+                {
+                    "type": "text",
+                    "name": "satellite-azureAppId",
+                    "isRequired": true,
+                    "title": "What is the Azure Application Id to register as Application User?"
                 }
             ]
         },

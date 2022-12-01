@@ -313,6 +313,7 @@
 
 
 
+
 <script>
     
     
@@ -332,6 +333,8 @@
 <noscript>
     <p>JavaScript musi być włączony, aby wyświetlić tę zawartość</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -469,6 +472,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1228,6 +1233,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1236,7 +1250,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1253,7 +1272,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1285,8 +1303,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1314,6 +1343,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1335,227 +1365,6 @@
         }
     });
 </script>
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-overview.svg" alt="Managed Environments Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Środowiska zarządzane umożliwiają usprawnienie i uproszczenie nadzoru na dużą skalę. Administratorzy mogą aktywować środowiska zarządzane za pomocą zaledwie kilku kliknięć i natychmiast włączyć funkcje, które zapewniają lepszą widoczność, większą kontrolę przy mniejszym wysiłku związanym z zarządzaniem wszystkimi zasobami o niskim kodzie.</p>
-<p>Środowiska zarządzane są kluczową częścią rodziny Power Platform, w taki sam sposób, w jaki AI Builder wprowadził inteligencję do naszych produktów, a Dataverse zapewnia szkielet danych. Środowiska zarządzane usprawniają zarządzanie platformą na dużą skalę.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-features.svg" alt="Managed Environments Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Środowiska zarządzane zapewniają:Managed environments provide you:</p>
-<ul>
-<li>Większa widoczność dzięki wglądowi w użycie na stronie głównej, wiadomościom e-mail z podsumowaniem dla administratorów, raportom licencyjnym i widokom zasad dotyczących danych</li>
-<li>Większa kontrola dzięki limitom udostępniania dającym kontrolę nad tym, jak szeroko i z iloma osobami można udostępniać przepływy aplikacji kanwy i rozwiązań.</li>
-<li>Można również ograniczyć udostępnianie do ograniczonych grup zabezpieczeń.</li>
-<li>Konfigurowanie narzędzia sprawdzania rozwiązań na potrzeby sprawdzania zabezpieczeń lub niezawodności w celu automatycznego uruchamiania reguł za każdym razem, gdy rozwiązanie jest importowane do środowiska zarządzanego</li>
-<li>Dostosuj powitanie i udostępnianie środowiska kreatora, aby poprowadzić użytkowników właściwą ścieżką.</li>
-<li>Mniejszy wysiłek usprawnia, upraszcza i automatyzuje kroki po wyjęciu z pudełka za pomocą zaledwie kilku kliknięć.</li>
-<li>Power Platform potoki umożliwiają uproszczenie procesu zarządzania cyklem życia aplikacji (ALM).</li>
-</ul>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/">
-
-    
-        <video width="860" height="540" controls>
-            <source src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-power-platform-pipelines-demo.mp4" type="video/mp4"/>
-            Your browser does not support the video tag.
-        </video>
-    
-    
-    <aside class="notes">
-
-    <p>To rozwiązanie, z którym pracuję w Maker Portal.</p>
-<p>Poszedłem dalej, aby wybrać ten potok, który został już skonfigurowany. Potoki to w zasadzie seria zautomatyzowanych kroków, które przenoszą pracę z jednego środowiska do drugiego. Ten potok przeniesie moje rozwiązanie ze środowiska programistycznego po lewej stronie do środowiska testowego. Jest też kolejny etap, aby przejść od testu do produkcji.</p>
-<p>Lets deploy to test, select next and here I will confirm my connections to test the environment to sure I are using the right credentials. Następnie skonfiguruję zmienne środowiskowe, aby upewnić się, że na przykład wskazuję właściwą witrynę programu SharePoint w teście. Jest to ważne, jeśli strona była inna niż ta, której używałem w programowaniu.</p>
-<p>Po skonfigurowaniu wszystkiego mogę po prostu wybrać &ldquo;Wdróż&rdquo;, a walidacje inspekcji wstępnej są uruchamiane automatycznie, aby upewnić się, że mam odpowiednie zależności, a rozwiązanie nie narusza zasad DLP w tym środowisku docelowym. Potok można również skonfigurować tak, aby przed uruchomieniem wdrożenia było wymagane zatwierdzenie.</p>
-<p>Wygląda na to, że wszystko się tutaj udało.</p>
-<p>Po uruchomieniu potoku uzyskuję pełną widoczność i dziennik inspekcji wdrożeń w całej organizacji z kopią zapasową każdego rozwiązania i wersjonowaniem.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide4" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/managed-environments-feature-availability.svg?v=1" alt="Managed Environments Availability"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Funkcje będą wprowadzane etapami. Niektóre z nich, takie jak podsumowania administracyjne i limity udostępniania, są dostępne już dziś. Reszta zostanie wprowadzona do końca roku.</p>
-<p>W nadchodzących tygodniach i miesiącach zobaczysz statystyki użycia na stronie głównej. Nowe trendy w podsumowaniach administracyjnych i raportach dotyczących licencjonowanego użycia. Limity udostępniania zapewnią większą kontrolę i obsługę przepływów rozwiązań. Będzie można blokować niebezpieczne wdrożenia za pomocą narzędzia Solution Checker. Możliwości onboardingu i rurociągu dla producentów klientów również pojawią się jeszcze w tym roku.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide5" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/pipeline-extensibility.svg?v=1" alt="Pipeline Extensibility"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>W Power Platform należy wziąć pod uwagę kilka opcji wyboru ALM. Potoki Power Platform środowiska zarządzanego zapewniają zarządzanie cyklem życia aplikacji produktu.</p>
-<p>Opcjonalnie można użyć punktów rozszerzeń potoków Power Platform środowiska zarządzanego w połączeniu z <a href="https://learn.microsoft.com/power-platform/alm/devops-build-tools">Narzędzia kompilacji Power Platform dla usługi Azure DevOps</a>ten <a href="https://learn.microsoft.com/power-platform/alm/devops-github-actions">Akcje usługi GitHub dla usługi Microsoft Power Platform</a> lub <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction">Power Platform CLI</a> , aby wdrożyć własne niestandardowe procesy ALM DevOps.</p>
-<p>Wreszcie możesz skorzystać z <a href="https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog">Akcelerator ALM dla Power Platform</a> z zestawu CoE Kit, aby zapewnić wstępnie utworzone szablony i przykłady dla kompleksowego zarządzania obiektami ALM przy użyciu usługi Azure DevOps. Akcelerator ALM zapewnia wiele typowych scenariuszy tworzenia rozwiązań i zarządzania nimi w różnych środowiskach.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide6" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" alt="ALM Accelerator for Power Platform Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Czym jest ALM Accelerator dla Power Platform?</p>
-<p>Akcelerator ALM dla Power Platform obejmuje usługę Power Apps, która znajduje się na szczycie potoków Azure DevOps i kontroli źródła Git. Aplikacja zapewnia uproszczony interfejs dla twórców, którzy mogą regularnie eksportować składniki w swoich rozwiązaniach Power Platform w celu kontroli źródła i tworzenia żądań wdrożenia, aby ich praca została sprawdzona przed wdrożeniem w środowiskach docelowych.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide7" class="page" data-audio="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.mp3?v=1">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/features/alm/alm-accelerator-for-power-platform-workflow.svg?v=1" alt="ALM Accelerator for Power Platform Workflow"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Patrząc na przepływ pracy ALM Accelerator, zaczyna się on od środowisk programistycznych. Ich interakcja z procesem ALM odbywa się za pośrednictwem aplikacji ALM Accelerator Canvas App lub potoków środowiska zarządzanego</p>
-<p>Twórcy używają aplikacji ALM Accelerator Canvas do zadań ALM, takich jak importowanie rozwiązania z kontroli źródła, eksportowanie zmian do kontroli źródła i tworzenie żądania ściągnięcia w celu scalenia zmian</p>
-<p>Szablony akceleratora ALM dla potoków usługi Azure DevOps ułatwiają automatyzację zadań ALM na podstawie interakcji twórców z aplikacją ALM Accelerator Canvas</p>
-<p>ALM Accelerator zawiera szablony potoków do obsługi 3-etapowego wdrożenia w środowisku produkcji.
-Szablony można dostosowywać do konkretnych potrzeb i scenariuszy</p>
-<p>ALM Accelerator for Power Platform to aplikacja kanwy, która znajduje się na szczycie potoków Azure DevOps, aby zapewnić uproszczony interfejs dla twórców do regularnego zatwierdzania i tworzenia żądań ściągnięcia dla ich prac programistycznych w Power Platform. </p>
-<p>Połączenie potoków Azure DevOps i aplikacji kanwy składa się na pełne rozwiązanie ALM Accelerator for Power Platform. 
-Potoki i aplikacja są implementacjami referencyjnymi. Zostały one opracowane do użytku przez zespół programistów dla zestawu startowego CoE wewnętrznie, ale zostały otwarte i wydane w celu zademonstrowania, w jaki sposób można osiągnąć zdrowy ALM w Power Platform. Mogą być używane w niezmienionej postaci lub dostosowane do określonych scenariuszy biznesowych.</p>
-
-    
-    </aside>
-    
-</div>
 
     </div>
   </div>

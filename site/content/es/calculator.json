@@ -1,0 +1,405 @@
+{
+  "showQuestionNumbers": "off",
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "scenario",
+          "title": {
+            "default": "What scenario are you trying to calculate?",
+            "es": "¿Qué escenario estás tratando de calcular?"
+          },
+          "choices": []
+        },
+        {
+          "type": "radiogroup",
+          "name": "sample-scenario",
+          "visibleIf": "{scenario} = 'samples'",
+          "title": {
+            "default": "What sample scenario did you want to explore?",
+            "es": "¿Qué escenario de ejemplo quería explorar?"
+          },
+          "choices": []
+        },
+        {
+          "type": "html",
+          "visibleIf": "{sample-scenario} = 'migration-single-unattended'",
+          "html": {
+            "default": "Single unattended bot migration. In this example an organization may want to migrate an existing automate an existing automation solution to the Power Platform. The deployed bot will be hosted in an isolated virtual network and Virtual Machine (VM) runner.",
+            "es": "Migración única de bot desatendida. En este ejemplo, una organización puede querer migrar una solución de automatización existente a la Power Platform. El bot implementado se hospedará en una red virtual aislada y en un ejecutor de máquina virtual (VM)."
+          }
+        }
+      ]
+    },
+    {
+      "name": "migration",
+      "title": {
+        "default": "Migration Parameters",
+        "es": "Parámetros de migración"
+      },
+      "visibleIf": "{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')",
+      "elements": [
+        {
+          "name": "how-many-bots",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "How many bots to migrate?",
+            "es": "¿Cuántos bots migrar?"
+          },
+          "isRequired": true
+        },
+        {
+          "name": "attended-percentage",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "Percentage of attended bots?",
+            "es": "¿Porcentaje de bots atendidos?"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "expression",
+              "text": {
+                "default": "A value between 0 and 100",
+                "es": "Un valor entre 0 y 100"
+              },
+              "expression": "{attended-percentage} >= 0 && {attended-percentage} <= 100"
+            }
+          ]
+        },
+        {
+          "name": "unattended-percentage",
+          "type": "text",
+          "inputType": "number",
+          "title": {
+            "default": "Percentage of unattended bots?",
+            "es": "¿Porcentaje de bots desatendidos?"
+          },
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "expression",
+              "text": {
+                "default": "A value between 0 and 100",
+                "es": "Un valor entre 0 y 100"
+              },
+              "expression": "{unattended-percentage} >= 0 && {unattended-percentage} <= 100"
+            }
+          ]
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-groups",
+          "titleLocation": "none",
+          "addRowText": "Add new group",
+          "title": {
+            "default": "Migration Groups",
+            "es": "Grupos de migración"
+          },
+          "columns": [
+            {
+              "name": "name",
+              "title": {
+                "default": "Migration Group Name",
+                "es": "Nombre del grupo de migración"
+              },
+              "cellType": "text"
+            },
+            {
+              "name": "description",
+              "title": {
+                "default": "Description",
+                "es": "Descripción"
+              },
+              "cellType": "text"
+            }
+          ]
+        },
+        {
+          "name": "groups",
+          "type": "checkbox",
+          "title": {
+            "default": "Groups",
+            "es": "Grupos"
+          },
+          "visibleIf": "false",
+          "choices": []
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-times",
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "title": {
+            "default": "Duration Plan",
+            "es": "Plan de duración"
+          },
+          "columns": [
+            {
+              "name": "complexity",
+              "title": {
+                "default": "Complexity",
+                "es": "Complejidad"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "inputType": "count",
+              "choices": []
+            },
+            {
+              "name": "group",
+              "title": {
+                "default": "Group",
+                "es": "Grupo"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choicesFromQuestion": "groups"
+            },
+            {
+              "name": "percentage",
+              "title": {
+                "default": "Percentage",
+                "es": "Porcentaje"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "Bots",
+              "title": {
+                "default": "Bots",
+                "es": "Bots"
+              },
+              "cellType": "expression",
+              "expression": "botTotal({row})"
+            },
+            {
+              "name": "botsPerMonth",
+              "title": {
+                "default": "Bots per month",
+                "es": "Bots por mes"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "total",
+              "title": {
+                "default": "Total (Business Days)",
+                "es": "Total (días laborables)"
+              },
+              "cellType": "expression",
+              "expression": "migrationTotal({row})"
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.",
+            "es": "NOTA: Los valores son solo para fines ilustrativos y el tiempo de rampa, los bots por mes y el total de días hábiles para la migración deberán determinarse para los bots específicos que se migran."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "calc-migration-plan",
+          "title": {
+            "default": "Automatically calculate possible migration plan?",
+            "es": "¿Calcular automáticamente el posible plan de migración?"
+          },
+          "defaultValue": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "migration-plan",
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "title": {
+            "default": "Migration Plan",
+            "es": "Plan de migración"
+          },
+          "columns": [
+            {
+              "name": "name",
+              "title": {
+                "default": "Name",
+                "es": "Nombre"
+              },
+              "cellType": "text"
+            },
+            {
+              "name": "low",
+              "title": {
+                "default": "Low",
+                "es": "Bajo"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "medium",
+              "title": {
+                "default": "Medium",
+                "es": "Medio"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "high",
+              "title": {
+                "default": "High",
+                "es": "Alto"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "attended",
+              "title": {
+                "default": "Attended",
+                "es": "Asistieron"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            },
+            {
+              "name": "unattended",
+              "title": {
+                "default": "Unattended",
+                "es": "Desatendido"
+              },
+              "cellType": "text",
+              "inputType": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "calculation",
+      "elements": [
+        {
+          "name": "tellMeMore",
+          "type": "boolean",
+          "title": {
+            "default": "Tell me more about each license type",
+            "es": "Más información sobre cada tipo de licencia"
+          },
+          "defaultValue": false
+        },
+        {
+          "name": "matrix-image",
+          "type": "image-task",
+          "visibleIf": "{tellMeMore} == true",
+          "title": {
+            "default": "Select plans you want more information on",
+            "es": "Seleccione los planes sobre los que desea obtener más información"
+          },
+          "src": "/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at <a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>Buy Power Automate Licenses</a>",
+            "es": "Más detalles sobre las licencias incluyen licencias sembradas con Microsoft Office 365, Microsoft Dynamics, opciones de pago por uso y Windows está disponible en <a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>Comprar licencias de Power Automate</a>"
+          }
+        },
+        {
+          "name": "retailPrice",
+          "type": "boolean",
+          "title": {
+            "default": "Use retail price",
+            "es": "Utilizar precio de venta al público"
+          },
+          "defaultValue": true
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "items",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": "Add new item",
+          "columns": [
+            {
+              "name": "service",
+              "title": {
+                "default": "Service",
+                "es": "Servicio"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "inputType": "count",
+              "totalFormat": "Items count: {0}",
+              "choices": []
+            },
+            {
+              "name": "price",
+              "title": {
+                "default": "Price",
+                "es": "Precio"
+              },
+              "cellType": "expression",
+              "expression": "getItemPrice('service')",
+              "displayStyle": "currency",
+              "visibleIf": "{retailPrice} == true"
+            },
+            {
+              "name": "price-manual",
+              "title": {
+                "default": "Price",
+                "es": "Precio"
+              },
+              "cellType": "text",
+              "inputType": "number",
+              "displayStyle": "currency",
+              "visibleIf": "{retailPrice} == false"
+            },
+            {
+              "name": "quantity",
+              "title": {
+                "default": "Quantity",
+                "es": "Cantidad"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "totalType": "sum",
+              "totalFormat": "Total services: {0}",
+              "min": 1
+            },
+            {
+              "name": "total",
+              "title": {
+                "default": "Total",
+                "es": "Total"
+              },
+              "cellType": "expression",
+              "expression": "iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
+          "name": "total",
+          "type": "expression",
+          "title": {
+            "default": "Total",
+            "es": "Total"
+          },
+          "expression": "{orderList-total.total}",
+          "displayStyle": "currency"
+        }
+      ]
+    }
+  ]
+}

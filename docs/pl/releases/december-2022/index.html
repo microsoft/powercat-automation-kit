@@ -145,6 +145,7 @@
 
 
 
+
 <script>
     
     
@@ -164,6 +165,8 @@
 <noscript>
     <p>JavaScript musi być włączony, aby wyświetlić tę zawartość</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -301,6 +304,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1060,6 +1065,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1068,7 +1082,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1085,7 +1104,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1117,8 +1135,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1146,6 +1175,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1167,36 +1197,6 @@
         }
     });
 </script>
-</div>
-<div class="optional">
-<h2 id="rozpocząć">Rozpocząć</h2>
-<p>Wypróbować <a href="https://microsoft.github.io/powercat-automation-kit/pl/get-started">Przewodnik wprowadzający</a> lub dołącz do naszego <a href="https://microsoft.github.io/powercat-automation-kit/pl/office-hours">Godziny pracy biura</a></p>
-<h2 id="wcześniejsze-wydanie">Wcześniejsze wydanie</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/pl/releases/november-2022">listopad 2022</a> (ostry-Archimedes)</li>
-</ul>
-<h2 id="następne-wydanie">Następne wydanie</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/pl/releases/january-2023">styczeń 2023</a> (Nifty-Emmy)</li>
-</ul>
-<h2 id="kamienie-milowe-projektu">Kamienie milowe projektu</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/5">Automation Kit - grudzień 2022</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">Automation Kit - zaległości</a></p>
-<p>Zapoznaj się z <a href="https://microsoft.github.io/powercat-automation-kit/pl/releases/milestones">Notatki dotyczące kamieni milowych</a> w celu uzyskania dalszych informacji</p>
-<h2 id="najważniejsze-uwagi">Najważniejsze uwagi</h2>
-<p>Najważniejsze funkcje w tej wersji:</p>
-<ul>
-<li>Do aktualizacji</li>
-</ul>
-<h2 id="wersji">Wersji</h2>
-<p>W zestawie <a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022">Automation Kit - grudzień 2022</a> dla błędów i problemów zamkniętych</p>
-<h2 id="zwalnianie-zasobów">Zwalnianie zasobów</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-December2022">Automation Kit - grudzień 2022</a></li>
-</ul>
-<h2 id="historia-wydań">Historia wydań</h2>
-<p>Pełny <a href="https://microsoft.github.io/powercat-automation-kit/pl/releases">Historia wydań</a></p>
-</div>
 
     </div>
   </div>

@@ -257,6 +257,7 @@
 
 
 
+
 <script>
     
     
@@ -276,6 +277,8 @@
 <noscript>
     <p>JavaScript må være aktivert for å se dette innholdet</p>
 </noscript>
+
+
 
 <script>
     class QuestionExtensions {
@@ -413,6 +416,8 @@
                     question.readOnlyChangedCallback = null;
                 }
             };
+
+            
             Survey.CustomWidgetCollection.Instance.addCustomWidget(widget, "customtype");
         }
 
@@ -1172,6 +1177,15 @@
         return false
     }
 
+    function startsWithFunction(params) {
+        try {
+            return params[0].startsWith(params[1])
+        } catch {
+            return false
+        }
+        return false
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1180,7 +1194,12 @@
         Survey.FunctionFactory
             .Instance
             .register("len", stringLength);
+        Survey.FunctionFactory
+            .Instance
+            .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
+
+        
 
         const converter = new showdown.Converter();
         new QuestionExtensions();
@@ -1197,7 +1216,6 @@
                 const value = url_param.get(key);
                 questionModel.setValue(key, value)
             }
-
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
@@ -1229,8 +1247,19 @@
             });
             const config = { attributes: true, childList: true, subtree: true };
             observer.observe(targetNode, config);
-
+            
             $("#questions").Survey({ model: questionModel });
+
+            if ( window.surveyChanged != null ) {
+                questionModel.onValueChanged.add(window.surveyChanged)
+            }
+            if ( window.afterRenderQuestion != null ) {
+                questionModel.onAfterRenderQuestion.add(window.afterRenderQuestion)
+            }
+
+            questionModel.currentPageNo = 0;
+
+            
 
             return questionModel;
         }
@@ -1258,6 +1287,7 @@
 
                 }     
             }
+            
 
             data = JSON.stringify(newData)
             let result = loadData(data)
@@ -1279,144 +1309,6 @@
         }
     });
 </script>
-</div>
-<style>
-    .fullscreen.optional {
-        display: none !important
-    }
-    nav > .fullscreen.container {
-        display: none !important
-    }
-    section.fullscreen {
-        padding: 10px !important;
-    }
-    .reveal.fullscreen {
-    }
-}
-</style>
-
-<style>
-     .page { display: none }
-</style>
-
-
-
-
-
-
-
-
-
-<div id="slide1" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks.svg" alt="Automation Kit Overview"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>Med november Release &ldquo;<a href="https://microsoft.github.io/powercat-automation-kit/nb/features/datapacks">Datapakker</a>&rdquo; er en viktig ny funksjon.</p>
-<p>Se <strong>Komme i gang</strong> for å laste inn din første datapakke.</p>
-<p>Datapakker gir deg muligheten til å importere eksempeldata valgfritt.</p>
-<p>Med datapakken Avkastning på investering (ROI) kan du raskt demonstrere planlegging, måling og overvåking av avkastning på investeringen via Automation Kit Power BI-instrumentbordet.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide2" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.mp3">
-
-    
-        
-            
-            <img src="https://powercat-automation-kit.azureedge.net/releases/november-2022/DataPacks-WhatsNext.svg?v=1" alt="Automation Kit Features"/>
-            
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>I fremtidige milepæler vil vi prøve å forbedre datapakkene ved å inkludere dem som en valgfri del av den automatiserte installasjonsprosessen for automatiseringssett.</p>
-<p>Muligheten til å inkludere datapakker som en del av installasjonen vil tillate en nettbasert installasjon, i stedet for kommandolinjeinstallasjonsprosessen for denne utgivelsen.</p>
-
-    
-    </aside>
-    
-</div>
-
-
-
-
-
-
-
-
-
-<div id="slide3" class="page" data-audio="https://powercat-automation-kit.azureedge.net/releases/november-2022/alm-roadmap.mp3">
-
-    
-        
-            
-            
-            <img src="https://microsoft.github.io/powercat-automation-kit/images/illustrations/alm-roadmap-2022-11.svg" alt="ALM Roadmap"/>
-            
-        
-    
-    
-    <aside class="notes">
-
-    <p>For denne utgivelsen ligner de andre Power CAT-administrerte settene Automatiseringssett for Power Platform har gått over til å bruke ALM Accelerator til å distribuere GitHub-utgivelsene våre. Du kan lese mer i vår <a href="https://microsoft.github.io/powercat-automation-kit/nb/features/alm">ALM-funksjoner</a> side.</p>
-<p>I fremtidige milepæler vil vi forbedre den eksisterende ALM Accelerator-prosessen for å inkludere Power Automate Desktop-spesifikke oppgaver som vil bruke utvidelser til CI/CD ALM-prosessen.</p>
-
-    
-    </aside>
-    
-</div>
-<div class="optional">
-<h2 id="kom-i-gang">Kom i gang</h2>
-<p>Prøv ut <a href="https://microsoft.github.io/powercat-automation-kit/nb/get-started">Kom i gang-veiledning</a> eller bli med i vår <a href="https://microsoft.github.io/powercat-automation-kit/nb/office-hours">Kontortid</a></p>
-<h2 id="tidligere-utgivelse">Tidligere utgivelse</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/october-2022">Oktober 2022</a> (fengende-Dhawan)</li>
-</ul>
-<h2 id="neste-utgivelse">Neste utgivelse</h2>
-<ul>
-<li><a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/december-2022">desember 2022</a> (nidkjær-Antonelli)</li>
-</ul>
-<h2 id="milepæler-i-prosjektet">Milepæler i prosjektet</h2>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/4">Automatiseringssett - November 2022</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/5">Automatiseringssett - Desember 2022</a></p>
-<p><a href="https://github.com/orgs/microsoft/projects/486/views/1">Automatiseringssett - Etterslep</a></p>
-<p>Se gjennom <a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/milestones">Milepæl Notater</a> for ytterligere informasjon</p>
-<h2 id="viktige-merknader">Viktige merknader</h2>
-<p>Viktige funksjoner i denne versjonen:</p>
-<ul>
-<li>Datapakke. Les mer om <a href="https://microsoft.github.io/powercat-automation-kit/nb/features/datapacks">Datapakke-funksjonen</a></li>
-</ul>
-<h2 id="produktmerknader">Produktmerknader</h2>
-<p>Inkludert i <a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022">Automatiseringssett - November 2022</a> for feil og problemer lukket</p>
-<h2 id="frigi-eiendeler">Frigi eiendeler</h2>
-<ul>
-<li><a href="https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-November2022">Automatiseringssett - November 2022</a></li>
-</ul>
-<h2 id="historikk-for-utgivelser">Historikk for utgivelser</h2>
-<p>Full <a href="https://microsoft.github.io/powercat-automation-kit/nb/releases">Historikk for utgivelser</a></p>
-</div>
 
     </div>
   </div>
