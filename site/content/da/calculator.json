@@ -11,7 +11,29 @@
             "default": "What scenario are you trying to calculate?",
             "da": "Hvilket scenarie forsøger du at beregne?"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "calculator",
+              "text": {
+                "default": "Power Automate / Power Automate Desktop license cost",
+                "da": "Licensomkostninger for Power Automate/Power Automate Desktop"
+              }
+            },
+            {
+              "value": "migration-planner",
+              "text": {
+                "default": "Migration planner",
+                "da": "Planlægning af migrering"
+              }
+            },
+            {
+              "value": "samples",
+              "text": {
+                "default": "Sample scenarios",
+                "da": "Eksempler på scenarier"
+              }
+            }
+          ]
         },
         {
           "type": "radiogroup",
@@ -21,7 +43,36 @@
             "default": "What sample scenario did you want to explore?",
             "da": "Hvilket eksempelscenarie ville du undersøge?"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "migration-single-unattended",
+              "text": {
+                "default": "Migration of a single unattended bot running isolated from other bot process",
+                "da": "Migrering af en enkelt uovervåget robot, der kører isoleret fra en anden botproces"
+              }
+            },
+            {
+              "value": "migration-200",
+              "text": {
+                "default": "Migration of hundreds of bots",
+                "da": "Migrering af hundredvis af bots"
+              }
+            },
+            {
+              "value": "process-mining",
+              "text": {
+                "default": "Using Process Advisor to identify Process automation",
+                "da": "Brug af Process Advisor til at identificere procesautomatisering"
+              }
+            },
+            {
+              "value": "task-mining",
+              "text": {
+                "default": "Using Process Advisor task mining to analyze and improve bot reliability",
+                "da": "Brug af Process Advisor opgavemining til at analysere og forbedre botpålidelighed"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -95,7 +146,10 @@
           "type": "matrixdynamic",
           "name": "migration-groups",
           "titleLocation": "none",
-          "addRowText": "Add new group",
+          "addRowText": {
+            "default": "Add new group",
+            "da": "Tilføj ny gruppe"
+          },
           "title": {
             "default": "Migration Groups",
             "da": "Overførselsgrupper"
@@ -133,7 +187,10 @@
           "type": "matrixdynamic",
           "name": "migration-times",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "da": "Tilføj nyt element"
+          },
           "title": {
             "default": "Duration Plan",
             "da": "Varighed Plan"
@@ -148,7 +205,29 @@
               "isRequired": true,
               "cellType": "dropdown",
               "inputType": "count",
-              "choices": []
+              "choices": [
+                {
+                  "value": "low",
+                  "text": {
+                    "default": "Low",
+                    "da": "Lav"
+                  }
+                },
+                {
+                  "value": "medium",
+                  "text": {
+                    "default": "Medium",
+                    "da": "Medium"
+                  }
+                },
+                {
+                  "value": "high",
+                  "text": {
+                    "default": "High",
+                    "da": "Høj"
+                  }
+                }
+              ]
             },
             {
               "name": "group",
@@ -218,7 +297,10 @@
           "type": "matrixdynamic",
           "name": "migration-plan",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "da": "Tilføj nyt element"
+          },
           "title": {
             "default": "Migration Plan",
             "da": "Migrationsplan"
@@ -325,19 +407,81 @@
           "rowCount": 1,
           "minRowCount": 1,
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "da": "Tilføj nyt element"
+          },
           "columns": [
             {
-              "name": "service",
+              "name": "type",
               "title": {
-                "default": "Service",
-                "da": "Tjeneste"
+                "default": "Type",
+                "da": "Slags"
               },
               "isRequired": true,
               "cellType": "dropdown",
-              "inputType": "count",
-              "totalFormat": "Items count: {0}",
-              "choices": []
+              "choices": [
+                {
+                  "value": "Trial",
+                  "text": {
+                    "default": "Trial",
+                    "da": "Rettergang"
+                  }
+                },
+                {
+                  "value": "User",
+                  "text": {
+                    "default": "User",
+                    "da": "Bruger"
+                  }
+                },
+                {
+                  "value": "Flow",
+                  "text": {
+                    "default": "Flow",
+                    "da": "Strøm"
+                  }
+                },
+                {
+                  "value": "Extra Flow",
+                  "text": {
+                    "default": "Extra Flow",
+                    "da": "Ekstra flow"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "mode",
+              "title": {
+                "default": "Mode",
+                "da": "Tilstand"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Attended",
+                  "text": {
+                    "default": "Attended",
+                    "da": "Deltog"
+                  }
+                },
+                {
+                  "value": "Unattended",
+                  "text": {
+                    "default": "Unattended",
+                    "da": "Automatisk"
+                  }
+                },
+                {
+                  "value": "Cloud",
+                  "text": {
+                    "default": "Cloud",
+                    "da": "Sky"
+                  }
+                }
+              ]
             },
             {
               "name": "price",
@@ -346,7 +490,7 @@
                 "da": "Pris"
               },
               "cellType": "expression",
-              "expression": "getItemPrice('service')",
+              "expression": "getItemPrice()",
               "displayStyle": "currency",
               "visibleIf": "{retailPrice} == true"
             },
@@ -390,14 +534,11 @@
           ]
         },
         {
-          "name": "total",
-          "type": "expression",
-          "title": {
-            "default": "Total",
-            "da": "Total"
-          },
-          "expression": "{orderList-total.total}",
-          "displayStyle": "currency"
+          "type": "html",
+          "html": {
+            "default": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows.",
+            "da": "BEMÆRK: Skriv <b>Strøm</b> repræsenterer minimumsordre på 5 cloud / RPA-strømme. Slags <b>Ekstra flow</b> repræsenterer enkelt flow over minimumsordreniveauet på 5 flows."
+          }
         }
       ]
     }

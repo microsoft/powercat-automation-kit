@@ -11,7 +11,29 @@
             "default": "What scenario are you trying to calculate?",
             "de": "Welches Szenario versuchen Sie zu berechnen?"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "calculator",
+              "text": {
+                "default": "Power Automate / Power Automate Desktop license cost",
+                "de": "Lizenzkosten für Power Automate / Power Automate Desktop"
+              }
+            },
+            {
+              "value": "migration-planner",
+              "text": {
+                "default": "Migration planner",
+                "de": "Migrationsplaner"
+              }
+            },
+            {
+              "value": "samples",
+              "text": {
+                "default": "Sample scenarios",
+                "de": "Beispielszenarien"
+              }
+            }
+          ]
         },
         {
           "type": "radiogroup",
@@ -21,7 +43,36 @@
             "default": "What sample scenario did you want to explore?",
             "de": "Welches Beispielszenario wollten Sie untersuchen?"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "migration-single-unattended",
+              "text": {
+                "default": "Migration of a single unattended bot running isolated from other bot process",
+                "de": "Migration eines einzelnen unbeaufsichtigten Bots, der isoliert von anderen Botprozessen ausgeführt wird"
+              }
+            },
+            {
+              "value": "migration-200",
+              "text": {
+                "default": "Migration of hundreds of bots",
+                "de": "Migration von Hunderten von Bots"
+              }
+            },
+            {
+              "value": "process-mining",
+              "text": {
+                "default": "Using Process Advisor to identify Process automation",
+                "de": "Verwenden von Process Advisor zur Identifizierung von Prozessautomatisierung"
+              }
+            },
+            {
+              "value": "task-mining",
+              "text": {
+                "default": "Using Process Advisor task mining to analyze and improve bot reliability",
+                "de": "Verwenden von Process Advisor Task Mining zur Analyse und Verbesserung der Bot-Zuverlässigkeit"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -95,7 +146,10 @@
           "type": "matrixdynamic",
           "name": "migration-groups",
           "titleLocation": "none",
-          "addRowText": "Add new group",
+          "addRowText": {
+            "default": "Add new group",
+            "de": "Neue Gruppe hinzufügen"
+          },
           "title": {
             "default": "Migration Groups",
             "de": "Migrationsgruppen"
@@ -133,7 +187,10 @@
           "type": "matrixdynamic",
           "name": "migration-times",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "de": "Neues Element hinzufügen"
+          },
           "title": {
             "default": "Duration Plan",
             "de": "Laufzeitplan"
@@ -148,7 +205,29 @@
               "isRequired": true,
               "cellType": "dropdown",
               "inputType": "count",
-              "choices": []
+              "choices": [
+                {
+                  "value": "low",
+                  "text": {
+                    "default": "Low",
+                    "de": "Niedrig"
+                  }
+                },
+                {
+                  "value": "medium",
+                  "text": {
+                    "default": "Medium",
+                    "de": "Mittel"
+                  }
+                },
+                {
+                  "value": "high",
+                  "text": {
+                    "default": "High",
+                    "de": "Hoch"
+                  }
+                }
+              ]
             },
             {
               "name": "group",
@@ -218,7 +297,10 @@
           "type": "matrixdynamic",
           "name": "migration-plan",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "de": "Neues Element hinzufügen"
+          },
           "title": {
             "default": "Migration Plan",
             "de": "Migrationsplan"
@@ -325,19 +407,81 @@
           "rowCount": 1,
           "minRowCount": 1,
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "de": "Neues Element hinzufügen"
+          },
           "columns": [
             {
-              "name": "service",
+              "name": "type",
               "title": {
-                "default": "Service",
-                "de": "Dienst"
+                "default": "Type",
+                "de": "Art"
               },
               "isRequired": true,
               "cellType": "dropdown",
-              "inputType": "count",
-              "totalFormat": "Items count: {0}",
-              "choices": []
+              "choices": [
+                {
+                  "value": "Trial",
+                  "text": {
+                    "default": "Trial",
+                    "de": "Probephase"
+                  }
+                },
+                {
+                  "value": "User",
+                  "text": {
+                    "default": "User",
+                    "de": "Benutzer"
+                  }
+                },
+                {
+                  "value": "Flow",
+                  "text": {
+                    "default": "Flow",
+                    "de": "Fluss"
+                  }
+                },
+                {
+                  "value": "Extra Flow",
+                  "text": {
+                    "default": "Extra Flow",
+                    "de": "Extra Durchfluss"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "mode",
+              "title": {
+                "default": "Mode",
+                "de": "Modus"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Attended",
+                  "text": {
+                    "default": "Attended",
+                    "de": "Besucht"
+                  }
+                },
+                {
+                  "value": "Unattended",
+                  "text": {
+                    "default": "Unattended",
+                    "de": "Unbeaufsichtigt"
+                  }
+                },
+                {
+                  "value": "Cloud",
+                  "text": {
+                    "default": "Cloud",
+                    "de": "Wolke"
+                  }
+                }
+              ]
             },
             {
               "name": "price",
@@ -346,7 +490,7 @@
                 "de": "Preis"
               },
               "cellType": "expression",
-              "expression": "getItemPrice('service')",
+              "expression": "getItemPrice()",
               "displayStyle": "currency",
               "visibleIf": "{retailPrice} == true"
             },
@@ -390,14 +534,11 @@
           ]
         },
         {
-          "name": "total",
-          "type": "expression",
-          "title": {
-            "default": "Total",
-            "de": "Gesamt"
-          },
-          "expression": "{orderList-total.total}",
-          "displayStyle": "currency"
+          "type": "html",
+          "html": {
+            "default": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows.",
+            "de": "HINWEIS: Geben Sie Folgendes ein: <b>Fluss</b> stellt eine Mindestbestellmenge von 5 Cloud- / RPA-Flows dar. Art <b>Extra Durchfluss</b> Stellt einen einzelnen Flow oberhalb der Mindestbestellmenge von 5 Flows dar."
+          }
         }
       ]
     }

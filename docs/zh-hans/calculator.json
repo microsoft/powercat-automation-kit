@@ -11,7 +11,29 @@
             "default": "What scenario are you trying to calculate?",
             "zh-hans": "您要计算什么方案？"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "calculator",
+              "text": {
+                "default": "Power Automate / Power Automate Desktop license cost",
+                "zh-hans": "电源自动化/电源自动化桌面许可证成本"
+              }
+            },
+            {
+              "value": "migration-planner",
+              "text": {
+                "default": "Migration planner",
+                "zh-hans": "迁移规划器"
+              }
+            },
+            {
+              "value": "samples",
+              "text": {
+                "default": "Sample scenarios",
+                "zh-hans": "示例方案"
+              }
+            }
+          ]
         },
         {
           "type": "radiogroup",
@@ -21,7 +43,36 @@
             "default": "What sample scenario did you want to explore?",
             "zh-hans": "您想探索哪个示例方案？"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "migration-single-unattended",
+              "text": {
+                "default": "Migration of a single unattended bot running isolated from other bot process",
+                "zh-hans": "迁移与其他机器人进程隔离运行的单个无人参与机器人"
+              }
+            },
+            {
+              "value": "migration-200",
+              "text": {
+                "default": "Migration of hundreds of bots",
+                "zh-hans": "迁移数百个机器人"
+              }
+            },
+            {
+              "value": "process-mining",
+              "text": {
+                "default": "Using Process Advisor to identify Process automation",
+                "zh-hans": "使用Process Advisor识别流程自动化"
+              }
+            },
+            {
+              "value": "task-mining",
+              "text": {
+                "default": "Using Process Advisor task mining to analyze and improve bot reliability",
+                "zh-hans": "使用Process Advisor任务挖掘来分析和提高机器人可靠性"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -95,7 +146,10 @@
           "type": "matrixdynamic",
           "name": "migration-groups",
           "titleLocation": "none",
-          "addRowText": "Add new group",
+          "addRowText": {
+            "default": "Add new group",
+            "zh-hans": "添加新组"
+          },
           "title": {
             "default": "Migration Groups",
             "zh-hans": "迁移组"
@@ -133,7 +187,10 @@
           "type": "matrixdynamic",
           "name": "migration-times",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "zh-hans": "添加新项目"
+          },
           "title": {
             "default": "Duration Plan",
             "zh-hans": "持续时间计划"
@@ -148,7 +205,29 @@
               "isRequired": true,
               "cellType": "dropdown",
               "inputType": "count",
-              "choices": []
+              "choices": [
+                {
+                  "value": "low",
+                  "text": {
+                    "default": "Low",
+                    "zh-hans": "低"
+                  }
+                },
+                {
+                  "value": "medium",
+                  "text": {
+                    "default": "Medium",
+                    "zh-hans": "中等"
+                  }
+                },
+                {
+                  "value": "high",
+                  "text": {
+                    "default": "High",
+                    "zh-hans": "高"
+                  }
+                }
+              ]
             },
             {
               "name": "group",
@@ -218,7 +297,10 @@
           "type": "matrixdynamic",
           "name": "migration-plan",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "zh-hans": "添加新项目"
+          },
           "title": {
             "default": "Migration Plan",
             "zh-hans": "迁移计划"
@@ -325,19 +407,81 @@
           "rowCount": 1,
           "minRowCount": 1,
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "zh-hans": "添加新项目"
+          },
           "columns": [
             {
-              "name": "service",
+              "name": "type",
               "title": {
-                "default": "Service",
-                "zh-hans": "服务"
+                "default": "Type",
+                "zh-hans": "类型"
               },
               "isRequired": true,
               "cellType": "dropdown",
-              "inputType": "count",
-              "totalFormat": "Items count: {0}",
-              "choices": []
+              "choices": [
+                {
+                  "value": "Trial",
+                  "text": {
+                    "default": "Trial",
+                    "zh-hans": "试验"
+                  }
+                },
+                {
+                  "value": "User",
+                  "text": {
+                    "default": "User",
+                    "zh-hans": "用户"
+                  }
+                },
+                {
+                  "value": "Flow",
+                  "text": {
+                    "default": "Flow",
+                    "zh-hans": "流"
+                  }
+                },
+                {
+                  "value": "Extra Flow",
+                  "text": {
+                    "default": "Extra Flow",
+                    "zh-hans": "额外流量"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "mode",
+              "title": {
+                "default": "Mode",
+                "zh-hans": "模式"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Attended",
+                  "text": {
+                    "default": "Attended",
+                    "zh-hans": "参加"
+                  }
+                },
+                {
+                  "value": "Unattended",
+                  "text": {
+                    "default": "Unattended",
+                    "zh-hans": "无人 值守"
+                  }
+                },
+                {
+                  "value": "Cloud",
+                  "text": {
+                    "default": "Cloud",
+                    "zh-hans": "云"
+                  }
+                }
+              ]
             },
             {
               "name": "price",
@@ -346,7 +490,7 @@
                 "zh-hans": "价格"
               },
               "cellType": "expression",
-              "expression": "getItemPrice('service')",
+              "expression": "getItemPrice()",
               "displayStyle": "currency",
               "visibleIf": "{retailPrice} == true"
             },
@@ -390,14 +534,11 @@
           ]
         },
         {
-          "name": "total",
-          "type": "expression",
-          "title": {
-            "default": "Total",
-            "zh-hans": "总"
-          },
-          "expression": "{orderList-total.total}",
-          "displayStyle": "currency"
+          "type": "html",
+          "html": {
+            "default": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows.",
+            "zh-hans": "注：类型<b>流</b>表示 5 个云/RPA 流的最小订单。类型<b>额外流量</b>表示高于 5 个流的最低订单级别的单个流。"
+          }
         }
       ]
     }

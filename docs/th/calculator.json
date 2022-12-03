@@ -11,7 +11,29 @@
             "default": "What scenario are you trying to calculate?",
             "th": "คุณกําลังพยายามคํานวณสถานการณ์ใด"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "calculator",
+              "text": {
+                "default": "Power Automate / Power Automate Desktop license cost",
+                "th": "ค่าใช้จ่ายสิทธิ์การใช้งาน Power Automate / Power Automate บนเดสก์ท็อป"
+              }
+            },
+            {
+              "value": "migration-planner",
+              "text": {
+                "default": "Migration planner",
+                "th": "เครื่องมือวางแผนการโยกย้าย"
+              }
+            },
+            {
+              "value": "samples",
+              "text": {
+                "default": "Sample scenarios",
+                "th": "ตัวอย่างสถานการณ์จําลอง"
+              }
+            }
+          ]
         },
         {
           "type": "radiogroup",
@@ -21,7 +43,36 @@
             "default": "What sample scenario did you want to explore?",
             "th": "คุณต้องการสํารวจสถานการณ์ตัวอย่างอะไรบ้าง"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "migration-single-unattended",
+              "text": {
+                "default": "Migration of a single unattended bot running isolated from other bot process",
+                "th": "การโยกย้ายบอทแบบไม่ต้องใส่ข้อมูลตัวเดียวที่ทํางานแยกจากกระบวนการบอทอื่น"
+              }
+            },
+            {
+              "value": "migration-200",
+              "text": {
+                "default": "Migration of hundreds of bots",
+                "th": "การย้ายถิ่นของบอทหลายร้อยตัว"
+              }
+            },
+            {
+              "value": "process-mining",
+              "text": {
+                "default": "Using Process Advisor to identify Process automation",
+                "th": "การใช้ Process Advisor เพื่อระบุระบบอัตโนมัติของกระบวนการ"
+              }
+            },
+            {
+              "value": "task-mining",
+              "text": {
+                "default": "Using Process Advisor task mining to analyze and improve bot reliability",
+                "th": "การใช้การทําเหมืองงานProcess Advisorเพื่อวิเคราะห์และปรับปรุงความน่าเชื่อถือของบอท"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -95,7 +146,10 @@
           "type": "matrixdynamic",
           "name": "migration-groups",
           "titleLocation": "none",
-          "addRowText": "Add new group",
+          "addRowText": {
+            "default": "Add new group",
+            "th": "เพิ่มกลุ่มใหม่"
+          },
           "title": {
             "default": "Migration Groups",
             "th": "กลุ่มการย้ายข้อมูล"
@@ -133,7 +187,10 @@
           "type": "matrixdynamic",
           "name": "migration-times",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "th": "เพิ่มรายการใหม่"
+          },
           "title": {
             "default": "Duration Plan",
             "th": "แผนระยะเวลา"
@@ -148,7 +205,29 @@
               "isRequired": true,
               "cellType": "dropdown",
               "inputType": "count",
-              "choices": []
+              "choices": [
+                {
+                  "value": "low",
+                  "text": {
+                    "default": "Low",
+                    "th": "ต่ํา"
+                  }
+                },
+                {
+                  "value": "medium",
+                  "text": {
+                    "default": "Medium",
+                    "th": "ปานกลาง"
+                  }
+                },
+                {
+                  "value": "high",
+                  "text": {
+                    "default": "High",
+                    "th": "สูง"
+                  }
+                }
+              ]
             },
             {
               "name": "group",
@@ -218,7 +297,10 @@
           "type": "matrixdynamic",
           "name": "migration-plan",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "th": "เพิ่มรายการใหม่"
+          },
           "title": {
             "default": "Migration Plan",
             "th": "แผนการโยกย้าย"
@@ -325,19 +407,81 @@
           "rowCount": 1,
           "minRowCount": 1,
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "th": "เพิ่มรายการใหม่"
+          },
           "columns": [
             {
-              "name": "service",
+              "name": "type",
               "title": {
-                "default": "Service",
-                "th": "บริการ"
+                "default": "Type",
+                "th": "ประเภท"
               },
               "isRequired": true,
               "cellType": "dropdown",
-              "inputType": "count",
-              "totalFormat": "Items count: {0}",
-              "choices": []
+              "choices": [
+                {
+                  "value": "Trial",
+                  "text": {
+                    "default": "Trial",
+                    "th": "การทดลอง"
+                  }
+                },
+                {
+                  "value": "User",
+                  "text": {
+                    "default": "User",
+                    "th": "ผู้ใช้"
+                  }
+                },
+                {
+                  "value": "Flow",
+                  "text": {
+                    "default": "Flow",
+                    "th": "ไหล"
+                  }
+                },
+                {
+                  "value": "Extra Flow",
+                  "text": {
+                    "default": "Extra Flow",
+                    "th": "การไหลพิเศษ"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "mode",
+              "title": {
+                "default": "Mode",
+                "th": "โหมด"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Attended",
+                  "text": {
+                    "default": "Attended",
+                    "th": "เข้าร่วม"
+                  }
+                },
+                {
+                  "value": "Unattended",
+                  "text": {
+                    "default": "Unattended",
+                    "th": "ไม่ต้องใส่ข้อมูล"
+                  }
+                },
+                {
+                  "value": "Cloud",
+                  "text": {
+                    "default": "Cloud",
+                    "th": "เมฆ"
+                  }
+                }
+              ]
             },
             {
               "name": "price",
@@ -346,7 +490,7 @@
                 "th": "ราคา"
               },
               "cellType": "expression",
-              "expression": "getItemPrice('service')",
+              "expression": "getItemPrice()",
               "displayStyle": "currency",
               "visibleIf": "{retailPrice} == true"
             },
@@ -390,14 +534,11 @@
           ]
         },
         {
-          "name": "total",
-          "type": "expression",
-          "title": {
-            "default": "Total",
-            "th": "ทั้งหมด"
-          },
-          "expression": "{orderList-total.total}",
-          "displayStyle": "currency"
+          "type": "html",
+          "html": {
+            "default": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows.",
+            "th": "หมายเหตุ: ประเภท <b>ไหล</b> แสดงลําดับขั้นต่ําของโฟลว์ระบบคลาวด์/RPA 5 โฟลว์ ประเภท <b>การไหลพิเศษ</b> แสดงโฟลว์เดียวเหนือระดับการสั่งซื้อขั้นต่ํา 5 โฟลว์"
+          }
         }
       ]
     }

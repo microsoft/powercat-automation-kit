@@ -11,7 +11,29 @@
             "default": "What scenario are you trying to calculate?",
             "es": "¿Qué escenario estás tratando de calcular?"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "calculator",
+              "text": {
+                "default": "Power Automate / Power Automate Desktop license cost",
+                "es": "Costo de la licencia de Power Automate / Power Automate Desktop"
+              }
+            },
+            {
+              "value": "migration-planner",
+              "text": {
+                "default": "Migration planner",
+                "es": "Planificador de migración"
+              }
+            },
+            {
+              "value": "samples",
+              "text": {
+                "default": "Sample scenarios",
+                "es": "Escenarios de ejemplo"
+              }
+            }
+          ]
         },
         {
           "type": "radiogroup",
@@ -21,7 +43,36 @@
             "default": "What sample scenario did you want to explore?",
             "es": "¿Qué escenario de ejemplo quería explorar?"
           },
-          "choices": []
+          "choices": [
+            {
+              "value": "migration-single-unattended",
+              "text": {
+                "default": "Migration of a single unattended bot running isolated from other bot process",
+                "es": "Migración de un único bot desatendido que se ejecuta aislado de otro proceso de bot"
+              }
+            },
+            {
+              "value": "migration-200",
+              "text": {
+                "default": "Migration of hundreds of bots",
+                "es": "Migración de cientos de bots"
+              }
+            },
+            {
+              "value": "process-mining",
+              "text": {
+                "default": "Using Process Advisor to identify Process automation",
+                "es": "Uso de Process Advisor para identificar la automatización de procesos"
+              }
+            },
+            {
+              "value": "task-mining",
+              "text": {
+                "default": "Using Process Advisor task mining to analyze and improve bot reliability",
+                "es": "Uso de la minería de tareas Process Advisor para analizar y mejorar la confiabilidad del bot"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -95,7 +146,10 @@
           "type": "matrixdynamic",
           "name": "migration-groups",
           "titleLocation": "none",
-          "addRowText": "Add new group",
+          "addRowText": {
+            "default": "Add new group",
+            "es": "Agregar nuevo grupo"
+          },
           "title": {
             "default": "Migration Groups",
             "es": "Grupos de migración"
@@ -133,7 +187,10 @@
           "type": "matrixdynamic",
           "name": "migration-times",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "es": "Agregar nuevo elemento"
+          },
           "title": {
             "default": "Duration Plan",
             "es": "Plan de duración"
@@ -148,7 +205,29 @@
               "isRequired": true,
               "cellType": "dropdown",
               "inputType": "count",
-              "choices": []
+              "choices": [
+                {
+                  "value": "low",
+                  "text": {
+                    "default": "Low",
+                    "es": "Bajo"
+                  }
+                },
+                {
+                  "value": "medium",
+                  "text": {
+                    "default": "Medium",
+                    "es": "Medio"
+                  }
+                },
+                {
+                  "value": "high",
+                  "text": {
+                    "default": "High",
+                    "es": "Alto"
+                  }
+                }
+              ]
             },
             {
               "name": "group",
@@ -218,7 +297,10 @@
           "type": "matrixdynamic",
           "name": "migration-plan",
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "es": "Agregar nuevo elemento"
+          },
           "title": {
             "default": "Migration Plan",
             "es": "Plan de migración"
@@ -325,19 +407,81 @@
           "rowCount": 1,
           "minRowCount": 1,
           "titleLocation": "none",
-          "addRowText": "Add new item",
+          "addRowText": {
+            "default": "Add new item",
+            "es": "Agregar nuevo elemento"
+          },
           "columns": [
             {
-              "name": "service",
+              "name": "type",
               "title": {
-                "default": "Service",
-                "es": "Servicio"
+                "default": "Type",
+                "es": "Tipo"
               },
               "isRequired": true,
               "cellType": "dropdown",
-              "inputType": "count",
-              "totalFormat": "Items count: {0}",
-              "choices": []
+              "choices": [
+                {
+                  "value": "Trial",
+                  "text": {
+                    "default": "Trial",
+                    "es": "Juicio"
+                  }
+                },
+                {
+                  "value": "User",
+                  "text": {
+                    "default": "User",
+                    "es": "Usuario"
+                  }
+                },
+                {
+                  "value": "Flow",
+                  "text": {
+                    "default": "Flow",
+                    "es": "Fluir"
+                  }
+                },
+                {
+                  "value": "Extra Flow",
+                  "text": {
+                    "default": "Extra Flow",
+                    "es": "Flujo extra"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "mode",
+              "title": {
+                "default": "Mode",
+                "es": "Modo"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Attended",
+                  "text": {
+                    "default": "Attended",
+                    "es": "Asistieron"
+                  }
+                },
+                {
+                  "value": "Unattended",
+                  "text": {
+                    "default": "Unattended",
+                    "es": "Desatendido"
+                  }
+                },
+                {
+                  "value": "Cloud",
+                  "text": {
+                    "default": "Cloud",
+                    "es": "Nube"
+                  }
+                }
+              ]
             },
             {
               "name": "price",
@@ -346,7 +490,7 @@
                 "es": "Precio"
               },
               "cellType": "expression",
-              "expression": "getItemPrice('service')",
+              "expression": "getItemPrice()",
               "displayStyle": "currency",
               "visibleIf": "{retailPrice} == true"
             },
@@ -390,14 +534,11 @@
           ]
         },
         {
-          "name": "total",
-          "type": "expression",
-          "title": {
-            "default": "Total",
-            "es": "Total"
-          },
-          "expression": "{orderList-total.total}",
-          "displayStyle": "currency"
+          "type": "html",
+          "html": {
+            "default": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows.",
+            "es": "NOTA: Tipo <b>Fluir</b> representa un pedido mínimo de 5 flujos de nube/RPA. Tipo <b>Flujo extra</b> representa un flujo único por encima del nivel de orden mínimo de 5 flujos."
+          }
         }
       ]
     }

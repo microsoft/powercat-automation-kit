@@ -20,7 +20,22 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "production",
+              "text": {
+                "default": "Production - Install to a production licensed environment",
+                "nb": "Produksjon – installere i et produksjonslisensiert miljø"
+              }
+            },
+            {
+              "value": "non-production",
+              "text": {
+                "default": "Non production - Install to a development or test environment",
+                "nb": "Ikke-produksjon – Installere i et utviklings- eller testmiljø"
+              }
+            }
+          ]
         },
         {
           "type": "radiogroup",
@@ -31,7 +46,29 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "development",
+              "text": {
+                "default": "Install to a Power Platform development environment",
+                "nb": "Installere i et Power Platform utviklingsmiljø"
+              }
+            },
+            {
+              "value": "shared",
+              "text": {
+                "default": "Install to a shared Power Platform environment",
+                "nb": "Installere i et delt Power Platform-miljø"
+              }
+            },
+            {
+              "value": "trial-30",
+              "text": {
+                "default": "Install into 30 day trial Power Platform environment",
+                "nb": "Installer i 30 dagers prøveversjon Power Platform miljø"
+              }
+            }
+          ]
         },
         {
           "type": "checkbox",
@@ -42,7 +79,29 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "main",
+              "text": {
+                "default": "The **main solution** that can be used to setup Automation Projects and expected ROI",
+                "nb": "Den **Hovedløsning** som kan brukes til å sette opp automatiseringsprosjekter og forventet avkastning"
+              }
+            },
+            {
+              "value": "dashboard",
+              "text": {
+                "default": "A **Power BI dashboard** that reads data from the main environment to display ROI, complexity and monitor solutions",
+                "nb": "En **Power BI-instrumentbord** som leser data fra hovedmiljøet for å vise avkastning, kompleksitet og overvåkingsløsninger"
+              }
+            },
+            {
+              "value": "satellite",
+              "text": {
+                "default": "Install **satellite solution** to monitor deployed Power Automate Desktop solution",
+                "nb": "Installere **satellitt løsning** for å overvåke distribuert Power Automate Desktop-løsning"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -68,7 +127,22 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "dev-lic",
+              "text": {
+                "default": "I want to assign Development license",
+                "nb": "Jeg vil tilordne utviklingslisens"
+              }
+            },
+            {
+              "value": "dev-env",
+              "text": {
+                "default": "I have been assigned a Development environment",
+                "nb": "Jeg har fått tildelt et utviklingsmiljø"
+              }
+            }
+          ],
           "visibleIf": "{method} = 'development'"
         },
         {
@@ -81,6 +155,13 @@
           "isRequired": true,
           "colCount": 1,
           "choices": [
+            {
+              "value": "azure-portal",
+              "text": {
+                "default": "Can open the <a href='https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers' target='_blank'>Azure Portal - Users</a>",
+                "nb": "Kan åpne <a href='https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers' target='_blank'>Azure Portal - Brukere</a>"
+              }
+            },
             {
               "value": "Can search for your user name",
               "text": {
@@ -103,10 +184,31 @@
               }
             },
             {
+              "value": "dev-lic",
+              "text": {
+                "default": "Can verify that find 'Microsoft Power Apps for Developer' assigned",
+                "nb": "Kan kontrollere at finner 'Microsoft Power Apps for Developer' tilordnet"
+              }
+            },
+            {
               "value": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
               "text": {
                 "default": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
                 "nb": "Kan besøke <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>"
+              }
+            },
+            {
+              "value": "dev-created",
+              "text": {
+                "default": "Development environment created",
+                "nb": "Utviklingsmiljø opprettet"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "nb": "Kan ikke fullføre **annen** trinn"
               }
             }
           ],
@@ -129,7 +231,29 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "open-envs",
+              "text": {
+                "default": "Can open the <a href='https://admin.powerplatform.microsoft.com/environments' target='_blank'>Environments</a>",
+                "nb": "Kan åpne <a href='https://admin.powerplatform.microsoft.com/environments' target='_blank'>Miljøer</a>"
+              }
+            },
+            {
+              "value": "dev-created",
+              "text": {
+                "default": "Can verify environment with Type 'Developer' exists",
+                "nb": "Kan verifisere miljø med Type 'Utvikler' eksisterer"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete all **other** steps",
+                "nb": "Kan ikke fullføre alle **annen** trinn"
+              }
+            }
+          ],
           "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-env')"
         },
         {
@@ -177,6 +301,13 @@
                 "default": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
                 "nb": "Tilordne lisenser for Microsoft Power Apps for Developer til prøvebrukere i <a href='https://portal.office.com' target='_blank'>Office-portalen</a> eller <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>"
               }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "nb": "Kan ikke fullføre **annen** trinn"
+              }
             }
           ],
           "visibleIf": "{method} = 'trial-30'"
@@ -207,7 +338,61 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "admin-rights",
+              "text": {
+                "default": "I have environment administrator rights",
+                "nb": "Jeg har rettigheter som miljøadministrator"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "no-admin",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "nb": "Jeg har ikke rettigheter som miljøadministrator"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "code-components",
+              "text": {
+                "default": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                "nb": "Jeg har (eller en miljøadministrator) aktivert kodekomponenter i miljøet ved hjelp av <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Aktivere kodekomponenter</a> Lær informasjon"
+              }
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "I have (or an environment administrator) has installed the creator kit using <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator Kit Import</a> learn information",
+                "nb": "Jeg har (eller en miljøadministrator) har installert skapersettet ved hjelp av <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Import av skapersett</a> Lær informasjon"
+              }
+            },
+            {
+              "value": "main-creator-kit",
+              "text": {
+                "default": "I have setup creator kit for **main** environment",
+                "nb": "Jeg har setup creator kit for **hoved** miljø"
+              },
+              "visibleIf": "contains({components},'main')"
+            },
+            {
+              "value": "main-creator-kit",
+              "text": {
+                "default": "I have setup creator kit for EACH **satellite** environment",
+                "nb": "Jeg har setup creator kit for hver **satellitt** miljø"
+              },
+              "visibleIf": "contains({components},'satellite')"
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "nb": "Kan ikke fullføre **annen** trinn"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -226,7 +411,88 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "admin-rights",
+              "text": {
+                "default": "I have admin rights the shared environment",
+                "nb": "Jeg har administratorrettigheter for det delte miljøet"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "no-admin",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "nb": "Jeg har ikke rettigheter som miljøadministrator"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "code-components",
+              "text": {
+                "default": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                "nb": "Jeg har (eller en miljøadministrator) aktivert kodekomponenter i miljøet ved hjelp av <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Aktivere kodekomponenter</a> Lær informasjon"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "I have imported the creator kit <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator kit import</a> using the learn steps into each satellite environment",
+                "nb": "Jeg har importert skapersettet <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Import av skapersett</a> Bruke læringstrinnene i hvert satellittmiljø"
+              }
+            },
+            {
+              "value": "solution-import",
+              "text": {
+                "default": "I successfully imported the solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-main-solution-into-the-main-environment' target='_blank'>Learn</a>",
+                "nb": "Jeg importerte løsningen ved hjelp av trinnene i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-main-solution-into-the-main-environment' target='_blank'>Lære</a>"
+              }
+            },
+            {
+              "value": "approvals",
+              "text": {
+                "default": "I successfully provisioned the approvals solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#provision-the-approvals-solution-optional' target='_blank'>Learn</a>",
+                "nb": "Jeg klargjorde godkjenningsløsningen ved hjelp av trinnene i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#provision-the-approvals-solution-optional' target='_blank'>Lære</a>"
+              }
+            },
+            {
+              "value": "assign-security-roles",
+              "text": {
+                "default": "I successfully assigned the security roles using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#assign-security-roles' target='_blank'>Learn</a>",
+                "nb": "Jeg tilordnet sikkerhetsrollene ved hjelp av trinnene i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#assign-security-roles' target='_blank'>Lære</a>"
+              }
+            },
+            {
+              "value": "sync-environments",
+              "text": {
+                "default": "I successfully sync the environments using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#sync-environments' target='_blank'>Learn</a>",
+                "nb": "Jeg synkroniserer miljøene ved hjelp av trinnene i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#sync-environments' target='_blank'>Lære</a>"
+              }
+            },
+            {
+              "value": "desktop-flow-actions",
+              "text": {
+                "default": "I successfully imported the desktop flow actions in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-desktop-flow-actions-csv' target='_blank'>Learn</a>",
+                "nb": "Jeg importerte skrivebordsflythandlingene i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-desktop-flow-actions-csv' target='_blank'>Lære</a>"
+              }
+            },
+            {
+              "value": "configured-kit",
+              "text": {
+                "default": "I successfully used the automation kit steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit' target='_blank'>Use the Automation Kit</a>",
+                "nb": "Jeg har brukt automatiseringssetttrinnene i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit' target='_blank'>Bruk automatiseringssettet</a>"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "nb": "Kan ikke fullføre **annen** trinn"
+              }
+            }
+          ],
           "visibleIf": "contains({components},'main')"
         },
         {
@@ -255,7 +521,22 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "powerbi-install",
+              "text": {
+                "default": "Review the Power BI desktop install instructions at <a href='/get-started/install-powerbi-dashboard' target='_blank'>Setup Automation Kit Power BI dashboard</a>.",
+                "nb": "Se gjennom installasjonsinstruksjonene for Power BI Desktop på <a href='/get-started/install-powerbi-dashboard' target='_blank'>Oppsett av automatiseringssett Power BI-instrumentbord</a>."
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "nb": "Kan ikke fullføre **annen** trinn"
+              }
+            }
+          ],
           "visibleIf": "contains({components},'dashboard')"
         },
         {
@@ -284,7 +565,81 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "admin-rights",
+              "text": {
+                "default": "I have admin rights the shared environment",
+                "nb": "Jeg har administratorrettigheter for det delte miljøet"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "no-admin",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "nb": "Jeg har ikke rettigheter som miljøadministrator"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "code-components",
+              "text": {
+                "default": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                "nb": "Jeg har (eller en miljøadministrator) aktivert kodekomponenter i miljøet ved hjelp av <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Aktivere kodekomponenter</a> Lær informasjon"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "I have imported the creator kit <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator kit import</a> using the learn steps into each satellite environment",
+                "nb": "Jeg har importert skapersettet <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Import av skapersett</a> Bruke læringstrinnene i hvert satellittmiljø"
+              }
+            },
+            {
+              "value": "aad",
+              "text": {
+                "default": "I created the Azure Active Directory application and secret from <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-an-azure-ad-app-registration-to-connect-to-dataverse-web-api' target='_blank'>Learn</a>",
+                "nb": "Jeg opprettet Azure Active Directory-programmet og hemmeligheten fra <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-an-azure-ad-app-registration-to-connect-to-dataverse-web-api' target='_blank'>Lære</a>"
+              }
+            },
+            {
+              "value": "aad-user-setup",
+              "text": {
+                "default": "I have setup the application user in the satellite environment <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-application-user-inside-dataverse-per-satellite-env' target='_blank'>Learn</a>",
+                "nb": "Jeg har konfigurert programbrukeren i satellittmiljøet <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-application-user-inside-dataverse-per-satellite-env' target='_blank'>Lære</a>"
+              }
+            },
+            {
+              "value": "solution-import",
+              "text": {
+                "default": "I successfully imported the solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#import-the-satellite-solution-into-the-satellite-environment' target='_blank'>Learn</a>",
+                "nb": "Jeg importerte løsningen ved hjelp av trinnene i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#import-the-satellite-solution-into-the-satellite-environment' target='_blank'>Lære</a>"
+              }
+            },
+            {
+              "value": "desktop-flow-actions",
+              "text": {
+                "default": "I successfully imported the desktop flow actions in <a href='https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite#import-the-desktop-flow-actions-csv' target='_blank'>Learn</a>",
+                "nb": "Jeg importerte skrivebordsflythandlingene i <a href='https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite#import-the-desktop-flow-actions-csv' target='_blank'>Lære</a>"
+              }
+            },
+            {
+              "value": "setup-environment-variables",
+              "text": {
+                "default": "I have setup environment as described in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables' target='_blank'>Environment variables</a>",
+                "nb": "Jeg har oppsett miljø som beskrevet i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables' target='_blank'>Miljøvariabler</a>"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "nb": "Kan ikke fullføre **annen** trinn"
+              }
+            }
+          ],
           "visibleIf": "contains({components},'satellite')"
         },
         {

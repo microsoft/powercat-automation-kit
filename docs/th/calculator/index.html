@@ -135,7 +135,7 @@
 <script>
     
     
-    data = "{\r\n  \"showQuestionNumbers\": \"off\",\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"radiogroup\",\r\n          \"name\": \"scenario\",\r\n          \"title\": {\r\n            \"default\": \"What scenario are you trying to calculate?\",\r\n            \"th\": \"คุณกําลังพยายามคํานวณสถานการณ์ใด\"\r\n          },\r\n          \"choices\": []\r\n        },\r\n        {\r\n          \"type\": \"radiogroup\",\r\n          \"name\": \"sample-scenario\",\r\n          \"visibleIf\": \"{scenario} = 'samples'\",\r\n          \"title\": {\r\n            \"default\": \"What sample scenario did you want to explore?\",\r\n            \"th\": \"คุณต้องการสํารวจสถานการณ์ตัวอย่างอะไรบ้าง\"\r\n          },\r\n          \"choices\": []\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{sample-scenario} = 'migration-single-unattended'\",\r\n          \"html\": {\r\n            \"default\": \"Single unattended bot migration. In this example an organization may want to migrate an existing automate an existing automation solution to the Power Platform. The deployed bot will be hosted in an isolated virtual network and Virtual Machine (VM) runner.\",\r\n            \"th\": \"การโยกย้ายบอทแบบไม่ต้องใส่ข้อมูลเพียงครั้งเดียว ในตัวอย่างนี้ องค์กรอาจต้องการโยกย้ายโซลูชันระบบอัตโนมัติที่มีอยู่ไปยังPower Platformโดยอัตโนมัติ บอทที่ปรับใช้จะถูกโฮสต์ในเครือข่ายเสมือนที่แยกได้และรันเนอร์เครื่องเสมือน (VM)\"\r\n          }\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"migration\",\r\n      \"title\": {\r\n        \"default\": \"Migration Parameters\",\r\n        \"th\": \"พารามิเตอร์การย้ายข้อมูล\"\r\n      },\r\n      \"visibleIf\": \"{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')\",\r\n      \"elements\": [\r\n        {\r\n          \"name\": \"how-many-bots\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"How many bots to migrate?\",\r\n            \"th\": \"จํานวนบอทที่จะย้าย\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"name\": \"attended-percentage\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"Percentage of attended bots?\",\r\n            \"th\": \"เปอร์เซ็นต์ของบอทที่เข้าร่วม?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"validators\": [\r\n            {\r\n              \"type\": \"expression\",\r\n              \"text\": {\r\n                \"default\": \"A value between 0 and 100\",\r\n                \"th\": \"ค่าระหว่าง 0 ถึง 100\"\r\n              },\r\n              \"expression\": \"{attended-percentage} \u003e= 0 \u0026\u0026 {attended-percentage} \u003c= 100\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"unattended-percentage\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"Percentage of unattended bots?\",\r\n            \"th\": \"เปอร์เซ็นต์ของบอทแบบไม่ต้องใส่ข้อมูล?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"validators\": [\r\n            {\r\n              \"type\": \"expression\",\r\n              \"text\": {\r\n                \"default\": \"A value between 0 and 100\",\r\n                \"th\": \"ค่าระหว่าง 0 ถึง 100\"\r\n              },\r\n              \"expression\": \"{unattended-percentage} \u003e= 0 \u0026\u0026 {unattended-percentage} \u003c= 100\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-groups\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": \"Add new group\",\r\n          \"title\": {\r\n            \"default\": \"Migration Groups\",\r\n            \"th\": \"กลุ่มการย้ายข้อมูล\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"name\",\r\n              \"title\": {\r\n                \"default\": \"Migration Group Name\",\r\n                \"th\": \"ชื่อกลุ่มการย้ายข้อมูล\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            },\r\n            {\r\n              \"name\": \"description\",\r\n              \"title\": {\r\n                \"default\": \"Description\",\r\n                \"th\": \"การบรรยาย\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"groups\",\r\n          \"type\": \"checkbox\",\r\n          \"title\": {\r\n            \"default\": \"Groups\",\r\n            \"th\": \"กลุ่ม\"\r\n          },\r\n          \"visibleIf\": \"false\",\r\n          \"choices\": []\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-times\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": \"Add new item\",\r\n          \"title\": {\r\n            \"default\": \"Duration Plan\",\r\n            \"th\": \"แผนระยะเวลา\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"complexity\",\r\n              \"title\": {\r\n                \"default\": \"Complexity\",\r\n                \"th\": \"ความสลับซับซ้อน\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"inputType\": \"count\",\r\n              \"choices\": []\r\n            },\r\n            {\r\n              \"name\": \"group\",\r\n              \"title\": {\r\n                \"default\": \"Group\",\r\n                \"th\": \"กลุ่ม\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choicesFromQuestion\": \"groups\"\r\n            },\r\n            {\r\n              \"name\": \"percentage\",\r\n              \"title\": {\r\n                \"default\": \"Percentage\",\r\n                \"th\": \"อัตราร้อยละ\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"Bots\",\r\n              \"title\": {\r\n                \"default\": \"Bots\",\r\n                \"th\": \"บอ\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"botTotal({row})\"\r\n            },\r\n            {\r\n              \"name\": \"botsPerMonth\",\r\n              \"title\": {\r\n                \"default\": \"Bots per month\",\r\n                \"th\": \"บอทต่อเดือน\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"total\",\r\n              \"title\": {\r\n                \"default\": \"Total (Business Days)\",\r\n                \"th\": \"ยอดรวม (วันทําการ)\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"migrationTotal({row})\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.\",\r\n            \"th\": \"หมายเหตุ: ค่านี้มีวัตถุประสงค์เพื่อเป็นภาพประกอบเท่านั้นและเวลา Ramp, บอทต่อเดือนและวันทําการทั้งหมดสําหรับการย้ายข้อมูลจะต้องถูกกําหนดสําหรับบอทเฉพาะที่กําลังย้าย\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"calc-migration-plan\",\r\n          \"title\": {\r\n            \"default\": \"Automatically calculate possible migration plan?\",\r\n            \"th\": \"คํานวณแผนการโยกย้ายที่เป็นไปได้โดยอัตโนมัติหรือไม่?\"\r\n          },\r\n          \"defaultValue\": true\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-plan\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": \"Add new item\",\r\n          \"title\": {\r\n            \"default\": \"Migration Plan\",\r\n            \"th\": \"แผนการโยกย้าย\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"name\",\r\n              \"title\": {\r\n                \"default\": \"Name\",\r\n                \"th\": \"ชื่อ\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            },\r\n            {\r\n              \"name\": \"low\",\r\n              \"title\": {\r\n                \"default\": \"Low\",\r\n                \"th\": \"ต่ํา\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"medium\",\r\n              \"title\": {\r\n                \"default\": \"Medium\",\r\n                \"th\": \"ปานกลาง\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"high\",\r\n              \"title\": {\r\n                \"default\": \"High\",\r\n                \"th\": \"สูง\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"attended\",\r\n              \"title\": {\r\n                \"default\": \"Attended\",\r\n                \"th\": \"เข้าร่วม\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"unattended\",\r\n              \"title\": {\r\n                \"default\": \"Unattended\",\r\n                \"th\": \"ไม่ต้องใส่ข้อมูล\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"calculation\",\r\n      \"elements\": [\r\n        {\r\n          \"name\": \"tellMeMore\",\r\n          \"type\": \"boolean\",\r\n          \"title\": {\r\n            \"default\": \"Tell me more about each license type\",\r\n            \"th\": \"บอกฉันเพิ่มเติมเกี่ยวกับสิทธิ์การใช้งานแต่ละประเภท\"\r\n          },\r\n          \"defaultValue\": false\r\n        },\r\n        {\r\n          \"name\": \"matrix-image\",\r\n          \"type\": \"image-task\",\r\n          \"visibleIf\": \"{tellMeMore} == true\",\r\n          \"title\": {\r\n            \"default\": \"Select plans you want more information on\",\r\n            \"th\": \"เลือกแผนที่คุณต้องการข้อมูลเพิ่มเติม\"\r\n          },\r\n          \"src\": \"/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at \u003ca href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'\u003eBuy Power Automate Licenses\u003c/a\u003e\",\r\n            \"th\": \"รายละเอียดเพิ่มเติมเกี่ยวกับสิทธิ์การใช้งานที่รวมสิทธิ์การใช้งานแบบ seeded กับ Microsoft Office 365, Microsoft Dynamics, ตัวเลือกจ่ายตามการใช้งาน และ Windows สามารถดูได้ที่ \u003ca href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'\u003eซื้อสิทธิ์การใช้งาน Power Automate\u003c/a\u003e\"\r\n          }\r\n        },\r\n        {\r\n          \"name\": \"retailPrice\",\r\n          \"type\": \"boolean\",\r\n          \"title\": {\r\n            \"default\": \"Use retail price\",\r\n            \"th\": \"ใช้ราคาขายปลีก\"\r\n          },\r\n          \"defaultValue\": true\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"items\",\r\n          \"rowCount\": 1,\r\n          \"minRowCount\": 1,\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": \"Add new item\",\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"service\",\r\n              \"title\": {\r\n                \"default\": \"Service\",\r\n                \"th\": \"บริการ\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"inputType\": \"count\",\r\n              \"totalFormat\": \"Items count: {0}\",\r\n              \"choices\": []\r\n            },\r\n            {\r\n              \"name\": \"price\",\r\n              \"title\": {\r\n                \"default\": \"Price\",\r\n                \"th\": \"ราคา\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"getItemPrice('service')\",\r\n              \"displayStyle\": \"currency\",\r\n              \"visibleIf\": \"{retailPrice} == true\"\r\n            },\r\n            {\r\n              \"name\": \"price-manual\",\r\n              \"title\": {\r\n                \"default\": \"Price\",\r\n                \"th\": \"ราคา\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\",\r\n              \"displayStyle\": \"currency\",\r\n              \"visibleIf\": \"{retailPrice} == false\"\r\n            },\r\n            {\r\n              \"name\": \"quantity\",\r\n              \"title\": {\r\n                \"default\": \"Quantity\",\r\n                \"th\": \"ปริมาณ\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\",\r\n              \"totalType\": \"sum\",\r\n              \"totalFormat\": \"Total services: {0}\",\r\n              \"min\": 1\r\n            },\r\n            {\r\n              \"name\": \"total\",\r\n              \"title\": {\r\n                \"default\": \"Total\",\r\n                \"th\": \"ทั้งหมด\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})\",\r\n              \"displayStyle\": \"currency\",\r\n              \"totalType\": \"sum\",\r\n              \"totalDisplayStyle\": \"currency\",\r\n              \"totalFormat\": \"Total: {0}\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"total\",\r\n          \"type\": \"expression\",\r\n          \"title\": {\r\n            \"default\": \"Total\",\r\n            \"th\": \"ทั้งหมด\"\r\n          },\r\n          \"expression\": \"{orderList-total.total}\",\r\n          \"displayStyle\": \"currency\"\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"showQuestionNumbers\": \"off\",\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"radiogroup\",\r\n          \"name\": \"scenario\",\r\n          \"title\": {\r\n            \"default\": \"What scenario are you trying to calculate?\",\r\n            \"th\": \"คุณกําลังพยายามคํานวณสถานการณ์ใด\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"calculator\",\r\n              \"text\": {\r\n                \"default\": \"Power Automate / Power Automate Desktop license cost\",\r\n                \"th\": \"ค่าใช้จ่ายสิทธิ์การใช้งาน Power Automate / Power Automate บนเดสก์ท็อป\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"migration-planner\",\r\n              \"text\": {\r\n                \"default\": \"Migration planner\",\r\n                \"th\": \"เครื่องมือวางแผนการโยกย้าย\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"samples\",\r\n              \"text\": {\r\n                \"default\": \"Sample scenarios\",\r\n                \"th\": \"ตัวอย่างสถานการณ์จําลอง\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"radiogroup\",\r\n          \"name\": \"sample-scenario\",\r\n          \"visibleIf\": \"{scenario} = 'samples'\",\r\n          \"title\": {\r\n            \"default\": \"What sample scenario did you want to explore?\",\r\n            \"th\": \"คุณต้องการสํารวจสถานการณ์ตัวอย่างอะไรบ้าง\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"migration-single-unattended\",\r\n              \"text\": {\r\n                \"default\": \"Migration of a single unattended bot running isolated from other bot process\",\r\n                \"th\": \"การโยกย้ายบอทแบบไม่ต้องใส่ข้อมูลตัวเดียวที่ทํางานแยกจากกระบวนการบอทอื่น\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"migration-200\",\r\n              \"text\": {\r\n                \"default\": \"Migration of hundreds of bots\",\r\n                \"th\": \"การย้ายถิ่นของบอทหลายร้อยตัว\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"process-mining\",\r\n              \"text\": {\r\n                \"default\": \"Using Process Advisor to identify Process automation\",\r\n                \"th\": \"การใช้ Process Advisor เพื่อระบุระบบอัตโนมัติของกระบวนการ\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"task-mining\",\r\n              \"text\": {\r\n                \"default\": \"Using Process Advisor task mining to analyze and improve bot reliability\",\r\n                \"th\": \"การใช้การทําเหมืองงานProcess Advisorเพื่อวิเคราะห์และปรับปรุงความน่าเชื่อถือของบอท\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{sample-scenario} = 'migration-single-unattended'\",\r\n          \"html\": {\r\n            \"default\": \"Single unattended bot migration. In this example an organization may want to migrate an existing automate an existing automation solution to the Power Platform. The deployed bot will be hosted in an isolated virtual network and Virtual Machine (VM) runner.\",\r\n            \"th\": \"การโยกย้ายบอทแบบไม่ต้องใส่ข้อมูลเพียงครั้งเดียว ในตัวอย่างนี้ องค์กรอาจต้องการโยกย้ายโซลูชันระบบอัตโนมัติที่มีอยู่ไปยังPower Platformโดยอัตโนมัติ บอทที่ปรับใช้จะถูกโฮสต์ในเครือข่ายเสมือนที่แยกได้และรันเนอร์เครื่องเสมือน (VM)\"\r\n          }\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"migration\",\r\n      \"title\": {\r\n        \"default\": \"Migration Parameters\",\r\n        \"th\": \"พารามิเตอร์การย้ายข้อมูล\"\r\n      },\r\n      \"visibleIf\": \"{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')\",\r\n      \"elements\": [\r\n        {\r\n          \"name\": \"how-many-bots\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"How many bots to migrate?\",\r\n            \"th\": \"จํานวนบอทที่จะย้าย\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"name\": \"attended-percentage\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"Percentage of attended bots?\",\r\n            \"th\": \"เปอร์เซ็นต์ของบอทที่เข้าร่วม?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"validators\": [\r\n            {\r\n              \"type\": \"expression\",\r\n              \"text\": {\r\n                \"default\": \"A value between 0 and 100\",\r\n                \"th\": \"ค่าระหว่าง 0 ถึง 100\"\r\n              },\r\n              \"expression\": \"{attended-percentage} \u003e= 0 \u0026\u0026 {attended-percentage} \u003c= 100\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"unattended-percentage\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"Percentage of unattended bots?\",\r\n            \"th\": \"เปอร์เซ็นต์ของบอทแบบไม่ต้องใส่ข้อมูล?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"validators\": [\r\n            {\r\n              \"type\": \"expression\",\r\n              \"text\": {\r\n                \"default\": \"A value between 0 and 100\",\r\n                \"th\": \"ค่าระหว่าง 0 ถึง 100\"\r\n              },\r\n              \"expression\": \"{unattended-percentage} \u003e= 0 \u0026\u0026 {unattended-percentage} \u003c= 100\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-groups\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new group\",\r\n            \"th\": \"เพิ่มกลุ่มใหม่\"\r\n          },\r\n          \"title\": {\r\n            \"default\": \"Migration Groups\",\r\n            \"th\": \"กลุ่มการย้ายข้อมูล\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"name\",\r\n              \"title\": {\r\n                \"default\": \"Migration Group Name\",\r\n                \"th\": \"ชื่อกลุ่มการย้ายข้อมูล\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            },\r\n            {\r\n              \"name\": \"description\",\r\n              \"title\": {\r\n                \"default\": \"Description\",\r\n                \"th\": \"การบรรยาย\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"groups\",\r\n          \"type\": \"checkbox\",\r\n          \"title\": {\r\n            \"default\": \"Groups\",\r\n            \"th\": \"กลุ่ม\"\r\n          },\r\n          \"visibleIf\": \"false\",\r\n          \"choices\": []\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-times\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new item\",\r\n            \"th\": \"เพิ่มรายการใหม่\"\r\n          },\r\n          \"title\": {\r\n            \"default\": \"Duration Plan\",\r\n            \"th\": \"แผนระยะเวลา\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"complexity\",\r\n              \"title\": {\r\n                \"default\": \"Complexity\",\r\n                \"th\": \"ความสลับซับซ้อน\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"inputType\": \"count\",\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"low\",\r\n                  \"text\": {\r\n                    \"default\": \"Low\",\r\n                    \"th\": \"ต่ํา\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"medium\",\r\n                  \"text\": {\r\n                    \"default\": \"Medium\",\r\n                    \"th\": \"ปานกลาง\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"high\",\r\n                  \"text\": {\r\n                    \"default\": \"High\",\r\n                    \"th\": \"สูง\"\r\n                  }\r\n                }\r\n              ]\r\n            },\r\n            {\r\n              \"name\": \"group\",\r\n              \"title\": {\r\n                \"default\": \"Group\",\r\n                \"th\": \"กลุ่ม\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choicesFromQuestion\": \"groups\"\r\n            },\r\n            {\r\n              \"name\": \"percentage\",\r\n              \"title\": {\r\n                \"default\": \"Percentage\",\r\n                \"th\": \"อัตราร้อยละ\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"Bots\",\r\n              \"title\": {\r\n                \"default\": \"Bots\",\r\n                \"th\": \"บอ\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"botTotal({row})\"\r\n            },\r\n            {\r\n              \"name\": \"botsPerMonth\",\r\n              \"title\": {\r\n                \"default\": \"Bots per month\",\r\n                \"th\": \"บอทต่อเดือน\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"total\",\r\n              \"title\": {\r\n                \"default\": \"Total (Business Days)\",\r\n                \"th\": \"ยอดรวม (วันทําการ)\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"migrationTotal({row})\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.\",\r\n            \"th\": \"หมายเหตุ: ค่านี้มีวัตถุประสงค์เพื่อเป็นภาพประกอบเท่านั้นและเวลา Ramp, บอทต่อเดือนและวันทําการทั้งหมดสําหรับการย้ายข้อมูลจะต้องถูกกําหนดสําหรับบอทเฉพาะที่กําลังย้าย\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"calc-migration-plan\",\r\n          \"title\": {\r\n            \"default\": \"Automatically calculate possible migration plan?\",\r\n            \"th\": \"คํานวณแผนการโยกย้ายที่เป็นไปได้โดยอัตโนมัติหรือไม่?\"\r\n          },\r\n          \"defaultValue\": true\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-plan\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new item\",\r\n            \"th\": \"เพิ่มรายการใหม่\"\r\n          },\r\n          \"title\": {\r\n            \"default\": \"Migration Plan\",\r\n            \"th\": \"แผนการโยกย้าย\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"name\",\r\n              \"title\": {\r\n                \"default\": \"Name\",\r\n                \"th\": \"ชื่อ\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            },\r\n            {\r\n              \"name\": \"low\",\r\n              \"title\": {\r\n                \"default\": \"Low\",\r\n                \"th\": \"ต่ํา\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"medium\",\r\n              \"title\": {\r\n                \"default\": \"Medium\",\r\n                \"th\": \"ปานกลาง\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"high\",\r\n              \"title\": {\r\n                \"default\": \"High\",\r\n                \"th\": \"สูง\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"attended\",\r\n              \"title\": {\r\n                \"default\": \"Attended\",\r\n                \"th\": \"เข้าร่วม\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"unattended\",\r\n              \"title\": {\r\n                \"default\": \"Unattended\",\r\n                \"th\": \"ไม่ต้องใส่ข้อมูล\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"calculation\",\r\n      \"elements\": [\r\n        {\r\n          \"name\": \"tellMeMore\",\r\n          \"type\": \"boolean\",\r\n          \"title\": {\r\n            \"default\": \"Tell me more about each license type\",\r\n            \"th\": \"บอกฉันเพิ่มเติมเกี่ยวกับสิทธิ์การใช้งานแต่ละประเภท\"\r\n          },\r\n          \"defaultValue\": false\r\n        },\r\n        {\r\n          \"name\": \"matrix-image\",\r\n          \"type\": \"image-task\",\r\n          \"visibleIf\": \"{tellMeMore} == true\",\r\n          \"title\": {\r\n            \"default\": \"Select plans you want more information on\",\r\n            \"th\": \"เลือกแผนที่คุณต้องการข้อมูลเพิ่มเติม\"\r\n          },\r\n          \"src\": \"/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at \u003ca href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'\u003eBuy Power Automate Licenses\u003c/a\u003e\",\r\n            \"th\": \"รายละเอียดเพิ่มเติมเกี่ยวกับสิทธิ์การใช้งานที่รวมสิทธิ์การใช้งานแบบ seeded กับ Microsoft Office 365, Microsoft Dynamics, ตัวเลือกจ่ายตามการใช้งาน และ Windows สามารถดูได้ที่ \u003ca href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'\u003eซื้อสิทธิ์การใช้งาน Power Automate\u003c/a\u003e\"\r\n          }\r\n        },\r\n        {\r\n          \"name\": \"retailPrice\",\r\n          \"type\": \"boolean\",\r\n          \"title\": {\r\n            \"default\": \"Use retail price\",\r\n            \"th\": \"ใช้ราคาขายปลีก\"\r\n          },\r\n          \"defaultValue\": true\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"items\",\r\n          \"rowCount\": 1,\r\n          \"minRowCount\": 1,\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new item\",\r\n            \"th\": \"เพิ่มรายการใหม่\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"type\",\r\n              \"title\": {\r\n                \"default\": \"Type\",\r\n                \"th\": \"ประเภท\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"Trial\",\r\n                  \"text\": {\r\n                    \"default\": \"Trial\",\r\n                    \"th\": \"การทดลอง\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"User\",\r\n                  \"text\": {\r\n                    \"default\": \"User\",\r\n                    \"th\": \"ผู้ใช้\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Flow\",\r\n                  \"text\": {\r\n                    \"default\": \"Flow\",\r\n                    \"th\": \"ไหล\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Extra Flow\",\r\n                  \"text\": {\r\n                    \"default\": \"Extra Flow\",\r\n                    \"th\": \"การไหลพิเศษ\"\r\n                  }\r\n                }\r\n              ]\r\n            },\r\n            {\r\n              \"name\": \"mode\",\r\n              \"title\": {\r\n                \"default\": \"Mode\",\r\n                \"th\": \"โหมด\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"Attended\",\r\n                  \"text\": {\r\n                    \"default\": \"Attended\",\r\n                    \"th\": \"เข้าร่วม\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Unattended\",\r\n                  \"text\": {\r\n                    \"default\": \"Unattended\",\r\n                    \"th\": \"ไม่ต้องใส่ข้อมูล\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Cloud\",\r\n                  \"text\": {\r\n                    \"default\": \"Cloud\",\r\n                    \"th\": \"เมฆ\"\r\n                  }\r\n                }\r\n              ]\r\n            },\r\n            {\r\n              \"name\": \"price\",\r\n              \"title\": {\r\n                \"default\": \"Price\",\r\n                \"th\": \"ราคา\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"getItemPrice()\",\r\n              \"displayStyle\": \"currency\",\r\n              \"visibleIf\": \"{retailPrice} == true\"\r\n            },\r\n            {\r\n              \"name\": \"price-manual\",\r\n              \"title\": {\r\n                \"default\": \"Price\",\r\n                \"th\": \"ราคา\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\",\r\n              \"displayStyle\": \"currency\",\r\n              \"visibleIf\": \"{retailPrice} == false\"\r\n            },\r\n            {\r\n              \"name\": \"quantity\",\r\n              \"title\": {\r\n                \"default\": \"Quantity\",\r\n                \"th\": \"ปริมาณ\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\",\r\n              \"totalType\": \"sum\",\r\n              \"totalFormat\": \"Total services: {0}\",\r\n              \"min\": 1\r\n            },\r\n            {\r\n              \"name\": \"total\",\r\n              \"title\": {\r\n                \"default\": \"Total\",\r\n                \"th\": \"ทั้งหมด\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})\",\r\n              \"displayStyle\": \"currency\",\r\n              \"totalType\": \"sum\",\r\n              \"totalDisplayStyle\": \"currency\",\r\n              \"totalFormat\": \"Total: {0}\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"NOTE: Type \u003cb\u003eFlow\u003c/b\u003e represents minimum order of 5 cloud / RPA flows. Type \u003cb\u003eExtra Flow\u003c/b\u003e represents single flow above the minimum order level of 5 flows.\",\r\n            \"th\": \"หมายเหตุ: ประเภท \u003cb\u003eไหล\u003c/b\u003e แสดงลําดับขั้นต่ําของโฟลว์ระบบคลาวด์/RPA 5 โฟลว์ ประเภท \u003cb\u003eการไหลพิเศษ\u003c/b\u003e แสดงโฟลว์เดียวเหนือระดับการสั่งซื้อขั้นต่ํา 5 โฟลว์\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 
@@ -151,6 +151,269 @@
 <noscript>
     <p>ต้องเปิดใช้งานจาวาสคริปต์เพื่อดูเนื้อหานี้</p>
 </noscript>
+
+
+    
+<script>
+window.getItemPrice = getItemPrice = function (params) {
+  var rowType = !!this.row
+    ? this.row.getQuestionByColumnName('type')
+    : null;
+
+    var modeType = !!this.row
+    ? this.row.getQuestionByColumnName('mode')
+    : null;
+  // if we can't find a question inside the cell (by row and column name) then return
+  if (! rowType || ! modeType) 
+    return 0;
+  
+  // get the selected item/choice
+  var selectedType = rowType.selectedItem;
+
+  if ( selectedType == null ) {
+    // return 0 if a user did not select the item yet.
+    return 0
+  }
+
+  var modeType = modeType.selectedItem;
+
+  if ( modeType == null ) {
+    // return 0 if a user did not select the item yet.
+    return 0
+  }
+
+  switch ( selectedType.value ) {
+    case "Trial":
+        return 0;
+    case "User":
+        switch ( modeType.value ) {
+            case "Attended":
+                return 40;
+                break;
+            case "Unattended":
+                return 40;
+                break;
+            case "Cloud":
+                return 15;
+            default:
+                return "";
+        }
+        break;
+    case "Flow":
+        switch ( modeType.value ) {
+            case "Attended":
+                return "";
+                break;
+            case "Unattended":
+                return (150 * 5) + (5 * 100);
+                break;
+             case "Cloud":
+                return (5 * 100);
+                break;
+            default:
+                return "";
+        }
+        break
+    case "Extra Flow":
+        switch ( modeType.value ) {
+            case "Attended":
+                return "";
+                break;
+            case "Unattended":
+                return 150 + 100;
+                break;
+             case "Cloud":
+                return 100;
+                break;
+        }
+        break;
+  }
+};
+window.botTotal = function(row) {
+    if ( row == null || row.length == 0 || row[0] == null || row[0].percentage == null ) {
+        return 0;
+    }
+    let bots =  window.currentSurvey.data['how-many-bots'] + 0;
+    return (bots * (row[0].percentage / 100));
+}
+window.migrationTotal = function(row) {
+     if ( row == null || row.length == 0 || row[0] == null || row[0].botsPerMonth == null ) {
+      return 0;
+    }
+    let rowBots = botTotal(row);
+    return Math.ceil((rowBots / row[0].botsPerMonth) * 20);
+}
+window.surveyChanged = function (sender, options) {
+    window.currentSurvey = sender;
+    var calculateChange = () => {
+        let bots = sender.data['how-many-bots'] + 0;
+        let percentAttended = sender.data['attended-percentage'] + 0;
+        let percentUnattended = sender.data['unattended-percentage'] + 0;
+        let attended = bots * ( percentAttended / 100);
+        let unattended = bots * ( percentUnattended / 100);
+        let items = [];
+        if ( attended > 0 ) {
+            items.push({service: 'U_RPA_A', quantity: attended})
+        }
+        if ( unattended > 0 ) {
+            items.push({service: 'U_RPA_UA', quantity: unattended})
+        }
+        sender.setValue('items', items);
+        calculatePlan()
+    }
+    var calculatePlan = () => {
+        if ( sender.data['calc-migration-plan'] == false ) {
+            return;
+        }
+        let bots = sender.data['how-many-bots'] + 0;
+        let times = sender.data['migration-times']
+        let attendedPercentage = sender.data['attended-percentage']
+        let unattendedPercentage = sender.data['unattended-percentage']
+        let groups = sender.data['migration-groups']
+        if ( times == null || groups == null ) {
+            return;
+        }
+
+        var groupData = {}
+        for ( var i = 0; i < groups.length; i++ ) {
+            groupData[groups[i].name] = {
+                'name': groups[i].name,
+                'months': []
+            }
+        }
+        
+        for ( var i = 0; i < times.length; i++ ) {
+            if ( times[i].group == null || times[i].group.length == 0 ) {
+                continue;
+            }
+            if ( typeof times[i].total === "undefined" ) {
+                continue;
+            }
+            let group = groupData[times[i].group];
+            let months = Math.ceil(times[i].total / 20);
+           
+            while ( months > group.months.length ) {
+                group.months.push({
+                    'name': group.name + ' ' + (group.months.length + 1),
+                    'low': 0,
+                    'medium': 0,
+                    'high': 0,
+                    'attended': 0,
+                    'unattended': 0,
+                })
+            }
+
+            for ( var month = 0; month < months; month++) {
+                var botsMigrated = times[i].botsPerMonth
+                if (month + 1 == months) {
+                    if ( bots > times[i].botsPerMonth ) {
+                        botsMigrated = Math.min(botsMigrated, bots - (month * times[i].botsPerMonth));
+                    } else {
+                        botsMigrated = bots;
+                    }
+                }
+                switch ( times[i].complexity ) {
+                    case "low":
+                        group.months[month].low += botsMigrated;
+                        break;
+                    case "medium":
+                        group.months[month].medium += botsMigrated;
+                        break;
+                    case "high":
+                        group.months[month].high += botsMigrated;
+                        break;
+                }
+                group.months[month].attended += Math.round(botsMigrated * (attendedPercentage / 100));
+                group.months[month].unattended += Math.round(botsMigrated * (unattendedPercentage / 100));
+            }
+            
+        }
+        var items = [];
+        for ( var i = 0; i < groups.length; i++ ) {
+            var group = groupData[groups[i].name]
+            for ( var month = 0; month < group.months.length; month++ ) {
+                items.push(group.months[month]);
+            }
+        }
+        sender.setValue('migration-plan', items);
+    }
+    switch ( options.name ) {
+        case 'how-many-bots':
+        case 'attended-percentage':
+        case 'unattended-percentage':
+            calculateChange();
+            break;
+        case 'migration-groups':
+            var items = []
+            if ( options.value != null ) {
+                for ( var i = 0; i < options.value.length;i++ ) {
+                    if ( typeof options.value[i].name === "string" && options.value[i].name.length > 0 ) {
+                        items.push(options.value[i].name);
+                    }
+                }
+            }
+            let groups = sender.getQuestionByName('groups')
+            if ( typeof groups !== "undefined") {
+                groups.choices = items
+            }
+            break;
+        case 'migration-times':
+            calculatePlan();
+            break;
+        case 'sample-scenario':
+            switch ( options.value ) {
+                case 'migration-single-unattended':
+                    sender.setValue('how-many-bots', 1);
+                    sender.setValue('attended-percentage', 0);
+                    sender.setValue('unattended-percentage', 100);
+                    var groups1 = sender.getQuestionByName('groups')
+                    if ( typeof groups1 !== "undefined") {
+                        groups1.choices = ['Migration']
+                    }
+                    sender.clearValue('migration-groups')
+                    sender.setValue('migration-groups',[
+                        {name: 'Migration', description: "Migrate single bot"}
+                    ])
+                    sender.clearValue('migration-times')
+                    sender.setValue('migration-times', [ 
+                        {'complexity':'low', 'service':'U_RPA_UA', 'percentage': 100, group: 'Migration', 'botsPerMonth': 1 }
+                    ]);
+                    sender.clearValue('items')
+                    sender.setValue('items',[{'type':'User', 'mode': 'Unattended', 'quantity':1}]);
+                    break;
+                case 'migration-200':
+                    sender.setValue('how-many-bots', 200);
+                    sender.setValue('attended-percentage', 90);
+                    sender.setValue('unattended-percentage', 10);
+                    sender.setValue('bots-per-month-ramp', 5);
+                    sender.setValue('bots-per-month-factory', 20);
+                    sender.clearValue('migration-groups')
+                    var groups2 = sender.getQuestionByName('groups')
+                    if ( typeof groups2 !== "undefined") {
+                        groups2.choices = ['Ramp Up', 'Factory']
+                    }
+                    sender.setValue('migration-groups',[
+                        {name: 'Ramp Up', description: "Setup migration patterns and engage business units"},
+                        {name: 'Factory', description: "Wave deployment model of bots per month"},
+                    ])
+                    sender.clearValue('migration-times')
+                    sender.setValue('migration-times', [
+                        {'complexity':'low', 'percentage': 1, group: 'Ramp Up', botsPerMonth: 2 }, 
+                        {'complexity':'low', 'percentage': 59,  group: 'Factory', botsPerMonth: 15 }, 
+                        {'complexity':'medium', 'percentage': 30, group: 'Factory', botsPerMonth: 20 },
+                        {'complexity':'high', 'percentage': 10, group: 'Factory', botsPerMonth: 2 }
+                    ]),
+                    sender.clearValue('items')
+                    sender.setValue('items',[
+                        {'type':'User', 'mode': 'Attended', 'quantity':180},
+                        {'type':'User', 'mode': 'Unattended', 'quantity':20}
+                    ]);
+                    break;
+            }
+            break;
+    }
+}
+</script>
 
 
 
@@ -1073,6 +1336,11 @@
             .register("startsWith", startsWithFunction);
         Survey.StylesManager.applyTheme("modern");
 
+        
+            var parts = "getItemPrice,botTotal,migrationTotal".split(',');
+            for ( var i = 0; i < parts.length; i++) {
+                Survey.FunctionFactory.Instance.register(parts[i], window[parts[i]]);
+            }            
         
 
         const converter = new showdown.Converter();

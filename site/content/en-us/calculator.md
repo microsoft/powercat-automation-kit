@@ -8,36 +8,77 @@ include_footer: true
 {{<questions  name="/content/en-us/calculator.json" completed="" showNavigationButtons=true registerJavaScript="getItemPrice,botTotal,migrationTotal">}}
 <script>
 window.getItemPrice = getItemPrice = function (params) {
-  var question = !!this.row
-    ? this.row.getQuestionByColumnName(params[0])
+  var rowType = !!this.row
+    ? this.row.getQuestionByColumnName('type')
+    : null;
+
+    var modeType = !!this.row
+    ? this.row.getQuestionByColumnName('mode')
     : null;
   // if we can't find a question inside the cell (by row and column name) then return
-  if (! question) 
+  if (! rowType || ! modeType) 
     return 0;
   
   // get the selected item/choice
-  var selItem = question.selectedItem;
+  var selectedType = rowType.selectedItem;
 
-  if ( selItem == null ) {
+  if ( selectedType == null ) {
     // return 0 if a user did not select the item yet.
     return 0
   }
 
-  switch ( selItem.value ) {
-    case "U_RPA_A":
-        return 40;
-    case "U_RPA_UA":
-        return 190;
-    case "U_FLOW":
-        return 15;
-    case "F_RPA_UA":
-        return 1250;
-    case "F_FLOW":
-        return 500;
-    case "F_FLOW1":
-        return 100;
-    default:
+  var modeType = modeType.selectedItem;
+
+  if ( modeType == null ) {
+    // return 0 if a user did not select the item yet.
+    return 0
+  }
+
+  switch ( selectedType.value ) {
+    case "Trial":
         return 0;
+    case "User":
+        switch ( modeType.value ) {
+            case "Attended":
+                return 40;
+                break;
+            case "Unattended":
+                return 40;
+                break;
+            case "Cloud":
+                return 15;
+            default:
+                return "";
+        }
+        break;
+    case "Flow":
+        switch ( modeType.value ) {
+            case "Attended":
+                return "";
+                break;
+            case "Unattended":
+                return (150 * 5) + (5 * 100);
+                break;
+             case "Cloud":
+                return (5 * 100);
+                break;
+            default:
+                return "";
+        }
+        break
+    case "Extra Flow":
+        switch ( modeType.value ) {
+            case "Attended":
+                return "";
+                break;
+            case "Unattended":
+                return 150 + 100;
+                break;
+             case "Cloud":
+                return 100;
+                break;
+        }
+        break;
   }
 };
 window.botTotal = function(row) {
@@ -190,7 +231,7 @@ window.surveyChanged = function (sender, options) {
                         {'complexity':'low', 'service':'U_RPA_UA', 'percentage': 100, group: 'Migration', 'botsPerMonth': 1 }
                     ]);
                     sender.clearValue('items')
-                    sender.setValue('items',[{'service':'U_RPA_UA', 'quantity':1}]);
+                    sender.setValue('items',[{'type':'User', 'mode': 'Unattended', 'quantity':1}]);
                     break;
                 case 'migration-200':
                     sender.setValue('how-many-bots', 200);
@@ -216,8 +257,8 @@ window.surveyChanged = function (sender, options) {
                     ]),
                     sender.clearValue('items')
                     sender.setValue('items',[
-                        {'service':'U_RPA_A', 'quantity':180}, 
-                        {'service':'U_RPA_UA', 'quantity':20}
+                        {'type':'User', 'mode': 'Attended', 'quantity':180},
+                        {'type':'User', 'mode': 'Unattended', 'quantity':20}
                     ]);
                     break;
             }

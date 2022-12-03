@@ -20,7 +20,22 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "production",
+              "text": {
+                "default": "Production - Install to a production licensed environment",
+                "sv": "Produktion – Installera i en produktionslicensierad miljö"
+              }
+            },
+            {
+              "value": "non-production",
+              "text": {
+                "default": "Non production - Install to a development or test environment",
+                "sv": "Icke-produktion – Installera i en utvecklings- eller testmiljö"
+              }
+            }
+          ]
         },
         {
           "type": "radiogroup",
@@ -31,7 +46,29 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "development",
+              "text": {
+                "default": "Install to a Power Platform development environment",
+                "sv": "Installera i en Power Platform utvecklingsmiljö"
+              }
+            },
+            {
+              "value": "shared",
+              "text": {
+                "default": "Install to a shared Power Platform environment",
+                "sv": "Installera i en delad Power Platform miljö"
+              }
+            },
+            {
+              "value": "trial-30",
+              "text": {
+                "default": "Install into 30 day trial Power Platform environment",
+                "sv": "Installera i 30 dagars utvärderingsversion Power Platform miljö"
+              }
+            }
+          ]
         },
         {
           "type": "checkbox",
@@ -42,7 +79,29 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "main",
+              "text": {
+                "default": "The **main solution** that can be used to setup Automation Projects and expected ROI",
+                "sv": "Den **huvudlösning** som kan användas för att ställa in automatiseringsprojekt och förväntad avkastning"
+              }
+            },
+            {
+              "value": "dashboard",
+              "text": {
+                "default": "A **Power BI dashboard** that reads data from the main environment to display ROI, complexity and monitor solutions",
+                "sv": "A **Power BI-instrumentpanel** som läser data från huvudmiljön för att visa ROI, komplexitet och övervaka lösningar"
+              }
+            },
+            {
+              "value": "satellite",
+              "text": {
+                "default": "Install **satellite solution** to monitor deployed Power Automate Desktop solution",
+                "sv": "Installera **satellit lösning** för att övervaka distribuerad Power Automate Desktop-lösning"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -68,7 +127,22 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "dev-lic",
+              "text": {
+                "default": "I want to assign Development license",
+                "sv": "Jag vill tilldela utvecklingslicens"
+              }
+            },
+            {
+              "value": "dev-env",
+              "text": {
+                "default": "I have been assigned a Development environment",
+                "sv": "Jag har tilldelats en utvecklingsmiljö"
+              }
+            }
+          ],
           "visibleIf": "{method} = 'development'"
         },
         {
@@ -81,6 +155,13 @@
           "isRequired": true,
           "colCount": 1,
           "choices": [
+            {
+              "value": "azure-portal",
+              "text": {
+                "default": "Can open the <a href='https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers' target='_blank'>Azure Portal - Users</a>",
+                "sv": "Kan öppna <a href='https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers' target='_blank'>Azure Portal – Användare</a>"
+              }
+            },
             {
               "value": "Can search for your user name",
               "text": {
@@ -103,10 +184,31 @@
               }
             },
             {
+              "value": "dev-lic",
+              "text": {
+                "default": "Can verify that find 'Microsoft Power Apps for Developer' assigned",
+                "sv": "Kan verifiera att hitta \"Microsoft Power Apps for Developer\" tilldelat"
+              }
+            },
+            {
               "value": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
               "text": {
                 "default": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
                 "sv": "Kan besöka <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>"
+              }
+            },
+            {
+              "value": "dev-created",
+              "text": {
+                "default": "Development environment created",
+                "sv": "Utvecklingsmiljö skapad"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "sv": "Det går inte att slutföra **annan** trappsteg"
               }
             }
           ],
@@ -129,7 +231,29 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "open-envs",
+              "text": {
+                "default": "Can open the <a href='https://admin.powerplatform.microsoft.com/environments' target='_blank'>Environments</a>",
+                "sv": "Kan öppna <a href='https://admin.powerplatform.microsoft.com/environments' target='_blank'>Miljöer</a>"
+              }
+            },
+            {
+              "value": "dev-created",
+              "text": {
+                "default": "Can verify environment with Type 'Developer' exists",
+                "sv": "Kan verifiera att miljön med typen \"Utvecklare\" finns"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete all **other** steps",
+                "sv": "Det går inte att slutföra alla **annan** trappsteg"
+              }
+            }
+          ],
           "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-env')"
         },
         {
@@ -177,6 +301,13 @@
                 "default": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
                 "sv": "Tilldela licenser för \"Microsoft Power Apps for Developer\" till utvärderingsanvändare i <a href='https://portal.office.com' target='_blank'>Office-portalen</a> eller <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>"
               }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "sv": "Det går inte att slutföra **annan** trappsteg"
+              }
             }
           ],
           "visibleIf": "{method} = 'trial-30'"
@@ -207,7 +338,61 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "admin-rights",
+              "text": {
+                "default": "I have environment administrator rights",
+                "sv": "Jag har miljöadministratörsrättigheter"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "no-admin",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "sv": "Jag har INTE miljöadministratörsrättigheter"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "code-components",
+              "text": {
+                "default": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                "sv": "Jag har (eller en miljöadministratör) har aktiverat kodkomponenter i miljön med hjälp av <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Aktivera kodkomponenter</a> Lär dig information"
+              }
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "I have (or an environment administrator) has installed the creator kit using <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator Kit Import</a> learn information",
+                "sv": "Jag har (eller en miljöadministratör) har installerat skaparpaketet med <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Import av skaparpaket</a> Lär dig information"
+              }
+            },
+            {
+              "value": "main-creator-kit",
+              "text": {
+                "default": "I have setup creator kit for **main** environment",
+                "sv": "Jag har konfigurerat skaparkit för **huvudsaklig** miljö"
+              },
+              "visibleIf": "contains({components},'main')"
+            },
+            {
+              "value": "main-creator-kit",
+              "text": {
+                "default": "I have setup creator kit for EACH **satellite** environment",
+                "sv": "Jag har konfigurerat skaparkit för VARJE **satellit** miljö"
+              },
+              "visibleIf": "contains({components},'satellite')"
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "sv": "Det går inte att slutföra **annan** trappsteg"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -226,7 +411,88 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "admin-rights",
+              "text": {
+                "default": "I have admin rights the shared environment",
+                "sv": "Jag har administratörsrättigheter den delade miljön"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "no-admin",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "sv": "Jag har INTE miljöadministratörsrättigheter"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "code-components",
+              "text": {
+                "default": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                "sv": "Jag har (eller en miljöadministratör) har aktiverat kodkomponenter i miljön med hjälp av <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Aktivera kodkomponenter</a> Lär dig information"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "I have imported the creator kit <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator kit import</a> using the learn steps into each satellite environment",
+                "sv": "Jag har importerat skaparpaketet <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Import av Creator-kit</a> Använda inlärningsstegen i varje satellitmiljö"
+              }
+            },
+            {
+              "value": "solution-import",
+              "text": {
+                "default": "I successfully imported the solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-main-solution-into-the-main-environment' target='_blank'>Learn</a>",
+                "sv": "Jag har importerat lösningen med hjälp av stegen i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-main-solution-into-the-main-environment' target='_blank'>Lära sig</a>"
+              }
+            },
+            {
+              "value": "approvals",
+              "text": {
+                "default": "I successfully provisioned the approvals solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#provision-the-approvals-solution-optional' target='_blank'>Learn</a>",
+                "sv": "Jag har etablerat godkännandelösningen med hjälp av stegen i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#provision-the-approvals-solution-optional' target='_blank'>Lära sig</a>"
+              }
+            },
+            {
+              "value": "assign-security-roles",
+              "text": {
+                "default": "I successfully assigned the security roles using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#assign-security-roles' target='_blank'>Learn</a>",
+                "sv": "Jag har tilldelat säkerhetsrollerna med hjälp av stegen i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#assign-security-roles' target='_blank'>Lära sig</a>"
+              }
+            },
+            {
+              "value": "sync-environments",
+              "text": {
+                "default": "I successfully sync the environments using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#sync-environments' target='_blank'>Learn</a>",
+                "sv": "Jag har synkroniserat miljöerna med hjälp av stegen i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#sync-environments' target='_blank'>Lära sig</a>"
+              }
+            },
+            {
+              "value": "desktop-flow-actions",
+              "text": {
+                "default": "I successfully imported the desktop flow actions in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-desktop-flow-actions-csv' target='_blank'>Learn</a>",
+                "sv": "Jag har importerat datorflödesåtgärderna i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-desktop-flow-actions-csv' target='_blank'>Lära sig</a>"
+              }
+            },
+            {
+              "value": "configured-kit",
+              "text": {
+                "default": "I successfully used the automation kit steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit' target='_blank'>Use the Automation Kit</a>",
+                "sv": "Jag använde automatiseringssatsstegen i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit' target='_blank'>Använd Automation Kit</a>"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "sv": "Det går inte att slutföra **annan** trappsteg"
+              }
+            }
+          ],
           "visibleIf": "contains({components},'main')"
         },
         {
@@ -255,7 +521,22 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "powerbi-install",
+              "text": {
+                "default": "Review the Power BI desktop install instructions at <a href='/get-started/install-powerbi-dashboard' target='_blank'>Setup Automation Kit Power BI dashboard</a>.",
+                "sv": "Läs installationsanvisningarna för Power BI Desktop på <a href='/get-started/install-powerbi-dashboard' target='_blank'>Konfigurera Automation Kit Power BI-instrumentpanel</a>."
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "sv": "Det går inte att slutföra **annan** trappsteg"
+              }
+            }
+          ],
           "visibleIf": "contains({components},'dashboard')"
         },
         {
@@ -284,7 +565,81 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "admin-rights",
+              "text": {
+                "default": "I have admin rights the shared environment",
+                "sv": "Jag har administratörsrättigheter den delade miljön"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "no-admin",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "sv": "Jag har INTE miljöadministratörsrättigheter"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "code-components",
+              "text": {
+                "default": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                "sv": "Jag har (eller en miljöadministratör) har aktiverat kodkomponenter i miljön med hjälp av <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Aktivera kodkomponenter</a> Lär dig information"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "I have imported the creator kit <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator kit import</a> using the learn steps into each satellite environment",
+                "sv": "Jag har importerat skaparpaketet <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Import av Creator-kit</a> Använda inlärningsstegen i varje satellitmiljö"
+              }
+            },
+            {
+              "value": "aad",
+              "text": {
+                "default": "I created the Azure Active Directory application and secret from <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-an-azure-ad-app-registration-to-connect-to-dataverse-web-api' target='_blank'>Learn</a>",
+                "sv": "Jag skapade Azure Active Directory program och hemlighet från <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-an-azure-ad-app-registration-to-connect-to-dataverse-web-api' target='_blank'>Lära sig</a>"
+              }
+            },
+            {
+              "value": "aad-user-setup",
+              "text": {
+                "default": "I have setup the application user in the satellite environment <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-application-user-inside-dataverse-per-satellite-env' target='_blank'>Learn</a>",
+                "sv": "Jag har ställt in applikationsanvändaren i satellitmiljön <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-application-user-inside-dataverse-per-satellite-env' target='_blank'>Lära sig</a>"
+              }
+            },
+            {
+              "value": "solution-import",
+              "text": {
+                "default": "I successfully imported the solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#import-the-satellite-solution-into-the-satellite-environment' target='_blank'>Learn</a>",
+                "sv": "Jag har importerat lösningen med hjälp av stegen i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#import-the-satellite-solution-into-the-satellite-environment' target='_blank'>Lära sig</a>"
+              }
+            },
+            {
+              "value": "desktop-flow-actions",
+              "text": {
+                "default": "I successfully imported the desktop flow actions in <a href='https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite#import-the-desktop-flow-actions-csv' target='_blank'>Learn</a>",
+                "sv": "Jag har importerat datorflödesåtgärderna i <a href='https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite#import-the-desktop-flow-actions-csv' target='_blank'>Lära sig</a>"
+              }
+            },
+            {
+              "value": "setup-environment-variables",
+              "text": {
+                "default": "I have setup environment as described in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables' target='_blank'>Environment variables</a>",
+                "sv": "Jag har installationsmiljö enligt beskrivningen i <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables' target='_blank'>Miljövariabler</a>"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "sv": "Det går inte att slutföra **annan** trappsteg"
+              }
+            }
+          ],
           "visibleIf": "contains({components},'satellite')"
         },
         {

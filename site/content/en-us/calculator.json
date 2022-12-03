@@ -272,56 +272,33 @@
                     "addRowText": "Add new item",
                     "columns": [
                         {
-                            "name": "service",
-                            "title": "Service",
+                            "name": "type",
+                            "title": "Type",
                             "isRequired": true,
                             "cellType": "dropdown",
-                            "inputType": "count",
-                            "totalFormat": "Items count: {0}",
                             "choices": [
-                                {
-                                    "value": "T_RPA_A",
-                                    "text": "Trial, RPA (User attended)"
-                                },
-                                {
-                                    "value": "T_RPA_UA",
-                                    "text": "Trial, RPA (Unattended)"
-                                },
-                                {
-                                    "value": "T_FLOW",
-                                    "text": "Trial, Cloud Flow"
-                                },
-                                {
-                                    "value": "U_RPA_A",
-                                    "text": "Per user plan + RPA (User attended)"
-                                },
-                                {
-                                    "value": "U_RPA_UA",
-                                    "text": "Per user plan + RPA (Unattended)"
-                                },
-                                {
-                                    "value": "U_FLOW",
-                                    "text": "Per user plan (Cloud Flow)"
-                                },
-                                {
-                                    "value": "F_RPA_UA",
-                                    "text": "Per Flow + RPA Addon (Unattended)"
-                                },
-                                {
-                                    "value": "F_FLOW",
-                                    "text": "Per flow plan (Cloud Flow)"
-                                },
-                                {
-                                    "value": "F_FLOW1",
-                                    "text": "Per flow plan (Cloud Flow) - Single"
-                                }
+                                "Trial",
+                                "User",
+                                "Flow",
+                                "Extra Flow"
+                            ]
+                        },
+                        {
+                            "name": "mode",
+                            "title": "Mode",
+                            "isRequired": true,
+                            "cellType": "dropdown",
+                            "choices": [
+                                "Attended",
+                                "Unattended",
+                                "Cloud"
                             ]
                         },
                         {
                             "name": "price",
                             "title": "Price",
                             "cellType": "expression",
-                            "expression": "getItemPrice('service')",
+                            "expression": "getItemPrice()",
                             "displayStyle": "currency",
                             "visibleIf": "{retailPrice} == true"
                         },
@@ -356,11 +333,8 @@
                     ]
                 },
                 {
-                    "name": "total",
-                    "type": "expression",
-                    "title": "Total",
-                    "expression": "{orderList-total.total}",
-                    "displayStyle": "currency"
+                    "type": "html",
+                    "html": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows."
                 }
             ]
         }

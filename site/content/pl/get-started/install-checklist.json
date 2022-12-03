@@ -20,7 +20,22 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "production",
+              "text": {
+                "default": "Production - Install to a production licensed environment",
+                "pl": "Produkcja — instalacja w środowisku licencjonowanym na poziomie produkcyjnym"
+              }
+            },
+            {
+              "value": "non-production",
+              "text": {
+                "default": "Non production - Install to a development or test environment",
+                "pl": "Inne niż produkcyjne — instalowanie w środowisku programistycznym lub testowym"
+              }
+            }
+          ]
         },
         {
           "type": "radiogroup",
@@ -31,7 +46,29 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "development",
+              "text": {
+                "default": "Install to a Power Platform development environment",
+                "pl": "Instalowanie w Power Platform środowisku programistycznym"
+              }
+            },
+            {
+              "value": "shared",
+              "text": {
+                "default": "Install to a shared Power Platform environment",
+                "pl": "Instalowanie w środowisku Power Platform współużytkowanego"
+              }
+            },
+            {
+              "value": "trial-30",
+              "text": {
+                "default": "Install into 30 day trial Power Platform environment",
+                "pl": "Zainstaluj w 30-dniowym środowisku Power Platform próbnym"
+              }
+            }
+          ]
         },
         {
           "type": "checkbox",
@@ -42,7 +79,29 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "main",
+              "text": {
+                "default": "The **main solution** that can be used to setup Automation Projects and expected ROI",
+                "pl": "Ten **Główne rozwiązanie** które można wykorzystać do skonfigurowania projektów automatyzacji i oczekiwanego zwrotu z inwestycji"
+              }
+            },
+            {
+              "value": "dashboard",
+              "text": {
+                "default": "A **Power BI dashboard** that reads data from the main environment to display ROI, complexity and monitor solutions",
+                "pl": "A **Pulpit nawigacyjny usługi Power BIPower BI dashboard** który odczytuje dane z głównego środowiska w celu wyświetlania zwrotu z inwestycji, złożoności i monitorowania rozwiązań"
+              }
+            },
+            {
+              "value": "satellite",
+              "text": {
+                "default": "Install **satellite solution** to monitor deployed Power Automate Desktop solution",
+                "pl": "Instalować **Rozwiązanie satelitarne** do monitorowania wdrożonego rozwiązania Power Automate Desktop"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -68,7 +127,22 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "dev-lic",
+              "text": {
+                "default": "I want to assign Development license",
+                "pl": "Chcę przypisać licencję programistyczną"
+              }
+            },
+            {
+              "value": "dev-env",
+              "text": {
+                "default": "I have been assigned a Development environment",
+                "pl": "Przydzielono mi środowisko programistyczne"
+              }
+            }
+          ],
           "visibleIf": "{method} = 'development'"
         },
         {
@@ -81,6 +155,13 @@
           "isRequired": true,
           "colCount": 1,
           "choices": [
+            {
+              "value": "azure-portal",
+              "text": {
+                "default": "Can open the <a href='https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers' target='_blank'>Azure Portal - Users</a>",
+                "pl": "Można otworzyć <a href='https://portal.azure.com/#view/Microsoft_AAD_UsersAndTenants/UserManagementMenuBlade/~/AllUsers' target='_blank'>Azure Portal — użytkownicy</a>"
+              }
+            },
             {
               "value": "Can search for your user name",
               "text": {
@@ -103,10 +184,31 @@
               }
             },
             {
+              "value": "dev-lic",
+              "text": {
+                "default": "Can verify that find 'Microsoft Power Apps for Developer' assigned",
+                "pl": "Może sprawdzić, czy znajdź przypisany \"Microsoft Power Apps for Developer\""
+              }
+            },
+            {
               "value": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
               "text": {
                 "default": "Can visit <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>",
                 "pl": "Może odwiedzić <a href='https://make.powerapps.com' target='_blank'>https://make.powerapps.com</a>"
+              }
+            },
+            {
+              "value": "dev-created",
+              "text": {
+                "default": "Development environment created",
+                "pl": "Utworzone środowisko programistyczne"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "pl": "Nie można ukończyć **inny** Kroki"
               }
             }
           ],
@@ -129,7 +231,29 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "open-envs",
+              "text": {
+                "default": "Can open the <a href='https://admin.powerplatform.microsoft.com/environments' target='_blank'>Environments</a>",
+                "pl": "Można otworzyć <a href='https://admin.powerplatform.microsoft.com/environments' target='_blank'>Środowiskach</a>"
+              }
+            },
+            {
+              "value": "dev-created",
+              "text": {
+                "default": "Can verify environment with Type 'Developer' exists",
+                "pl": "Może sprawdzić, czy istnieje środowisko z typem \"Deweloper\""
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete all **other** steps",
+                "pl": "Nie można ukończyć wszystkich **inny** Kroki"
+              }
+            }
+          ],
           "visibleIf": "{method} = 'development' and contains({developmentChecks},'dev-env')"
         },
         {
@@ -177,6 +301,13 @@
                 "default": "Assign 'Microsoft Power Apps for Developer' licenses to trial users in <a href='https://portal.office.com' target='_blank'>Office Portal</a> or <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>",
                 "pl": "Przypisywanie licencji \"Microsoft Power Apps for Developer\" użytkownikom wersji próbnej w <a href='https://portal.office.com' target='_blank'>Office Portal</a> lub <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/LicensesMenuBlade/~/Overview' target='_blank'>Azure Portal</a>"
               }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "pl": "Nie można ukończyć **inny** Kroki"
+              }
             }
           ],
           "visibleIf": "{method} = 'trial-30'"
@@ -207,7 +338,61 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": []
+          "choices": [
+            {
+              "value": "admin-rights",
+              "text": {
+                "default": "I have environment administrator rights",
+                "pl": "Mam uprawnienia administratora środowiska"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "no-admin",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "pl": "Nie mam uprawnień administratora środowiska"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "code-components",
+              "text": {
+                "default": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                "pl": "Mam (lub administrator środowiska) włączyłem składniki kodu w środowisku za pomocą <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Włącz składniki kodu</a> Dowiedz się więcej"
+              }
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "I have (or an environment administrator) has installed the creator kit using <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator Kit Import</a> learn information",
+                "pl": "Mam (lub administrator środowiska) zainstalowałem zestaw dla twórców za pomocą <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Importowanie Zestawu twórców</a> Dowiedz się więcej"
+              }
+            },
+            {
+              "value": "main-creator-kit",
+              "text": {
+                "default": "I have setup creator kit for **main** environment",
+                "pl": "Mam setup creator kit dla **główny** środowisko"
+              },
+              "visibleIf": "contains({components},'main')"
+            },
+            {
+              "value": "main-creator-kit",
+              "text": {
+                "default": "I have setup creator kit for EACH **satellite** environment",
+                "pl": "Mam zestaw kreatora konfiguracji dla KAŻDEGO **satelita** środowisko"
+              },
+              "visibleIf": "contains({components},'satellite')"
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "pl": "Nie można ukończyć **inny** Kroki"
+              }
+            }
+          ]
         },
         {
           "type": "html",
@@ -226,7 +411,88 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "admin-rights",
+              "text": {
+                "default": "I have admin rights the shared environment",
+                "pl": "Mam uprawnienia administratora środowiska współdzielonego"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "no-admin",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "pl": "Nie mam uprawnień administratora środowiska"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "code-components",
+              "text": {
+                "default": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                "pl": "Mam (lub administrator środowiska) włączyłem składniki kodu w środowisku za pomocą <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Włącz składniki kodu</a> Dowiedz się więcej"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "I have imported the creator kit <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator kit import</a> using the learn steps into each satellite environment",
+                "pl": "Zaimportowałem zestaw dla twórców <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Import zestawu twórców</a> Korzystanie z kroków uczenia się w każdym środowisku satelitarnym"
+              }
+            },
+            {
+              "value": "solution-import",
+              "text": {
+                "default": "I successfully imported the solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-main-solution-into-the-main-environment' target='_blank'>Learn</a>",
+                "pl": "Pomyślnie zaimportowałem rozwiązanie, wykonując czynności opisane w <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-main-solution-into-the-main-environment' target='_blank'>Uczyć się</a>"
+              }
+            },
+            {
+              "value": "approvals",
+              "text": {
+                "default": "I successfully provisioned the approvals solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#provision-the-approvals-solution-optional' target='_blank'>Learn</a>",
+                "pl": "Pomyślnie zainicjowano obsługę administracyjną rozwiązania do zatwierdzania, wykonując czynności opisane w <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#provision-the-approvals-solution-optional' target='_blank'>Uczyć się</a>"
+              }
+            },
+            {
+              "value": "assign-security-roles",
+              "text": {
+                "default": "I successfully assigned the security roles using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#assign-security-roles' target='_blank'>Learn</a>",
+                "pl": "Role zabezpieczeń zostały pomyślnie przypisane, wykonując czynności opisane w artykule <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#assign-security-roles' target='_blank'>Uczyć się</a>"
+              }
+            },
+            {
+              "value": "sync-environments",
+              "text": {
+                "default": "I successfully sync the environments using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#sync-environments' target='_blank'>Learn</a>",
+                "pl": "Pomyślnie zsynchronizowałem środowiska, wykonując czynności opisane w <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#sync-environments' target='_blank'>Uczyć się</a>"
+              }
+            },
+            {
+              "value": "desktop-flow-actions",
+              "text": {
+                "default": "I successfully imported the desktop flow actions in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-desktop-flow-actions-csv' target='_blank'>Learn</a>",
+                "pl": "Pomyślnie zaimportowałem akcje przepływu pulpitu w <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#import-the-desktop-flow-actions-csv' target='_blank'>Uczyć się</a>"
+              }
+            },
+            {
+              "value": "configured-kit",
+              "text": {
+                "default": "I successfully used the automation kit steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit' target='_blank'>Use the Automation Kit</a>",
+                "pl": "Z powodzeniem użyłem kroków zestawu do automatyzacji w <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit' target='_blank'>Korzystanie z zestawu Automation Kit</a>"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "pl": "Nie można ukończyć **inny** Kroki"
+              }
+            }
+          ],
           "visibleIf": "contains({components},'main')"
         },
         {
@@ -255,7 +521,22 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "powerbi-install",
+              "text": {
+                "default": "Review the Power BI desktop install instructions at <a href='/get-started/install-powerbi-dashboard' target='_blank'>Setup Automation Kit Power BI dashboard</a>.",
+                "pl": "Zapoznaj się z instrukcjami instalacji programu Power BI Desktop na stronie <a href='/get-started/install-powerbi-dashboard' target='_blank'>Zestaw automatyzacji konfiguracji Pulpit nawigacyjny usługi Power BI</a>."
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "pl": "Nie można ukończyć **inny** Kroki"
+              }
+            }
+          ],
           "visibleIf": "contains({components},'dashboard')"
         },
         {
@@ -284,7 +565,81 @@
           },
           "isRequired": true,
           "colCount": 1,
-          "choices": [],
+          "choices": [
+            {
+              "value": "admin-rights",
+              "text": {
+                "default": "I have admin rights the shared environment",
+                "pl": "Mam uprawnienia administratora środowiska współdzielonego"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "no-admin",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "pl": "Nie mam uprawnień administratora środowiska"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "code-components",
+              "text": {
+                "default": "I have (or an environment administrator) has enabled code components in the environment using <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Enable code components</a> learn information",
+                "pl": "Mam (lub administrator środowiska) włączyłem składniki kodu w środowisku za pomocą <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites#enable-code-components' target='_blank'>Włącz składniki kodu</a> Dowiedz się więcej"
+              },
+              "visibleIf": "({method} = 'shared')"
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "I have imported the creator kit <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Creator kit import</a> using the learn steps into each satellite environment",
+                "pl": "Zaimportowałem zestaw dla twórców <a href=' https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/main#creator-kit-import' target='_blank'>Import zestawu twórców</a> Korzystanie z kroków uczenia się w każdym środowisku satelitarnym"
+              }
+            },
+            {
+              "value": "aad",
+              "text": {
+                "default": "I created the Azure Active Directory application and secret from <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-an-azure-ad-app-registration-to-connect-to-dataverse-web-api' target='_blank'>Learn</a>",
+                "pl": "Utworzono aplikację Azure Active Directory i wpis tajny od <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-an-azure-ad-app-registration-to-connect-to-dataverse-web-api' target='_blank'>Uczyć się</a>"
+              }
+            },
+            {
+              "value": "aad-user-setup",
+              "text": {
+                "default": "I have setup the application user in the satellite environment <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-application-user-inside-dataverse-per-satellite-env' target='_blank'>Learn</a>",
+                "pl": "Ustawiłem użytkownika aplikacji w środowisku satelitarnym <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#create-application-user-inside-dataverse-per-satellite-env' target='_blank'>Uczyć się</a>"
+              }
+            },
+            {
+              "value": "solution-import",
+              "text": {
+                "default": "I successfully imported the solution using the steps in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#import-the-satellite-solution-into-the-satellite-environment' target='_blank'>Learn</a>",
+                "pl": "Pomyślnie zaimportowałem rozwiązanie, wykonując czynności opisane w <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite#import-the-satellite-solution-into-the-satellite-environment' target='_blank'>Uczyć się</a>"
+              }
+            },
+            {
+              "value": "desktop-flow-actions",
+              "text": {
+                "default": "I successfully imported the desktop flow actions in <a href='https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite#import-the-desktop-flow-actions-csv' target='_blank'>Learn</a>",
+                "pl": "Pomyślnie zaimportowałem akcje przepływu pulpitu w <a href='https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite#import-the-desktop-flow-actions-csv' target='_blank'>Uczyć się</a>"
+              }
+            },
+            {
+              "value": "setup-environment-variables",
+              "text": {
+                "default": "I have setup environment as described in <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables' target='_blank'>Environment variables</a>",
+                "pl": "Mam skonfigurowane środowisko zgodnie z opisem w części <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables' target='_blank'>Zmienne środowiskowe</a>"
+              }
+            },
+            {
+              "value": "unable-to-complete",
+              "text": {
+                "default": "Unable to complete **other** steps",
+                "pl": "Nie można ukończyć **inny** Kroki"
+              }
+            }
+          ],
           "visibleIf": "contains({components},'satellite')"
         },
         {
