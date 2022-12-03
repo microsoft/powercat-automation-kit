@@ -43,7 +43,7 @@ window.getItemPrice = getItemPrice = function (params) {
                 return 40;
                 break;
             case "Unattended":
-                return 40;
+                return 190;
                 break;
             case "Cloud":
                 return 15;

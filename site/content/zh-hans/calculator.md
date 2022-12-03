@@ -4,7 +4,7 @@ description: "自动化套件 - 计算器"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A6C6894340A45FA0B6A51B271AA515D21F5609F2
+generated: F0F8C060AC5283D00E05E803BB75079E1E9D29DA
 ---
 {{<questions name="/content/zh-hans/calculator.json" completed="" showNavigationButtons=true registerJavaScript="getItemPrice,botTotal,migrationTotal" locale="zh-hans">}}
 <script>
@@ -44,7 +44,7 @@ window.getItemPrice = getItemPrice = function (params) {
                 return 40;
                 break;
             case "Unattended":
-                return 40;
+                return 190;
                 break;
             case "Cloud":
                 return 15;
