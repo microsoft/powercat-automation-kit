@@ -31,9 +31,8 @@ $Installation_Solution =''
 	}
 
 Write-Host ========================================================================
-Write-Host  Getting things ready to install Autmation Kit -$Installation_Solution soluiton 
+Write-Host  Getting things ready to install Autmation Kit -$Installation_Solution solution 
 Write-Host =========================================================================
-
 
 class InstallSettings { 
 
@@ -60,7 +59,7 @@ class InstallSettings {
 			return
 		}
 		
-		$deploymentSettings.PSObject.Properties | foreach {
+		$deploymentSettings.PSObject.Properties|foreach {
 			$name = $_.Name
 			$val = $_.Value
 			Switch ( $val.GetType().Name.ToLower() ) {
@@ -68,8 +67,21 @@ class InstallSettings {
 					$this.mergeDeploymentSettings($val, $userResponse)
 				}
 				"object[]" {
-					foreach ( $item in $val ) {
-						$this.mergeDeploymentSettings($item, $userResponse)
+					if ( ($val.Count -gt 0) -and $val[0].GetType().Name.ToLower() -eq "string") {
+						[string[]]$array = $val -as [string[]]
+						for( $i=1; $i -le $array.Count; $i++ ) {
+							if ( $array[$i] -ne $null -and $array[$i].IndexOf('connection[') -gt 0 ) 
+							{
+								$parts = $array[$i].Replace("#","").Split('.')
+								$connection =  $parts[0].Replace("connection[","").Replace("]","")
+								$nameValue = $parts[1];
+								$val[$i] = $this.getConnectionId($userResponse.$nameValue, $connection)
+							}
+						}
+					} else {
+						foreach ( $item in $val ) {
+							$this.mergeDeploymentSettings($item, $userResponse)
+						}
 					}
 				}
 				"string" {
@@ -177,11 +189,8 @@ class Deployment {
 	}
 
 	[void] install() {
-		
 		$DeploymentSettingsData = $this.settings.loadDeploymentSettings()
 		$UserResponseData = $this.settings.loadUserResponseFile()
-		
-		
 		
 		$EnableApprovalFlow=""
 		$EnableROIFlow=""
@@ -191,10 +200,8 @@ class Deployment {
 		$Viewer_users =""
 		$ProjectBusinessOwnerEmailId=""
 		
-		
 		$AzureAppID=""
 		$ActivateAllCloudFlows=""
-		
 		
 		if ($this.settings.InstallMainSolution -eq $True)
 		{
@@ -209,8 +216,7 @@ class Deployment {
 			$EnableROIFlow=$UserResponseData.'main-enableROIFlow'
 			$EnableApprovalFlow=$UserResponseData.'main-enableApprovalFlow'
 			$EnableSyncFlow=$UserResponseData.'main-enableSyncFlow'	
-			$ProjectBusinessOwnerEmailId=$UserResponseData.'main-BusinessOwnerEmail'	
-			
+			$ProjectBusinessOwnerEmailId=$UserResponseData.'main-businessApprover'	
 		}
 		else
 		{			
@@ -221,9 +227,8 @@ class Deployment {
 			$AzureAppID=$UserResponseData.'satellite-azureAppId' #need to read from user response json		
 		}
 		
-	
 		$this.settings.mergeDeploymentSettings($DeploymentSettingsData, $UserResponseData)
-		$DeploymentSettingsData | ConvertTo-Json -depth 32| set-content $this.settings.UpdatedDeploymentSettingsFile
+		$DeploymentSettingsData|ConvertTo-Json -depth 32| set-content $this.settings.UpdatedDeploymentSettingsFile
 		
 		#pac auth profile creation for Main environment to deploy the package 
 		write-host "Creating profile authorization for the environment"
@@ -233,7 +238,6 @@ class Deployment {
 		Write-Host $EnvironmentURL 
 
 		pac auth create --url $EnvironmentURL   --name $this.settings.AutoCOE_ProfileName
-			
 
 		if ($Error -ne '')
 		{
@@ -252,7 +256,7 @@ class Deployment {
 
 		write-host "Encoding Deployment settings"
 
-		$Bytes = [System.Text.Encoding]::UTF8.GetBytes(($DeploymentSettingsData | ConvertTo-Json -Compress -depth 32))
+		$Bytes = [System.Text.Encoding]::UTF8.GetBytes(($DeploymentSettingsData|ConvertTo-Json -Compress -depth 32))
 		$EncodedSettings = [System.Convert]::ToBase64String($Bytes)
 		
 		write-host "Completed of Encoding Deployment settings"
@@ -260,10 +264,10 @@ class Deployment {
 		if ($this.settings.InstallMainSolution -eq $True)
 		{
 			Write-Host ========================================================		
-			Write-Host  Installing Main soluiton
+			Write-Host  Installing Main solution
 			Write-Host ========================================================
-		
-			pac package deploy --logFile $this.settings.LogFile -c true  --package $this.settings.PackageFilePath --settings "installmainsolution=true|importconfigdata=$InstallSampleData | AutomationCOEMain_deploymentsettings=$EncodedSettings | activateapprovalflow=$EnableApprovalFlow | activateroiflow=$enableROIFlow | activateyncflow=$enableSyncFlow | projectadminusers= $Admin_users | projectcontributors= $Contributor_users | projectviewers=$Viewer_users | businessowneremail= $ProjectBusinessOwnerEmailId"
+
+			pac package deploy --logFile $this.settings.LogFile -c true  --package $this.settings.PackageFilePath --settings "installmainsolution=true|importconfigdata=$InstallSampleData|AutomationCoEMain_componentsettings=$EncodedSettings|activateapprovalflow=$EnableApprovalFlow|activateroiflow=$enableROIFlow|activateyncflow=$enableSyncFlow|projectadminusers=$Admin_users|projectcontributors=$Contributor_users|projectviewers=$Viewer_users|businessowneremail=$ProjectBusinessOwnerEmailId"
 		}
 		else
 		{
@@ -271,20 +275,17 @@ class Deployment {
 			Write-Host  Installing Satellite soluiton
 			Write-Host ========================================================
 			
-			pac package deploy --logFile $this.settings.LogFile -c true  --package $this.settings.PackageFilePath --settings "installsatellitesolution=true | AutomationCoESatellite_deploymentsettings=$EncodedSettings | importconfigdata=$InstallSampleData | activateallflows=$ActivateAllCloudFlows"
+			pac package deploy --logFile $this.settings.LogFile -c true  --package $this.settings.PackageFilePath --settings "installsatellitesolution=true|AutomationCoESatellite_deploymentsettings=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows"
 			
 		}
 		
-		# Reading log file for errors or dependencies
-		
+		# Reading log file for errors or dependencies	
 		$LogDetails = Get-Content $this.settings.LogFile
 		
 		if (($LogDetails -imatch "Error") -and ($LogDetails -imatch "Some dependencies are missing")-and ($LogDetails -imatch "CreatorKitCore"))
 		{	
-			
 			write-host "The Automation Kit setup has found dependency of creator kit to install. Please install the creator kit from appsource URL:https://appsource.microsoft.com/en-US/home. And later you can retry to install Automation kit."
 			break;
-
 		}
 
 		Write-Host ========================================================
@@ -294,12 +295,12 @@ class Deployment {
 		# Removing of newly created profile 
 		pac auth delete -n $this.settings.AutoCOE_ProfileName
 		
-	if ($this.settings.InstallMainSolution -eq $True)
+		if ($this.settings.InstallMainSolution -eq $True)
 		{
 		}
 		else
 		{
-			#Creating applicaiton user			
+			#Creating application user			
 			pac auth create --url $EnvironmentURL --kind admin -n $this.settings.AutoCOE_ProfileName
 
 			pac auth select  $this.settings.AutoCOE_ProfileName
@@ -311,9 +312,6 @@ class Deployment {
 			
 			pac auth delete -n $this.settings.AutoCOE_ProfileName
 		}
-		
-		
-		
 	}
 }
 
@@ -327,7 +325,7 @@ $install = [InstallSettings]::new()
 if ($InstallMainSolution -eq $True)
 {
 	$install.InstallMainSolution=$True
-	$install.DeploymentSettingsFile = ".\AutomationCoEMain_1.0.20221102.1_managed.json"
+	$install.DeploymentSettingsFile = ".\AutomationCoEMain_manifest.ppkg.json"
 	$install.UserResponsesFile = ".\automation-kit-main-install.json"
 	$install.UpdatedDeploymentSettingsFile=".\DeploymentSettings_Main.json"	
 	$install.AutoCOE_ProfileName="AutoCOE_Main_Env"

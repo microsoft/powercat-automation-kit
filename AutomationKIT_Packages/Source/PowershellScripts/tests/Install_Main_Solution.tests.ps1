@@ -105,6 +105,23 @@ Describe 'Install-Main-Solution-Test' {
         $target.name[0].item | Should -Be "value"
     }
 
+    It 'Merge Array of Strings' {
+        $install = [InstallSettings]::new()
+
+        $target = "{'name':['#foo2#', 'a']}" | ConvertFrom-Json
+        $values = "{'foo2':'value'}" | ConvertFrom-Json
+
+        $target.name.GetType().Name.ToLower() | Should -Be "object[]"
+        $target.name[0].GetType().Name.ToLower() | Should -Be "string"
+
+        $install.mergeDeploymentSettings( $target, $values )
+
+        Write-Host $target.name[0]
+
+        #$target.name[0] | Should -Be "value"
+        #$target.name[1] | Should -Be "a"
+    }
+
     It 'Merge Object String' {
         $install = [InstallSettings]::new()
 
