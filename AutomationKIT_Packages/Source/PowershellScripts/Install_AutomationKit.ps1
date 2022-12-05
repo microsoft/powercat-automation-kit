@@ -10,7 +10,6 @@ $UserChoice= Read-Host -Prompt "Welcome to Automation kit installation.  Press y
 [boolean]$InstallMainSolution=$True
 $Installation_Solution =''
 
-
 	$CharArray =$UserChoice.ToLower().ToCharArray()
 
 	if ($CharArray[0] -eq "y")
@@ -59,51 +58,57 @@ class InstallSettings {
 			return
 		}
 		
-		$deploymentSettings.PSObject.Properties|foreach {
+		$deploymentSettings.PSObject.Properties | foreach {
 			$name = $_.Name
 			$val = $_.Value
-			Switch ( $val.GetType().Name.ToLower() ) {
-				"pscustomobject" {
-					$this.mergeDeploymentSettings($val, $userResponse)
-				}
-				"object[]" {
-					if ( ($val.Count -gt 0) -and $val[0].GetType().Name.ToLower() -eq "string") {
-						[string[]]$array = $val -as [string[]]
-						for( $i=1; $i -le $array.Count; $i++ ) {
-							if ( $array[$i] -ne $null -and $array[$i].IndexOf('connection[') -gt 0 ) 
-							{
-								$parts = $array[$i].Replace("#","").Split('.')
-								$connection =  $parts[0].Replace("connection[","").Replace("]","")
-								$nameValue = $parts[1];
-								$val[$i] = $this.getConnectionId($userResponse.$nameValue, $connection)
+			if ( $val -ne $NULL ) {		
+				Switch ( $val.GetType().Name.ToLower() ) {
+					"pscustomobject" {
+						$this.mergeDeploymentSettings($val, $userResponse)
+					}
+					"object[]" {
+						if ( ($val.Count -gt 0) -and $val[0].GetType().Name.ToLower() -eq "string") {
+							[string[]]$array = $val -as [string[]]
+							for( $i=0; $i -lt $array.Count; $i++ ) {
+								if ( $array[$i] -ne $null -and $array[$i].IndexOf('connection[') -gt 0 ) 
+								{
+									$parts = $array[$i].Replace("#","").Split('.')
+									$connection =  $parts[0].Replace("connection[","").Replace("]","")
+									$nameValue = $parts[1];
+									$val[$i] = $this.getConnectionId($userResponse.$nameValue, $connection)
+								} else {
+									if ( $array[$i] -ne $null -and $array[$i].IndexOf('#') -eq 0 ) 
+									{
+										$propName = $array[$i].Replace("#","")
+										if (($userResponse.PSObject.Properties.Name -contains $propName) ) {
+											$val[$i] = $userResponse.$propName
+										}
+									}
+								}
+							}
+						} else {
+							foreach ( $item in $val ) {
+								$this.mergeDeploymentSettings($item, $userResponse)
 							}
 						}
-					} else {
-						foreach ( $item in $val ) {
-							$this.mergeDeploymentSettings($item, $userResponse)
-						}
 					}
-				}
-				"string" {
-					if ( -not [string]::IsNullOrEmpty($val) ) {
-						if ( ($val.IndexOf("#") -ge 0)) {
-							$propName = $val.Replace("#","")
+					"string" {
+						if ( -not [string]::IsNullOrEmpty($val) ) {
+							if ( ($val.IndexOf("#") -ge 0)) {
+								$propName = $val.Replace("#","")
 
-							if ( $propName.IndexOf('connection[') -eq 0 ) {
-								$parts = $propName.Split('.')
-								$connection =  $parts[0].Replace("connection[","").Replace("]","")
-								$nameValue = $parts[1];
-								
-								if (($userResponse.PSObject.Properties.Name -contains $nameValue) ) {
+								if ( $propName.IndexOf('connection[') -eq 0 ) {
+									$parts = $propName.Split('.')
+									$connection =  $parts[0].Replace("connection[","").Replace("]","")
+									$nameValue = $parts[1];
 									
-									$deploymentSettings.$name = $this.getConnectionId($userResponse.$nameValue, $connection)
-									
-																		
-								}
-							} else {
-								if (($userResponse.PSObject.Properties.Name -contains $propName) ) {
-									$deploymentSettings.$name = $userResponse.$propName
-									
+									if (($userResponse.PSObject.Properties.Name -contains $nameValue) ) {
+										$deploymentSettings.$name = $this.getConnectionId($userResponse.$nameValue, $connection)									
+									}
+								} else {
+									if (($userResponse.PSObject.Properties.Name -contains $propName) ) {
+										$deploymentSettings.$name = $userResponse.$propName
+									}
 								}
 							}
 						}
@@ -267,7 +272,7 @@ class Deployment {
 			Write-Host  Installing Main solution
 			Write-Host ========================================================
 
-			pac package deploy --logFile $this.settings.LogFile -c true  --package $this.settings.PackageFilePath --settings "installmainsolution=true|importconfigdata=$InstallSampleData|AutomationCoEMain_componentsettings=$EncodedSettings|activateapprovalflow=$EnableApprovalFlow|activateroiflow=$enableROIFlow|activateyncflow=$enableSyncFlow|projectadminusers=$Admin_users|projectcontributors=$Contributor_users|projectviewers=$Viewer_users|businessowneremail=$ProjectBusinessOwnerEmailId"
+			pac package deploy --logFile $this.settings.LogFile -c true  --package $this.settings.PackageFilePath --settings "installmainsolution=true|importconfigdata=$InstallSampleData|AutomationCoEMain_componentarguments=$EncodedSettings|activateapprovalflow=$EnableApprovalFlow|activateroiflow=$enableROIFlow|activateyncflow=$enableSyncFlow|projectadminusers=$Admin_users|projectcontributors=$Contributor_users|projectviewers=$Viewer_users|businessowneremail=$ProjectBusinessOwnerEmailId"
 		}
 		else
 		{
