@@ -9,7 +9,12 @@
 	<Description>This AutomationKIT provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions</Description>
 	<DelaySign>False</DelaySign>
 	<PackageId>$(AssemblyName)</PackageId>	
-  </PropertyGroup>  
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>  
   <ItemGroup>
     <Content Include="PkgAssets\ImportConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

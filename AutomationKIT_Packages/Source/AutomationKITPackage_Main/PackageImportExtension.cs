@@ -36,6 +36,7 @@ namespace AutomationKIT
         /// </summary>
         public override string GetImportPackageDescriptionText => "Automation kit provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions for main environment.";
 
+        
         private bool NeedToImportMainSolution = false;        
         private bool ImportSampleData = false;
         private bool NeedToActivateApprovalFlow = false;
@@ -44,7 +45,20 @@ namespace AutomationKIT
         private string ProjectAdminUsers = string.Empty;
         private string ProjectContributors = string.Empty;
         private string ProjectViewers = string.Empty;
-        private string ProjectBusinessOwner = string.Empty;
+        private string ProjectBusinessOwner = string.Empty;        
+        #endregion
+
+        #region Default data
+        private string const_Approval_Flow_Name;
+        private string const_Calc_ROI_Flow_Name;
+        private string const_Sync_Env_Flow_Name;
+
+        private string const_Security_Name_Project_Admin;
+        private string const_Security_Name_Project_Contributor;
+        private string const_Security_Name_Project_Viewer;
+
+        private string const_Admin_Email_To_Find;
+        private string const_Canvas_App_Name_For_Projects;
 
         #endregion
 
@@ -58,6 +72,18 @@ namespace AutomationKIT
             string strValue;
                        
             PackageLog.Log("InitializeCustomExtension is started on " + DateTime.Now.ToString());
+
+            const_Approval_Flow_Name = AutomationKIT_Main.AutomationKit_Main.Default.Flow_Name_Project_Approvals.ToString();
+            const_Calc_ROI_Flow_Name = AutomationKIT_Main.AutomationKit_Main.Default.Flow_Name_Calculate_ROI.ToString();
+            const_Sync_Env_Flow_Name = AutomationKIT_Main.AutomationKit_Main.Default.Flow_Name_Sync_Environments.ToString();
+
+            const_Security_Name_Project_Admin = AutomationKIT_Main.AutomationKit_Main.Default.Security_Role_Project_Admin.ToString();
+            const_Security_Name_Project_Contributor = AutomationKIT_Main.AutomationKit_Main.Default.Security_Role_Project_Contributor.ToString();
+            const_Security_Name_Project_Viewer = AutomationKIT_Main.AutomationKit_Main.Default.Security_Role_Project_Viewer.ToString();
+
+            const_Admin_Email_To_Find = AutomationKIT_Main.AutomationKit_Main.Default.Administrator_EmailId.ToString();
+            const_Canvas_App_Name_For_Projects = AutomationKIT_Main.AutomationKit_Main.Default.Canvas_App_Project_Name.ToString();
+                                    
             try
             {
                 if (RuntimeSettings != null)
@@ -73,7 +99,7 @@ namespace AutomationKIT
                         if (strKey.Contains("importconfigdata"))
                         {
                             bool.TryParse(strValue, out ImportSampleData);
-                            DataImportBypass = (ImportSampleData ? false : true);
+                            DataImportBypass = (!ImportSampleData);
                             PackageLog.Log("ImportSampleData=" + ImportSampleData.ToString());
                             PackageLog.Log("DataImportBypass=" + DataImportBypass.ToString());
                         }
@@ -117,7 +143,7 @@ namespace AutomationKIT
                             ProjectBusinessOwner = strValue.ToString();
                             PackageLog.Log("ProjectBusinessOwner=" + ProjectBusinessOwner);
                         }
-
+                        
                     }
 
                 }
@@ -168,42 +194,44 @@ namespace AutomationKIT
 
             PackageLog.Log("RunsolutionUpgradeMigrationStep is completed on " + DateTime.Now.ToString());
         }
-
         public override bool AfterPrimaryImport()
         {
-            PackageLog.Log("AfterPrimaryImport is completed on " + DateTime.Now.ToString());
-            //UpdateProjectAppDetails();
+            PackageLog.Log("AfterPrimaryImport is started on " + DateTime.Now.ToString());
             AssignUsersToRoles();
             ActivateDeActivateCloudFlows();
             UpdateBusinessOwnertoExistingProjects(ProjectBusinessOwner);
-            
+            UpdateConsoleConfigurations();
+            PackageLog.Log("AfterPrimaryImport is completed on " + DateTime.Now.ToString());
             return true;
         }
         private void ActivateDeActivateCloudFlows()
         {
-            StringCollection flows = new StringCollection();
-            flows.Add("Automation Project - Approvals");
-            flows.Add("Calculate ROI Saving Potential for Automation Project");
-            flows.Add("Sync Environments");
-            
+            StringCollection flows = new StringCollection
+            {
+                const_Approval_Flow_Name,
+                const_Calc_ROI_Flow_Name,
+                const_Sync_Env_Flow_Name
+            };
+
             foreach (string flow in flows)
             {
-                switch (flow)
+                if (flow == const_Approval_Flow_Name)
                 {
-                    case "Automation Project - Approvals":
-                        ActivateDeActivateCloudFlow(flow.ToString(), NeedToActivateApprovalFlow);
-                        break;
-                    case "Calculate ROI Saving Potential for Automation Project":
-                        ActivateDeActivateCloudFlow(flow.ToString(), NeedToActivateROIFlow);
-                        break;
-                    case "Sync Environments":
-                        ActivateDeActivateCloudFlow(flow.ToString(), NeedToActivateSyncFlow);
-                        break;
-                    default:
-                        // other flows should be de-activated
-                        ActivateDeActivateCloudFlow(flow.ToString(), false);
-                        break;
+                    ActivateDeActivateCloudFlow(flow.ToString(), NeedToActivateApprovalFlow);
                 }
+                else if (flow == const_Calc_ROI_Flow_Name)
+                {
+                    ActivateDeActivateCloudFlow(flow.ToString(), NeedToActivateROIFlow);
+                }
+                else if (flow == const_Sync_Env_Flow_Name)
+                {
+                    ActivateDeActivateCloudFlow(flow.ToString(), NeedToActivateSyncFlow);
+                }
+                else
+                {
+                    // other flows should be de-activated
+                    ActivateDeActivateCloudFlow(flow.ToString(), false);
+                }                
             }
         }
         private void ActivateDeActivateCloudFlow(string flowName, bool enableFlow)
@@ -243,31 +271,26 @@ namespace AutomationKIT
         }        
         private void AssignUsersToRoles()
         {
-            string SecurityRole = string.Empty;
-
             if (!string.IsNullOrEmpty(ProjectAdminUsers))
             {
-                SecurityRole = "Automation Project Admin";
-                AssignUsersToRole(ProjectAdminUsers, SecurityRole);
+                
+                AssignUsersToRole(ProjectAdminUsers, const_Security_Name_Project_Admin);
             }
 
             if (!string.IsNullOrEmpty(ProjectContributors))
             {
-                SecurityRole = "Automation Project Contributor";
-                AssignUsersToRole(ProjectContributors, SecurityRole);
+                
+                AssignUsersToRole(ProjectContributors, const_Security_Name_Project_Contributor);
             }
 
             if (!string.IsNullOrEmpty(ProjectViewers))
             {
-                SecurityRole = "Automation Project Viewer";
-                AssignUsersToRole(ProjectViewers, SecurityRole);
+                AssignUsersToRole(ProjectViewers, const_Security_Name_Project_Viewer);
             }
         }
         private void AssignUsersToRole(string userEmailslist, string securityRole)
         {
             PackageLog.Log("Assigning users to security role '" + securityRole + "'");
-
-            Guid userid = Guid.Empty;
             Guid roleid = Guid.Empty;
 
             if (!string.IsNullOrEmpty(userEmailslist) && !string.IsNullOrEmpty(securityRole))
@@ -298,13 +321,15 @@ namespace AutomationKIT
                     var resultusers = CrmSvc.RetrieveMultiple(queryusers);
                     var results = resultusers.Entities[0];
 
-                    userid = (Guid)results["systemuserid"];
+                    Guid userid = (Guid)results["systemuserid"];
 
                     //assigning user to role
                     if (roleid != Guid.Empty && userid != Guid.Empty)
                     {
                         try
                         {
+                            CrmSvc.DeleteEntityAssociation("systemuser", userid, "role", roleid, "systemuserroles_association");
+
                             CrmSvc.Associate("systemuser", userid, new Relationship("systemuserroles_association"), new EntityReferenceCollection() { new EntityReference("role", roleid) });
                         }
                         catch (Exception ex)
@@ -318,26 +343,28 @@ namespace AutomationKIT
 
             PackageLog.Log("Completed of assigning roles");
         }
-        private void UpdateBusinessOwnertoExistingProjects(string userEmailid)
+        private void UpdateBusinessOwnertoExistingProjects(string businessOwnerEmailId)
         {
             PackageLog.Log("Updating business owner to existing projects");
 
-            if (!string.IsNullOrEmpty(userEmailid))
+            if (!string.IsNullOrEmpty(businessOwnerEmailId))
             {
                 // getting projects to update business owner emailid for old data
                 var queryPrjects = new QueryExpression("autocoe_automationproject");
                 queryPrjects.ColumnSet.AddColumns("autocoe_businessowneremail");
-                queryPrjects.Criteria.AddCondition("autocoe_businessowneremail", ConditionOperator.Equal, "administrator@contoso.onmicrosoft.com");
+                queryPrjects.Criteria.AddCondition("autocoe_businessowneremail", ConditionOperator.Equal, const_Admin_Email_To_Find);
                 try
                 {
                     var resultProjects = CrmSvc.RetrieveMultiple(queryPrjects);
-                    var results = resultProjects.Entities[0];
-
-                    foreach (Entity proj in resultProjects.Entities)
+                    
+                    if (resultProjects.Entities.Count > 0)
                     {
-                        proj["autocoe_businessowneremail"] = userEmailid;
+                        foreach (Entity proj in resultProjects.Entities)
+                        {
+                            proj["autocoe_businessowneremail"] = businessOwnerEmailId;
 
-                        CrmSvc.Update(proj);
+                            CrmSvc.Update(proj);
+                        }
                     }
 
                 }
@@ -347,6 +374,47 @@ namespace AutomationKIT
                 }
 
                 PackageLog.Log("Completed of updating business owner to existing projects");
+            }
+
+        }
+        private void UpdateConsoleConfigurations()
+        {
+            PackageLog.Log("starting of Update console configurations ");
+            
+            
+            if (!string.IsNullOrEmpty(const_Canvas_App_Name_For_Projects))
+            {
+                // getting canvas app details
+                var querycanvasapps = new QueryExpression("canvasapp");
+                querycanvasapps.ColumnSet.AddColumns("displayname");
+                querycanvasapps.ColumnSet.AddColumns("appopenuri");
+                querycanvasapps.ColumnSet.AddColumns("canvasappid");
+                querycanvasapps.Criteria.AddCondition("displayname", ConditionOperator.Equal, const_Canvas_App_Name_For_Projects);
+                try
+                {                   
+                    var resultapps = CrmSvc.RetrieveMultiple(querycanvasapps);
+                    var results = resultapps[0];
+                    string CanvasAPPId = results["canvasappid"].ToString();
+                    string canvasAPPURL = results["appopenuri"].ToString();
+
+                    //getting console config details
+                    var queryconsoleApp = new QueryExpression("autocoe_consoleconfig");
+                    queryconsoleApp.ColumnSet.AddColumns("autocoe_applink");
+                    queryconsoleApp.ColumnSet.AddColumns("autocoe_appid");
+                    queryconsoleApp.Criteria.AddCondition("autocoe_name", ConditionOperator.Equal, const_Canvas_App_Name_For_Projects);
+                    //updating console config details with canvas app details
+                    var resultconsoleApp = CrmSvc.RetrieveMultiple(queryconsoleApp);
+                    var consoleapp = resultconsoleApp[0];
+                    consoleapp["autocoe_appid"] = CanvasAPPId;
+                    consoleapp["autocoe_applink"] = canvasAPPURL;
+                    CrmSvc.Update(consoleapp);
+                }
+                catch (Exception ex)
+                {
+                    PackageLog.Log("Unable to fetch canvas app details to update. Erorr: " + ex.Message.ToString());
+                }
+
+                PackageLog.Log("Completed for Updating console configurations ");
             }
 
         }

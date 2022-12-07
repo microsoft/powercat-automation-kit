@@ -38,6 +38,7 @@ namespace AutomationKIT
         private bool NeedToImportSatelliteSolution = false;        
         private bool ImportSampleData = false;
         private bool NeedToActivateAllFlows = false;
+        private string CurrentSolutionName = "";
 
         #endregion
 
@@ -106,8 +107,10 @@ namespace AutomationKIT
         }
 
         public override void PreSolutionImport(string solutionName, bool solutionOverwriteUnmanagedCustomizations, bool solutionPublishWorkflowsAndActivatePlugins, out bool overwriteUnmanagedCustomizations, out bool publishWorkflowsAndActivatePlugins)
-        {      
+        {
 
+            CurrentSolutionName = solutionName;
+            
             PackageLog.Log("PreSolutionImport is started on " + DateTime.Now.ToString() + " with parameters::" + "solutionName=" +solutionName + ",solutionOverwriteUnmanagedCustomizations=" + solutionOverwriteUnmanagedCustomizations + ",solutionPublishWorkflowsAndActivatePlugins=" + solutionPublishWorkflowsAndActivatePlugins);
             
             base.PreSolutionImport(solutionName, solutionOverwriteUnmanagedCustomizations, solutionPublishWorkflowsAndActivatePlugins, out overwriteUnmanagedCustomizations, out publishWorkflowsAndActivatePlugins);
@@ -119,7 +122,9 @@ namespace AutomationKIT
         {
             PackageLog.Log("OverrideSolutionImportDecision is started on " + DateTime.Now.ToString() + " with parameters:: solutionUniqueName=" + solutionUniqueName + ",organizationVersion=" + organizationVersion + ",packageSolutionVersion=" + packageSolutionVersion + ",inboundSolutionVersion=" + inboundSolutionVersion + ",deployedSolutionVersion=" + deployedSolutionVersion + ",systemSelectedImportAction=" + systemSelectedImportAction);
 
-            if(NeedToImportSatelliteSolution && solutionUniqueName.ToString().ToLower().Contains("satellite"))
+            CurrentSolutionName = solutionUniqueName;
+
+            if (NeedToImportSatelliteSolution && solutionUniqueName.ToString().ToLower().Contains("satellite"))
                 return UserRequestedImportAction.Default; //import satellite solution            
             else 
                 return UserRequestedImportAction.Skip;// skip other solutions
@@ -142,13 +147,11 @@ namespace AutomationKIT
         }
         private void ActivateDeActivateAllCloudFlows()
         {
-            PackageLog.Log("Started activation/de-activation for all flows" );
-            string solutionName = "AutomationCoESatellite";
-
+            PackageLog.Log("Started activation/de-activation for all flows for solution " + CurrentSolutionName);
             var querysolution = new QueryExpression("solution");
 
             querysolution.ColumnSet.AddColumns("solutionid");            
-            querysolution.Criteria.AddCondition("uniquename", ConditionOperator.Equal, solutionName);
+            querysolution.Criteria.AddCondition("uniquename", ConditionOperator.Equal, CurrentSolutionName);
 
             var resultsolution = CrmSvc.RetrieveMultiple(querysolution);
             var results = resultsolution.Entities[0];
@@ -157,6 +160,8 @@ namespace AutomationKIT
             var queryflow = new QueryExpression("workflow");
             queryflow.ColumnSet.AddColumns("name");
             queryflow.ColumnSet.AddColumns("workflowid");
+            queryflow.ColumnSet.AddColumns("statecode");
+            queryflow.ColumnSet.AddColumns("statuscode");
             queryflow.Criteria.AddCondition("solutionid", ConditionOperator.Equal, solutionid);
             try
             {
@@ -165,59 +170,45 @@ namespace AutomationKIT
                 string flowid = "";
                 string flowName="";
 
-                foreach (Entity flow in resultflows.Entities)
+                if (resultflows.Entities.Count > 0) 
                 {
-                    flowid = flow["workflowid"].ToString();
-                    flowName = flow["name"].ToString();
+                    foreach (Entity flow in resultflows.Entities)
+                    {
+                        flowid = flow["workflowid"].ToString();
+                        flowName = flow["name"].ToString();
 
-                    ActivateDeActivateCloudFlow(flowid, flowName, NeedToActivateAllFlows);
+                        if (NeedToActivateAllFlows)
+                        {
+                            flow["statecode"] = new OptionSetValue(1);
+                            flow["statuscode"] = new OptionSetValue(2);
+                        }
+                        else
+                        {
+                            flow["statecode"] = new OptionSetValue(0);
+                            flow["statuscode"] = new OptionSetValue(1);
+                        }
+                        try
+                        {
+                            CrmSvc.Update(flow);
+                        }
+                        catch (Exception err)
+                        {
+                            PackageLog.Log("Error occured while activating / de-activating for flow "+ flowName +". Error is " + err.Message.ToString());
+                         }
+                        
+                    }
                 }
                 
             }
             catch (Exception err)
             {
-                PackageLog.Log("Error occured while activating / de-activating flows. Error is " + err.Message.ToString());
+                PackageLog.Log("Error occured while fetching flow details for solution " + CurrentSolutionName +". Error is " + err.Message.ToString());
                 return;
             }
 
             PackageLog.Log("Completed activation/de-activation for all flows  successfully.");
 
-        }             
-        private void ActivateDeActivateCloudFlow(string flowId,string flow_Name, bool enableFlow)
-        {
-            PackageLog.Log("Started activation/de-activation for flow '" + flow_Name + "'");
-
-            var queryflow = new QueryExpression("workflow");
-            queryflow.ColumnSet.AddColumns("statecode");
-            queryflow.ColumnSet.AddColumns("statuscode");
-            queryflow.ColumnSet.AddColumns("workflowid");
-            queryflow.Criteria.AddCondition("workflowid", ConditionOperator.Equal, flowId);
-            try
-            {
-                var resultflow = CrmSvc.RetrieveMultiple(queryflow);
-                var results = resultflow.Entities[0];
-
-                if (enableFlow)
-                {
-                    results["statecode"] = new OptionSetValue(1);
-                    results["statuscode"] = new OptionSetValue(2);
-                }
-                else
-                {
-                    results["statecode"] = new OptionSetValue(0);
-                    results["statuscode"] = new OptionSetValue(1);
-                }
-                CrmSvc.Update(results);
-            }
-            catch (Exception err)
-            {
-                PackageLog.Log("Error occured while activating / de-activating the flow '" + flow_Name + "'. Error is " + err.Message.ToString());
-                return;
-            }
-
-            PackageLog.Log("Completed activation/de-activation for flow '" + flow_Name + "' successfully.");
-
-        }
-
-            }
+        } 
+        
+    }
 }
