@@ -1,9 +1,9 @@
 
 Write-Host ========================================================
-Write-Host  Getting things to install Autmation Kit  
+Write-Host  Getting things Ready to install Automation Kit  
 Write-Host ===========================================================
 
-$UserChoice= Read-Host -Prompt "Welcome to Automation kit installation.  Press y/n/c to continue setup (y- Instll to Main solution, n- Install Satellite soluiton and c- or other to cancel the installation):"
+$UserChoice= Read-Host -Prompt "Welcome to Automation kit installation.  Press y/n/c to continue setup (y- Install Main solution, n- Install Satellite solution and c- or other to cancel the installation):"
 
 # True for main solution installation and false for satellite solution 
 
@@ -30,7 +30,7 @@ $Installation_Solution =''
 	}
 
 Write-Host ========================================================================
-Write-Host  Getting things ready to install Autmation Kit -$Installation_Solution solution 
+Write-Host  Getting things ready to install Automation Kit -$Installation_Solution solution 
 Write-Host =========================================================================
 
 class InstallSettings { 
@@ -234,6 +234,7 @@ class Deployment {
 		
 		$this.settings.mergeDeploymentSettings($DeploymentSettingsData, $UserResponseData)
 		$DeploymentSettingsData|ConvertTo-Json -depth 32| set-content $this.settings.UpdatedDeploymentSettingsFile
+			
 		
 		#pac auth profile creation for Main environment to deploy the package 
 		write-host "Creating profile authorization for the environment"
@@ -256,7 +257,6 @@ class Deployment {
 			write-host "Unable to select profile authorization for $this.settings.AutoCOE_ProfileName. Exception is " + $Error
 			Break;
 		}
-
 		write-host "Completed profile authorization for the environment and connected to your environment"
 
 		write-host "Encoding Deployment settings"
@@ -265,14 +265,65 @@ class Deployment {
 		$EncodedSettings = [System.Convert]::ToBase64String($Bytes)
 		
 		write-host "Completed of Encoding Deployment settings"
+				
+		#C:\users\kmarram\.nuget\packages\microsoft.powerapps.cli\1.20.3\tools\pac.exe
 		
+		$paths = Get-ChildItem -Path "c:\users\" -Filter "pac.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
+		
+		if ($paths.Count -ge 0)
+		{
+			$PAC_exePath= $paths.FullName[$paths.Count-1].ToString()
+		}
+		else
+		{
+			$PAC_exePath= $paths
+		}
+		
+		write-host "Pac Path=" $PAC_exePath
+								
 		if ($this.settings.InstallMainSolution -eq $True)
 		{
+			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installmainsolution=true|importconfigdata=$InstallSampleData|AutomationCoEMain_componentarguments=$EncodedSettings|activateapprovalflow=$EnableApprovalFlow|activateroiflow=$enableROIFlow|activatesyncflow=$enableSyncFlow|projectadminusers=$Admin_users|projectcontributors=$Contributor_users|projectviewers=$Viewer_users|businessowneremail=$ProjectBusinessOwnerEmailId" 
+						
 			Write-Host ========================================================		
 			Write-Host  Installing Main solution
 			Write-Host ========================================================
-
-			pac package deploy --logFile $this.settings.LogFile -c true  --package $this.settings.PackageFilePath --settings "installmainsolution=true|importconfigdata=$InstallSampleData|AutomationCoEMain_componentarguments=$EncodedSettings|activateapprovalflow=$EnableApprovalFlow|activateroiflow=$enableROIFlow|activateyncflow=$enableSyncFlow|projectadminusers=$Admin_users|projectcontributors=$Contributor_users|projectviewers=$Viewer_users|businessowneremail=$ProjectBusinessOwnerEmailId"
+			try
+			{
+				
+				#Start-Transcript -Path "$($PSScriptRoot)\StartProcess.log"
+ 
+				$PInfo = New-Object System.Diagnostics.ProcessStartInfo -Prop @{
+					 RedirectStandardError = $True
+					 RedirectStandardOutput = $True
+					 UseShellExecute = $False
+					 WorkingDirectory = $PSScriptRoot
+					 FileName = $PAC_exePath
+					 Arguments = $Args
+					 WindowStyle = "Hidden"
+					 				 }
+				 
+				 $Prc = New-Object System.Diagnostics.Process
+				 $Prc.StartInfo = $PInfo
+				 Write-Host "Please wait for couple of minutes while installation is in-porgress:"
+				 $Prc.Start() | Out-Null				 
+				 #$Prc.WaitForExit()
+				 
+				 $stdout = $Prc.StandardOutput.ReadToEnd()
+				 $stderr = $Prc.StandardError.ReadToEnd()
+				 Write-Host "Logs: $stdout"
+				 
+				 #Write-Host "stderr: $stderr"
+				 #Write-Host "exit code: " + $Prc.ExitCode
+				 
+			}
+			catch 
+			{
+				$_ | format-list -force | Out-String 
+				throw
+			}
+					
+			#pac package deploy --logFile $this.settings.LogFile -c true  --package $this.settings.PackageFilePath --settings "installmainsolution=false|importconfigdata=$InstallSampleData|AutomationCoEMain_componentarguments=$EncodedSettings|activateapprovalflow=$EnableApprovalFlow|activateroiflow=$enableROIFlow|activateyncflow=$enableSyncFlow|projectadminusers=$Admin_users|projectcontributors=$Contributor_users|projectviewers=$Viewer_users|businessowneremail=$ProjectBusinessOwnerEmailId"
 		}
 		else
 		{
@@ -280,8 +331,38 @@ class Deployment {
 			Write-Host  Installing Satellite soluiton
 			Write-Host ========================================================
 			
-			pac package deploy --logFile $this.settings.LogFile -c true  --package $this.settings.PackageFilePath --settings "installsatellitesolution=true|AutomationCoESatellite_deploymentsettings=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows"
+			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installsatellitesolution=true|AutomationCoESatellite_componentarguments=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows"
 			
+			try
+			{					
+			$PrInfo = New-Object System.Diagnostics.ProcessStartInfo -Prop @{
+				 RedirectStandardError = $True
+				 RedirectStandardOutput = $True
+				 UseShellExecute = $False
+				 WorkingDirectory = $PSScriptRoot
+				 FileName = $PAC_exePath
+				 Arguments = $Args
+				 WindowStyle = "Hidden"				 
+				}
+			 
+			 $Prc = New-Object System.Diagnostics.Process
+			 $Prc.StartInfo = $PrInfo
+			 $Prc.Start() | Out-Null
+			 Write-Host "Please wait for couple of minutes while installation is in-porgress:"
+			 
+			 $stdout = $Prc.StandardOutput.ReadToEnd()
+			 $stderr = $Prc.StandardError.ReadToEnd()
+			Write-Host "Logs: $stdout"			
+			Write-Host "Error: $stderr"
+			
+			}
+			catch 
+			{
+				$_ | format-list -force | Out-String 
+				throw
+			}
+			
+			#Pac package deploy --logFile $this.settings.LogFile  -c true  --package $this.settings.PackageFilePath  --settings "installsatellitesolution=true|AutomationCoESatellite_componentarguments=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows"
 		}
 		
 		# Reading log file for errors or dependencies	
@@ -300,12 +381,9 @@ class Deployment {
 		# Removing of newly created profile 
 		pac auth delete -n $this.settings.AutoCOE_ProfileName
 		
-		if ($this.settings.InstallMainSolution -eq $True)
+		if ($this.settings.InstallMainSolution -eq $False)
 		{
-		}
-		else
-		{
-			#Creating application user			
+			#Creating application user for satellite environment			
 			pac auth create --url $EnvironmentURL --kind admin -n $this.settings.AutoCOE_ProfileName
 
 			pac auth select  $this.settings.AutoCOE_ProfileName
@@ -335,12 +413,12 @@ if ($InstallMainSolution -eq $True)
 	$install.UpdatedDeploymentSettingsFile=".\DeploymentSettings_Main.json"	
 	$install.AutoCOE_ProfileName="AutoCOE_Main_Env"
 	$install.PackageFilePath=".\Microsoft_AutomationKIT_Main_Package.zip"	
-	$install.LogFile=".\Logs_Main.txt"
+	$install.LogFile=".\Logs.txt"
 }
 else
 {
 	$install.InstallMainSolution=$False
-	$install.DeploymentSettingsFile = ".\AutomationCoESatellite_1.0.20221102.1_managed.json"
+	$install.DeploymentSettingsFile = ".\AutomationCoESatellite_manifest.ppkg.json"
 	$install.UserResponsesFile = ".\automation-kit-satellite-install.json"
 	$install.UpdatedDeploymentSettingsFile=".\DeploymentSettings_Satellite.json"	
 	$install.AutoCOE_ProfileName="AutoCOE_Satellite_Env"
