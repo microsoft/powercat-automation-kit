@@ -1,5 +1,8 @@
 ﻿using System;
 using System.ComponentModel.Composition;
+using System.IO;
+using System.Reflection;
+using System.Windows;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
@@ -141,8 +144,9 @@ namespace AutomationKIT
 
         public override bool AfterPrimaryImport()
         {
-            PackageLog.Log("AfterPrimaryImport is completed on " + DateTime.Now.ToString());
-            ActivateDeActivateAllCloudFlows();            
+            PackageLog.Log("AfterPrimaryImport is completed on " + DateTime.Now.ToString());            
+            insertRecordstoDesktopFlowActionsTable();
+            ActivateDeActivateAllCloudFlows();
             return true;
         }
         private void ActivateDeActivateAllCloudFlows()
@@ -208,7 +212,73 @@ namespace AutomationKIT
 
             PackageLog.Log("Completed activation/de-activation for all flows  successfully.");
 
-        } 
-        
+        }
+
+        private void insertRecordstoDesktopFlowActionsTable()
+        {
+            // check the record count for flow action table
+            var queryflowAction = new QueryExpression("autocoe_desktopflowaction");
+            var resultflowaction = CrmSvc.RetrieveMultiple(queryflowAction);
+            PackageLog.Log("Existing records count in desktop flow actions=" + resultflowaction.Entities.Count);
+            
+            string csvpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\PkgAssets\\autocoe_desktopflowactions.csv";
+             
+            if (resultflowaction.Entities.Count == 0)
+            {
+                PackageLog.Log("Start- Updating of desktop flow action records ");
+                
+                int columncount = 0;
+                string[] lines = System.IO.File.ReadAllLines(csvpath);
+                bool dlpImpact = false;
+                int rowcounter = 0;
+                string actionName = "";
+                foreach (string line in lines)
+                {
+                    if (rowcounter > 0 )
+                    {
+                        string[] columns = line.Split(',');
+                        columncount = 0;
+                        var flowAction = new Entity("autocoe_desktopflowaction");
+                        foreach (string column in columns)
+                        {
+                            if (columncount == 0)
+                            {
+                                flowAction.Attributes["autocoe_actionname"] = column;
+                                actionName = column;
+                            }
+                            else if (columncount == 2)
+                            {
+                                bool.TryParse(column.Trim(), out dlpImpact);
+                                flowAction.Attributes["autocoe_dlpsupport"] = dlpImpact;
+                            }
+                            else if (columncount == 4)
+                                flowAction.Attributes["autocoe_moduledisplayname"] = column;
+                            else if (columncount == 5)
+                                flowAction.Attributes["autocoe_modulename"] = column;
+                            else if (columncount == 6)
+                                flowAction.Attributes["autocoe_modulesource"] = column;
+                            else if (columncount == 7)
+                                flowAction.Attributes["autocoe_selectorid"] = column;
+
+                            columncount += 1;
+
+                        }
+                        try
+                        {
+                            Guid RecordID = CrmSvc.Create(flowAction);
+                        }
+                        catch (Exception ex)
+                        {
+                            PackageLog.Log("unable to cretae desktopflow action record for " + actionName + "Error=" + ex.Message);
+                        }
+                    }
+                    rowcounter += 1;
+                }
+
+                PackageLog.Log("Completed - Updating of desktop flow action records ");
+
+            }
+                
+        }
     }
 }

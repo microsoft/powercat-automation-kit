@@ -25,7 +25,7 @@ $Installation_Solution =''
 
 	}
 	else {
-		write-host "you have choosen not to install Automation kit. Setup process will be aborted."
+		write-host "you have chosen not to install Automation kit. Setup process will be aborted."
 		break;
 	}
 
@@ -305,7 +305,7 @@ class Deployment {
 				 
 				 $Prc = New-Object System.Diagnostics.Process
 				 $Prc.StartInfo = $PInfo
-				 Write-Host "Please wait for couple of minutes while installation is in-porgress:"
+				 Write-Host "Please wait for couple of minutes while installation is in-progress:"
 				 $Prc.Start() | Out-Null				 
 				 #$Prc.WaitForExit()
 				 
@@ -331,7 +331,7 @@ class Deployment {
 			Write-Host  Installing Satellite soluiton
 			Write-Host ========================================================
 			
-			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installsatellitesolution=true|AutomationCoESatellite_componentarguments=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows"
+			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installsatellitesolution=false|AutomationCoESatellite_componentarguments=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows"
 			
 			try
 			{					
@@ -348,7 +348,7 @@ class Deployment {
 			 $Prc = New-Object System.Diagnostics.Process
 			 $Prc.StartInfo = $PrInfo
 			 $Prc.Start() | Out-Null
-			 Write-Host "Please wait for couple of minutes while installation is in-porgress:"
+			 Write-Host "Please wait for couple of minutes while installation is in-progress:"
 			 
 			 $stdout = $Prc.StandardOutput.ReadToEnd()
 			 $stderr = $Prc.StandardError.ReadToEnd()
