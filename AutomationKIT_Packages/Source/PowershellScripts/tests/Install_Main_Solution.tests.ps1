@@ -1,10 +1,27 @@
 Describe 'Install-Main-Solution-Test' {
     BeforeAll {
         $global:exitScript = $true
-       . "$PSScriptRoot\..\Install_Main_Solution.ps1"
+       . "$PSScriptRoot\..\Install_AutomationKit.ps1"
     }
 
+	It 'GetInstallationType for Main solution'{		
+		$installType =[InstallationType]::new([Logger]::new())		
+		Mock Read-Host {return $True}		
+		Mock -CommandName Write-Host -MockWith {}
+		
+		$installType.GetInstallationType()| Should -Be $True
+	}
+	It 'GetInstallationType for satellite solution selection'{		
+		$installType =[InstallationType]::new([Logger]::new())
+		Mock Read-Host {return $False}
+		Mock -CommandName Write-Host -MockWith {}	
+		Mock -CommandName write-warning -MockWith {}
+		$installType.GetInstallationType()| Should -Be $False
+	}
+	
+	
     It 'LoadDeploymentSettings' {
+		
         $install = [InstallSettings]::new()
 
         Mock Get-Content { return "{'name':'value'}" }
@@ -158,8 +175,11 @@ Describe 'Install-Main-Solution-Test' {
 
         $settings = [InstallSettings]::new()
 
-        $deploy = [Deployment]::new($settings)
-        
+        $deploy = [Deployment]::new($settings,[Logger]::new())
+        Mock -CommandName Write-Host -MockWith {}	
+		Mock -CommandName write-warning -MockWith {}
+		Mock -CommandName write-Error -MockWith {}
+		
         Mock pac
 
         $deploy.install()

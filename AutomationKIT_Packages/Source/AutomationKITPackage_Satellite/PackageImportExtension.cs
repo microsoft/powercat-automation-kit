@@ -2,10 +2,10 @@
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Reflection;
-using System.Windows;
 using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
+using System.Threading.Tasks;
 
 namespace AutomationKIT
 {
@@ -38,10 +38,10 @@ namespace AutomationKIT
         /// </summary>
         public override string GetImportPackageDescriptionText => "Automation kit provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions for satellite environment.";
 
-        private bool NeedToImportSatelliteSolution = false;        
-        private bool ImportSampleData = false;
-        private bool NeedToActivateAllFlows = false;
-        private string CurrentSolutionName = "";
+        private bool NeedToImportSatelliteSolution;        
+        private bool ImportSampleData;
+        private bool NeedToActivateAllFlows;
+        private string CurrentSolutionName;
 
         #endregion
 
@@ -70,7 +70,7 @@ namespace AutomationKIT
                         if (strKey.Contains("importconfigdata"))
                         {
                             bool.TryParse(strValue, out ImportSampleData);
-                            DataImportBypass = (ImportSampleData ? false : true);
+                            DataImportBypass = (!ImportSampleData);
                             PackageLog.Log("ImportSampleData=" + ImportSampleData.ToString());
                             PackageLog.Log("DataImportBypass=" + DataImportBypass.ToString());
                         }
@@ -145,96 +145,31 @@ namespace AutomationKIT
         public override bool AfterPrimaryImport()
         {
             PackageLog.Log("AfterPrimaryImport is completed on " + DateTime.Now.ToString());            
-            insertRecordstoDesktopFlowActionsTable();
+            InsertRecordstoDesktopFlowActionsTable();
             ActivateDeActivateAllCloudFlows();
             return true;
         }
-        private void ActivateDeActivateAllCloudFlows()
-        {
-            PackageLog.Log("Started activation/de-activation for all flows for solution " + CurrentSolutionName);
-            var querysolution = new QueryExpression("solution");
-
-            querysolution.ColumnSet.AddColumns("solutionid");            
-            querysolution.Criteria.AddCondition("uniquename", ConditionOperator.Equal, CurrentSolutionName);
-
-            var resultsolution = CrmSvc.RetrieveMultiple(querysolution);
-            var results = resultsolution.Entities[0];
-            string solutionid = results["solutionid"].ToString();
-
-            var queryflow = new QueryExpression("workflow");
-            queryflow.ColumnSet.AddColumns("name");
-            queryflow.ColumnSet.AddColumns("workflowid");
-            queryflow.ColumnSet.AddColumns("statecode");
-            queryflow.ColumnSet.AddColumns("statuscode");
-            queryflow.Criteria.AddCondition("solutionid", ConditionOperator.Equal, solutionid);
-            try
-            {
-                var resultflows = CrmSvc.RetrieveMultiple(queryflow);
-
-                string flowid = "";
-                string flowName="";
-
-                if (resultflows.Entities.Count > 0) 
-                {
-                    foreach (Entity flow in resultflows.Entities)
-                    {
-                        flowid = flow["workflowid"].ToString();
-                        flowName = flow["name"].ToString();
-
-                        if (NeedToActivateAllFlows)
-                        {
-                            flow["statecode"] = new OptionSetValue(1);
-                            flow["statuscode"] = new OptionSetValue(2);
-                        }
-                        else
-                        {
-                            flow["statecode"] = new OptionSetValue(0);
-                            flow["statuscode"] = new OptionSetValue(1);
-                        }
-                        try
-                        {
-                            CrmSvc.Update(flow);
-                        }
-                        catch (Exception err)
-                        {
-                            PackageLog.Log("Error occured while activating / de-activating for flow "+ flowName +". Error is " + err.Message.ToString());
-                         }
-                        
-                    }
-                }
-                
-            }
-            catch (Exception err)
-            {
-                PackageLog.Log("Error occured while fetching flow details for solution " + CurrentSolutionName +". Error is " + err.Message.ToString());
-                return;
-            }
-
-            PackageLog.Log("Completed activation/de-activation for all flows  successfully.");
-
-        }
-
-        private void insertRecordstoDesktopFlowActionsTable()
+        private void InsertRecordstoDesktopFlowActionsTable()
         {
             // check the record count for flow action table
             var queryflowAction = new QueryExpression("autocoe_desktopflowaction");
             var resultflowaction = CrmSvc.RetrieveMultiple(queryflowAction);
             PackageLog.Log("Existing records count in desktop flow actions=" + resultflowaction.Entities.Count);
-            
+
             string csvpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\PkgAssets\\autocoe_desktopflowactions.csv";
-             
+
             if (resultflowaction.Entities.Count == 0)
             {
                 PackageLog.Log("Start- Updating of desktop flow action records ");
-                
-                int columncount = 0;
+
+                int columncount;
                 string[] lines = System.IO.File.ReadAllLines(csvpath);
-                bool dlpImpact = false;
+                bool dlpImpact;
                 int rowcounter = 0;
                 string actionName = "";
                 foreach (string line in lines)
                 {
-                    if (rowcounter > 0 )
+                    if (rowcounter > 0)
                     {
                         string[] columns = line.Split(',');
                         columncount = 0;
@@ -265,7 +200,7 @@ namespace AutomationKIT
                         }
                         try
                         {
-                            Guid RecordID = CrmSvc.Create(flowAction);
+                            Guid RecordID;
                         }
                         catch (Exception ex)
                         {
@@ -278,7 +213,115 @@ namespace AutomationKIT
                 PackageLog.Log("Completed - Updating of desktop flow action records ");
 
             }
-                
+
         }
+        private void ActivateDeActivateAllCloudFlows()
+        {
+            PackageLog.Log("Started activation/de-activation for all flows for solution " + CurrentSolutionName);
+            var querysolution = new QueryExpression("solution");
+
+            querysolution.ColumnSet.AddColumns("solutionid");            
+            querysolution.Criteria.AddCondition("uniquename", ConditionOperator.Equal, CurrentSolutionName);
+
+            var resultsolution = CrmSvc.RetrieveMultiple(querysolution);
+            var results = resultsolution.Entities[0];
+            string solutionid = results["solutionid"].ToString();
+
+            var queryflow = new QueryExpression("workflow");
+            queryflow.ColumnSet.AddColumns("name");
+            queryflow.ColumnSet.AddColumns("workflowid");
+            queryflow.ColumnSet.AddColumns("statecode");
+            queryflow.ColumnSet.AddColumns("statuscode");
+            queryflow.Criteria.AddCondition("solutionid", ConditionOperator.Equal, solutionid);
+            try
+            {
+                var resultflows = CrmSvc.RetrieveMultiple(queryflow);
+
+                string flowid;
+                string flowName;
+
+                if (resultflows.Entities.Count > 0) 
+                {
+                    foreach (Entity flow in resultflows.Entities)
+                    {
+                        flowid = flow["workflowid"].ToString();
+                        flowName = flow["name"].ToString();
+
+                        if (NeedToActivateAllFlows)
+                        {
+                            flow["statecode"] = new OptionSetValue(1);
+                            flow["statuscode"] = new OptionSetValue(2);
+                        }
+                        else
+                        {
+                            flow["statecode"] = new OptionSetValue(0);
+                            flow["statuscode"] = new OptionSetValue(1);
+                        }
+                        try
+                        {
+                            CrmSvc.Update(flow);
+                        }
+                        catch (Exception err)
+                        {
+                            PackageLog.Log("Error occured while activating / de-activating for flow "+ flowName +". Error is " + err.Message.ToString());
+                        }
+                        
+                    }
+                }
+
+                if (NeedToActivateAllFlows)
+                {
+                    queryflow = new QueryExpression("workflow");
+                    queryflow.ColumnSet.AddColumns("name");
+                    queryflow.ColumnSet.AddColumns("workflowid");
+                    queryflow.ColumnSet.AddColumns("statecode");
+                    queryflow.ColumnSet.AddColumns("statuscode");
+                    queryflow.Criteria.AddCondition("solutionid", ConditionOperator.Equal, solutionid);
+                    queryflow.Criteria.AddCondition("statecode", ConditionOperator.Equal, 0);
+                    
+                    resultflows = CrmSvc.RetrieveMultiple(queryflow);
+                   
+                    if (resultflows.Entities.Count > 0)
+                    {
+                        foreach (Entity flow in resultflows.Entities)
+                        {
+                            flowid = flow["workflowid"].ToString();
+                            flowName = flow["name"].ToString();
+
+                            int i = 0;
+                            while (i < 5)
+                            {
+                                flow["statecode"] = new OptionSetValue(1);
+                                flow["statuscode"] = new OptionSetValue(2);
+
+                                try
+                                {
+                                    CrmSvc.Update(flow);
+                                    break;
+                                }
+                                catch (Exception err)
+                                {
+                                    PackageLog.Log("Error occured while activating flow '" + flowName + "' for counter="+ i +". Error is " + err.Message.ToString());
+                                    i++;
+                                    System.Threading.Thread.Sleep(3000);
+                                }
+                            }
+
+                        }
+
+                    }
+
+                }
+            }
+            catch (Exception err)
+            {
+                PackageLog.Log("Error occured while fetching flow details for solution " + CurrentSolutionName +". Error is " + err.Message.ToString());
+                return;
+            }
+
+            PackageLog.Log("Completed activation/de-activation for all flows  successfully.");
+
+        }
+     
     }
 }

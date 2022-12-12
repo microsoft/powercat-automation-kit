@@ -1,53 +1,139 @@
 
-Write-Host ========================================================
-Write-Host  Getting things Ready to install Automation Kit  
-Write-Host ===========================================================
 
-$UserChoice= Read-Host -Prompt "Welcome to Automation kit installation.  Press y/n/c to continue setup (y- Install Main solution, n- Install Satellite solution and c- or other to cancel the installation):"
+enum EnumLogType
+{
+	Logs
+	Warnings
+	Erorrs
+	Debug
+}
 
-# True for main solution installation and false for satellite solution 
+class Logger
+{	
+	
+	#LogType could be like below
+	#1=Normal
+	#2=Warning
+	#3=Error
+	#4=Debug
 
-[boolean]$InstallMainSolution=$True
-$Installation_Solution =''
-
-	$CharArray =$UserChoice.ToLower().ToCharArray()
-
-	if ($CharArray[0] -eq "y")
+	[void] LogMessage ([string] $Message,[EnumLogType] $LogType)
 	{
-		$InstallMainSolution =[System.Convert]::ToBoolean('true')	
-		$Installation_Solution ='Main'
+		if ($LogType-eq 1)
+		{
+		write-host $Message
+		}
+		elseif ($LogType-eq 2)
+		{
+			write-warning $Message
+		}
+		elseif ($LogType-eq 3)
+		{
+			write-Error $Message -ErrorId B1 -Category NotSpecified
+		}
+		elseif ($LogType-eq 4)
+		{
+			$DebugPreference = "Continue"
+			write-debug $Message
+		}
+	}	
+}
 
-	}
-	elseif ($CharArray[0] -eq "n")
+class InstallationType { 
+
+	[boolean]$InstallMainSolution=$True
+	[Logger]$ObjLogger
+
+	InstallationType([Logger]$DefaultLogger )
 	{
-		$InstallMainSolution =[System.Convert]::ToBoolean('false') 
-		$Installation_Solution ='Satellite'
-
-	}
-	else {
-		write-host "you have chosen not to install Automation kit. Setup process will be aborted."
-		break;
+		
+		$this.ObjLogger = $DefaultLogger
 	}
 
-Write-Host ========================================================================
-Write-Host  Getting things ready to install Automation Kit -$Installation_Solution solution 
-Write-Host =========================================================================
+	[string] GetInstallationType()
+	{
+		$this.ObjLogger.LogMessage("Welcome to Automation kit installation.",1)
+		
+		[string]$UserChoice= Read-Host -Prompt "Hey Do you want to create and download connection settings from Automation Kit setup Page? (y/n) (y- create now, n- dont require (already if you have done)"
+		
+		$CharArray =$UserChoice.ToLower().ToCharArray()
+
+		if ($CharArray[0] -eq "y")
+		{
+			$this.ObjLogger.LogMessage("Opening Automation Kit Setup page to create connections and other settings",1)
+			
+			Start-Process "https://microsoft.github.io/powercat-automation-kit/get-started/setup/"
+		
+			[string]$UserChoice= Read-Host -Prompt "Are you ready to install now?(y/n) (y-start installation and n-cancel the installation)"
+			
+			$CharArray =$UserChoice.ToLower().ToCharArray()
+
+			if ($CharArray[0] -ne "y")
+			{
+				$this.ObjLogger.LogMessage("you have choosen not to install Automation kit now. Setup process will be aborted.",2)				
+				break;
+			}
+		
+		}
+		
+		$this.ObjLogger.LogMessage("========================================================",1)
+		$this.ObjLogger.LogMessage("Getting things ready to install Automation Kit",1)
+		$this.ObjLogger.LogMessage("========================================================",1)
+		
+		[string]$UserChoice= Read-Host -Prompt "Press y/n/c to continue setup (y- Instll to Main solution, n- Install Satellite solution and c- or other to cancel the installation):"
+
+		#True for main solution installation and false for satellite solution 
+
+		$CharArray =$UserChoice.ToLower().ToCharArray()
+
+		if ($CharArray[0] -eq "y")
+		{
+			$this.InstallMainSolution =[System.Convert]::ToBoolean('true')	
+			
+			$this.ObjLogger.LogMessage("========================================================================",1)
+			$this.ObjLogger.LogMessage("Getting things ready to install Automation Kit - Main solution",1)
+			$this.ObjLogger.LogMessage("========================================================================",1)
+			
+			return $this.InstallMainSolution
+			
+		}
+		elseif ($CharArray[0] -eq "n")
+		{
+			$this.InstallMainSolution =[System.Convert]::ToBoolean('false') 
+			
+			$this.ObjLogger.LogMessage("========================================================================",1)
+			$this.ObjLogger.LogMessage("Getting things ready to install Automation Kit - Satellite solution ",1)
+			$this.ObjLogger.LogMessage("========================================================================",1)
+			
+			return $this.InstallMainSolution
+			
+			
+		}
+		else
+		{			
+			$this.ObjLogger.LogMessage("you have choosen not to install Automation kit. Setup process will be aborted.",2)
+			break;
+		}
+		
+		return $this.InstallMainSolution
+	}
+}
 
 class InstallSettings { 
 
 	[boolean] $InstallMainSolution=$True
-	[string] $DeploymentSettingsFile = ""
-	[string] $UserResponsesFile = ""
-	[string] $UpdatedDeploymentSettingsFile=""	
+	[string] $DeploymentSettingsFile = ".\DeploymentSettings_Main.json"
+	[string] $UserResponsesFile = ".\automation-kit-main-install.json"
+	[string] $UpdatedDeploymentSettingsFile=".\DeploymentSettings_Main.json"	
 	[string] $AutoCOE_ProfileName=""
 	[string] $PackageFilePath=""	
 	[string] $LogFile=""
 
-	[object] loadDeploymentSettings() {
+	[object] loadDeploymentSettings() {			
 		return Get-Content $this.DeploymentSettingsFile -raw|ConvertFrom-Json
 	}
 
-	[object] loadUserResponseFile() {
+	[object] loadUserResponseFile() {		
 		return Get-Content $this.UserResponsesFile -raw|ConvertFrom-Json
 	}
 
@@ -188,9 +274,11 @@ class Deployment {
 	$shared_office365users=""
 	$shared_office365=""
 	$shared_powerplatformforadmins=""
+	[Logger]$ObjLogger	
 		
-	Deployment([InstallSettings] $settings) {
+	Deployment([InstallSettings] $settings,[Logger]$DefaultLogger) {
 		$this.settings = $settings
+		$this.ObjLogger = $DefaultLogger
 	}
 
 	[void] install() {
@@ -237,34 +325,35 @@ class Deployment {
 			
 		
 		#pac auth profile creation for Main environment to deploy the package 
-		write-host "Creating profile authorization for the environment"
-
+		$this.ObjLogger.LogMessage("Creating profile authorization for the environment",1);
+		
 		pac auth delete -n $this.settings.AutoCOE_ProfileName
 
-		Write-Host $EnvironmentURL 
+		$this.ObjLogger.LogMessage($EnvironmentURL,1);	
 
 		pac auth create --url $EnvironmentURL   --name $this.settings.AutoCOE_ProfileName
 
 		if ($Error -ne '')
 		{
-			write-host "authentication profile is not created due to User canceled authentication/ not authenticated properly. Unable to continue to install. original exception is " + $Error
+			$this.ObjLogger.LogMessage("authentication profile is not created due to User canceled authentication/ not authenticated properly. Unable to continue to install. original exception is " + $Error,3);
 			Break;
 		}
 		pac auth select -n $this.settings.AutoCOE_ProfileName
 
 		if ($Error -ne '')
 		{
-			write-host "Unable to select profile authorization for $this.settings.AutoCOE_ProfileName. Exception is " + $Error
+			$this.ObjLogger.LogMessage("Unable to select profile authorization for $this.settings.AutoCOE_ProfileName. Exception is " + $Error,3);
 			Break;
 		}
-		write-host "Completed profile authorization for the environment and connected to your environment"
+		
+		$this.ObjLogger.LogMessage("Completed profile authorization for the environment and connected to your environment",1)
 
-		write-host "Encoding Deployment settings"
+		$this.ObjLogger.LogMessage("Encoding Deployment settings",1)
 
 		$Bytes = [System.Text.Encoding]::UTF8.GetBytes(($DeploymentSettingsData|ConvertTo-Json -Compress -depth 32))
 		$EncodedSettings = [System.Convert]::ToBase64String($Bytes)
 		
-		write-host "Completed of Encoding Deployment settings"
+		$this.ObjLogger.LogMessage("Completed of Encoding Deployment settings",1)		
 				
 		#C:\users\kmarram\.nuget\packages\microsoft.powerapps.cli\1.20.3\tools\pac.exe
 		
@@ -279,15 +368,19 @@ class Deployment {
 			$PAC_exePath= $paths
 		}
 		
-		write-host "Pac Path=" $PAC_exePath
-								
+		$this.ObjLogger.LogMessage("Pac Path=" + $PAC_exePath,1)
+				
 		if ($this.settings.InstallMainSolution -eq $True)
 		{
+			
+			Set-Content -Path $this.settings.LogFile '' -Force
+					
 			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installmainsolution=true|importconfigdata=$InstallSampleData|AutomationCoEMain_componentarguments=$EncodedSettings|activateapprovalflow=$EnableApprovalFlow|activateroiflow=$enableROIFlow|activatesyncflow=$enableSyncFlow|projectadminusers=$Admin_users|projectcontributors=$Contributor_users|projectviewers=$Viewer_users|businessowneremail=$ProjectBusinessOwnerEmailId" 
 						
-			Write-Host ========================================================		
-			Write-Host  Installing Main solution
-			Write-Host ========================================================
+			$this.ObjLogger.LogMessage("========================================================",1)		
+			$this.ObjLogger.LogMessage(" Installing Main solution",1)
+			$this.ObjLogger.LogMessage("========================================================",1)
+			
 			try
 			{
 				
@@ -305,16 +398,13 @@ class Deployment {
 				 
 				 $Prc = New-Object System.Diagnostics.Process
 				 $Prc.StartInfo = $PInfo
-				 Write-Host "Please wait for couple of minutes while installation is in-progress:"
+				 $this.ObjLogger.LogMessage("Please wait for couple of minutes while installation is in-progress:",1)
 				 $Prc.Start() | Out-Null				 
-				 #$Prc.WaitForExit()
 				 
 				 $stdout = $Prc.StandardOutput.ReadToEnd()
 				 $stderr = $Prc.StandardError.ReadToEnd()
-				 Write-Host "Logs: $stdout"
+				 $this.ObjLogger.LogMessage("Logs:"+ $stdout,1)
 				 
-				 #Write-Host "stderr: $stderr"
-				 #Write-Host "exit code: " + $Prc.ExitCode
 				 
 			}
 			catch 
@@ -327,11 +417,13 @@ class Deployment {
 		}
 		else
 		{
-			Write-Host ========================================================		
-			Write-Host  Installing Satellite soluiton
-			Write-Host ========================================================
+			$this.ObjLogger.LogMessage("========================================================",1)
+			$this.ObjLogger.LogMessage(" Installing Satellite solution",1)
+			$this.ObjLogger.LogMessage("========================================================",1)
 			
-			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installsatellitesolution=false|AutomationCoESatellite_componentarguments=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows"
+			Set-Content -Path $this.settings.LogFile '' -Force
+				
+			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installsatellitesolution=true|AutomationCoESatellite_componentarguments=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows"
 			
 			try
 			{					
@@ -347,14 +439,14 @@ class Deployment {
 			 
 			 $Prc = New-Object System.Diagnostics.Process
 			 $Prc.StartInfo = $PrInfo
+			  
+			 
 			 $Prc.Start() | Out-Null
-			 Write-Host "Please wait for couple of minutes while installation is in-progress:"
+			 $this.ObjLogger.LogMessage("Please wait for couple of minutes while installation is in-progress:",1)
 			 
 			 $stdout = $Prc.StandardOutput.ReadToEnd()
 			 $stderr = $Prc.StandardError.ReadToEnd()
-			Write-Host "Logs: $stdout"			
-			Write-Host "Error: $stderr"
-			
+				$this.ObjLogger.LogMessage("Logs:"+ $stdout,1)		
 			}
 			catch 
 			{
@@ -370,13 +462,13 @@ class Deployment {
 		
 		if (($LogDetails -imatch "Error") -and ($LogDetails -imatch "Some dependencies are missing")-and ($LogDetails -imatch "CreatorKitCore"))
 		{	
-			write-host "The Automation Kit setup has found dependency of creator kit to install. Please install the creator kit from appsource URL:https://appsource.microsoft.com/en-US/home. And later you can retry to install Automation kit."
+			$this.ObjLogger.LogMessage("The Automation Kit setup has found dependency of creator kit to install. Please install the creator kit from appsource URL:https://appsource.microsoft.com/en-US/home. And later you can retry to install Automation kit.",3)
 			break;
 		}
 
-		Write-Host ========================================================
-		Write-Host  Performing post deployment operations
-		Write-Host ========================================================
+		$this.ObjLogger.LogMessage("========================================================",1)
+		$this.ObjLogger.LogMessage(" Performing post deployment operations",1)
+		$this.ObjLogger.LogMessage("========================================================",1)
 		
 		# Removing of newly created profile 
 		pac auth delete -n $this.settings.AutoCOE_ProfileName
@@ -388,10 +480,10 @@ class Deployment {
 
 			pac auth select  $this.settings.AutoCOE_ProfileName
 
-			write-host "Creating applicaiton user"
+			$this.ObjLogger.LogMessage("Creating applicaiton user",1);
 
 			pac admin assign-user  --environment $EnvironmentId   --user $AzureAppID   --role "System Administrator"   --application-user
-			write-host "Successfully created applicaiton user"
+			$this.ObjLogger.LogMessage("Successfully created applicaiton user",1)
 			
 			pac auth delete -n $this.settings.AutoCOE_ProfileName
 		}
@@ -404,8 +496,11 @@ if ( $global:exitScript ) {
 
 #Variables
 $Error.clear()
+[Logger]$loggerObj = [Logger]::new()
+$installType = [InstallationType]::new($loggerObj)
+$install_type= $installType.GetInstallationType()
 $install = [InstallSettings]::new()
-if ($InstallMainSolution -eq $True)
+if ($installType.InstallMainSolution -eq $True)
 {
 	$install.InstallMainSolution=$True
 	$install.DeploymentSettingsFile = ".\AutomationCoEMain_manifest.ppkg.json"
@@ -413,7 +508,33 @@ if ($InstallMainSolution -eq $True)
 	$install.UpdatedDeploymentSettingsFile=".\DeploymentSettings_Main.json"	
 	$install.AutoCOE_ProfileName="AutoCOE_Main_Env"
 	$install.PackageFilePath=".\Microsoft_AutomationKIT_Main_Package.zip"	
-	$install.LogFile=".\Logs.txt"
+	$install.LogFile=".\Logs_Main.txt"
+	
+	$FileExist = Test-Path -Path $install.DeploymentSettingsFile  -PathType Leaf
+			
+	if ($FileExist -eq $False)
+	{
+		$loggerObj.LogMessage("Error: Deployment settings file '" + $install.DeploymentSettingsFile + "' is not found in current folder to install. Please verify once and try to install again.." ,1)	
+		break;
+	}
+	
+	$FileExist = Test-Path -Path $install.PackageFilePath  -PathType Leaf
+			
+	if ($FileExist -eq $False)
+	{
+		$loggerObj.LogMessage("Error: Automation Kit package file '" + $install.PackageFilePath + "' is not found in current folder to install. Please verify once and try to install again.." ,1)
+	
+		break;
+	}
+	
+	$FileExist = Test-Path -Path $install.UserResponsesFile  -PathType Leaf
+			
+	if ($FileExist -eq $False)
+	{
+		$loggerObj.LogMessage("Error: User responses Json file '" + $install.UserResponsesFile + "' is not found in current folder to update connction references. Please verify once and try to install again.." ,1)
+	
+		break;
+	}	
 }
 else
 {
@@ -424,15 +545,42 @@ else
 	$install.AutoCOE_ProfileName="AutoCOE_Satellite_Env"
 	$install.PackageFilePath=".\Microsoft_AutomationKIT_Satellite_Package.zip"	
 	$install.LogFile=".\Logs_Satellite.txt"
+	
+	$FileExist = Test-Path -Path $install.DeploymentSettingsFile  -PathType Leaf
+			
+	if ($FileExist -eq $False)
+	{
+		$loggerObj.LogMessage("Error: Deployment settings file '" + $install.DeploymentSettingsFile + "' is not found in current folder to install. Please verify once and try to install again.." ,1)
+	
+		break;
+	}
+	
+	$FileExist = Test-Path -Path $install.PackageFilePath  -PathType Leaf
+			
+	if ($FileExist -eq $False)
+	{
+		$loggerObj.LogMessage("Error: Automation Kit package file '" + $install.PackageFilePath + "' is not found in current folder to install. Please verify once and try to install again.." ,1)
+	
+		break;
+	}
+	
+	$FileExist = Test-Path -Path $install.UserResponsesFile  -PathType Leaf
+			
+	if ($FileExist -eq $False)
+	{
+		$loggerObj.LogMessage("Error: User responses Json file '" + $install.UserResponsesFile + "' is not found in current folder to update connction references. Please verify once and try to install again.." ,1)
+	
+		break;
+	}	
 }
 
-$deploy = [Deployment]::new($install)
+$deploy = [Deployment]::new($install,$loggerObj)
 
 $deploy.install()
 
 $Error.clear()
 
-write-host "Deployment completed successfully."
+$loggerObj.LogMessage("Deployment completed successfully",1)
 
 
 
