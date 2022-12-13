@@ -93,12 +93,12 @@
       "visibleIf": "{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')",
       "elements": [
         {
-          "name": "how-many-bots",
+          "name": "how-many-automation-projects",
           "type": "text",
           "inputType": "number",
           "title": {
-            "default": "How many bots to migrate?",
-            "ja": "移行するボットの数はいくつですか?"
+            "default": "How many automation projects to migrate?",
+            "ja": "移行する自動化プロジェクトはいくつありますか?"
           },
           "isRequired": true
         },
@@ -107,8 +107,8 @@
           "type": "text",
           "inputType": "number",
           "title": {
-            "default": "Percentage of attended bots?",
-            "ja": "出席したボットの割合は?"
+            "default": "Percentage of attended automation projects?",
+            "ja": "参加した自動化プロジェクトの割合は?"
           },
           "isRequired": true,
           "validators": [
@@ -127,8 +127,8 @@
           "type": "text",
           "inputType": "number",
           "title": {
-            "default": "Percentage of unattended bots?",
-            "ja": "無人ボットの割合は?"
+            "default": "Percentage of unattended automation projects?",
+            "ja": "無人自動化プロジェクトの割合は?"
           },
           "isRequired": true,
           "validators": [
@@ -249,19 +249,19 @@
               "inputType": "number"
             },
             {
-              "name": "Bots",
+              "name": "projects",
               "title": {
-                "default": "Bots",
-                "ja": "ボット"
+                "default": "Projects",
+                "ja": "プロジェクト"
               },
               "cellType": "expression",
-              "expression": "botTotal({row})"
+              "expression": "ceil(getNumber('how-many-automation-projects')*({row.percentage}/ 100))"
             },
             {
-              "name": "botsPerMonth",
+              "name": "projectsPerMonth",
               "title": {
-                "default": "Bots per month",
-                "ja": "月あたりのボット数"
+                "default": "Projects per month",
+                "ja": "月間プロジェクト"
               },
               "cellType": "text",
               "inputType": "number"
@@ -273,15 +273,15 @@
                 "ja": "合計(営業日)"
               },
               "cellType": "expression",
-              "expression": "migrationTotal({row})"
+              "expression": "ceil({row.projects} / {row.projectsPerMonth} * 20)"
             }
           ]
         },
         {
           "type": "html",
           "html": {
-            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.",
-            "ja": "注:値は説明のみを目的としており、移行する特定のボットに対して、ランプ時間、月あたりのボット数、および移行の合計営業日を決定する必要があります。"
+            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Projects per Month and Total business days for migration will need to be determined for the specific projects being migrated.",
+            "ja": "注: 値は説明のみを目的としており、移行する特定のプロジェクトに対して、ランプ時間、月あたりのプロジェクト数、および移行の合計営業日を決定する必要があります。"
           }
         },
         {
@@ -373,7 +373,7 @@
             "default": "Tell me more about each license type",
             "ja": "各ライセンスタイプについて詳しく教えてください"
           },
-          "defaultValue": false
+          "defaultValue": true
         },
         {
           "name": "matrix-image",
@@ -383,7 +383,7 @@
             "default": "Select plans you want more information on",
             "ja": "詳細情報が必要なプランを選択してください"
           },
-          "src": "/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
+          "src": "https://microsoft.github.io/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
         },
         {
           "type": "html",
@@ -495,7 +495,7 @@
               "visibleIf": "{retailPrice} == true"
             },
             {
-              "name": "price-manual",
+              "name": "price",
               "title": {
                 "default": "Price",
                 "ja": "価格"
@@ -525,7 +525,7 @@
                 "ja": "トータル"
               },
               "cellType": "expression",
-              "expression": "iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})",
+              "expression": "{row.quantity} * {row.price}",
               "displayStyle": "currency",
               "totalType": "sum",
               "totalDisplayStyle": "currency",

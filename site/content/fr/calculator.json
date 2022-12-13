@@ -93,12 +93,12 @@
       "visibleIf": "{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')",
       "elements": [
         {
-          "name": "how-many-bots",
+          "name": "how-many-automation-projects",
           "type": "text",
           "inputType": "number",
           "title": {
-            "default": "How many bots to migrate?",
-            "fr": "Combien de bots migrer ?"
+            "default": "How many automation projects to migrate?",
+            "fr": "Combien de projets d’automatisation migrer ?"
           },
           "isRequired": true
         },
@@ -107,8 +107,8 @@
           "type": "text",
           "inputType": "number",
           "title": {
-            "default": "Percentage of attended bots?",
-            "fr": "Pourcentage de bots assistés ?"
+            "default": "Percentage of attended automation projects?",
+            "fr": "Pourcentage de projets d’automatisation suivis?"
           },
           "isRequired": true,
           "validators": [
@@ -127,8 +127,8 @@
           "type": "text",
           "inputType": "number",
           "title": {
-            "default": "Percentage of unattended bots?",
-            "fr": "Pourcentage de bots sans surveillance ?"
+            "default": "Percentage of unattended automation projects?",
+            "fr": "Pourcentage de projets d’automatisation sans surveillance?"
           },
           "isRequired": true,
           "validators": [
@@ -249,19 +249,19 @@
               "inputType": "number"
             },
             {
-              "name": "Bots",
+              "name": "projects",
               "title": {
-                "default": "Bots",
-                "fr": "Bots"
+                "default": "Projects",
+                "fr": "Projets"
               },
               "cellType": "expression",
-              "expression": "botTotal({row})"
+              "expression": "ceil(getNumber('how-many-automation-projects')*({row.percentage}/ 100))"
             },
             {
-              "name": "botsPerMonth",
+              "name": "projectsPerMonth",
               "title": {
-                "default": "Bots per month",
-                "fr": "Bots par mois"
+                "default": "Projects per month",
+                "fr": "Projets par mois"
               },
               "cellType": "text",
               "inputType": "number"
@@ -273,15 +273,15 @@
                 "fr": "Total (jours ouvrables)"
               },
               "cellType": "expression",
-              "expression": "migrationTotal({row})"
+              "expression": "ceil({row.projects} / {row.projectsPerMonth} * 20)"
             }
           ]
         },
         {
           "type": "html",
           "html": {
-            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.",
-            "fr": "REMARQUE : Les valeurs sont fournies à titre d’illustration uniquement et le temps de rampe, les bots par mois et le nombre total de jours ouvrables pour la migration devront être déterminés pour les bots spécifiques en cours de migration."
+            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Projects per Month and Total business days for migration will need to be determined for the specific projects being migrated.",
+            "fr": "REMARQUE : Les valeurs sont fournies à titre d’illustration uniquement et le temps de rampe, les projets par mois et le nombre total de jours ouvrables pour la migration devront être déterminés pour les projets spécifiques en cours de migration."
           }
         },
         {
@@ -373,7 +373,7 @@
             "default": "Tell me more about each license type",
             "fr": "Dites-m’en plus sur chaque type de licence"
           },
-          "defaultValue": false
+          "defaultValue": true
         },
         {
           "name": "matrix-image",
@@ -383,7 +383,7 @@
             "default": "Select plans you want more information on",
             "fr": "Sélectionnez les plans sur lesquels vous souhaitez obtenir plus d’informations"
           },
-          "src": "/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
+          "src": "https://microsoft.github.io/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
         },
         {
           "type": "html",
@@ -495,7 +495,7 @@
               "visibleIf": "{retailPrice} == true"
             },
             {
-              "name": "price-manual",
+              "name": "price",
               "title": {
                 "default": "Price",
                 "fr": "Prix"
@@ -525,7 +525,7 @@
                 "fr": "Total"
               },
               "cellType": "expression",
-              "expression": "iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})",
+              "expression": "{row.quantity} * {row.price}",
               "displayStyle": "currency",
               "totalType": "sum",
               "totalDisplayStyle": "currency",

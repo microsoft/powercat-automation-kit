@@ -93,12 +93,12 @@
       "visibleIf": "{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')",
       "elements": [
         {
-          "name": "how-many-bots",
+          "name": "how-many-automation-projects",
           "type": "text",
           "inputType": "number",
           "title": {
-            "default": "How many bots to migrate?",
-            "zh-hans": "要迁移多少个机器人？"
+            "default": "How many automation projects to migrate?",
+            "zh-hans": "要迁移多少个自动化项目？"
           },
           "isRequired": true
         },
@@ -107,8 +107,8 @@
           "type": "text",
           "inputType": "number",
           "title": {
-            "default": "Percentage of attended bots?",
-            "zh-hans": "有人值守的机器人百分比？"
+            "default": "Percentage of attended automation projects?",
+            "zh-hans": "参与自动化项目的百分比？"
           },
           "isRequired": true,
           "validators": [
@@ -127,8 +127,8 @@
           "type": "text",
           "inputType": "number",
           "title": {
-            "default": "Percentage of unattended bots?",
-            "zh-hans": "无人值守机器人的百分比？"
+            "default": "Percentage of unattended automation projects?",
+            "zh-hans": "无人值守的自动化项目的百分比？"
           },
           "isRequired": true,
           "validators": [
@@ -249,19 +249,19 @@
               "inputType": "number"
             },
             {
-              "name": "Bots",
+              "name": "projects",
               "title": {
-                "default": "Bots",
-                "zh-hans": "机器人"
+                "default": "Projects",
+                "zh-hans": "项目"
               },
               "cellType": "expression",
-              "expression": "botTotal({row})"
+              "expression": "ceil(getNumber('how-many-automation-projects')*({row.percentage}/ 100))"
             },
             {
-              "name": "botsPerMonth",
+              "name": "projectsPerMonth",
               "title": {
-                "default": "Bots per month",
-                "zh-hans": "每月机器人数"
+                "default": "Projects per month",
+                "zh-hans": "每月项目"
               },
               "cellType": "text",
               "inputType": "number"
@@ -273,15 +273,15 @@
                 "zh-hans": "总计（工作日）"
               },
               "cellType": "expression",
-              "expression": "migrationTotal({row})"
+              "expression": "ceil({row.projects} / {row.projectsPerMonth} * 20)"
             }
           ]
         },
         {
           "type": "html",
           "html": {
-            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.",
-            "zh-hans": "注意：这些值仅用于说明目的，需要为要迁移的特定机器人确定爬坡时间、每月机器人数和迁移的总工作日。"
+            "default": "NOTE: The values are for illustration purposes only and Ramp Time, Projects per Month and Total business days for migration will need to be determined for the specific projects being migrated.",
+            "zh-hans": "注意：这些值仅用于说明目的，需要为要迁移的特定项目确定迁移的爬坡时间、每月项目数和总工作日。"
           }
         },
         {
@@ -373,7 +373,7 @@
             "default": "Tell me more about each license type",
             "zh-hans": "告诉我有关每种许可证类型的更多信息"
           },
-          "defaultValue": false
+          "defaultValue": true
         },
         {
           "name": "matrix-image",
@@ -383,7 +383,7 @@
             "default": "Select plans you want more information on",
             "zh-hans": "选择您想了解更多信息的计划"
           },
-          "src": "/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
+          "src": "https://microsoft.github.io/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2"
         },
         {
           "type": "html",
@@ -495,7 +495,7 @@
               "visibleIf": "{retailPrice} == true"
             },
             {
-              "name": "price-manual",
+              "name": "price",
               "title": {
                 "default": "Price",
                 "zh-hans": "价格"
@@ -525,7 +525,7 @@
                 "zh-hans": "总"
               },
               "cellType": "expression",
-              "expression": "iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})",
+              "expression": "{row.quantity} * {row.price}",
               "displayStyle": "currency",
               "totalType": "sum",
               "totalDisplayStyle": "currency",

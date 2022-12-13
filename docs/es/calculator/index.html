@@ -135,7 +135,7 @@
 <script>
     
     
-    data = "{\r\n  \"showQuestionNumbers\": \"off\",\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"radiogroup\",\r\n          \"name\": \"scenario\",\r\n          \"title\": {\r\n            \"default\": \"What scenario are you trying to calculate?\",\r\n            \"es\": \"¿Qué escenario estás tratando de calcular?\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"calculator\",\r\n              \"text\": {\r\n                \"default\": \"Power Automate / Power Automate Desktop license cost\",\r\n                \"es\": \"Costo de la licencia de Power Automate / Power Automate Desktop\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"migration-planner\",\r\n              \"text\": {\r\n                \"default\": \"Migration planner\",\r\n                \"es\": \"Planificador de migración\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"samples\",\r\n              \"text\": {\r\n                \"default\": \"Sample scenarios\",\r\n                \"es\": \"Escenarios de ejemplo\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"radiogroup\",\r\n          \"name\": \"sample-scenario\",\r\n          \"visibleIf\": \"{scenario} = 'samples'\",\r\n          \"title\": {\r\n            \"default\": \"What sample scenario did you want to explore?\",\r\n            \"es\": \"¿Qué escenario de ejemplo quería explorar?\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"migration-single-unattended\",\r\n              \"text\": {\r\n                \"default\": \"Migration of a single unattended bot running isolated from other bot process\",\r\n                \"es\": \"Migración de un único bot desatendido que se ejecuta aislado de otro proceso de bot\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"migration-200\",\r\n              \"text\": {\r\n                \"default\": \"Migration of hundreds of bots\",\r\n                \"es\": \"Migración de cientos de bots\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"process-mining\",\r\n              \"text\": {\r\n                \"default\": \"Using Process Advisor to identify Process automation\",\r\n                \"es\": \"Uso de Process Advisor para identificar la automatización de procesos\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"task-mining\",\r\n              \"text\": {\r\n                \"default\": \"Using Process Advisor task mining to analyze and improve bot reliability\",\r\n                \"es\": \"Uso de la minería de tareas Process Advisor para analizar y mejorar la confiabilidad del bot\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{sample-scenario} = 'migration-single-unattended'\",\r\n          \"html\": {\r\n            \"default\": \"Single unattended bot migration. In this example an organization may want to migrate an existing automate an existing automation solution to the Power Platform. The deployed bot will be hosted in an isolated virtual network and Virtual Machine (VM) runner.\",\r\n            \"es\": \"Migración única de bot desatendida. En este ejemplo, una organización puede querer migrar una solución de automatización existente a la Power Platform. El bot implementado se hospedará en una red virtual aislada y en un ejecutor de máquina virtual (VM).\"\r\n          }\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"migration\",\r\n      \"title\": {\r\n        \"default\": \"Migration Parameters\",\r\n        \"es\": \"Parámetros de migración\"\r\n      },\r\n      \"visibleIf\": \"{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')\",\r\n      \"elements\": [\r\n        {\r\n          \"name\": \"how-many-bots\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"How many bots to migrate?\",\r\n            \"es\": \"¿Cuántos bots migrar?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"name\": \"attended-percentage\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"Percentage of attended bots?\",\r\n            \"es\": \"¿Porcentaje de bots atendidos?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"validators\": [\r\n            {\r\n              \"type\": \"expression\",\r\n              \"text\": {\r\n                \"default\": \"A value between 0 and 100\",\r\n                \"es\": \"Un valor entre 0 y 100\"\r\n              },\r\n              \"expression\": \"{attended-percentage} \u003e= 0 \u0026\u0026 {attended-percentage} \u003c= 100\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"unattended-percentage\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"Percentage of unattended bots?\",\r\n            \"es\": \"¿Porcentaje de bots desatendidos?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"validators\": [\r\n            {\r\n              \"type\": \"expression\",\r\n              \"text\": {\r\n                \"default\": \"A value between 0 and 100\",\r\n                \"es\": \"Un valor entre 0 y 100\"\r\n              },\r\n              \"expression\": \"{unattended-percentage} \u003e= 0 \u0026\u0026 {unattended-percentage} \u003c= 100\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-groups\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new group\",\r\n            \"es\": \"Agregar nuevo grupo\"\r\n          },\r\n          \"title\": {\r\n            \"default\": \"Migration Groups\",\r\n            \"es\": \"Grupos de migración\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"name\",\r\n              \"title\": {\r\n                \"default\": \"Migration Group Name\",\r\n                \"es\": \"Nombre del grupo de migración\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            },\r\n            {\r\n              \"name\": \"description\",\r\n              \"title\": {\r\n                \"default\": \"Description\",\r\n                \"es\": \"Descripción\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"groups\",\r\n          \"type\": \"checkbox\",\r\n          \"title\": {\r\n            \"default\": \"Groups\",\r\n            \"es\": \"Grupos\"\r\n          },\r\n          \"visibleIf\": \"false\",\r\n          \"choices\": []\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-times\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new item\",\r\n            \"es\": \"Agregar nuevo elemento\"\r\n          },\r\n          \"title\": {\r\n            \"default\": \"Duration Plan\",\r\n            \"es\": \"Plan de duración\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"complexity\",\r\n              \"title\": {\r\n                \"default\": \"Complexity\",\r\n                \"es\": \"Complejidad\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"inputType\": \"count\",\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"low\",\r\n                  \"text\": {\r\n                    \"default\": \"Low\",\r\n                    \"es\": \"Bajo\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"medium\",\r\n                  \"text\": {\r\n                    \"default\": \"Medium\",\r\n                    \"es\": \"Medio\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"high\",\r\n                  \"text\": {\r\n                    \"default\": \"High\",\r\n                    \"es\": \"Alto\"\r\n                  }\r\n                }\r\n              ]\r\n            },\r\n            {\r\n              \"name\": \"group\",\r\n              \"title\": {\r\n                \"default\": \"Group\",\r\n                \"es\": \"Grupo\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choicesFromQuestion\": \"groups\"\r\n            },\r\n            {\r\n              \"name\": \"percentage\",\r\n              \"title\": {\r\n                \"default\": \"Percentage\",\r\n                \"es\": \"Porcentaje\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"Bots\",\r\n              \"title\": {\r\n                \"default\": \"Bots\",\r\n                \"es\": \"Bots\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"botTotal({row})\"\r\n            },\r\n            {\r\n              \"name\": \"botsPerMonth\",\r\n              \"title\": {\r\n                \"default\": \"Bots per month\",\r\n                \"es\": \"Bots por mes\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"total\",\r\n              \"title\": {\r\n                \"default\": \"Total (Business Days)\",\r\n                \"es\": \"Total (días laborables)\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"migrationTotal({row})\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"NOTE: The values are for illustration purposes only and Ramp Time, Bots per Month and Total business days for migration will need to be determined for the specific bots being migrated.\",\r\n            \"es\": \"NOTA: Los valores son solo para fines ilustrativos y el tiempo de rampa, los bots por mes y el total de días hábiles para la migración deberán determinarse para los bots específicos que se migran.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"calc-migration-plan\",\r\n          \"title\": {\r\n            \"default\": \"Automatically calculate possible migration plan?\",\r\n            \"es\": \"¿Calcular automáticamente el posible plan de migración?\"\r\n          },\r\n          \"defaultValue\": true\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-plan\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new item\",\r\n            \"es\": \"Agregar nuevo elemento\"\r\n          },\r\n          \"title\": {\r\n            \"default\": \"Migration Plan\",\r\n            \"es\": \"Plan de migración\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"name\",\r\n              \"title\": {\r\n                \"default\": \"Name\",\r\n                \"es\": \"Nombre\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            },\r\n            {\r\n              \"name\": \"low\",\r\n              \"title\": {\r\n                \"default\": \"Low\",\r\n                \"es\": \"Bajo\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"medium\",\r\n              \"title\": {\r\n                \"default\": \"Medium\",\r\n                \"es\": \"Medio\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"high\",\r\n              \"title\": {\r\n                \"default\": \"High\",\r\n                \"es\": \"Alto\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"attended\",\r\n              \"title\": {\r\n                \"default\": \"Attended\",\r\n                \"es\": \"Asistieron\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"unattended\",\r\n              \"title\": {\r\n                \"default\": \"Unattended\",\r\n                \"es\": \"Desatendido\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"calculation\",\r\n      \"elements\": [\r\n        {\r\n          \"name\": \"tellMeMore\",\r\n          \"type\": \"boolean\",\r\n          \"title\": {\r\n            \"default\": \"Tell me more about each license type\",\r\n            \"es\": \"Más información sobre cada tipo de licencia\"\r\n          },\r\n          \"defaultValue\": false\r\n        },\r\n        {\r\n          \"name\": \"matrix-image\",\r\n          \"type\": \"image-task\",\r\n          \"visibleIf\": \"{tellMeMore} == true\",\r\n          \"title\": {\r\n            \"default\": \"Select plans you want more information on\",\r\n            \"es\": \"Seleccione los planes sobre los que desea obtener más información\"\r\n          },\r\n          \"src\": \"/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at \u003ca href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'\u003eBuy Power Automate Licenses\u003c/a\u003e\",\r\n            \"es\": \"Más detalles sobre las licencias incluyen licencias sembradas con Microsoft Office 365, Microsoft Dynamics, opciones de pago por uso y Windows está disponible en \u003ca href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'\u003eComprar licencias de Power Automate\u003c/a\u003e\"\r\n          }\r\n        },\r\n        {\r\n          \"name\": \"retailPrice\",\r\n          \"type\": \"boolean\",\r\n          \"title\": {\r\n            \"default\": \"Use retail price\",\r\n            \"es\": \"Utilizar precio de venta al público\"\r\n          },\r\n          \"defaultValue\": true\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"items\",\r\n          \"rowCount\": 1,\r\n          \"minRowCount\": 1,\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new item\",\r\n            \"es\": \"Agregar nuevo elemento\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"type\",\r\n              \"title\": {\r\n                \"default\": \"Type\",\r\n                \"es\": \"Tipo\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"Trial\",\r\n                  \"text\": {\r\n                    \"default\": \"Trial\",\r\n                    \"es\": \"Juicio\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"User\",\r\n                  \"text\": {\r\n                    \"default\": \"User\",\r\n                    \"es\": \"Usuario\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Flow\",\r\n                  \"text\": {\r\n                    \"default\": \"Flow\",\r\n                    \"es\": \"Fluir\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Extra Flow\",\r\n                  \"text\": {\r\n                    \"default\": \"Extra Flow\",\r\n                    \"es\": \"Flujo extra\"\r\n                  }\r\n                }\r\n              ]\r\n            },\r\n            {\r\n              \"name\": \"mode\",\r\n              \"title\": {\r\n                \"default\": \"Mode\",\r\n                \"es\": \"Modo\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"Attended\",\r\n                  \"text\": {\r\n                    \"default\": \"Attended\",\r\n                    \"es\": \"Asistieron\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Unattended\",\r\n                  \"text\": {\r\n                    \"default\": \"Unattended\",\r\n                    \"es\": \"Desatendido\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Cloud\",\r\n                  \"text\": {\r\n                    \"default\": \"Cloud\",\r\n                    \"es\": \"Nube\"\r\n                  }\r\n                }\r\n              ]\r\n            },\r\n            {\r\n              \"name\": \"price\",\r\n              \"title\": {\r\n                \"default\": \"Price\",\r\n                \"es\": \"Precio\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"getItemPrice()\",\r\n              \"displayStyle\": \"currency\",\r\n              \"visibleIf\": \"{retailPrice} == true\"\r\n            },\r\n            {\r\n              \"name\": \"price-manual\",\r\n              \"title\": {\r\n                \"default\": \"Price\",\r\n                \"es\": \"Precio\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\",\r\n              \"displayStyle\": \"currency\",\r\n              \"visibleIf\": \"{retailPrice} == false\"\r\n            },\r\n            {\r\n              \"name\": \"quantity\",\r\n              \"title\": {\r\n                \"default\": \"Quantity\",\r\n                \"es\": \"Cantidad\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\",\r\n              \"totalType\": \"sum\",\r\n              \"totalFormat\": \"Total services: {0}\",\r\n              \"min\": 1\r\n            },\r\n            {\r\n              \"name\": \"total\",\r\n              \"title\": {\r\n                \"default\": \"Total\",\r\n                \"es\": \"Total\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"iif({retailPrice},{row.quantity} * {row.price},{row.quantity} * {row.price-manual})\",\r\n              \"displayStyle\": \"currency\",\r\n              \"totalType\": \"sum\",\r\n              \"totalDisplayStyle\": \"currency\",\r\n              \"totalFormat\": \"Total: {0}\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"NOTE: Type \u003cb\u003eFlow\u003c/b\u003e represents minimum order of 5 cloud / RPA flows. Type \u003cb\u003eExtra Flow\u003c/b\u003e represents single flow above the minimum order level of 5 flows.\",\r\n            \"es\": \"NOTA: Tipo \u003cb\u003eFluir\u003c/b\u003e representa un pedido mínimo de 5 flujos de nube/RPA. Tipo \u003cb\u003eFlujo extra\u003c/b\u003e representa un flujo único por encima del nivel de orden mínimo de 5 flujos.\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"showQuestionNumbers\": \"off\",\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"radiogroup\",\r\n          \"name\": \"scenario\",\r\n          \"title\": {\r\n            \"default\": \"What scenario are you trying to calculate?\",\r\n            \"es\": \"¿Qué escenario estás tratando de calcular?\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"calculator\",\r\n              \"text\": {\r\n                \"default\": \"Power Automate / Power Automate Desktop license cost\",\r\n                \"es\": \"Costo de la licencia de Power Automate / Power Automate Desktop\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"migration-planner\",\r\n              \"text\": {\r\n                \"default\": \"Migration planner\",\r\n                \"es\": \"Planificador de migración\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"samples\",\r\n              \"text\": {\r\n                \"default\": \"Sample scenarios\",\r\n                \"es\": \"Escenarios de ejemplo\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"radiogroup\",\r\n          \"name\": \"sample-scenario\",\r\n          \"visibleIf\": \"{scenario} = 'samples'\",\r\n          \"title\": {\r\n            \"default\": \"What sample scenario did you want to explore?\",\r\n            \"es\": \"¿Qué escenario de ejemplo quería explorar?\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"migration-single-unattended\",\r\n              \"text\": {\r\n                \"default\": \"Migration of a single unattended bot running isolated from other bot process\",\r\n                \"es\": \"Migración de un único bot desatendido que se ejecuta aislado de otro proceso de bot\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"migration-200\",\r\n              \"text\": {\r\n                \"default\": \"Migration of hundreds of bots\",\r\n                \"es\": \"Migración de cientos de bots\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"process-mining\",\r\n              \"text\": {\r\n                \"default\": \"Using Process Advisor to identify Process automation\",\r\n                \"es\": \"Uso de Process Advisor para identificar la automatización de procesos\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"task-mining\",\r\n              \"text\": {\r\n                \"default\": \"Using Process Advisor task mining to analyze and improve bot reliability\",\r\n                \"es\": \"Uso de la minería de tareas Process Advisor para analizar y mejorar la confiabilidad del bot\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{sample-scenario} = 'migration-single-unattended'\",\r\n          \"html\": {\r\n            \"default\": \"Single unattended bot migration. In this example an organization may want to migrate an existing automate an existing automation solution to the Power Platform. The deployed bot will be hosted in an isolated virtual network and Virtual Machine (VM) runner.\",\r\n            \"es\": \"Migración única de bot desatendida. En este ejemplo, una organización puede querer migrar una solución de automatización existente a la Power Platform. El bot implementado se hospedará en una red virtual aislada y en un ejecutor de máquina virtual (VM).\"\r\n          }\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"migration\",\r\n      \"title\": {\r\n        \"default\": \"Migration Parameters\",\r\n        \"es\": \"Parámetros de migración\"\r\n      },\r\n      \"visibleIf\": \"{scenario} = 'migration-planner' || startsWith({sample-scenario}, 'migration-')\",\r\n      \"elements\": [\r\n        {\r\n          \"name\": \"how-many-automation-projects\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"How many automation projects to migrate?\",\r\n            \"es\": \"¿Cuántos proyectos de automatización migrar?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"name\": \"attended-percentage\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"Percentage of attended automation projects?\",\r\n            \"es\": \"¿Porcentaje de proyectos de automatización asistidos?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"validators\": [\r\n            {\r\n              \"type\": \"expression\",\r\n              \"text\": {\r\n                \"default\": \"A value between 0 and 100\",\r\n                \"es\": \"Un valor entre 0 y 100\"\r\n              },\r\n              \"expression\": \"{attended-percentage} \u003e= 0 \u0026\u0026 {attended-percentage} \u003c= 100\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"unattended-percentage\",\r\n          \"type\": \"text\",\r\n          \"inputType\": \"number\",\r\n          \"title\": {\r\n            \"default\": \"Percentage of unattended automation projects?\",\r\n            \"es\": \"¿Porcentaje de proyectos de automatización desatendidos?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"validators\": [\r\n            {\r\n              \"type\": \"expression\",\r\n              \"text\": {\r\n                \"default\": \"A value between 0 and 100\",\r\n                \"es\": \"Un valor entre 0 y 100\"\r\n              },\r\n              \"expression\": \"{unattended-percentage} \u003e= 0 \u0026\u0026 {unattended-percentage} \u003c= 100\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-groups\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new group\",\r\n            \"es\": \"Agregar nuevo grupo\"\r\n          },\r\n          \"title\": {\r\n            \"default\": \"Migration Groups\",\r\n            \"es\": \"Grupos de migración\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"name\",\r\n              \"title\": {\r\n                \"default\": \"Migration Group Name\",\r\n                \"es\": \"Nombre del grupo de migración\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            },\r\n            {\r\n              \"name\": \"description\",\r\n              \"title\": {\r\n                \"default\": \"Description\",\r\n                \"es\": \"Descripción\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"name\": \"groups\",\r\n          \"type\": \"checkbox\",\r\n          \"title\": {\r\n            \"default\": \"Groups\",\r\n            \"es\": \"Grupos\"\r\n          },\r\n          \"visibleIf\": \"false\",\r\n          \"choices\": []\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-times\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new item\",\r\n            \"es\": \"Agregar nuevo elemento\"\r\n          },\r\n          \"title\": {\r\n            \"default\": \"Duration Plan\",\r\n            \"es\": \"Plan de duración\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"complexity\",\r\n              \"title\": {\r\n                \"default\": \"Complexity\",\r\n                \"es\": \"Complejidad\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"inputType\": \"count\",\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"low\",\r\n                  \"text\": {\r\n                    \"default\": \"Low\",\r\n                    \"es\": \"Bajo\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"medium\",\r\n                  \"text\": {\r\n                    \"default\": \"Medium\",\r\n                    \"es\": \"Medio\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"high\",\r\n                  \"text\": {\r\n                    \"default\": \"High\",\r\n                    \"es\": \"Alto\"\r\n                  }\r\n                }\r\n              ]\r\n            },\r\n            {\r\n              \"name\": \"group\",\r\n              \"title\": {\r\n                \"default\": \"Group\",\r\n                \"es\": \"Grupo\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choicesFromQuestion\": \"groups\"\r\n            },\r\n            {\r\n              \"name\": \"percentage\",\r\n              \"title\": {\r\n                \"default\": \"Percentage\",\r\n                \"es\": \"Porcentaje\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"projects\",\r\n              \"title\": {\r\n                \"default\": \"Projects\",\r\n                \"es\": \"Proyectos\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"ceil(getNumber('how-many-automation-projects')*({row.percentage}/ 100))\"\r\n            },\r\n            {\r\n              \"name\": \"projectsPerMonth\",\r\n              \"title\": {\r\n                \"default\": \"Projects per month\",\r\n                \"es\": \"Proyectos por mes\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"total\",\r\n              \"title\": {\r\n                \"default\": \"Total (Business Days)\",\r\n                \"es\": \"Total (días laborables)\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"ceil({row.projects} / {row.projectsPerMonth} * 20)\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"NOTE: The values are for illustration purposes only and Ramp Time, Projects per Month and Total business days for migration will need to be determined for the specific projects being migrated.\",\r\n            \"es\": \"NOTA: Los valores son solo para fines ilustrativos y el tiempo de rampa, los proyectos por mes y el total de días hábiles para la migración deberán determinarse para los proyectos específicos que se migran.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"calc-migration-plan\",\r\n          \"title\": {\r\n            \"default\": \"Automatically calculate possible migration plan?\",\r\n            \"es\": \"¿Calcular automáticamente el posible plan de migración?\"\r\n          },\r\n          \"defaultValue\": true\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"migration-plan\",\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new item\",\r\n            \"es\": \"Agregar nuevo elemento\"\r\n          },\r\n          \"title\": {\r\n            \"default\": \"Migration Plan\",\r\n            \"es\": \"Plan de migración\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"name\",\r\n              \"title\": {\r\n                \"default\": \"Name\",\r\n                \"es\": \"Nombre\"\r\n              },\r\n              \"cellType\": \"text\"\r\n            },\r\n            {\r\n              \"name\": \"low\",\r\n              \"title\": {\r\n                \"default\": \"Low\",\r\n                \"es\": \"Bajo\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"medium\",\r\n              \"title\": {\r\n                \"default\": \"Medium\",\r\n                \"es\": \"Medio\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"high\",\r\n              \"title\": {\r\n                \"default\": \"High\",\r\n                \"es\": \"Alto\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"attended\",\r\n              \"title\": {\r\n                \"default\": \"Attended\",\r\n                \"es\": \"Asistieron\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            },\r\n            {\r\n              \"name\": \"unattended\",\r\n              \"title\": {\r\n                \"default\": \"Unattended\",\r\n                \"es\": \"Desatendido\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\"\r\n            }\r\n          ]\r\n        }\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"calculation\",\r\n      \"elements\": [\r\n        {\r\n          \"name\": \"tellMeMore\",\r\n          \"type\": \"boolean\",\r\n          \"title\": {\r\n            \"default\": \"Tell me more about each license type\",\r\n            \"es\": \"Más información sobre cada tipo de licencia\"\r\n          },\r\n          \"defaultValue\": true\r\n        },\r\n        {\r\n          \"name\": \"matrix-image\",\r\n          \"type\": \"image-task\",\r\n          \"visibleIf\": \"{tellMeMore} == true\",\r\n          \"title\": {\r\n            \"default\": \"Select plans you want more information on\",\r\n            \"es\": \"Seleccione los planes sobre los que desea obtener más información\"\r\n          },\r\n          \"src\": \"https://microsoft.github.io/powercat-automation-kit/images/illustrations/LicenseMatrix.svg?v=2\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at \u003ca href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'\u003eBuy Power Automate Licenses\u003c/a\u003e\",\r\n            \"es\": \"Más detalles sobre las licencias incluyen licencias sembradas con Microsoft Office 365, Microsoft Dynamics, opciones de pago por uso y Windows está disponible en \u003ca href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'\u003eComprar licencias de Power Automate\u003c/a\u003e\"\r\n          }\r\n        },\r\n        {\r\n          \"name\": \"retailPrice\",\r\n          \"type\": \"boolean\",\r\n          \"title\": {\r\n            \"default\": \"Use retail price\",\r\n            \"es\": \"Utilizar precio de venta al público\"\r\n          },\r\n          \"defaultValue\": true\r\n        },\r\n        {\r\n          \"type\": \"matrixdynamic\",\r\n          \"name\": \"items\",\r\n          \"rowCount\": 1,\r\n          \"minRowCount\": 1,\r\n          \"titleLocation\": \"none\",\r\n          \"addRowText\": {\r\n            \"default\": \"Add new item\",\r\n            \"es\": \"Agregar nuevo elemento\"\r\n          },\r\n          \"columns\": [\r\n            {\r\n              \"name\": \"type\",\r\n              \"title\": {\r\n                \"default\": \"Type\",\r\n                \"es\": \"Tipo\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"Trial\",\r\n                  \"text\": {\r\n                    \"default\": \"Trial\",\r\n                    \"es\": \"Juicio\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"User\",\r\n                  \"text\": {\r\n                    \"default\": \"User\",\r\n                    \"es\": \"Usuario\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Flow\",\r\n                  \"text\": {\r\n                    \"default\": \"Flow\",\r\n                    \"es\": \"Fluir\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Extra Flow\",\r\n                  \"text\": {\r\n                    \"default\": \"Extra Flow\",\r\n                    \"es\": \"Flujo extra\"\r\n                  }\r\n                }\r\n              ]\r\n            },\r\n            {\r\n              \"name\": \"mode\",\r\n              \"title\": {\r\n                \"default\": \"Mode\",\r\n                \"es\": \"Modo\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"dropdown\",\r\n              \"choices\": [\r\n                {\r\n                  \"value\": \"Attended\",\r\n                  \"text\": {\r\n                    \"default\": \"Attended\",\r\n                    \"es\": \"Asistieron\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Unattended\",\r\n                  \"text\": {\r\n                    \"default\": \"Unattended\",\r\n                    \"es\": \"Desatendido\"\r\n                  }\r\n                },\r\n                {\r\n                  \"value\": \"Cloud\",\r\n                  \"text\": {\r\n                    \"default\": \"Cloud\",\r\n                    \"es\": \"Nube\"\r\n                  }\r\n                }\r\n              ]\r\n            },\r\n            {\r\n              \"name\": \"price\",\r\n              \"title\": {\r\n                \"default\": \"Price\",\r\n                \"es\": \"Precio\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"getItemPrice()\",\r\n              \"displayStyle\": \"currency\",\r\n              \"visibleIf\": \"{retailPrice} == true\"\r\n            },\r\n            {\r\n              \"name\": \"price\",\r\n              \"title\": {\r\n                \"default\": \"Price\",\r\n                \"es\": \"Precio\"\r\n              },\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\",\r\n              \"displayStyle\": \"currency\",\r\n              \"visibleIf\": \"{retailPrice} == false\"\r\n            },\r\n            {\r\n              \"name\": \"quantity\",\r\n              \"title\": {\r\n                \"default\": \"Quantity\",\r\n                \"es\": \"Cantidad\"\r\n              },\r\n              \"isRequired\": true,\r\n              \"cellType\": \"text\",\r\n              \"inputType\": \"number\",\r\n              \"totalType\": \"sum\",\r\n              \"totalFormat\": \"Total services: {0}\",\r\n              \"min\": 1\r\n            },\r\n            {\r\n              \"name\": \"total\",\r\n              \"title\": {\r\n                \"default\": \"Total\",\r\n                \"es\": \"Total\"\r\n              },\r\n              \"cellType\": \"expression\",\r\n              \"expression\": \"{row.quantity} * {row.price}\",\r\n              \"displayStyle\": \"currency\",\r\n              \"totalType\": \"sum\",\r\n              \"totalDisplayStyle\": \"currency\",\r\n              \"totalFormat\": \"Total: {0}\"\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"html\": {\r\n            \"default\": \"NOTE: Type \u003cb\u003eFlow\u003c/b\u003e represents minimum order of 5 cloud / RPA flows. Type \u003cb\u003eExtra Flow\u003c/b\u003e represents single flow above the minimum order level of 5 flows.\",\r\n            \"es\": \"NOTA: Tipo \u003cb\u003eFluir\u003c/b\u003e representa un pedido mínimo de 5 flujos de nube/RPA. Tipo \u003cb\u003eFlujo extra\u003c/b\u003e representa un flujo único por encima del nivel de orden mínimo de 5 flujos.\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 
@@ -155,6 +155,9 @@
 
     
 <script>
+window.getNumber = function (params) {
+    return parseInt(window.currentSurvey.data[params[0]])
+}
 window.getItemPrice = getItemPrice = function (params) {
   var rowType = !!this.row
     ? this.row.getQuestionByColumnName('type')
@@ -229,28 +232,16 @@ window.getItemPrice = getItemPrice = function (params) {
         break;
   }
 };
-window.botTotal = function(row) {
-    if ( row == null || row.length == 0 || row[0] == null || row[0].percentage == null ) {
-        return 0;
-    }
-    let bots =  window.currentSurvey.data['how-many-bots'] + 0;
-    return (bots * (row[0].percentage / 100));
-}
-window.migrationTotal = function(row) {
-     if ( row == null || row.length == 0 || row[0] == null || row[0].botsPerMonth == null ) {
-      return 0;
-    }
-    let rowBots = botTotal(row);
-    return Math.ceil((rowBots / row[0].botsPerMonth) * 20);
-}
+
 window.surveyChanged = function (sender, options) {
     window.currentSurvey = sender;
+
     var calculateChange = () => {
-        let bots = sender.data['how-many-bots'] + 0;
+        let bots = sender.data['how-many-automation-projects'] + 0;
         let percentAttended = sender.data['attended-percentage'] + 0;
         let percentUnattended = sender.data['unattended-percentage'] + 0;
-        let attended = bots * ( percentAttended / 100);
-        let unattended = bots * ( percentUnattended / 100);
+        let attended = Math.round(bots * ( percentAttended / 100));
+        let unattended = Math.round(bots * ( percentUnattended / 100));
         let items = [];
         if ( attended > 0 ) {
             items.push({service: 'U_RPA_A', quantity: attended})
@@ -258,85 +249,82 @@ window.surveyChanged = function (sender, options) {
         if ( unattended > 0 ) {
             items.push({service: 'U_RPA_UA', quantity: unattended})
         }
-        sender.setValue('items', items);
+        sender.data["items"] = items
         calculatePlan()
     }
+
     var calculatePlan = () => {
         if ( sender.data['calc-migration-plan'] == false ) {
             return;
         }
-        let bots = sender.data['how-many-bots'] + 0;
         let times = sender.data['migration-times']
         let attendedPercentage = sender.data['attended-percentage']
         let unattendedPercentage = sender.data['unattended-percentage']
         let groups = sender.data['migration-groups']
-        if ( times == null || groups == null ) {
+        if ( times == null || times.length == 0 || groups == null ) {
             return;
         }
 
         var groupData = {}
         for ( var i = 0; i < groups.length; i++ ) {
+            let months = times.reduce((accumlator, currentValue) => { 
+                return Math.max(accumlator, ( groups[i].name == currentValue.group ) ? Math.ceil(currentValue.projects / currentValue.projectsPerMonth) : 0)
+            }, 0)
             groupData[groups[i].name] = {
                 'name': groups[i].name,
-                'months': []
+                'months': Array.apply(null, Array(months)).map(function(element, index) { return {
+                    name: groups[i].name + " " + (index + 1),
+                    low:0,
+                    medium: 0,
+                    high: 0,
+                    attended: 0,
+                    unattended: 0
+                } }),
+                'projects': times.reduce((accumlator, currentValue) => { 
+                    return accumlator + (( groups[i].name == currentValue.group ) ? currentValue.projects : 0)
+                }, 0),
+                'low': times.reduce((accumlator, currentValue) => { 
+                    return accumlator + (( groups[i].name == currentValue.group && currentValue.complexity == "low" ) ? currentValue.projects : 0)
+                }, 0),
+                'medium': times.reduce((accumlator, currentValue) => { 
+                    return accumlator + (( groups[i].name == currentValue.group && currentValue.complexity == "medium" ) ? currentValue.projects : 0)
+                }, 0),
+                'high': times.reduce((accumlator, currentValue) => { 
+                    return accumlator + (( groups[i].name == currentValue.group && currentValue.complexity == "high" ) ? currentValue.projects : 0)
+                }, 0)
             }
-        }
-        
-        for ( var i = 0; i < times.length; i++ ) {
-            if ( times[i].group == null || times[i].group.length == 0 ) {
-                continue;
+            var remaining = {
+                low: groupData[groups[i].name].low,
+                medium: groupData[groups[i].name].medium,
+                high: groupData[groups[i].name].high,
             }
-            if ( typeof times[i].total === "undefined" ) {
-                continue;
-            }
-            let group = groupData[times[i].group];
-            let months = Math.ceil(times[i].total / 20);
-           
-            while ( months > group.months.length ) {
-                group.months.push({
-                    'name': group.name + ' ' + (group.months.length + 1),
-                    'low': 0,
-                    'medium': 0,
-                    'high': 0,
-                    'attended': 0,
-                    'unattended': 0,
-                })
-            }
-
-            for ( var month = 0; month < months; month++) {
-                var botsMigrated = times[i].botsPerMonth
-                if (month + 1 == months) {
-                    if ( bots > times[i].botsPerMonth ) {
-                        botsMigrated = Math.min(botsMigrated, bots - (month * times[i].botsPerMonth));
-                    } else {
-                        botsMigrated = bots;
+            for ( var t = 0; t < times.length; t++ ) {
+                if ( times[t].group == groups[i].name ) {
+                    let groupTimeMonths = Math.ceil((times[t].projects / times[t].projectsPerMonth));
+                    for ( var m = 0; m < groupTimeMonths; m++) {
+                        let value = remaining[times[t].complexity];
+                        let projects = Math.min(value, times[t].projectsPerMonth);
+                        groupData[groups[i].name].months[m][times[t].complexity] = Math.max(projects,0)
+                        value -= projects;
+                        remaining[times[t].complexity] = value
                     }
                 }
-                switch ( times[i].complexity ) {
-                    case "low":
-                        group.months[month].low += botsMigrated;
-                        break;
-                    case "medium":
-                        group.months[month].medium += botsMigrated;
-                        break;
-                    case "high":
-                        group.months[month].high += botsMigrated;
-                        break;
-                }
-                group.months[month].attended += Math.round(botsMigrated * (attendedPercentage / 100));
-                group.months[month].unattended += Math.round(botsMigrated * (unattendedPercentage / 100));
             }
-            
+            groupData[groups[i].name].months.map((month) => {
+                let total = month.low + month.medium + month.high;
+                month.attended = Math.round(total * ( attendedPercentage / 100));
+                month.unattended = Math.round(total * ( unattendedPercentage / 100));
+            })
         }
+
         var items = [];
-        for ( var i = 0; i < groups.length; i++ ) {
-            var group = groupData[groups[i].name]
-            for ( var month = 0; month < group.months.length; month++ ) {
-                items.push(group.months[month]);
-            }
-        }
-        sender.setValue('migration-plan', items);
+        groups.map((group) => {
+            let months = (groupData[group.name]).months;
+            months.map((item) => items.push(item))
+        })
+        sender.setValue("migration-plan", items);
     }
+
     switch ( options.name ) {
         case 'how-many-bots':
         case 'attended-percentage':
@@ -363,7 +351,7 @@ window.surveyChanged = function (sender, options) {
         case 'sample-scenario':
             switch ( options.value ) {
                 case 'migration-single-unattended':
-                    sender.setValue('how-many-bots', 1);
+                    sender.setValue('how-many-automation-projects', 1);
                     sender.setValue('attended-percentage', 0);
                     sender.setValue('unattended-percentage', 100);
                     var groups1 = sender.getQuestionByName('groups')
@@ -376,17 +364,15 @@ window.surveyChanged = function (sender, options) {
                     ])
                     sender.clearValue('migration-times')
                     sender.setValue('migration-times', [ 
-                        {'complexity':'low', 'service':'U_RPA_UA', 'percentage': 100, group: 'Migration', 'botsPerMonth': 1 }
+                        {'complexity':'low', 'service':'U_RPA_UA', 'percentage': 100, group: 'Migration', 'projectsPerMonth': 1 }
                     ]);
                     sender.clearValue('items')
                     sender.setValue('items',[{'type':'User', 'mode': 'Unattended', 'quantity':1}]);
                     break;
                 case 'migration-200':
-                    sender.setValue('how-many-bots', 200);
+                    sender.setValue('how-many-automation-projects', 200);
                     sender.setValue('attended-percentage', 90);
                     sender.setValue('unattended-percentage', 10);
-                    sender.setValue('bots-per-month-ramp', 5);
-                    sender.setValue('bots-per-month-factory', 20);
                     sender.clearValue('migration-groups')
                     var groups2 = sender.getQuestionByName('groups')
                     if ( typeof groups2 !== "undefined") {
@@ -398,10 +384,10 @@ window.surveyChanged = function (sender, options) {
                     ])
                     sender.clearValue('migration-times')
                     sender.setValue('migration-times', [
-                        {'complexity':'low', 'percentage': 1, group: 'Ramp Up', botsPerMonth: 2 }, 
-                        {'complexity':'low', 'percentage': 59,  group: 'Factory', botsPerMonth: 15 }, 
-                        {'complexity':'medium', 'percentage': 30, group: 'Factory', botsPerMonth: 20 },
-                        {'complexity':'high', 'percentage': 10, group: 'Factory', botsPerMonth: 2 }
+                        {'complexity':'low', 'percentage': 1, group: 'Ramp Up', projectsPerMonth: 2 }, 
+                        {'complexity':'low', 'percentage': 59,  group: 'Factory', projectsPerMonth: 15 }, 
+                        {'complexity':'medium', 'percentage': 30, group: 'Factory', projectsPerMonth: 20 },
+                        {'complexity':'high', 'percentage': 10, group: 'Factory', projectsPerMonth: 2 }
                     ]),
                     sender.clearValue('items')
                     sender.setValue('items',[
@@ -1323,6 +1309,24 @@ window.surveyChanged = function (sender, options) {
         return false
     }
 
+    function ceilingFunction(params) {
+        try {
+            return Math.ceil(params[0])
+        } catch {
+            return ''
+        }
+    }
+
+    function parseIntFunction(params) {
+        try {
+            return parseInt(params[0])
+        } catch {
+            return ''
+        }
+    }
+
+    
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1334,10 +1338,19 @@ window.surveyChanged = function (sender, options) {
         Survey.FunctionFactory
             .Instance
             .register("startsWith", startsWithFunction);
+
+        Survey.FunctionFactory
+            .Instance
+            .register("int", parseIntFunction)
+
+        Survey.FunctionFactory
+            .Instance
+            .register("ceil", ceilingFunction)
+
         Survey.StylesManager.applyTheme("modern");
 
         
-            var parts = "getItemPrice,botTotal,migrationTotal".split(',');
+            var parts = "getItemPrice,getNumber".split(',');
             for ( var i = 0; i < parts.length; i++) {
                 Survey.FunctionFactory.Instance.register(parts[i], window[parts[i]]);
             }            

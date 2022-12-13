@@ -4,10 +4,13 @@ description: "Kit de automatización - Calculadora"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: F0F8C060AC5283D00E05E803BB75079E1E9D29DA
+generated: EF87602E75314EDCD0D3C79135306A935505C5FE
 ---
-{{<questions name="/content/es/calculator.json" completed="" showNavigationButtons=true registerJavaScript="getItemPrice,botTotal,migrationTotal" locale="es">}}
+{{<questions name="/content/es/calculator.json" completed="" showNavigationButtons=true registerJavaScript="getItemPrice,getNumber" locale="es">}}
 <script>
+window.getNumber = function (params) {
+    return parseInt(window.currentSurvey.data[params[0]])
+}
 window.getItemPrice = getItemPrice = function (params) {
   var rowType = !!this.row
     ? this.row.getQuestionByColumnName('type')
@@ -82,28 +85,16 @@ window.getItemPrice = getItemPrice = function (params) {
         break;
   }
 };
-window.botTotal = function(row) {
-    if ( row == null || row.length == 0 || row[0] == null || row[0].percentage == null ) {
-        return 0;
-    }
-    let bots =  window.currentSurvey.data['how-many-bots'] + 0;
-    return (bots * (row[0].percentage / 100));
-}
-window.migrationTotal = function(row) {
-     if ( row == null || row.length == 0 || row[0] == null || row[0].botsPerMonth == null ) {
-      return 0;
-    }
-    let rowBots = botTotal(row);
-    return Math.ceil((rowBots / row[0].botsPerMonth) * 20);
-}
+
 window.surveyChanged = function (sender, options) {
     window.currentSurvey = sender;
+
     var calculateChange = () => {
-        let bots = sender.data['how-many-bots'] + 0;
+        let bots = sender.data['how-many-automation-projects'] + 0;
         let percentAttended = sender.data['attended-percentage'] + 0;
         let percentUnattended = sender.data['unattended-percentage'] + 0;
-        let attended = bots * ( percentAttended / 100);
-        let unattended = bots * ( percentUnattended / 100);
+        let attended = Math.round(bots * ( percentAttended / 100));
+        let unattended = Math.round(bots * ( percentUnattended / 100));
         let items = [];
         if ( attended > 0 ) {
             items.push({service: 'U_RPA_A', quantity: attended})
@@ -111,85 +102,82 @@ window.surveyChanged = function (sender, options) {
         if ( unattended > 0 ) {
             items.push({service: 'U_RPA_UA', quantity: unattended})
         }
-        sender.setValue('items', items);
+        sender.data["items"] = items
         calculatePlan()
     }
+
     var calculatePlan = () => {
         if ( sender.data['calc-migration-plan'] == false ) {
             return;
         }
-        let bots = sender.data['how-many-bots'] + 0;
         let times = sender.data['migration-times']
         let attendedPercentage = sender.data['attended-percentage']
         let unattendedPercentage = sender.data['unattended-percentage']
         let groups = sender.data['migration-groups']
-        if ( times == null || groups == null ) {
+        if ( times == null || times.length == 0 || groups == null ) {
             return;
         }
 
         var groupData = {}
         for ( var i = 0; i < groups.length; i++ ) {
+            let months = times.reduce((accumlator, currentValue) => { 
+                return Math.max(accumlator, ( groups[i].name == currentValue.group ) ? Math.ceil(currentValue.projects / currentValue.projectsPerMonth) : 0)
+            }, 0)
             groupData[groups[i].name] = {
                 'name': groups[i].name,
-                'months': []
+                'months': Array.apply(null, Array(months)).map(function(element, index) { return {
+                    name: groups[i].name + " " + (index + 1),
+                    low:0,
+                    medium: 0,
+                    high: 0,
+                    attended: 0,
+                    unattended: 0
+                } }),
+                'projects': times.reduce((accumlator, currentValue) => { 
+                    return accumlator + (( groups[i].name == currentValue.group ) ? currentValue.projects : 0)
+                }, 0),
+                'low': times.reduce((accumlator, currentValue) => { 
+                    return accumlator + (( groups[i].name == currentValue.group && currentValue.complexity == "low" ) ? currentValue.projects : 0)
+                }, 0),
+                'medium': times.reduce((accumlator, currentValue) => { 
+                    return accumlator + (( groups[i].name == currentValue.group && currentValue.complexity == "medium" ) ? currentValue.projects : 0)
+                }, 0),
+                'high': times.reduce((accumlator, currentValue) => { 
+                    return accumlator + (( groups[i].name == currentValue.group && currentValue.complexity == "high" ) ? currentValue.projects : 0)
+                }, 0)
             }
-        }
-        
-        for ( var i = 0; i < times.length; i++ ) {
-            if ( times[i].group == null || times[i].group.length == 0 ) {
-                continue;
+            var remaining = {
+                low: groupData[groups[i].name].low,
+                medium: groupData[groups[i].name].medium,
+                high: groupData[groups[i].name].high,
             }
-            if ( typeof times[i].total === "undefined" ) {
-                continue;
-            }
-            let group = groupData[times[i].group];
-            let months = Math.ceil(times[i].total / 20);
-           
-            while ( months > group.months.length ) {
-                group.months.push({
-                    'name': group.name + ' ' + (group.months.length + 1),
-                    'low': 0,
-                    'medium': 0,
-                    'high': 0,
-                    'attended': 0,
-                    'unattended': 0,
-                })
-            }
-
-            for ( var month = 0; month < months; month++) {
-                var botsMigrated = times[i].botsPerMonth
-                if (month + 1 == months) {
-                    if ( bots > times[i].botsPerMonth ) {
-                        botsMigrated = Math.min(botsMigrated, bots - (month * times[i].botsPerMonth));
-                    } else {
-                        botsMigrated = bots;
+            for ( var t = 0; t < times.length; t++ ) {
+                if ( times[t].group == groups[i].name ) {
+                    let groupTimeMonths = Math.ceil((times[t].projects / times[t].projectsPerMonth));
+                    for ( var m = 0; m < groupTimeMonths; m++) {
+                        let value = remaining[times[t].complexity];
+                        let projects = Math.min(value, times[t].projectsPerMonth);
+                        groupData[groups[i].name].months[m][times[t].complexity] = Math.max(projects,0)
+                        value -= projects;
+                        remaining[times[t].complexity] = value
                     }
                 }
-                switch ( times[i].complexity ) {
-                    case "low":
-                        group.months[month].low += botsMigrated;
-                        break;
-                    case "medium":
-                        group.months[month].medium += botsMigrated;
-                        break;
-                    case "high":
-                        group.months[month].high += botsMigrated;
-                        break;
-                }
-                group.months[month].attended += Math.round(botsMigrated * (attendedPercentage / 100));
-                group.months[month].unattended += Math.round(botsMigrated * (unattendedPercentage / 100));
             }
-            
+            groupData[groups[i].name].months.map((month) => {
+                let total = month.low + month.medium + month.high;
+                month.attended = Math.round(total * ( attendedPercentage / 100));
+                month.unattended = Math.round(total * ( unattendedPercentage / 100));
+            })
         }
+
         var items = [];
-        for ( var i = 0; i < groups.length; i++ ) {
-            var group = groupData[groups[i].name]
-            for ( var month = 0; month < group.months.length; month++ ) {
-                items.push(group.months[month]);
-            }
-        }
-        sender.setValue('migration-plan', items);
+        groups.map((group) => {
+            let months = (groupData[group.name]).months;
+            months.map((item) => items.push(item))
+        })
+        sender.setValue("migration-plan", items);
     }
+
     switch ( options.name ) {
         case 'how-many-bots':
         case 'attended-percentage':
@@ -216,7 +204,7 @@ window.surveyChanged = function (sender, options) {
         case 'sample-scenario':
             switch ( options.value ) {
                 case 'migration-single-unattended':
-                    sender.setValue('how-many-bots', 1);
+                    sender.setValue('how-many-automation-projects', 1);
                     sender.setValue('attended-percentage', 0);
                     sender.setValue('unattended-percentage', 100);
                     var groups1 = sender.getQuestionByName('groups')
@@ -229,17 +217,15 @@ window.surveyChanged = function (sender, options) {
                     ])
                     sender.clearValue('migration-times')
                     sender.setValue('migration-times', [ 
-                        {'complexity':'low', 'service':'U_RPA_UA', 'percentage': 100, group: 'Migration', 'botsPerMonth': 1 }
+                        {'complexity':'low', 'service':'U_RPA_UA', 'percentage': 100, group: 'Migration', 'projectsPerMonth': 1 }
                     ]);
                     sender.clearValue('items')
                     sender.setValue('items',[{'type':'User', 'mode': 'Unattended', 'quantity':1}]);
                     break;
                 case 'migration-200':
-                    sender.setValue('how-many-bots', 200);
+                    sender.setValue('how-many-automation-projects', 200);
                     sender.setValue('attended-percentage', 90);
                     sender.setValue('unattended-percentage', 10);
-                    sender.setValue('bots-per-month-ramp', 5);
-                    sender.setValue('bots-per-month-factory', 20);
                     sender.clearValue('migration-groups')
                     var groups2 = sender.getQuestionByName('groups')
                     if ( typeof groups2 !== "undefined") {
@@ -251,10 +237,10 @@ window.surveyChanged = function (sender, options) {
                     ])
                     sender.clearValue('migration-times')
                     sender.setValue('migration-times', [
-                        {'complexity':'low', 'percentage': 1, group: 'Ramp Up', botsPerMonth: 2 }, 
-                        {'complexity':'low', 'percentage': 59,  group: 'Factory', botsPerMonth: 15 }, 
-                        {'complexity':'medium', 'percentage': 30, group: 'Factory', botsPerMonth: 20 },
-                        {'complexity':'high', 'percentage': 10, group: 'Factory', botsPerMonth: 2 }
+                        {'complexity':'low', 'percentage': 1, group: 'Ramp Up', projectsPerMonth: 2 }, 
+                        {'complexity':'low', 'percentage': 59,  group: 'Factory', projectsPerMonth: 15 }, 
+                        {'complexity':'medium', 'percentage': 30, group: 'Factory', projectsPerMonth: 20 },
+                        {'complexity':'high', 'percentage': 10, group: 'Factory', projectsPerMonth: 2 }
                     ]),
                     sender.clearValue('items')
                     sender.setValue('items',[

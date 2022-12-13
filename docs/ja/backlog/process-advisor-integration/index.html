@@ -1083,6 +1083,24 @@ Currency||In Process Advisor data model</p>
         return false
     }
 
+    function ceilingFunction(params) {
+        try {
+            return Math.ceil(params[0])
+        } catch {
+            return ''
+        }
+    }
+
+    function parseIntFunction(params) {
+        try {
+            return parseInt(params[0])
+        } catch {
+            return ''
+        }
+    }
+
+    
+
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -1094,6 +1112,15 @@ Currency||In Process Advisor data model</p>
         Survey.FunctionFactory
             .Instance
             .register("startsWith", startsWithFunction);
+
+        Survey.FunctionFactory
+            .Instance
+            .register("int", parseIntFunction)
+
+        Survey.FunctionFactory
+            .Instance
+            .register("ceil", ceilingFunction)
+
         Survey.StylesManager.applyTheme("modern");
 
         
