@@ -355,20 +355,29 @@ class Deployment {
 		
 		$this.ObjLogger.LogMessage("Completed of Encoding Deployment settings",1)		
 				
-		#C:\users\kmarram\.nuget\packages\microsoft.powerapps.cli\1.20.3\tools\pac.exe
 		
-		$paths = Get-ChildItem -Path "c:\users\" -Filter "pac.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
 		
-		if ($paths.Count -ge 0)
-		{
+		#$paths = Get-ChildItem -Path "c:\users\" -Filter "pac.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
+		
+		
+		$paths = Get-ChildItem -path "c:\" ,"d:\" -Filter "pac.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
+		
+				
+		if ($paths.Count -gt 1)
+		
+		{			
+			
 			$PAC_exePath= $paths.FullName[$paths.Count-1].ToString()
 		}
 		else
-		{
-			$PAC_exePath= $paths
+		{				
+		
+			$PAC_exePath= $paths.FullName;			
 		}
 		
 		$this.ObjLogger.LogMessage("Pac Path=" + $PAC_exePath,1)
+		
+		
 				
 		if ($this.settings.InstallMainSolution -eq $True)
 		{
@@ -383,9 +392,7 @@ class Deployment {
 			
 			try
 			{
-				
-				#Start-Transcript -Path "$($PSScriptRoot)\StartProcess.log"
- 
+
 				$PInfo = New-Object System.Diagnostics.ProcessStartInfo -Prop @{
 					 RedirectStandardError = $True
 					 RedirectStandardOutput = $True
@@ -475,18 +482,28 @@ class Deployment {
 		
 		if ($this.settings.InstallMainSolution -eq $False)
 		{
-			#Creating application user for satellite environment			
+			#Creating application user for satellite environment
+			$this.ObjLogger.LogMessage("Creating applicaiton user",1);
+
 			pac auth create --url $EnvironmentURL --kind admin -n $this.settings.AutoCOE_ProfileName
 
-			pac auth select  $this.settings.AutoCOE_ProfileName
-
-			$this.ObjLogger.LogMessage("Creating applicaiton user",1);
+			pac auth select  $this.settings.AutoCOE_ProfileName			
 
 			pac admin assign-user  --environment $EnvironmentId   --user $AzureAppID   --role "System Administrator"   --application-user
 			$this.ObjLogger.LogMessage("Successfully created applicaiton user",1)
 			
 			pac auth delete -n $this.settings.AutoCOE_ProfileName
 		}
+		
+		if ($LogDetails -imatch "Result:SUCCESS") 
+		{	
+			$this.ObjLogger.LogMessage("Deployment completed successfully",1);
+		}
+		else
+		{
+			$this.ObjLogger.LogMessage("Deployment Failed. Please verify logs from " + $this.settings.LogFile ,1);
+		}
+		
 	}
 }
 
@@ -580,7 +597,6 @@ $deploy.install()
 
 $Error.clear()
 
-$loggerObj.LogMessage("Deployment completed successfully",1)
 
 
 

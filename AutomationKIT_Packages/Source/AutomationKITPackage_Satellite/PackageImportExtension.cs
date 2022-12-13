@@ -197,10 +197,10 @@ namespace AutomationKIT
 
                             columncount += 1;
 
-                        }
+                        }   
                         try
                         {
-                            Guid RecordID;
+                            Guid RecordID = CrmSvc.Create(flowAction);
                         }
                         catch (Exception ex)
                         {
