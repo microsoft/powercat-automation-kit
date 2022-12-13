@@ -469,7 +469,7 @@ class Deployment {
 		
 		if (($LogDetails -imatch "Error") -and ($LogDetails -imatch "Some dependencies are missing")-and ($LogDetails -imatch "CreatorKitCore"))
 		{	
-			$this.ObjLogger.LogMessage("The Automation Kit setup has found dependency of creator kit to install. Please install the creator kit from appsource URL:https://appsource.microsoft.com/en-US/home. And later you can retry to install Automation kit.",3)
+			$this.ObjLogger.LogMessage("The Automation Kit setup has found dependency of creator kit to install. Please install the creator kit from appsource URL: https://appsource.microsoft.com/en-US/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Overview . And later you can retry to install Automation kit.",3)
 			break;
 		}
 
