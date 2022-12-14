@@ -1,0 +1,50 @@
+<footer class="d-print-none">
+    <nav class="navbar navbar-light bg-light d-flex justify-content-around">
+        {{- $footer      := .Site.Params.footer }}
+{{- $logo        := index $footer "logo" }}
+{{- $quickLinks  := index $footer "quicklinks" }}
+{{- $socialMedia := index $footer "socialmedia" }}
+{{- $bulmaLogo   := index $footer "bulmalogo" }}
+{{- $socialMediaTitle    := index $footer "socialmediatitle" }}
+  <div class="container pt-3">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-logo">
+          <img src="{{ printf "/images/logos/%s" $logo | relURL }}">
+        </div>
+      </div>
+      {{- range $quickLinks }}
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>{{ .title }}</h3>
+        </div>
+        <ul class="link-list">
+          {{- range .links }}
+          <li>
+            <a href="{{ .link }}">
+              {{ .text }}
+            </a>
+          </li>
+          {{- end }}
+        </ul>
+      </div>
+      {{- end }}
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+          <h3>{{ $socialMediaTitle }}</h3>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              {{- range $socialMedia }}
+              <a class="level-item" href="{{ .link }}">
+                <span class="icon"><i class="fa fa-{{ .icon }}"></i></span>
+              </a>
+              {{- end }}
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </nav>
+</footer>

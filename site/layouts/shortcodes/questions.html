@@ -24,6 +24,9 @@
     #questions {
         margin-bottom: 20px;
     }
+    .sv-btn {
+        border-radius: 0.3em;
+    }
 </style>
 
 <div id="questions">
@@ -123,7 +126,7 @@
                     return question.getType() === "create-connection";
                 },
                 isDefaultRender: false,
-                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='createConnection'></a></div>",
+                htmlTemplate: "<div><fluent-button appearance='accent' id='createConnection'></fluent-button></div>",
                 activatedByChanged: function (activatedBy) {
                     Survey.JsonObject.metaData.addClass(
                         "create-connection", [
@@ -160,11 +163,14 @@
                     function initWidget() {
                         question.survey.setValue(question.name + '_loaded', true)
                         $("#createConnection").attr('id', question.name)
+                        $("#" + question.name).closest(".sv-question").parent().attr("style","")
                         $("#" + question.name).html(question.title);
                         $("#" + question.name).on("click", function() {
                             let environment = question.survey.data[question.environment]
-                            environment = environment.replaceAll("/home", "/connections/available?apiName=" + question.connector)
-                            window.open(environment)
+                            if ( typeof environment !== "undefined" && environment.length > 0 ) {
+                                environment = environment.replaceAll("/home", "/connections/available?apiName=" + question.connector)
+                                window.open(environment)
+                            }
                         });
                     };
                 },
@@ -193,8 +199,8 @@
                     return question.getType() === "download-task";
                 },
                 isDefaultRender: false,
-                htmlTemplate: "<div><a class='button cta rounded primary-btn raised' id='downloadLink'>{{ $downloadText }}</a><a id='downloadData' style='display:none'></a></div>",
-                activatedByChanged: function (activatedBy) {
+                htmlTemplate: "<div><fluent-button appearance='accent' id='downloadLink'>{{ $downloadText }}</fluent-button><a id='downloadData' style='display:none'></a></div>",
+               activatedByChanged: function (activatedBy) {
                     Survey.JsonObject.metaData.addClass(
                         "download-task", [
                         {
@@ -959,8 +965,6 @@
         }
     }
 
-    
-
     document.addEventListener("DOMContentLoaded", () => {
         
         Survey.FunctionFactory
@@ -982,7 +986,7 @@
             .register("ceil", ceilingFunction)
 
         Survey.StylesManager.applyTheme("modern");
-
+        
         {{ if $registerJavaScript }}
             var parts = {{ $registerJavaScript }}.split(',');
             for ( var i = 0; i < parts.length; i++) {
@@ -1028,14 +1032,14 @@
             {{ end }}
             questionModel.completedHtml = "{{ $completedHtml }}";
 
-            const targetNode = document.getElementById('preloader');
-            const observer = new MutationObserver(() => {
-                const element = document.getElementById("topofpage");
-                element.scrollIntoView({behavior: 'smooth'})
-                element.scrollTop -= 300;
-            });
-            const config = { attributes: true, childList: true, subtree: true };
-            observer.observe(targetNode, config);
+            // const targetNode = document.getElementById('topOfPage');
+            // const observer = new MutationObserver(() => {
+            //     const element = document.getElementById("topOfPage");
+            //     element.scrollIntoView({behavior: 'smooth'})
+            //     element.scrollTop -= 300;
+            // });
+            // const config = { attributes: true, childList: true, subtree: true };
+            // observer.observe(targetNode, config);
             
             $("#questions").Survey({ model: questionModel });
 

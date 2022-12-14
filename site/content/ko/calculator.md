@@ -4,8 +4,10 @@ description: "자동화 키트 - 계산기"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EF87602E75314EDCD0D3C79135306A935505C5FE
+generated: A395D9B90CE714462F5170710C6C39AA2873234A
 ---
+
+
 {{<questions name="/content/ko/calculator.json" completed="" showNavigationButtons=true registerJavaScript="getItemPrice,getNumber" locale="ko">}}
 <script>
 window.getNumber = function (params) {

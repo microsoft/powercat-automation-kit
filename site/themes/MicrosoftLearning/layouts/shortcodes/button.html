@@ -1,0 +1,10 @@
+{{ $id := .Get "id" }}
+{{ $href := .Get "href" }}
+<fluent-button appearance="accent" id="{{ $id }}">
+    {{ .Inner | markdownify }}
+</fluent-button>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        $("#{{ $id }}").on("click", () => { document.location = '{{ $href }}'})
+    })
+</script>

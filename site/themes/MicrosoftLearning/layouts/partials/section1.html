@@ -1,0 +1,57 @@
+{{- $section1 := .Site.Params.section1 }}
+{{- $title    := index $section1 "title" }}
+{{- $subtitle := index $section1 "subtitle" }}
+{{- $tiles    := index $section1 "tiles" }}
+<section class="section section-feature-grey is-medium" id="section1">
+  <div class="container pb-3">
+    <div class="title-wrapper has-text-centered">
+      <h2 class="title is-2">{{ $title }}</h2>
+      <h3 class="subtitle is-5 is-muted">{{ $subtitle }}</h3>
+      <div class="divider is-centered"></div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="columns">
+        <div class="row grey-row">
+        {{- range $tiles }}
+          <div class="col-sm-4 text-center">
+            <div class="card-title">
+              <h4>{{ .title }}</h4>
+            </div>
+            <div class="card-icon">
+                <img src="{{ printf "/images/illustrations/icons/%s.svg" .icon | relURL }}">
+            </div>
+            <div class="card-text">
+                <p>{{ .text }}</p>
+            </div>
+            <div class="card-action">
+              <a href="{{ .url }}" class="button btn-align-md accent-btn raised">{{ .buttonText }}</a>
+            </div>
+          </div>
+          {{- end }}
+        </div>
+        {{ if gt (len $tiles) 3 }}
+          <div class="row">
+            {{- range $index, $tile := $tiles }}
+            {{ if (gt $index 3) }}
+            <div class="col-sm-4 text-center" >
+              <div class="card-title">
+                <h4>{{ $tile.title }}</h4>
+              </div>
+              <div class="card-icon">
+                  <img src="{{ printf "/images/illustrations/icons/%s.svg" .icon | relURL }}">
+              </div>
+              <div class="card-text">
+                  <p>{{ $tile.text }}</p>
+              </div>
+              <div class="card-action">
+                <a href="{{ $tile.url }}" class="button btn-align-md accent-btn raised">{{ $tile.buttonText }}</a>
+              </div>
+            </div>
+        </div>
+        {{ end }}
+        {{- end }}
+    </div>
+    {{ end }}
+  </div>
+</section>

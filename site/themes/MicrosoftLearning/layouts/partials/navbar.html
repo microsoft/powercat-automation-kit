@@ -1,0 +1,14 @@
+{{- $navbarLogo       := .Site.Params.navbarlogo }}
+{{- $navbarLogoWidth  := .Site.Params.navbarlogo.width | default 112 }}
+{{- $navbarLogoHeight := .Site.Params.navbarlogo.height | default 56 }}
+<nav class="navbar navbar-expand-lg navbar-dark bg-gray">
+    <div class="container d-flex justify-content-between">
+        {{- if $navbarLogo}}
+        <a class="navbar-item" href="{{ $navbarLogo.link }}">
+          <img src="{{ printf "/images/%s" $navbarLogo.image | relURL }}" alt="" width="{{ $navbarLogoWidth }}" height="{{ $navbarLogoHeight }}">
+        </a>
+        {{- end}}
+        <span class="my-1 title text-black">{{ .Site.Params.productName }}</span>
+    </div>
+</nav>
+<div id="topOfPage"></div>

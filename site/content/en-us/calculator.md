@@ -5,6 +5,8 @@ sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 ---
+
+
 {{<questions  name="/content/en-us/calculator.json" completed="" showNavigationButtons=true registerJavaScript="getItemPrice,getNumber" >}}
 <script>
 window.getNumber = function (params) {

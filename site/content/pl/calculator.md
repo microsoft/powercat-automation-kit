@@ -4,8 +4,10 @@ description: "Automation Kit - Kalkulator"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: EF87602E75314EDCD0D3C79135306A935505C5FE
+generated: A395D9B90CE714462F5170710C6C39AA2873234A
 ---
+
+
 {{<questions name="/content/pl/calculator.json" completed="" showNavigationButtons=true registerJavaScript="getItemPrice,getNumber" locale="pl">}}
 <script>
 window.getNumber = function (params) {

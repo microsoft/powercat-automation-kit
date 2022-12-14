@@ -2,67 +2,54 @@
 {{ $audioNotAvailable := $.Site.Params.audioNotAvailable }}
 {{ $fullScreen := $.Site.Params.fullScreen }}
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/reveal.min.css" integrity="sha512-V5fKCVKOFy36w8zJmLzPH5R6zU6KvuHOvxfMRczx2ZeqTjKRGSBO9yiZjCKEJS3n6EmENwrH/xvSwXqxje+VVA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/css/theme/white.min.css" integrity="sha512-0BwgQfciYCCQc2rKINa7wL2k5vGAjF5dyL90A598QMimsVDie6M/4ShOLG07HJpNtSc9JB6m2s9B9OGam3rmTg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/js/reveal.min.js" integrity="sha512-QYXU3Cojl94ZRiZRjUZpyg1odj9mKTON9MsTMzGNx/L3JqvMA3BQNraZwsZ83UeisO+QMVfFa83SyuYYJzR9hw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.6.0/plugin/notes/notes.min.js" integrity="sha512-7DEMfv8iM8rlGUiVduuJQGcTazyiw+7PSxEMGuPzk+sW8KLZiSh5TrkCNTbjpNVL1o7grRlXTN+OQLEFuYGVxg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.min.css" integrity="sha512-A5PKBHoJQHdKjxpwyV+VhMsK7L3MMV1Ch2++rS0bn3xX8+5qJb3WpPvwJH1eqb6iMRtotfiOO7Jhl1qQ02Rwuw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/theme/white.min.css" integrity="sha512-RoEy1xOWgzryoplQ1g0eNHizP2BRqEq8eLGpRyI6OvM2FvmxpUyiPotvW4rp/I67VN6eFq4DDXQNcFKbNZ5Rrg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/reveal.js" integrity="sha512-y2j3xEERQApzRH8Rl1bPspQks1/wEsJ8P0pcNQdq7L+G3tT+U5wFjKoxwQNePdnvarg/zamz05jlHDlB5IAeXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.4.0/plugin/notes/notes.min.js" integrity="sha512-zT7Fnv76+94Gjt8yB3Y5zxJrfhA9BLafFepaO2ywAhKnPIrj/HWEmQqybnop+Z6h1St1QlQwiddrsPial8AjJw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <style>
-    .section {
-        overflow-y: auto  !important;
-        overflow-x: hidden !important;
-        height: 100%;
+    .reveal-wrap {
+       
+
+        height: 800px;
+        width: 100%;
+
+        max-height: 95vh;
+        max-width: 95vw;
+
+        overflow: hidden;
+
+        margin-bottom: 20px;
     }
-    .reveal {
-        width: 50vw;
-        height: 30vw
-    }
-    .reveal .speaker-notes {
-        margin-top: 20px;
-    }
-    @media only screen and (max-width: 1024px) {
-        .reveal {
-            width: 90vw;
-            height: 80vw
+
+    .slides {
+        section {
+            img {
+                max-width: 100vmin;
+                max-height: 80vmin;
+            }
         }
-    }
-    @media only screen and (max-width: 420px) {
-        #fullScreen {
-            display: block;
-            float: none;
-        }
-    }
-    .header {
-        margin-top: 20px;
-    }
-    .header > a {
-        float: inline-end;
-    }
-    .section.is-medium.fullscreen {
-        padding: 10px;
-    }
-    nav.navbar.fullscreen {
-        display:none;
     }
 </style>
 
-<div class="header">
-    <audio id="slideAudio" controls="controls" style="height:50px">
-        <source src="" type="audio/mpeg">
-    {{ $audioNotAvailable }}
-    </audio>
+<div class="container">
+    <div class="row justify-content-between">
+        <div class="col-4">
+            <audio id="slideAudio" controls="controls" style="height:50px">
+                <source src="" type="audio/mpeg">
+            {{ $audioNotAvailable }}
+            </audio>
+        </div>
 
-
-    <a id="fullScreen" class="navbar-item">
-        <span class="button signup-button rounded secondary-btn raised">
-        {{ $fullScreen }}
-        </span>
-    </a>
+        <div class="col-4 text-right">
+            <fluent-button id="fullScreen" appearance="accent">
+                {{ $fullScreen }}
+            </fluent-button>
+        </div>
+    </div>
 </div>
 
+<div class="reveal-wrap">
 <div class="reveal">
     <div class="slides">
     {{range split $slides ","}}
@@ -70,19 +57,39 @@
     {{end}}
     </div>
 </div>
+</section>
 
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        
         let slides = {{ $slides }}.split(",")
         slides.forEach(element => {
             $("#slide-" + element).append($("#slide" + element).html());
-        });
-       
-        $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
+        })
 
-        Reveal.initialize({ embedded: true, showNotes: true, center: true, margin: 0.0, plugins: [ RevealNotes ] })
+        Reveal.initialize({
+            slideNumber: true,
+            overview: false,
+            center: true,
+            touch: true,
+            fragments: true,
+            embedded: true,
+            help: true,
+            autoSlide: 0,
+            autoSlideStoppable: true,
+            mouseWheel: false,
+            hideAddressBar: true,
+            previewLinks: false,
+            transition: 'slide',
+            backgroundTransition: 'slide',
+            viewDistance: 3,
+            margin: 0.1,
+            width: '100%',
+            showNotes: true,
+            plugins: [ RevealNotes ]
+            })
+        
+        $("#slideAudio").attr('src', $("#slide" + slides[0]).attr("data-audio"))
 
         Reveal.addEventListener( 'slidechanged', event => {
             $('audio').each(function(){
@@ -98,6 +105,15 @@
         } );
 
         $("#fullScreen").on("click", () => {
+            var container = $("div.container")
+            if ( container.length == 0 ) {
+                container = $("div.container-fluid")
+                container.removeClass("container-fluid")
+                container.addClass("container")
+            } else {
+                container.removeClass("container")
+                container.addClass("container-fluid")
+            }
             $(".reveal").toggleClass("fullscreen");
             $(".optional").toggleClass("fullscreen");
             $("nav > .container").toggleClass("fullscreen");

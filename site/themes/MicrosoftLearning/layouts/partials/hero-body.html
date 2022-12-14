@@ -1,0 +1,29 @@
+{{- $hero       := .Site.Params.hero }}
+{{- $title      := index $hero "title" }}
+{{- $subtitle   := index $hero "subtitle" }}
+{{- $buttonText := index $hero "buttontext" }}
+{{- $buttonLink := index $hero "buttonlink" }}
+{{- $image      := index $hero "image" }}
+<div class="hero d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center">
+        <h1>{{ $title }}</h1>
+        <p>
+        {{ with $subtitle }}
+          {{ . | markdownify }}
+        {{ end }}
+        </p>
+        <fluent-button appearance="accent" id="heroButton">{{ $buttonText }}</fluent-button>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                $("#heroButton").on("click", () => { document.location = '{{ $buttonLink }}'})
+            })
+        </script>
+      </div>
+      <div class="col-lg-6">
+          <img src="{{ printf "/images/%s" $image | relURL }}" alt="Description">
+      </div>
+    </div>
+  </div>
+</div>
