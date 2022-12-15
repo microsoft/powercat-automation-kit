@@ -394,12 +394,118 @@
           }
         },
         {
+          "name": "includeCurrentCost",
+          "title": {
+            "default": "Include current costs",
+            "th": "รวมค่าใช้จ่ายปัจจุบัน"
+          },
+          "isRequired": true,
+          "type": "boolean",
+          "defaultValue": false
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "currentItems",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": {
+            "default": "Add new item",
+            "th": "เพิ่มรายการใหม่"
+          },
+          "visibleIf": "{includeCurrentCost}",
+          "columns": [
+            {
+              "name": "type",
+              "title": {
+                "default": "Type",
+                "th": "ประเภท"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Makers",
+                  "text": {
+                    "default": "Makers",
+                    "th": "เครื่อง ชง"
+                  }
+                },
+                {
+                  "value": "Licenses",
+                  "text": {
+                    "default": "Licenses",
+                    "th": "ใบ อนุญาต"
+                  }
+                },
+                {
+                  "value": "Infrastructure",
+                  "text": {
+                    "default": "Infrastructure",
+                    "th": "โครงสร้างพื้นฐาน"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "amount",
+              "title": {
+                "default": "Amount",
+                "th": "ปริมาณ"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "min": 1
+            },
+            {
+              "name": "cost",
+              "title": {
+                "default": "Cost",
+                "th": "ค่า"
+              },
+              "isRequired": true,
+              "displayStyle": "currency",
+              "cellType": "text",
+              "inputType": "number",
+              "min": 1
+            },
+            {
+              "name": "monthly",
+              "title": {
+                "default": "Monthly",
+                "th": "รายเดือน"
+              },
+              "isRequired": true,
+              "cellType": "boolean",
+              "defaultValue": false,
+              "labelTrue": "Monthly",
+              "labelFalse": "Yearly"
+            },
+            {
+              "name": "currentTotal",
+              "title": {
+                "default": "Total",
+                "th": "ทั้งหมด"
+              },
+              "cellType": "expression",
+              "expression": "{row.amount} * {row.cost} * iif({row.monthly},12,1)",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
           "name": "retailPrice",
           "type": "boolean",
           "title": {
-            "default": "Use retail price",
-            "th": "ใช้ราคาขายปลีก"
+            "default": "Power Platform license costs monthly",
+            "th": "ค่าลิขสิทธิ์Power Platformรายเดือน"
           },
+          "labelTrue": "Retail price",
+          "labelFalse": "Custom price",
           "defaultValue": true
         },
         {
@@ -496,7 +602,7 @@
               "visibleIf": "{retailPrice} == true"
             },
             {
-              "name": "price",
+              "name": "customPrice",
               "title": {
                 "default": "Price",
                 "th": "ราคา"
@@ -526,7 +632,7 @@
                 "th": "ทั้งหมด"
               },
               "cellType": "expression",
-              "expression": "{row.quantity} * {row.price}",
+              "expression": "{row.quantity} * iif({retailPrice},{row.price},{row.customPrice})",
               "displayStyle": "currency",
               "totalType": "sum",
               "totalDisplayStyle": "currency",
@@ -540,6 +646,109 @@
             "default": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows.",
             "th": "หมายเหตุ: ประเภท <b>ไหล</b> แสดงลําดับขั้นต่ําของโฟลว์ระบบคลาวด์/RPA 5 โฟลว์ ประเภท <b>การไหลพิเศษ</b> แสดงโฟลว์เดียวเหนือระดับการสั่งซื้อขั้นต่ํา 5 โฟลว์"
           }
+        },
+        {
+          "type": "expression",
+          "name": "powerPlatformCost",
+          "title": {
+            "default": "Power Platform license cost yearly",
+            "th": "ค่าใบอนุญาตPower Platformรายปี"
+          },
+          "expression": "{items-total.total}*12",
+          "displayStyle": "currency"
+        },
+        {
+          "name": "otherCosts",
+          "type": "boolean",
+          "title": {
+            "default": "Include other costs",
+            "th": "รวมค่าใช้จ่ายอื่น ๆ"
+          },
+          "defaultValue": false
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "otherItems",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": {
+            "default": "Add new item",
+            "th": "เพิ่มรายการใหม่"
+          },
+          "visibleIf": "{otherCosts}",
+          "columns": [
+            {
+              "name": "type",
+              "title": {
+                "default": "Type",
+                "th": "ประเภท"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Migration",
+                  "text": {
+                    "default": "Migration",
+                    "th": "การอพยพ"
+                  }
+                },
+                {
+                  "value": "Infrastructure",
+                  "text": {
+                    "default": "Infrastructure",
+                    "th": "โครงสร้างพื้นฐาน"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "amount",
+              "title": {
+                "default": "Amount",
+                "th": "ปริมาณ"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "min": 1
+            },
+            {
+              "name": "monthly",
+              "title": {
+                "default": "Monthly",
+                "th": "รายเดือน"
+              },
+              "isRequired": true,
+              "cellType": "boolean",
+              "defaultValue": true,
+              "labelTrue": "Monthly",
+              "labelFalse": "Yearly"
+            },
+            {
+              "name": "otherTotal",
+              "title": {
+                "default": "Total",
+                "th": "ทั้งหมด"
+              },
+              "cellType": "expression",
+              "expression": "{row.amount} * iif({row.monthly},12,1)",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
+          "type": "expression",
+          "title": {
+            "default": "Difference yearly",
+            "th": "ความแตกต่างรายปี"
+          },
+          "expression": "iif({includeCurrentCost},{currentItems-total.currentTotal}-{powerPlatformCost}-iif({otherCosts},{otherItems-total.otherTotal},0),{powerPlatformCost}+iif({otherCosts},{otherItems-total.otherTotal},0))",
+          "displayStyle": "currency"
         }
       ]
     }

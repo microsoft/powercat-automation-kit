@@ -394,12 +394,118 @@
           }
         },
         {
+          "name": "includeCurrentCost",
+          "title": {
+            "default": "Include current costs",
+            "sv": "Inkludera aktuella kostnader"
+          },
+          "isRequired": true,
+          "type": "boolean",
+          "defaultValue": false
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "currentItems",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": {
+            "default": "Add new item",
+            "sv": "Lägg till nytt objekt"
+          },
+          "visibleIf": "{includeCurrentCost}",
+          "columns": [
+            {
+              "name": "type",
+              "title": {
+                "default": "Type",
+                "sv": "Typ"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Makers",
+                  "text": {
+                    "default": "Makers",
+                    "sv": "Beslutsfattare"
+                  }
+                },
+                {
+                  "value": "Licenses",
+                  "text": {
+                    "default": "Licenses",
+                    "sv": "Licenser"
+                  }
+                },
+                {
+                  "value": "Infrastructure",
+                  "text": {
+                    "default": "Infrastructure",
+                    "sv": "Infrastruktur"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "amount",
+              "title": {
+                "default": "Amount",
+                "sv": "Belopp"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "min": 1
+            },
+            {
+              "name": "cost",
+              "title": {
+                "default": "Cost",
+                "sv": "Kostnad"
+              },
+              "isRequired": true,
+              "displayStyle": "currency",
+              "cellType": "text",
+              "inputType": "number",
+              "min": 1
+            },
+            {
+              "name": "monthly",
+              "title": {
+                "default": "Monthly",
+                "sv": "Månatlig"
+              },
+              "isRequired": true,
+              "cellType": "boolean",
+              "defaultValue": false,
+              "labelTrue": "Monthly",
+              "labelFalse": "Yearly"
+            },
+            {
+              "name": "currentTotal",
+              "title": {
+                "default": "Total",
+                "sv": "Total"
+              },
+              "cellType": "expression",
+              "expression": "{row.amount} * {row.cost} * iif({row.monthly},12,1)",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
           "name": "retailPrice",
           "type": "boolean",
           "title": {
-            "default": "Use retail price",
-            "sv": "Använd detaljhandelspris"
+            "default": "Power Platform license costs monthly",
+            "sv": "Power Platform licenskostnader varje månad"
           },
+          "labelTrue": "Retail price",
+          "labelFalse": "Custom price",
           "defaultValue": true
         },
         {
@@ -496,7 +602,7 @@
               "visibleIf": "{retailPrice} == true"
             },
             {
-              "name": "price",
+              "name": "customPrice",
               "title": {
                 "default": "Price",
                 "sv": "Pris"
@@ -526,7 +632,7 @@
                 "sv": "Total"
               },
               "cellType": "expression",
-              "expression": "{row.quantity} * {row.price}",
+              "expression": "{row.quantity} * iif({retailPrice},{row.price},{row.customPrice})",
               "displayStyle": "currency",
               "totalType": "sum",
               "totalDisplayStyle": "currency",
@@ -540,6 +646,109 @@
             "default": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows.",
             "sv": "OBS: Typ <b>Rinna</b> representerar minsta ordning på 5 moln- / RPA-flöden. Typ <b>Extra flöde</b> representerar ett flöde över den minsta ordernivån på 5 flöden."
           }
+        },
+        {
+          "type": "expression",
+          "name": "powerPlatformCost",
+          "title": {
+            "default": "Power Platform license cost yearly",
+            "sv": "Power Platform licenskostnad årligen"
+          },
+          "expression": "{items-total.total}*12",
+          "displayStyle": "currency"
+        },
+        {
+          "name": "otherCosts",
+          "type": "boolean",
+          "title": {
+            "default": "Include other costs",
+            "sv": "Inkludera andra kostnader"
+          },
+          "defaultValue": false
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "otherItems",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": {
+            "default": "Add new item",
+            "sv": "Lägg till nytt objekt"
+          },
+          "visibleIf": "{otherCosts}",
+          "columns": [
+            {
+              "name": "type",
+              "title": {
+                "default": "Type",
+                "sv": "Typ"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Migration",
+                  "text": {
+                    "default": "Migration",
+                    "sv": "Migration"
+                  }
+                },
+                {
+                  "value": "Infrastructure",
+                  "text": {
+                    "default": "Infrastructure",
+                    "sv": "Infrastruktur"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "amount",
+              "title": {
+                "default": "Amount",
+                "sv": "Belopp"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "min": 1
+            },
+            {
+              "name": "monthly",
+              "title": {
+                "default": "Monthly",
+                "sv": "Månatlig"
+              },
+              "isRequired": true,
+              "cellType": "boolean",
+              "defaultValue": true,
+              "labelTrue": "Monthly",
+              "labelFalse": "Yearly"
+            },
+            {
+              "name": "otherTotal",
+              "title": {
+                "default": "Total",
+                "sv": "Total"
+              },
+              "cellType": "expression",
+              "expression": "{row.amount} * iif({row.monthly},12,1)",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
+          "type": "expression",
+          "title": {
+            "default": "Difference yearly",
+            "sv": "Skillnad årligen"
+          },
+          "expression": "iif({includeCurrentCost},{currentItems-total.currentTotal}-{powerPlatformCost}-iif({otherCosts},{otherItems-total.otherTotal},0),{powerPlatformCost}+iif({otherCosts},{otherItems-total.otherTotal},0))",
+          "displayStyle": "currency"
         }
       ]
     }

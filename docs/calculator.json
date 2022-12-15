@@ -260,9 +260,76 @@
                     "html": "Further details on licenses included seeded licenses with Microsoft Office 365, Microsoft Dynamics, Pay as you Go options and Windows is available at <a href='https://learn.microsoft.com/power-platform/admin/power-automate-licensing/buy-licenses' target='blank'>Buy Power Automate Licenses</a>"
                 },
                 {
+                    "name": "includeCurrentCost",
+                    "title": "Include current costs",
+                    "isRequired": true,
+                    "type": "boolean",
+                    "defaultValue": false
+                },
+                {
+                    "type": "matrixdynamic",
+                    "name": "currentItems",
+                    "rowCount": 1,
+                    "minRowCount": 1,
+                    "titleLocation": "none",
+                    "addRowText": "Add new item",
+                    "visibleIf": "{includeCurrentCost}",
+                    "columns": [
+                        {
+                            "name": "type",
+                            "title": "Type",
+                            "isRequired": true,
+                            "cellType": "dropdown",
+                            "choices": [
+                                "Makers",
+                                "Licenses",
+                                "Infrastructure"
+                            ]
+                        },
+                        {
+                            "name": "amount",
+                            "title": "Amount",
+                            "isRequired": true,
+                            "cellType": "text",
+                            "inputType": "number",
+                            "min": 1
+                        },
+                        {
+                            "name": "cost",
+                            "title": "Cost",
+                            "isRequired": true,
+                            "displayStyle": "currency",
+                            "cellType": "text",
+                            "inputType": "number",
+                            "min": 1
+                        },
+                        {
+                            "name": "monthly",
+                            "title": "Monthly",
+                            "isRequired": true,
+                            "cellType": "boolean",
+                            "defaultValue": false,
+                            "labelTrue": "Monthly",
+                            "labelFalse": "Yearly"
+                        },
+                        {
+                            "name": "currentTotal",
+                            "title": "Total",
+                            "cellType": "expression",
+                            "expression": "{row.amount} * {row.cost} * iif({row.monthly},12,1)",
+                            "displayStyle": "currency",
+                            "totalType": "sum",
+                            "totalDisplayStyle": "currency",
+                            "totalFormat": "Total: {0}"
+                        }
+                    ]
+                },
+                {
                     "name": "retailPrice",
                     "type": "boolean",
-                    "title": "Use retail price",
+                    "title": "Power Platform license costs monthly",
+                    "labelTrue": "Retail price",
+                    "labelFalse": "Custom price",
                     "defaultValue": true
                 },
                 {
@@ -305,7 +372,7 @@
                             "visibleIf": "{retailPrice} == true"
                         },
                         {
-                            "name": "price",
+                            "name": "customPrice",
                             "title": "Price",
                             "cellType": "text",
                             "inputType": "number",
@@ -326,7 +393,7 @@
                             "name": "total",
                             "title": "Total",
                             "cellType": "expression",
-                            "expression": "{row.quantity} * {row.price}",
+                            "expression": "{row.quantity} * iif({retailPrice},{row.price},{row.customPrice})",
                             "displayStyle": "currency",
                             "totalType": "sum",
                             "totalDisplayStyle": "currency",
@@ -337,6 +404,73 @@
                 {
                     "type": "html",
                     "html": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows."
+                },
+                {
+                    "type": "expression",
+                    "name": "powerPlatformCost",
+                    "title": "Power Platform license cost yearly",
+                    "expression": "{items-total.total}*12",
+                    "displayStyle": "currency"
+                },
+                {
+                    "name": "otherCosts",
+                    "type": "boolean",
+                    "title": "Include other costs",
+                    "defaultValue": false
+                },
+                {
+                    "type": "matrixdynamic",
+                    "name": "otherItems",
+                    "rowCount": 1,
+                    "minRowCount": 1,
+                    "titleLocation": "none",
+                    "addRowText": "Add new item",
+                    "visibleIf": "{otherCosts}",
+                    "columns": [
+                        {
+                            "name": "type",
+                            "title": "Type",
+                            "isRequired": true,
+                            "cellType": "dropdown",
+                            "choices": [
+                                "Migration",
+                                "Infrastructure"
+                            ]
+                        },
+                        {
+                            "name": "amount",
+                            "title": "Amount",
+                            "isRequired": true,
+                            "cellType": "text",
+                            "inputType": "number",
+                            "min": 1
+                        },
+                        {
+                            "name": "monthly",
+                            "title": "Monthly",
+                            "isRequired": true,
+                            "cellType": "boolean",
+                            "defaultValue": true,
+                            "labelTrue": "Monthly",
+                            "labelFalse": "Yearly"
+                        },
+                        {
+                            "name": "otherTotal",
+                            "title": "Total",
+                            "cellType": "expression",
+                            "expression": "{row.amount} * iif({row.monthly},12,1)",
+                            "displayStyle": "currency",
+                            "totalType": "sum",
+                            "totalDisplayStyle": "currency",
+                            "totalFormat": "Total: {0}"
+                        }
+                    ]
+                },
+                {
+                    "type": "expression",
+                    "title": "Difference yearly",
+                    "expression": "iif({includeCurrentCost},{currentItems-total.currentTotal}-{powerPlatformCost}-iif({otherCosts},{otherItems-total.otherTotal},0),{powerPlatformCost}+iif({otherCosts},{otherItems-total.otherTotal},0))",
+                    "displayStyle": "currency"
                 }
             ]
         }

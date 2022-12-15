@@ -394,12 +394,118 @@
           }
         },
         {
+          "name": "includeCurrentCost",
+          "title": {
+            "default": "Include current costs",
+            "es": "Incluir costos actuales"
+          },
+          "isRequired": true,
+          "type": "boolean",
+          "defaultValue": false
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "currentItems",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": {
+            "default": "Add new item",
+            "es": "Agregar nuevo elemento"
+          },
+          "visibleIf": "{includeCurrentCost}",
+          "columns": [
+            {
+              "name": "type",
+              "title": {
+                "default": "Type",
+                "es": "Tipo"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Makers",
+                  "text": {
+                    "default": "Makers",
+                    "es": "Fabricantes"
+                  }
+                },
+                {
+                  "value": "Licenses",
+                  "text": {
+                    "default": "Licenses",
+                    "es": "Licencias"
+                  }
+                },
+                {
+                  "value": "Infrastructure",
+                  "text": {
+                    "default": "Infrastructure",
+                    "es": "Infraestructura"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "amount",
+              "title": {
+                "default": "Amount",
+                "es": "Importe"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "min": 1
+            },
+            {
+              "name": "cost",
+              "title": {
+                "default": "Cost",
+                "es": "Costar"
+              },
+              "isRequired": true,
+              "displayStyle": "currency",
+              "cellType": "text",
+              "inputType": "number",
+              "min": 1
+            },
+            {
+              "name": "monthly",
+              "title": {
+                "default": "Monthly",
+                "es": "Mensual"
+              },
+              "isRequired": true,
+              "cellType": "boolean",
+              "defaultValue": false,
+              "labelTrue": "Monthly",
+              "labelFalse": "Yearly"
+            },
+            {
+              "name": "currentTotal",
+              "title": {
+                "default": "Total",
+                "es": "Total"
+              },
+              "cellType": "expression",
+              "expression": "{row.amount} * {row.cost} * iif({row.monthly},12,1)",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
           "name": "retailPrice",
           "type": "boolean",
           "title": {
-            "default": "Use retail price",
-            "es": "Utilizar precio de venta al público"
+            "default": "Power Platform license costs monthly",
+            "es": "Power Platform costos de licencia mensuales"
           },
+          "labelTrue": "Retail price",
+          "labelFalse": "Custom price",
           "defaultValue": true
         },
         {
@@ -496,7 +602,7 @@
               "visibleIf": "{retailPrice} == true"
             },
             {
-              "name": "price",
+              "name": "customPrice",
               "title": {
                 "default": "Price",
                 "es": "Precio"
@@ -526,7 +632,7 @@
                 "es": "Total"
               },
               "cellType": "expression",
-              "expression": "{row.quantity} * {row.price}",
+              "expression": "{row.quantity} * iif({retailPrice},{row.price},{row.customPrice})",
               "displayStyle": "currency",
               "totalType": "sum",
               "totalDisplayStyle": "currency",
@@ -540,6 +646,109 @@
             "default": "NOTE: Type <b>Flow</b> represents minimum order of 5 cloud / RPA flows. Type <b>Extra Flow</b> represents single flow above the minimum order level of 5 flows.",
             "es": "NOTA: Tipo <b>Fluir</b> representa un pedido mínimo de 5 flujos de nube/RPA. Tipo <b>Flujo extra</b> representa un flujo único por encima del nivel de orden mínimo de 5 flujos."
           }
+        },
+        {
+          "type": "expression",
+          "name": "powerPlatformCost",
+          "title": {
+            "default": "Power Platform license cost yearly",
+            "es": "Power Platform costo de licencia anual"
+          },
+          "expression": "{items-total.total}*12",
+          "displayStyle": "currency"
+        },
+        {
+          "name": "otherCosts",
+          "type": "boolean",
+          "title": {
+            "default": "Include other costs",
+            "es": "Incluir otros costos"
+          },
+          "defaultValue": false
+        },
+        {
+          "type": "matrixdynamic",
+          "name": "otherItems",
+          "rowCount": 1,
+          "minRowCount": 1,
+          "titleLocation": "none",
+          "addRowText": {
+            "default": "Add new item",
+            "es": "Agregar nuevo elemento"
+          },
+          "visibleIf": "{otherCosts}",
+          "columns": [
+            {
+              "name": "type",
+              "title": {
+                "default": "Type",
+                "es": "Tipo"
+              },
+              "isRequired": true,
+              "cellType": "dropdown",
+              "choices": [
+                {
+                  "value": "Migration",
+                  "text": {
+                    "default": "Migration",
+                    "es": "Migración"
+                  }
+                },
+                {
+                  "value": "Infrastructure",
+                  "text": {
+                    "default": "Infrastructure",
+                    "es": "Infraestructura"
+                  }
+                }
+              ]
+            },
+            {
+              "name": "amount",
+              "title": {
+                "default": "Amount",
+                "es": "Importe"
+              },
+              "isRequired": true,
+              "cellType": "text",
+              "inputType": "number",
+              "min": 1
+            },
+            {
+              "name": "monthly",
+              "title": {
+                "default": "Monthly",
+                "es": "Mensual"
+              },
+              "isRequired": true,
+              "cellType": "boolean",
+              "defaultValue": true,
+              "labelTrue": "Monthly",
+              "labelFalse": "Yearly"
+            },
+            {
+              "name": "otherTotal",
+              "title": {
+                "default": "Total",
+                "es": "Total"
+              },
+              "cellType": "expression",
+              "expression": "{row.amount} * iif({row.monthly},12,1)",
+              "displayStyle": "currency",
+              "totalType": "sum",
+              "totalDisplayStyle": "currency",
+              "totalFormat": "Total: {0}"
+            }
+          ]
+        },
+        {
+          "type": "expression",
+          "title": {
+            "default": "Difference yearly",
+            "es": "Diferencia anual"
+          },
+          "expression": "iif({includeCurrentCost},{currentItems-total.currentTotal}-{powerPlatformCost}-iif({otherCosts},{otherItems-total.otherTotal},0),{powerPlatformCost}+iif({otherCosts},{otherItems-total.otherTotal},0))",
+          "displayStyle": "currency"
         }
       ]
     }
