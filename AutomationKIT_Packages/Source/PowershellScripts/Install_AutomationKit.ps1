@@ -473,14 +473,14 @@ class Deployment {
 		if ($this.settings.InstallMainSolution -eq $False)
 		{
 			#Creating application user for satellite environment
-			$this.ObjLogger.LogMessage("Creating applicaiton user",1);
+			$this.ObjLogger.LogMessage("Creating application user",1);
 
 			pac auth create --url $EnvironmentURL --kind admin -n $this.settings.AutoCOE_ProfileName
 
 			pac auth select  $this.settings.AutoCOE_ProfileName			
 
 			pac admin assign-user  --environment $EnvironmentId   --user $AzureAppID   --role "System Administrator"   --application-user
-			$this.ObjLogger.LogMessage("Successfully created applicaiton user",1)
+			$this.ObjLogger.LogMessage("Successfully created application user",1)
 			
 			pac auth delete -n $this.settings.AutoCOE_ProfileName
 		}
