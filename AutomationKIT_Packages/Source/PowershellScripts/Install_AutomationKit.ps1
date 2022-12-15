@@ -1,5 +1,3 @@
-
-
 enum EnumLogType
 {
 	Logs
@@ -373,6 +371,77 @@ class Deployment {
 		{
 			
 			Set-Content -Path $this.settings.LogFile '' -Force
+			
+			if($InstallSampleData -eq $True)
+			{
+				#getting current environment name
+				$tempdetails = pac org who
+				$CurrentEnvironment=""
+				foreach ($env in $tempdetails)
+				{
+					[String]$line =$env
+					
+					if($line -imatch "Fri")
+					{	
+						$temp = $line.Split(':')
+						if($temp.count -ge 0)
+						{
+						$CurrentEnvironment = $temp[1].Trim()
+						}
+						
+					}
+				}
+				# extracting and updating database details
+				
+				#extract zip file
+				Expand-Archive -Path $this.settings.PackageFilePath  -DestinationPath .\Updated\ -Force
+
+				Expand-Archive -Path .\Updated\PkgAssets\AutomationKit-SampleData.zip  -DestinationPath .\Updated\PkgAssets\Updated\ -Force
+				
+				# replacing data file
+				$tpath=get-location
+				$currentFolder =$tpath.path
+				[string] $xmlfileName= $currentFolder + "\Updated\PkgAssets\Updated\data.xml"
+
+				$data = [xml](Get-Content  $xmlfileName )
+
+				foreach ($obj in $data.entities.entity.records.record.field)
+				{		
+					if($obj.GetAttribute("value") -eq "administrator@contoso.onmicrosoft.com")
+					{
+						if($ProjectBusinessOwnerEmailId -ne '')
+						{
+						$obj.SetAttribute("value",$ProjectBusinessOwnerEmailId);
+						}
+					}
+					elseif($obj.GetAttribute("value") -eq "Constoso_Prod")
+					{
+						
+						$obj.SetAttribute("value",$CurrentEnvironment);
+					}
+					elseif($obj.GetAttribute("lookupentityname") -eq "Constoso_Prod")
+					{
+						
+						$obj.SetAttribute("lookupentityname",$CurrentEnvironment);
+					}
+					
+				}
+				$data.Save($xmlfileName)
+
+				# compressing the data file
+
+				Compress-Archive -Path '.\Updated\PkgAssets\Updated\*conten*.xml','.\Updated\PkgAssets\Updated\data.xml','.\Updated\PkgAssets\Updated\data_schema.xml'  .\Updated\PkgAssets\AutomationKit-SampleData.zip -Force;
+
+				# main package creation
+				 Compress-Archive -Path '.\Updated\AutomationKIT_Main.dll','.\Updated\AutomationKIT_Main.dll.conf*','.\Updated\*conten*.xml','.\Updated\Input.xml','.\Updated\logo32x32.png','.\Updated\TermsOfUse.html','.\Updated\PkgAssets'-DestinationPath $this.settings.PackageFilePath -Force;	
+
+				#Deleting newly created Updated folder
+				$tpath=get-location
+				$currentFolder =$tpath.path
+				[string] $RemoveFolder= $currentFolder + "\Updated"
+				Remove-Item $RemoveFolder -Recurse				
+				 			
+			}
 					
 			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installmainsolution=true|importconfigdata=$InstallSampleData|AutomationCoEMain_componentarguments=$EncodedSettings|activateapprovalflow=$EnableApprovalFlow|activateroiflow=$enableROIFlow|activatesyncflow=$enableSyncFlow|projectadminusers=$Admin_users|projectcontributors=$Contributor_users|projectviewers=$Viewer_users|businessowneremail=$ProjectBusinessOwnerEmailId" 
 						
@@ -459,7 +528,7 @@ class Deployment {
 		
 		if (($LogDetails -imatch "Error") -and ($LogDetails -imatch "Some dependencies are missing")-and ($LogDetails -imatch "CreatorKitCore"))
 		{	
-			$this.ObjLogger.LogMessage("The Automation Kit setup has found dependency of creator kit to install. Please install the creator kit from appsource URL:https://appsource.microsoft.com/en-US/home. And later you can retry to install Automation kit.",3)
+			$this.ObjLogger.LogMessage("The Automation Kit setup has found dependency of creator kit to install. Please install the creator kit from appsource URL: https://appsource.microsoft.com/en-US/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Overview . And later you can retry to install Automation kit.",3)
 			break;
 		}
 

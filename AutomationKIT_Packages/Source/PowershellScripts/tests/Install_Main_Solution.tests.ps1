@@ -8,7 +8,7 @@ Describe 'Install-Main-Solution-Test' {
 		$installType =[InstallationType]::new([Logger]::new())		
 		Mock Read-Host {return $True}		
 		Mock -CommandName Write-Host -MockWith {}
-		
+		Mock -CommandName write-warning -MockWith {}
 		$installType.GetInstallationType()| Should -Be $True
 	}
 	It 'GetInstallationType for satellite solution selection'{		
