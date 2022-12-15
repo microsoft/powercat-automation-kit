@@ -424,7 +424,6 @@ namespace AutomationKIT
             }
 
         }
-
         private void InsertRecordstoDesktopFlowActionsTable()
         {
             // check the record count for flow action table
