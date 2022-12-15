@@ -352,29 +352,19 @@ class Deployment {
 		$EncodedSettings = [System.Convert]::ToBase64String($Bytes)
 		
 		$this.ObjLogger.LogMessage("Completed of Encoding Deployment settings",1)		
-				
 		
-		
-		#$paths = Get-ChildItem -Path "c:\users\" -Filter "pac.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
-		
-		
-		$paths = Get-ChildItem -path "c:\" ,"d:\" -Filter "pac.exe" -Recurse -ErrorAction SilentlyContinue | Select-Object FullName
-		
+		$paths = Get-ChildItem -path ([System.IO.Path]::GetDirectoryName((Get-Command pac).Source)) -Filter "pac.exe" -Recurse -ErrorAction SilentlyContinue | Sort-Object -Property LastWriteTime | Select-Object FullName
 				
 		if ($paths.Count -gt 1)
-		
 		{			
-			
 			$PAC_exePath= $paths.FullName[$paths.Count-1].ToString()
 		}
 		else
 		{				
-		
 			$PAC_exePath= $paths.FullName;			
 		}
 		
 		$this.ObjLogger.LogMessage("Pac Path=" + $PAC_exePath,1)
-		
 		
 				
 		if ($this.settings.InstallMainSolution -eq $True)
