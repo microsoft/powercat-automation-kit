@@ -2,8 +2,14 @@ param( [Parameter(Mandatory=$true)] $DropLocation )
 
 Write-Host "Read files from $DropLocation"
 
-$sourceManagedPackages = Get-ChildItem -path (($DropLocation) + "/drop/*_managed.zip") | Select-Object FullName
+$sourceManagedPackages = Get-ChildItem -path (($DropLocation) + "/drop/AutomationCoEMain*_managed.zip") | Select-Object FullName
+
+Write-Host "Found following main package"
 Write-Host $sourceManagedPackages
+
+if ($sourceManagedPackages.Count -ge 1) {
+    Copy-Item $sourceManagedPackages[0].FullName -Destination "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets"
+}
 
 Copy-Item (($DropLocation) + "/drop/AutomationCoEMain*_managed.zip") -Destination "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets"
 $paths = Get-ChildItem -path "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets\AutomationCoEMain*.zip" | Select-Object FullName
