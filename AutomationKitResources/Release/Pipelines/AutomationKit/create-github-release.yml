@@ -27,7 +27,7 @@ steps:
 # Checkout our GitHub Branch
 - checkout: self
   displayName: 'Checkout Source Branch'
-  
+
 # Download the artifacts from the latest deployment of Main to production.
 - task: DownloadPipelineArtifact@2
   inputs:
@@ -56,7 +56,7 @@ steps:
 
     New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
 
-    Set-Location "$(Build.SourcesDirectory)\AutomationKIT_Packages\Source\PowershellScripts"
+    Set-Location "$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKIT_Packages\Source\PowershellScripts"
     . .\build.ps1 $(Pipeline.Workspace)
 
     Copy-Item 'AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
@@ -74,7 +74,7 @@ steps:
     New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
 
     Copy-Item '$(Pipeline.Workspace)\drop\*managed.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
-    Copy-Item '$(Build.SourcesDirectory)\AutomationKitResources\Release\Collateral\AutomationKit\*.*' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item '$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKitResources\Release\Collateral\AutomationKit\*.*' -Destination '$(Pipeline.Workspace)\assetstaging'
 
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
