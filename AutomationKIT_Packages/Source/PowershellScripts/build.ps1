@@ -25,7 +25,10 @@ if ( $null -ne $packageAsset) {
     exit 1
 }
 
+Push-Location
+Set-Location "$($PSScriptRoot)\..\AutomationKITPackage_Main"
 dotnet publish -f net472 -c Release
+Pop-Location
 
 $packageDeployment = Get-ChildItem -path "$($PSScriptRoot)\..\AutomationKITPackage_Main\bin\Release\AutomationKit_Main*.zip" | Select-Object FullName
 
