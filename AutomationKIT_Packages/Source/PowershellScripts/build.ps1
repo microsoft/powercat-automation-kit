@@ -65,7 +65,7 @@ if ($null -ne $packageDeployment) {
     exit 1
 }
 
-$packageSatelliteDeployment = Get-ChildItem -path "$($PSScriptRoot)\..\AutomationKITPackage_Main\bin\Release\AutomationKit_Satellite*.zip" | Select-Object FullName
+$packageSatelliteDeployment = Get-ChildItem -path "$($PSScriptRoot)\..\AutomationKITPackage_Satellite\bin\Release\AutomationKit_Satellite*.zip" | Select-Object FullName
 
 if ($null -ne $packageSatelliteDeployment) {
     Copy-Item ($packageSatelliteDeployment.FullName) -Destination "$($PSScriptRoot)\Microsoft_AutomationKIT_Satellite_Package.zip"
