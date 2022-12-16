@@ -1,8 +1,10 @@
+param( [Parameter(Mandatory=$true)] $DropLocation )
+
 Push-Location
 
 Set-Location "$($PSScriptRoot)\..\AutomationKITPackage_Main"
 
-Copy-Item (($Pipeline.Workspace) + "/drop/AutomationCoEMain*_managed.zip") -Destination PkgAssets
+Copy-Item (($DropLocation) + "/drop/AutomationCoEMain*_managed.zip") -Destination PkgAssets
 $paths = Get-ChildItem -path "PkgAssets/AutomationCoEMain*.zip" | Select-Object FullName
 
 if ($paths.Count -ge 1) {
@@ -14,7 +16,6 @@ if ($paths.Count -ge 1) {
 dotnet publish -f net472 -c Release
 
 $paths = Get-ChildItem -path "bin/Release/AutomationKit_Main*.zip" | Select-Object FullName
-
 
 Set-Location $($PSScriptRoot)
 
