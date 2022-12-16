@@ -2,26 +2,23 @@ param( [Parameter(Mandatory=$true)] $DropLocation )
 
 Write-Host "Read files from $DropLocation"
 
-$sourceManagedPackages = Get-ChildItem -path (($DropLocation) + "/drop/AutomationCoEMain*_managed.zip") | Select-Object FullName
+$sourceManagedPackage = Get-ChildItem -path (($DropLocation) + "/drop/AutomationCoEMain*_managed.zip") | Select-Object FullName
 
-$matchCount = $sourceManagedPackages.Count
-Write-Host "Found following main package - $matchCount"
-Write-Host $sourceManagedPackages
+Write-Host "Found following main package"
+Write-Host $sourceManagedPackage
 
-if ($sourceManagedPackages.Count -ge 1) {
-    Copy-Item $sourceManagedPackages[0].FullName -Destination "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets"
+if ( $null -ne $sourceManagedPackage ) {
+    Copy-Item $sourceManagedPackage.FullName -Destination "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets"
 }
 
-Copy-Item (($DropLocation) + "/drop/AutomationCoEMain*_managed.zip") -Destination "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets"
-$paths = Get-ChildItem -path "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets\AutomationCoEMain*.zip" | Select-Object FullName
+$packageAsset = Get-ChildItem -path "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets\AutomationCoEMain*.zip" | Select-Object FullName
 
-if ($paths.Count -ge 1) {
+if ( $null -ne $packageAsset) {
     [xml]$xmlDoc = Get-Content -Path "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets\ImportConfig.xml"
-    $newPakage = ([System.IO.Path]::GetFileName($paths[0].FullName).ToString())
-    $xmlDoc.configdatastorage.solutions.configsolutionfile.solutionpackagefilename = "$newPakage"
+    $newPackageName = ([System.IO.Path]::GetFileName($packageAsset.FullName).ToString())
+    $xmlDoc.configdatastorage.solutions.configsolutionfile.solutionpackagefilename = "$newPackageName"
 
     $configFile = "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets\ImportConfig.xml"
-    Write-Host $configFile
     $xmlDoc.save($configFile)
 } else {
     Write-Error "Unable to file main release package"
@@ -30,8 +27,11 @@ if ($paths.Count -ge 1) {
 
 dotnet publish -f net472 -c Release
 
-$paths = Get-ChildItem -path "$($PSScriptRoot)\..\AutomationKITPackage_Main\bin\Release\AutomationKit_Main*.zip" | Select-Object FullName
+$packageDeployment = Get-ChildItem -path "$($PSScriptRoot)\..\AutomationKITPackage_Main\bin\Release\AutomationKit_Main*.zip" | Select-Object FullName
 
-if ($paths.Count -ge 1) {
-    Copy-Item ($paths[0].FullName) -Destination "$($PSScriptRoot)\Microsoft_AutomationKIT_Main_Package.zip"
+if ($null -ne $packageDeployment) {
+    Copy-Item ($packageDeployment.FullName) -Destination "$($PSScriptRoot)\Microsoft_AutomationKIT_Main_Package.zip"
+} else {
+    Write-Error "Unable to file deployment package"
+    exit 1
 }
