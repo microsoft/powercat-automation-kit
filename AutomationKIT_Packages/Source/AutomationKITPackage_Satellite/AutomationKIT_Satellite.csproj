@@ -1,0 +1,140 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <AssemblyTitle>AutomationKIT_Satellite</AssemblyTitle>
+    <Product>AutomationKIT_Satellite</Product>
+    <Copyright>Copyright © 2022</Copyright>	
+	<SignAssembly>True</SignAssembly>
+	<AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
+	<Description>This AutomationKIT provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions</Description>
+	<DelaySign>False</DelaySign>
+	<PackageId>$(AssemblyName)</PackageId>	
+  </PropertyGroup>
+  <PropertyGroup>
+    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Properties\**" />
+    <EmbeddedResource Remove="Properties\**" />
+    <None Remove="Properties\**" />
+  </ItemGroup>  
+  <ItemGroup>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\CSS\common.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\HTML\Default.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\body_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\ca_back_home.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\contentarea_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\content_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\ct_back_orig.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\footer_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\header_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\nav_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\nav_list_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\EndHtml\Images\top_item_sel_bg.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\CSS\common.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\HTML\Default.htm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\body_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\ca_back_home.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\contentarea_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\content_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\ct_back_orig.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\footer_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\header_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\nav_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\nav_list_back.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\Content\en-us\WelcomeHtml\Images\top_item_sel_bg.gif">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\ImportConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="PkgAssets\manifest.ppkg.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>  
+  <ItemGroup>
+    <None Include="PkgAssets\autocoe_desktopflowactions.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="PkgAssets\AutomationCoESatellite*.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.PowerApps.MSBuild.PDPackage" Version="1.*">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.1.0.79" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CrmSdk.XrmTooling.PackageDeployment" Version="9.1.0.74" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.ComponentModel.Composition" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Input.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="logo32x32.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="TermsOfUse.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="[Content_Types].xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    
+  </Target>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;powershell Compress-Archive -Path '$(TargetDir)$(TargetFileName)','$(TargetDir)*conten*.xml','$(TargetDir)Input.xml','$(TargetDir)logo32x32.png','$(TargetDir)TermsOfUse.html','$(TargetDir)PkgAssets'-DestinationPath '$(TargetDir)Microsoft_AutomationKIT_Satellite_Package.zip' -Force;&#xD;&#xA;powershell Copy-Item '$(TargetDir)Microsoft_AutomationKIT_Satellite_Package.zip' -Destination 'C:\Kotesh\AppSourceFolder' -Force )&#xD;&#xA;" />
+  </Target>
+</Project>
