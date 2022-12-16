@@ -19,7 +19,7 @@ if ($paths.Count -ge 1) {
     $xmlDoc.save($configFile)
 } else {
     Write-Error "Unable to file main release package"
-    Get-ChildItem -path "PkgAssets/AutomationCoEMain*.zip" | Select-Object FullName
+    Write-Host (Get-ChildItem -path "PkgAssets/AutomationCoEMain*.zip" | Select-Object FullName)
     exit 1
 }
 
