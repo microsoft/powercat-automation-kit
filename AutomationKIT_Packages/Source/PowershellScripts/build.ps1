@@ -2,6 +2,7 @@ param( [Parameter(Mandatory=$true)] $DropLocation )
 
 Push-Location
 
+Write-Host "Read files from $DropLocation"
 Set-Location "$($PSScriptRoot)\..\AutomationKITPackage_Main"
 
 Copy-Item (($DropLocation) + "/drop/AutomationCoEMain*_managed.zip") -Destination PkgAssets
@@ -16,7 +17,12 @@ if ($paths.Count -ge 1) {
     $configFile = $configPath[0].FullName
     Write-Host $configFile
     $xmlDoc.save($configFile)
+} else {
+    Write-Error "Unable to file main release package"
+    Get-ChildItem -path "PkgAssets/AutomationCoEMain*.zip" | Select-Object FullName
+    exit 1
 }
+
 dotnet publish -f net472 -c Release
 
 $paths = Get-ChildItem -path "bin/Release/AutomationKit_Main*.zip" | Select-Object FullName
