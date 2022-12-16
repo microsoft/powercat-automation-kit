@@ -15,8 +15,8 @@ if ( $null -ne $sourceManagedPackage ) {
     Copy-Item $sourceManagedPackage.FullName -Destination "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets"
 }
 
-if ( $null -ne $sourceManagedPackage ) {
-    Copy-Item $sourceSatelliteManagedPackage.FullName -Destination "$($PSScriptRoot)\..\AutomationKITSatellite_Main\PkgAssets"
+if ( $null -ne $sourceSatelliteManagedPackage ) {
+    Copy-Item $sourceSatelliteManagedPackage.FullName -Destination "$($PSScriptRoot)\..\AutomationKITPackage_Satellite\PkgAssets"
 }
 
 $packageAsset = Get-ChildItem -path "$($PSScriptRoot)\..\AutomationKITPackage_Main\PkgAssets\AutomationCoEMain*.zip" | Select-Object FullName
