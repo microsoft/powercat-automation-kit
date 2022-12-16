@@ -50,7 +50,7 @@ steps:
 
     New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
 
-    . .\$(Pipeline.Workspace)\AutomationKIT_Packages\Source\PowershellScripts\build.ps1
+    & .\$(Pipeline.Workspace)\AutomationKIT_Packages\Source\PowershellScripts\build.ps1
 
     Copy-Item '$(Pipeline.Workspace)\AutomationKIT_Packages\Source\PowershellScripts\AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item '$(Pipeline.Workspace)\AutomationKIT_Packages\Source\PowershellScripts\Install_AutomationKit.ps1' -Destination '$(Pipeline.Workspace)\assetstaging'
