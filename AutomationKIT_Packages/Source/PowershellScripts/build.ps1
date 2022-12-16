@@ -4,7 +4,7 @@ Write-Host "Read files from $DropLocation"
 
 $sourceManagedPackages = Get-ChildItem -path (($DropLocation) + "/drop/AutomationCoEMain*_managed.zip") | Select-Object FullName
 
-Write-Host "Found following main package"
+Write-Host "Found following main package - ($sourceManagedPackages.Count)"
 Write-Host $sourceManagedPackages
 
 if ($sourceManagedPackages.Count -ge 1) {
