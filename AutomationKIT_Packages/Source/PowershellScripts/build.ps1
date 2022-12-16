@@ -8,10 +8,14 @@ Copy-Item (($DropLocation) + "/drop/AutomationCoEMain*_managed.zip") -Destinatio
 $paths = Get-ChildItem -path "PkgAssets/AutomationCoEMain*.zip" | Select-Object FullName
 
 if ($paths.Count -ge 1) {
-    $content = (Get-Content "PkgAssets/ImportConfig.xml")
-    $content = $content.Replace("AutomationCoEMain.zip", [System.IO.Path]::GetFileName($paths[0].FullName))
-    
-    Set-Content -Path "PkgAssets/ImportConfig.xml" -Value $content
+    [xml]$xmlDoc = Get-Content -Path "PkgAssets/ImportConfig.xml"
+    $newPakage = ([System.IO.Path]::GetFileName($paths[0].FullName).ToString())
+    $xmlDoc.configdatastorage.solutions.configsolutionfile.solutionpackagefilename = "$newPakage"
+    $configPath = Get-ChildItem -path "PkgAssets/ImportConfig.xml" | Select-Object FullName
+
+    $configFile = $configPath[0].FullName
+    Write-Host $configFile
+    $xmlDoc.save($configFile)
 }
 dotnet publish -f net472 -c Release
 
