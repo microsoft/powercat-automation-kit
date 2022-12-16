@@ -50,6 +50,22 @@ steps:
 
     New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
 
+    .\$(Pipeline.Workspace)\AutomationKIT_Packages\Source\PowershellScripts\build.ps1
+
+    Copy-Item '$(Pipeline.Workspace)\AutomationKIT_Packages\Source\PowershellScripts\AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item '$(Pipeline.Workspace)\AutomationKIT_Packages\Source\PowershellScripts\Install_AutomationKit.ps1' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item '$(Pipeline.Workspace)\AutomationKIT_Packages\Source\PowershellScripts\Microsoft_AutomationKIT_Main_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
+    
+    $compress = @{
+      Path = '$(Pipeline.Workspace)\assetstaging\*.*'
+      CompressionLevel = 'Fastest'
+      DestinationPath = '$(Pipeline.Workspace)\releaseassets\AutomationKitInstall-Main.zip'
+    }
+    Compress-Archive @compress
+
+    Remove-Item $(Pipeline.Workspace)\assetstaging -Recurse -Force -Confirm:$false
+    New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
+
     Copy-Item '$(Pipeline.Workspace)\drop\*managed.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item '$(Build.SourcesDirectory)\AutomationKitResources\Release\Collateral\AutomationKit\*.*' -Destination '$(Pipeline.Workspace)\assetstaging'
 
