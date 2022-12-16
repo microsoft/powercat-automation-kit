@@ -24,6 +24,10 @@ variables:
 - group: alm-accelerator-variable-group
 
 steps:
+# Checkout our GitHub Branch
+- checkout: self
+  displayName: 'Checkout Source Branch'
+  
 # Download the artifacts from the latest deployment of Main to production.
 - task: DownloadPipelineArtifact@2
   inputs:
@@ -44,6 +48,8 @@ steps:
     patterns: '**/AutomationCoESatellite*.zip'
   displayName: 'Download Automation CoE Satellite solution'
   condition: false
+
+
 
 - powershell: |
     New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
