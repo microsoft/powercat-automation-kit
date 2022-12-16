@@ -49,15 +49,13 @@ steps:
   displayName: 'Download Automation CoE Satellite solution'
   condition: false
 
-
-
 - powershell: |
     New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
 
     New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
 
     Set-Location "$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKIT_Packages\Source\PowershellScripts"
-    . .\build.ps1 $(Pipeline.Workspace)
+    . .\build.ps1 "$(Pipeline.Workspace)"
 
     Copy-Item 'AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'Install_AutomationKit.ps1' -Destination '$(Pipeline.Workspace)\assetstaging'
@@ -107,7 +105,7 @@ steps:
     releaseMonth: ${{parameters.ReleaseMonthNumber}}
     releaseYear: ${{parameters.ReleaseYearNumber}}
     connectionName: 'powercat-alm'
-    releaseNotesPath: 'AutomationKitResources/Release/Notes/'
+    releaseNotesPath: 'powercat-automation-kit/AutomationKitResources/Release/Notes/'
     issueClosingComment: 'This has been fixed in the latest release.'
     closeIssues: ${{parameters.CloseMilestoneIssues}}
     isPreRelease: false
