@@ -79,6 +79,8 @@ include_footer: true
 
 - [Automation Kit - Power BI dashboard](/get-started/install-powerbi-dashboard)
 
+- [Automation Kit - Install](/get-started/install)
+
 - [Automation Kit - Setup](/get-started/setup)
 
 

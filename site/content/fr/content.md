@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Index du site"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
+generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 ---
 
 {{<toc>}}
@@ -79,6 +79,8 @@ generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 - [Kit d’automatisation - Liste de contrôle d’installation](/fr/get-started/install-checklist)
 
 - [Kit d’automatisation - Tableau de bord Power BI](/fr/get-started/install-powerbi-dashboard)
+
+- [Kit d’automatisation - Installer](/fr/get-started/install)
 
 - [Kit d’automatisation - Configuration](/fr/get-started/setup)
 

@@ -4,7 +4,7 @@ description: "Automation Kit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
+generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 ---
 
 {{<toc>}}
@@ -79,6 +79,8 @@ generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 - [Automation Kit - Install Checklist](/en-gb/get-started/install-checklist)
 
 - [Automation Kit - Power BI dashboard](/en-gb/get-started/install-powerbi-dashboard)
+
+- [Automation Kit - Install](/en-gb/get-started/install)
 
 - [Automation Kit - Setup](/en-gb/get-started/setup)
 

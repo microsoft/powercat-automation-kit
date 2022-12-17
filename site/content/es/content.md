@@ -4,7 +4,7 @@ description: "Kit de automatización - Índice del sitio"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
+generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 ---
 
 {{<toc>}}
@@ -79,6 +79,8 @@ generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 - [Kit de automatización - Lista de comprobación de instalación](/es/get-started/install-checklist)
 
 - [Kit de automatización: panel de Power BI](/es/get-started/install-powerbi-dashboard)
+
+- [Kit de automatización - Instalar](/es/get-started/install)
 
 - [Kit de automatización - Configuración](/es/get-started/setup)
 

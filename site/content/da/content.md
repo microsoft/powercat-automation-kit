@@ -4,7 +4,7 @@ description: "Automatiseringssæt - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
+generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 ---
 
 {{<toc>}}
@@ -79,6 +79,8 @@ generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 - [Automatiseringssæt - Installer tjekliste](/da/get-started/install-checklist)
 
 - [Automationssæt – Power BI-dashboard](/da/get-started/install-powerbi-dashboard)
+
+- [Automationssæt - Installer](/da/get-started/install)
 
 - [Automation Kit - Opsætning](/da/get-started/setup)
 

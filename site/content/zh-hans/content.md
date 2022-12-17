@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
+generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 ---
 
 {{<toc>}}
@@ -79,6 +79,8 @@ generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 - [自动化套件 - 安装清单](/zh-hans/get-started/install-checklist)
 
 - [自动化工具包 - Power BI 仪表板](/zh-hans/get-started/install-powerbi-dashboard)
+
+- [自动化套件 - 安装](/zh-hans/get-started/install)
 
 - [自动化套件 - 设置](/zh-hans/get-started/setup)
 

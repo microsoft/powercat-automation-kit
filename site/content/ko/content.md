@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
+generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 ---
 
 {{<toc>}}
@@ -79,6 +79,8 @@ generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 - [자동화 키트 - 설치 검사 목록](/ko/get-started/install-checklist)
 
 - [자동화 키트 - Power BI 대시보드](/ko/get-started/install-powerbi-dashboard)
+
+- [자동화 키트 - 설치](/ko/get-started/install)
 
 - [자동화 키트 - 설정](/ko/get-started/setup)
 

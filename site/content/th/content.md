@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
+generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 ---
 
 {{<toc>}}
@@ -79,6 +79,8 @@ generated: D005DA2A5FFD8B882BC05F4DFA0EB68B1C4C1B59
 - [ชุดระบบอัตโนมัติ - ติดตั้งรายการตรวจสอบ](/th/get-started/install-checklist)
 
 - [ชุดระบบอัตโนมัติ - แดชบอร์ด Power BI](/th/get-started/install-powerbi-dashboard)
+
+- [ชุดระบบอัตโนมัติ - ติดตั้ง](/th/get-started/install)
 
 - [ชุดระบบอัตโนมัติ - การตั้งค่า](/th/get-started/setup)
 
