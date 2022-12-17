@@ -56,10 +56,11 @@ steps:
     Set-Location "$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKIT_Packages\Source\PowershellScripts"
     . .\build.ps1 "$(Pipeline.Workspace)"
 
-    Copy-Item 'AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'Install_AutomationKit.ps1' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'Microsoft_AutomationKIT_Main_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'Microsoft_AutomationKIT_Satellite_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item 'AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item 'AutomationCoESatellite_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
