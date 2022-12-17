@@ -1,6 +1,6 @@
 ![Status: Public Preview](https://microsoft.github.io/powercat-automation-kit/images/illustrations/status-public-preview.svg)
 
-![Status: Public Preview](https://microsoft.github.io/powercat-automation-kit/images/sharp-archimedes.png)
+![Status: Public Preview](https://microsoft.github.io/powercat-automation-kit/images/zealous-antonelli.png)
 
 Review highlighted release features for the [December 2022 Release](https://microsoft.github.io/powercat-automation-kit/releases/december-2022/) (zealous-antonelli)
 
