@@ -4,7 +4,7 @@ description: "Automation Kit - Webbplatsindex"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
+generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 ### Plats: /kontorstid/
 
+- [Automation Kit - Kontorstid februari 2023](/sv/office-hours/february-2023)
+
 - [Automation Kit - Historik för kontorstid](/sv/office-hours/history)
 
 - [Automation Kit - Kontorstid november 2022](/sv/office-hours/november-2022)
@@ -100,7 +102,7 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 - [Automation Kit - December 2022](/sv/releases/december-2022)
 
-- [Automation Kit - januari 2023](/sv/releases/january-2023)
+- [Automation Kit - februari 2023](/sv/releases/feburary-2023)
 
 - [Automation Kit - Släpp milstolpar](/sv/releases/milestones)
 

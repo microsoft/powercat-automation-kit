@@ -6,14 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
+generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 ---
 
 <div class="optional">
 
 ![Nitiska Antonellis](/images/zealous-antonelli.png)
 
-Decemberutgåvan (nitisk-antonelli) av {{<product-name>}} är den fjärde offentliga förhandsversionen. Den här versionen förväntas innehålla regelbundna buggfixar och fokus på att förbättra lösningskonfigurationen och ytterligare integration med ALM Accelerator.
+Decemberutgåvan (nitisk-antonelli) av {{<product-name>}} är den fjärde offentliga förhandsversionen. Den här versionen innehåller regelbundna buggfixar och fokus på att förbättra lösningskonfigurationen med hjälp av en kommandoradsinstallationsprocess.
+
+Med semesterperioden i december och januari kommer nästa release att vara i februari 2023.
 
 </div>
 
@@ -39,7 +41,7 @@ Testa [Kom igång-guide](/sv/get-started) eller gå med i vår [Kontorstid](/sv/
 
 ## Nästa utgåva
 
-- [Januari 2023](/sv/releases/january-2023) (fiffig-Emmy)
+- [Februari 2023](/sv/releases/february-2023) (fiffig-Emmy)
 
 ## Projektets milstolpar
 

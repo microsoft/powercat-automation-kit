@@ -6,14 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
+generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 ---
 
 <div class="optional">
 
 ![열성적인 안토넬리스](/images/zealous-antonelli.png)
 
-12 월 릴리스 (열광적 인 안토 넬리) {{<product-name>}}는 네 번째 공개 미리 보기 릴리스입니다. 이 릴리스에는 정기적인 버그 수정과 솔루션 설정 개선 및 ALM Accelerator와의 추가 통합에 중점을 둘 것으로 예상됩니다.
+12 월 릴리스 (열광적 인 안토 넬리) {{<product-name>}}는 네 번째 공개 미리 보기 릴리스입니다. 이 릴리스에는 정기적인 버그 수정과 명령줄 설치 프로세스를 사용한 솔루션 설정 개선에 중점을 둔 내용이 포함되어 있습니다.
+
+12월과 1월의 휴가 시즌과 함께 다음 릴리스는 2023년 2월입니다.
 
 </div>
 
@@ -39,7 +41,7 @@ generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
 
 ## 다음 릴리스
 
-- [2023년 1월](/ko/releases/january-2023) (니프티 에미)
+- [2023년 2월](/ko/releases/february-2023) (니프티 에미)
 
 ## 프로젝트 마일스톤
 

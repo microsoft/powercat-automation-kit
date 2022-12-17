@@ -86,6 +86,8 @@ include_footer: true
 
 ### Location: /office-hours/
 
+- [Automation Kit - Office Hours February 2023](/office-hours/february-2023)
+
 - [Automation Kit - Office Hours History](/office-hours/history)
 
 - [Automation Kit - Office Hours November 2022](/office-hours/november-2022)
@@ -99,7 +101,7 @@ include_footer: true
 
 - [Automation Kit - December 2022](/releases/december-2022)
 
-- [Automation Kit - January 2023](/releases/january-2023)
+- [Automation Kit - February 2023](/releases/feburary-2023)
 
 - [Automation Kit - Release Milestones](/releases/milestones)
 

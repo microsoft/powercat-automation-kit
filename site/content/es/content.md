@@ -4,7 +4,7 @@ description: "Kit de automatización - Índice del sitio"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
+generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 ### Ubicación: /office-hours/
 
+- [Kit de automatización - Horario de oficina febrero 2023](/es/office-hours/february-2023)
+
 - [Kit de automatización - Historial de horas de oficina](/es/office-hours/history)
 
 - [Kit de automatización - Horario de oficina noviembre 2022](/es/office-hours/november-2022)
@@ -100,7 +102,7 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 - [Kit de automatización - Diciembre 2022](/es/releases/december-2022)
 
-- [Kit de automatización - Enero 2023](/es/releases/january-2023)
+- [Kit de automatización - febrero de 2023](/es/releases/feburary-2023)
 
 - [Kit de automatización - Hitos de lanzamiento](/es/releases/milestones)
 

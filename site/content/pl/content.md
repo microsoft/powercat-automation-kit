@@ -4,7 +4,7 @@ description: "Automation Kit - Indeks witryny"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
+generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 ### Lokalizacja: /office-hours/
 
+- [Automation Kit - Godziny pracy biura luty 2023](/pl/office-hours/february-2023)
+
 - [Automation Kit - Historia godzin pracy biura](/pl/office-hours/history)
 
 - [Automation Kit - Godziny pracy biura listopad 2022](/pl/office-hours/november-2022)
@@ -100,7 +102,7 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 - [Automation Kit - grudzień 2022](/pl/releases/december-2022)
 
-- [Automation Kit - styczeń 2023](/pl/releases/january-2023)
+- [Automation Kit - luty 2023](/pl/releases/feburary-2023)
 
 - [Automation Kit - Release Milestones](/pl/releases/milestones)
 

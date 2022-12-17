@@ -6,14 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
+generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 ---
 
 <div class="optional">
 
 ![Gorliwy Antonellis](/images/zealous-antonelli.png)
 
-Grudniowe wydanie (gorliwy-antonelli) {{<product-name>}} jest czwartym publicznym wydaniem zapoznawczem. Oczekuje się, że to wydanie będzie zawierać regularne poprawki błędów i skupić się na poprawie konfiguracji rozwiązania i dalszej integracji z ALM Accelerator.
+Grudniowe wydanie (gorliwy-antonelli) {{<product-name>}} jest czwartym publicznym wydaniem zapoznawczem. To wydanie zawiera regularne poprawki błędów i skupia się na ulepszaniu konfiguracji rozwiązania przy użyciu procesu instalacji wiersza polecenia.
+
+W okresie świątecznym w grudniu i styczniu następna premiera nastąpi w lutym 2023 r.
 
 </div>
 
@@ -39,7 +41,7 @@ Wypróbować [Przewodnik wprowadzający](/pl/get-started) lub dołącz do naszeg
 
 ## Następne wydanie
 
-- [styczeń 2023](/pl/releases/january-2023) (Nifty-Emmy)
+- [luty 2023](/pl/releases/february-2023) (Nifty-Emmy)
 
 ## Kamienie milowe projektu
 

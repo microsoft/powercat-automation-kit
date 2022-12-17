@@ -4,7 +4,7 @@ description: "オートメーションキット - サイトインデックス"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
+generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 ### 場所: /営業時間/
 
+- [自動化キット - 営業時間 2月 2023](/ja/office-hours/february-2023)
+
 - [自動化キット - オフィスアワー履歴](/ja/office-hours/history)
 
 - [自動化キット - 営業時間 11 月 2022](/ja/office-hours/november-2022)
@@ -100,7 +102,7 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 - [自動化キット - 2022年12月](/ja/releases/december-2022)
 
-- [自動化キット - 2023年1月](/ja/releases/january-2023)
+- [自動化キット - 2023年2月](/ja/releases/feburary-2023)
 
 - [自動化キット - マイルストーンのリリース](/ja/releases/milestones)
 

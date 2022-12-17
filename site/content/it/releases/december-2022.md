@@ -6,14 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
+generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 ---
 
 <div class="optional">
 
 ![Lo zelante Antonellis](/images/zealous-antonelli.png)
 
-Il rilascio di dicembre (zelante-antonelli) del {{<product-name>}} è la quarta versione pubblica in anteprima. Questa versione dovrebbe includere correzioni di bug regolari e un focus sul miglioramento della configurazione della soluzione e un'ulteriore integrazione con ALM Accelerator.
+Il rilascio di dicembre (zelante-antonelli) del {{<product-name>}} è la quarta versione pubblica in anteprima. Questa versione include correzioni di bug regolari e un focus sul miglioramento della configurazione della soluzione utilizzando un processo di installazione da riga di comando.
+
+Con le festività natalizie a dicembre e gennaio, la prossima versione sarà a febbraio 2023.
 
 </div>
 
@@ -39,7 +41,7 @@ Prova [Guida introduttiva](/it/get-started) o unisciti al nostro [Orario d'uffic
 
 ## Prossima versione
 
-- [gennaio 2023](/it/releases/january-2023) (Nifty-Emmy)
+- [febbraio 2023](/it/releases/february-2023) (Nifty-Emmy)
 
 ## Pietre miliari del progetto
 

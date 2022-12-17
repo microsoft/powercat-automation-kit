@@ -6,14 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
+generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 ---
 
 <div class="optional">
 
 ![Nidkjære Antonellis](/images/zealous-antonelli.png)
 
-Desemberutgivelsen (nidkjær-antonelli) av {{<product-name>}} er den fjerde offentlige forhåndsversjonen. Denne utgivelsen forventes å inkludere regelmessige feilrettinger og fokus på å forbedre løsningsoppsettet og videre integrasjon med ALM Accelerator.
+Desemberutgivelsen (nidkjær-antonelli) av {{<product-name>}} er den fjerde offentlige forhåndsversjonen. Denne versjonen inneholder vanlige feilrettinger og fokus på å forbedre løsningsoppsettet ved hjelp av en kommandolinjeinstallasjonsprosess.
+
+Med høytiden i desember og januar vil neste utgivelse være i februar 2023.
 
 </div>
 
@@ -39,7 +41,7 @@ Prøv ut [Kom i gang-veiledning](/nb/get-started) eller bli med i vår [Kontorti
 
 ## Neste utgivelse
 
-- [januar 2023](/nb/releases/january-2023) (Nifty-Emmy)
+- [Februar 2023](/nb/releases/february-2023) (Nifty-Emmy)
 
 ## Milepæler i prosjektet
 

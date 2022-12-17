@@ -4,10 +4,14 @@ description: "Automatiseringssæt - Oversigt over åbningstider"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 40033B469AA6176C7CDA1348E522DFF476199C83
+generated: A7C70EB2FE1741290323DC53A60E12B645C53DE4
 ---
 
 Denne side indeholder links til tidligere og fremtidige kontortidssessioner
+
+## Planlagt 2023
+
+[Marts 2023](/da/office-hours/february-2023)
 
 ## 2022
 

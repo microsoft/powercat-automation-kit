@@ -4,7 +4,7 @@ description: "Automatisering Kit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
+generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 ### Sted: /kontortid/
 
+- [Automatiseringssett - Kontortid februar 2023](/nb/office-hours/february-2023)
+
 - [Automatiseringssett - Historikk for kontortid](/nb/office-hours/history)
 
 - [Automatiseringssett - Kontortid November 2022](/nb/office-hours/november-2022)
@@ -100,7 +102,7 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 - [Automatiseringssett - Desember 2022](/nb/releases/december-2022)
 
-- [Automatiseringssett - Januar 2023](/nb/releases/january-2023)
+- [Automatiseringssett - Februar 2023](/nb/releases/feburary-2023)
 
 - [Automatiseringssett – milepæler for utgivelser](/nb/releases/milestones)
 

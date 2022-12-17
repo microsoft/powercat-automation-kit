@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
+generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 ### ที่ตั้ง: /เวลาทําการ/
 
+- [ชุดระบบอัตโนมัติ - เวลาทําการ กุมภาพันธ์ 2023](/th/office-hours/february-2023)
+
 - [ชุดระบบอัตโนมัติ - ประวัติเวลาทําการ](/th/office-hours/history)
 
 - [ชุดระบบอัตโนมัติ - เวลาทําการ พฤศจิกายน 2022](/th/office-hours/november-2022)
@@ -100,7 +102,7 @@ generated: A7155668BB4A12F600639B71A0B3D4294E2DE00B
 
 - [ชุดระบบอัตโนมัติ - ธันวาคม 2022](/th/releases/december-2022)
 
-- [ชุดระบบอัตโนมัติ - มกราคม 2023](/th/releases/january-2023)
+- [ชุดระบบอัตโนมัติ - กุมภาพันธ์ 2023](/th/releases/feburary-2023)
 
 - [ชุดระบบอัตโนมัติ - เผยแพร่เหตุการณ์สําคัญ](/th/releases/milestones)
 

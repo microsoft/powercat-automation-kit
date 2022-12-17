@@ -6,14 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
+generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 ---
 
 <div class="optional">
 
 ![Ijverige Antonellis](/images/zealous-antonelli.png)
 
-De december release (ijverig-antonelli) van de {{<product-name>}} is de vierde openbare preview release. Deze release zal naar verwachting regelmatige bugfixes bevatten en een focus op het verbeteren van de oplossingsconfiguratie en verdere integratie met de ALM Accelerator.
+De december release (ijverig-antonelli) van de {{<product-name>}} is de vierde openbare preview release. Deze release bevat regelmatige bugfixes en een focus op het verbeteren van de oplossingsinstellingen met behulp van een opdrachtregelinstallatieproces.
+
+Met de feestdagen in december en januari is de volgende release in februari 2023.
 
 </div>
 
@@ -39,7 +41,7 @@ Uitproberen [Handleiding Aan de slag](/nl/get-started) of doe mee met onze [Kant
 
 ## Volgende release
 
-- [januari 2023](/nl/releases/january-2023) (handig-emmy)
+- [februari 2023](/nl/releases/february-2023) (handig-emmy)
 
 ## Project mijlpalen
 

@@ -12,7 +12,9 @@ tags: ['Release']
 
 ![Zealous Antonellis](/images/zealous-antonelli.png)
 
-The December release (zealous-antonelli) of the {{<product-name>}} is the fourth public preview release. This release is expected to include regular bug fixes and a focus on improving the solution setup and further integration with the ALM Accelerator.
+The December release (zealous-antonelli) of the {{<product-name>}} is the fourth public preview release. This release includes regular bug fixes and a focus on improving the solution setup using a command line install process.
+
+With the holiday season in December and January the next release will be in February 2023.
 
 </div>
 
@@ -38,7 +40,7 @@ Try out [Get Started Guide](/get-started) or join our [Office Hours](/office-hou
 
 ## Next Release
 
-- [January 2023](/releases/january-2023) (nifty-emmy)
+- [February 2023](/releases/february-2023) (nifty-emmy)
 
 ## Project Milestones
 

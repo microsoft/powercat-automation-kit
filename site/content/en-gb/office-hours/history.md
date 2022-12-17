@@ -4,10 +4,14 @@ description: "Automation Kit - Office Hours History"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 40033B469AA6176C7CDA1348E522DFF476199C83
+generated: A7C70EB2FE1741290323DC53A60E12B645C53DE4
 ---
 
 This page includes links to past and future office hours sessions
+
+## 2023 Planned
+
+[February 2023](/en-gb/office-hours/february-2023)
 
 ## 2022
 

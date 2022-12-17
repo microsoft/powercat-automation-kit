@@ -4,10 +4,14 @@ description: "Automation Kit - Historik för kontorstid"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 40033B469AA6176C7CDA1348E522DFF476199C83
+generated: A7C70EB2FE1741290323DC53A60E12B645C53DE4
 ---
 
 Den här sidan innehåller länkar till tidigare och framtida kontorssessioner
+
+## 2023 Planerad
+
+[Februari 2023](/sv/office-hours/february-2023)
 
 ## 2022
 

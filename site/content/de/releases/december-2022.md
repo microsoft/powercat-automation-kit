@@ -6,14 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
+generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 ---
 
 <div class="optional">
 
 ![Eifrige Antonellis](/images/zealous-antonelli.png)
 
-Die Dezember-Veröffentlichung (zealous-antonelli) der {{<product-name>}} ist die vierte öffentliche Vorschauversion. Es wird erwartet, dass diese Version regelmäßige Fehlerbehebungen enthält und sich auf die Verbesserung des Lösungssetups und die weitere Integration mit dem ALM Accelerator konzentriert.
+Die Dezember-Veröffentlichung (zealous-antonelli) der {{<product-name>}} ist die vierte öffentliche Vorschauversion. Diese Version enthält regelmäßige Fehlerbehebungen und einen Schwerpunkt auf der Verbesserung der Lösungseinrichtung mithilfe eines Befehlszeileninstallationsprozesses.
+
+Mit der Ferienzeit im Dezember und Januar wird die nächste Version im Februar 2023 sein.
 
 </div>
 
@@ -39,7 +41,7 @@ Ausprobieren [Leitfaden "Erste Schritte"](/de/get-started) oder treten Sie unser
 
 ## Nächste Version
 
-- [Januar 2023](/de/releases/january-2023) (Nifty-Emmy)
+- [Februar 2023](/de/releases/february-2023) (Nifty-Emmy)
 
 ## Meilensteine des Projekts
 

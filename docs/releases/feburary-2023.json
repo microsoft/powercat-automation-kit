@@ -1,0 +1,64 @@
+{
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Feedback-February-2023-Release"
+        }
+    ],
+    "pages": [
+        {
+            "name": "welcome",
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "roles",
+                    "title": "Which of the following will be most useful for you in this release?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "hasOther": true,
+                    "choices": [
+                        "Web based Setup automation so I quickly install the Automation Kit",
+                        "ALM Accelerator integration - Attended / Unattended mode",
+                        "ALM Accelerator integration - Validation Checks",
+                        "ALM Accelerator integration - Source Control integration",
+                        "integration samples with Process Advisor",
+                        "Migration tools and guidance to Power Automate Desktop",
+                        "Improved Reporting and Operational telemetry",
+                        "Roadmap of whats next"
+                    ]
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "label": "Do you want to send the feedback on the release?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance"
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Did you have any other feedback?",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}

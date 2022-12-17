@@ -6,14 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
+generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 ---
 
 <div class="optional">
 
 ![热心的安东尼利斯](/images/zealous-antonelli.png)
 
-12月发布（热心-安东内利）的{{<product-name>}} 是第四个公共预览版。此版本预计将包括定期的错误修复，并侧重于改进解决方案设置以及与 ALM 加速器的进一步集成。
+12月发布（热心-安东内利）的{{<product-name>}} 是第四个公共预览版。此版本包括定期的错误修复，并侧重于使用命令行安装过程改进解决方案设置。
+
+随着 12 月和 1 月的假期，下一个版本将在 2023 年 2 月发布。
 
 </div>
 
@@ -39,7 +41,7 @@ generated: A7FE8BE2A9BBB6A8C9894313DC66F33DF97E5677
 
 ## 下一个版本
 
-- [2023 年 1 月](/zh-hans/releases/january-2023)（漂亮的艾美奖）
+- [2023 年 2 月](/zh-hans/releases/february-2023)（漂亮的艾美奖）
 
 ## 项目里程碑
 
