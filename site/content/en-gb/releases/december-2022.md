@@ -6,10 +6,8 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
+generated: 0F99217106CCE588FB560217AAB3307F2D2587B6
 ---
-
-<div class="optional">
 
 ![Zealous Antonelli](/images/zealous-antonelli.png)
 
@@ -23,7 +21,7 @@ To get started you have a couple of options
 
 1. Use our command line installer steps [Command Line Install Guide](/en-gb/get-started/install)
 
-1. Use manual step by step guide starting with [Prerequistes](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+1. Use manual step by step guide starting with [Prerequisites](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
 
 ## Join the Community
 

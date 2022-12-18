@@ -16,17 +16,11 @@ Each release will name a unique code name assigned to make the release identific
 
 ## 2023
 
-### Planned
+- [February 2023](/releases/february-2023) - (nifty-emmy)
 
-- [January 2023](/releases/january-2023) - (nifty-emmy)
-
-## 2022
-
-### 2022 Planned
+### 2022
 
 - [December 2022](/releases/december-2022) - (zealous-antonelli)
-
-### 2022 Released
 
 - [November 2022](/releases/november-2022) - (sharp-archimedes)
 

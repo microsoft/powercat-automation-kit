@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: E74D9236C5453DCB5931787C4C58870A822B8B04
+generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
 ---
 
 该页面包含指向 {{ 的发布历史记录的链接<product-name>}}.
@@ -17,17 +17,11 @@ generated: E74D9236C5453DCB5931787C4C58870A822B8B04
 
 ## 2023
 
-### 计划
+- [2023 年 2 月](/zh-hans/releases/february-2023)- （漂亮的艾美奖）
 
-- [2023 年 1 月](/zh-hans/releases/january-2023)- （漂亮的艾美奖）
-
-## 2022
-
-### 2022 年计划
+### 2022
 
 - [2022 年 12 月](/zh-hans/releases/december-2022)- （热心-安东内利）
-
-### 2022 发布
 
 - [2022年11月](/zh-hans/releases/november-2022)- （夏普阿基米德）
 

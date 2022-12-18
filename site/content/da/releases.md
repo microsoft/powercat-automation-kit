@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: E74D9236C5453DCB5931787C4C58870A822B8B04
+generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
 ---
 
 Siden indeholder links til udgivelseshistorikken for {{<product-name>}}.
@@ -17,17 +17,11 @@ Hver udgivelse navngiver et unikt kodenavn, der er tildelt for at gøre udgivels
 
 ## 2023
 
-### Planlagt
+- [Marts 2023](/da/releases/february-2023) - (Nifty-Emmy)
 
-- [Marts 2023](/da/releases/january-2023) - (Nifty-Emmy)
-
-## 2022
-
-### Planlagt 2022
+### 2022
 
 - [Marts 2022](/da/releases/december-2022) - (Nidkær-Antonelli)
-
-### 2022 Udgivet
 
 - [Marts 2022](/da/releases/november-2022) - (skarp-arkimeder)
 

@@ -6,10 +6,8 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
+generated: 0F99217106CCE588FB560217AAB3307F2D2587B6
 ---
-
-<div class="optional">
 
 ![Gorliwy Antonelli](/images/zealous-antonelli.png)
 
@@ -23,7 +21,7 @@ Aby rozpocząć, masz kilka opcji
 
 1. Skorzystaj z naszych kroków instalatora wiersza poleceń [Instrukcja instalacji wiersza poleceń](/pl/get-started/install)
 
-1. Użyj ręcznego przewodnika krok po kroku, zaczynając od [Wymagania wstępne](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+1. Użyj ręcznego przewodnika krok po kroku, zaczynając od [Warunki wstępne](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
 
 ## Dołącz do społeczności
 

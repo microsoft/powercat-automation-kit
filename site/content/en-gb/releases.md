@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: E74D9236C5453DCB5931787C4C58870A822B8B04
+generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
 ---
 
 The page contains links to the release history for the {{<product-name>}}.
@@ -17,17 +17,11 @@ Each release will name a unique code name assigned to make the release identific
 
 ## 2023
 
-### Planned
+- [February 2023](/en-gb/releases/february-2023) - (nifty-emmy)
 
-- [January 2023](/en-gb/releases/january-2023) - (nifty-emmy)
-
-## 2022
-
-### 2022 Planned
+### 2022
 
 - [December 2022](/en-gb/releases/december-2022) - (zealous-antonelli)
-
-### 2022 Released
 
 - [November 2022](/en-gb/releases/november-2022) - (sharp-archimedes)
 

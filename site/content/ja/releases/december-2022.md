@@ -6,10 +6,8 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
+generated: 0F99217106CCE588FB560217AAB3307F2D2587B6
 ---
-
-<div class="optional">
 
 ![熱心なアントネッリ](/images/zealous-antonelli.png)
 
@@ -23,7 +21,7 @@ generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 
 1.コマンドラインインストーラーの手順を使用する[コマンドラインインストールガイド](/ja/get-started/install)
 
-1.から始まる手動のステップバイステップガイドを使用する[前提条件](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+1.から始まる手動のステップバイステップガイドを使用する[前提 条件](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
 
 ## コミュニティに参加する
 

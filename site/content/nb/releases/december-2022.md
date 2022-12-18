@@ -6,10 +6,8 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
+generated: 0F99217106CCE588FB560217AAB3307F2D2587B6
 ---
-
-<div class="optional">
 
 ![Nidkjære Antonelli](/images/zealous-antonelli.png)
 
@@ -23,7 +21,7 @@ For å komme i gang har du et par alternativer
 
 1. Bruk trinnene for installasjonsprogrammet for kommandolinjen [Veiledning for installasjon av kommandolinje](/nb/get-started/install)
 
-1. Bruk manuell trinnvis veiledning som starter med [Prerequistes](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+1. Bruk manuell trinnvis veiledning som starter med [Forutsetninger](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
 
 ## Bli med i fellesskapet
 

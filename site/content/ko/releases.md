@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: E74D9236C5453DCB5931787C4C58870A822B8B04
+generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
 ---
 
 이 페이지에는 {{<product-name>}}.
@@ -17,17 +17,11 @@ generated: E74D9236C5453DCB5931787C4C58870A822B8B04
 
 ## 2023
 
-### 계획
+- [2023년 2월](/ko/releases/february-2023) - (니프티 에미)
 
-- [2023년 1월](/ko/releases/january-2023) - (니프티 에미)
-
-## 2022
-
-### 2022년 예정
+### 2022
 
 - [2022년 12월](/ko/releases/december-2022) - (열심 많은 안토넬리)
-
-### 2022 릴리스
 
 - [2022년 11월](/ko/releases/november-2022) - (샤프 아르키메데스)
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: E74D9236C5453DCB5931787C4C58870A822B8B04
+generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
 ---
 
 Sidan innehåller länkar till versionshistoriken för {{<product-name>}}.
@@ -17,17 +17,11 @@ Varje version kommer att namnge ett unikt kodnamn som tilldelats för att göra 
 
 ## 2023
 
-### Planerad
+- [Februari 2023](/sv/releases/february-2023) - (Nifty-Emmy)
 
-- [Januari 2023](/sv/releases/january-2023) - (Nifty-Emmy)
-
-## 2022
-
-### 2022 Planerad
+### 2022
 
 - [December 2022](/sv/releases/december-2022) - (nitisk-Antonelli)
-
-### 2022 Släppt
 
 - [November 2022](/sv/releases/november-2022) - (Sharp-Archimedes)
 

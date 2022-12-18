@@ -6,10 +6,8 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
+generated: 0F99217106CCE588FB560217AAB3307F2D2587B6
 ---
-
-<div class="optional">
 
 ![Ijverige Antonelli](/images/zealous-antonelli.png)
 
@@ -23,7 +21,7 @@ Om aan de slag te gaan heb je een aantal opties
 
 1. Gebruik onze opdrachtregelinstallatiestappen [Installatiehandleiding voor de opdrachtregel](/nl/get-started/install)
 
-1. Gebruik handmatige stap voor stap handleiding beginnend met [Prerequistes](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+1. Gebruik handmatige stap voor stap handleiding beginnend met [Voorwaarden](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
 
 ## Word lid van de community
 

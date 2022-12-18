@@ -6,10 +6,8 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
+generated: 0F99217106CCE588FB560217AAB3307F2D2587B6
 ---
-
-<div class="optional">
 
 ![Nitiska Antonelli](/images/zealous-antonelli.png)
 
@@ -23,7 +21,7 @@ För att komma igång har du ett par alternativ
 
 1. Använd våra kommandoradsinstallationssteg [Installationsguide för kommandoraden](/sv/get-started/install)
 
-1. Använd manuell steg-för-steg-guide som börjar med [Prerequistes](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+1. Använd manuell steg-för-steg-guide som börjar med [Förutsättningar](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
 
 ## Gå med i communityn
 

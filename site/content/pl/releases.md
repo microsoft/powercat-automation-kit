@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: E74D9236C5453DCB5931787C4C58870A822B8B04
+generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
 ---
 
 Strona zawiera łącza do historii wydań dla {{<product-name>}}.
@@ -17,17 +17,11 @@ Każde wydanie będzie miało unikatową nazwę kodową przypisaną tak, aby ide
 
 ## 2023
 
-### Rozmyślny
+- [luty 2023](/pl/releases/february-2023) - (Nifty-Emmy)
 
-- [styczeń 2023](/pl/releases/january-2023) - (Nifty-Emmy)
-
-## 2022
-
-### 2022 Planowane
+### 2022
 
 - [grudzień 2022](/pl/releases/december-2022) - (gorliwy-Antonelli)
-
-### 2022 wydany
 
 - [listopad 2022](/pl/releases/november-2022) - (ostry-archimedes)
 

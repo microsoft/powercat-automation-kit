@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: E74D9236C5453DCB5931787C4C58870A822B8B04
+generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
 ---
 
 La página contiene enlaces al historial de versiones de {{<product-name>}}.
@@ -17,17 +17,11 @@ Cada versión nombrará un nombre de código único asignado para que la identif
 
 ## 2023
 
-### Planificado
+- [Febrero 2023](/es/releases/february-2023) - (ingeniosa-Emmy)
 
-- [Enero 2023](/es/releases/january-2023) - (ingeniosa-Emmy)
-
-## 2022
-
-### 2022 Previsto
+### 2022
 
 - [Diciembre 2022](/es/releases/december-2022) - (Celoso-Antonelli)
-
-### 2022 Lanzado
 
 - [Noviembre 2022](/es/releases/november-2022) - (Arquímedes agudo)
 

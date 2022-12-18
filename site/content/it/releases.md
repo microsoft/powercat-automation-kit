@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: E74D9236C5453DCB5931787C4C58870A822B8B04
+generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
 ---
 
 La pagina contiene collegamenti alla cronologia delle versioni per il {{<product-name>}}.
@@ -17,17 +17,11 @@ Ogni versione denominerà un nome in codice univoco assegnato per rendere l'iden
 
 ## 2023
 
-### Pianificato
+- [febbraio 2023](/it/releases/february-2023) - (Nifty-Emmy)
 
-- [gennaio 2023](/it/releases/january-2023) - (Nifty-Emmy)
-
-## 2022
-
-### 2022 pianificato
+### 2022
 
 - [dicembre 2022](/it/releases/december-2022) - (zelante-Antonelli)
-
-### Rilasciato il 2022
 
 - [luglio 2022](/it/releases/november-2022) - (acuto-archimede)
 

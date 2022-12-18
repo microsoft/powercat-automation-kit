@@ -6,10 +6,8 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
+generated: 0F99217106CCE588FB560217AAB3307F2D2587B6
 ---
-
-<div class="optional">
 
 ![열심 많은 안토넬리](/images/zealous-antonelli.png)
 
@@ -23,7 +21,7 @@ generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 
 1. 명령줄 설치 프로그램 단계 사용 [명령줄 설치 가이드](/ko/get-started/install)
 
-1. 다음으로 시작하는 단계별 수동 사용 [전제 조건](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+1. 다음으로 시작하는 단계별 수동 사용 [필수 구성 요소](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
 
 ## 커뮤니티 가입
 

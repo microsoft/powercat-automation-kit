@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: E74D9236C5453DCB5931787C4C58870A822B8B04
+generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
 ---
 
 このページには、{{<product-name>}}.
@@ -17,17 +17,11 @@ generated: E74D9236C5453DCB5931787C4C58870A822B8B04
 
 ## 2023
 
-### 計画
+- [2023年2月号](/ja/releases/february-2023)- (ニフティエミー賞)
 
-- [2023年1月号](/ja/releases/january-2023)- (ニフティエミー賞)
-
-## 2022
-
-### 2022年予定
+### 2022
 
 - [2022年12月号](/ja/releases/december-2022)- (熱心なアントネッリ)
-
-### 2022年リリース
 
 - [2022年11月号](/ja/releases/november-2022)- (シャープアルキメデス)
 
