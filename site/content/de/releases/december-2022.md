@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![Eifrige Antonellis](/images/zealous-antonelli.png)
+![Eifriger Antonelli](/images/zealous-antonelli.png)
 
 Die Dezember-Veröffentlichung (zealous-antonelli) der {{<product-name>}} ist die vierte öffentliche Vorschauversion. Diese Version enthält regelmäßige Fehlerbehebungen und einen Schwerpunkt auf der Verbesserung der Lösungseinrichtung mithilfe eines Befehlszeileninstallationsprozesses.
 
 Mit der Ferienzeit im Dezember und Januar wird die nächste Version im Februar 2023 sein.
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## Feedback
-
-{{<questions name="/content/de/releases/december-2022.json" completed="Vielen Dank für Ihr Feedback" showNavigationButtons="false" locale="de">}}
-
-</div>
-
-<div class="optional">
-
 ## Loslegen
 
-Ausprobieren [Leitfaden "Erste Schritte"](/de/get-started) oder treten Sie unserem [Sprechstunde](/de/office-hours)
+Um loszulegen, haben Sie mehrere Optionen
+
+1. Verwenden Sie unsere Schritte des Befehlszeilen-Installationsprogramms [Befehlszeilen-Installationshandbuch](/de/get-started/install)
+
+1. Verwenden Sie eine manuelle Schritt-für-Schritt-Anleitung, beginnend mit [Voraussetzungen](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## Treten Sie der Community bei
+
+Melden Sie sich für unsere [Sprechstunde](/de/office-hours)
 
 ## Vorherige Veröffentlichung
 
@@ -69,4 +63,7 @@ Im Lieferumfang enthalten [Automation Kit - Dezember 2022](https://github.com/mi
 
 Voll [Versionshistorie](/de/releases)
 
-</div>
+## Feedback
+
+{{<questions name="/content/de/releases/december-2022.json" completed="Vielen Dank für Ihr Feedback" showNavigationButtons="false" locale="de">}}
+

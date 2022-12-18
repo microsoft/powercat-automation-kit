@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![Lo zelante Antonellis](/images/zealous-antonelli.png)
+![Zelante Antonelli](/images/zealous-antonelli.png)
 
 Il rilascio di dicembre (zelante-antonelli) del {{<product-name>}} è la quarta versione pubblica in anteprima. Questa versione include correzioni di bug regolari e un focus sul miglioramento della configurazione della soluzione utilizzando un processo di installazione da riga di comando.
 
 Con le festività natalizie a dicembre e gennaio, la prossima versione sarà a febbraio 2023.
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## Valutazione
-
-{{<questions name="/content/it/releases/december-2022.json" completed="Grazie per aver fornito feedback" showNavigationButtons="false" locale="it">}}
-
-</div>
-
-<div class="optional">
-
 ## Inizia subito
 
-Prova [Guida introduttiva](/it/get-started) o unisciti al nostro [Orario d'ufficio](/it/office-hours)
+Per iniziare hai un paio di opzioni
+
+1. Utilizza i nostri passaggi di installazione a riga di comando [Guida all'installazione dalla riga di comando](/it/get-started/install)
+
+1. Utilizzare la guida manuale passo passo a partire da [Prerequisiti](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## Unisciti alla community
+
+Iscriviti al nostro [Orario d'ufficio](/it/office-hours)
 
 ## Versione precedente
 
@@ -69,4 +63,7 @@ Incluso con [Kit di automazione - Dicembre 2022](https://github.com/microsoft/po
 
 Pieno [Cronologia dei rilasci](/it/releases)
 
-</div>
+## Valutazione
+
+{{<questions name="/content/it/releases/december-2022.json" completed="Grazie per aver fornito feedback" showNavigationButtons="false" locale="it">}}
+

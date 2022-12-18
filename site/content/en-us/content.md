@@ -101,7 +101,7 @@ include_footer: true
 
 - [Automation Kit - December 2022](/releases/december-2022)
 
-- [Automation Kit - February 2023](/releases/feburary-2023)
+- [Automation Kit - February 2023](/releases/february-2023)
 
 - [Automation Kit - Release Milestones](/releases/milestones)
 

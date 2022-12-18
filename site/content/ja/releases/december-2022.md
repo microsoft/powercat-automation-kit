@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![熱心なアントネリス](/images/zealous-antonelli.png)
+![熱心なアントネッリ](/images/zealous-antonelli.png)
 
 12月のリリース(熱心なアントネッリ){{<product-name>}} は 4 番目のパブリック プレビュー リリースです。このリリースには、定期的なバグ修正と、コマンドラインインストールプロセスを使用したソリューションセットアップの改善に重点が置かれています。
 
 12月と1月のホリデーシーズンで、次のリリースは2023年2月になります。
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## フィードバック
-
-{{<questions name="/content/ja/releases/december-2022.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}
-
-</div>
-
-<div class="optional">
-
 ## 今すぐ始める
 
-試してみる[スタートアップガイド](/ja/get-started)または私たちに参加してください[オフィスアワー](/ja/office-hours)
+開始するには、いくつかのオプションがあります
+
+1.コマンドラインインストーラーの手順を使用する[コマンドラインインストールガイド](/ja/get-started/install)
+
+1.から始まる手動のステップバイステップガイドを使用する[前提条件](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## コミュニティに参加する
+
+私たちにサインアップ[オフィスアワー](/ja/office-hours)
 
 ## 以前のリリース
 
@@ -69,4 +63,7 @@ generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 
 一杯[リリース履歴](/ja/releases)
 
-</div>
+## フィードバック
+
+{{<questions name="/content/ja/releases/december-2022.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}
+

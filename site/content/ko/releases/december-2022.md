@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![열성적인 안토넬리스](/images/zealous-antonelli.png)
+![열심 많은 안토넬리](/images/zealous-antonelli.png)
 
 12 월 릴리스 (열광적 인 안토 넬리) {{<product-name>}}는 네 번째 공개 미리 보기 릴리스입니다. 이 릴리스에는 정기적인 버그 수정과 명령줄 설치 프로세스를 사용한 솔루션 설정 개선에 중점을 둔 내용이 포함되어 있습니다.
 
 12월과 1월의 휴가 시즌과 함께 다음 릴리스는 2023년 2월입니다.
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## 피드백
-
-{{<questions name="/content/ko/releases/december-2022.json" completed="피드백을 제공해 주셔서 감사합니다." showNavigationButtons="false" locale="ko">}}
-
-</div>
-
-<div class="optional">
-
 ## 시작
 
-사용해 보기 [시작 안내서](/ko/get-started) 또는 우리와 함께하십시오 [업무 시간](/ko/office-hours)
+시작하려면 몇 가지 옵션이 있습니다.
+
+1. 명령줄 설치 프로그램 단계 사용 [명령줄 설치 가이드](/ko/get-started/install)
+
+1. 다음으로 시작하는 단계별 수동 사용 [전제 조건](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## 커뮤니티 가입
+
+가입하기 [업무 시간](/ko/office-hours)
 
 ## 이전 릴리스
 
@@ -69,4 +63,7 @@ generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 
 부르다 [릴리스 기록](/ko/releases)
 
-</div>
+## 피드백
+
+{{<questions name="/content/ko/releases/december-2022.json" completed="피드백을 제공해 주셔서 감사합니다." showNavigationButtons="false" locale="ko">}}
+

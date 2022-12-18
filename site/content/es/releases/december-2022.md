@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![Celoso Antonellis](/images/zealous-antonelli.png)
+![Celoso Antonelli](/images/zealous-antonelli.png)
 
 El lanzamiento de diciembre (zealous-antonelli) del {{<product-name>}} es la cuarta versión preliminar pública. Esta versión incluye correcciones de errores regulares y un enfoque en mejorar la configuración de la solución mediante un proceso de instalación de línea de comandos.
 
 Con la temporada navideña en diciembre y enero, el próximo lanzamiento será en febrero de 2023.
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## Retroalimentación
-
-{{<questions name="/content/es/releases/december-2022.json" completed="Gracias por proporcionar comentarios" showNavigationButtons="false" locale="es">}}
-
-</div>
-
-<div class="optional">
-
 ## Comenzar
 
-Ensayar [Guía de introducción](/es/get-started) o únete a nuestro [Horario de oficina](/es/office-hours)
+Para empezar tienes un par de opciones
+
+1. Siga los pasos de nuestro instalador de línea de comandos [Guía de instalación de la línea de comandos](/es/get-started/install)
+
+1. Utilice la guía manual paso a paso comenzando con [Prerrequisitos](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## Únete a la comunidad
+
+Regístrese para recibir nuestro [Horario de oficina](/es/office-hours)
 
 ## Publicación anterior
 
@@ -69,4 +63,7 @@ Incluido con [Kit de automatización - Diciembre 2022](https://github.com/micros
 
 Lleno [Historial de versiones](/es/releases)
 
-</div>
+## Retroalimentación
+
+{{<questions name="/content/es/releases/december-2022.json" completed="Gracias por proporcionar comentarios" showNavigationButtons="false" locale="es">}}
+

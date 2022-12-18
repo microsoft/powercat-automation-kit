@@ -4,7 +4,7 @@ description: "Automatisering Kit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
+generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 ---
 
 {{<toc>}}
@@ -102,7 +102,7 @@ generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
 
 - [Automatiseringssett - Desember 2022](/nb/releases/december-2022)
 
-- [Automatiseringssett - Februar 2023](/nb/releases/feburary-2023)
+- [Automatiseringssett - Februar 2023](/nb/releases/february-2023)
 
 - [Automatiseringssett – milepæler for utgivelser](/nb/releases/milestones)
 

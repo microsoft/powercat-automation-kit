@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![热心的安东尼利斯](/images/zealous-antonelli.png)
+![热心的安东内利](/images/zealous-antonelli.png)
 
 12月发布（热心-安东内利）的{{<product-name>}} 是第四个公共预览版。此版本包括定期的错误修复，并侧重于使用命令行安装过程改进解决方案设置。
 
 随着 12 月和 1 月的假期，下一个版本将在 2023 年 2 月发布。
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## 反馈
-
-{{<questions name="/content/zh-hans/releases/december-2022.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}
-
-</div>
-
-<div class="optional">
-
 ## 开始
 
-试用[入门指南](/zh-hans/get-started)或加入我们的[办公时间](/zh-hans/office-hours)
+要开始使用，您有几个选择
+
+1.使用我们的命令行安装程序步骤[命令行安装指南](/zh-hans/get-started/install)
+
+1.使用手动分步指南，从[先决条件](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## 加入社区
+
+注册我们的[办公时间](/zh-hans/office-hours)
 
 ## 先前版本
 
@@ -69,4 +63,7 @@ generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 
 满[发布历史](/zh-hans/releases)
 
-</div>
+## 反馈
+
+{{<questions name="/content/zh-hans/releases/december-2022.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}
+

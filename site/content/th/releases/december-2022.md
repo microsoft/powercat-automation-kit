@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![แอนโทเนลลิสที่กระตือรือร้น](/images/zealous-antonelli.png)
+![อันโตเนลลีที่กระตือรือร้น](/images/zealous-antonelli.png)
 
 การเปิดตัวเดือนธันวาคม (กระตือรือร้น -antonelli) ของ {{<product-name>}} เป็นรุ่นตัวอย่างสาธารณะที่สี่ รุ่นนี้มีการแก้ไขข้อบกพร่องเป็นประจําและมุ่งเน้นไปที่การปรับปรุงการตั้งค่าโซลูชันโดยใช้กระบวนการติดตั้งบรรทัดคําสั่ง
 
 ด้วยเทศกาลวันหยุดในเดือนธันวาคมและมกราคมการเปิดตัวครั้งต่อไปจะเป็นในเดือนกุมภาพันธ์ 2023
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## การตอบสนอง
-
-{{<questions name="/content/th/releases/december-2022.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
-
-</div>
-
-<div class="optional">
-
 ## เริ่มต้นใช้งาน
 
-ลอง [คู่มือเริ่มต้นใช้งาน](/th/get-started) หรือเข้าร่วมกับเรา [เวลาทําการ](/th/office-hours)
+ในการเริ่มต้นคุณมีสองตัวเลือก
+
+1. ใช้ขั้นตอนการติดตั้งบรรทัดคําสั่งของเรา [คู่มือการติดตั้งบรรทัดคําสั่ง](/th/get-started/install)
+
+1. ใช้คู่มือทีละขั้นตอนด้วยตนเองเริ่มต้นด้วย [ข้อกําหนดเบื้องต้น](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## เข้าร่วมชุมชน
+
+ลงทะเบียนสําหรับของเรา [เวลาทําการ](/th/office-hours)
 
 ## รุ่นก่อนวางจําหน่าย
 
@@ -69,4 +63,7 @@ generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
 
 เต็ม [ประวัติการวางจําหน่าย](/th/releases)
 
-</div>
+## การตอบสนอง
+
+{{<questions name="/content/th/releases/december-2022.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
+

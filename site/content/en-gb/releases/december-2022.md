@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![Zealous Antonellis](/images/zealous-antonelli.png)
+![Zealous Antonelli](/images/zealous-antonelli.png)
 
 The December release (zealous-antonelli) of the {{<product-name>}} is the fourth public preview release. This release includes regular bug fixes and a focus on improving the solution setup using a command line install process.
 
 With the holiday season in December and January the next release will be in February 2023.
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## Feedback
-
-{{<questions name="/content/en-gb/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons="false" locale="en-gb">}}
-
-</div>
-
-<div class="optional">
-
 ## Get Started
 
-Try out [Get Started Guide](/en-gb/get-started) or join our [Office Hours](/en-gb/office-hours)
+To get started you have a couple of options
+
+1. Use our command line installer steps [Command Line Install Guide](/en-gb/get-started/install)
+
+1. Use manual step by step guide starting with [Prerequistes](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## Join the Community
+
+Sign up for our [Office Hours](/en-gb/office-hours)
 
 ## Prior Release
 
@@ -69,4 +63,7 @@ Included with [Automation Kit - December 2022](https://github.com/microsoft/powe
 
 Full [release history](/en-gb/releases)
 
-</div>
+## Feedback
+
+{{<questions name="/content/en-gb/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons="false" locale="en-gb">}}
+

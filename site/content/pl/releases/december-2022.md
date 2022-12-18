@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![Gorliwy Antonellis](/images/zealous-antonelli.png)
+![Gorliwy Antonelli](/images/zealous-antonelli.png)
 
 Grudniowe wydanie (gorliwy-antonelli) {{<product-name>}} jest czwartym publicznym wydaniem zapoznawczem. To wydanie zawiera regularne poprawki błędów i skupia się na ulepszaniu konfiguracji rozwiązania przy użyciu procesu instalacji wiersza polecenia.
 
 W okresie świątecznym w grudniu i styczniu następna premiera nastąpi w lutym 2023 r.
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## Sprzężenie zwrotne
-
-{{<questions name="/content/pl/releases/december-2022.json" completed="Dziękujemy za przekazanie opinii" showNavigationButtons="false" locale="pl">}}
-
-</div>
-
-<div class="optional">
-
 ## Rozpocząć
 
-Wypróbować [Przewodnik wprowadzający](/pl/get-started) lub dołącz do naszego [Godziny pracy biura](/pl/office-hours)
+Aby rozpocząć, masz kilka opcji
+
+1. Skorzystaj z naszych kroków instalatora wiersza poleceń [Instrukcja instalacji wiersza poleceń](/pl/get-started/install)
+
+1. Użyj ręcznego przewodnika krok po kroku, zaczynając od [Wymagania wstępne](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## Dołącz do społeczności
+
+Zarejestruj się w naszym [Godziny pracy biura](/pl/office-hours)
 
 ## Wcześniejsze wydanie
 
@@ -69,4 +63,7 @@ W zestawie [Automation Kit - grudzień 2022](https://github.com/microsoft/powerc
 
 Pełny [Historia wydań](/pl/releases)
 
-</div>
+## Sprzężenie zwrotne
+
+{{<questions name="/content/pl/releases/december-2022.json" completed="Dziękujemy za przekazanie opinii" showNavigationButtons="false" locale="pl">}}
+

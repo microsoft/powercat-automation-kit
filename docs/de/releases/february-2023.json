@@ -1,0 +1,130 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-February-2023-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the following will be most useful for you in this release?",
+            "de": "Welche der folgenden Optionen wird für Sie in dieser Version am nützlichsten sein?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Web based Setup automation so I quickly install the Automation Kit",
+              "text": {
+                "default": "Web based Setup automation so I quickly install the Automation Kit",
+                "de": "Webbasierte Setup-Automatisierung, damit ich das Automation Kit schnell installiere"
+              }
+            },
+            {
+              "value": "ALM Accelerator integration - Attended / Unattended mode",
+              "text": {
+                "default": "ALM Accelerator integration - Attended / Unattended mode",
+                "de": "ALM Accelerator Integration - Beaufsichtigter / unbeaufsichtigter Modus"
+              }
+            },
+            {
+              "value": "ALM Accelerator integration - Validation Checks",
+              "text": {
+                "default": "ALM Accelerator integration - Validation Checks",
+                "de": "Integration von ALM Accelerator - Validierungsprüfungen"
+              }
+            },
+            {
+              "value": "ALM Accelerator integration - Source Control integration",
+              "text": {
+                "default": "ALM Accelerator integration - Source Control integration",
+                "de": "ALM Accelerator Integration - Quellcodeverwaltungsintegration"
+              }
+            },
+            {
+              "value": "Integration samples with Process Advisor",
+              "text": {
+                "default": "Integration samples with Process Advisor",
+                "de": "Integrationsbeispiele mit Process Advisor"
+              }
+            },
+            {
+              "value": "Migration tools and guidance to Power Automate Desktop",
+              "text": {
+                "default": "Migration tools and guidance to Power Automate Desktop",
+                "de": "Migrationstools und Anleitungen zu Power Automate Desktop"
+              }
+            },
+            {
+              "value": "Improved Reporting and Operational telemetry",
+              "text": {
+                "default": "Improved Reporting and Operational telemetry",
+                "de": "Verbesserte Berichterstellung und operative Telemetrie"
+              }
+            },
+            {
+              "value": "Roadmap of whats next",
+              "text": {
+                "default": "Roadmap of whats next",
+                "de": "Roadmap der nächsten Schritte"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "de": "Möchten Sie das Feedback zur Veröffentlichung senden?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "de": "Wir freuen uns auf Ihr Feedback. Als Kernteam von Automation Kit nutzen wir das Feedback, um unsere Meilensteine und Leitlinien zu verbessern."
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "de": "Hatten Sie weiteres Feedback?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "de": "Jetzt Ihr Feedback senden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "de": "Status: "
+          }
+        }
+      ]
+    }
+  ]
+}

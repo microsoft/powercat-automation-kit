@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![Nidkjære Antonellis](/images/zealous-antonelli.png)
+![Nidkjære Antonelli](/images/zealous-antonelli.png)
 
 Desemberutgivelsen (nidkjær-antonelli) av {{<product-name>}} er den fjerde offentlige forhåndsversjonen. Denne versjonen inneholder vanlige feilrettinger og fokus på å forbedre løsningsoppsettet ved hjelp av en kommandolinjeinstallasjonsprosess.
 
 Med høytiden i desember og januar vil neste utgivelse være i februar 2023.
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## Tilbakemelding
-
-{{<questions name="/content/nb/releases/december-2022.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}
-
-</div>
-
-<div class="optional">
-
 ## Kom i gang
 
-Prøv ut [Kom i gang-veiledning](/nb/get-started) eller bli med i vår [Kontortid](/nb/office-hours)
+For å komme i gang har du et par alternativer
+
+1. Bruk trinnene for installasjonsprogrammet for kommandolinjen [Veiledning for installasjon av kommandolinje](/nb/get-started/install)
+
+1. Bruk manuell trinnvis veiledning som starter med [Prerequistes](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## Bli med i fellesskapet
+
+Registrer deg for vår [Kontortid](/nb/office-hours)
 
 ## Tidligere utgivelse
 
@@ -69,4 +63,7 @@ Inkludert i [Automatiseringssett - Desember 2022](https://github.com/microsoft/p
 
 Full [Historikk for utgivelser](/nb/releases)
 
-</div>
+## Tilbakemelding
+
+{{<questions name="/content/nb/releases/december-2022.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}
+

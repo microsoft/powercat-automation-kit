@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
+generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 ---
 
 {{<toc>}}
@@ -102,7 +102,7 @@ generated: 475CD89C7B9F2E5966D9CED4DAA51791BD866119
 
 - [自动化套件 - 2022 年 12 月](/zh-hans/releases/december-2022)
 
-- [自动化套件 - 2023 年 2 月](/zh-hans/releases/feburary-2023)
+- [自动化套件 - 2023 年 2 月](/zh-hans/releases/february-2023)
 
 - [自动化套件 - 发布里程碑](/zh-hans/releases/milestones)
 

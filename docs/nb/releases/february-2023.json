@@ -1,0 +1,130 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-February-2023-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the following will be most useful for you in this release?",
+            "nb": "Hvilket av følgende vil være mest nyttig for deg i denne utgivelsen?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Web based Setup automation so I quickly install the Automation Kit",
+              "text": {
+                "default": "Web based Setup automation so I quickly install the Automation Kit",
+                "nb": "Web-basert Setup automatisering slik at jeg raskt installere Automation Kit"
+              }
+            },
+            {
+              "value": "ALM Accelerator integration - Attended / Unattended mode",
+              "text": {
+                "default": "ALM Accelerator integration - Attended / Unattended mode",
+                "nb": "ALM-akseleratorintegrering – overvåket/uovervåket modus"
+              }
+            },
+            {
+              "value": "ALM Accelerator integration - Validation Checks",
+              "text": {
+                "default": "ALM Accelerator integration - Validation Checks",
+                "nb": "ALM Accelerator-integrering – valideringskontroller"
+              }
+            },
+            {
+              "value": "ALM Accelerator integration - Source Control integration",
+              "text": {
+                "default": "ALM Accelerator integration - Source Control integration",
+                "nb": "ALM Accelerator integrasjon - Source Control integrasjon"
+              }
+            },
+            {
+              "value": "Integration samples with Process Advisor",
+              "text": {
+                "default": "Integration samples with Process Advisor",
+                "nb": "Integrasjonsprøver med Process Advisor"
+              }
+            },
+            {
+              "value": "Migration tools and guidance to Power Automate Desktop",
+              "text": {
+                "default": "Migration tools and guidance to Power Automate Desktop",
+                "nb": "Overføringsverktøy og veiledning til Power Automate Desktop"
+              }
+            },
+            {
+              "value": "Improved Reporting and Operational telemetry",
+              "text": {
+                "default": "Improved Reporting and Operational telemetry",
+                "nb": "Forbedret rapportering og operasjonell telemetri"
+              }
+            },
+            {
+              "value": "Roadmap of whats next",
+              "text": {
+                "default": "Roadmap of whats next",
+                "nb": "Veikart over hva neste"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "nb": "Ønsker du å sende tilbakemelding på utgivelsen?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "nb": "Vi ser frem til å få din tilbakemelding. Som et kjerneteam for automatiseringssett bruker vi tilbakemeldingene til å forbedre milepælene og veiledningen vår"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "nb": "Har du noen andre tilbakemeldinger?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nb": "Send tilbakemelding nå?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nb": "Status: "
+          }
+        }
+      ]
+    }
+  ]
+}

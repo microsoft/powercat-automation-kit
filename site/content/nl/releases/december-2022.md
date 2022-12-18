@@ -6,34 +6,28 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 25BDEE0D6F62F03F8E99B6236846D418641F9015
+generated: 4A6E9DA6505A580D155FD3A18DA81E625E19C0B7
 ---
 
 <div class="optional">
 
-![Ijverige Antonellis](/images/zealous-antonelli.png)
+![Ijverige Antonelli](/images/zealous-antonelli.png)
 
 De december release (ijverig-antonelli) van de {{<product-name>}} is de vierde openbare preview release. Deze release bevat regelmatige bugfixes en een focus op het verbeteren van de oplossingsinstellingen met behulp van een opdrachtregelinstallatieproces.
 
 Met de feestdagen in december en januari is de volgende release in februari 2023.
 
-</div>
-
-<div class="optional">
-
-{{<presentationStyles>}}
-
-## Terugkoppeling
-
-{{<questions name="/content/nl/releases/december-2022.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}
-
-</div>
-
-<div class="optional">
-
 ## Slag
 
-Uitproberen [Handleiding Aan de slag](/nl/get-started) of doe mee met onze [Kantooruren](/nl/office-hours)
+Om aan de slag te gaan heb je een aantal opties
+
+1. Gebruik onze opdrachtregelinstallatiestappen [Installatiehandleiding voor de opdrachtregel](/nl/get-started/install)
+
+1. Gebruik handmatige stap voor stap handleiding beginnend met [Prerequistes](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites)
+
+## Word lid van de community
+
+Meld u aan voor onze [Kantooruren](/nl/office-hours)
 
 ## Eerdere release
 
@@ -69,4 +63,7 @@ Inbegrepen bij [Automatiseringskit - december 2022](https://github.com/microsoft
 
 Vol [release geschiedenis](/nl/releases)
 
-</div>
+## Terugkoppeling
+
+{{<questions name="/content/nl/releases/december-2022.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}
+
