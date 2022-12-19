@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 Om du vill installera den senaste versionen av Automation Kit använder du följande steg nedan. Om du inte kan använda kommandoradsverktygen kan du använda de manuella stegen som dokumenteras i [Vägledning för installation](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. Se till att du har <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivera funktionen Power Apps component framework</a> i de miljöer som du vill installera Automation Kit för både huvud- och satellitmiljöer.
+
+1. Se till att <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installerat</a> i de miljöer du vill installera i
+
 1. Öppna den senaste versionen från <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Automation Kit GitHub-versioner</a>
 
-1. Ladda ner den **AutomationKitInstall.zip**
+1. Ladda ner den **AutomationKitInstall.zip** från avsnittet Tillgångar
 
 1. I Utforskaren i Windows väljer du den nedladdade **AutomationKitInstall.zip** och öppna egenskapsdialogrutan
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-Beroende på din PowerShell-körningsprincip kan du behöva köra följande kommando
+NOT:
+1. Beroende på din PowerShell-körningsprincip kan du behöva köra följande kommando
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. PowerShell-skriptet uppmanar dig att skapa en installationskonfigurationsfil med hjälp av [Installera installationsprogrammet](/sv/get-started/setup). Konfigurationssidorna för konfiguration ger dig följande

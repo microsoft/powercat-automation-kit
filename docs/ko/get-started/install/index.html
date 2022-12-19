@@ -62,10 +62,16 @@
       <p>최신 버전의 자동화 키트를 설치하려면 아래 단계를 따르십시오. 명령줄 도구를 사용할 수 없는 경우 에 설명된 수동 단계를 사용할 수 있습니다. <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">설정 지침</a>.</p>
 <ol>
 <li>
+<p>다음이 있는지 확인하십시오. <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Power Apps 구성 요소 프레임워크 기능 사용</a> 기본 및 위성 환경 모두에 대해 자동화 키트를 설치하려는 환경에서.</p>
+</li>
+<li>
+<p>다음을 확인합니다. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">크리에이터 키트 설치됨</a> 설치하려는 환경 모자로</p>
+</li>
+<li>
 <p>에서 최신 릴리스를 엽니다. <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">자동화 키트 GitHub 릴리스</a></p>
 </li>
 <li>
-<p>다운로드 <strong>자동화키트설치.zip</strong></p>
+<p>다운로드 <strong>자동화키트설치.zip</strong> 자산 섹션에서</p>
 </li>
 <li>
 <p>Windows 탐색기에서 다운로드 한 <strong>자동화키트설치.zip</strong> 을 클릭하고 속성 대화 상자를 엽니다.</p>
@@ -85,8 +91,11 @@
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">cd</span> AutomationKitInstall
 </span></span><span style="display:flex;"><span>powershell Install_AutomationKit.ps1
-</span></span></code></pre></div><p>참고: PowerShell 실행 정책에 따라 다음 명령을 실행해야 할 수 있습니다.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+</span></span></code></pre></div><p>메모:</p>
+<ol>
+<li>PowerShell 실행 정책에 따라 다음 명령을 실행해야 할 수 있습니다.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>Unblock-File Install_AutomationKit.ps1
 </span></span></code></pre></div><ol>
 <li>
 <p>PowerShell 스크립트는 다음을 사용하여 설치 구성 파일을 만들라는 메시지를 표시합니다. <a href="https://microsoft.github.io/powercat-automation-kit/ko/get-started/setup">설치 프로그램 설치</a>. 설치 구성 페이지에서는 다음을 제공합니다.</p>
@@ -1127,6 +1136,11 @@
             }
             questionModel.onStarted.add(() => {
                 console.log('called')
+            })
+            questionModel.onProcessHtml.add((survey, options) => {
+                if ( typeof options.html == "string" ) {
+                    options.html = converter.makeHtml(options.html);
+                }
             })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 

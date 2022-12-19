@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 For at installere den nyeste version af Automation Kit skal du bruge følgende trin nedenfor. Hvis du ikke kan bruge kommandolinjeværktøjerne, kan du bruge de manuelle trin, der er beskrevet i [Vejledning til opsætning](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. Sørg for, at du har <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivere Power Apps-komponentstrukturfunktionen</a> i de miljøer, du vil installere automatiseringspakken til både hoved- og satellitmiljøer.
+
+1. Sørg for, at <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installeret</a> ind i de miljøer, du ønsker at installere i
+
 1. Åbn den seneste version fra <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Automation Kit GitHub-udgivelser</a>
 
-1. Download **AutomationKitInstall.zip**
+1. Download **AutomationKitInstall.zip** fra afsnittet Aktiver
 
 1. I Windows Stifinder skal du vælge den downloadede **AutomationKitInstall.zip** , og åbn dialogboksen egenskaber
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-BEMÆRK: Afhængigt af din PowerShell-udførelsespolitik skal du muligvis køre følgende kommando
+SEDDEL:
+1. Afhængigt af din PowerShell-udførelsespolitik skal du muligvis køre følgende kommando
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. PowerShell-scriptet beder dig om at oprette en installationskonfigurationsfil ved hjælp af [Installer opsætning](/da/get-started/setup). Konfigurationssiderne for opsætning giver dig følgende

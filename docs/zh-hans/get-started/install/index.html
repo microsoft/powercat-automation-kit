@@ -60,8 +60,10 @@
 
     <div class="content">
       <p>要安装最新版本的自动化工具包，请使用以下步骤。如果无法使用命令行工具，可以使用中记录的手动步骤<a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">设置指南</a>.</p>
+<p>1.确保您有<a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">启用 Power Apps 组件框架功能</a>在要为主环境和从属环境安装自动化工具包的环境中。</p>
+<p>1.确保<a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">已安装创建者工具包</a>进入您希望安装到的环境中</p>
 <p>1.从<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">自动化工具包 GitHub 发布</a></p>
-<p>1.下载<strong>自动化套件安装.zip</strong></p>
+<p>1.下载<strong>自动化套件安装.zip</strong>从“资产”部分</p>
 <p>1.在 Windows 资源管理器中，选择下载的<strong>自动化套件安装.zip</strong>，然后打开属性对话框</p>
 <p>1.选择<strong>疏通</strong>按钮</p>
 <p>1.选择<strong>自动化套件安装.zip</strong>并使用上下文菜单<strong>全部提取</strong></p>
@@ -69,8 +71,9 @@
 <p>1.使用以下命令行执行 powershell 脚本</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">cd</span> AutomationKitInstall
 </span></span><span style="display:flex;"><span>powershell Install_AutomationKit.ps1
-</span></span></code></pre></div><p>注意：根据您的 PowerShell 执行策略，您可能需要运行以下命令</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+</span></span></code></pre></div><p>注意：
+1.根据 PowerShell 执行策略，可能需要运行以下命令</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>Unblock-File Install_AutomationKit.ps1
 </span></span></code></pre></div><p>1.PowerShell 脚本将提示您使用<a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/get-started/setup">安装安装程序</a>.设置配置页面将为您提供以下内容</p>
 <pre><code>-选择主解决方案或卫星解决方案的配置
 
@@ -1093,6 +1096,11 @@
             }
             questionModel.onStarted.add(() => {
                 console.log('called')
+            })
+            questionModel.onProcessHtml.add((survey, options) => {
+                if ( typeof options.html == "string" ) {
+                    options.html = converter.makeHtml(options.html);
+                }
             })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 

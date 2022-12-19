@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 ในการติดตั้ง Automation Kit เวอร์ชันล่าสุดให้ใช้ขั้นตอนต่อไปนี้ด้านล่าง หากคุณไม่สามารถใช้เครื่องมือบรรทัดคําสั่งคุณสามารถใช้ขั้นตอนด้วยตนเองที่ระบุไว้ใน [คําแนะนําในการตั้งค่า](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. ตรวจสอบให้แน่ใจว่าคุณมี <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">เปิดใช้งานฟีเจอร์เฟรมเวิร์กส่วนประกอบ Power Apps</a> ในสภาพแวดล้อมที่คุณต้องการติดตั้งชุดระบบอัตโนมัติสําหรับทั้งสภาพแวดล้อมหลักและดาวเทียม
+
+1. ตรวจสอบให้แน่ใจว่าปุ่ม <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">ติดตั้งชุดครีเอเตอร์แล้ว</a> ในสภาพแวดล้อมที่คุณต้องการติดตั้งลงในหมวก
+
 1. เปิดรุ่นล่าสุดจาก <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">การเผยแพร่ชุดระบบอัตโนมัติ GitHub</a>
 
-1. ดาวน์โหลด **ชุดอัตโนมัติติดตั้ง.zip**
+1. ดาวน์โหลด **ชุดอัตโนมัติติดตั้ง.zip** จากส่วนสินทรัพย์
 
 1. ในวินโดวส์เอ็กซ์พลอเรอร์ให้เลือกดาวน์โหลดมา **ชุดอัตโนมัติติดตั้ง.zip** และเปิดกล่องโต้ตอบคุณสมบัติ
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-หมายเหตุ: ขึ้นอยู่กับนโยบายการดําเนินการ PowerShell ของคุณคุณอาจต้องเรียกใช้คําสั่งต่อไปนี้
+โน้ต:
+1. ขึ้นอยู่กับนโยบายการดําเนินการ PowerShell ของคุณคุณอาจต้องเรียกใช้คําสั่งต่อไปนี้
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. สคริปต์ PowerShell จะพร้อมท์ให้คุณสร้างไฟล์การกําหนดค่าการติดตั้งโดยใช้ [ติดตั้งการตั้งค่า](/th/get-started/setup). หน้าการกําหนดค่าการตั้งค่าจะให้สิ่งต่อไปนี้แก่คุณ

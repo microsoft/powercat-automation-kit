@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 Per installare la versione più recente di Automation Kit, attenersi alla seguente procedura. Se non è possibile utilizzare gli strumenti da riga di comando, è possibile utilizzare i passaggi manuali documentati in [Linee guida per l'installazione](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. Assicurati di avere <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Abilitare la funzionalità del framework dei componenti Power Apps</a> negli ambienti in cui si desidera installare il Kit di automazione sia per ambienti Main che Satellite.
+
+1. Assicurarsi che il <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installato</a> negli ambienti in cui si desidera installare
+
 1. Aprire l'ultima versione dal <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Rilascio del kit di automazione GitHub</a>
 
-1. Scarica il **AutomationKitInstall.zip**
+1. Scarica il **AutomationKitInstall.zip** dalla sezione Risorse
 
 1. In Esplora risorse selezionare l'icona scaricata **AutomationKitInstall.zip** e aprire la finestra di dialogo Proprietà
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-NOTA: a seconda dei criteri di esecuzione di PowerShell, potrebbe essere necessario eseguire il comando seguente
+NOTA:
+1. A seconda dei criteri di esecuzione di PowerShell, potrebbe essere necessario eseguire il comando seguente
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. Lo script di PowerShell richiederà di creare un file di configurazione dell'installazione utilizzando [Installare il programma di installazione](/it/get-started/setup). Le pagine di configurazione dell'installazione forniranno quanto segue

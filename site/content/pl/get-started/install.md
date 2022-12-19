@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 Aby zainstalować najnowszą wersję pakietu Automation Kit, wykonaj następujące czynności opisane poniżej. Jeśli nie możesz użyć narzędzi wiersza polecenia, możesz wykonać ręczne kroki opisane w sekcji [Wskazówki dotyczące konfiguracji](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. Upewnij się, że masz <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Włącz funkcję struktury składników Power Apps</a> w środowiskach, w których chcesz zainstalować zestaw Automation Kit zarówno dla środowiska głównego, jak i satelitarnego.
+
+1. Upewnij się, że <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Zainstalowany zestaw twórców</a> w środowiskach, w których chcesz zainstalować
+
 1. Otwórz najnowszą wersję z <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Wydania zestawu Automation Kit GitHub</a>
 
-1. Pobierz **AutomationKitInstall.zip**
+1. Pobierz **AutomationKitInstall.zip** w sekcji Zasoby
 
 1. W Eksploratorze Windows wybierz pobrane **AutomationKitInstall.zip** i otwórz okno dialogowe Właściwości
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-UWAGA: W zależności od zasad wykonywania programu PowerShell może być konieczne uruchomienie następującego polecenia
+NUTA:
+1. W zależności od zasad wykonywania programu PowerShell może być konieczne uruchomienie następującego polecenia:
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. Skrypt programu PowerShell wyświetli monit o utworzenie pliku konfiguracji instalacji przy użyciu [Instalowanie Instalatora](/pl/get-started/setup). Na stronach konfiguracji konfiguracji zostaną wyświetlone następujące informacje

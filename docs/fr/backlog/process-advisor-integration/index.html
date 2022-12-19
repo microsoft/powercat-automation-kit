@@ -1087,6 +1087,11 @@ Currency||In Process Advisor data model</p>
             questionModel.onStarted.add(() => {
                 console.log('called')
             })
+            questionModel.onProcessHtml.add((survey, options) => {
+                if ( typeof options.html == "string" ) {
+                    options.html = converter.makeHtml(options.html);
+                }
+            })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 
                 let str = converter.makeHtml(options.text);

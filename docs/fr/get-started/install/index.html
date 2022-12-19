@@ -62,10 +62,16 @@
       <p>Pour installer la dernière version du kit d’automatisation, procédez comme suit ci-dessous. Si vous ne parvenez pas à utiliser les outils de ligne de commande, vous pouvez utiliser les étapes manuelles décrites dans <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">Guide de configuration</a>.</p>
 <ol>
 <li>
+<p>Assurez-vous d’avoir <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Activer la fonctionnalité d’infrastructure des composants Power Apps</a> dans les environnements dans lesquels vous souhaitez installer le Kit d’automatisation pour les environnements principal et satellite.</p>
+</li>
+<li>
+<p>S’assurer que l&rsquo; <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installé</a> dans les environnements dans lesquels vous souhaitez installer</p>
+</li>
+<li>
 <p>Ouvrez la dernière version à partir du <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Versions du kit d’automatisation GitHub</a></p>
 </li>
 <li>
-<p>Téléchargez le <strong>AutomationKitInstall.zip</strong></p>
+<p>Téléchargez le <strong>AutomationKitInstall.zip</strong> à partir de la section Actifs</p>
 </li>
 <li>
 <p>Dans l’Explorateur Windows, sélectionnez le bouton téléchargé <strong>AutomationKitInstall.zip</strong> et ouvrez la boîte de dialogue Propriétés</p>
@@ -85,8 +91,11 @@
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">cd</span> AutomationKitInstall
 </span></span><span style="display:flex;"><span>powershell Install_AutomationKit.ps1
-</span></span></code></pre></div><p>Remarque : Selon votre stratégie d’exécution PowerShell, vous devrez peut-être exécuter la commande suivante</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+</span></span></code></pre></div><p>NOTE:</p>
+<ol>
+<li>Selon votre stratégie d’exécution PowerShell, vous devrez peut-être exécuter la commande suivante</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>Unblock-File Install_AutomationKit.ps1
 </span></span></code></pre></div><ol>
 <li>
 <p>Le script PowerShell vous invite à créer un fichier de configuration d’installation à l’aide de <a href="https://microsoft.github.io/powercat-automation-kit/fr/get-started/setup">Installer le programme d’installation</a>. Les pages de configuration de configuration vous fourniront les éléments suivants :</p>
@@ -1127,6 +1136,11 @@
             }
             questionModel.onStarted.add(() => {
                 console.log('called')
+            })
+            questionModel.onProcessHtml.add((survey, options) => {
+                if ( typeof options.html == "string" ) {
+                    options.html = converter.makeHtml(options.html);
+                }
             })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 

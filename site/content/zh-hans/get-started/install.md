@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 要安装最新版本的自动化工具包，请使用以下步骤。如果无法使用命令行工具，可以使用中记录的手动步骤[设置指南](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1.确保您有<a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">启用 Power Apps 组件框架功能</a>在要为主环境和从属环境安装自动化工具包的环境中。
+
+1.确保<a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">已安装创建者工具包</a>进入您希望安装到的环境中
+
 1.从<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">自动化工具包 GitHub 发布</a>
 
-1.下载**自动化套件安装.zip**
+1.下载**自动化套件安装.zip**从“资产”部分
 
 1.在 Windows 资源管理器中，选择下载的**自动化套件安装.zip**，然后打开属性对话框
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-注意：根据您的 PowerShell 执行策略，您可能需要运行以下命令
+注意：
+1.根据 PowerShell 执行策略，可能需要运行以下命令
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1.PowerShell 脚本将提示您使用[安装安装程序](/zh-hans/get-started/setup).设置配置页面将为您提供以下内容

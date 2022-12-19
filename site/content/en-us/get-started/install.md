@@ -10,9 +10,13 @@ tags: ['Get Started', 'Install']
 
 To install the latest version of the Automation Kit use the following steps below. If you are unable to use the command line tools you can use the manual steps documented in [Setup Guidance](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. Ensure that you have <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Enable the Power Apps component framework feature</a> in the environments that you want to install the Automation Kit for both Main and Satellite environments.
+
+1. Ensure that the <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installed</a> into the environments hat you wish to install into
+
 1. Open the latest release from the <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Automation Kit GitHub Releases</a>
 
-1. Download the **AutomationKitInstall.zip**
+1. Download the **AutomationKitInstall.zip** from the Assets section
 
 1. In the Windows Explorer select the downloaded **AutomationKitInstall.zip** and open the properties dialog
 
@@ -29,10 +33,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-NOTE: Depending on your PowerShell execution policy you may need to run the following command
+NOTE:
+1. Depending on your PowerShell execution policy you may need to run the following command
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. The PowerShell script will prompt you to create an installation configuration file using [Install Setup](/get-started/setup). The setup configuration pages will provide you the following

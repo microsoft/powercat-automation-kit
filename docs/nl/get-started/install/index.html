@@ -62,10 +62,16 @@
       <p>Als u de nieuwste versie van de Automation Kit wilt installeren, gebruikt u de onderstaande stappen. Als u de opdrachtregelprogramma&rsquo;s niet kunt gebruiken, kunt u de handmatige stappen gebruiken die zijn beschreven in <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">Richtlijnen voor het instellen</a>.</p>
 <ol>
 <li>
+<p>Zorg ervoor dat je <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">De frameworkfunctie voor Power Apps-onderdelen inschakelen</a> in de omgevingen waarin u de Automation Kit voor zowel hoofd- als satellietomgevingen wilt installeren.</p>
+</li>
+<li>
+<p>Zorg ervoor dat de <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit geïnstalleerd</a> in de omgevingen waarin u wilt installeren</p>
+</li>
+<li>
 <p>Open de nieuwste versie van de <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Automation Kit GitHub-releases</a></p>
 </li>
 <li>
-<p>Download de <strong>AutomationKitInstalleer.zip</strong></p>
+<p>Download de <strong>AutomationKitInstalleer.zip</strong> in de sectie Activa</p>
 </li>
 <li>
 <p>Selecteer in Windows Verkenner de gedownloade <strong>AutomationKitInstalleer.zip</strong> en open het dialoogvenster met eigenschappen</p>
@@ -85,8 +91,11 @@
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">cd</span> AutomationKitInstall
 </span></span><span style="display:flex;"><span>powershell Install_AutomationKit.ps1
-</span></span></code></pre></div><p>OPMERKING: Afhankelijk van uw PowerShell-uitvoeringsbeleid moet u mogelijk de volgende opdracht uitvoeren</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+</span></span></code></pre></div><p>NOTITIE:</p>
+<ol>
+<li>Afhankelijk van uw PowerShell-uitvoeringsbeleid moet u mogelijk de volgende opdracht uitvoeren</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>Unblock-File Install_AutomationKit.ps1
 </span></span></code></pre></div><ol>
 <li>
 <p>Het PowerShell-script vraagt u een installatieconfiguratiebestand te maken met behulp van <a href="https://microsoft.github.io/powercat-automation-kit/nl/get-started/setup">Setup installeren</a>. De configuratiepagina&rsquo;s voor de installatie bieden u het volgende</p>
@@ -1127,6 +1136,11 @@
             }
             questionModel.onStarted.add(() => {
                 console.log('called')
+            })
+            questionModel.onProcessHtml.add((survey, options) => {
+                if ( typeof options.html == "string" ) {
+                    options.html = converter.makeHtml(options.html);
+                }
             })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 

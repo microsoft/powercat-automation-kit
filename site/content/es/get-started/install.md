@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 Para instalar la versión más reciente del Kit de automatización, siga estos pasos. Si no puede utilizar las herramientas de línea de comandos, puede utilizar los pasos manuales documentados en [Guía de configuración](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. Asegúrese de que tiene <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Habilitar la característica del marco de componentes de Power Apps</a> en los entornos en los que desea instalar el Kit de automatización para entornos principal y satélite.
+
+1. Asegúrese de que el <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit instalado</a> en el entorno en el que desea instalar
+
 1. Abra la versión más reciente desde el <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Lanzamiento de GitHub de Automation Kit</a>
 
-1. Descargue el **AutomationKitInstall.zip**
+1. Descargue el **AutomationKitInstall.zip** de la sección Activos
 
 1. En el Explorador de Windows, seleccione el descargado **AutomationKitInstall.zip** y abra el cuadro de diálogo Propiedades
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-NOTA: En función de la directiva de ejecución de PowerShell, es posible que deba ejecutar el siguiente comando
+NOTA:
+1. En función de la directiva de ejecución de PowerShell, es posible que deba ejecutar el siguiente comando
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. El script de PowerShell le pedirá que cree un archivo de configuración de instalación mediante [Instalar el programa de instalación](/es/get-started/setup). Las páginas de configuración del programa de instalación le proporcionarán lo siguiente

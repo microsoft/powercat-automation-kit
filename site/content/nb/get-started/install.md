@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 Hvis du vil installere den nyeste versjonen av automatiseringssettet, bruker du fremgangsmåten nedenfor. Hvis du ikke kan bruke kommandolinjeverktøyene, kan du bruke de manuelle trinnene som er dokumentert i [Veiledning for oppsett](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. Sørg for at du har <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivere Power Apps-komponentrammeverkfunksjonen</a> i miljøene du vil installere automatiseringssettet for både hoved- og satellittmiljøer.
+
+1. Sørg for at <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installert</a> i miljøene du ønsker å installere i
+
 1. Åpne den nyeste versjonen fra <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Utgivelser av automatiseringssett GitHub</a>
 
-1. Last ned **AutomationKitInstall.zip**
+1. Last ned **AutomationKitInstall.zip** fra delen Aktiva
 
 1. I Windows Utforsker velger du den nedlastede **AutomationKitInstall.zip** og åpne dialogboksen Egenskaper
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-MERK: Avhengig av din PowerShell-kjøringspolicy må du kanskje kjøre følgende kommando
+NOTAT:
+1. Avhengig av din PowerShell-kjøringspolicy må du kanskje kjøre følgende kommando
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. PowerShell-skriptet vil be deg om å opprette en installasjonskonfigurasjonsfil ved hjelp av [Installasjonsprogrammet](/nb/get-started/setup). Oppsettkonfigurasjonssidene gir deg følgende

@@ -62,10 +62,16 @@
       <p>Om du vill installera den senaste versionen av Automation Kit använder du följande steg nedan. Om du inte kan använda kommandoradsverktygen kan du använda de manuella stegen som dokumenteras i <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">Vägledning för installation</a>.</p>
 <ol>
 <li>
+<p>Se till att du har <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivera funktionen Power Apps component framework</a> i de miljöer som du vill installera Automation Kit för både huvud- och satellitmiljöer.</p>
+</li>
+<li>
+<p>Se till att <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installerat</a> i de miljöer du vill installera i</p>
+</li>
+<li>
 <p>Öppna den senaste versionen från <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Automation Kit GitHub-versioner</a></p>
 </li>
 <li>
-<p>Ladda ner den <strong>AutomationKitInstall.zip</strong></p>
+<p>Ladda ner den <strong>AutomationKitInstall.zip</strong> från avsnittet Tillgångar</p>
 </li>
 <li>
 <p>I Utforskaren i Windows väljer du den nedladdade <strong>AutomationKitInstall.zip</strong> och öppna egenskapsdialogrutan</p>
@@ -85,8 +91,11 @@
 </ol>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span><span style="color:#66d9ef">cd</span> AutomationKitInstall
 </span></span><span style="display:flex;"><span>powershell Install_AutomationKit.ps1
-</span></span></code></pre></div><p>Beroende på din PowerShell-körningsprincip kan du behöva köra följande kommando</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+</span></span></code></pre></div><p>NOT:</p>
+<ol>
+<li>Beroende på din PowerShell-körningsprincip kan du behöva köra följande kommando</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span>Unblock-File Install_AutomationKit.ps1
 </span></span></code></pre></div><ol>
 <li>
 <p>PowerShell-skriptet uppmanar dig att skapa en installationskonfigurationsfil med hjälp av <a href="https://microsoft.github.io/powercat-automation-kit/sv/get-started/setup">Installera installationsprogrammet</a>. Konfigurationssidorna för konfiguration ger dig följande</p>
@@ -1127,6 +1136,11 @@
             }
             questionModel.onStarted.add(() => {
                 console.log('called')
+            })
+            questionModel.onProcessHtml.add((survey, options) => {
+                if ( typeof options.html == "string" ) {
+                    options.html = converter.makeHtml(options.html);
+                }
             })
             questionModel.onTextMarkdown.add(function (survey, options) {
                 

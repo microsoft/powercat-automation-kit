@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 Führen Sie die folgenden Schritte aus, um die neueste Version des Automation Kits zu installieren. Wenn Sie die Befehlszeilentools nicht verwenden können, können Sie die unter [Anleitung zur Einrichtung](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. Stellen Sie sicher, dass Sie <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivieren des Power Apps-Komponentenframeworkfeatures</a> in den Umgebungen, in denen Sie das Automation Kit für Haupt- und Satellitenumgebungen installieren möchten.
+
+1. Stellen Sie sicher, dass die <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installiert</a> in die Umgebungen, in denen Sie installieren möchten
+
 1. Öffnen Sie die neueste Version aus dem <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Automation Kit GitHub-Versionen</a>
 
-1. Laden Sie die **AutomationKitInstallieren.zip**
+1. Laden Sie die **AutomationKitInstallieren.zip** aus dem Abschnitt "Assets"
 
 1. Wählen Sie im Windows Explorer die heruntergeladene **AutomationKitInstallieren.zip** und öffnen Sie den Eigenschaftendialog
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-HINWEIS: Abhängig von Ihrer PowerShell-Ausführungsrichtlinie müssen Sie möglicherweise den folgenden Befehl ausführen
+ANMERKUNG:
+1. Abhängig von Ihrer PowerShell-Ausführungsrichtlinie müssen Sie möglicherweise den folgenden Befehl ausführen
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. Das PowerShell-Skript fordert Sie auf, eine Installationskonfigurationsdatei mit [Installieren von Setup](/de/get-started/setup). Auf den Setup-Konfigurationsseiten finden Sie Folgendes:

@@ -6,14 +6,18 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2251306D3FA73DEF67131846C92EDEB6BECC84B8
+generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
 ---
 
 Als u de nieuwste versie van de Automation Kit wilt installeren, gebruikt u de onderstaande stappen. Als u de opdrachtregelprogramma's niet kunt gebruiken, kunt u de handmatige stappen gebruiken die zijn beschreven in [Richtlijnen voor het instellen](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
+1. Zorg ervoor dat je <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">De frameworkfunctie voor Power Apps-onderdelen inschakelen</a> in de omgevingen waarin u de Automation Kit voor zowel hoofd- als satellietomgevingen wilt installeren.
+
+1. Zorg ervoor dat de <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit geïnstalleerd</a> in de omgevingen waarin u wilt installeren
+
 1. Open de nieuwste versie van de <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Automation Kit GitHub-releases</a>
 
-1. Download de **AutomationKitInstalleer.zip**
+1. Download de **AutomationKitInstalleer.zip** in de sectie Activa
 
 1. Selecteer in Windows Verkenner de gedownloade **AutomationKitInstalleer.zip** en open het dialoogvenster met eigenschappen
 
@@ -30,10 +34,11 @@ cd AutomationKitInstall
 powershell Install_AutomationKit.ps1
 ```
 
-OPMERKING: Afhankelijk van uw PowerShell-uitvoeringsbeleid moet u mogelijk de volgende opdracht uitvoeren
+NOTITIE:
+1. Afhankelijk van uw PowerShell-uitvoeringsbeleid moet u mogelijk de volgende opdracht uitvoeren
 
 ```cmd
-powershell.exe -ExecutionPolicy Bypass -File Install_AutomationKit.ps1
+Unblock-File Install_AutomationKit.ps1
 ```
 
 1. Het PowerShell-script vraagt u een installatieconfiguratiebestand te maken met behulp van [Setup installeren](/nl/get-started/setup). De configuratiepagina's voor de installatie bieden u het volgende
