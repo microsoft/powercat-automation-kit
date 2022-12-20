@@ -209,7 +209,7 @@ namespace AutomationKIT
             ActivateDeActivateCloudFlows();
             UpdateBusinessOwnertoExistingProjects(ProjectBusinessOwner);
             UpdateConsoleConfigurations();
-            InsertRecordstoDesktopFlowActionsTable();
+            InsertRecordstoDesktopFlowActionsTable();            
             InsertRecordstoFlowSessionTraceTable();
             PackageLog.Log("AfterPrimaryImport is completed on " + DateTime.Now.ToString());
             return true;
@@ -522,14 +522,14 @@ namespace AutomationKIT
                         {
                             try
                             {
-                                PackageLog.Log("Inseting flowaciton for batch on" + DateTime.Now);
+                                PackageLog.Log("Inseting flowaciton for batch on " + DateTime.Now);
                                 CrmSvc.Execute(EMflowRequests);
                                 EMflowRequests.Requests.Clear();
                                 result = true;
                             }
                             catch (Exception ex)
                             {
-                                PackageLog.Log("unable to fllw session trace record for " + actionName + "Error=" + ex.Message);
+                                PackageLog.Log("unable to insert fllw session trace record for " + actionName + "Error=" + ex.Message);
                                 result = false;
 
                             }
@@ -560,9 +560,9 @@ namespace AutomationKIT
 
             string csvpath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\PkgAssets\\autocoe_flowsessiontraces.csv";
 
-            DateTime DTcompletedon ;
+            DateTime DTcompletedon;
 
-            DateTime DTstartedon ;
+            DateTime DTstartedon;
 
             var EMRequests = new ExecuteMultipleRequest
             {
@@ -574,7 +574,7 @@ namespace AutomationKIT
                 }
             };            
 
-            if (resultflowaction.Entities.Count == 0)
+            if (resultflowaction.Entities.Count == 0 && ImportSampleData)
             {
                 PackageLog.Log("Start- Updating of flow session trace records on " + DateTime.Now.ToString());
 
