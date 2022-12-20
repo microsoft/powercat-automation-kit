@@ -61,6 +61,22 @@ steps:
     Copy-Item 'Microsoft_AutomationKIT_Satellite_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationCoESatellite_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item '$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKitResources\Release\Collateral\AutomationKit\*.pbit' -Destination '$(Pipeline.Workspace)\assetstaging'
+
+    [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression')
+
+    $zipfile = '$(Pipeline.Workspace)\assetstaging\Microsoft_AutomationKIT_Satellite_Package.zip'
+    $files   = '[Content_Types].xml'
+
+    $stream = New-Object IO.FileStream($zipfile, [IO.FileMode]::Open)
+    $mode   = [IO.Compression.ZipArchiveMode]::Update
+    $zip    = New-Object IO.Compression.ZipArchive($stream, $mode)
+
+    ($zip.Entries | ? { $files -contains $_.Name }) | Select-Object -First 1 | % { $_.Delete() }
+
+    $zip.Dispose()
+    $stream.Close()
+    $stream.Dispose()
     
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
@@ -89,7 +105,7 @@ steps:
 
     Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoEMain*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoESatellite*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
-    
+
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
       CompressionLevel = 'Fastest'
