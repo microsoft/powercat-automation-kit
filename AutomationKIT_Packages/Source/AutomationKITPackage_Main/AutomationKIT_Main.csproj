@@ -8,10 +8,12 @@
 	<AssemblyOriginatorKeyFile></AssemblyOriginatorKeyFile>
 	<Description>This AutomationKIT provides a set of templates and tools beyond the core Admin controls in the product for organizations to customize how they roll out and manage Power Platform Automation solutions</Description>
 	<DelaySign>False</DelaySign>	
-  </PropertyGroup>  
-  <PropertyGroup>
-    <ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
   </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Automation_Kit_Test\**" />
+    <EmbeddedResource Remove="Automation_Kit_Test\**" />
+    <None Remove="Automation_Kit_Test\**" />
+  </ItemGroup>  
   <ItemGroup>
     <Content Include="PkgAssets\Content\en-us\EndHtml\CSS\common.css">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -96,7 +98,10 @@
     <None Include="PkgAssets\autocoe_desktopflowactions.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="PkgAssets\AutomationCoEMain*.zip">
+    <None Include="PkgAssets\autocoe_flowsessiontraces.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="PkgAssets\AutomationCoEMain_1.0.20221102.1_managed.zip">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="PkgAssets\AutomationKit-SampleData.zip">
@@ -110,10 +115,10 @@
     </PackageReference>
     <PackageReference Include="Microsoft.CrmSdk.XrmTooling.CoreAssembly" Version="9.1.0.79" PrivateAssets="all" />
     <PackageReference Include="Microsoft.CrmSdk.XrmTooling.PackageDeployment" Version="9.1.0.74" PrivateAssets="all" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="7.0.0" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.ComponentModel.Composition" />
-    <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
     <None Update="AutomationKit_Main.settings">
@@ -135,6 +140,9 @@
   </ItemGroup>
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     
+  </Target>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;powershell Compress-Archive -Path '$(TargetDir)$(TargetFileName)','$(TargetDir)$(MSBuildProjectName).dll.conf*','$(TargetDir)*conten*.xml','$(TargetDir)Input.xml','$(TargetDir)logo32x32.png','$(TargetDir)TermsOfUse.html','$(TargetDir)PkgAssets'-DestinationPath '$(TargetDir)Microsoft_AutomationKIT_Main_Package.zip' -Force;&#xD;&#xA;powershell Copy-Item '$(TargetDir)Microsoft_AutomationKIT_Main_Package.zip' -Destination 'C:\Kotesh\AppSourceFolder' -Force )" />
   </Target>
   <ItemGroup>
     <PdAsset Remove="PkgAssets\json1.json" />
