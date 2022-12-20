@@ -141,9 +141,6 @@
   <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
     
   </Target>
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="if $(ConfigurationName) == Release (&#xD;&#xA;powershell Compress-Archive -Path '$(TargetDir)$(TargetFileName)','$(TargetDir)$(MSBuildProjectName).dll.conf*','$(TargetDir)*conten*.xml','$(TargetDir)Input.xml','$(TargetDir)logo32x32.png','$(TargetDir)TermsOfUse.html','$(TargetDir)PkgAssets'-DestinationPath '$(TargetDir)Microsoft_AutomationKIT_Main_Package.zip' -Force;&#xD;&#xA;powershell Copy-Item '$(TargetDir)Microsoft_AutomationKIT_Main_Package.zip' -Destination 'C:\Kotesh\AppSourceFolder' -Force )" />
-  </Target>
   <ItemGroup>
     <PdAsset Remove="PkgAssets\json1.json" />
   </ItemGroup>
