@@ -16,4 +16,4 @@ Review highlighted release features for the [November 2022 Release](https://micr
 
 ## Notes
 
-The Power BI template and Data Pack zip file are located inside the **AutomationKit.zip** file
+The Power BI template is located inside the **AutomationKitInstall.zip** file. Sample data install is now included as part of an optional step the setup above. 
