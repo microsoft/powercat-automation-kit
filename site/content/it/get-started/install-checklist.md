@@ -6,13 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2AC503D66E094AB5C82F46CA10B456692AD23207
+generated: A591492E9BB49AF51C9FC39263F757D10B7EC086
 ---
 
 > 🎥 Vuoi una presentazione più visiva del processo end-to-end e dei passaggi di installazione? Recensisci il nostro <a href='https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy' target='_blank'>{{<product-name>}} Playlist video</a> Per i prerequisiti, l'installazione della soluzione e {{<product-name>}} utilizzo.
 
 Se stai cercando di provare o installare il {{<product-name>}}, è possibile utilizzare le domande seguenti per guidare il processo di installazione
 
-La versione di dicembre include anche una riga di comando automatizzata [Apparecchio](/it/getting-started/setup) per semplificare l'avvio.
+La versione di dicembre include anche una riga di comando automatizzata [Apparecchio](/it/get-started/setup) per semplificare l'avvio.
 
 {{<questions name="/content/it/get-started/install-checklist.json" completed="Grazie per aver completato l'elenco di controllo per l'installazione" showNavigationButtons="false" locale="it">}}
