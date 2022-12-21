@@ -52,7 +52,7 @@ class InstallationType {
 	{
 		$this.ObjLogger.LogMessage("Welcome to Automation kit installation.",1)
 		
-		[string]$UserChoice= Read-Host -Prompt "Hey Do you want to create and download connection settings from Automation Kit setup Page? (y/n) (y- create now, n- dont require (already if you have done)"
+		[string]$UserChoice= Read-Host -Prompt "Do you want to create and download connection settings from Automation Kit setup Page? (y/n) (y- create now, n- dont require (already if you have done)"
 		
 		$CharArray =$UserChoice.ToLower().ToCharArray()
 
@@ -78,7 +78,7 @@ class InstallationType {
 		$this.ObjLogger.LogMessage("Getting things ready to install Automation Kit",1)
 		$this.ObjLogger.LogMessage("========================================================",1)
 		
-		[string]$UserChoice= Read-Host -Prompt "Press y/n/c to continue setup (y- Instll to Main solution, n- Install Satellite solution and c- or other to cancel the installation):"
+		[string]$UserChoice= Read-Host -Prompt "Press y/n/c to continue setup (y- Install to Main solution, n- Install Satellite solution and c- or other to cancel the installation):"
 
 		#True for main solution installation and false for satellite solution 
 
