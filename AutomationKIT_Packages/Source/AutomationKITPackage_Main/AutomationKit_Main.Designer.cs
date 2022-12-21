@@ -106,5 +106,17 @@ namespace AutomationKIT_Main {
                 this["Canvas_App_Project_Name"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("100")]
+        public int NoOfRecordsforBatchProcessing {
+            get {
+                return ((int)(this["NoOfRecordsforBatchProcessing"]));
+            }
+            set {
+                this["NoOfRecordsforBatchProcessing"] = value;
+            }
+        }
     }
 }

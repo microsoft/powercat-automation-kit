@@ -179,6 +179,7 @@ Describe 'Install-Main-Solution-Test' {
         Mock -CommandName Write-Host -MockWith {}	
 		Mock -CommandName write-warning -MockWith {}
 		Mock -CommandName write-Error -MockWith {}
+        Mock -CommandName Set-Content -MockWith {}
 		
         Mock pac
 
