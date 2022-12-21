@@ -6,11 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 2DD78608F0B2B1F28A2B6AAB6A51D7570FBEDE2C
+generated: 2AC503D66E094AB5C82F46CA10B456692AD23207
 ---
 
 > 🎥 想要更直观地展示端到端流程和安装步骤？查看我们的<a href='https://www.youtube.com/playlist?list=PLi9EhCY4z99VlRg4j7D1Or6XfXbUcEWZy' target='_blank'>{{<product-name>}} 视频播放列表</a>对于先决条件，解决方案安装和 {{<product-name>}} 用法。
 
 如果您想尝试或安装 {{<product-name>}}，您可以使用以下问题来指导您的安装过程
+
+12 月版本还包括一个自动命令行[设置](/zh-hans/getting-started/setup)简化入门的过程。
 
 {{<questions name="/content/zh-hans/get-started/install-checklist.json" completed="感谢您完成安装清单" showNavigationButtons="false" locale="zh-hans">}}

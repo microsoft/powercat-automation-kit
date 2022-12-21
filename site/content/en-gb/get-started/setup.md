@@ -6,10 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 80E55373CD6E25BD9BA123EEE6178F988D711B3D
+generated: CEB0FD6EE862C1B3CB1C5F3E49F5147C4ECBA9F5
 ---
 
 Use the steps below to assist you with creating a configuration for your environment so that you can rapidly install and configure your install.
+
+Get started by following the steps in <a href='/get-started/install' target='_blank'>Install</a> to download the latest version of the command line install components.
 
 If you want to provide any feedback on the setup process? If so you can use the [Setup Feedback](/en-gb/get-started/setup-feedback) page.
 
