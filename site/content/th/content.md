@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
+generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 ---
 
 {{<toc>}}
@@ -96,6 +96,11 @@ generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 - [ชุดระบบอัตโนมัติ - เวลาทําการ ตุลาคม 2022](/th/office-hours/october-2022)
 
 - [ชุดระบบอัตโนมัติ - ยกเลิกการลงทะเบียนเวลาทําการ](/th/office-hours/unregister)
+
+
+### สถานที่: /โพสต์/
+
+- [ชุดระบบอัตโนมัติ - สิ้นปี 2022](/th/posts/december-2022)
 
 
 ### สถานที่: /รีลีส/

@@ -4,7 +4,7 @@ description: "Kit di automazione - Indice del sito"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
+generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 ---
 
 {{<toc>}}
@@ -96,6 +96,11 @@ generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 - [Kit di automazione - Orario d'ufficio ottobre 2022](/it/office-hours/october-2022)
 
 - [Kit di automazione - Annullamento registrazione dell'orario d'ufficio](/it/office-hours/unregister)
+
+
+### Posizione: /posts/
+
+- [Kit di automazione - Fine 2022](/it/posts/december-2022)
 
 
 ### Posizione: /releases/

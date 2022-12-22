@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
+generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 ---
 
 {{<toc>}}
@@ -96,6 +96,11 @@ generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 - [自动化套件 - 办公时间 2022 年 10 月](/zh-hans/office-hours/october-2022)
 
 - [自动化套件 - 办公时间取消注册](/zh-hans/office-hours/unregister)
+
+
+### 当前位置： /帖子/
+
+- [自动化套件 - 2022 年底](/zh-hans/posts/december-2022)
 
 
 ### 当前位置： /发布/

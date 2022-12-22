@@ -4,7 +4,7 @@ description: "Automation Kit - Webbplatsindex"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
+generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 ---
 
 {{<toc>}}
@@ -96,6 +96,11 @@ generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 - [Automation Kit - Kontorstid oktober 2022](/sv/office-hours/october-2022)
 
 - [Automation Kit - Avregistrering av kontorstid](/sv/office-hours/unregister)
+
+
+### Plats: /inlägg/
+
+- [Automation Kit - Slutet av 2022](/sv/posts/december-2022)
 
 
 ### Plats: /releaser/

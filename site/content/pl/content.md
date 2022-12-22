@@ -4,7 +4,7 @@ description: "Automation Kit - Indeks witryny"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
+generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 ---
 
 {{<toc>}}
@@ -96,6 +96,11 @@ generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 - [Automation Kit - Godziny pracy biura Październik 2022](/pl/office-hours/october-2022)
 
 - [Automation Kit - Wyrejestruj godziny pracy](/pl/office-hours/unregister)
+
+
+### Lokalizacja: /posts/
+
+- [Zestaw automatyzacji - koniec 2022 r.](/pl/posts/december-2022)
 
 
 ### Lokalizacja: /releases/

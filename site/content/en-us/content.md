@@ -97,6 +97,11 @@ include_footer: true
 - [Automation Kit - Office Hours Unregister](/office-hours/unregister)
 
 
+### Location: /posts/
+
+- [Automation Kit - End of 2022](/posts/december-2022)
+
+
 ### Location: /releases/
 
 - [Automation Kit - December 2022](/releases/december-2022)

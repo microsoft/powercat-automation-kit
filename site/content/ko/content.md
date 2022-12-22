@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
+generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 ---
 
 {{<toc>}}
@@ -96,6 +96,11 @@ generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 - [자동화 키트 - 근무 시간 2022년 10월](/ko/office-hours/october-2022)
 
 - [자동화 키트 - 근무 시간 등록 취소](/ko/office-hours/unregister)
+
+
+### 위치: /게시물/
+
+- [자동화 키트 - 2022년 말](/ko/posts/december-2022)
 
 
 ### 위치: /릴리스/

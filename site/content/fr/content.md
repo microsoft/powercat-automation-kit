@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Index du site"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
+generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 ---
 
 {{<toc>}}
@@ -96,6 +96,11 @@ generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 - [Kit d’automatisation - Heures de bureau Octobre 2022](/fr/office-hours/october-2022)
 
 - [Kit d’automatisation - Heures de bureau Se désinscrire](/fr/office-hours/unregister)
+
+
+### Emplacement: /posts/
+
+- [Kit d’automatisation - Fin 2022](/fr/posts/december-2022)
 
 
 ### Emplacement : /releases/

@@ -4,7 +4,7 @@ description: "Automatiseringskit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
+generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 ---
 
 {{<toc>}}
@@ -96,6 +96,11 @@ generated: 9A3C9B91C3F4A108FFF30F03AFA95408BB9661C1
 - [Automation Kit - Kantooruren oktober 2022](/nl/office-hours/october-2022)
 
 - [Automation Kit - Kantooruren Uitschrijven](/nl/office-hours/unregister)
+
+
+### Locatie: /posts/
+
+- [Automation Kit - Eind 2022](/nl/posts/december-2022)
 
 
 ### Locatie: /releases/
