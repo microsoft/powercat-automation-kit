@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
+generated: 4FB940E2D946AE8F1948D37E5188A7A4419A7B23
 ---
 
 ## 紹介
@@ -17,7 +17,7 @@ generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
 
 ザ[オートメーションセンターオブエクセレンス戦略と{{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy)また、{{<product-name>}} は、オートメーション センター オブ エクセレンスに役立ちます。
 
-> 📋 インストールに直接飛び込みたいですか?レビューする[インストール・チェックリスト](/ja/get-started/install-checklist).
+> インストールに直接飛び込みたいですか?レビューする[インストール・チェックリスト](/ja/get-started/install-checklist).
 
 ## チェックリスト
 

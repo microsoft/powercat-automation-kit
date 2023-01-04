@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
+generated: 4FB940E2D946AE8F1948D37E5188A7A4419A7B23
 ---
 
 ## Introductie
@@ -17,7 +17,7 @@ U kunt ook gebruik maken van de [Introductie](https://learn.microsoft.com/power-
 
 De [Automation Center of Excellence strategie met de {{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy) kan ook worden gebruikt om context te bieden over hoe de {{<product-name>}} kan uw Automation Center of Excellence helpen.
 
-> 📋 Wilt u direct in de installatie springen? Bekijk de [Checklist installeren](/nl/get-started/install-checklist).
+> Wilt u direct in de installatie springen? Bekijk de [Checklist installeren](/nl/get-started/install-checklist).
 
 ## Controlelijst
 

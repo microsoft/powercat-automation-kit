@@ -9,7 +9,55 @@
   ],
   "pages": [
     {
+      "name": "install-method",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "install-type",
+          "title": {
+            "default": "Which method of the install are you trying to make?",
+            "zh-hans": "您尝试采用哪种安装方法？"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "manual",
+              "text": {
+                "default": "Manual - Download and install using install guide",
+                "zh-hans": "手册 - 使用安装指南下载并安装"
+              }
+            },
+            {
+              "value": "automated",
+              "text": {
+                "default": "Automated - Download and using command line interface",
+                "zh-hans": "自动 - 下载并使用命令行界面"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'manual'",
+          "html": {
+            "default": "Manual install selected. Using this install you will download the [release from GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and follow steps from <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>online install instructions</a> to install and configure the solution. Use the next pages as a checklist for the manual install process",
+            "zh-hans": "已选择手动安装。使用此安装，您将下载[从 GitHub 发布](https://github.com/microsoft/powercat-automation-kit/releases)并按照以下步骤操作<a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>在线安装说明</a>以安装和配置解决方案。使用下一页作为手动安装过程的清单"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'automated'",
+          "html": {
+            "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
+            "zh-hans": "已选择自动安装。使用 <a href='/get-started/install' target='_blank'>安装指南</a>从下载安装 ZIP 文件[GitHub](https://github.com/microsoft/powercat-automation-kit/releases)，然后使用命令行自动设置和配置解决方案"
+          }
+        }
+      ]
+    },
+    {
       "name": "welcome",
+      "visibleIf": "{install-type} == 'manual'",
       "elements": [
         {
           "type": "radiogroup",
@@ -672,7 +720,11 @@
             "zh-hans": "您想提供有关您遇到的问题的更多信息吗？"
           },
           "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
-        },
+        }
+      ]
+    },
+    {
+      "elements": [
         {
           "type": "boolean",
           "name": "send-results",
@@ -709,7 +761,7 @@
         },
         {
           "type": "feedback-task",
-          "name": "send-results",
+          "name": "send-results-feedback",
           "title": {
             "default": "Send your feedback now?",
             "zh-hans": "立即发送您的反馈？"

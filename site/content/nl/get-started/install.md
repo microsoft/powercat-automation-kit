@@ -1,12 +1,12 @@
 ---
-title: "Installeren"
+title: "Installatie op de opdrachtregel"
 description: "Automation Kit - Installeren"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
+generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
 ---
 
 Als u de nieuwste versie van de Automation Kit wilt installeren, gebruikt u de onderstaande stappen. Als u de opdrachtregelprogramma's niet kunt gebruiken, kunt u de handmatige stappen gebruiken die zijn beschreven in [Richtlijnen voor het instellen](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
@@ -65,4 +65,4 @@ Unblock-File Install_AutomationKit.ps1
 
 Wilt u feedback geven op de [installatieproces](/nl/get-started/setup)? De onderstaande vragen helpen ons het proces te verbeteren.
 
-{{<questions name="/content/nl/get-started/setup-feedback.json" completed="Bedankt voor het geven van feedback" showNavigationButtons=true locale="nl">}}
+{{<questions name="/content/nl/get-started/setup-feedback.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}

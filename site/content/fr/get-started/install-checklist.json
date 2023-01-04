@@ -9,7 +9,55 @@
   ],
   "pages": [
     {
+      "name": "install-method",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "install-type",
+          "title": {
+            "default": "Which method of the install are you trying to make?",
+            "fr": "Quelle méthode d’installation essayez-vous de faire?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "manual",
+              "text": {
+                "default": "Manual - Download and install using install guide",
+                "fr": "Manuel - Télécharger et installer à l’aide du guide d’installation"
+              }
+            },
+            {
+              "value": "automated",
+              "text": {
+                "default": "Automated - Download and using command line interface",
+                "fr": "Automatisé - Télécharger et utiliser l’interface de ligne de commande"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'manual'",
+          "html": {
+            "default": "Manual install selected. Using this install you will download the [release from GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and follow steps from <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>online install instructions</a> to install and configure the solution. Use the next pages as a checklist for the manual install process",
+            "fr": "Installation manuelle sélectionnée. En utilisant cette installation, vous téléchargerez le [version de GitHub](https://github.com/microsoft/powercat-automation-kit/releases) et suivez les étapes de <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>Instructions d’installation en ligne</a> pour installer et configurer la solution. Utilisez les pages suivantes comme liste de contrôle pour le processus d’installation manuelle"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'automated'",
+          "html": {
+            "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
+            "fr": "Installation automatisée sélectionnée. Utilisez le  <a href='/get-started/install' target='_blank'>Guide d’installation</a> pour télécharger le fichier ZIP d’installation à partir de [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) puis utilisez la ligne de commande pour automatiser l’installation et la configuration de la solution"
+          }
+        }
+      ]
+    },
+    {
       "name": "welcome",
+      "visibleIf": "{install-type} == 'manual'",
       "elements": [
         {
           "type": "radiogroup",
@@ -672,7 +720,11 @@
             "fr": "Souhaitez-vous fournir plus d’informations sur les problèmes que vous avez rencontrés?"
           },
           "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
-        },
+        }
+      ]
+    },
+    {
+      "elements": [
         {
           "type": "boolean",
           "name": "send-results",
@@ -709,7 +761,7 @@
         },
         {
           "type": "feedback-task",
-          "name": "send-results",
+          "name": "send-results-feedback",
           "title": {
             "default": "Send your feedback now?",
             "fr": "Envoyer vos commentaires maintenant?"

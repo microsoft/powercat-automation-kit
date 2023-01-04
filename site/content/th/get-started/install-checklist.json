@@ -9,7 +9,55 @@
   ],
   "pages": [
     {
+      "name": "install-method",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "install-type",
+          "title": {
+            "default": "Which method of the install are you trying to make?",
+            "th": "คุณกําลังพยายามใช้วิธีการติดตั้งแบบใด"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "manual",
+              "text": {
+                "default": "Manual - Download and install using install guide",
+                "th": "คู่มือ - ดาวน์โหลดและติดตั้งโดยใช้คู่มือการติดตั้ง"
+              }
+            },
+            {
+              "value": "automated",
+              "text": {
+                "default": "Automated - Download and using command line interface",
+                "th": "อัตโนมัติ - ดาวน์โหลดและใช้อินเทอร์เฟซบรรทัดคําสั่ง"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'manual'",
+          "html": {
+            "default": "Manual install selected. Using this install you will download the [release from GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and follow steps from <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>online install instructions</a> to install and configure the solution. Use the next pages as a checklist for the manual install process",
+            "th": "เลือกติดตั้งด้วยตนเอง ใช้การติดตั้งนี้คุณจะดาวน์โหลด [ปล่อยจาก GitHub](https://github.com/microsoft/powercat-automation-kit/releases) และทําตามขั้นตอนจาก <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>คําแนะนําในการติดตั้งออนไลน์</a> เพื่อติดตั้งและกําหนดค่าโซลูชัน ใช้หน้าถัดไปเป็นรายการตรวจสอบสําหรับกระบวนการติดตั้งด้วยตนเอง"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'automated'",
+          "html": {
+            "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
+            "th": "เลือกติดตั้งอัตโนมัติ ใช้ปุ่ม  <a href='/get-started/install' target='_blank'>คู่มือการติดตั้ง</a> เพื่อดาวน์โหลดไฟล์ ZIP ติดตั้งจาก [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) จากนั้นใช้บรรทัดคําสั่งเพื่อทําให้การตั้งค่าและการกําหนดค่าโซลูชันเป็นไปโดยอัตโนมัติ"
+          }
+        }
+      ]
+    },
+    {
       "name": "welcome",
+      "visibleIf": "{install-type} == 'manual'",
       "elements": [
         {
           "type": "radiogroup",
@@ -672,7 +720,11 @@
             "th": "คุณต้องการให้ข้อมูลเพิ่มเติมเกี่ยวกับปัญหาที่คุณพบหรือไม่?"
           },
           "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
-        },
+        }
+      ]
+    },
+    {
+      "elements": [
         {
           "type": "boolean",
           "name": "send-results",
@@ -709,7 +761,7 @@
         },
         {
           "type": "feedback-task",
-          "name": "send-results",
+          "name": "send-results-feedback",
           "title": {
             "default": "Send your feedback now?",
             "th": "ส่งความคิดเห็นของคุณตอนนี้หรือไม่"

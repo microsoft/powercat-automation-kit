@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
+generated: 4FB940E2D946AE8F1948D37E5188A7A4419A7B23
 ---
 
 ## 介绍
@@ -17,7 +17,7 @@ generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
 
 这[自动化卓越中心战略与{{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy)还可用于提供有关 {{<product-name>}} 可以帮助您的自动化卓越中心。
 
-> 📋 想要直接进入安装？查看[安装清单](/zh-hans/get-started/install-checklist).
+> 想要直接进入安装？查看[安装清单](/zh-hans/get-started/install-checklist).
 
 ## 清单
 

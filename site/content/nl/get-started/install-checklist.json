@@ -9,7 +9,55 @@
   ],
   "pages": [
     {
+      "name": "install-method",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "install-type",
+          "title": {
+            "default": "Which method of the install are you trying to make?",
+            "nl": "Welke methode van de installatie probeert u te maken?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "manual",
+              "text": {
+                "default": "Manual - Download and install using install guide",
+                "nl": "Handleiding - Downloaden en installeren met behulp van de installatiehandleiding"
+              }
+            },
+            {
+              "value": "automated",
+              "text": {
+                "default": "Automated - Download and using command line interface",
+                "nl": "Geautomatiseerd - Download en gebruik van de opdrachtregelinterface"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'manual'",
+          "html": {
+            "default": "Manual install selected. Using this install you will download the [release from GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and follow steps from <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>online install instructions</a> to install and configure the solution. Use the next pages as a checklist for the manual install process",
+            "nl": "Handmatige installatie geselecteerd. Met behulp van deze installatie downloadt u de [release van GitHub](https://github.com/microsoft/powercat-automation-kit/releases) en volg de stappen van <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>instructies voor online installeren</a> om de oplossing te installeren en te configureren. Gebruik de volgende pagina's als controlelijst voor het handmatige installatieproces"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'automated'",
+          "html": {
+            "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
+            "nl": "Automatische installatie geselecteerd. Gebruik de  <a href='/get-started/install' target='_blank'>installatiehandleiding</a> om het installatie ZIP-bestand te downloaden van [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) en gebruik vervolgens de opdrachtregel om de installatie en configuratie van de oplossing te automatiseren"
+          }
+        }
+      ]
+    },
+    {
       "name": "welcome",
+      "visibleIf": "{install-type} == 'manual'",
       "elements": [
         {
           "type": "radiogroup",
@@ -672,7 +720,11 @@
             "nl": "Wilt u meer informatie geven over welke problemen u tegenkwam?"
           },
           "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
-        },
+        }
+      ]
+    },
+    {
+      "elements": [
         {
           "type": "boolean",
           "name": "send-results",
@@ -709,7 +761,7 @@
         },
         {
           "type": "feedback-task",
-          "name": "send-results",
+          "name": "send-results-feedback",
           "title": {
             "default": "Send your feedback now?",
             "nl": "Nu uw feedback verzenden?"

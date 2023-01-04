@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
+generated: 4FB940E2D946AE8F1948D37E5188A7A4419A7B23
 ---
 
 ## Introduksjon
@@ -17,7 +17,7 @@ Du kan også bruke [Introduksjon](https://learn.microsoft.com/power-automate/gui
 
 Den [Strategi for automatiseringssenter for fremragende forskning med {{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy) kan også brukes til å gi kontekst om hvordan {{<product-name>}} kan hjelpe ditt Automation Center of Excellence.
 
-> 📋 Ønsker du å hoppe rett inn i installasjonen? Se gjennom [Installer sjekkliste](/nb/get-started/install-checklist).
+> Ønsker du å hoppe rett inn i installasjonen? Se gjennom [Installer sjekkliste](/nb/get-started/install-checklist).
 
 ## Sjekkliste
 

@@ -16,7 +16,7 @@ You can also use the [Introduction](https://learn.microsoft.com/power-automate/g
 
 The [Automation Center of Excellence strategy with the {{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy) can also be used to provide context on how the {{<product-name>}} can help your Automation Center of Excellence.
 
-> 📋 Looking to jump straight into install? Review the [Install Checklist](/get-started/install-checklist).
+> Looking to jump straight into install? Review the [Install Checklist](/get-started/install-checklist).
 
 ## Checklist
 

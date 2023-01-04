@@ -9,7 +9,55 @@
   ],
   "pages": [
     {
+      "name": "install-method",
+      "elements": [
+        {
+          "type": "radiogroup",
+          "name": "install-type",
+          "title": {
+            "default": "Which method of the install are you trying to make?",
+            "nb": "Hvilken metode for installasjonen prøver du å gjøre?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "manual",
+              "text": {
+                "default": "Manual - Download and install using install guide",
+                "nb": "Manual - Last ned og installer ved hjelp av installasjonsveiledningen"
+              }
+            },
+            {
+              "value": "automated",
+              "text": {
+                "default": "Automated - Download and using command line interface",
+                "nb": "Automatisert - Last ned og bruk kommandolinjegrensesnitt"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'manual'",
+          "html": {
+            "default": "Manual install selected. Using this install you will download the [release from GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and follow steps from <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>online install instructions</a> to install and configure the solution. Use the next pages as a checklist for the manual install process",
+            "nb": "Manuell installasjon valgt. Ved hjelp av denne installasjonen vil du laste ned [utgivelse fra GitHub](https://github.com/microsoft/powercat-automation-kit/releases) og følg trinnene fra <a href='https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites' target='_blank'>Installasjonsinstruksjoner på Internett</a> for å installere og konfigurere løsningen. Bruk de neste sidene som sjekkliste for den manuelle installasjonsprosessen"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'automated'",
+          "html": {
+            "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
+            "nb": "Automatisert installasjon valgt. Bruk ikonet  <a href='/get-started/install' target='_blank'>Veiledning for installasjon</a> for å laste ned installasjons-ZIP-filen fra [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) og bruk deretter kommandolinjen til å automatisere oppsettet og konfigurasjonen av løsningen"
+          }
+        }
+      ]
+    },
+    {
       "name": "welcome",
+      "visibleIf": "{install-type} == 'manual'",
       "elements": [
         {
           "type": "radiogroup",
@@ -672,7 +720,11 @@
             "nb": "Vil du gi mer informasjon om hvilke problemer du opplevde?"
           },
           "visibleIf": "contains({components},'satellite') and contains({satelliteSetup},'unable-to-complete')"
-        },
+        }
+      ]
+    },
+    {
+      "elements": [
         {
           "type": "boolean",
           "name": "send-results",
@@ -709,7 +761,7 @@
         },
         {
           "type": "feedback-task",
-          "name": "send-results",
+          "name": "send-results-feedback",
           "title": {
             "default": "Send your feedback now?",
             "nb": "Send tilbakemelding nå?"

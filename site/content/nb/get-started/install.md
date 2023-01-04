@@ -1,12 +1,12 @@
 ---
-title: "Installere"
+title: "Kommandolinje Installer"
 description: "Automatiseringssett - Installer"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
+generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
 ---
 
 Hvis du vil installere den nyeste versjonen av automatiseringssettet, bruker du fremgangsmåten nedenfor. Hvis du ikke kan bruke kommandolinjeverktøyene, kan du bruke de manuelle trinnene som er dokumentert i [Veiledning for oppsett](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
@@ -65,4 +65,4 @@ Unblock-File Install_AutomationKit.ps1
 
 Ønsker å gi tilbakemelding på [Installasjonsprosess](/nb/get-started/setup)? Spørsmålene nedenfor hjelper oss med å forbedre prosessen.
 
-{{<questions name="/content/nb/get-started/setup-feedback.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons=true locale="nb">}}
+{{<questions name="/content/nb/get-started/setup-feedback.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}

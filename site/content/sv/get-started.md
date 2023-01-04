@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
+generated: 4FB940E2D946AE8F1948D37E5188A7A4419A7B23
 ---
 
 ## Införandet
@@ -17,7 +17,7 @@ Du kan också använda [Införandet](https://learn.microsoft.com/power-automate/
 
 Den [Automation Center of Excellence-strategi med {{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy) kan också användas för att ge sammanhang om hur {{<product-name>}} kan hjälpa ditt Automation Center of Excellence.
 
-> 📋 Vill du hoppa rakt in i installationen? Granska [Checklista för installation](/sv/get-started/install-checklist).
+> Vill du hoppa rakt in i installationen? Granska [Checklista för installation](/sv/get-started/install-checklist).
 
 ## Checklista
 

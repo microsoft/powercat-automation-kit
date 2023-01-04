@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
+generated: 4FB940E2D946AE8F1948D37E5188A7A4419A7B23
 ---
 
 ## 소개
@@ -17,7 +17,7 @@ generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
 
 그 [자동화 센터 우수 전략 {{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy) 방법에 대한 컨텍스트를 제공하는 데에도 사용할 수 있습니다.<product-name>}}는 자동화 우수 센터를 도울 수 있습니다.
 
-> 📋 바로 설치를 시작하고 싶으십니까? 검토 [설치 검사 목록](/ko/get-started/install-checklist).
+> 바로 설치를 시작하고 싶으십니까? 검토 [설치 검사 목록](/ko/get-started/install-checklist).
 
 ## 점검 표
 

@@ -1,12 +1,12 @@
 ---
-title: "安装"
+title: "命令行安装"
 description: "自动化套件 - 安装"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
+generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
 ---
 
 要安装最新版本的自动化工具包，请使用以下步骤。如果无法使用命令行工具，可以使用中记录的手动步骤[设置指南](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
@@ -65,4 +65,4 @@ Unblock-File Install_AutomationKit.ps1
 
 想要提供有关[设置过程](/zh-hans/get-started/setup)?以下问题有助于我们改进流程。
 
-{{<questions name="/content/zh-hans/get-started/setup-feedback.json" completed="感谢您提供反馈" showNavigationButtons=true locale="zh-hans">}}
+{{<questions name="/content/zh-hans/get-started/setup-feedback.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}

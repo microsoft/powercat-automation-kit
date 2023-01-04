@@ -1,12 +1,12 @@
 ---
-title: "Installera"
+title: "Kommandoradsinstallation"
 description: "Automation Kit - Installera"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
+generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
 ---
 
 Om du vill installera den senaste versionen av Automation Kit använder du följande steg nedan. Om du inte kan använda kommandoradsverktygen kan du använda de manuella stegen som dokumenteras i [Vägledning för installation](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
@@ -65,4 +65,4 @@ Unblock-File Install_AutomationKit.ps1
 
 Vill ge feedback på [installationsprocessen](/sv/get-started/setup)? Frågorna nedan hjälper oss att förbättra processen.
 
-{{<questions name="/content/sv/get-started/setup-feedback.json" completed="Tack för att du ger feedback" showNavigationButtons=true locale="sv">}}
+{{<questions name="/content/sv/get-started/setup-feedback.json" completed="Tack för att du ger feedback" showNavigationButtons="false" locale="sv">}}

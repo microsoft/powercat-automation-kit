@@ -1,5 +1,5 @@
 ---
-title: Install
+title: Command Line Install
 description: Automation Kit - Install
 sidebar: false
 sidebarlogo: fresh-white
@@ -64,4 +64,4 @@ Unblock-File Install_AutomationKit.ps1
 
 Want to provide feedback on the [setup process](/get-started/setup)? The questions below help us improve the process.
 
-{{<questions name="/content/en-us/get-started/setup-feedback.json" completed="Thank you for providing feedback" showNavigationButtons=true >}}
+{{<questions name="/content/en-us/get-started/setup-feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}

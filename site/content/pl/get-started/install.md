@@ -1,12 +1,12 @@
 ---
-title: "Instalować"
+title: "Instalacja z wiersza poleceń"
 description: "Automation Kit - Zainstaluj"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
+generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
 ---
 
 Aby zainstalować najnowszą wersję pakietu Automation Kit, wykonaj następujące czynności opisane poniżej. Jeśli nie możesz użyć narzędzi wiersza polecenia, możesz wykonać ręczne kroki opisane w sekcji [Wskazówki dotyczące konfiguracji](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
@@ -65,4 +65,4 @@ Unblock-File Install_AutomationKit.ps1
 
 Chcesz przekazać opinię na temat [Proces konfiguracji](/pl/get-started/setup)? Poniższe pytania pomagają nam ulepszyć ten proces.
 
-{{<questions name="/content/pl/get-started/setup-feedback.json" completed="Dziękujemy za przekazanie opinii" showNavigationButtons=true locale="pl">}}
+{{<questions name="/content/pl/get-started/setup-feedback.json" completed="Dziękujemy za przekazanie opinii" showNavigationButtons="false" locale="pl">}}

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
+generated: 4FB940E2D946AE8F1948D37E5188A7A4419A7B23
 ---
 
 ## Einleitung
@@ -17,7 +17,7 @@ Sie können auch die [Einleitung](https://learn.microsoft.com/power-automate/gui
 
 Das [Automation Center of Excellence Strategie mit der {{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy) kann auch verwendet werden, um Kontext dafür bereitzustellen, wie die {{<product-name>}} kann Ihrem Automation Center of Excellence helfen.
 
-> 📋 Möchten Sie direkt in die Installation einsteigen? Überprüfen Sie die [Checkliste für die Installation](/de/get-started/install-checklist).
+> Möchten Sie direkt in die Installation einsteigen? Überprüfen Sie die [Checkliste für die Installation](/de/get-started/install-checklist).
 
 ## Prüfliste
 

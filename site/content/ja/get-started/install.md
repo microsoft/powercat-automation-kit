@@ -1,12 +1,12 @@
 ---
-title: "取り付ける"
+title: "コマンドラインインストール"
 description: "自動化キット - インストール"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 458A6A6E57855817B73D18C0F0A5855DDAFC40DE
+generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
 ---
 
 最新バージョンのオートメーションキットをインストールするには、以下の手順を使用します。コマンドラインツールを使用できない場合は、「」に記載されている手動の手順を使用できます。[セットアップガイダンス](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
@@ -65,4 +65,4 @@ Unblock-File Install_AutomationKit.ps1
 
 に関するフィードバックを提供したい[セットアッププロセス](/ja/get-started/setup)?以下の質問は、プロセスの改善に役立ちます。
 
-{{<questions name="/content/ja/get-started/setup-feedback.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons=true locale="ja">}}
+{{<questions name="/content/ja/get-started/setup-feedback.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 1EBA78F6AEDBBB4A47AC7A40A590EBD54A81DC2D
+generated: 4FB940E2D946AE8F1948D37E5188A7A4419A7B23
 ---
 
 ## Indførelsen
@@ -17,7 +17,7 @@ Du kan også bruge [Indførelsen](https://learn.microsoft.com/power-automate/gui
 
 Den [Automation Center of Excellence-strategien med {{<product-name>}}](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/automation-coe-strategy) kan også bruges til at give kontekst om, hvordan {{<product-name>}} kan hjælpe dit Automation Center of Excellence.
 
-> 📋 Ønsker du at hoppe direkte ind i installationen? Gennemgå [Installer tjekliste](/da/get-started/install-checklist).
+> Ønsker du at hoppe direkte ind i installationen? Gennemgå [Installer tjekliste](/da/get-started/install-checklist).
 
 ## Tjekliste
 
