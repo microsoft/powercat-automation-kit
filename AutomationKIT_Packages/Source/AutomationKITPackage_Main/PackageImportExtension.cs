@@ -8,6 +8,10 @@ using System.Reflection;
 using System.IO;
 using System.Linq;
 using Microsoft.Xrm.Sdk.Messages;
+using AutomationKIT_Main.PackageExtensions;
+using AutomationKIT_Main.Adapters;
+using AutomationKIT_Main.ExtensionClasses;
+
 
 namespace AutomationKIT
 {
@@ -205,7 +209,34 @@ namespace AutomationKIT
         public override bool AfterPrimaryImport()
         {
             PackageLog.Log("AfterPrimaryImport is started on " + DateTime.Now.ToString());
-            AssignUsersToRoles();
+            ICrmServiceAdapter adapter = new CrmServiceAdapter(CrmSvc);
+            TraceLoggerAdapter LoggerAdapter = new TraceLoggerAdapter(PackageLog);
+           
+            PackageExtensions packageExt = new PackageExtensions( adapter, LoggerAdapter);
+
+            MainPackageExt mainpkgExt = new MainPackageExt((IPackageExtensions)packageExt);
+
+            bool result;
+
+            if (!string.IsNullOrEmpty(ProjectAdminUsers))            {
+
+                result = mainpkgExt.AssignUsersToRole (ProjectAdminUsers, const_Security_Name_Project_Admin);                        
+            }
+
+            if (!string.IsNullOrEmpty(ProjectContributors))
+            {
+                result = mainpkgExt.AssignUsersToRole(ProjectContributors, const_Security_Name_Project_Contributor);
+             
+            }
+
+            if (!string.IsNullOrEmpty(ProjectViewers))
+            {
+                result = mainpkgExt.AssignUsersToRole(ProjectViewers, const_Security_Name_Project_Viewer);
+                
+            }
+
+            //AssignUsersToRoles();
+
             ActivateDeActivateCloudFlows();
             UpdateBusinessOwnertoExistingProjects(ProjectBusinessOwner);
             UpdateConsoleConfigurations();
