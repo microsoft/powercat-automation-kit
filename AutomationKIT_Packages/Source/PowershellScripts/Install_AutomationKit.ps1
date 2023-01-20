@@ -291,7 +291,9 @@ class Deployment {
 		$Viewer_users =""
 		$ProjectBusinessOwnerEmailId=""
 		
+		$NeedToCreateApplicationUser=""
 		$AzureAppID=""
+		$AzureAppName=""
 		$ActivateAllCloudFlows=""
 		
 		if ($this.settings.InstallMainSolution -eq $True)
@@ -315,7 +317,10 @@ class Deployment {
 			$EnvironmentURL= $UserResponseData.'satellite-environmentUrl'
 			$InstallSampleData=$UserResponseData.'satellite-installSampleData'		
 			$ActivateAllCloudFlows=$UserResponseData.'satellite-activateAllCloudFlows'
-			$AzureAppID=$UserResponseData.'satellite-azureAppId' #need to read from user response json		
+			$NeedToCreateApplicationUser=$UserResponseData.'satellite-createApplicationUser' #need to read from user response json	
+			$AzureAppID=$UserResponseData.'satellite-azureAppId' #need to read from user response json	
+			$AzureAppName=$UserResponseData.'satellite-azureAppName' #need to read from user response json	
+			
 		}
 		
 		$this.settings.mergeDeploymentSettings($DeploymentSettingsData, $UserResponseData)
@@ -489,7 +494,7 @@ class Deployment {
 			
 			Set-Content -Path $this.settings.LogFile '' -Force
 				
-			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installsatellitesolution=true|AutomationCoESatellite_componentarguments=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows"
+			$Args= " package deploy --logFile " + $this.settings.LogFile + " -c true  --package " + $this.settings.PackageFilePath + " --settings installsatellitesolution=true|AutomationCoESatellite_componentarguments=$EncodedSettings|importconfigdata=$InstallSampleData|activateallflows=$ActivateAllCloudFlows|needtocreateapplicationuser=$NeedToCreateApplicationUser|azure_appid=$AzureAppID|azure_appname=$AzureAppName"
 			
 			try
 			{					
@@ -532,14 +537,14 @@ class Deployment {
 			break;
 		}
 
-		$this.ObjLogger.LogMessage("========================================================",1)
-		$this.ObjLogger.LogMessage(" Performing post deployment operations",1)
-		$this.ObjLogger.LogMessage("========================================================",1)
+		<#$this.ObjLogger.LogMessage("========================================================",1)
+		#$this.ObjLogger.LogMessage(" Performing post deployment operations",1)
+		$this.ObjLogger.LogMessage("========================================================",1)#>
 		
 		# Removing of newly created profile 
 		pac auth delete -n $this.settings.AutoCOE_ProfileName
 		
-		if ($this.settings.InstallMainSolution -eq $False)
+		<#if ($this.settings.InstallMainSolution -eq $False)
 		{
 			#Creating application user for satellite environment
 			$this.ObjLogger.LogMessage("Creating application user",1);
@@ -552,7 +557,7 @@ class Deployment {
 			$this.ObjLogger.LogMessage("Successfully created application user",1)
 			
 			pac auth delete -n $this.settings.AutoCOE_ProfileName
-		}
+		}#>
 		
 		if ($LogDetails -imatch "Result:SUCCESS") 
 		{	
