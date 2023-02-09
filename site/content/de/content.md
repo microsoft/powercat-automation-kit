@@ -4,7 +4,7 @@ description: "Automation Kit - Site-Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
+generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 ---
 
 {{<toc>}}
@@ -68,6 +68,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 
 - [Automation Kit - Datenpakete](/de/features/datapacks)
 
+- [Automation Kit - Scheduler](/de/features/scheduler)
+
 
 #### Ort: /features/alm/
 
@@ -108,6 +110,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [Automation Kit - Dezember 2022](/de/releases/december-2022)
 
 - [Automation Kit - Februar 2023](/de/releases/february-2023)
+
+- [Automation Kit - Februar 2023](/de/releases/march-2023)
 
 - [Automation Kit - Meilensteine der Veröffentlichung](/de/releases/milestones)
 

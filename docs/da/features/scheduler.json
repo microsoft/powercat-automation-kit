@@ -1,0 +1,164 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-Scheduler"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "features",
+          "title": {
+            "default": "Which of the following is most useful for your related to Scheduler functionality?",
+            "da": "Hvilket af følgende er mest nyttigt for din relaterede til Scheduler-funktionalitet?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to view schedules by day",
+              "text": {
+                "default": "The ability to view schedules by day",
+                "da": "Muligheden for at se tidsplaner efter dag"
+              }
+            },
+            {
+              "value": "The ability to view schedules by week",
+              "text": {
+                "default": "The ability to view schedules by week",
+                "da": "Muligheden for at se tidsplaner efter uge"
+              }
+            },
+            {
+              "value": "The ability to view schedules by month",
+              "text": {
+                "default": "The ability to view schedules by month",
+                "da": "Muligheden for at se tidsplaner efter måned"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "da": "Se resultaterne af kørsler"
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "new-features",
+          "title": {
+            "default": "What new features would you like added to the Scheduler functionality?",
+            "da": "Hvilke nye funktioner vil du gerne have tilføjet til Scheduler-funktionaliteten?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to filter by status (Success, Fail, Scheduled)",
+              "text": {
+                "default": "The ability to filter by status (Success, Fail, Scheduled)",
+                "da": "Muligheden for at filtrere efter status (Succes, Mislykket, Planlagt)"
+              }
+            },
+            {
+              "value": "The ability to filter by flow name",
+              "text": {
+                "default": "The ability to filter by flow name",
+                "da": "Muligheden for at filtrere efter flownavn"
+              }
+            },
+            {
+              "value": "The ability to filter by machine / machine group",
+              "text": {
+                "default": "The ability to filter by machine / machine group",
+                "da": "Evnen til at filtrere efter maskine / maskingruppe"
+              }
+            },
+            {
+              "value": "Define alerts for failed runs",
+              "text": {
+                "default": "Define alerts for failed runs",
+                "da": "Definer beskeder for mislykkede kørsler"
+              }
+            },
+            {
+              "value": "Restart / Stop flow execution",
+              "text": {
+                "default": "Restart / Stop flow execution",
+                "da": "Genstart/stop flowkørsel"
+              }
+            },
+            {
+              "value": "Define dependencies between flow runs",
+              "text": {
+                "default": "Define dependencies between flow runs",
+                "da": "Definere afhængigheder mellem flowkørsler"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "da": "Se resultaterne af kørsler"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on Scheduler?",
+            "da": "Vil du sende feedback på Scheduler?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "da": "Vi ser frem til at få din feedback. Som et centralt Automation Kit-team bruger vi feedbacken til at forbedre vores vejledning og køreplan"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "da": "Har du andre tilbagemeldinger?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "da": "Send din feedback nu?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "da": "Status: "
+          }
+        }
+      ]
+    }
+  ]
+}

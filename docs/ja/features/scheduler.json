@@ -1,0 +1,164 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-Scheduler"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "features",
+          "title": {
+            "default": "Which of the following is most useful for your related to Scheduler functionality?",
+            "ja": "スケジューラ機能に関連するのに最も役立つのは次のうちどれですか?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to view schedules by day",
+              "text": {
+                "default": "The ability to view schedules by day",
+                "ja": "日ごとにスケジュールを表示する機能"
+              }
+            },
+            {
+              "value": "The ability to view schedules by week",
+              "text": {
+                "default": "The ability to view schedules by week",
+                "ja": "週ごとにスケジュールを表示する機能"
+              }
+            },
+            {
+              "value": "The ability to view schedules by month",
+              "text": {
+                "default": "The ability to view schedules by month",
+                "ja": "月ごとにスケジュールを表示する機能"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "ja": "実行結果を確認する"
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "new-features",
+          "title": {
+            "default": "What new features would you like added to the Scheduler functionality?",
+            "ja": "スケジューラ機能にどのような新機能を追加しますか?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to filter by status (Success, Fail, Scheduled)",
+              "text": {
+                "default": "The ability to filter by status (Success, Fail, Scheduled)",
+                "ja": "ステータス(成功、失敗、スケジュール)でフィルタリングする機能"
+              }
+            },
+            {
+              "value": "The ability to filter by flow name",
+              "text": {
+                "default": "The ability to filter by flow name",
+                "ja": "フロー名でフィルタリングする機能"
+              }
+            },
+            {
+              "value": "The ability to filter by machine / machine group",
+              "text": {
+                "default": "The ability to filter by machine / machine group",
+                "ja": "マシン/マシングループでフィルタリングする機能"
+              }
+            },
+            {
+              "value": "Define alerts for failed runs",
+              "text": {
+                "default": "Define alerts for failed runs",
+                "ja": "失敗した実行のアラートを定義する"
+              }
+            },
+            {
+              "value": "Restart / Stop flow execution",
+              "text": {
+                "default": "Restart / Stop flow execution",
+                "ja": "フロー実行の再開/停止"
+              }
+            },
+            {
+              "value": "Define dependencies between flow runs",
+              "text": {
+                "default": "Define dependencies between flow runs",
+                "ja": "フロー実行間の依存関係の定義"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "ja": "実行結果を確認する"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on Scheduler?",
+            "ja": "スケジューラに関するフィードバックを送信しますか?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "ja": "皆様からのフィードバックをお待ちしております。オートメーションキットのコアチームとして、フィードバックを使用してガイダンスとロードマップを改善します"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "ja": "他にフィードバックはありましたか?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ja": "今すぐフィードバックを送信しますか?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ja": "地位："
+          }
+        }
+      ]
+    }
+  ]
+}

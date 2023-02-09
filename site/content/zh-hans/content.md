@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
+generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 ---
 
 {{<toc>}}
@@ -68,6 +68,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 
 - [自动化套件 - 数据包](/zh-hans/features/datapacks)
 
+- [自动化套件 - 调度程序](/zh-hans/features/scheduler)
+
 
 #### 位置： /功能/alm/
 
@@ -108,6 +110,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [自动化套件 - 2022 年 12 月](/zh-hans/releases/december-2022)
 
 - [自动化套件 - 2023 年 2 月](/zh-hans/releases/february-2023)
+
+- [自动化套件 - 2023 年 2 月](/zh-hans/releases/march-2023)
 
 - [自动化套件 - 发布里程碑](/zh-hans/releases/milestones)
 

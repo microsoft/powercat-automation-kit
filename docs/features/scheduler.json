@@ -1,0 +1,77 @@
+{
+    "triggers": [
+        {
+            "type": "setvalue",
+            "expression": "{send-results} = true",
+            "setToName": "code",
+            "setValue": "Feedback-AK4PP-Scheduler"
+        }
+    ],
+    "pages": [
+        {
+            "name": "welcome",
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "features",
+                    "title": "Which of the following is most useful for your related to Scheduler functionality?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "hasOther": true,
+                    "choices": [
+                        "The ability to view schedules by day",
+                        "The ability to view schedules by week",
+                        "The ability to view schedules by month",
+                        "See the results of runs"
+                    ]
+                },
+                {
+                    "type": "checkbox",
+                    "name": "new-features",
+                    "title": "What new features would you like added to the Scheduler functionality?",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "hasOther": true,
+                    "choices": [
+                        "The ability to filter by status (Success, Fail, Scheduled)",
+                        "The ability to filter by flow name",
+                        "The ability to filter by machine / machine group",
+                        "Define alerts for failed runs",
+                        "Restart / Stop flow execution",
+                        "Define dependencies between flow runs",
+                        "See the results of runs"
+                    ]
+                },
+                {
+                    "type": "boolean",
+                    "name": "send-results",
+                    "label": "Do you want to send the feedback on Scheduler?",
+                    "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results} = true",
+                    "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap"
+                },
+                {
+                    "type": "comment",
+                    "name": "other-feedback",
+                    "title": "Did you have any other feedback?",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "feedback-task",
+                    "name": "send-results",
+                    "title": "Send your feedback now?",
+                    "destination": "https://aka.ms/ak4pp-feedback2",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{send-results-status.length} > 0",
+                    "html": "Status: {send-results-status}"
+                }
+            ]
+        }
+    ]
+}

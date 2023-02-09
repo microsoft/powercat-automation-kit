@@ -4,7 +4,7 @@ description: "オートメーションキット - サイトインデックス"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
+generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 ---
 
 {{<toc>}}
@@ -68,6 +68,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 
 - [オートメーションキット - データパック](/ja/features/datapacks)
 
+- [自動化キット - スケジューラ](/ja/features/scheduler)
+
 
 #### 場所: /機能/施し/
 
@@ -108,6 +110,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [自動化キット - 2022年12月](/ja/releases/december-2022)
 
 - [自動化キット - 2023年2月](/ja/releases/february-2023)
+
+- [自動化キット - 2023年2月](/ja/releases/march-2023)
 
 - [自動化キット - マイルストーンのリリース](/ja/releases/milestones)
 

@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![Raffinierte Emmy](/images/nifty-emmy.png)
 
-Die Februar-Veröffentlichung (nifty-emmy) des {{<product-name>}} ist die fünfte öffentliche Vorschauversion. Es wird erwartet, dass diese Version die Verbesserung der Webinstallation in der Dezember-Version der Befehlszeile enthält.
-
-Ein weiterer Investitionsbereich ist die Vereinfachung der Abhängigkeiten der Satellite-Installation, um Azure Key Vault überflüssig zu machen.
+Die Februar-Veröffentlichung (nifty-emmy) des {{<product-name>}} ist die fünfte öffentliche Vorschauversion. Diese Version konzentriert sich auf das Hinzufügen einer neuen [Scheduler](/de/features/scheduler) -Funktion, mit der Benutzer die wiederkehrenden Zeitpläne anzeigen können Power Automate Cloud-Flows, die Aufrufe von Power Automate Desktop-Flows enthalten.
 
 {{<questions name="/content/de/releases/february-2023.json" completed="Vielen Dank für Ihr Feedback" showNavigationButtons="false" locale="de">}}
 

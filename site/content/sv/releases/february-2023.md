@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![Fiffiga Emmy](/images/nifty-emmy.png)
 
-Februariutgåvan (nifty-emmy) av {{<product-name>}} är den femte offentliga förhandsversionen. Den här versionen förväntas innehålla förbättringar av webbinstallationsbyggnaden på kommandoradens decemberversion.
-
-Ett annat investeringsområde är att förenkla beroendet av satellitinstallationen för att ta bort behovet av Azure Key Vault.
+Februariutgåvan (nifty-emmy) av {{<product-name>}} är den femte offentliga förhandsversionen. Den här versionen fokuserar på att lägga till en ny [Scheduler](/sv/features/scheduler) för att tillåta användare att se de återkommande scheman Power Automate Cloud-flöden som innehåller anrop till Power Automate Desktop-flöden.
 
 {{<questions name="/content/sv/releases/february-2023.json" completed="Tack för att du ger feedback" showNavigationButtons="false" locale="sv">}}
 

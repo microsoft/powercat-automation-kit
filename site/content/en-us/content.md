@@ -67,6 +67,8 @@ include_footer: true
 
 - [Automation Kit - Data Packs](/features/datapacks)
 
+- [Automation Kit - Scheduler](/features/scheduler)
+
 
 #### Location: /features/alm/
 
@@ -107,6 +109,8 @@ include_footer: true
 - [Automation Kit - December 2022](/releases/december-2022)
 
 - [Automation Kit - February 2023](/releases/february-2023)
+
+- [Automation Kit - February 2023](/releases/march-2023)
 
 - [Automation Kit - Release Milestones](/releases/milestones)
 

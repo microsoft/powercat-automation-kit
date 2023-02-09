@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![니프티 에미](/images/nifty-emmy.png)
 
-2 월 릴리스 (nifty-emmy) {{<product-name>}}는 다섯 번째 공개 미리 보기 릴리스입니다. 이 릴리스에는 명령줄 12월 릴리스에서 웹 설치 빌드 개선이 포함될 것으로 예상됩니다.
-
-또 다른 투자 영역은 위성 설치의 종속성을 단순화하여 Azure Key Vault의 필요성을 제거하는 것입니다.
+2 월 릴리스 (nifty-emmy) {{<product-name>}}는 다섯 번째 공개 미리 보기 릴리스입니다. 이 릴리스는 새로운 [스케줄러](/ko/features/scheduler) 사용자가 되풀이 일정을 볼 수 있도록 하는 기능 Power Automate 데스크톱 흐름에 대한 호출을 포함하는 클라우드 흐름 자동화.
 
 {{<questions name="/content/ko/releases/february-2023.json" completed="피드백을 제공해 주셔서 감사합니다." showNavigationButtons="false" locale="ko">}}
 

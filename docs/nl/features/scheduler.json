@@ -1,0 +1,164 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-Scheduler"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "features",
+          "title": {
+            "default": "Which of the following is most useful for your related to Scheduler functionality?",
+            "nl": "Welke van de volgende is het meest nuttig voor uw gerelateerde Scheduler-functionaliteit?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to view schedules by day",
+              "text": {
+                "default": "The ability to view schedules by day",
+                "nl": "De mogelijkheid om schema's per dag te bekijken"
+              }
+            },
+            {
+              "value": "The ability to view schedules by week",
+              "text": {
+                "default": "The ability to view schedules by week",
+                "nl": "De mogelijkheid om schema's per week te bekijken"
+              }
+            },
+            {
+              "value": "The ability to view schedules by month",
+              "text": {
+                "default": "The ability to view schedules by month",
+                "nl": "De mogelijkheid om schema's per maand te bekijken"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "nl": "Bekijk de resultaten van runs"
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "new-features",
+          "title": {
+            "default": "What new features would you like added to the Scheduler functionality?",
+            "nl": "Welke nieuwe functies wilt u toevoegen aan de Scheduler-functionaliteit?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to filter by status (Success, Fail, Scheduled)",
+              "text": {
+                "default": "The ability to filter by status (Success, Fail, Scheduled)",
+                "nl": "De mogelijkheid om te filteren op status (Geslaagd, Mislukt, Gepland)"
+              }
+            },
+            {
+              "value": "The ability to filter by flow name",
+              "text": {
+                "default": "The ability to filter by flow name",
+                "nl": "De mogelijkheid om te filteren op stroomnaam"
+              }
+            },
+            {
+              "value": "The ability to filter by machine / machine group",
+              "text": {
+                "default": "The ability to filter by machine / machine group",
+                "nl": "De mogelijkheid om te filteren op machine / machinegroep"
+              }
+            },
+            {
+              "value": "Define alerts for failed runs",
+              "text": {
+                "default": "Define alerts for failed runs",
+                "nl": "Waarschuwingen definiëren voor mislukte uitvoeringen"
+              }
+            },
+            {
+              "value": "Restart / Stop flow execution",
+              "text": {
+                "default": "Restart / Stop flow execution",
+                "nl": "Herstart / Stop stroomuitvoering"
+              }
+            },
+            {
+              "value": "Define dependencies between flow runs",
+              "text": {
+                "default": "Define dependencies between flow runs",
+                "nl": "Afhankelijkheden definiëren tussen stroomruns"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "nl": "Bekijk de resultaten van runs"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on Scheduler?",
+            "nl": "Wil je de feedback op Scheduler sturen?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "nl": "We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om onze begeleiding en roadmap te verbeteren."
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "nl": "Heb je nog andere feedback gehad?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nl": "Nu uw feedback verzenden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nl": "Status: "
+          }
+        }
+      ]
+    }
+  ]
+}

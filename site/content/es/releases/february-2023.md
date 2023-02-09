@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![Nifty Emmy](/images/nifty-emmy.png)
 
-El lanzamiento de febrero (nifty-emmy) del {{<product-name>}} es la quinta versión preliminar pública. Se espera que esta versión incluya la mejora de la instalación web en la versión de diciembre de la línea de comandos.
-
-Otra área de inversión es simplificar las dependencias de la instalación de Satellite para eliminar la necesidad de Azure Key Vault.
+El lanzamiento de febrero (nifty-emmy) del {{<product-name>}} es la quinta versión preliminar pública. Esta versión se centra en agregar un nuevo [Programador](/es/features/scheduler) funcionalidad para permitir a los usuarios ver las programaciones periódicas de los flujos de Power Automate Cloud que incluyen llamadas a flujos de Power Automate Desktop.
 
 {{<questions name="/content/es/releases/february-2023.json" completed="Gracias por proporcionar comentarios" showNavigationButtons="false" locale="es">}}
 

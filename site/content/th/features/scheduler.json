@@ -1,0 +1,164 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-Scheduler"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "features",
+          "title": {
+            "default": "Which of the following is most useful for your related to Scheduler functionality?",
+            "th": "ข้อใดต่อไปนี้มีประโยชน์มากที่สุดสําหรับฟังก์ชัน Scheduler ของคุณ"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to view schedules by day",
+              "text": {
+                "default": "The ability to view schedules by day",
+                "th": "ความสามารถในการดูตารางเวลาตามวัน"
+              }
+            },
+            {
+              "value": "The ability to view schedules by week",
+              "text": {
+                "default": "The ability to view schedules by week",
+                "th": "ความสามารถในการดูตารางเวลาตามสัปดาห์"
+              }
+            },
+            {
+              "value": "The ability to view schedules by month",
+              "text": {
+                "default": "The ability to view schedules by month",
+                "th": "ความสามารถในการดูตารางเวลาตามเดือน"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "th": "ดูผลลัพธ์ของการวิ่ง"
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "new-features",
+          "title": {
+            "default": "What new features would you like added to the Scheduler functionality?",
+            "th": "คุณต้องการเพิ่มคุณสมบัติใหม่ใดในฟังก์ชัน Scheduler"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to filter by status (Success, Fail, Scheduled)",
+              "text": {
+                "default": "The ability to filter by status (Success, Fail, Scheduled)",
+                "th": "ความสามารถในการกรองตามสถานะ (สําเร็จล้มเหลวกําหนดเวลา)"
+              }
+            },
+            {
+              "value": "The ability to filter by flow name",
+              "text": {
+                "default": "The ability to filter by flow name",
+                "th": "ความสามารถในการกรองตามชื่อโฟลว์"
+              }
+            },
+            {
+              "value": "The ability to filter by machine / machine group",
+              "text": {
+                "default": "The ability to filter by machine / machine group",
+                "th": "ความสามารถในการกรองตามกลุ่มเครื่อง / เครื่อง"
+              }
+            },
+            {
+              "value": "Define alerts for failed runs",
+              "text": {
+                "default": "Define alerts for failed runs",
+                "th": "กําหนดการแจ้งเตือนสําหรับการรันที่ล้มเหลว"
+              }
+            },
+            {
+              "value": "Restart / Stop flow execution",
+              "text": {
+                "default": "Restart / Stop flow execution",
+                "th": "รีสตาร์ท / หยุดการดําเนินการโฟลว์"
+              }
+            },
+            {
+              "value": "Define dependencies between flow runs",
+              "text": {
+                "default": "Define dependencies between flow runs",
+                "th": "กําหนดการอ้างอิงระหว่างการรันโฟลว์"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "th": "ดูผลลัพธ์ของการวิ่ง"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on Scheduler?",
+            "th": "คุณต้องการส่งความคิดเห็นเกี่ยวกับ Scheduler หรือไม่?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "th": "เราหวังว่าจะได้รับความคิดเห็นของคุณ ในฐานะทีม Automation Kit หลัก เราใช้ข้อเสนอแนะเพื่อปรับปรุงคําแนะนําและแผนงานของเรา"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "th": "คุณมีข้อเสนอแนะอื่น ๆ หรือไม่?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "th": "ส่งความคิดเห็นของคุณตอนนี้หรือไม่"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "th": "สถานะ: "
+          }
+        }
+      ]
+    }
+  ]
+}

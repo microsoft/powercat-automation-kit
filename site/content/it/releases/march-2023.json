@@ -1,0 +1,103 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-March-2023-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the following will be of most useful for you in this release?",
+            "it": "Quale delle seguenti affermazioni ti sarà più utile in questa versione?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "New Scheduler feature",
+              "text": {
+                "default": "New Scheduler feature",
+                "it": "Nuova funzionalità Scheduler"
+              }
+            },
+            {
+              "value": "Resolution of bugs and questions",
+              "text": {
+                "default": "Resolution of bugs and questions",
+                "it": "Risoluzione di bug e domande"
+              }
+            },
+            {
+              "value": "Roadmap of whats next",
+              "text": {
+                "default": "Roadmap of whats next",
+                "it": "Tabella di marcia del futuro"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "anything-else",
+          "title": {
+            "default": "Any other key features you think should be added?",
+            "it": "Altre caratteristiche chiave che pensi dovrebbero essere aggiunte?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "it": "Vuoi inviare il feedback sul rilascio?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "it": "Non vediamo l'ora di ricevere il tuo feedback. Come team principale di Automation Kit utilizziamo il feedback per migliorare le nostre pietre miliari e la nostra guida"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "it": "Hai avuto altri feedback?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "it": "Invia il tuo feedback ora?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "it": "Stato: "
+          }
+        }
+      ]
+    }
+  ]
+}

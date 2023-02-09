@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![ดีเอ็มมี่](/images/nifty-emmy.png)
 
-รุ่นกุมภาพันธ์ (nifty-emmy) ของ {{<product-name>}} เป็นการเผยแพร่พรีวิวสาธารณะครั้งที่ห้า รุ่นนี้คาดว่าจะรวมถึงการปรับปรุงอาคารติดตั้งเว็บบนบรรทัดคําสั่งนําออกใช้ในเดือนธันวาคม
-
-การลงทุนอีกด้านคือลดความซับซ้อนของการพึ่งพาการติดตั้งดาวเทียมเพื่อขจัดความจําเป็นในการใช้ Azure Key Vault
+รุ่นกุมภาพันธ์ (nifty-emmy) ของ {{<product-name>}} เป็นการเผยแพร่ตัวอย่างสาธารณะครั้งที่ห้า รุ่นนี้มุ่งเน้นไปที่การเพิ่มใหม่ [กำหนดการ](/th/features/scheduler) ฟังก์ชันการทํางานเพื่อให้ผู้ใช้เห็นกําหนดการที่เกิดซ้ําโฟลว์ระบบคลาวด์ Power Automate ที่มีการเรียกไปยังโฟลว์ Power Automate Desktop
 
 {{<questions name="/content/th/releases/february-2023.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
 

@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![Handige Emmy](/images/nifty-emmy.png)
 
-De februari release (nifty-emmy) van de {{<product-name>}} is de vijfde openbare preview release. Deze release zal naar verwachting het verbeteren van de webinstallatie op de opdrachtregel van december release omvatten.
-
-Een ander investeringsgebied is het vereenvoudigen van de afhankelijkheden van de satellietinstallatie om de noodzaak voor Azure Key Vault te verwijderen.
+De februari release (nifty-emmy) van de {{<product-name>}} is de vijfde openbare preview release. Deze release richt zich op het toevoegen van een nieuwe [Scheduler](/nl/features/scheduler) functionaliteit waarmee gebruikers de terugkerende schema's kunnen zien die Power Automate Cloud-stromen bevatten die aanroepen naar Power Automate Desktop-stromen bevatten.
 
 {{<questions name="/content/nl/releases/february-2023.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}
 

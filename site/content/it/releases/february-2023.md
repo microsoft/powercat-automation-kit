@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![Nifty Emmy](/images/nifty-emmy.png)
 
-La versione di febbraio (nifty-emmy) del {{<product-name>}} è la quinta versione di anteprima pubblica. Questa versione dovrebbe includere il miglioramento dell'installazione Web sulla versione di dicembre della riga di comando.
-
-Un'altra area di investimento è semplificare le dipendenze dell'installazione Satellite per eliminare la necessità di Azure Key Vault.
+La versione di febbraio (nifty-emmy) del {{<product-name>}} è la quinta versione di anteprima pubblica. Questa versione è incentrata sull'aggiunta di un nuovo [Pianificazione](/it/features/scheduler) per consentire agli utenti di visualizzare le pianificazioni ricorrenti Flussi cloud di Power Automate che includono chiamate ai flussi di Power Automate Desktop.
 
 {{<questions name="/content/it/releases/february-2023.json" completed="Grazie per aver fornito feedback" showNavigationButtons="false" locale="it">}}
 

@@ -1,0 +1,164 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-AK4PP-Scheduler"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "features",
+          "title": {
+            "default": "Which of the following is most useful for your related to Scheduler functionality?",
+            "fr": "Lequel des éléments suivants est le plus utile pour votre fonctionnalité liée au planificateur ?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to view schedules by day",
+              "text": {
+                "default": "The ability to view schedules by day",
+                "fr": "La possibilité de visualiser les horaires par jour"
+              }
+            },
+            {
+              "value": "The ability to view schedules by week",
+              "text": {
+                "default": "The ability to view schedules by week",
+                "fr": "La possibilité de consulter les horaires par semaine"
+              }
+            },
+            {
+              "value": "The ability to view schedules by month",
+              "text": {
+                "default": "The ability to view schedules by month",
+                "fr": "La possibilité d’afficher les plannings par mois"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "fr": "Voir les résultats des courses"
+              }
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "name": "new-features",
+          "title": {
+            "default": "What new features would you like added to the Scheduler functionality?",
+            "fr": "Quelles nouvelles fonctionnalités souhaitez-vous ajouter à la fonctionnalité Planificateur ?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "The ability to filter by status (Success, Fail, Scheduled)",
+              "text": {
+                "default": "The ability to filter by status (Success, Fail, Scheduled)",
+                "fr": "La possibilité de filtrer par statut (Succès, Échec, Planifié)"
+              }
+            },
+            {
+              "value": "The ability to filter by flow name",
+              "text": {
+                "default": "The ability to filter by flow name",
+                "fr": "La possibilité de filtrer par nom de flux"
+              }
+            },
+            {
+              "value": "The ability to filter by machine / machine group",
+              "text": {
+                "default": "The ability to filter by machine / machine group",
+                "fr": "La possibilité de filtrer par machine / groupe de machines"
+              }
+            },
+            {
+              "value": "Define alerts for failed runs",
+              "text": {
+                "default": "Define alerts for failed runs",
+                "fr": "Définir des alertes pour les exécutions ayant échoué"
+              }
+            },
+            {
+              "value": "Restart / Stop flow execution",
+              "text": {
+                "default": "Restart / Stop flow execution",
+                "fr": "Redémarrer / Arrêter l’exécution du flux"
+              }
+            },
+            {
+              "value": "Define dependencies between flow runs",
+              "text": {
+                "default": "Define dependencies between flow runs",
+                "fr": "Définir les dépendances entre les exécutions de flux"
+              }
+            },
+            {
+              "value": "See the results of runs",
+              "text": {
+                "default": "See the results of runs",
+                "fr": "Voir les résultats des courses"
+              }
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on Scheduler?",
+            "fr": "Voulez-vous envoyer vos commentaires sur Planificateur ?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
+            "fr": "Nous sommes impatients de recevoir vos commentaires. En tant qu’équipe de base du kit d’automatisation, nous utilisons les commentaires pour améliorer nos conseils et notre feuille de route"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "fr": "Avez-vous eu d’autres retours ?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "fr": "Envoyer vos commentaires maintenant?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "fr": "Statut: "
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![漂亮的艾美奖](/images/nifty-emmy.png)
 
-二月发布（漂亮的艾美奖）的{{<product-name>}} 是第五个公共预览版。此版本预计将包括改进命令行 12 月版上的 Web 安装构建。
-
-另一个投资领域是简化从属安装的依赖项，以消除对 Azure 密钥保管库的需求。
+二月发布（漂亮的艾美奖）的{{<product-name>}} 是第五个公共预览版。此版本的重点是添加新的[调度](/zh-hans/features/scheduler)允许用户查看定期计划的功能 Power Automate 云端流，其中包括对 Power Automate 桌面流的调用。
 
 {{<questions name="/content/zh-hans/releases/february-2023.json" completed="感谢您提供反馈" showNavigationButtons="false" locale="zh-hans">}}
 

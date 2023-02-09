@@ -4,7 +4,7 @@ description: "Automatiseringssæt - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
+generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 ---
 
 {{<toc>}}
@@ -68,6 +68,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 
 - [Automatiseringssæt - Datapakker](/da/features/datapacks)
 
+- [Automatiseringssæt - Planlægger](/da/features/scheduler)
+
 
 #### Beliggenhed: /features/alm/
 
@@ -108,6 +110,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [Automatiseringssæt - december 2022](/da/releases/december-2022)
 
 - [Automatiseringssæt - februar 2023](/da/releases/february-2023)
+
+- [Automatiseringssæt - februar 2023](/da/releases/march-2023)
 
 - [Automationssæt - Milepæle for udgivelse](/da/releases/milestones)
 

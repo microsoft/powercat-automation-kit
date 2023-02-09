@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
+generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 ---
 
 {{<toc>}}
@@ -68,6 +68,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 
 - [자동화 키트 - 데이터 팩](/ko/features/datapacks)
 
+- [자동화 키트 - 스케줄러](/ko/features/scheduler)
+
 
 #### 위치: /기능/알름/
 
@@ -108,6 +110,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [자동화 키트 - 2022년 12월](/ko/releases/december-2022)
 
 - [자동화 키트 - 2023년 2월](/ko/releases/february-2023)
+
+- [자동화 키트 - 2023년 2월](/ko/releases/march-2023)
 
 - [자동화 키트 - 릴리스 마일스톤](/ko/releases/milestones)
 

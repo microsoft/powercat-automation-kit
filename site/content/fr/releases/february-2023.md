@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![Nifty Emmy](/images/nifty-emmy.png)
 
-La sortie en février (nifty-emmy) du {{<product-name>}} est la cinquième version d’aperçu publique. Cette version devrait inclure l’amélioration de la construction d’installation Web sur la version de décembre de la ligne de commande.
-
-Un autre domaine d’investissement consiste à simplifier les dépendances de l’installation de Satellite pour supprimer le besoin d’Azure Key Vault.
+La sortie en février (nifty-emmy) du {{<product-name>}} est la cinquième version d’aperçu publique. Cette version se concentre sur l’ajout d’un nouveau [Programmateur](/fr/features/scheduler) fonctionnalité permettant aux utilisateurs de voir les planifications récurrentes Flux Power Automate Cloud qui incluent des appels aux flux Power Automate Desktop.
 
 {{<questions name="/content/fr/releases/february-2023.json" completed="Merci de nous avoir fait part de vos commentaires" showNavigationButtons="false" locale="fr">}}
 

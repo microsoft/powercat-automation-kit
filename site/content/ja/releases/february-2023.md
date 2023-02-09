@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![ニフティエミー賞](/images/nifty-emmy.png)
 
-2月のリリース(ニフティエミー)の{{<product-name>}} は 5 番目のパブリック プレビュー リリースです。このリリースには、コマンドラインの12月のリリースでのWebインストールビルドの改善が含まれる予定です。
-
-投資の別の領域は、Azure Key Vault の必要性を排除するために、サテライト インストールの依存関係を簡略化することです。
+2月のリリース(ニフティエミー)の{{<product-name>}} は 5 番目のパブリック プレビュー リリースです。このリリースでは、新しいものの追加に焦点を当てています[スケジューラ](/ja/features/scheduler)ユーザーが Power Automate デスクトップ フローへの呼び出しを含む定期的なスケジュール Power Automate クラウド フローを表示できるようにする機能。
 
 {{<questions name="/content/ja/releases/february-2023.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}
 

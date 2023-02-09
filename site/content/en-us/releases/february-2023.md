@@ -10,9 +10,7 @@ tags: ['Release']
 
 ![Nifty Emmy](/images/nifty-emmy.png)
 
-The February release (nifty-emmy) of the {{<product-name>}} is the fifth public preview release. This release is expected to include improving the web install building on the command line December release.
-
-Another area of investment is simplify the dependencies of the Satellite install to remove the need for Azure Key Vault.
+The February release (nifty-emmy) of the {{<product-name>}} is the fifth public preview release. This release focuses on adding a new [Scheduler](/features/scheduler) functionality to allow users to see the recurring schedules Power Automate Cloud flows that include calls to Power Automate Desktop flows.
 
 {{<questions name="/content/en-us/releases/february-2023.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
 

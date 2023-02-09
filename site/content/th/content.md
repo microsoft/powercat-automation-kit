@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
+generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 ---
 
 {{<toc>}}
@@ -44,7 +44,7 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 
 ### ตําแหน่ง: /งานในมือ/
 
-- [ชุดระบบอัตโนมัติ - การรวมระบบProcess Advisor](/th/backlog/process-advisor-integration)
+- [ชุดระบบอัตโนมัติ - การรวม Process Advisor](/th/backlog/process-advisor-integration)
 
 
 ### สถานที่: /เงินสมทบ/
@@ -67,6 +67,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [ชุดระบบอัตโนมัติ - ALM](/th/features/alm)
 
 - [ชุดระบบอัตโนมัติ - ชุดข้อมูล](/th/features/datapacks)
+
+- [ชุดระบบอัตโนมัติ - Scheduler](/th/features/scheduler)
 
 
 #### สถานที่: /คุณสมบัติ/alm/
@@ -108,6 +110,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [ชุดระบบอัตโนมัติ - ธันวาคม 2022](/th/releases/december-2022)
 
 - [ชุดระบบอัตโนมัติ - กุมภาพันธ์ 2023](/th/releases/february-2023)
+
+- [ชุดระบบอัตโนมัติ - กุมภาพันธ์ 2023](/th/releases/march-2023)
 
 - [ชุดระบบอัตโนมัติ - เผยแพร่เหตุการณ์สําคัญ](/th/releases/milestones)
 

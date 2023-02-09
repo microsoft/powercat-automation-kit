@@ -1,0 +1,103 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-March-2023-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the following will be of most useful for you in this release?",
+            "sv": "Vilket av följande kommer att vara mest användbart för dig i den här versionen?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "New Scheduler feature",
+              "text": {
+                "default": "New Scheduler feature",
+                "sv": "Ny schemaläggningsfunktion"
+              }
+            },
+            {
+              "value": "Resolution of bugs and questions",
+              "text": {
+                "default": "Resolution of bugs and questions",
+                "sv": "Lösning av buggar och frågor"
+              }
+            },
+            {
+              "value": "Roadmap of whats next",
+              "text": {
+                "default": "Roadmap of whats next",
+                "sv": "Färdplan för vad som händer härnäst"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "anything-else",
+          "title": {
+            "default": "Any other key features you think should be added?",
+            "sv": "Några andra viktiga funktioner du tycker bör läggas till?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "sv": "Vill du skicka feedback på releasen?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "sv": "Vi ser fram emot att få din feedback. Som ett kärnteam för Automation Kit använder vi feedbacken för att förbättra våra milstolpar och vägledning"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "sv": "Fick du någon annan feedback?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "sv": "Skicka din feedback nu?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "sv": "Status: "
+          }
+        }
+      ]
+    }
+  ]
+}

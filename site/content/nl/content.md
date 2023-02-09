@@ -4,7 +4,7 @@ description: "Automatiseringskit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
+generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 ---
 
 {{<toc>}}
@@ -68,6 +68,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 
 - [Automatiseringskit - Data packs](/nl/features/datapacks)
 
+- [Automatiseringskit - Planner](/nl/features/scheduler)
+
 
 #### Locatie: /features/alm/
 
@@ -108,6 +110,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [Automatiseringskit - december 2022](/nl/releases/december-2022)
 
 - [Automation Kit - februari 2023](/nl/releases/february-2023)
+
+- [Automation Kit - februari 2023](/nl/releases/march-2023)
 
 - [Automation Kit - Release mijlpalen](/nl/releases/milestones)
 

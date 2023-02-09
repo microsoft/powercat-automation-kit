@@ -4,7 +4,7 @@ description: "Kit de automatización - Índice del sitio"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
+generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 ---
 
 {{<toc>}}
@@ -68,6 +68,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 
 - [Kit de automatización - Paquetes de datos](/es/features/datapacks)
 
+- [Kit de automatización - Programador](/es/features/scheduler)
+
 
 #### Ubicación: /features/alm/
 
@@ -108,6 +110,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [Kit de automatización - Diciembre 2022](/es/releases/december-2022)
 
 - [Kit de automatización - febrero de 2023](/es/releases/february-2023)
+
+- [Kit de automatización - febrero de 2023](/es/releases/march-2023)
 
 - [Kit de automatización - Hitos de lanzamiento](/es/releases/milestones)
 

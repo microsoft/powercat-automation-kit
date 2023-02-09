@@ -4,7 +4,7 @@ description: "Automatisering Kit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
+generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 ---
 
 {{<toc>}}
@@ -44,7 +44,7 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 
 ### Sted: /backlog/
 
-- [Automatiseringssett - Process Advisor Integrasjon](/nb/backlog/process-advisor-integration)
+- [Automation Kit - Process Advisor Integrasjon](/nb/backlog/process-advisor-integration)
 
 
 ### Sted: /bidrag/
@@ -67,6 +67,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [Automatiseringssett - ALM](/nb/features/alm)
 
 - [Automatiseringssett – datapakker](/nb/features/datapacks)
+
+- [Automatiseringssett - Planlegger](/nb/features/scheduler)
 
 
 #### Sted: /features/alm/
@@ -108,6 +110,8 @@ generated: 5E7AD0FA49C226EC56742E9EA3733F0F55F4E1C0
 - [Automatiseringssett - Desember 2022](/nb/releases/december-2022)
 
 - [Automatiseringssett - Februar 2023](/nb/releases/february-2023)
+
+- [Automatiseringssett - Februar 2023](/nb/releases/march-2023)
 
 - [Automatiseringssett – milepæler for utgivelser](/nb/releases/milestones)
 

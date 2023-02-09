@@ -1,0 +1,103 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-March-2023-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the following will be of most useful for you in this release?",
+            "zh-hans": "在此版本中，以下哪项对您最有用？"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "New Scheduler feature",
+              "text": {
+                "default": "New Scheduler feature",
+                "zh-hans": "新的调度程序功能"
+              }
+            },
+            {
+              "value": "Resolution of bugs and questions",
+              "text": {
+                "default": "Resolution of bugs and questions",
+                "zh-hans": "解决错误和问题"
+              }
+            },
+            {
+              "value": "Roadmap of whats next",
+              "text": {
+                "default": "Roadmap of whats next",
+                "zh-hans": "下一步路线图"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "anything-else",
+          "title": {
+            "default": "Any other key features you think should be added?",
+            "zh-hans": "您认为应该添加任何其他关键功能吗？"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "zh-hans": "是否要发送有关版本的反馈？"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "zh-hans": "我们期待收到您的反馈。作为核心自动化工具包团队，我们使用反馈来改进我们的里程碑和指导"
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "zh-hans": "您还有其他反馈吗？"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "zh-hans": "立即发送您的反馈？"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "zh-hans": "地位："
+          }
+        }
+      ]
+    }
+  ]
+}

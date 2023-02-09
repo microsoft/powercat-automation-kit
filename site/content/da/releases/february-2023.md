@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![Nifty Emmy](/images/nifty-emmy.png)
 
-Februar-udgivelsen (nifty-emmy) af {{<product-name>}} er den femte offentlige prøveversion. Denne udgivelse forventes at omfatte forbedring af webinstallationsbygningen på kommandolinjen decemberudgivelsen.
-
-Et andet investeringsområde er at forenkle afhængighederne af satellitinstallationen for at fjerne behovet for Azure Key Vault.
+Februar-udgivelsen (nifty-emmy) af {{<product-name>}} er den femte offentlige prøveversion. Denne udgivelse fokuserer på at tilføje en ny [Planlægger](/da/features/scheduler) funktionalitet for at give brugerne mulighed for at se de tilbagevendende tidsplaner Power Automate Cloud-flows, der omfatter opkald til Power Automate Desktop-flows.
 
 {{<questions name="/content/da/releases/february-2023.json" completed="Tak, fordi du gav feedback" showNavigationButtons="false" locale="da">}}
 

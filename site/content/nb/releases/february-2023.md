@@ -6,14 +6,12 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: AD865721FC4A075E4AD53D858921098E6A97F62C
+generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
 ---
 
 ![Fiffig Emmy](/images/nifty-emmy.png)
 
-Februarutgivelsen (kjekk-emmy) av {{<product-name>}} er den femte offentlige forhåndsversjonen. Denne utgivelsen forventes å inkludere forbedring av webinstallasjonsbygningen på kommandolinjen desemberutgivelse.
-
-Et annet investeringsområde er å forenkle avhengighetene til satellittinstallasjonen for å fjerne behovet for Azure Key Vault.
+Februarutgivelsen (kjekk-emmy) av {{<product-name>}} er den femte offentlige forhåndsversjonen. Denne versjonen fokuserer på å legge til en ny [Planlegger](/nb/features/scheduler) funksjonalitet for å tillate brukere å se de regelmessige tidsplanene Power Automate Cloud-flyter som inkluderer kall til Power Automate Desktop-flyter.
 
 {{<questions name="/content/nb/releases/february-2023.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}
 
