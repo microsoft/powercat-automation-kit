@@ -12,6 +12,4 @@ tags: ['Get Started', 'Install']
 
 If you are looking to try or install the {{<product-name>}}, you can use the questions below to guide your install process
 
-The December release also includes an automated command line [Setup](/get-started/setup) process to simplify getting started.
-
 {{<questions name="/content/en-us/get-started/install-checklist.json" completed="Thank you for completing install checklist" showNavigationButtons=true >}}
