@@ -253,9 +253,21 @@ namespace AutomationKIT_Satellite
             querysolution.Criteria.AddCondition("uniquename", ConditionOperator.Equal, CurrentSolutionName);
 
             var resultsolution = CrmSvc.RetrieveMultiple(querysolution);
-            var results = resultsolution.Entities[0];
-            string solutionid = results["solutionid"].ToString();
+            
+            string solutionid ="";
 
+            if (resultsolution.Entities.Count > 0)
+            {
+                var results = resultsolution.Entities[0];
+                solutionid = results["solutionid"].ToString();
+
+            }
+            else
+            {
+                PackageLog.Log("Unable to find solution details in dataverse with solution name=" + CurrentSolutionName + " and ActivateDeActivateAllCloudFlows process is aborting on " + DateTime.Now.ToString());
+                return;
+            }
+            
             var queryflow = new QueryExpression("workflow");
             queryflow.ColumnSet.AddColumns("name");
             queryflow.ColumnSet.AddColumns("workflowid");
@@ -372,12 +384,12 @@ namespace AutomationKIT_Satellite
             {
                 businessunitid = new Guid(resultbu[0]["businessunitid"].ToString());
 
-                PackageLog.Log("new business unit guid =" + businessunitid);
+                PackageLog.Log("business unit guid =" + businessunitid);
 
             }
             else
             {
-                PackageLog.Log("new business unit not found");
+                PackageLog.Log("business unit not found");
                 return false;
 
             }

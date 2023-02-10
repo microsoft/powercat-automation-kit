@@ -320,6 +320,7 @@ class Deployment {
 			$NeedToCreateApplicationUser=$UserResponseData.'satellite-createApplicationUser' #need to read from user response json	
 			$AzureAppID=$UserResponseData.'satellite-azureAppId' #need to read from user response json	
 			$AzureAppName=$UserResponseData.'satellite-azureAppName' #need to read from user response json	
+			$AzureAppName = $AzureAppName.replace(' ','_')
 			
 		}
 		

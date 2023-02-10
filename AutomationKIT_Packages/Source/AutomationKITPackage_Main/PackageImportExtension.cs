@@ -8,10 +8,7 @@ using System.Reflection;
 using System.IO;
 using System.Linq;
 using Microsoft.Xrm.Sdk.Messages;
-using AutomationKIT_Main.PackageExtensions;
-using AutomationKIT_Main.Adapters;
-using AutomationKIT_Main.ExtensionClasses;
-
+using System.Globalization;
 
 namespace AutomationKIT
 {
@@ -209,7 +206,9 @@ namespace AutomationKIT
         public override bool AfterPrimaryImport()
         {
             PackageLog.Log("AfterPrimaryImport is started on " + DateTime.Now.ToString());
-            ICrmServiceAdapter adapter = new CrmServiceAdapter(CrmSvc);
+            /*
+             Commenting for Fakeiteasy unit tests 
+             ICrmServiceAdapter adapter = new CrmServiceAdapter(CrmSvc);
             TraceLoggerAdapter LoggerAdapter = new TraceLoggerAdapter(PackageLog);
            
             PackageExtensions packageExt = new PackageExtensions( adapter, LoggerAdapter);
@@ -233,10 +232,9 @@ namespace AutomationKIT
             {
                 result = mainpkgExt.AssignUsersToRole(ProjectViewers, const_Security_Name_Project_Viewer);
                 
-            }
+            }*/
 
-            //AssignUsersToRoles();
-
+            AssignUsersToRoles();
             ActivateDeActivateCloudFlows();
             UpdateBusinessOwnertoExistingProjects(ProjectBusinessOwner);
             UpdateConsoleConfigurations();
@@ -615,6 +613,7 @@ namespace AutomationKIT
 
                 int rowcounter = 0;
                 string flowName = "";
+                
                 foreach (string line in lines)
                 {
                     if (rowcounter > 0)
@@ -629,9 +628,15 @@ namespace AutomationKIT
                             else if (columncount == 2)
 
                                 if (!string.IsNullOrEmpty(column.ToString()))
-                                {
+                                {   
                                     
-                                    DTcompletedon = DateTime.Parse(column.ToString());                                   
+                                    if ( !DateTime.TryParseExact(column.ToString(), "MM/dd/yyyy hh:mm:ss tt",
+                                                               CultureInfo.InvariantCulture, DateTimeStyles.None,
+                                                               out DTcompletedon))
+                                    {
+                                        DTcompletedon = DateTime.Parse(column.ToString());
+                                    }
+
                                     flowsessiontrace.Attributes["autocoe_completedon"] = DTcompletedon;                                    
                                 }
                                 else
