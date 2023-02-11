@@ -416,7 +416,7 @@
                         "I DO NOT have environment administrator rights",
                         "[Install Microsoft Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli)",
                         "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
-                        "A Azure Application Registration",
+                        "An Azure Application Registration",
                         "Configured Azure Application API Permissions",
                         "Configured Azure Application ClientId and Secret",
                         "An Azure Key Vault to store the ClientId, Secret and Tenant Id"
@@ -652,18 +652,6 @@
                     "isRequired": true
                 },
                 {
-                    "type": "boolean",
-                    "name": "satellite-createApplicationUser",
-                    "isRequired": true,
-                    "title": "Create the Automation Project app id as a Dataverse Application User?"
-                },
-                {
-                    "name": "satellite-azureAppName",
-                    "type": "text",
-                    "title": "Automation Project Application Name",
-                    "isRequired": true
-                },
-                {
                     "name": "satellite-automationProjectAppId",
                     "type": "text",
                     "title": "Automation Project App Id",
@@ -751,6 +739,18 @@
                     "type": "html",
                     "visibleIf": "{satellite-activateAllCloudFlows} == true",
                     "html": "Will enable Cloud flows that are included in the Automation Kit Satellite solution"
+                },
+                {
+                    "type": "boolean",
+                    "name": "satellite-createApplicationUser",
+                    "isRequired": true,
+                    "title": "Create the Azure app id as a Dataverse Application User?"
+                },
+                {
+                    "name": "satellite-azureAppName",
+                    "type": "text",
+                    "title": "Azure Application Name to register?",
+                    "isRequired": true
                 },
                 {
                     "type": "text",
