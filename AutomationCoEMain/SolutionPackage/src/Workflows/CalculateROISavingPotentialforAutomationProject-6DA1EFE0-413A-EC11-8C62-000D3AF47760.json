@@ -4,7 +4,7 @@
       "shared_commondataserviceforapps": {
         "runtimeSource": "embedded",
         "connection": {
-          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_b3698"
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_58896"
         },
         "api": {
           "name": "shared_commondataserviceforapps"
@@ -22,6 +22,23 @@
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
+        },
+        "DefaultFrequencyValues (autocoe_DefaultFrequencyValues)": {
+          "defaultValue": {
+            "processfrequency": {
+              "hourly": 2008,
+              "daily": 251,
+              "weekly": 52,
+              "monthly": 12,
+              "quarterly": 4,
+              "yearly": 1
+            }
+          },
+          "type": "Object",
+          "metadata": {
+            "schemaName": "autocoe_DefaultFrequencyValues",
+            "description": "Default value for process frequency like hourly/daily/weekly/monthly and yearly"
+          }
         }
       },
       "triggers": {
@@ -40,7 +57,7 @@
               "subscriptionRequest/message": 4,
               "subscriptionRequest/entityname": "autocoe_automationproject",
               "subscriptionRequest/scope": 4,
-              "subscriptionRequest/filteringattributes": "autocoe_numberofftesneededforreviewrework,autocoe_volumeperprocessfrequency,autocoe_totalprocessingtimeinminutes,autocoe_avgerrorratepct,autocoe_workinghoursperday,autocoe_avgnumberofautomationsteps,autocoe_avghourlycostperfte,autocoe_avgreworktimeinminutes,autocoe_workingdaysperyear,autocoe_numberofftesneeded,autocoe_maintenanceoverhead,autocoe_totalcostsperyearasis"
+              "subscriptionRequest/filteringattributes": "autocoe_numberofftesneededforreviewrework,autocoe_volumeperprocessfrequency,autocoe_totalprocessingtimeinminutes,autocoe_avgerrorratepct,autocoe_workinghoursperday,autocoe_avgnumberofautomationsteps,autocoe_avghourlycostperfte,autocoe_avgreworktimeinminutes,autocoe_workingdaysperyear,autocoe_numberofftesneeded,autocoe_maintenanceoverhead,autocoe_totalcostsperyearasis,autocoe_processingfrequency"
             },
             "authentication": "@parameters('$authentication')"
           },
@@ -319,7 +336,7 @@
         },
         "Switch": {
           "runAfter": {
-            "Process_Frequency_Value": [
+            "Condition": [
               "Succeeded"
             ]
           },
@@ -328,11 +345,23 @@
               "case": "Daily",
               "actions": {
                 "Set_Process_Frequency_Daily": {
-                  "runAfter": {},
+                  "runAfter": {
+                    "Assigning_Project_record_working_days": [
+                      "Succeeded"
+                    ]
+                  },
                   "type": "SetVariable",
                   "inputs": {
                     "name": "Process Frequency Value",
-                    "value": 251
+                    "value": "@variables('DefaultFrequencyToDaily')"
+                  }
+                },
+                "Assigning_Project_record_working_days": {
+                  "runAfter": {},
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "DefaultFrequencyToDaily",
+                    "value": "@int(outputs('Get_full_AutomationProject_record')?['body/autocoe_workingdaysperyear'])"
                   }
                 }
               }
@@ -345,7 +374,7 @@
                   "type": "SetVariable",
                   "inputs": {
                     "name": "Process Frequency Value",
-                    "value": 2008
+                    "value": "@variables('Default_FrequencyToHourly')"
                   }
                 }
               }
@@ -358,7 +387,7 @@
                   "type": "SetVariable",
                   "inputs": {
                     "name": "Process Frequency Value",
-                    "value": 52
+                    "value": "@variables('DefaultFrequencyToWeekly')"
                   }
                 }
               }
@@ -371,7 +400,7 @@
                   "type": "SetVariable",
                   "inputs": {
                     "name": "Process Frequency Value",
-                    "value": 12
+                    "value": "@variables('DefaultFrequencyToMonthly')"
                   }
                 }
               }
@@ -384,7 +413,20 @@
                   "type": "SetVariable",
                   "inputs": {
                     "name": "Process Frequency Value",
-                    "value": 4
+                    "value": "@variables('DefalutFrequencyToQuarterly')"
+                  }
+                }
+              }
+            },
+            "Yearly": {
+              "case": "Yearly",
+              "actions": {
+                "Set_Process_Frequency_Yearly": {
+                  "runAfter": {},
+                  "type": "SetVariable",
+                  "inputs": {
+                    "name": "Process Frequency Value",
+                    "value": "@variables('DefaultFrequencyToYearly')"
                   }
                 }
               }
@@ -450,7 +492,7 @@
               "kind": "FormatNumber",
               "inputs": {
                 "number": "@outputs('Cost_to_complete')",
-                "format": "##.##"
+                "format": "#.00"
               }
             },
             "Cost_to_remediate_part1": {
@@ -502,7 +544,7 @@
               "kind": "FormatNumber",
               "inputs": {
                 "number": "@outputs('Cost_to_remediate_total')",
-                "format": "##.##"
+                "format": "#.00"
               }
             },
             "Total_Cost_Per_Year": {
@@ -539,10 +581,397 @@
           },
           "type": "Compose",
           "inputs": "@div(float(outputs('Get_full_AutomationProject_record')?['body/autocoe_avgerrorratepct']),float(100))"
+        },
+        "Getting_Default_Json_Config_data": {
+          "runAfter": {
+            "Default_Frequency_for_Yearly": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8de6d137-589b-4ffa-9889-caff12fd58fe"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "JsonConfigData",
+                "type": "string",
+                "value": "@{parameters('DefaultFrequencyValues (autocoe_DefaultFrequencyValues)')}"
+              }
+            ]
+          }
+        },
+        "Default_Frequency_for_Daily": {
+          "runAfter": {
+            "Process_Frequency_Value": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c346afc6-dfb7-475d-b598-7aee29018195"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DefaultFrequencyToDaily",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Default_Frequency_for_Hourly": {
+          "runAfter": {
+            "Default_Frequency_for_Daily": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "50e907d2-9d8f-4671-9d9d-02e8ba06e91c"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Default_FrequencyToHourly",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Default_Frequency_for_Weekly": {
+          "runAfter": {
+            "Default_Frequency_for_Hourly": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4c38a998-35b3-448a-889c-e543cce85064"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DefaultFrequencyToWeekly",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Default_Frequency_for_Quarterly": {
+          "runAfter": {
+            "Default_Frequency_for_Monthly": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0cf60806-db04-49bb-9d66-61635b3a39a3"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DefalutFrequencyToQuarterly",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Default_Frequency_for_Yearly": {
+          "runAfter": {
+            "Default_Frequency_for_Quarterly": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "06f54471-8503-415c-9b4a-01f004b5acba"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DefaultFrequencyToYearly",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Default_Frequency_for_Monthly": {
+          "runAfter": {
+            "Default_Frequency_for_Weekly": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "37b05608-571f-4cf4-9f6b-702a1dc0c6d0"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "DefaultFrequencyToMonthly",
+                "type": "integer",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "Condition": {
+          "actions": {
+            "Parse_JSON": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "9fee5074-26e4-4f33-91c1-b984c1863d67"
+              },
+              "type": "ParseJson",
+              "inputs": {
+                "content": "@variables('JsonConfigData')",
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "processfrequency": {
+                      "type": "object",
+                      "properties": {
+                        "hourly": {
+                          "type": "integer"
+                        },
+                        "daily": {
+                          "type": "integer"
+                        },
+                        "weekly": {
+                          "type": "integer"
+                        },
+                        "monthly": {
+                          "type": "integer"
+                        },
+                        "quarterly": {
+                          "type": "integer"
+                        },
+                        "yearly": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "Read_Value_for_Daily": {
+              "runAfter": {
+                "Read_value_for_hourly": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "6cf8c2c3-0b1f-4055-a9dc-20572e2e696d"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "DefaultFrequencyToDaily",
+                "value": "@coalesce(body('Parse_JSON')?['processfrequency']?['daily'], 251)"
+              }
+            },
+            "Read_value_for_weekly": {
+              "runAfter": {
+                "Read_Value_for_Daily": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "98872675-115e-4717-b5e4-5d1aea9c4a3b"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "DefaultFrequencyToWeekly",
+                "value": "@coalesce(body('Parse_JSON')?['processfrequency']?['weekly'], 52)"
+              }
+            },
+            "Read_value_for_Monthly": {
+              "runAfter": {
+                "Read_value_for_weekly": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "3a702920-0a67-40cf-830a-2c011355f905"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "DefaultFrequencyToMonthly",
+                "value": "@coalesce(body('Parse_JSON')?['processfrequency']?['monthly'], 12)"
+              }
+            },
+            "Read_value_for_Yearly": {
+              "runAfter": {
+                "Read_value_for_Quarterly": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "1a7f0d3a-9649-4eae-a7ed-8b36b6cdcee5"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "DefaultFrequencyToYearly",
+                "value": "@coalesce(body('Parse_JSON')?['processfrequency']?['yearly'], 1)"
+              }
+            },
+            "Read_value_for_Quarterly": {
+              "runAfter": {
+                "Read_value_for_Monthly": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "d2632149-cd0d-40cb-8e18-b79e4c64fe57"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "DefalutFrequencyToQuarterly",
+                "value": "@coalesce(body('Parse_JSON')?['processfrequency']?['quarterly'], 4)"
+              }
+            },
+            "Read_value_for_hourly": {
+              "runAfter": {
+                "Parse_JSON": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "7ef685bf-fd47-47b0-8777-24ecf819ec96"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "Default_FrequencyToHourly",
+                "value": "@coalesce(body('Parse_JSON')?['processfrequency']?['hourly'], 2008)"
+              }
+            }
+          },
+          "runAfter": {
+            "Getting_Default_Json_Config_data": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Set_value_to_Hourly": {
+                "runAfter": {},
+                "metadata": {
+                  "operationMetadataId": "4f82799e-326a-4349-8e6a-5d2c148b7f89"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "Default_FrequencyToHourly",
+                  "value": 2008
+                }
+              },
+              "Set_value_to_Weekly": {
+                "runAfter": {
+                  "Set_value_to_Daily_": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "45205460-c6d3-4e9c-ae63-e25b617c9ec1"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "DefaultFrequencyToWeekly",
+                  "value": 52
+                }
+              },
+              "Set_value_to_Monthly": {
+                "runAfter": {
+                  "Set_value_to_Weekly": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "25cda0e0-6d02-475d-addb-201ca21e8092"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "DefaultFrequencyToMonthly",
+                  "value": 12
+                }
+              },
+              "Set_value_to_Quarterly": {
+                "runAfter": {
+                  "Set_value_to_Monthly": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "f270712a-961b-4791-a4b3-61b962ae8237"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "DefalutFrequencyToQuarterly",
+                  "value": 4
+                }
+              },
+              "Set_value_to_Yearly": {
+                "runAfter": {
+                  "Set_value_to_Quarterly": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "59a26c9b-d007-41cc-98c9-dd8766b4ad01"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "DefaultFrequencyToYearly",
+                  "value": 1
+                }
+              },
+              "Set_value_to_Daily_": {
+                "runAfter": {
+                  "Set_value_to_Hourly": [
+                    "Succeeded"
+                  ]
+                },
+                "metadata": {
+                  "operationMetadataId": "11b8fef2-ad68-4e8a-b2b4-87cd4d7a7862"
+                },
+                "type": "SetVariable",
+                "inputs": {
+                  "name": "DefaultFrequencyToDaily",
+                  "value": 251
+                }
+              }
+            }
+          },
+          "expression": {
+            "and": [
+              {
+                "greater": [
+                  "@length(trim(variables('JsonConfigData')))",
+                  0
+                ]
+              },
+              {
+                "equals": [
+                  "@empty(trim(variables('JsonConfigData')))",
+                  false
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "9eb4ca05-d268-4453-be72-a6e1030a8d05"
+          },
+          "type": "If"
         }
       }
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }

@@ -2206,7 +2206,8 @@
                     RemoveIf(DefaultUserCollection,Mail=BusinessOwnerPicker_2.TagKey)
                     );
                 Suggestions_Items: |
-                    =Search(AllUserCollection,Self.SearchTerm,"Mail","DisplayName")
+                    =//Search(AllUserCollection,Self.SearchTerm,"Mail","DisplayName")
+                    Sort(Filter(Office365Users.SearchUser({searchTerm: Self.SearchTerm}),Mail <> Blank()),Mail)
                 SuggestionsDisplayName: ="Mail"
                 TagsDisplayName: ="DisplayName"
                 TagsKey: ="Mail"
