@@ -378,23 +378,24 @@ scr_SolutionDetails_CK As screen:
                                                 ItemDisplayName: "Meter Cloud Flow",
                                                 ItemIconName: "Add",
                                                 ItemEnabled: If(
-                                                    CountRows(
+                                                   /* CountRows(
                                                         Filter(
                                                             'Solution Metering Artifacts',
                                                             'Solution Metering'.'Solution Id' = Text(_selectedSolution.'Solution Identifier')
                                                         )
-                                                    ) = 0 &&
+                                                    ) = 0 &&*/
                                     // RegEx searches for [CloudFlowName]_[AutomationProjectName]-[9digits]_[3digits for Solution Number]
                                  IsMatch(
                                                         _artifactRecord.'Display name',
                                                         "_AP-[0-9]{9}_[0-9]{3}\b",
                                                         MatchOptions.Contains
-                                                    ) || varDisableFlowNaming = true && CountRows(
+                                                    ) || varDisableFlowNaming = true /*&& CountRows(
                                                         Filter(
                                                             'Solution Metering Artifacts',
                                                             'Solution Metering'.'Solution Id' = Text(_selectedSolution.'Solution Identifier')
                                                         )
-                                                    ) = 0,
+                                                    ) = 0*/
+                                                    ,
                                                     true,
                                                     false
                                                 )
@@ -1001,7 +1002,7 @@ scr_SolutionDetails_CK As screen:
                 'Artifact Name': _artifactRecord.'Display name',
                 'Artifact Object Id': _artifactRecord.'Workflow unique id',
                 'Workflow Id': _artifactRecord.'Object id',
-                'Arftifact Type': If(_artifactRecord.'Workflow category' = 6, 'Solution Arftifact Type'.'Desktop flow','Solution Arftifact Type'.'Cloud flow')
+                'Artifact Type': If(_artifactRecord.'Workflow category' = 6, 'Solution Artifact Type'.'Desktop flow','Solution Artifact Type'.'Cloud flow')
             });
             Refresh('Solution Metering Artifacts');
             
