@@ -1,0 +1,237 @@
+"'Flow Scheduler Screen' As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =ClearCollect(
+            EventStatusIdentifiers,
+            Table(
+                {
+                    key: "Succeeded",
+                    title: "Succeeded",
+                    color: "#bad80a33",
+                    iconName: "CircleFill"
+                },
+                {
+                    key: "Not Started",
+                    title: "Not Started",
+                    color: "#86c7ff",
+                    iconName: "CircleFill"
+                },
+                {
+                    key: "Failed",
+                    title: "Failed",
+                    color: "#e811231a",
+                    iconName: "CircleFill"
+                }
+            )
+        );
+
+    "Elevation1 As 'Fluent Elevation (1.0.14)'":
+        DarkOverlay: =false
+        Depth: ='''PowerCAT.Elevation.Depth'''.Depth16
+        DisplayMode: =DisplayMode.Edit
+        Height: =PADScheduleViewer1.Height + 10
+        HoverDepth: ='''PowerCAT.Elevation.HoverDepth'''.Depth16
+        PaddingLeft: =0
+        PaddingRight: =0
+        Visible: =true
+        Width: =PADScheduleViewer1.Width +8
+        X: =PADScheduleViewer1.X-4
+        Y: =PADScheduleViewer1.Y+  Header.Height + ActionHeader.Height
+        ZIndex: =1
+
+    ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        Width: =Parent.Width
+        ZIndex: =2
+
+        ActionHeader As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Fill: =RGBA(243, 242, 241, 1)
+            FillPortions: =0
+            Height: =44
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            PaddingLeft: =40
+            PaddingRight: =40
+            PaddingTop: =5
+            ZIndex: =1
+
+            "CommandBar1 As 'Fluent Command Bar (1.0.14)'.pcfdataset":
+                AlignInContainer: =AlignInContainer.Start
+                DisplayMode: =DisplayMode.Edit
+                Height: =35
+                Items: |-
+                    =Table(
+                           {ItemKey:"learnMore",ItemDisplayName:"Learn more",ItemIconName:"Info"})
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                OnSelect: |-
+                    =If(Self.Selected.ItemKey="learnMore",Launch("https://microsoft.github.io/powercat-automation-kit/features/scheduler/"))
+                Theme: =AppThemeJson
+                Visible: =true
+                Width: =200
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            "SearchBox1 As 'Fluent SearchBox (1.0.14) Preview'":
+                DisplayMode: =DisplayMode.Edit
+                Height: =33
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                PlaceHolderText: ="Search"
+                Theme: =SearchBoxThemeJson
+                Underlined: =true
+                Visible: =false
+                Width: =300
+                X: =0
+                Y: =0
+                ZIndex: =3
+
+        Header As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            FillPortions: =0
+            Height: =70
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =90
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =40
+            PaddingRight: =0.00
+            PaddingTop: =5
+            Width: =1822.99
+            X: =40.42
+            ZIndex: =2
+
+            HeaderContainer As groupContainer.horizontalAutoLayoutContainer:
+                LayoutGap: =320
+                LayoutJustifyContent: =LayoutJustifyContent.End
+                LayoutMinHeight: =40
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                lblTitle As Label:
+                    AutoHeight: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =16
+                    FontWeight: =FontWeight.Semibold
+                    Height: =40
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =90
+                    PaddingStart: =0  
+                    PaddingTop: =0.00
+                    Text: ="Flow Scheduler"
+                    Width: =260
+                    Wrap: =true
+                    X: =0.00
+                    Y: =15
+                    ZIndex: =1
+
+                galIdentifiers As gallery.BrowseLayout_Horizontal_TwoTextOneImageVariant_pcfCore:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderColor: =RGBA(166, 166, 166, 1)
+                    FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                    FocusedBorderThickness: =2
+                    Height: =40
+                    Items: =EventStatusIdentifiers
+                    LayoutMinHeight: =40
+                    LayoutMinWidth: =320
+                    TemplatePadding: =0
+                    TemplateSize: =150
+                    ZIndex: =2
+
+                    IconContainer As groupContainer.horizontalAutoLayoutContainer:
+                        Height: =40
+                        LayoutMode: =LayoutMode.Auto
+                        LayoutWrap: =true
+                        Width: =350
+                        ZIndex: =7
+
+                        "icoStatus As 'Fluent Icon (1.0.14)'":
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =40
+                            IconColor: =ThisItem.color
+                            IconName: =ThisItem.iconName
+                            IconType: ='''PowerCAT.Icon.IconType'''.Icon
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            Text: =ThisItem.title
+                            TextAlignment: ='''PowerCAT.Icon.TextAlignment'''.Center
+                            Theme: =AppThemeJson
+                            Tooltip: =ThisItem.title
+                            Width: =40
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        lblStatus As Label:
+                            AlignInContainer: =AlignInContainer.Center
+                            AutoHeight: =true
+                            Color: =    
+                            DisplayMode: =DisplayMode.View
+                            FontSize: =11
+                            FontWeight: =FontWeight.Normal
+                            Height: =35
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            PaddingTop: =0.00
+                            Text: =ThisItem.title
+                            VerticalAlignment: =VerticalAlign.Top
+                            Width: =100
+                            Wrap: =true
+                            X: =0.00
+                            Y: =0
+                            ZIndex: =2
+
+            lblSubtitle As Label:
+                AlignInContainer: =AlignInContainer.Start
+                AutoHeight: =true
+                Color: =    
+                DisplayMode: =DisplayMode.View
+                FontSize: =11
+                FontWeight: =FontWeight.Normal
+                Height: =50
+                LayoutMinHeight: =80
+                LayoutMinWidth: =320
+                PaddingTop: =0.00
+                Text: ="Schedules enable you to execute jobs in a preplanned manner, at regular intervals on Robots."
+                VerticalAlignment: =VerticalAlign.Top
+                Width: =800
+                Wrap: =true
+                X: =0.00
+                Y: =0
+                ZIndex: =2
+
+        MainSectionContainer1 As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            Height: =Parent.Height - Header.Height - ActionHeader.Height
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            PaddingBottom: =10
+            PaddingLeft: =80
+            PaddingRight: =30
+            PaddingTop: =10
+            ZIndex: =4
+
+            PADScheduleViewer1 As PADScheduleViewer.pcfdataset:
+                DisplayMode: =DisplayMode.Edit
+                Height: =Parent.Height - Parent.PaddingTop * 2
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                Width: =Parent.Width - Parent.PaddingLeft * 2
+                X: =0
+                Y: =0
+                ZIndex: =1
+
