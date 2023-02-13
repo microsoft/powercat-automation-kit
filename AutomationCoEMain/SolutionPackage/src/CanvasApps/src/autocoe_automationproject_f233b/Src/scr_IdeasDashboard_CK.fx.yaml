@@ -78,6 +78,7 @@ scr_IdeasDashboard_CK As screen:
                 ctxSortAsc: false,
                 ctxSortCol: "autocoe_automationprojectnumber",
                 _projectNumber: Param("ProjectNumber"),
+                _projectId: Param("ProjectId"),
                 _showSpinner: true,
                 smallScreen: If(scr_IdeasDashboard_CK.Width < 1500 || scr_IdeasDashboard_CK.Height < 700, true, false)
             }
@@ -89,6 +90,15 @@ scr_IdeasDashboard_CK As screen:
                     _BusinessOwnerEmail: LookUp(
                         'Automation Projects',
                         'Automation Project Number' = _projectNumber
+                    ).'Business Owner Email'
+                }
+            );
+            !IsBlank(_projectId),
+            UpdateContext(
+                {
+                    _BusinessOwnerEmail: LookUp(
+                        'Automation Projects',
+                        'Automation Project' = GUID( _projectId)
                     ).'Business Owner Email'
                 }
             );
@@ -149,7 +159,7 @@ scr_IdeasDashboard_CK As screen:
                     "#ceecfd"
                 ),
                 "RecordKey",
-                'Automation Project Number',
+                'Automation Project',
                 "RecordSelected",
                 If(
                     'Automation Project Number' = _projectNumber,
@@ -159,13 +169,13 @@ scr_IdeasDashboard_CK As screen:
             )
         );
         Concurrent(
-            ClearCollect(
+           /* ClearCollect(
                 AllUserCollection,
                 Filter(
                     Office365Users.SearchUser(),
                     Mail <> Blank()
                 )
-            ),
+            ),*/
             ClearCollect(
                 submittedCollection,
                 Filter(
@@ -11592,7 +11602,7 @@ scr_IdeasDashboard_CK As screen:
                                     'Automation Projects',
                                     LookUp(
                                         'Automation Projects',
-                                        'Automation Project Number' = _selectedProjectNumber
+                                        'Automation Project' = GUID(_selectedProjectId)
                                     ),
                                     {
                                         'Automation Project Status': 'Automation Project Status (Automation Projects)'.Submitted,
@@ -11635,7 +11645,7 @@ scr_IdeasDashboard_CK As screen:
                                             "#ceecfd"
                                         ),
                                         "RecordKey",
-                                        'Automation Project Number',
+                                        'Automation Project',
                                         "RecordSelected",
                                         If(
                                             'Automation Project Number' = _projectNumber,
@@ -11769,7 +11779,7 @@ scr_IdeasDashboard_CK As screen:
                                         "#ceecfd"
                                     ),
                                     "RecordKey",
-                                    'Automation Project Number',
+                                    'Automation Project',
                                     "RecordSelected",
                                     If(
                                         'Automation Project Number' = _projectNumber,
@@ -11822,6 +11832,10 @@ scr_IdeasDashboard_CK As screen:
                         LayoutMinWidth: =200
                         Theme: =AppTheme
                         ZIndex: =3
+
+                    Label4 As label:
+                        Text: =
+                        ZIndex: =4
 
                 rectDivider_1 As rectangle:
                     AlignInContainer: =AlignInContainer.Stretch
@@ -11887,7 +11901,11 @@ scr_IdeasDashboard_CK As screen:
                         Width: =Parent.Width
                         X: =0
                         Y: =0
-                        ZIndex: =1
+                        ZIndex: =2
+
+                    Label9 As label:
+                        Text: ="Text"
+                        ZIndex: =3
 
                 c_NewIdeaForm_2 As groupContainer.horizontalAutoLayoutContainer:
                     Fill: =ColorValue(AppTheme.palette.white)
@@ -12034,7 +12052,7 @@ scr_IdeasDashboard_CK As screen:
                                 '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Descending) 
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
-                        Height: =Parent.Height
+                        Height: =617
                         InputEvent: =selectedRecord
                         Items: |-
                             =SortByColumns(
@@ -12091,7 +12109,8 @@ scr_IdeasDashboard_CK As screen:
                                 Self.EventName = "OnRowSelectionChange",
                                 If(
                                     !IsBlank(Self.EventRowKey),
-                                    UpdateContext({_selectedProjectNumber: ProjectDetailsList.Selected.'Automation Project Number'});
+                                    UpdateContext({_selectedProjectNumber: ProjectDetailsList.Selected.'Automation Project Number',_selectedProjectId: ProjectDetailsList.Selected.'Automation Project'}
+                                    );
                                     UpdateContext(
                                         {
                                             _currentProject: LookUp(
@@ -12104,21 +12123,35 @@ scr_IdeasDashboard_CK As screen:
                                     //Empty Collection
                                     UpdateContext({_currentProject: Blank()});
                                     UpdateContext({_selectedProjectNumber: Blank()});
+                                    UpdateContext({_selectedProjectId: Text(ProjectDetailsList.Selected.autocoe_automationproject)});
+                                    
                                 )
                             );
                             If(
                                 Self.EventName = "CellAction",
                                 Switch(
                                     Self.EventColumn,
-                                    "autocoe_automationproject",
-                                    UpdateContext({_projectNumber: Self.EventRowKey});
+                                    "autocoe_automationproject",        
+                                    UpdateContext({_selectedProjectId: GUID(Self.EventRowKey) });
+                                    If(
+                                        !IsBlank(_selectedProjectId),
+                                        UpdateContext(
+                                            {
+                                                _projectNumber: LookUp(
+                                                    'Automation Projects',
+                                                    'Automation Project' = GUID(_selectedProjectId)
+                                                ).'Automation Project Number'
+                                            }
+                                        );
+                                    );
+                                    
                                     UpdateContext({_showSpinner: true});
                                     UpdateContext({formMode: "View"});
                                     UpdateContext(
                                         {
                                             _BusinessOwnerEmail: LookUp(
                                                 'Automation Projects',
-                                                'Automation Project Number' = Self.EventRowKey
+                                                'Automation Project' = GUID(_selectedProjectId)
                                             ).'Business Owner Email'
                                         }
                                     );
@@ -12162,8 +12195,8 @@ scr_IdeasDashboard_CK As screen:
                         RecordKey: =""
                         RecordSelected: =""
                         Theme: =AppThemeJson
-                        Width: =Parent.Width
-                        X: =0
+                        Width: =1340
+                        X: =12
                         Y: =0
                         ZIndex: =2
 
@@ -12340,6 +12373,10 @@ scr_IdeasDashboard_CK As screen:
                     Param("ProjectNumber") = _projectNumber,
                     UpdateContext({selectedRecord: "SetSelection" & Text(Rand())})
                 );
+                If(
+                    Param("projectId") = _projectId,
+                    UpdateContext({selectedRecord: "SetSelection" & Text(Rand())})
+                );
                 UpdateContext(
                     {
                         _showProjectForm: false,
@@ -12362,7 +12399,7 @@ scr_IdeasDashboard_CK As screen:
                             Defaults('Automation Projects'),
                             LookUp(
                                 'Automation Projects',
-                                'Automation Project Number' = _selectedProjectNumber
+                                'Automation Project' = GUID(_selectedProjectId)
                             )
                         ),
                         ProjectForm.Updates,
@@ -12412,7 +12449,7 @@ scr_IdeasDashboard_CK As screen:
                                     "#ceecfd"
                                 ),
                                 "RecordKey",
-                                'Automation Project Number',
+                                'Automation Project',                    
                                 "RecordSelected",
                                 If(
                                     'Automation Project Number' = _projectNumber,
@@ -12512,14 +12549,14 @@ scr_IdeasDashboard_CK As screen:
                 "Edit",
                 LookUp(
                     'Automation Projects',
-                    'Automation Project Number' = _selectedProjectNumber
+                    'Automation Project' = GUID(_selectedProjectId)
                 ),
                 "New",
                 Blank(),
                 "View",
                 LookUp(
                     'Automation Projects',
-                    'Automation Project Number' = _projectNumber
+                    'Automation Project' = GUID(_selectedProjectId)
                 )
             )
         NumberOfColumns: =4
@@ -13915,14 +13952,14 @@ scr_IdeasDashboard_CK As screen:
                 "Edit",
                 LookUp(
                     'Automation Projects',
-                    'Automation Project Number' = _selectedProjectNumber
+                    'Automation Project' = GUID(_selectedProjectId)
                 ),
                 "New",
                 Blank(),
                 "View",
                 LookUp(
-                    'Automation Projects',
-                    'Automation Project Number' = _projectNumber
+                    'Automation Projects',       
+                    'Automation Project' = GUID(_selectedProjectId)
                 )
             )
         NumberOfColumns: =4
@@ -15138,8 +15175,9 @@ scr_IdeasDashboard_CK As screen:
                     If(BusinessOwnerPicker_1.TagEvent="Remove",
                     RemoveIf(DefaultUserCollection,Mail=BusinessOwnerPicker_1.TagKey)
                     );
-                Suggestions_Items: |
-                    =Search(AllUserCollection,Self.SearchTerm,"Mail","DisplayName")
+                Suggestions_Items: |-
+                    =//Search(AllUserCollection,Self.SearchTerm,"Mail","DisplayName")
+                    Sort(Filter(Office365Users.SearchUser({searchTerm: Self.SearchTerm}),Mail <> Blank()),Mail)
                 SuggestionsDisplayName: ="Mail"
                 TagMaxWidth: =250
                 TagsDisplayName: ="DisplayName"
