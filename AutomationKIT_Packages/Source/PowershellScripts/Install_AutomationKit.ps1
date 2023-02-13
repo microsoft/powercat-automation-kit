@@ -464,7 +464,7 @@ class Deployment {
 				 
 				 $Prc = New-Object System.Diagnostics.Process
 				 $Prc.StartInfo = $PInfo
-				 $this.ObjLogger.LogMessage("Please wait for couple of minutes while installation is in-progress:",1)
+				 $this.ObjLogger.LogMessage("Please wait for around 15 minutes while installation is in-progress:",1)
 				 $Prc.Start() | Out-Null				 
 				 
 				 $stdout = $Prc.StandardOutput.ReadToEnd()
