@@ -47,7 +47,7 @@ steps:
     patterns: '**/AutomationCoEMain*.zip'
   displayName: 'Download Automation Kit Main solution'
 
-# Download the artifacts from the latest deployment of Main to production.
+# Download the artifacts from the latest deployment of Satellite to production.
 - task: DownloadPipelineArtifact@2
   inputs:
     source: 'specific'
@@ -56,6 +56,16 @@ steps:
     runVersion: 'latest'
     patterns: '**/AutomationCoESatellite*.zip'
   displayName: 'Download Automation CoE Satellite solution'
+
+# Download the artifacts from the latest deployment of Schedule to production.
+- task: DownloadPipelineArtifact@2
+  inputs:
+    source: 'specific'
+    project: 'Automation-Kit'
+    pipeline: '396'
+    runVersion: 'latest'
+    patterns: '**/AutomationCoEScheduler*.zip'
+  displayName: 'Download Automation CoE Scheduler solution'
 
 - powershell: |
     New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
