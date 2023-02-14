@@ -495,7 +495,7 @@ scr_SolutionDashboard As screen:
                                 OnSelect: |-
                                     =If(!IsBlank(ProjectNumber.Text),Launch("https://apps.powerapps.com/play/" & First(EnvironmentDetails).AutomationProjectCanvasAppId & "?ProjectNumber=" & ProjectNumber.Text & "&hidenavbar=true"))
                                 Size: =10
-                                Text: =LookUp('Solution Meterings', autocoe_solutionid = Text(ThisItem.'Solution Identifier')).autocoe_AutomationProject.autocoe_automationprojectnumber
+                                Text: =LookUp('Solution Meterings', 'Solution Id' = Text(ThisItem.'Solution Identifier')).'Automation Project'.'Automation Project Number'
                                 Underline: =true
                                 Width: =165
                                 X: =Last(FirstN(GridContainerControl_1.HeaderXValues.HeaderX, 4)).Value.X -15

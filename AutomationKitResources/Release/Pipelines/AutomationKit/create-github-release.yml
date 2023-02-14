@@ -7,7 +7,16 @@ parameters:
 - name: CloseMilestoneIssues
   type: boolean
   default: false
-
+- name: DraftRelease
+  type: boolean
+  default: true
+- name: HotfixReleaseNumber
+  type: number
+  default: 0
+- name: PrepareAppSourcePackage
+  type: boolean
+  default: false
+  
 trigger: none
 pr: none
 resources:
@@ -125,5 +134,8 @@ steps:
     releaseNotesPath: 'powercat-automation-kit/AutomationKitResources/Release/Notes/'
     issueClosingComment: 'This has been fixed in the latest release.'
     closeIssues: ${{parameters.CloseMilestoneIssues}}
+    isDraft: ${{parameters.DraftRelease}}
     isPreRelease: false
-    queryHeadingDelimited: "label:bug|### Automation Kit - *BUGS*|label:enhancement|### Automation Kit - *FEATURES*|-label:enhancement -label:bug|### Automation Kit - *OTHER*"
+    hotfixReleaseNumber: ${{parameters.HotfixReleaseNumber}}
+    queryHeadingDelimited: "label:bug|### 🐛 Automation Kit - *BUGS*|label:enhancement|### 🎉 Automation Kit - *FEATURES*|-label:enhancement -label:bug|### ✨ Automation Kit - *OTHER*"
+    prepareAppSourcePackage: ${{parameters.PrepareAppSourcePackage}}
