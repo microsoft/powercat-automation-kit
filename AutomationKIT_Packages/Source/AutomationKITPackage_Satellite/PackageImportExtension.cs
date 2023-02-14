@@ -1,13 +1,12 @@
-﻿using System;
+﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
+using System;
 using System.ComponentModel.Composition;
 using System.IO;
 using System.Reflection;
-using Microsoft.Xrm.Sdk;
-using Microsoft.Xrm.Sdk.Query;
-using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
-using System.Threading.Tasks;
 
-namespace AutomationKIT
+namespace AutomationKIT_Satellite
 {
     /// <summary>
     /// Import package starter frame.
@@ -42,6 +41,12 @@ namespace AutomationKIT
         private bool ImportSampleData;
         private bool NeedToActivateAllFlows;
         private string CurrentSolutionName;
+        private bool NeedToCreateApplicationUser;
+        private string Azure_App_Name;
+        private Guid Azure_AppId;
+        private string const_SystemAdmin_SecurityRole;
+        private string const_Azure_DefaultFolderName;
+
 
         #endregion
 
@@ -55,6 +60,10 @@ namespace AutomationKIT
             string strValue;           
             
             PackageLog.Log("InitializeCustomExtension is started on " + DateTime.Now.ToString());
+            
+            const_SystemAdmin_SecurityRole = AutomationKIT_Satellite.AutomationKit_Satellite.Default.Const_SysAdmin_Security_Role.ToString();
+            const_Azure_DefaultFolderName = AutomationKIT_Satellite.AutomationKit_Satellite.Default.Const_Azure_Default_Folder_Name.ToString();
+
             try
             {
                 if (RuntimeSettings != null)
@@ -83,6 +92,24 @@ namespace AutomationKIT
                         {
                             bool.TryParse(strValue, out NeedToActivateAllFlows);
                             PackageLog.Log("NeedToActivateAllFlows=" + NeedToActivateAllFlows.ToString());
+                        }
+                        else if (strKey.Contains("needtocreateapplicationuser"))
+                        {
+                            bool.TryParse(strValue, out NeedToCreateApplicationUser);
+                            PackageLog.Log("NeedToCreateApplicationUser=" + NeedToCreateApplicationUser.ToString());
+                        }
+                        else if (strKey.Contains("azure_appid"))
+                        {
+                            if (!string.IsNullOrEmpty(strValue.Trim()))
+                            {
+                                Guid.TryParse(strValue.Trim(), out Azure_AppId);
+                                PackageLog.Log("azure_appId=" + Azure_AppId.ToString());
+                            }
+                        }
+                        else if (strKey.Contains("azure_appname"))
+                        {
+                            Azure_App_Name = strValue.Trim();
+                            PackageLog.Log("azure_appname=" + Azure_App_Name);
                         }
                     }
                                                             
@@ -147,6 +174,8 @@ namespace AutomationKIT
             PackageLog.Log("AfterPrimaryImport is completed on " + DateTime.Now.ToString());            
             InsertRecordstoDesktopFlowActionsTable();
             ActivateDeActivateAllCloudFlows();
+            if (NeedToCreateApplicationUser)
+                CreateApplicationUser();
             return true;
         }
         private void InsertRecordstoDesktopFlowActionsTable()
@@ -224,9 +253,21 @@ namespace AutomationKIT
             querysolution.Criteria.AddCondition("uniquename", ConditionOperator.Equal, CurrentSolutionName);
 
             var resultsolution = CrmSvc.RetrieveMultiple(querysolution);
-            var results = resultsolution.Entities[0];
-            string solutionid = results["solutionid"].ToString();
+            
+            string solutionid ="";
 
+            if (resultsolution.Entities.Count > 0)
+            {
+                var results = resultsolution.Entities[0];
+                solutionid = results["solutionid"].ToString();
+
+            }
+            else
+            {
+                PackageLog.Log("Unable to find solution details in dataverse with solution name=" + CurrentSolutionName + " and ActivateDeActivateAllCloudFlows process is aborting on " + DateTime.Now.ToString());
+                return;
+            }
+            
             var queryflow = new QueryExpression("workflow");
             queryflow.ColumnSet.AddColumns("name");
             queryflow.ColumnSet.AddColumns("workflowid");
@@ -322,6 +363,146 @@ namespace AutomationKIT
             PackageLog.Log("Completed activation/de-activation for all flows  successfully.");
 
         }
-     
+
+        private Boolean CreateApplicationUser()
+        {
+            string FirstName = "#";
+            string LastName = Azure_App_Name;
+            string fullname = FirstName + " " + LastName;
+            string applicationiduri = "api://" + Azure_AppId.ToString();
+            bool result;
+
+            Guid roleid = Guid.Empty;
+            Guid userid = Guid.Empty;
+
+            // getting business unit details
+            Guid businessunitid;
+            var querybu = new QueryExpression("businessunit");
+            querybu.ColumnSet.AddColumns("businessunitid");
+            var resultbu = CrmSvc.RetrieveMultiple(querybu);
+            if (resultbu.Entities.Count > 0)
+            {
+                businessunitid = new Guid(resultbu[0]["businessunitid"].ToString());
+
+                PackageLog.Log("business unit guid =" + businessunitid);
+
+            }
+            else
+            {
+                PackageLog.Log("business unit not found");
+                return false;
+
+            }
+
+            //getting existing user details
+            var queryusers = new QueryExpression("systemuser");
+            queryusers.ColumnSet.AddColumns("systemuserid");
+
+            queryusers.Criteria.AddCondition("fullname", ConditionOperator.Equal, fullname);
+            queryusers.Criteria.AddCondition("applicationid", ConditionOperator.Equal, Azure_AppId);
+            queryusers.Criteria.AddCondition("businessunitid", ConditionOperator.Equal, businessunitid);
+
+            var resultusers = CrmSvc.RetrieveMultiple(queryusers);
+
+            if (resultusers.Entities.Count == 0)
+            {
+                //Creating User Record with Azure app details.
+                var user = new Entity("systemuser");
+                user.Attributes["fullname"] = fullname;
+                user.Attributes["accessmode"] = new OptionSetValue(4);
+                user.Attributes["applicationid"] = Azure_AppId;
+                user.Attributes["applicationiduri"] = applicationiduri;
+                user.Attributes["azurestate"] = new OptionSetValue(0);
+                user.Attributes["defaultodbfoldername"] = const_Azure_DefaultFolderName;
+                user.Attributes["firstname"] = FirstName;
+                user.Attributes["lastname"] = LastName;
+                user.Attributes["incomingemaildeliverymethod"] = new OptionSetValue(1);
+                user.Attributes["businessunitid"] = new EntityReference("businessunit", businessunitid);
+
+                try
+                {
+                    var returnid = CrmSvc.Create(user);
+                    PackageLog.Log("user successfully created with id " + returnid.ToString());
+                    result = true;
+                }
+                catch (Exception ex)
+                {
+                    PackageLog.Log("Unable to create user and Exception is " + ex.Message.ToString());
+                    result = false;
+                }
+
+            }
+            else
+            {
+                var results1 = resultusers.Entities[0];
+                userid = (Guid)results1["systemuserid"];
+
+            }
+            // getting role id
+            if (!string.IsNullOrEmpty(const_SystemAdmin_SecurityRole))
+            {
+                var queryRoles = new QueryExpression("role");
+                queryRoles.ColumnSet.AddColumns("roleid");
+                queryRoles.ColumnSet.AddColumns("name");
+                queryRoles.Criteria.AddCondition("name", ConditionOperator.Equal, const_SystemAdmin_SecurityRole);
+                try
+                {
+                    var resultroles = CrmSvc.RetrieveMultiple(queryRoles);
+                    if (resultroles.Entities.Count > 0)
+                    {
+                        var results = resultroles.Entities[0];
+                        roleid = (Guid)results["roleid"];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    PackageLog.Log("Unable to retrive role information for role '" + const_SystemAdmin_SecurityRole + "'. Erorr: " + ex.Message.ToString());
+                    result = false;
+                }
+            }
+
+            //getting user id
+            if (userid != Guid.Empty)
+            {
+                queryusers = new QueryExpression("systemuser");
+                queryusers.ColumnSet.AddColumns("systemuserid");
+                queryusers.Criteria.AddCondition("fullname", ConditionOperator.Equal, fullname);
+                queryusers.Criteria.AddCondition("applicationid", ConditionOperator.Equal, Azure_AppId);
+                queryusers.Criteria.AddCondition("businessunitid", ConditionOperator.Equal, businessunitid);
+
+                resultusers = CrmSvc.RetrieveMultiple(queryusers);
+                if (resultusers.Entities.Count > 0)
+                {
+                    var results = resultusers.Entities[0];
+                    userid = (Guid)results["systemuserid"];
+                }
+            }
+
+            PackageLog.Log("Assigning users to security role '" + const_SystemAdmin_SecurityRole + "'");
+
+            //assigning user to role
+            if (roleid != Guid.Empty && userid != Guid.Empty)
+            {
+                try
+                {
+                    CrmSvc.DeleteEntityAssociation("systemuser", userid, "role", roleid, "systemuserroles_association");
+                    CrmSvc.Associate("systemuser", userid, new Relationship("systemuserroles_association"), new EntityReferenceCollection() { new EntityReference("role", roleid) });
+                    result = true;
+                    PackageLog.Log("Successfully created application user");
+                }
+                catch (Exception ex)
+                {
+                    PackageLog.Log("Unable to assign user to security role '" + const_SystemAdmin_SecurityRole + "'. Error:" + ex.Message.ToString());
+                    result = false;
+                }
+            }
+            else
+            {
+                PackageLog.Log("Valid Ids are not found for User or Role. Unable to create application user.");
+                result = false;
+            }
+
+            return result;
+        }
     }
 }
