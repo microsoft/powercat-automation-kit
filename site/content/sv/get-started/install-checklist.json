@@ -34,6 +34,13 @@
                 "default": "Automated - Download and using command line interface",
                 "sv": "Automatiserad - Ladda ner och använda kommandoradsgränssnittet"
               }
+            },
+            {
+              "value": "scheduler",
+              "text": {
+                "default": "Scheduler - Install the Automation Kit Scheduler",
+                "sv": "Scheduler - Installera Automation Kit Scheduler"
+              }
             }
           ]
         },
@@ -52,6 +59,60 @@
             "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
             "sv": "Automatiserad installation vald. Använd ikonen  <a href='/get-started/install' target='_blank'>installationsguide</a> för att ladda ner installations-ZIP-filen från [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) och använd sedan kommandoraden för att automatisera installationen och konfigurationen av lösningen"
           }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'scheduler'",
+          "html": {
+            "default": "Install a Power Platform solution to view recurring Power Automate Flows that call Power Automate Desktop",
+            "sv": "Installera en Power Platform lösning för att visa återkommande Power Automate-flöden som anropar Power Automate Desktop"
+          }
+        }
+      ]
+    },
+    {
+      "name": "scheduler-checklist",
+      "visibleIf": "{install-type} == 'scheduler'",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "components",
+          "title": {
+            "default": "Scheduler checklist",
+            "sv": "Checklista för schemaläggare"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "pcf",
+              "text": {
+                "default": "Prerequisites configured - Power Apps Component Framework enabled <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>Read more</a>",
+                "sv": "Krav konfigurerade – Power Apps Component Framework aktiverat <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>Läs mer</a>"
+              }
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "Prerequisites configured - Creator Kit installed <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>Install from App Source</a>",
+                "sv": "Förutsättningar konfigurerade – Creator Kit installerat <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>Installera från appkällan</a>"
+              }
+            },
+            {
+              "value": "download",
+              "text": {
+                "default": "Downloaded the AutomationKit.zip file from the Assets section of the latest <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>GitHub release</a>",
+                "sv": "Laddade ned AutomationKit.zip-filen från avsnittet Tillgångar i den senaste <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>GitHub-versionen</a>"
+              }
+            },
+            {
+              "value": "installed",
+              "text": {
+                "default": "Solution has been Imported from the latest AutomationKitScheduler_*_managed.zip file using. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>Read more</a>",
+                "sv": "Lösningen har importerats från den senaste AutomationKitScheduler_*_hanterad.zip fil med. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>Läs mer</a>"
+              }
+            }
+          ]
         }
       ]
     },

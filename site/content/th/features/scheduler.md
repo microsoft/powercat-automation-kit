@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
+generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
 ---
 
 {{<toc>}}
@@ -35,6 +35,15 @@ Automation Kit Scheduler ช่วยให้สามารถดูกํา�
 
 1. เฉพาะโซลูชัน Power Automate Desktop และ Power Automate ที่อยู่ภายในโซลูชันเท่านั้นที่จะแสดง
 1. มีการลงทะเบียนและดําเนินการ Power Automate Desktop อย่างน้อยหนึ่งรายการ
+
+## ติดตั้ง
+
+ในการติดตั้งโซลูชันตัวจัดกําหนดการคุณสามารถทําสิ่งต่อไปนี้:
+
+1. ตรวจสอบให้แน่ใจว่า Power Apps component framework <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">ดูเพิ่มเติม</a>
+1. คุณได้ติดตั้งชุดผู้สร้างลงในสภาพแวดล้อมเป้าหมายแล้ว <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">ติดตั้งจาก App Source</a>
+1. คุณได้ดาวน์โหลดไฟล์ AutomationKit.zip จากส่วนเนื้อหาล่าสุด <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">ปล่อย GitHub</a>
+1. คุณได้นําเข้า AutomationKitScheduler ล่าสุด_*_จัดการ.zip ไฟล์ที่ใช้ <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">ดูเพิ่มเติม</a>
 
 ## แผนงาน
 

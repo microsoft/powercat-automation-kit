@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
+generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
 ---
 
 {{<toc>}}
@@ -35,6 +35,15 @@ Automation Kit スケジューラを使用すると、Power Automate デスク�
 
 1.ソリューションに含まれる Power Automate デスクトップ ソリューションと Power Automate ソリューションのみが表示されます。
 1.少なくとも 1 つの Power Automate デスクトップが登録され、実行されている
+
+## 取り付ける
+
+スケジューラ ソリューションをインストールするには、次の操作を行います。
+
+1.Power Apps コンポーネント フレームワークを確認する<a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">続きを読む</a>
+1.これで、クリエイターキットがターゲット環境にインストールされました。<a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">アプリソースからインストール</a>
+1.最新のアセットセクションからAutomationKit.zipファイルをダウンロードしました<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub リリース</a>
+1.最新のオートメーションキットスケジューラをインポートしておきます。_*_管理.zipファイルを使用します。<a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">続きを読む</a>
 
 ## ロードマップ
 

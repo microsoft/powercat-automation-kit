@@ -34,6 +34,13 @@
                 "default": "Automated - Download and using command line interface",
                 "th": "อัตโนมัติ - ดาวน์โหลดและใช้อินเทอร์เฟซบรรทัดคําสั่ง"
               }
+            },
+            {
+              "value": "scheduler",
+              "text": {
+                "default": "Scheduler - Install the Automation Kit Scheduler",
+                "th": "Scheduler - ติดตั้ง Automation Kit Scheduler"
+              }
             }
           ]
         },
@@ -52,6 +59,60 @@
             "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
             "th": "เลือกติดตั้งอัตโนมัติ ใช้ปุ่ม  <a href='/get-started/install' target='_blank'>คู่มือการติดตั้ง</a> เพื่อดาวน์โหลดไฟล์ ZIP ติดตั้งจาก [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) จากนั้นใช้บรรทัดคําสั่งเพื่อทําให้การตั้งค่าและการกําหนดค่าโซลูชันเป็นไปโดยอัตโนมัติ"
           }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'scheduler'",
+          "html": {
+            "default": "Install a Power Platform solution to view recurring Power Automate Flows that call Power Automate Desktop",
+            "th": "ติดตั้งโซลูชัน Power Platform เพื่อดูโฟลว์ Power Automate ที่เป็นกิจวัตรซึ่งเรียกใช้ Power Automate Desktop"
+          }
+        }
+      ]
+    },
+    {
+      "name": "scheduler-checklist",
+      "visibleIf": "{install-type} == 'scheduler'",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "components",
+          "title": {
+            "default": "Scheduler checklist",
+            "th": "รายการตรวจสอบตัวจัดกําหนดการ"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "pcf",
+              "text": {
+                "default": "Prerequisites configured - Power Apps Component Framework enabled <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>Read more</a>",
+                "th": "ข้อกําหนดเบื้องต้นที่กําหนดค่า - เปิดใช้งาน Power Apps Component Framework <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>ดูเพิ่มเติม</a>"
+              }
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "Prerequisites configured - Creator Kit installed <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>Install from App Source</a>",
+                "th": "ข้อกําหนดเบื้องต้นที่กําหนดค่าไว้ - ติดตั้ง Creator Kit แล้ว <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>ติดตั้งจาก App Source</a>"
+              }
+            },
+            {
+              "value": "download",
+              "text": {
+                "default": "Downloaded the AutomationKit.zip file from the Assets section of the latest <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>GitHub release</a>",
+                "th": "ดาวน์โหลดไฟล์ AutomationKit.zip จากส่วนเนื้อหาล่าสุด <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>ปล่อย GitHub</a>"
+              }
+            },
+            {
+              "value": "installed",
+              "text": {
+                "default": "Solution has been Imported from the latest AutomationKitScheduler_*_managed.zip file using. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>Read more</a>",
+                "th": "โซลูชันถูกนําเข้าจาก AutomationKitScheduler ล่าสุด_*_จัดการ.zip ไฟล์ที่ใช้ <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>ดูเพิ่มเติม</a>"
+              }
+            }
+          ]
         }
       ]
     },

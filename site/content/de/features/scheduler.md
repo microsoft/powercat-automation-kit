@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
+generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
 ---
 
 {{<toc>}}
@@ -35,6 +35,15 @@ Für das aktuelle Release gelten folgende Hinweise
 
 1. Es werden nur Power Automate Desktop- und Power Automate-Lösungen angezeigt, die in einer Lösung enthalten sind
 1. Mindestens ein Power Automate Desktop wurde registriert und ausgeführt
+
+## Installieren
+
+Gehen Sie wie folgt vor, um die Scheduler-Lösung zu installieren:
+
+1. Sicherstellen des Power Apps-Komponentenframeworks <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lesen Sie mehr</a>
+1. Sie haben das Creator Kit in der Zielumgebung installiert. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installieren von App-Quelle</a>
+1. Sie haben die Datei AutomationKit.zip aus dem Abschnitt "Assets" der neuesten <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-Version</a>
+1. Sie haben den neuesten AutomationKitScheduler importiert_*_verwaltet.zip Datei mit. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lesen Sie mehr</a>
 
 ## Fahrplan
 

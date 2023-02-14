@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
+generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
 ---
 
 {{<toc>}}
@@ -35,6 +35,15 @@ Voor de huidige release zijn de volgende opmerkingen van toepassing
 
 1. Alleen Power Automate Desktop- en Power Automate-oplossingen in een oplossing worden weergegeven
 1. Ten minste één Power Automate Desktop is geregistreerd en uitgevoerd
+
+## Installeren
+
+Om de scheduler-oplossing te installeren, kunt u het volgende doen:
+
+1. Zorg voor een Power Apps-onderdeelframework <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lees meer</a>
+1. U hebt de Creator Kit in de doelomgeving geïnstalleerd. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installeren vanuit app-bron</a>
+1. U hebt het AutomationKit.zip-bestand gedownload van het gedeelte Activa van de nieuwste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-versie</a>
+1. U hebt de nieuwste AutomationKitScheduler geïmporteerd_*_beheerd.zip bestand gebruiken. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lees meer</a>
 
 ## Routekaart
 

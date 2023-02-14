@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
+generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
 ---
 
 {{<toc>}}
@@ -35,6 +35,15 @@ For gjeldende versjon gjelder følgende merknader
 
 1. Bare Power Automate Desktop- og Power Automate-løsninger i en løsning vises
 1. Minst én Power Automate Desktop er registrert og utført
+
+## Installere
+
+For å installere planleggerløsningen kan du gjøre følgende:
+
+1. Sikre rammeverket for Power Apps-komponenten <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Les også</a>
+1. Du har installert Creator Kit i målmiljøet. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer fra appkilde</a>
+1. Du har lastet ned AutomationKit.zip-filen fra Aktiva-delen av den nyeste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-utgivelse</a>
+1. Du har importert den nyeste AutomationKitScheduler_*_administrert.zip fil ved hjelp av. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Les også</a>
 
 ## Veikart
 

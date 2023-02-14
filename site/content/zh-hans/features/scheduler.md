@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
+generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
 ---
 
 {{<toc>}}
@@ -35,6 +35,15 @@ generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
 
 1.仅显示解决方案中包含的电源自动化桌面和电源自动化解决方案
 1.至少注册并执行了一个 Power Automate 桌面
+
+## 安装
+
+要安装调度程序解决方案，您可以执行以下操作：
+
+1.确保 Power Apps 组件框架<a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">阅读更多</a>
+1.您已将创建者工具包安装到目标环境中。<a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">从应用程序源安装</a>
+1.您已从最新的资产部分下载了 AutomationKit.zip 文件<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub 发布</a>
+1.您已导入最新的自动化工具包调度程序_*_托管.zip文件使用。<a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">阅读更多</a>
 
 ## 路线图
 

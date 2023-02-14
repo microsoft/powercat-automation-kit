@@ -34,6 +34,13 @@
                 "default": "Automated - Download and using command line interface",
                 "zh-hans": "自动 - 下载并使用命令行界面"
               }
+            },
+            {
+              "value": "scheduler",
+              "text": {
+                "default": "Scheduler - Install the Automation Kit Scheduler",
+                "zh-hans": "调度程序 - 安装自动化工具包调度程序"
+              }
             }
           ]
         },
@@ -52,6 +59,60 @@
             "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
             "zh-hans": "已选择自动安装。使用 <a href='/get-started/install' target='_blank'>安装指南</a>从下载安装 ZIP 文件[GitHub](https://github.com/microsoft/powercat-automation-kit/releases)，然后使用命令行自动设置和配置解决方案"
           }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'scheduler'",
+          "html": {
+            "default": "Install a Power Platform solution to view recurring Power Automate Flows that call Power Automate Desktop",
+            "zh-hans": "安装 Power Platform 解决方案以查看调用 Power Automate Desktop 的重复电源自动化流"
+          }
+        }
+      ]
+    },
+    {
+      "name": "scheduler-checklist",
+      "visibleIf": "{install-type} == 'scheduler'",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "components",
+          "title": {
+            "default": "Scheduler checklist",
+            "zh-hans": "调度程序清单"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "pcf",
+              "text": {
+                "default": "Prerequisites configured - Power Apps Component Framework enabled <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>Read more</a>",
+                "zh-hans": "已配置的先决条件 - 已启用 Power Apps 组件框架<a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>阅读更多</a>"
+              }
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "Prerequisites configured - Creator Kit installed <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>Install from App Source</a>",
+                "zh-hans": "已配置先决条件 - 已安装创建者工具包<a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>从应用程序源安装</a>"
+              }
+            },
+            {
+              "value": "download",
+              "text": {
+                "default": "Downloaded the AutomationKit.zip file from the Assets section of the latest <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>GitHub release</a>",
+                "zh-hans": "从最新的资产部分下载了自动化工具包.zip文件<a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>GitHub 发布</a>"
+              }
+            },
+            {
+              "value": "installed",
+              "text": {
+                "default": "Solution has been Imported from the latest AutomationKitScheduler_*_managed.zip file using. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>Read more</a>",
+                "zh-hans": "解决方案已从最新的自动化工具包调度程序导入_*_托管.zip文件使用。<a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>阅读更多</a>"
+              }
+            }
+          ]
         }
       ]
     },

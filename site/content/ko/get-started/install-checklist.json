@@ -34,6 +34,13 @@
                 "default": "Automated - Download and using command line interface",
                 "ko": "자동화 - 다운로드 및 명령줄 인터페이스 사용"
               }
+            },
+            {
+              "value": "scheduler",
+              "text": {
+                "default": "Scheduler - Install the Automation Kit Scheduler",
+                "ko": "스케줄러 - 자동화 키트 스케줄러 설치"
+              }
             }
           ]
         },
@@ -52,6 +59,60 @@
             "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
             "ko": "자동 설치가 선택되었습니다. 사용  <a href='/get-started/install' target='_blank'>설치 가이드</a> 다음에서 설치 ZIP 파일을 다운로드하려면 [깃허브](https://github.com/microsoft/powercat-automation-kit/releases) 그런 다음 명령줄을 사용하여 솔루션의 설정 및 구성을 자동화합니다."
           }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'scheduler'",
+          "html": {
+            "default": "Install a Power Platform solution to view recurring Power Automate Flows that call Power Automate Desktop",
+            "ko": "Power Platform 솔루션을 설치하여 Power Automate 데스크톱을 호출하는 반복되는 Power Automate 흐름을 봅니다."
+          }
+        }
+      ]
+    },
+    {
+      "name": "scheduler-checklist",
+      "visibleIf": "{install-type} == 'scheduler'",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "components",
+          "title": {
+            "default": "Scheduler checklist",
+            "ko": "스케줄러 검사 목록"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "pcf",
+              "text": {
+                "default": "Prerequisites configured - Power Apps Component Framework enabled <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>Read more</a>",
+                "ko": "구성된 필수 구성 요소 - Power Apps 구성 요소 프레임워크 사용 <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>더보기</a>"
+              }
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "Prerequisites configured - Creator Kit installed <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>Install from App Source</a>",
+                "ko": "구성된 필수 구성 요소 - 크리에이터 키트 설치됨 <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>앱 소스에서 설치</a>"
+              }
+            },
+            {
+              "value": "download",
+              "text": {
+                "default": "Downloaded the AutomationKit.zip file from the Assets section of the latest <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>GitHub release</a>",
+                "ko": "최신 자산의 자산 섹션에서 AutomationKit.zip 파일을 다운로드했습니다. <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>깃허브 릴리스</a>"
+              }
+            },
+            {
+              "value": "installed",
+              "text": {
+                "default": "Solution has been Imported from the latest AutomationKitScheduler_*_managed.zip file using. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>Read more</a>",
+                "ko": "솔루션이 최신 AutomationKitScheduler에서 가져왔습니다._*_관리.zip 파일 사용. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>더보기</a>"
+              }
+            }
+          ]
         }
       ]
     },

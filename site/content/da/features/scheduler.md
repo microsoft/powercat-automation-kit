@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
+generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
 ---
 
 {{<toc>}}
@@ -35,6 +35,15 @@ For den aktuelle version gælder følgende bemærkninger
 
 1. Kun Power Automate Desktop- og Power Automate-løsninger, der er indeholdt i en løsning, vises
 1. Mindst ét Power Automate Desktop er blevet registreret og udført
+
+## Installere
+
+For at installere planlægningsløsningen kan du gøre følgende:
+
+1. Sørg for Power Apps-komponentstruktur <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Læs mere</a>
+1. Du har installeret Creator Kit i destinationsmiljøet. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer fra App Source</a>
+1. Du har downloadet AutomationKit.zip-filen fra afsnittet Aktiver i det seneste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-udgivelse</a>
+1. Du har importeret den nyeste AutomationKitScheduler_*_administreret.zip fil ved hjælp af. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Læs mere</a>
 
 ## Køreplan
 

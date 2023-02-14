@@ -25,6 +25,10 @@
                         {
                             "value": "automated",
                             "text": "Automated - Download and using command line interface"
+                        },
+                        {
+                            "value": "scheduler",
+                            "text": "Scheduler - Install the Automation Kit Scheduler"
                         }
                     ]
                 },
@@ -37,6 +41,42 @@
                     "type": "html",
                     "visibleIf": "{install-type} == 'automated'",
                     "html": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "{install-type} == 'scheduler'",
+                    "html": "Install a Power Platform solution to view recurring Power Automate Flows that call Power Automate Desktop"
+                }
+            ]
+        },
+        {
+            "name": "scheduler-checklist",
+            "visibleIf": "{install-type} == 'scheduler'",
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "components",
+                    "title": "Scheduler checklist",
+                    "isRequired": true,
+                    "colCount": 1,
+                    "choices": [
+                        {
+                            "value": "pcf",
+                            "text": "Prerequisites configured - Power Apps Component Framework enabled <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>Read more</a>"
+                        },
+                        {
+                            "value": "creator-kit",
+                            "text": "Prerequisites configured - Creator Kit installed <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>Install from App Source</a>"
+                        },
+                        {
+                            "value": "download",
+                            "text": "Downloaded the AutomationKit.zip file from the Assets section of the latest <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>GitHub release</a>"
+                        },
+                        {
+                            "value": "installed",
+                            "text": "Solution has been Imported from the latest AutomationKitScheduler_*_managed.zip file using. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>Read more</a>"
+                        }
+                    ]
                 }
             ]
         },

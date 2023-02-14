@@ -34,6 +34,13 @@
                 "default": "Automated - Download and using command line interface",
                 "es": "Automatizado: descarga y uso de la interfaz de línea de comandos"
               }
+            },
+            {
+              "value": "scheduler",
+              "text": {
+                "default": "Scheduler - Install the Automation Kit Scheduler",
+                "es": "Programador: instalar el programador del kit de automatización"
+              }
             }
           ]
         },
@@ -52,6 +59,60 @@
             "default": "Automated install selected. Use the  <a href='/get-started/install' target='_blank'>install guide</a> to download the install ZIP file from [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) and then use the command line to automate the setup and configuration of the solution",
             "es": "Instalación automatizada seleccionada. Utilice el botón  <a href='/get-started/install' target='_blank'>Guía de instalación</a> para descargar el archivo ZIP de instalación desde [GitHub](https://github.com/microsoft/powercat-automation-kit/releases) y, a continuación, use la línea de comandos para automatizar la instalación y configuración de la solución"
           }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{install-type} == 'scheduler'",
+          "html": {
+            "default": "Install a Power Platform solution to view recurring Power Automate Flows that call Power Automate Desktop",
+            "es": "Instalar una solución Power Platform para ver los flujos recurrentes de Power Automate que llaman a Power Automate Desktop"
+          }
+        }
+      ]
+    },
+    {
+      "name": "scheduler-checklist",
+      "visibleIf": "{install-type} == 'scheduler'",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "components",
+          "title": {
+            "default": "Scheduler checklist",
+            "es": "Lista de comprobación del programador"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "pcf",
+              "text": {
+                "default": "Prerequisites configured - Power Apps Component Framework enabled <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>Read more</a>",
+                "es": "Requisitos previos configurados: Power Apps Component Framework habilitado <a href='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='_blank'>Leer más</a>"
+              }
+            },
+            {
+              "value": "creator-kit",
+              "text": {
+                "default": "Prerequisites configured - Creator Kit installed <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>Install from App Source</a>",
+                "es": "Requisitos previos configurados: Creator Kit instalado <a href='https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1' target='_blank'>Instalar desde el origen de la aplicación</a>"
+              }
+            },
+            {
+              "value": "download",
+              "text": {
+                "default": "Downloaded the AutomationKit.zip file from the Assets section of the latest <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>GitHub release</a>",
+                "es": "Descargó el archivo AutomationKit.zip de la sección Activos de la última versión <a href='https://github.com/microsoft/powercat-automation-kit/releases' target='_blank'>Versión de GitHub</a>"
+              }
+            },
+            {
+              "value": "installed",
+              "text": {
+                "default": "Solution has been Imported from the latest AutomationKitScheduler_*_managed.zip file using. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>Read more</a>",
+                "es": "La solución se ha importado desde la última versión de AutomationKitScheduler_*_administrado.zip archivo usando. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target='_blank'>Leer más</a>"
+              }
+            }
+          ]
         }
       ]
     },
