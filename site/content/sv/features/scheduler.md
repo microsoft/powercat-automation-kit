@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5CF3CCF5F9251D19AE2879C160C13F0DB16DBA60
+generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
 ---
 
 {{<toc>}}
@@ -17,6 +17,10 @@ Med Automation Kit Scheduler kan du visa schemat för återkommande Power Automa
 
 Denna funktion introducerades som en del av [Februari 2023](/sv/releases/february-2023)kommer senare versioner att fortsätta att förbättra och utöka schemaläggarens funktionalitet.
 
+{{<border>}}
+![Scheduler](/images/schedule.png)
+{{</border>}}
+
 De viktigaste funktionerna i schemaläggaren är:
 
 - Möjligheten att visa schemat för återkommande molnflöden
@@ -24,6 +28,19 @@ De viktigaste funktionerna i schemaläggaren är:
 - Visa status för Schemalagda flöden (Lyckades, Misslyckades eller Schemalagd)
 - Visa varaktigheten för en Cloud Flow-körning
 - Visa detaljerna eventuella fel.
+
+## Anteckningar
+
+För den aktuella versionen gäller följande information
+
+1. Endast Power Automate Desktop- och Power Automate-lösningar som ingår i en lösning visas
+1. Minst en Power Automate Desktop har registrerats och körts
+
+## Färdplan
+
+Du kan besöka vår <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub-problem</a> för att visa föreslagna nya funktioner.
+
+Du kan lägga till en ny <a href="https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Cenhancement%2Cscheduler&template=2-automation-kit-feature.yml&title=%5BAutomation+Kit+-+Feature%5D%3A+FEATURE+TITLE" target="_blank">Begäran om schemaläggningsfunktion</a>
 
 ## Feedback
 

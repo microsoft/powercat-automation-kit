@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5CF3CCF5F9251D19AE2879C160C13F0DB16DBA60
+generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
 ---
 
 {{<toc>}}
@@ -17,6 +17,10 @@ Le Planificateur du Kit d’automatisation permet d’afficher la planification 
 
 Cette fonctionnalité a été introduite dans le cadre de l' [Février 2023](/fr/releases/february-2023), les versions ultérieures continueront d’améliorer et de développer les fonctionnalités du planificateur.
 
+{{<border>}}
+![Programmateur](/images/schedule.png)
+{{</border>}}
+
 Les principales caractéristiques du planificateur sont les suivantes :
 
 - La possibilité de visualiser la planification des flux cloud récurrents
@@ -24,6 +28,19 @@ Les principales caractéristiques du planificateur sont les suivantes :
 - Afficher l’état des flux planifiés (Succès, Échec ou Planifié)
 - Afficher la durée d’une exécution de Cloud Flow
 - Affichez les détails des éventuelles erreurs.
+
+## Notes
+
+Pour la version actuelle, les remarques suivantes s’appliquent
+
+1. Seules les solutions Power Automate Desktop et Power Automate contenues dans une solution sont affichées
+1. Au moins un Power Automate Desktop a été enregistré et exécuté
+
+## Feuille de route
+
+Vous pouvez visiter notre <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">Problèmes GitHub</a> pour afficher les nouvelles fonctionnalités proposées.
+
+Vous pouvez ajouter un nouveau <a href="https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Cenhancement%2Cscheduler&template=2-automation-kit-feature.yml&title=%5BAutomation+Kit+-+Feature%5D%3A+FEATURE+TITLE" target="_blank">Demande de fonctionnalité du planificateur</a>
 
 ## Rétroaction
 

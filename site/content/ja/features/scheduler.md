@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 5CF3CCF5F9251D19AE2879C160C13F0DB16DBA60
+generated: 5DA3F1C4E1D121AFDA7A19B1E888CF88538487F4
 ---
 
 {{<toc>}}
@@ -17,6 +17,10 @@ Automation Kit スケジューラを使用すると、Power Automate デスク�
 
 この機能は、[2023年2月号](/ja/releases/february-2023)、今後のリリースでは、スケジューラの機能が改善され、拡張されます。
 
+{{<border>}}
+![スケジューラ](/images/schedule.png)
+{{</border>}}
+
 スケジューラの主な機能は次のとおりです。
 
 -定期的なクラウドフローのスケジュールを表示する機能
@@ -24,6 +28,19 @@ Automation Kit スケジューラを使用すると、Power Automate デスク�
 -スケジュールされたフローの状態を表示する (成功、失敗、またはスケジュール済み)
 -クラウド・フローの実行時間の表示
 -エラーがあれば詳細を表示します。
+
+## 筆記
+
+現在のリリースでは、次の注意事項が適用されます。
+
+1.ソリューションに含まれる Power Automate デスクトップ ソリューションと Power Automate ソリューションのみが表示されます。
+1.少なくとも 1 つの Power Automate デスクトップが登録され、実行されている
+
+## ロードマップ
+
+あなたは私たちを訪問することができます<a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub の問題</a>をクリックして、提案された新機能を表示します。
+
+新しい<a href="https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Cenhancement%2Cscheduler&template=2-automation-kit-feature.yml&title=%5BAutomation+Kit+-+Feature%5D%3A+FEATURE+TITLE" target="_blank">スケジューラ機能要求</a>
 
 ## フィードバック
 
