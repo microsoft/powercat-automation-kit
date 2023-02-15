@@ -83,6 +83,7 @@ scr_IdeasDashboard_CK As screen:
                 smallScreen: If(scr_IdeasDashboard_CK.Width < 1500 || scr_IdeasDashboard_CK.Height < 700, true, false)
             }
         );
+        
         If(
             !IsBlank(_projectNumber),
             UpdateContext(
@@ -206,6 +207,7 @@ scr_IdeasDashboard_CK As screen:
             )
         );
         UpdateContext({_showSpinner: false});
+        UpdateContext({selectedRecord: "SetSelection" & Text(Rand())})
 
     c_NewIdeaRoot_2 As groupContainer.verticalAutoLayoutContainer:
         Height: =Parent.Height
@@ -11648,7 +11650,7 @@ scr_IdeasDashboard_CK As screen:
                                         'Automation Project',
                                         "RecordSelected",
                                         If(
-                                            'Automation Project Number' = _projectNumber,
+                                            'Automation Project' = GUID(_selectedProjectId),
                                             true,
                                             false
                                         )
@@ -11695,6 +11697,7 @@ scr_IdeasDashboard_CK As screen:
                                     "Project Submitted Successfully",
                                     NotificationType.Success
                                 );
+                                UpdateContext({selectedRecord: "SetSelection" & Text(Rand())});
                                 //Refresh collection and detail list input - End
                             ,
                                 "EditProject",
@@ -12366,17 +12369,13 @@ scr_IdeasDashboard_CK As screen:
                 );
                 ResetForm(ProjectForm);
                 ResetForm(ROIForm);
-                UpdateContext({selectedRecord: "SetSelection" & Text(Rand())});
+                //UpdateContext({selectedRecord: "SetSelection" & Text(Rand())});
                 ,
                 "Close",
                 If(
                     Param("ProjectNumber") = _projectNumber,
                     UpdateContext({selectedRecord: "SetSelection" & Text(Rand())})
-                );
-                If(
-                    Param("projectId") = _projectId,
-                    UpdateContext({selectedRecord: "SetSelection" & Text(Rand())})
-                );
+                );    
                 UpdateContext(
                     {
                         _showProjectForm: false,
@@ -12452,7 +12451,7 @@ scr_IdeasDashboard_CK As screen:
                                 'Automation Project',                    
                                 "RecordSelected",
                                 If(
-                                    'Automation Project Number' = _projectNumber,
+                                    'Automation Project' = GUID(_selectedProjectId),
                                     true,
                                     false
                                 )
@@ -12500,10 +12499,11 @@ scr_IdeasDashboard_CK As screen:
                         "Project Saved Successfully",
                         NotificationType.Success
                     );
+                    UpdateContext({selectedRecord: "SetSelection" & Text(Rand())});
                 );
                 
             );
-        OnCloseSelect: |
+        OnCloseSelect: |-
             =Concurrent(
             UpdateContext(
                 {
@@ -12513,8 +12513,8 @@ scr_IdeasDashboard_CK As screen:
                 }
             ),
             ResetForm(ProjectForm),
-            ResetForm(ROIForm),
-            UpdateContext({selectedRecord:"SetSelection" & Text(Rand())}));
+            ResetForm(ROIForm)
+            );
         Subtitle: =""
         Title: |-
             =Concatenate("Project ",Switch(formMode,"Edit",LookUp(
