@@ -397,8 +397,7 @@ namespace AutomationKIT_Satellite
             //getting existing user details
             var queryusers = new QueryExpression("systemuser");
             queryusers.ColumnSet.AddColumns("systemuserid");
-
-            queryusers.Criteria.AddCondition("fullname", ConditionOperator.Equal, fullname);
+            
             queryusers.Criteria.AddCondition("applicationid", ConditionOperator.Equal, Azure_AppId);
             queryusers.Criteria.AddCondition("businessunitid", ConditionOperator.Equal, businessunitid);
 
@@ -422,7 +421,8 @@ namespace AutomationKIT_Satellite
                 try
                 {
                     var returnid = CrmSvc.Create(user);
-                    PackageLog.Log("user successfully created with id " + returnid.ToString());
+                    userid = returnid;
+                    PackageLog.Log("user successfully created with id " + userid.ToString());
                     result = true;
                 }
                 catch (Exception ex)
@@ -436,6 +436,7 @@ namespace AutomationKIT_Satellite
             {
                 var results1 = resultusers.Entities[0];
                 userid = (Guid)results1["systemuserid"];
+                PackageLog.Log("user id retrived" + userid.ToString());
 
             }
             // getting role id
@@ -452,6 +453,7 @@ namespace AutomationKIT_Satellite
                     {
                         var results = resultroles.Entities[0];
                         roleid = (Guid)results["roleid"];
+                        PackageLog.Log("Role ID='" + roleid + "'");
                     }
                 }
                 catch (Exception ex)
@@ -461,24 +463,8 @@ namespace AutomationKIT_Satellite
                 }
             }
 
-            //getting user id
-            if (userid != Guid.Empty)
-            {
-                queryusers = new QueryExpression("systemuser");
-                queryusers.ColumnSet.AddColumns("systemuserid");
-                queryusers.Criteria.AddCondition("fullname", ConditionOperator.Equal, fullname);
-                queryusers.Criteria.AddCondition("applicationid", ConditionOperator.Equal, Azure_AppId);
-                queryusers.Criteria.AddCondition("businessunitid", ConditionOperator.Equal, businessunitid);
+            PackageLog.Log("Assigning users to security role '" + const_SystemAdmin_SecurityRole + "' for user " + userid.ToString() + " , role id = " + roleid.ToString());
 
-                resultusers = CrmSvc.RetrieveMultiple(queryusers);
-                if (resultusers.Entities.Count > 0)
-                {
-                    var results = resultusers.Entities[0];
-                    userid = (Guid)results["systemuserid"];
-                }
-            }
-
-            PackageLog.Log("Assigning users to security role '" + const_SystemAdmin_SecurityRole + "'");
 
             //assigning user to role
             if (roleid != Guid.Empty && userid != Guid.Empty)
