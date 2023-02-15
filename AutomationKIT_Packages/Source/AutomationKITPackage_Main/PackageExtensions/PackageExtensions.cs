@@ -1,4 +1,4 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿/*using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
 using System;
@@ -85,3 +85,4 @@ namespace AutomationKIT_Main.PackageExtensions
         }
     }
 }
+*/
