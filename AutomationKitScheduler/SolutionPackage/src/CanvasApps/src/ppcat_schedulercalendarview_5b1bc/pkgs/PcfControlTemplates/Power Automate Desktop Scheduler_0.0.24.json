@@ -12,6 +12,17 @@
         "Type": 27,
         "WizardStep": null
       },
+      "filterField": {
+        "EnabledForFlyout": false,
+        "HelperUI": null,
+        "Hidden": false,
+        "PropertyGroupName": "",
+        "PropertyKind": 1,
+        "SectionIndex": 0,
+        "SectionName": "data",
+        "Type": 0,
+        "WizardStep": null
+      },
       "Height": {
         "EnabledForFlyout": false,
         "HelperUI": null,
@@ -23,14 +34,14 @@
         "Type": 0,
         "WizardStep": null
       },
-      "Items": {
+      "searchText": {
         "EnabledForFlyout": false,
         "HelperUI": null,
         "Hidden": false,
         "PropertyGroupName": "",
         "PropertyKind": 1,
         "SectionIndex": 0,
-        "SectionName": "dataset",
+        "SectionName": "data",
         "Type": 0,
         "WizardStep": null
       },
@@ -109,18 +120,11 @@
       "Hidden": false,
       "IsPrimaryInput": false,
       "Name": "OnChange"
-    },
-    {
-      "Description": "",
-      "DisplayName": "OnSelect",
-      "Hidden": false,
-      "IsPrimaryInput": false,
-      "Name": "OnSelect"
     }
   ],
   "ControlConstructor": "PADScheduleViewer",
   "ControlNamespace": "PowerCAT",
-  "DisplayNameKey": "PADScheduleViewer",
+  "DisplayNameKey": "PADScheduleViewer_Display_Key",
   "IncludedProperties": [
     {
       "Category": "design",
@@ -299,7 +303,7 @@
     },
     {
       "Category": "design",
-      "DefaultValue": "PADScheduleViewer description",
+      "DefaultValue": "Let users schedule their Power Automate Desktop Flow",
       "Description": "",
       "DescriptionResourceString": "",
       "DisplayName": "Tooltip",
@@ -323,40 +327,41 @@
       "WebDefaultValue": ""
     }
   ],
-  "Name": "PADScheduleViewer",
+  "Name": "Power Automate Desktop Scheduler",
   "Properties": [
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Dataset_Display_Key",
-      "DescriptionResourceString": "Dataset_Display_Key",
-      "DisplayName": "Dataset_Display_Key(##PCFDatasetItems##)",
-      "DisplayNameResourceString": "Dataset_Display_Key",
+      "Description": "Let users filter events based on the filters",
+      "DescriptionResourceString": "PADScheduleViewer_FilterField_Desc_Key",
+      "DisplayName": "Filter Fields",
+      "DisplayNameResourceString": "PADScheduleViewer_FilterField_Display_Key",
+      "EnumValues": [],
       "HelperUI": "",
       "Hidden": false,
-      "IsDataSourceProperty": true,
+      "IsDataSourceProperty": false,
       "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": true,
+      "IsPrimaryInput": false,
       "IsPrimaryOutput": false,
       "IsResettable": false,
-      "Name": "Items",
-      "NullDefaultValue": "",
+      "Name": "filterField",
       "ParentDataSetName": "",
       "PassThroughProperty": "",
       "PhoneDefaultValue": "",
       "Required": false,
       "ShouldAutoBind": false,
-      "Type": 26,
-      "Usage": 0,
+      "Type": 6,
+      "Usage": 2,
       "WebDefaultValue": ""
     },
     {
       "Category": "data",
       "DefaultValue": "",
-      "Description": "Dataset_Display_Key",
-      "DescriptionResourceString": "Dataset_Display_Key",
-      "DisplayName": "Dataset_Display_Key(##PCFDatasetSelected##)",
-      "DisplayNameResourceString": "Dataset_Display_Key",
+      "Description": "Let users search events based on the filters",
+      "DescriptionResourceString": "PADScheduleViewer_SearchText_Desc_Key",
+      "DisplayName": "Search Text",
+      "DisplayNameResourceString": "PADScheduleViewer_SearchText_Display_Key",
+      "EnumValues": [],
       "HelperUI": "",
       "Hidden": false,
       "IsDataSourceProperty": false,
@@ -364,40 +369,14 @@
       "IsPrimaryInput": false,
       "IsPrimaryOutput": false,
       "IsResettable": false,
-      "Name": "Selected",
-      "NullDefaultValue": "",
+      "Name": "searchText",
       "ParentDataSetName": "",
-      "PassThroughProperty": "Items",
+      "PassThroughProperty": "",
       "PhoneDefaultValue": "",
       "Required": false,
       "ShouldAutoBind": false,
-      "Type": 5,
-      "Usage": 1,
-      "WebDefaultValue": ""
-    },
-    {
-      "Category": "data",
-      "DefaultValue": "",
-      "Description": "Dataset_Display_Key",
-      "DescriptionResourceString": "Dataset_Display_Key",
-      "DisplayName": "Dataset_Display_Key(##PCFDatasetSelectedItems##)",
-      "DisplayNameResourceString": "Dataset_Display_Key",
-      "HelperUI": "",
-      "Hidden": false,
-      "IsDataSourceProperty": false,
-      "IsPrimaryBehavioral": false,
-      "IsPrimaryInput": false,
-      "IsPrimaryOutput": false,
-      "IsResettable": false,
-      "Name": "SelectedItems",
-      "NullDefaultValue": "",
-      "ParentDataSetName": "",
-      "PassThroughProperty": "Items",
-      "PhoneDefaultValue": "",
-      "Required": false,
-      "ShouldAutoBind": false,
-      "Type": 26,
-      "Usage": 1,
+      "Type": 6,
+      "Usage": 2,
       "WebDefaultValue": ""
     },
     {
@@ -424,18 +403,6 @@
       "Type": 3,
       "Usage": 0,
       "WebDefaultValue": ""
-    }
-  ],
-  "PropertyDependencies": [
-    {
-      "Input": "Items",
-      "Output": "Selected",
-      "RequiredFor": ""
-    },
-    {
-      "Input": "Items",
-      "Output": "SelectedItems",
-      "RequiredFor": ""
     }
   ],
   "Resources": [
@@ -485,49 +452,70 @@
       "IsControlSpecific": false,
       "LoadingOrder": 7,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerCAT.PADScheduleViewer\",\"CustomControlId\":\"PowerCAT.PADScheduleViewer\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{\"sampleDataSet\":{\"DisplayName\":\"Dataset_Display_Key\",\"Type\":\"Grid\",\"Columns\":{},\"Primary\":true,\"InitialDataSetFetch\":true,\"CDSDataSetOptions\":null}},\"Properties\":{\"Items\":{\"Required\":true,\"Usage\":1,\"DefaultValue\":\"\"},\"Selected\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"},\"SelectedItems\":{\"Required\":true,\"Usage\":2,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"WebAPI\"}]},\"Events\":null,\"CommonEvents\":null,\"DesignMap\":null,\"PropertyDependencies\":[{\"Input\":\"Items\",\"Output\":\"Selected\",\"RequiredFor\":\"\"},{\"Input\":\"Items\",\"Output\":\"SelectedItems\",\"RequiredFor\":\"\"}],\"Children\":null}}",
+      "Path": "{\"Id\":\"ManifestTemplate\",\"Data\":{\"ConstructorName\":\"PowerCAT.PADScheduleViewer\",\"CustomControlId\":\"PowerCAT.PADScheduleViewer\",\"IsVirtual\":true,\"Properties\":{\"Resources\":[{\"Name\":\"/PCF/prop-types.js\",\"LoadOrder\":1,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/react-fela.js\",\"LoadOrder\":2,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela.js\",\"LoadOrder\":3,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/PCF/fela-dom.js\",\"LoadOrder\":4,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PCFControls/js/PCFControlWrapper.js\",\"LoadOrder\":6,\"Type\":0,\"LibraryName\":null},{\"Name\":\"/ctrllib/PcfControlProxy/js/PcfControlProxy.js\",\"LoadOrder\":7,\"Type\":0,\"LibraryName\":null}],\"GroupDefinitions\":null,\"DataSetDefinitions\":{},\"Properties\":{\"filterField\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"},\"searchText\":{\"Required\":true,\"Usage\":0,\"DefaultValue\":\"\"}},\"FeatureUsage\":[{\"IsRequired\":true,\"Name\":\"WebAPI\"}]},\"Events\":null,\"CommonEvents\":null,\"DesignMap\":null,\"PropertyDependencies\":[],\"Children\":null}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 8,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"Items\",\"Type\":\"DataSet\",\"ComplexType\":\"None\",\"IsPrimary\":true,\"IsIncluded\":false},{\"Name\":\"Selected\",\"Type\":\"Object\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"SelectedItems\",\"Type\":\"DataSet\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"TabIndex\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Tooltip\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
+      "Path": "{\"Id\":\"ManifestPropertyTypes\",\"Data\":{\"Properties\":[{\"Name\":\"filterField\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"searchText\",\"Type\":\"SingleLine_Text\",\"ComplexType\":\"None\",\"IsPrimary\":false,\"IsIncluded\":false},{\"Name\":\"PCFTeamsTheme\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"X\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Y\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Width\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Height\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Visible\",\"Type\":\"Boolean\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"DisplayMode\",\"Type\":\"DisplayMode\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"TabIndex\",\"Type\":\"Number\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true},{\"Name\":\"Tooltip\",\"Type\":\"String\",\"ComplexType\":\"\",\"IsPrimary\":false,\"IsIncluded\":true}]}}",
       "Type": 3
     },
     {
       "IsControlSpecific": false,
       "LoadingOrder": 9,
       "ModifiedPath": "",
-      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"0.0.7\",\"IsFirstParty\":false}}",
+      "Path": "{\"Id\":\"PowerAppsControlInfo\",\"Data\":{\"TemplateVersion\":1,\"Version\":\"0.0.24\",\"IsFirstParty\":false}}",
       "Type": 3
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 10,
-      "ModifiedPath": "https://docserverpwaprodeus.blob.core.windows.net/de6b5239-f9cf-43fe-9bf5-7009e5a2a926-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App990work04fg4fvrh.aco020S0Resources0Controls0PowerCAT.PADScheduleViewer.bundle.js?sv=2018-03-28&sr=b&sig=aH0FT1y0sq6GGdB%2BplQluS8l%2Bwipbq8zBbFKdNr%2Fth8%3D&spr=https&se=2023-02-15T06%3A44%3A30Z&sp=r",
+      "ModifiedPath": "https://docserverpwaprodwus.blob.core.windows.net/2a9d335c-bb76-41ca-b859-fa525437b414-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0sva1fo1s.fme020S0Resources0Controls0PowerCAT.PADScheduleViewer.bundle.js?sv=2018-03-28&sr=b&sig=B%2FWRTlNuoNbAWUScds9g4Yd4VGvntg9Thmty0hZ0wBc%3D&spr=https&se=2023-03-07T09%3A47%3A28Z&sp=r",
       "Path": "/PCFControls/autocoe_PowerCAT.PADScheduleViewer/PowerCAT.PADScheduleViewer.bundle.js",
       "Type": 0
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 10,
-      "ModifiedPath": "https://docserverpwaprodeus.blob.core.windows.net/de6b5239-f9cf-43fe-9bf5-7009e5a2a926-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App990work04fg4fvrh.aco020S0Resources0Controls0styles%252fPowerCAT.PADScheduleViewer.calendar.module.css?sv=2018-03-28&sr=b&sig=%2FnVhi1qqc0iBHLwDqO5HFAzFrry7YqTGjS%2BEOu4bgxk%3D&spr=https&se=2023-02-15T06%3A44%3A30Z&sp=r",
+      "ModifiedPath": "https://docserverpwaprodwus.blob.core.windows.net/2a9d335c-bb76-41ca-b859-fa525437b414-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0sva1fo1s.fme020S0Resources0Controls0styles%252fPowerCAT.PADScheduleViewer.calendar.module.css?sv=2018-03-28&sr=b&sig=EW7QZYZIgEqWcDY9%2BxChNaIEhuQUNFMGr5Po8BKHeHw%3D&spr=https&se=2023-03-07T09%3A47%3A28Z&sp=r",
       "Path": "/PCFControls/autocoe_PowerCAT.PADScheduleViewer/styles/PowerCAT.PADScheduleViewer.calendar.module.css",
       "Type": 1
     },
     {
       "IsControlSpecific": true,
       "LoadingOrder": 10,
-      "ModifiedPath": "https://docserverpwaprodeus.blob.core.windows.net/de6b5239-f9cf-43fe-9bf5-7009e5a2a926-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App990work04fg4fvrh.aco020S0Resources0Controls0styles%252fPowerCAT.PADScheduleViewer.customstyle.css?sv=2018-03-28&sr=b&sig=ok9bSPVf8BvL8gXEeeTfeXkiW8KslSgypxus%2FPq6Jrw%3D&spr=https&se=2023-02-15T06%3A44%3A30Z&sp=r",
+      "ModifiedPath": "https://docserverpwaprodwus.blob.core.windows.net/2a9d335c-bb76-41ca-b859-fa525437b414-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0sva1fo1s.fme020S0Resources0Controls0styles%252fPowerCAT.PADScheduleViewer.customstyle.css?sv=2018-03-28&sr=b&sig=%2BfHarAKrjDjOpBDfYBjIIWKhkYzvKIohjnN847CIWMM%3D&spr=https&se=2023-03-07T09%3A47%3A28Z&sp=r",
       "Path": "/PCFControls/autocoe_PowerCAT.PADScheduleViewer/styles/PowerCAT.PADScheduleViewer.customstyle.css",
       "Type": 1
     },
     {
+      "IsControlSpecific": true,
+      "LoadingOrder": 9,
+      "ModifiedPath": "",
+      "Path": "/PCFControls/autocoe_PowerCAT.PADScheduleViewer/strings/PowerCAT.PADScheduleViewer.PADScheduleViewer.1033.resx",
+      "Type": 2
+    },
+    {
       "IsControlSpecific": false,
-      "LoadingOrder": 13,
+      "LoadingOrder": 14,
       "ModifiedPath": "",
       "Path": "{\"Id\":\"FormattingData\",\"Data\":{\"timeZoneUtcOffsetMinutes\":0,\"dateTimeFormatInfo\":{\"AMDesignator\":\"AM\",\"Calendar\":{\"MinSupportedDateTime\":\"0001-01-01T00:00:00\",\"MaxSupportedDateTime\":\"9999-12-31T23:59:59.9999999\",\"AlgorithmType\":1,\"CalendarType\":1,\"Eras\":[1],\"TwoDigitYearMax\":2029,\"IsReadOnly\":false},\"DateSeparator\":\"/\",\"FirstDayOfWeek\":0,\"CalendarWeekRule\":0,\"FullDateTimePattern\":\"dddd, MMMM d, yyyy h:mm:ss tt\",\"LongDatePattern\":\"dddd, MMMM d, yyyy\",\"LongTimePattern\":\"h:mm:ss tt\",\"MonthDayPattern\":\"MMMM d\",\"PMDesignator\":\"PM\",\"RFC1123Pattern\":\"ddd, dd MMM yyyy HH':'mm':'ss 'GMT'\",\"ShortDatePattern\":\"M/d/yyyy\",\"ShortTimePattern\":\"h:mm tt\",\"SortableDateTimePattern\":\"yyyy'-'MM'-'dd'T'HH':'mm':'ss\",\"TimeSeparator\":\":\",\"UniversalSortableDateTimePattern\":\"yyyy'-'MM'-'dd HH':'mm':'ss'Z'\",\"YearMonthPattern\":\"MMMM yyyy\",\"AbbreviatedDayNames\":[\"Sun\",\"Mon\",\"Tue\",\"Wed\",\"Thu\",\"Fri\",\"Sat\"],\"ShortestDayNames\":[\"Su\",\"Mo\",\"Tu\",\"We\",\"Th\",\"Fr\",\"Sa\"],\"DayNames\":[\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\"AbbreviatedMonthNames\":[\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\",\"\"],\"MonthNames\":[\"January\",\"February\",\"March\",\"April\",\"May\",\"June\",\"July\",\"August\",\"September\",\"October\",\"November\",\"December\",\"\"],\"IsReadOnly\":false,\"NativeCalendarName\":\"Gregorian Calendar\",\"AbbreviatedMonthGenitiveNames\":[\"Jan\",\"Feb\",\"Mar\",\"Apr\",\"May\",\"Jun\",\"Jul\",\"Aug\",\"Sep\",\"Oct\",\"Nov\",\"Dec\",\"\"],\"MonthGenitiveNames\":[\"January\",\"February\",\"March\",\"April\",\"May\",\"June\",\"July\",\"August\",\"September\",\"October\",\"November\",\"December\",\"\"]},\"numberFormatInfo\":{\"CurrencyDecimalDigits\":2,\"CurrencyDecimalSeparator\":\".\",\"IsReadOnly\":false,\"CurrencyGroupSizes\":[3],\"NumberGroupSizes\":[3],\"PercentGroupSizes\":[3],\"CurrencyGroupSeparator\":\",\",\"CurrencySymbol\":\"$\",\"NaNSymbol\":\"NaN\",\"CurrencyNegativePattern\":0,\"NumberNegativePattern\":1,\"PercentPositivePattern\":1,\"PercentNegativePattern\":1,\"NegativeInfinitySymbol\":\"-∞\",\"NegativeSign\":\"-\",\"NumberDecimalDigits\":2,\"NumberDecimalSeparator\":\".\",\"NumberGroupSeparator\":\",\",\"CurrencyPositivePattern\":0,\"PositiveInfinitySymbol\":\"∞\",\"PositiveSign\":\"+\",\"PercentDecimalDigits\":2,\"PercentDecimalSeparator\":\".\",\"PercentGroupSeparator\":\",\",\"PercentSymbol\":\"%\",\"PerMilleSymbol\":\"‰\",\"NativeDigits\":[\"0\",\"1\",\"2\",\"3\",\"4\",\"5\",\"6\",\"7\",\"8\",\"9\"],\"DigitSubstitution\":1},\"timeZoneAdjusters\":[],\"formatInfoCultureName\":\"en-US\",\"formatter\":null,\"languagesByCode\":{\"1033\":\"English (United States)\",\"-1\":\"All Languages\"}}}",
+      "Type": 3
+    },
+    {
+      "IsControlSpecific": true,
+      "LoadingOrder": 15,
+      "ModifiedPath": "https://docserverpwaprodwus.blob.core.windows.net/2a9d335c-bb76-41ca-b859-fa525437b414-1/appdynamicresources/D%253a0SvcFab0_App0PowerApps.WebAuthoringType_App980work0sva1fo1s.fme020S0Resources0Controls0strings%252fPowerCAT.PADScheduleViewer.PADScheduleViewer.1033.json?sv=2018-03-28&sr=b&sig=0zf7V0sxb2oWPd24W6jpf4SgMkpzszK9P9FGDqKo8Lc%3D&spr=https&se=2023-03-07T09%3A47%3A28Z&sp=r",
+      "Path": "/PCFControls/autocoe_PowerCAT.PADScheduleViewer/strings/PowerCAT.PADScheduleViewer.PADScheduleViewer.1033.json",
+      "Type": 5
+    },
+    {
+      "IsControlSpecific": false,
+      "LoadingOrder": 15,
+      "ModifiedPath": "",
+      "Path": "{\"Id\":\"LocalizedStrings\",\"Data\":{\"LocStrings\":{\"PADScheduleViewer_Display_Key\":\"Power Automate Desktop Scheduler\",\"PADScheduleViewer_Desc_Key\":\"Let users schedule their Power Automate Desktop Flow\",\"PADScheduleViewer_FilterField_Display_Key\":\"Filter Fields\",\"PADScheduleViewer_SearchText_Display_Key\":\"Search Text\",\"PADScheduleViewer_FilterField_Desc_Key\":\"Let users filter events based on the filters\",\"PADScheduleViewer_SearchText_Desc_Key\":\"Let users search events based on the filters\"}}}",
       "Type": 3
     },
     {
@@ -552,5 +540,5 @@
       "Type": 4
     }
   ],
-  "Version": "0.0.7"
+  "Version": "0.0.24"
 }
