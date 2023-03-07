@@ -104,7 +104,7 @@ scr_NewIdea As screen:
                         DisplayMode: |-
                             =If(
                                 form_Project.Mode = FormMode.New,
-                                Disabled,
+                                DisplayMode.Disabled,
                                 DisplayMode.Edit
                             )
                         Height: =45
@@ -141,9 +141,9 @@ scr_NewIdea As screen:
                                 If(
                                     form_Project.Mode = FormMode.View,
                                     DisplayMode.Edit,
-                                    Disabled
+                                    DisplayMode.Disabled
                                 ),
-                                Disabled
+                                DisplayMode.Disabled
                             )
                         Height: =45
                         HoverBorderColor: =ColorFade(ico_EditProject.BorderColor, 20%)
@@ -297,7 +297,7 @@ scr_NewIdea As screen:
                                 AcceptsFocus: =false
                                 DataSource: ='Automation Projects'
                                 DefaultMode: =varFormMode
-                                Fill: =Transparent
+                                Fill: =Color.Transparent
                                 Height: =Parent.Height
                                 Item: =If(!IsBlank(Param("ProjectNumber")), LookUp('Automation Projects', 'Automation Project Number' = Param("ProjectNumber")), _SelectedProject)
                                 LayoutMinHeight: =250
@@ -373,7 +373,7 @@ scr_NewIdea As screen:
                                         DelayOutput: =true
                                         DisplayMode: =Parent.DisplayMode
                                         EnableSpellCheck: =true
-                                        Fill: =White
+                                        Fill: =Color.White
                                         FocusedBorderThickness: =FocusedBorderThicknessValue
                                         HintText: ="Name of project"
                                         HoverBorderColor: =HoverBorderColorValue
@@ -414,7 +414,7 @@ scr_NewIdea As screen:
 
                                     StarVisible20_1 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey21.Height
                                         Text: ="*"
@@ -460,7 +460,7 @@ scr_NewIdea As screen:
                                         DelayOutput: =true
                                         DisplayMode: =Parent.DisplayMode
                                         EnableSpellCheck: =true
-                                        Fill: =White
+                                        Fill: =Color.White
                                         Height: =63
                                         HintText: ="Explain main challenges in process"
                                         HoverBorderColor: =HoverBorderColorValue
@@ -501,7 +501,7 @@ scr_NewIdea As screen:
 
                                     StarVisible20_2 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey21.Height
                                         Text: ="*"
@@ -540,7 +540,7 @@ scr_NewIdea As screen:
                                     DataCardValue6 As combobox:
                                         BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
                                         BorderThickness: =1
-                                        ChevronBackground: =Transparent 
+                                        ChevronBackground: =Color.Transparent 
                                         ChevronFill: =PrimaryColor1TextValue
                                         ChevronHoverBackground: =ColorFade(DataCardValue6.ChevronBackground, 20%)
                                         ChevronHoverFill: =ColorFade(DataCardValue6.ChevronFill, 20%)
@@ -625,7 +625,7 @@ scr_NewIdea As screen:
                                     DataCardValue4 As combobox:
                                         BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
                                         BorderThickness: =1
-                                        ChevronBackground: =Transparent
+                                        ChevronBackground: =Color.Transparent
                                         ChevronFill: =PrimaryColor1TextValue
                                         ChevronHoverBackground: =ColorFade(DataCardValue4.ChevronBackground, 20%)
                                         ChevronHoverFill: =ColorFade(DataCardValue4.ChevronFill, 20%)
@@ -739,7 +739,7 @@ scr_NewIdea As screen:
 
                                     StarVisible5 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey5.Height
                                         Text: ="*"
@@ -778,7 +778,7 @@ scr_NewIdea As screen:
                                     DataCardValue8 As combobox:
                                         BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
                                         BorderThickness: =1
-                                        ChevronBackground: =Transparent
+                                        ChevronBackground: =Color.Transparent
                                         ChevronFill: =PrimaryColor1TextValue
                                         ChevronHoverBackground: =ColorFade(DataCardValue8.ChevronBackground, 20%)
                                         ChevronHoverFill: =ColorFade(DataCardValue8.ChevronFill, 20%)
@@ -863,7 +863,7 @@ scr_NewIdea As screen:
                                     DCV_processfreq As combobox:
                                         BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
                                         BorderThickness: =1
-                                        ChevronBackground: =Transparent
+                                        ChevronBackground: =Color.Transparent
                                         ChevronFill: =PrimaryColor1TextValue
                                         ChevronHoverBackground: =ColorFade(DCV_processfreq.ChevronBackground, 20%)
                                         ChevronHoverFill: =ColorFade(DCV_processfreq.ChevronFill, 20%)
@@ -910,7 +910,7 @@ scr_NewIdea As screen:
 
                                     StarVisible7 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey7.Height
                                         Text: ="*"
@@ -952,14 +952,13 @@ scr_NewIdea As screen:
                                     DCV_processingpeaks As combobox:
                                         BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
                                         BorderThickness: =1
-                                        ChevronBackground: =Transparent
+                                        ChevronBackground: =Color.Transparent
                                         ChevronFill: =PrimaryColor1TextValue
                                         ChevronHoverBackground: =ColorFade(DCV_processingpeaks.ChevronBackground, 20%)
                                         ChevronHoverFill: =ColorFade(DCV_processingpeaks.ChevronFill, 20%)
                                         DefaultSelectedItems: =Parent.Default
                                         DisplayFields: =["autocoe_value"]
                                         DisplayMode: =Parent.DisplayMode
-                                        FontWeight: =Normal
                                         HoverBorderColor: =HoverBorderColorValue
                                         HoverColor: =HoverColorValue
                                         HoverFill: =HoverFillValue
@@ -1002,7 +1001,7 @@ scr_NewIdea As screen:
 
                                     StarVisible11 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey11.Height
                                         Text: ="*"
@@ -1041,7 +1040,7 @@ scr_NewIdea As screen:
                                     DataCardValue9 As combobox:
                                         BorderColor: =If(IsBlank(Parent.Error), BorderColorValue, Color.Red)
                                         BorderThickness: =1
-                                        ChevronBackground: =Transparent
+                                        ChevronBackground: =Color.Transparent
                                         ChevronFill: =PrimaryColor1TextValue
                                         ChevronHoverBackground: =ColorFade(DataCardValue9.ChevronBackground, 20%)
                                         ChevronHoverFill: =ColorFade(DataCardValue9.ChevronFill, 20%)
@@ -1173,7 +1172,7 @@ scr_NewIdea As screen:
 
                                     StarVisible10 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey10.Height
                                         Text: ="*"
@@ -1306,7 +1305,7 @@ scr_NewIdea As screen:
 
                                     DataCardValue17 As combobox:
                                         BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                                        ChevronBackground: =Transparent
+                                        ChevronBackground: =Color.Transparent
                                         ChevronFill: =PrimaryColor1TextValue
                                         ChevronHoverBackground: =ColorFade(DataCardValue17.ChevronBackground, 20%)
                                         ChevronHoverFill: =ColorFade(DataCardValue17.ChevronFill, 20%)
@@ -1672,7 +1671,7 @@ scr_NewIdea As screen:
 
                                     StarVisible12 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey12.Height
                                         Text: ="*"
@@ -1756,7 +1755,7 @@ scr_NewIdea As screen:
 
                                     StarVisible13 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey13.Height
                                         Text: ="*"
@@ -1839,7 +1838,7 @@ scr_NewIdea As screen:
 
                                     StarVisible16 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey16.Height
                                         Text: ="*"
@@ -1921,7 +1920,7 @@ scr_NewIdea As screen:
 
                                     StarVisible14 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey14.Height
                                         Text: ="*"
@@ -2003,7 +2002,7 @@ scr_NewIdea As screen:
 
                                     StarVisible15 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey15.Height
                                         Text: ="*"
@@ -2085,7 +2084,7 @@ scr_NewIdea As screen:
 
                                     StarVisible22 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey24.Height
                                         Text: ="*"
@@ -2167,7 +2166,7 @@ scr_NewIdea As screen:
 
                                     StarVisible23 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey25.Height
                                         Text: ="*"
@@ -2250,7 +2249,7 @@ scr_NewIdea As screen:
 
                                     StarVisible24 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey26.Height
                                         Text: ="*"
@@ -2288,7 +2287,7 @@ scr_NewIdea As screen:
                                     DCV_goal As combobox:
                                         BorderColor: =BorderColorValue
                                         BorderThickness: =1
-                                        ChevronBackground: =Transparent
+                                        ChevronBackground: =Color.Transparent
                                         ChevronFill: =PrimaryColor1TextValue
                                         ChevronHoverBackground: =ColorFade(DCV_goal.ChevronBackground, 20%)
                                         ChevronHoverFill: =ColorFade(DCV_goal.ChevronFill, 20%)
@@ -2336,7 +2335,7 @@ scr_NewIdea As screen:
 
                                     StarVisible2 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey2.Height
                                         Text: ="*"
@@ -2500,7 +2499,7 @@ scr_NewIdea As screen:
 
                                     StarVisible20 As label:
                                         Align: =Align.Center
-                                        Color: =DarkRed
+                                        Color: =Color.DarkRed
                                         FontWeight: =FontWeight.Semibold
                                         Height: =DataCardKey21.Height
                                         Text: ="*"
@@ -2668,7 +2667,6 @@ scr_NewIdea As screen:
                 Size: =17
                 TabIndex: =0
                 Text: =ThisItem.DisplayName
-                VerticalAlign: =Middle
                 Width: =gall_BusinessOwner.TemplateWidth - 2 * Self.X
                 Wrap: =false
                 X: =16
@@ -2691,7 +2689,6 @@ scr_NewIdea As screen:
                 PaddingTop: =5
                 Size: =17
                 Text: =ThisItem.UserPrincipalName
-                VerticalAlign: =Middle
                 Width: =gall_BusinessOwner.TemplateWidth - 2 * Self.X
                 Wrap: =false
                 X: =lbl_Gall_BusinessOwner_DisplayName.X
@@ -2711,15 +2708,15 @@ scr_NewIdea As screen:
 
             ico_Gall_BusinessOwner_Select As icon.Add:
                 BorderColor: =RGBA(166, 166, 166, 1)
-                Color: =Transparent
+                Color: =Color.Transparent
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                DisabledColor: =Transparent
+                DisabledColor: =Color.Transparent
                 DisabledFill: =RGBA(0, 0, 0, 0)
                 Fill: =RGBA(0, 0, 0, 0)
                 FocusedBorderThickness: =4
                 Height: =83
                 HoverBorderColor: =RGBA(0, 0, 0, 0)
-                HoverColor: =Transparent
+                HoverColor: =Color.Transparent
                 HoverFill: =RGBA(0, 0, 0, 0)
                 Icon: =Icon.Add
                 OnSelect: |-
@@ -2731,7 +2728,7 @@ scr_NewIdea As screen:
                         UpdateContext({var_ShowSelectBusinessOwner: false})
                     )
                 PressedBorderColor: =RGBA(0, 0, 0, 0)
-                PressedColor: =Transparent
+                PressedColor: =Color.Transparent
                 PressedFill: =RGBA(0, 0, 0, 0)
                 Width: =1246
                 Y: =4
@@ -2747,7 +2744,7 @@ scr_NewIdea As screen:
             Fill: =RGBA(255, 255, 255, 1)
             FocusedBorderThickness: =1
             Font: =Font.'Segoe UI'
-            FontWeight: =Lighter
+            FontWeight: =FontWeight.Lighter
             HintText: ="Search for a user"
             HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
             HoverColor: =RGBA(51, 51, 51, 1)
@@ -2804,7 +2801,7 @@ scr_NewIdea As screen:
             Fill: =RGBA(0, 0, 0, 0)
             FocusedBorderThickness: =4
             Font: =Font.'Segoe UI'
-            FontWeight: =Semibold
+            FontWeight: =FontWeight.Semibold
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5

@@ -89,7 +89,7 @@ scr_IdeasDashboard As screen:
                         BorderColor: =BorderColorValue
                         Default: =""
                         EnableSpellCheck: =true
-                        Fill: =White
+                        Fill: =Color.White
                         FillPortions: =1
                         HintText: ="Search project name..."
                         HoverBorderColor: =HoverBorderColorValue
@@ -104,13 +104,13 @@ scr_IdeasDashboard As screen:
 
                     cmb_ProjectStatusFilter As combobox:
                         BorderColor: =BorderColorValue
-                        ChevronBackground: =Transparent
+                        ChevronBackground: =Color.Transparent
                         ChevronFill: =PrimaryColor1TextValue
                         ChevronHoverBackground: =ColorFade(cmb_ProjectStatusFilter.ChevronBackground, 20%)
                         ChevronHoverFill: =ColorFade(cmb_ProjectStatusFilter.ChevronFill, 20%)
                         DefaultSelectedItems: =
                         DisplayFields: =["Value"]
-                        Fill: =White
+                        Fill: =Color.White
                         HoverBorderColor: =HoverBorderColorValue
                         HoverColor: =ColorFade(cmb_ProjectStatusFilter.Color, 20%)
                         HoverFill: =RGBA(212, 212, 212, 1)
@@ -213,7 +213,7 @@ scr_IdeasDashboard As screen:
                                                 ) && ('Automation Project Status' = cmb_ProjectStatusFilter.Selected.Value || cmb_ProjectStatusFilter.Selected.Value = Blank())
                                             ),
                                             "autocoe_automationprojectid",
-                                            Descending
+                                            SortOrder.Descending
                                         ),
                                         SortByColumns(
                                             Filter(
@@ -224,7 +224,7 @@ scr_IdeasDashboard As screen:
                                                 ) && ('Automation Project Status' = cmb_ProjectStatusFilter.Selected.Value || cmb_ProjectStatusFilter.Selected.Value = Blank()) && 'Created By'.'Primary Email' = User().Email
                                             ),
                                             "autocoe_automationprojectid",
-                                            Descending
+                                            SortOrder.Descending
                                         )
                                     )
                                 Layout: =Layout.Vertical
