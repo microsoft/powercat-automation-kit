@@ -2,7 +2,7 @@ GridContainerControl As CanvasComponent:
     Fill: =RGBA(0, 0, 0, 0)
     HeaderFields: |-
         ={
-            Headers: [
+            Headers: ForAll([
                 {Index: 1, Name: "Header 1", Width: 100, Visible: true},
                 {Index: 2, Name: "Header 2", Width: 100, Visible: true},
                 {Index: 3, Name: "Header 3", Width: 300, Visible: true},
@@ -13,11 +13,11 @@ GridContainerControl As CanvasComponent:
                 {Index: 8, Name: "Header 8", Width: 100, Visible: true},
                 {Index: 9, Name: "Header 9", Width: 100, Visible: true},
                 {Index: 10, Name: "Header 10", Width: 100, Visible: true}
-            ]
+            ], {Value: ThisRecord})
         }
     HeaderXValues: |-
         ={
-            HeaderX:[
+            HeaderX:ForAll([
                 {Index: 1, X: Header1.X},        
                 {Index: 2, X: Header2.X},
                 {Index: 3, X: Header3.X},
@@ -28,7 +28,7 @@ GridContainerControl As CanvasComponent:
                 {Index: 8, X: Header8.X},
                 {Index: 9, X: Header9.X},
                 {Index: 10, X: Header10.X}
-            ]
+            ], {Value: ThisRecord})
         }
     Height: =640
     Width: =1300

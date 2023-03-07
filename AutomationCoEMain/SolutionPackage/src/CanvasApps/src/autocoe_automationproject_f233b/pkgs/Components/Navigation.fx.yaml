@@ -62,7 +62,7 @@ Navigation As CanvasComponent:
             LayoutMinHeight: =287
             LayoutMinWidth: =320
             TabIndex: =1
-            TemplateFill: =If(ThisItem.Screen = App.ActiveScreen, White, RGBA(0,0,0,0))
+            TemplateFill: =If(ThisItem.Screen = App.ActiveScreen, Color.White, RGBA(0,0,0,0))
             TemplatePadding: =0
             TemplateSize: =50
             Width: =Parent.Width
@@ -81,7 +81,7 @@ Navigation As CanvasComponent:
                     BorderThickness: =2
                     Color: =RGBA(255, 255, 255, 1)
                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
-                    Fill: =If(ThisItem.Label=Navigation.DefaultSelected, RGBA(39, 113, 194, 1), Transparent)
+                    Fill: =If(ThisItem.Label=Navigation.DefaultSelected, RGBA(39, 113, 194, 1), Color.Transparent)
                     FocusedBorderColor: =ColorFade(Self.Fill, -75%)
                     FocusedBorderThickness: =4
                     Font: =Font.'Segoe UI'
@@ -226,12 +226,12 @@ Navigation As CanvasComponent:
                 FocusedBorderColor: =Self.Fill
                 FocusedBorderThickness: =0
                 Font: =Font.'Segoe UI'
-                FontWeight: =Normal
+                FontWeight: =FontWeight.Normal
                 Height: =Parent.TemplateHeight
                 HoverBorderColor: =RGBA(0, 0, 0, 0)
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =RGBA(0, 0, 0, 0.1)
-                OnSelect: =Navigate(ThisItem.Screen, Fade)
+                OnSelect: =Navigate(ThisItem.Screen, ScreenTransition.Fade)
                 PaddingLeft: =10
                 PressedBorderColor: =ColorFade(Self.BorderColor, 0%)
                 PressedColor: =RGBA(0, 0, 0, 1)

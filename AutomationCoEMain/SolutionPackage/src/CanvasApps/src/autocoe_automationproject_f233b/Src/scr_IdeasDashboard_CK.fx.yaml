@@ -12051,8 +12051,8 @@ scr_IdeasDashboard_CK As screen:
                         CurrentSortColumn: =ctxSortCol
                         CurrentSortDirection: |-
                             =If(ctxSortAsc,
-                                '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Ascending,
-                                '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Descending) 
+                                'PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending,
+                                'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending) 
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
                         Height: =617
@@ -12065,31 +12065,31 @@ scr_IdeasDashboard_CK As screen:
                                     Search(
                                         col_Projects,
                                         CK_SearchBoxProjectName.SearchText,
-                                        "autocoe_automationproject"
+                                        "autocoe_automationproject","autocoe_projectdescription"
                                     ),
                                     "tabSubmitted",
                                     Search(
                                         submittedCollection,
                                         CK_SearchBoxProjectName.SearchText,
-                                        "autocoe_automationproject"
+                                        "autocoe_automationproject","autocoe_projectdescription"
                                     ),
                                     "tabApproved",
                                     Search(
                                         approvedCollection,
                                         CK_SearchBoxProjectName.SearchText,
-                                        "autocoe_automationproject"
+                                        "autocoe_automationproject","autocoe_projectdescription"
                                     ),
                                     "tabDeclined",
                                     Search(
                                         declinedCollection,
                                         CK_SearchBoxProjectName.SearchText,
-                                        "autocoe_automationproject"
+                                        "autocoe_automationproject","autocoe_projectdescription"
                                     ),
                                     "tabSaved",
                                     Search(
                                         savedCollection,
                                         CK_SearchBoxProjectName.SearchText,
-                                        "autocoe_automationproject"
+                                        "autocoe_automationproject","autocoe_projectdescription"
                                     ),
                                     Search(
                                         col_Projects,
@@ -12185,7 +12185,7 @@ scr_IdeasDashboard_CK As screen:
                                     {
                                         ctxSortCol: Self.SortEventColumn,
                                         ctxSortAsc: If(
-                                            Self.SortEventDirection = '''PowerCAT.FluentDetailsList.SortEventDirection'''.Ascending,
+                                            Self.SortEventDirection = 'PowerCAT.FluentDetailsList.SortEventDirection'.Ascending,
                                             true,
                                             false
                                         )
@@ -12284,21 +12284,21 @@ scr_IdeasDashboard_CK As screen:
                     Table(
                         {
                             Label: "< Back",
-                            ButtonType: '''Microsoft.CoreControls.Button.ButtonType'''.Primary
+                            ButtonType: 'Microsoft.CoreControls.Button.ButtonType'.Primary
                         },
                         {
                             Label: "Save",
-                            ButtonType: '''Microsoft.CoreControls.Button.ButtonType'''.Primary
+                            ButtonType: 'Microsoft.CoreControls.Button.ButtonType'.Primary
                         }
                     ),
                     Table(
                         {
                             Label: "Cancel",
-                            ButtonType: '''Microsoft.CoreControls.Button.ButtonType'''.Standard
+                            ButtonType: 'Microsoft.CoreControls.Button.ButtonType'.Standard
                         },
                         {
                             Label: "Next >",
-                            ButtonType: '''Microsoft.CoreControls.Button.ButtonType'''.Primary
+                            ButtonType: 'Microsoft.CoreControls.Button.ButtonType'.Primary
                         }
                     )
                 ),
@@ -12309,13 +12309,13 @@ scr_IdeasDashboard_CK As screen:
                         Table(
                             {
                                 Label: "< View Project",
-                                ButtonType: '''Microsoft.CoreControls.Button.ButtonType'''.Primary
+                                ButtonType: 'Microsoft.CoreControls.Button.ButtonType'.Primary
                             }
                         ),
                         Table(
                             {
                                 Label: "View ROI >",
-                                ButtonType: '''Microsoft.CoreControls.Button.ButtonType'''.Primary
+                                ButtonType: 'Microsoft.CoreControls.Button.ButtonType'.Primary
                             }
                         )
                     )
@@ -13518,7 +13518,7 @@ scr_IdeasDashboard_CK As screen:
             Update: =Value(DataCardValue10.Text)
             Visible: =If(formMode="View",true,false)
             Width: =If(formMode="View",If(smallScreen,Parent.Width,229),Parent.Width)
-            X: =1
+            X: =0
             Y: =3
             ZIndex: =1
 
@@ -13529,7 +13529,7 @@ scr_IdeasDashboard_CK As screen:
                 Text: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 Wrap: =false
-                X: =30
+                X: =24
                 Y: =10
                 ZIndex: =1
 
@@ -13598,7 +13598,7 @@ scr_IdeasDashboard_CK As screen:
             Visible: =If(formMode="View",true,false)
             Width: =If(formMode="View",If(smallScreen,Parent.Width,229),Parent.Width)
             X: =0
-            Y: =4
+            Y: =3
             ZIndex: =1
 
             DataCardKey33 As label:
@@ -13608,7 +13608,7 @@ scr_IdeasDashboard_CK As screen:
                 Text: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 Wrap: =false
-                X: =30
+                X: =24
                 Y: =10
                 ZIndex: =1
 
@@ -13984,7 +13984,7 @@ scr_IdeasDashboard_CK As screen:
             Visible: =true
             Width: =If(formMode="View",If(smallScreen,Parent.Width,229),Parent.Width)
             WidthFit: =true
-            X: =1
+            X: =2
             Y: =0
             ZIndex: =1
 
@@ -13993,6 +13993,7 @@ scr_IdeasDashboard_CK As screen:
                 DisplayMode: =DisplayMode.Edit
                 FontSize: =9
                 Height: =22
+                TabIndex: =0
                 Text: =Parent.DisplayName
                 Tooltip: =Parent.DisplayName
                 VerticalAlignment: =VerticalAlign.Bottom
@@ -14182,6 +14183,105 @@ scr_IdeasDashboard_CK As screen:
                 Width: =30
                 X: =0
                 Y: =DataCardKey11_2.Y
+                ZIndex: =4
+
+        "'Project Description_DataCard1' As typedDataCard.textualMultiLineEditCard":
+            BorderStyle: =BorderStyle.Solid
+            DataField: ="autocoe_projectdescription"
+            Default: =ThisItem.autocoe_projectdescription
+            DisplayMode: =Parent.DisplayMode
+            DisplayName: =DataSourceInfo([@'Automation Projects'],DataSourceInfo.DisplayName,"autocoe_projectdescription")
+            Fill: =RGBA(0, 0, 0, 0)
+            Height: =50
+            Required: =false
+            Update: =DataCardValue28_3.Value
+            Width: =If(formMode="View",If(smallScreen,Parent.Width,229),Parent.Width)
+            WidthFit: =true
+            X: =1
+            Y: =0
+            ZIndex: =1
+
+            DataCardValue_View_2 As text:
+                AccessibleLabel: =If(Parent.Required, Substitute("{0}. Required.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderThickness: =1
+                Color: =RGBA(51, 51, 51, 1)
+                Default: =Parent.Default
+                DelayOutput: =true
+                DisabledBorderColor: =RGBA(0, 0, 0, 0)
+                DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(255, 255, 255, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                FocusedBorderThickness: =2
+                Font: =Font.'Segoe UI'
+                Height: =60
+                HintText: =""
+                HoverBorderColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                HoverColor: =RGBA(51, 51, 51, 1)
+                HoverFill: =ColorValue(AppTheme.palette.white)
+                PaddingBottom: =4
+                PaddingLeft: =12
+                PaddingRight: =12
+                PaddingTop: =0
+                PressedBorderColor: =RGBA(0, 120, 212, 1)
+                PressedColor: =RGBA(51, 51, 51, 1)
+                PressedFill: =RGBA(212, 212, 212, 1)
+                RadiusBottomLeft: =3
+                RadiusBottomRight: =3
+                RadiusTopLeft: =3
+                RadiusTopRight: =3
+                Size: =10.5
+                Tooltip: =Parent.DisplayName
+                Visible: =If(formMode="View",true,false)
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey12_2.Y + DataCardKey12_2.Height + 4
+                ZIndex: =1
+
+            ErrorMessage27_3 As Label:
+                AutoHeight: =true
+                Color: =Color.Red
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =30
+                Text: =Parent.Error
+                Tooltip: =Parent.Error
+                Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =24
+                Y: =DataCardValue28_1.Y + DataCardValue28_1.Height
+                ZIndex: =2
+
+            "DataCardValue28_3 As 'Text box'":
+                AccessibleLabel: =Parent.DisplayName
+                DisplayMode: =Parent.DisplayMode
+                FontSize: =10.5
+                Height: =60
+                Mode: ="Multiline"
+                Placeholder: ="Explain Project description"
+                Required: =Parent.Required
+                Tooltip: ="Explain the Project Description"
+                Value: =Parent.Default
+                Visible: =If(formMode="View",false,true)
+                Width: =Parent.Width - 48
+                X: =24
+                Y: =DataCardKey28_3.Y + DataCardKey28_3.Height + 4
+                ZIndex: =3
+
+            DataCardKey28_3 As Label:
+                AutoHeight: =true
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =9
+                Height: =22
+                TabIndex: =0
+                Text: =Parent.DisplayName
+                Tooltip: =Parent.DisplayName
+                VerticalAlignment: =VerticalAlign.Bottom
+                Width: =Parent.Width - 48
+                Wrap: =true
+                X: =23
+                Y: =10
                 ZIndex: =4
 
         "'Total Processing Time in Minutes_DataCard1_2' As typedDataCard.pcfCoreNumberEditCard":
@@ -14892,6 +14992,7 @@ scr_IdeasDashboard_CK As screen:
                 DisplayMode: =DisplayMode.Edit
                 FontSize: =9
                 Height: =22
+                TabIndex: =0
                 Text: ="Project Name"
                 Tooltip: =Parent.DisplayName
                 VerticalAlignment: =VerticalAlign.Bottom

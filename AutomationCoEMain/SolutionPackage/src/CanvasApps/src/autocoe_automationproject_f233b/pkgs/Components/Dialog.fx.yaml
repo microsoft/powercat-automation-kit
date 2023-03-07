@@ -1,6 +1,6 @@
 Dialog As CanvasComponent:
     Buttons: |-
-        =Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Ok", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary})
+        =Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Ok", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary})
     ContentHeight: =Dialog.DialogHeight - DialogHeaderContainer.Height - ButtonsGallery_2.Height
     ContentWidth: =Dialog.DialogWidth
     ContentX: = Dialog.Width/2-Dialog.DialogWidth/2
@@ -84,7 +84,7 @@ Dialog As CanvasComponent:
 
             CenterDialogContainer As groupContainer.verticalAutoLayoutContainer:
                 AlignInContainer: =AlignInContainer.SetByContainer
-                Fill: =Transparent
+                Fill: =Color.Transparent
                 FillPortions: =0
                 Height: =Min(Dialog.DialogHeight, Parent.Height) 
                 LayoutDirection: =LayoutDirection.Vertical
@@ -109,8 +109,8 @@ Dialog As CanvasComponent:
                         BorderColor: =
                         Color: =ColorValue(Dialog.Theme.palette.neutralPrimary)
                         FillPortions: =1
-                        Font: ='Segoe UI'
-                        FontWeight: =Semibold
+                        Font: =Font.'Segoe UI'
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         LineHeight: =20
                         PaddingBottom: =0
@@ -125,7 +125,7 @@ Dialog As CanvasComponent:
                     Icon2_2 As icon.Cancel:
                         AccessibleLabel: ="close button"
                         BorderColor: =ColorFade(Icon2_2.Fill, -20%)
-                        Color: =Black
+                        Color: =Color.Black
                         DisabledFill: =ColorFade(Icon2_2.Fill, -80%)
                         FocusedBorderThickness: =0
                         Height: =32
@@ -160,7 +160,7 @@ Dialog As CanvasComponent:
                         PaddingLeft: =24
                         PaddingRight: =24
                         PaddingTop: =0
-                        Size: ='Segoe UI'
+                        Size: =Font.'Segoe UI'
                         Text: =Dialog.SubTitle
                         VerticalAlign: =VerticalAlign.Top
                         Width: =Parent.Width
@@ -197,7 +197,7 @@ Dialog As CanvasComponent:
                         BorderThickness: =0
                         ButtonType: =ThisItem.ButtonType
                         DisplayMode: =DisplayMode.Edit
-                        FillColor: =If(ThisItem.ButtonType = Primary, ColorValue(Dialog.Theme.palette.themePrimary))
+                        FillColor: =If(ThisItem.ButtonType = 'Microsoft.CoreControls.Button.ButtonType'.Primary, ColorValue(Dialog.Theme.palette.themePrimary))
                         Height: =32
                         HideFromAssistiveTechnologies: =false
                         Italic: =false
@@ -206,7 +206,7 @@ Dialog As CanvasComponent:
                         PaddingTop: =0
                         Strikethrough: =false
                         Text: =ThisItem.Label
-                        TextColor: =If(ThisItem.ButtonType = Primary, ColorValue(Dialog.Theme.palette.white))
+                        TextColor: =If(ThisItem.ButtonType = 'Microsoft.CoreControls.Button.ButtonType'.Primary, ColorValue(Dialog.Theme.palette.white))
                         Underline: =false
                         VerticalAlignment: ="middle"
                         Width: =96
