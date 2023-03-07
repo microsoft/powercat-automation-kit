@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
+generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 ---
 
 {{<toc>}}
@@ -27,7 +27,7 @@ De viktigste funksjonene i planleggeren er:
 - Vise tidsplan etter dag, uke, måned og tidsplanvisning
 - Vise statusen for Planlagte flyter (Vellykket, Feil eller Planlagt)
 - Vise varigheten av en Cloud Flow-kjøring
-- Se detaljene eventuelle feil.
+- Vis detaljer om eventuelle feil.
 
 ## Notater
 

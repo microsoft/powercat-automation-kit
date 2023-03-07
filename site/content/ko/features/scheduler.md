@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
+generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 ---
 
 {{<toc>}}
@@ -27,7 +27,7 @@ generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
 - 일, 주, 월 및 일정 보기로 일정 보기
 - 예약된 흐름의 상태 보기(성공, 실패 또는 예약됨)
 - 클라우드 흐름 실행 기간 보기
-- 오류가 있으면 세부 정보를 봅니다.
+- 오류의 세부 정보를 봅니다.
 
 ## 노트
 

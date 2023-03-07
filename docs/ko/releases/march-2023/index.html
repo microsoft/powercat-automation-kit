@@ -4,8 +4,8 @@
     <head>
         
 
-<meta property="og:title" content="2023년 2월 릴리스" />
-<meta property="og:description" content="자동화 키트 - 2023년 2월" />
+<meta property="og:title" content="2023년 3월 릴리스" />
+<meta property="og:description" content="자동화 키트 - 2023년 3월" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/ko/releases/march-2023/" /><meta property="article:section" content="releases" />
 
@@ -52,20 +52,17 @@
   <div class="container">
     <div class="columns">
       <div class="column is-centered-tablet-portrait">
-        <h1 class="title section-title">2023년 2월 릴리스</h1>
+        <h1 class="title section-title">2023년 3월 릴리스</h1>
         <h5 class="subtitle is-5 is-muted"></h5>
         <div class="divider"></div>
       </div>
     </div>
 
     <div class="content">
-      <p><img src="https://microsoft.github.io/powercat-automation-kit/images/nifty-emmy.png" alt="니프티 에미"></p>
-<p>3 월 릴리스 (nifty-emmy) 의 Power Platform용 자동화 키트는 여섯 번째 공개 미리 보기 릴리스입니다. 이 릴리스는 다음에 중점을 둘 것으로 예상됩니다.</p>
+      <p>3월 릴리스 Power Platform용 자동화 키트는 여섯 번째 공개 미리 보기 릴리스입니다. 이 릴리스는 다음 사항에 중점을 두었습니다.</p>
 <ul>
-<li>추가 스케줄러 업데이트(예: 필터)</li>
-<li>ALM과의 통합 <a href="https://learn.microsoft.com/en-us/power-platform/alm/pipelines">Power Platform용 파이프라인</a> 그리고 <a href="https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components">Power Platform용 ALM 가속기</a></li>
-<li>설치 간소화</li>
-<li>방법 비디오 및 데모</li>
+<li>컴퓨터/컴퓨터 그룹별로 필터링하고 Power Automate 데스크톱 흐름을 실행하기 위한 추가 스케줄러 업데이트</li>
+<li>v1을 지원하도록 업데이트 <a href="https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema">v2 스키마</a></li>
 </ul>
 
 
@@ -83,7 +80,7 @@
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-March-2023-Release\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"roles\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following will be of most useful for you in this release?\",\r\n            \"ko\": \"다음 중 이 릴리스에서 가장 유용한 것은 무엇입니까?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"New Scheduler feature\",\r\n              \"text\": {\r\n                \"default\": \"New Scheduler feature\",\r\n                \"ko\": \"새로운 스케줄러 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Resolution of bugs and questions\",\r\n              \"text\": {\r\n                \"default\": \"Resolution of bugs and questions\",\r\n                \"ko\": \"버그 및 질문 해결\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Roadmap of whats next\",\r\n              \"text\": {\r\n                \"default\": \"Roadmap of whats next\",\r\n                \"ko\": \"다음 단계 로드맵\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"anything-else\",\r\n          \"title\": {\r\n            \"default\": \"Any other key features you think should be added?\",\r\n            \"ko\": \"추가해야 한다고 생각하는 다른 주요 기능이 있습니까?\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on the release?\",\r\n            \"ko\": \"릴리스에 대한 피드백을 보내시겠습니까?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance\",\r\n            \"ko\": \"여러분의 피드백을 기다리겠습니다. 핵심 자동화 키트 팀으로서 우리는 피드백을 사용하여 이정표와 지침을 개선합니다.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"ko\": \"다른 피드백이 있었나요?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"ko\": \"지금 피드백을 보내시겠습니까?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"ko\": \"상태: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-March-2023-Release\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"roles\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following will be of most useful for you in this release?\",\r\n            \"ko\": \"다음 중 이 릴리스에서 가장 유용한 것은 무엇입니까?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"New Scheduler features\",\r\n              \"text\": {\r\n                \"default\": \"New Scheduler features\",\r\n                \"ko\": \"새로운 스케줄러 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"v2 schema support\",\r\n              \"text\": {\r\n                \"default\": \"v2 schema support\",\r\n                \"ko\": \"v2 스키마 지원\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Resolution of bugs and questions\",\r\n              \"text\": {\r\n                \"default\": \"Resolution of bugs and questions\",\r\n                \"ko\": \"버그 및 질문 해결\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Roadmap of whats next\",\r\n              \"text\": {\r\n                \"default\": \"Roadmap of whats next\",\r\n                \"ko\": \"다음 단계 로드맵\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"anything-else\",\r\n          \"title\": {\r\n            \"default\": \"Any other key features you think should be added?\",\r\n            \"ko\": \"추가해야 한다고 생각하는 다른 주요 기능이 있습니까?\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on the release?\",\r\n            \"ko\": \"릴리스에 대한 피드백을 보내시겠습니까?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance\",\r\n            \"ko\": \"여러분의 피드백을 기다리겠습니다. 핵심 자동화 키트 팀으로서 우리는 피드백을 사용하여 이정표와 지침을 개선합니다.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"ko\": \"다른 피드백이 있었나요?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"ko\": \"지금 피드백을 보내시겠습니까?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"ko\": \"상태: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 

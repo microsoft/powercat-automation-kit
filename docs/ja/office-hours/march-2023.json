@@ -1,0 +1,451 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing feedback",
+    "ja": "フィードバックをお寄せいただきありがとうございます"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Office-Hours-Feedback-March-2023"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "new-topics",
+          "title": {
+            "default": "What topics are of most interest to you to cover in new topics section?",
+            "ja": "新しいトピックセクションでカバーするのに最も関心のあるトピックは何ですか?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "ja": "自信がありません"
+              }
+            },
+            {
+              "value": "How do I get started?",
+              "text": {
+                "default": "How do I get started?",
+                "ja": "どうすれば始められますか?"
+              }
+            },
+            {
+              "value": "Learning path from starter experience to hands on learning content",
+              "text": {
+                "default": "Learning path from starter experience to hands on learning content",
+                "ja": "初心者体験から実践的な学習コンテンツまでの学習パス"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "ja": "他のキットとの関係とすぐに使える機能"
+              }
+            },
+            {
+              "value": "Setting up Automation Projects",
+              "text": {
+                "default": "Setting up Automation Projects",
+                "ja": "オートメーション プロジェクトの設定"
+              }
+            },
+            {
+              "value": "Monitoring ROI of Automation Projects",
+              "text": {
+                "default": "Monitoring ROI of Automation Projects",
+                "ja": "自動化プロジェクトのROIの監視"
+              }
+            },
+            {
+              "value": "How to I setup exceptions?",
+              "text": {
+                "default": "How to I setup exceptions?",
+                "ja": "例外を設定するにはどうすればよいですか?"
+              }
+            },
+            {
+              "value": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+              "text": {
+                "default": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+                "ja": "デスクトップ フローによるデータ損失防止 (DLP) の影響を理解するにはどうすればよいですか?"
+              }
+            },
+            {
+              "value": "How to I contribute to the Automation Kit to improve its features?",
+              "text": {
+                "default": "How to I contribute to the Automation Kit to improve its features?",
+                "ja": "自動化キットに貢献して機能を改善するにはどうすればよいですか?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({new-topics},'How do I get started?')",
+          "html": {
+            "default": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide",
+            "ja": "<b>はじめ</b>復習<a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a>ガイド"
+          }
+        },
+        {
+          "name": "ranked-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "ja": "興味のある分野をランク付けしてください(タッチスクリーンで選択を長押しします)"
+          },
+          "visibleIf": "{new-topics.length} > 1",
+          "choicesFromQuestion": "new-topics",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "roadmap",
+          "title": {
+            "default": "What roadmap areas are of most interest to you?",
+            "ja": "最も関心のあるロードマップ領域は何ですか?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "ja": "自信がありません"
+              }
+            },
+            {
+              "value": "Scheduler",
+              "text": {
+                "default": "Scheduler",
+                "ja": "スケジューラ"
+              }
+            },
+            {
+              "value": "End to end ALM integration and samples",
+              "text": {
+                "default": "End to end ALM integration and samples",
+                "ja": "エンドツーエンドの ALM 統合とサンプル"
+              }
+            },
+            {
+              "value": "Providing an easier install process",
+              "text": {
+                "default": "Providing an easier install process",
+                "ja": "より簡単なインストールプロセスの提供"
+              }
+            },
+            {
+              "value": "Providing an sample pre-configured projects and ROI calculations",
+              "text": {
+                "default": "Providing an sample pre-configured projects and ROI calculations",
+                "ja": "事前設定されたプロジェクトとROI計算のサンプルを提供する"
+              }
+            },
+            {
+              "value": "Providing industry specific ROI calculations",
+              "text": {
+                "default": "Providing industry specific ROI calculations",
+                "ja": "業界固有のROI計算を提供"
+              }
+            },
+            {
+              "value": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+              "text": {
+                "default": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+                "ja": "組織にインポートできる既製のドキュメントパックを提供して支援します**育成**新しいメーカー"
+              }
+            },
+            {
+              "value": "Improved Documentation",
+              "text": {
+                "default": "Improved Documentation",
+                "ja": "ドキュメントの改善"
+              }
+            },
+            {
+              "value": "Infrastructure Operations Templates",
+              "text": {
+                "default": "Infrastructure Operations Templates",
+                "ja": "インフラストラクチャ運用テンプレート"
+              }
+            },
+            {
+              "value": "Security and compliance safeguards",
+              "text": {
+                "default": "Security and compliance safeguards",
+                "ja": "セキュリティとコンプライアンスの保護手段"
+              }
+            },
+            {
+              "value": "Unit, Integration and System testing roadmap",
+              "text": {
+                "default": "Unit, Integration and System testing roadmap",
+                "ja": "ユニット、統合、システムテストのロードマップ"
+              }
+            },
+            {
+              "value": "More information on RPA Migration",
+              "text": {
+                "default": "More information on RPA Migration",
+                "ja": "RPA移行に関する詳細情報"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an easier install process')",
+          "html": {
+            "default": "<b>Easier Install</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>App Source Install</> issue",
+            "ja": "<b>より簡単なインストール</b>レビューまたはコメント<a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>アプリ ソースのインストール</> の問題"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an sample pre-configured projects and ROI calculations')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Optional ability to import sample Automation Projects</> issue",
+            "ja": "<b>サンプルデータ</b>レビューまたはコメント<a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>サンプルオートメーションプロジェクトをインポートするオプションの機能</>の問題"
+          }
+        },
+        {
+          "name": "ranked-roadmap",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the roadmap areas of interest for you (long tap on selection with a touch screen)",
+            "ja": "関心のあるロードマップ領域をランク付けしてください(タッチスクリーンで選択を長押しします)"
+          },
+          "visibleIf": "{roadmap.length} > 1",
+          "choicesFromQuestion": "roadmap",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "questions",
+          "title": {
+            "default": "What questions are top of mind for you?",
+            "ja": "あなたにとって一番の質問は何ですか?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "ja": "自信がありません"
+              }
+            },
+            {
+              "value": "Kit differences",
+              "text": {
+                "default": "What are the differences between the different kits managed by the Power CAT team?",
+                "ja": "Power CAT チームが管理するさまざまなキットの違いは何ですか?"
+              }
+            },
+            {
+              "value": "ALM",
+              "text": {
+                "default": "Do you have examples of end to ALM working with the Automation Kit?",
+                "ja": "自動化キットを使用したALMの終了例はありますか?"
+              }
+            },
+            {
+              "value": "Data",
+              "text": {
+                "default": "Do you have examples of KPIs for my industry?",
+                "ja": "私の業界のKPIの例はありますか?"
+              }
+            },
+            {
+              "value": "Roadmap",
+              "text": {
+                "default": "What is the roadmap for the Automation Kit?",
+                "ja": "自動化キットのロードマップは何ですか?"
+              }
+            },
+            {
+              "value": "FAQ",
+              "text": {
+                "default": "What are frequently asked questions about the Automation Kit?",
+                "ja": "オートメーションキットに関するよくある質問は何ですか?"
+              }
+            },
+            {
+              "value": "Install",
+              "text": {
+                "default": "Are you looking to simplify the install experience?",
+                "ja": "インストールエクスペリエンスを簡素化したいですか?"
+              }
+            },
+            {
+              "value": "Localization",
+              "text": {
+                "default": "Can you tell me more about localization of Applications and Dashboards?",
+                "ja": "アプリケーションとダッシュボードのローカリゼーションについて詳しく教えてください。"
+              }
+            },
+            {
+              "value": "Issues",
+              "text": {
+                "default": "Where can I see a list of current issues for the Automation Kit?",
+                "ja": "オートメーションキットの現在の問題のリストはどこで確認できますか?"
+              }
+            },
+            {
+              "value": "Case studies",
+              "text": {
+                "default": "Can you provide further case studies of how the Automation Kit has been used by and assisted other organizations?",
+                "ja": "オートメーションキットが他の組織によってどのように使用され、支援されたかについて、さらにケーススタディを提供できますか?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'FAQ')",
+          "html": {
+            "default": "<b>Frequently Asked Questions</b> Review or comment on the <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>FAQ</> page",
+            "ja": "<b>よくあるご質問</b>レビューまたはコメント<a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>よくある質問</>ページ"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'Issues')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>Open issues</>",
+            "ja": "<b>サンプルデータ</b>レビューまたはコメント<a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>未解決の問題</>"
+          }
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "ja": "興味のある分野をランク付けしてください(タッチスクリーンで選択を長押しします)"
+          },
+          "visibleIf": "{questions.length} > 1",
+          "choicesFromQuestion": "questions",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "ja": "他にフィードバックはありますか?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "auto-register",
+          "label": {
+            "default": "Send an automatic invitation for each Office Hours?",
+            "ja": "オフィスアワーごとに自動招待状を送信しますか?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+            "ja": "<b>手記：</b>必要に応じて、後で登録を解除できます。<a href='/office-hours/unregister'>登録解除<a>ページ"
+          },
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "Your name to register with",
+            "ja": "登録するあなたの名前"
+          },
+          "isRequired": true,
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "Your email address to register with",
+            "ja": "登録するメールアドレス"
+          },
+          "visibleIf": "{auto-register} = true",
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "ja": "コアオートメーションキットチームが回答に基づいて営業時間を調整できるように、フィードバックの結果を送信しますか"
+          },
+          "label": {
+            "default": "Send results?",
+            "ja": "結果を送信しますか?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "ja": "これらの質問が、参加する場合のトピックや質問のアイデアを決定するのに役立つことを願っています"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve office hours.",
+            "ja": "皆様からのフィードバックをお待ちしております。オートメーションキットのコアチームとして、フィードバックを使用して営業時間を改善します。"
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ja": "今すぐフィードバックを送信しますか?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ja": "地位："
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
+generated: A54D358D82AC6FC728B158E2C068243701C9262A
 ---
 
 {{<toc>}}
@@ -93,6 +93,8 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [자동화 키트 - 근무 시간 기록](/ko/office-hours/history)
 
+- [자동화 키트 - 근무 시간 2023년 3월](/ko/office-hours/march-2023)
+
 - [자동화 키트 - 근무 시간 2022년 11월](/ko/office-hours/november-2022)
 
 - [자동화 키트 - 근무 시간 2022년 10월](/ko/office-hours/october-2022)
@@ -111,7 +113,7 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [자동화 키트 - 2023년 2월](/ko/releases/february-2023)
 
-- [자동화 키트 - 2023년 2월](/ko/releases/march-2023)
+- [자동화 키트 - 2023년 3월](/ko/releases/march-2023)
 
 - [자동화 키트 - 릴리스 마일스톤](/ko/releases/milestones)
 

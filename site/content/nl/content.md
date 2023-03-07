@@ -4,7 +4,7 @@ description: "Automatiseringskit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
+generated: A54D358D82AC6FC728B158E2C068243701C9262A
 ---
 
 {{<toc>}}
@@ -93,6 +93,8 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [Automation Kit - Kantooruren Geschiedenis](/nl/office-hours/history)
 
+- [Automation Kit - Kantooruren maart 2023](/nl/office-hours/march-2023)
+
 - [Automation Kit - Kantooruren November 2022](/nl/office-hours/november-2022)
 
 - [Automation Kit - Kantooruren oktober 2022](/nl/office-hours/october-2022)
@@ -111,7 +113,7 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [Automation Kit - februari 2023](/nl/releases/february-2023)
 
-- [Automation Kit - februari 2023](/nl/releases/march-2023)
+- [Automation Kit - maart 2023](/nl/releases/march-2023)
 
 - [Automation Kit - Release mijlpalen](/nl/releases/milestones)
 

@@ -26,7 +26,7 @@ The key features of the scheduler are:
 - View schedule by Day, Week, Month and Schedule view
 - View the status of Scheduled flows (Success, Failure or Scheduled)
 - View the duration of a Cloud Flow run
-- View the details any any errors.
+- View the details of any errors.
 
 ## Notes
 

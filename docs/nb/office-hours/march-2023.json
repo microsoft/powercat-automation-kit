@@ -1,0 +1,451 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing feedback",
+    "nb": "Takk for at du fullfører tilbakemeldingen"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Office-Hours-Feedback-March-2023"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "new-topics",
+          "title": {
+            "default": "What topics are of most interest to you to cover in new topics section?",
+            "nb": "Hvilke emner er mest interessante for deg å dekke i ny emneseksjon?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "nb": "Er ikke sikker"
+              }
+            },
+            {
+              "value": "How do I get started?",
+              "text": {
+                "default": "How do I get started?",
+                "nb": "Hvordan kommer jeg i gang?"
+              }
+            },
+            {
+              "value": "Learning path from starter experience to hands on learning content",
+              "text": {
+                "default": "Learning path from starter experience to hands on learning content",
+                "nb": "Læringsforløp fra startopplevelse til praktisk læringsinnhold"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "nb": "Forhold til andre sett og ut av boksen funksjoner"
+              }
+            },
+            {
+              "value": "Setting up Automation Projects",
+              "text": {
+                "default": "Setting up Automation Projects",
+                "nb": "Sette opp automatiseringsprosjekter"
+              }
+            },
+            {
+              "value": "Monitoring ROI of Automation Projects",
+              "text": {
+                "default": "Monitoring ROI of Automation Projects",
+                "nb": "Overvåking av avkastning på automatiseringsprosjekter"
+              }
+            },
+            {
+              "value": "How to I setup exceptions?",
+              "text": {
+                "default": "How to I setup exceptions?",
+                "nb": "Hvordan konfigurerer jeg unntak?"
+              }
+            },
+            {
+              "value": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+              "text": {
+                "default": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+                "nb": "Hvordan forstår jeg virkningen av beskyttelse mot tap av data (DLP) på skrivebordsflyter?"
+              }
+            },
+            {
+              "value": "How to I contribute to the Automation Kit to improve its features?",
+              "text": {
+                "default": "How to I contribute to the Automation Kit to improve its features?",
+                "nb": "Hvordan bidrar jeg til automatiseringssettet for å forbedre funksjonene?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({new-topics},'How do I get started?')",
+          "html": {
+            "default": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide",
+            "nb": "<b>Komme i gang</b> Anmeldelse <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> føre"
+          }
+        },
+        {
+          "name": "ranked-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "nb": "Vennligst ranger interesseområdene for deg (langt trykk på valg med berøringsskjerm)"
+          },
+          "visibleIf": "{new-topics.length} > 1",
+          "choicesFromQuestion": "new-topics",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "roadmap",
+          "title": {
+            "default": "What roadmap areas are of most interest to you?",
+            "nb": "Hvilke veikartområder er mest interessante for deg?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "nb": "Er ikke sikker"
+              }
+            },
+            {
+              "value": "Scheduler",
+              "text": {
+                "default": "Scheduler",
+                "nb": "Planlegger"
+              }
+            },
+            {
+              "value": "End to end ALM integration and samples",
+              "text": {
+                "default": "End to end ALM integration and samples",
+                "nb": "Ende-til-ende ALM-integrasjon og prøver"
+              }
+            },
+            {
+              "value": "Providing an easier install process",
+              "text": {
+                "default": "Providing an easier install process",
+                "nb": "Gir en enklere installasjonsprosess"
+              }
+            },
+            {
+              "value": "Providing an sample pre-configured projects and ROI calculations",
+              "text": {
+                "default": "Providing an sample pre-configured projects and ROI calculations",
+                "nb": "Gi et eksempel på forhåndskonfigurerte prosjekter og avkastningsberegninger"
+              }
+            },
+            {
+              "value": "Providing industry specific ROI calculations",
+              "text": {
+                "default": "Providing industry specific ROI calculations",
+                "nb": "Gir bransjespesifikke avkastningsberegninger"
+              }
+            },
+            {
+              "value": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+              "text": {
+                "default": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+                "nb": "Vi tilbyr ferdige dokumentasjonspakker vi kan importere til organisasjonen vår for å hjelpe oss **fostre** Nye beslutningstakere"
+              }
+            },
+            {
+              "value": "Improved Documentation",
+              "text": {
+                "default": "Improved Documentation",
+                "nb": "Forbedret dokumentasjon"
+              }
+            },
+            {
+              "value": "Infrastructure Operations Templates",
+              "text": {
+                "default": "Infrastructure Operations Templates",
+                "nb": "Maler for infrastrukturoperasjoner"
+              }
+            },
+            {
+              "value": "Security and compliance safeguards",
+              "text": {
+                "default": "Security and compliance safeguards",
+                "nb": "Sikkerhets- og samsvarssikringstiltak"
+              }
+            },
+            {
+              "value": "Unit, Integration and System testing roadmap",
+              "text": {
+                "default": "Unit, Integration and System testing roadmap",
+                "nb": "Veikart for enhets-, integrasjons- og systemtesting"
+              }
+            },
+            {
+              "value": "More information on RPA Migration",
+              "text": {
+                "default": "More information on RPA Migration",
+                "nb": "Mer informasjon om RPA-overføring"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an easier install process')",
+          "html": {
+            "default": "<b>Easier Install</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>App Source Install</> issue",
+            "nb": "<b>Enklere installasjon</b> Se gjennom eller kommenter <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>Problem med installasjon av appkilde</>"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an sample pre-configured projects and ROI calculations')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Optional ability to import sample Automation Projects</> issue",
+            "nb": "<b>Eksempel på data</b> Se gjennom eller kommenter <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Valgfri mulighet til å importere eksempel på automatiseringsprosjekter</> problem"
+          }
+        },
+        {
+          "name": "ranked-roadmap",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the roadmap areas of interest for you (long tap on selection with a touch screen)",
+            "nb": "Vennligst ranger veikartet områder av interesse for deg (langt trykk på valg med berøringsskjerm)"
+          },
+          "visibleIf": "{roadmap.length} > 1",
+          "choicesFromQuestion": "roadmap",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "questions",
+          "title": {
+            "default": "What questions are top of mind for you?",
+            "nb": "Hvilke spørsmål er topp i tankene for deg?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "nb": "Er ikke sikker"
+              }
+            },
+            {
+              "value": "Kit differences",
+              "text": {
+                "default": "What are the differences between the different kits managed by the Power CAT team?",
+                "nb": "Hva er forskjellene mellom de forskjellige settene som administreres av Power CAT-teamet?"
+              }
+            },
+            {
+              "value": "ALM",
+              "text": {
+                "default": "Do you have examples of end to ALM working with the Automation Kit?",
+                "nb": "Har du eksempler på slutten på ALM som arbeider med automatiseringssettet?"
+              }
+            },
+            {
+              "value": "Data",
+              "text": {
+                "default": "Do you have examples of KPIs for my industry?",
+                "nb": "Har du eksempler på KPI-er for min bransje?"
+              }
+            },
+            {
+              "value": "Roadmap",
+              "text": {
+                "default": "What is the roadmap for the Automation Kit?",
+                "nb": "Hva er veikartet for automatiseringssettet?"
+              }
+            },
+            {
+              "value": "FAQ",
+              "text": {
+                "default": "What are frequently asked questions about the Automation Kit?",
+                "nb": "Hva er vanlige spørsmål om automatiseringssettet?"
+              }
+            },
+            {
+              "value": "Install",
+              "text": {
+                "default": "Are you looking to simplify the install experience?",
+                "nb": "Ønsker du å forenkle installasjonsopplevelsen?"
+              }
+            },
+            {
+              "value": "Localization",
+              "text": {
+                "default": "Can you tell me more about localization of Applications and Dashboards?",
+                "nb": "Kan du fortelle meg mer om lokalisering av applikasjoner og dashbord?"
+              }
+            },
+            {
+              "value": "Issues",
+              "text": {
+                "default": "Where can I see a list of current issues for the Automation Kit?",
+                "nb": "Hvor kan jeg se en liste over aktuelle problemer for automatiseringssettet?"
+              }
+            },
+            {
+              "value": "Case studies",
+              "text": {
+                "default": "Can you provide further case studies of how the Automation Kit has been used by and assisted other organizations?",
+                "nb": "Kan du gi ytterligere casestudier av hvordan automatiseringssettet har blitt brukt av og hjulpet andre organisasjoner?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'FAQ')",
+          "html": {
+            "default": "<b>Frequently Asked Questions</b> Review or comment on the <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>FAQ</> page",
+            "nb": "<b>Ofte Stilte Spørsmål</b> Se gjennom eller kommenter <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>FAQ</> side"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'Issues')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>Open issues</>",
+            "nb": "<b>Eksempel på data</b> Se gjennom eller kommenter <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>Åpne problemer</>"
+          }
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "nb": "Vennligst ranger interesseområdene for deg (langt trykk på valg med berøringsskjerm)"
+          },
+          "visibleIf": "{questions.length} > 1",
+          "choicesFromQuestion": "questions",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "nb": "Noen andre tilbakemeldinger?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "auto-register",
+          "label": {
+            "default": "Send an automatic invitation for each Office Hours?",
+            "nb": "Sende en automatisk invitasjon for hver kontortid?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+            "nb": "<b>NOTAT:</b> Du kan avregistrere deg senere om nødvendig ved å besøke <a href='/office-hours/unregister'>Avregistrer deg<a> side"
+          },
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "Your name to register with",
+            "nb": "Ditt navn å registrere deg med"
+          },
+          "isRequired": true,
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "Your email address to register with",
+            "nb": "Din e-postadresse å registrere deg hos"
+          },
+          "visibleIf": "{auto-register} = true",
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "nb": "Ønsker du å sende resultatene av tilbakemeldingen din slik at Core Automation Kit-teamet kan skreddersy kontortiden basert på svarene dine"
+          },
+          "label": {
+            "default": "Send results?",
+            "nb": "Sende resultater?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "nb": "Vi håper disse spørsmålene vil hjelpe deg med å bestemme en ide om emner eller spørsmål hvis du deltar"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve office hours.",
+            "nb": "Vi ser frem til å få din tilbakemelding. Som et kjerneteam for automatiseringssett bruker vi tilbakemeldingene til å forbedre kontortiden."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "nb": "Send tilbakemelding nå?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "nb": "Status: "
+          }
+        }
+      ]
+    }
+  ]
+}

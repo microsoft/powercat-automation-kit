@@ -1,22 +1,18 @@
 ---
-title: "2023 年 2 月リリース"
-description: "自動化キット - 2023年2月"
+title: "2023 年 3 月リリース"
+description: "自動化キット - 2023年3月"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BA7B829B3653A8B2CFE946A1845B7FA363D6AF08
+generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
 ---
 
-![ニフティエミー賞](/images/nifty-emmy.png)
+{{<product-name>}} は 6 番目のパブリック プレビュー リリースです。このリリースでは、次の点に重点が置かれました。
 
-3月のリリース(ニフティエミー賞)の{{<product-name>}} は 6 番目のパブリック プレビュー リリースです。このリリースでは、次の点に焦点を当てる予定です。
-
--スケジューラのその他の更新 (フィルターなど)
--ALM との統合[Power Platform用パイプライン](https://learn.microsoft.com/en-us/power-platform/alm/pipelines)と[Power PlatformのためのALMアクセラレータ](https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components)
--インストールの簡素化
--ハウツービデオとデモンストレーション
+-マシン/コンピュータ グループでフィルター処理し、Power Automate デスクトップ フローを実行するためのスケジューラの更新
+-v1 をサポートするための更新プログラム[v2 スキーマ](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
 
 {{<questions name="/content/ja/releases/march-2023.json" completed="フィードバックをお寄せいただきありがとうございます" showNavigationButtons="false" locale="ja">}}
 
@@ -26,35 +22,28 @@ generated: BA7B829B3653A8B2CFE946A1845B7FA363D6AF08
 
 ## 以前のリリース
 
-- [2022年12月号](/ja/releases/december-2022)(熱心なアントネッリ)
+- [2023年2月号](/ja/releases/february-2023)
 
 ## 次のリリース
 
--2023年3月(ニフティエミー賞)
+-2023年4月号
 
 ## プロジェクトのマイルストーン
 
-[自動化キット - 2023年2月](https://github.com/orgs/microsoft/projects/486/views/9)
+[自動化キット - 2023年3月](https://github.com/orgs/microsoft/projects/486/views/10)
 
 [自動化キット - バックログ](https://github.com/orgs/microsoft/projects/486/views/1)
 
 レビューする[マイルストーンノート](/ja/releases/milestones)詳細情報
 
-## キーノート
-
-このリリースの主な機能:
-
--更新予定
-
 ## リリースノート
 
-に含まれるもの[自動化キット - 2023年2月](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-February2023)クローズされたバグと問題の場合
+に含まれるもの[自動化キット - 2023年3月](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-March2023)クローズされたバグと問題の場合
 
 ## アセットのリリース
 
-- [自動化キット - 2023年2月](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-February2023)
+- [自動化キット - 2023年3月](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-March2023)
 
 ## リリース履歴
 
 一杯[リリース履歴](/ja/releases)
-

@@ -1,0 +1,451 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing feedback",
+    "ko": "피드백을 작성해 주셔서 감사합니다."
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Office-Hours-Feedback-March-2023"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "new-topics",
+          "title": {
+            "default": "What topics are of most interest to you to cover in new topics section?",
+            "ko": "새로운 주제 섹션에서 다루기 위해 가장 관심 있는 주제는 무엇입니까?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "ko": "확실하지 않음"
+              }
+            },
+            {
+              "value": "How do I get started?",
+              "text": {
+                "default": "How do I get started?",
+                "ko": "시작하려면 어떻게 해야 합니까?"
+              }
+            },
+            {
+              "value": "Learning path from starter experience to hands on learning content",
+              "text": {
+                "default": "Learning path from starter experience to hands on learning content",
+                "ko": "초보자 경험에서 실습 학습 콘텐츠로의 학습 경로"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "ko": "다른 키트 및 즉시 사용 가능한 기능과의 관계"
+              }
+            },
+            {
+              "value": "Setting up Automation Projects",
+              "text": {
+                "default": "Setting up Automation Projects",
+                "ko": "자동화 프로젝트 설정"
+              }
+            },
+            {
+              "value": "Monitoring ROI of Automation Projects",
+              "text": {
+                "default": "Monitoring ROI of Automation Projects",
+                "ko": "자동화 프로젝트의 ROI 모니터링"
+              }
+            },
+            {
+              "value": "How to I setup exceptions?",
+              "text": {
+                "default": "How to I setup exceptions?",
+                "ko": "예외를 설정하는 방법은 무엇입니까?"
+              }
+            },
+            {
+              "value": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+              "text": {
+                "default": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+                "ko": "DLP(데이터 손실 방지)가 데스크톱 흐름에 미치는 영향을 이해하려면 어떻게 해야 하나요?"
+              }
+            },
+            {
+              "value": "How to I contribute to the Automation Kit to improve its features?",
+              "text": {
+                "default": "How to I contribute to the Automation Kit to improve its features?",
+                "ko": "기능을 개선하기 위해 자동화 키트에 기여하는 방법은 무엇입니까?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({new-topics},'How do I get started?')",
+          "html": {
+            "default": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide",
+            "ko": "<b>시작</b> 복습 <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> 가이드"
+          }
+        },
+        {
+          "name": "ranked-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "ko": "관심 분야의 순위를 매기십시오 (터치 스크린으로 선택 항목을 길게 탭)."
+          },
+          "visibleIf": "{new-topics.length} > 1",
+          "choicesFromQuestion": "new-topics",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "roadmap",
+          "title": {
+            "default": "What roadmap areas are of most interest to you?",
+            "ko": "어떤 로드맵 영역이 가장 관심이 있습니까?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "ko": "확실하지 않음"
+              }
+            },
+            {
+              "value": "Scheduler",
+              "text": {
+                "default": "Scheduler",
+                "ko": "스케줄러"
+              }
+            },
+            {
+              "value": "End to end ALM integration and samples",
+              "text": {
+                "default": "End to end ALM integration and samples",
+                "ko": "엔드 투 엔드 ALM 통합 및 샘플"
+              }
+            },
+            {
+              "value": "Providing an easier install process",
+              "text": {
+                "default": "Providing an easier install process",
+                "ko": "더 쉬운 설치 프로세스 제공"
+              }
+            },
+            {
+              "value": "Providing an sample pre-configured projects and ROI calculations",
+              "text": {
+                "default": "Providing an sample pre-configured projects and ROI calculations",
+                "ko": "사전 구성된 샘플 프로젝트 및 ROI 계산 제공"
+              }
+            },
+            {
+              "value": "Providing industry specific ROI calculations",
+              "text": {
+                "default": "Providing industry specific ROI calculations",
+                "ko": "산업별 ROI 계산 제공"
+              }
+            },
+            {
+              "value": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+              "text": {
+                "default": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+                "ko": "도움을 주기 위해 조직으로 가져올 수 있는 기성품 문서 팩 제공 **육성** 새로운 제작자"
+              }
+            },
+            {
+              "value": "Improved Documentation",
+              "text": {
+                "default": "Improved Documentation",
+                "ko": "향상된 문서"
+              }
+            },
+            {
+              "value": "Infrastructure Operations Templates",
+              "text": {
+                "default": "Infrastructure Operations Templates",
+                "ko": "인프라 운영 템플릿"
+              }
+            },
+            {
+              "value": "Security and compliance safeguards",
+              "text": {
+                "default": "Security and compliance safeguards",
+                "ko": "보안 및 규정 준수 보호"
+              }
+            },
+            {
+              "value": "Unit, Integration and System testing roadmap",
+              "text": {
+                "default": "Unit, Integration and System testing roadmap",
+                "ko": "단위, 통합 및 시스템 테스트 로드맵"
+              }
+            },
+            {
+              "value": "More information on RPA Migration",
+              "text": {
+                "default": "More information on RPA Migration",
+                "ko": "RPA 마이그레이션에 대한 추가 정보"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an easier install process')",
+          "html": {
+            "default": "<b>Easier Install</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>App Source Install</> issue",
+            "ko": "<b>더 쉬운 설치</b> 에 대한 검토 또는 의견 <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>앱 원본 설치</> 문제"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an sample pre-configured projects and ROI calculations')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Optional ability to import sample Automation Projects</> issue",
+            "ko": "<b>샘플 데이터</b> 에 대한 검토 또는 의견 <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>샘플 자동화 프로젝트를 가져오는 선택적 기능</> 문제"
+          }
+        },
+        {
+          "name": "ranked-roadmap",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the roadmap areas of interest for you (long tap on selection with a touch screen)",
+            "ko": "관심있는 로드맵 영역의 순위를 매기십시오 (터치 스크린으로 선택 항목을 길게 탭)."
+          },
+          "visibleIf": "{roadmap.length} > 1",
+          "choicesFromQuestion": "roadmap",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "questions",
+          "title": {
+            "default": "What questions are top of mind for you?",
+            "ko": "어떤 질문이 가장 마음에 드시나요?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "ko": "확실하지 않음"
+              }
+            },
+            {
+              "value": "Kit differences",
+              "text": {
+                "default": "What are the differences between the different kits managed by the Power CAT team?",
+                "ko": "Power CAT 팀에서 관리하는 여러 키트의 차이점은 무엇입니까?"
+              }
+            },
+            {
+              "value": "ALM",
+              "text": {
+                "default": "Do you have examples of end to ALM working with the Automation Kit?",
+                "ko": "자동화 키트로 작업하는 ALM의 끝 예가 있습니까?"
+              }
+            },
+            {
+              "value": "Data",
+              "text": {
+                "default": "Do you have examples of KPIs for my industry?",
+                "ko": "내 산업에 대한 KPI의 예가 있습니까?"
+              }
+            },
+            {
+              "value": "Roadmap",
+              "text": {
+                "default": "What is the roadmap for the Automation Kit?",
+                "ko": "자동화 키트의 로드맵은 무엇입니까?"
+              }
+            },
+            {
+              "value": "FAQ",
+              "text": {
+                "default": "What are frequently asked questions about the Automation Kit?",
+                "ko": "자동화 키트에 대해 자주 묻는 질문은 무엇입니까?"
+              }
+            },
+            {
+              "value": "Install",
+              "text": {
+                "default": "Are you looking to simplify the install experience?",
+                "ko": "설치 환경을 단순화하려고 하십니까?"
+              }
+            },
+            {
+              "value": "Localization",
+              "text": {
+                "default": "Can you tell me more about localization of Applications and Dashboards?",
+                "ko": "응용 프로그램 및 대시보드의 현지화에 대해 자세히 알려주실 수 있습니까?"
+              }
+            },
+            {
+              "value": "Issues",
+              "text": {
+                "default": "Where can I see a list of current issues for the Automation Kit?",
+                "ko": "자동화 키트의 현재 문제 목록은 어디에서 볼 수 있습니까?"
+              }
+            },
+            {
+              "value": "Case studies",
+              "text": {
+                "default": "Can you provide further case studies of how the Automation Kit has been used by and assisted other organizations?",
+                "ko": "자동화 키트가 다른 조직에서 어떻게 사용되고 지원되었는지에 대한 추가 사례 연구를 제공할 수 있습니까?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'FAQ')",
+          "html": {
+            "default": "<b>Frequently Asked Questions</b> Review or comment on the <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>FAQ</> page",
+            "ko": "<b>자주 묻는 질문</b> 에 대한 검토 또는 의견 <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>자주 묻는 질문</> 페이지"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'Issues')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>Open issues</>",
+            "ko": "<b>샘플 데이터</b> 에 대한 검토 또는 의견 <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>미해결 문제</>"
+          }
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "ko": "관심 분야의 순위를 매기십시오 (터치 스크린으로 선택 항목을 길게 탭)."
+          },
+          "visibleIf": "{questions.length} > 1",
+          "choicesFromQuestion": "questions",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "ko": "다른 피드백이 있습니까?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "auto-register",
+          "label": {
+            "default": "Send an automatic invitation for each Office Hours?",
+            "ko": "각 근무 시간에 대해 자동 초대장을 보내시겠습니까?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+            "ko": "<b>메모:</b> 필요한 경우 나중에 방문하여 등록을 취소할 수 있습니다. <a href='/office-hours/unregister'>등록 취소<a> 페이지"
+          },
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "Your name to register with",
+            "ko": "등록할 이름"
+          },
+          "isRequired": true,
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "Your email address to register with",
+            "ko": "등록할 이메일 주소"
+          },
+          "visibleIf": "{auto-register} = true",
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "ko": "핵심 자동화 키트 팀이 응답에 따라 근무 시간을 조정할 수 있도록 피드백 결과를 보내시겠습니까?"
+          },
+          "label": {
+            "default": "Send results?",
+            "ko": "결과를 보내시겠습니까?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "ko": "이 질문이 참석하는 경우 주제 또는 질문에 대한 아이디어를 결정하는 데 도움이되기를 바랍니다."
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve office hours.",
+            "ko": "여러분의 피드백을 기다리겠습니다. 핵심 자동화 키트 팀으로서 우리는 피드백을 사용하여 근무 시간을 개선합니다."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ko": "지금 피드백을 보내시겠습니까?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ko": "상태: "
+          }
+        }
+      ]
+    }
+  ]
+}

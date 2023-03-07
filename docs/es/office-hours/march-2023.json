@@ -1,0 +1,451 @@
+{
+  "checkErrorsMode": "onValueChanging",
+  "completedHtml": {
+    "default": "Thank you for completing feedback",
+    "es": "Gracias por completar sus comentarios"
+  },
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Office-Hours-Feedback-March-2023"
+    }
+  ],
+  "pages": [
+    {
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "new-topics",
+          "title": {
+            "default": "What topics are of most interest to you to cover in new topics section?",
+            "es": "¿Qué temas son de mayor interés para usted para cubrir en la sección de nuevos temas?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "es": "No estoy seguro"
+              }
+            },
+            {
+              "value": "How do I get started?",
+              "text": {
+                "default": "How do I get started?",
+                "es": "¿Cómo empiezo?"
+              }
+            },
+            {
+              "value": "Learning path from starter experience to hands on learning content",
+              "text": {
+                "default": "Learning path from starter experience to hands on learning content",
+                "es": "Ruta de aprendizaje desde la experiencia inicial hasta el contenido de aprendizaje práctico"
+              }
+            },
+            {
+              "value": "Relationship to other kits and out of the box features",
+              "text": {
+                "default": "Relationship to other kits and out of the box features",
+                "es": "Relación con otros kits y características listas para usar"
+              }
+            },
+            {
+              "value": "Setting up Automation Projects",
+              "text": {
+                "default": "Setting up Automation Projects",
+                "es": "Configuración de proyectos de automatización"
+              }
+            },
+            {
+              "value": "Monitoring ROI of Automation Projects",
+              "text": {
+                "default": "Monitoring ROI of Automation Projects",
+                "es": "Monitoreo del ROI de proyectos de automatización"
+              }
+            },
+            {
+              "value": "How to I setup exceptions?",
+              "text": {
+                "default": "How to I setup exceptions?",
+                "es": "¿Cómo configuro excepciones?"
+              }
+            },
+            {
+              "value": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+              "text": {
+                "default": "How to I understand the impact of Data Loss Protection (DLP) on by Desktop flows?",
+                "es": "¿Cómo puedo entender el impacto de la protección contra pérdida de datos (DLP) en los flujos de escritorio?"
+              }
+            },
+            {
+              "value": "How to I contribute to the Automation Kit to improve its features?",
+              "text": {
+                "default": "How to I contribute to the Automation Kit to improve its features?",
+                "es": "¿Cómo contribuyo al Automation Kit para mejorar sus características?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({new-topics},'How do I get started?')",
+          "html": {
+            "default": "<b>Getting Started</b> Review <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guide",
+            "es": "<b>Empezar</b> Revisión <a href='https://aka.ms/ak4pp-starter' target='_blank'>https://aka.ms/ak4pp-starter</a> guiar"
+          }
+        },
+        {
+          "name": "ranked-topics",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "es": "Por favor, clasifique las áreas de interés para usted (toque largo en la selección con una pantalla táctil)"
+          },
+          "visibleIf": "{new-topics.length} > 1",
+          "choicesFromQuestion": "new-topics",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "roadmap",
+          "title": {
+            "default": "What roadmap areas are of most interest to you?",
+            "es": "¿Qué áreas de la hoja de ruta son de mayor interés para usted?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "es": "No estoy seguro"
+              }
+            },
+            {
+              "value": "Scheduler",
+              "text": {
+                "default": "Scheduler",
+                "es": "Programador"
+              }
+            },
+            {
+              "value": "End to end ALM integration and samples",
+              "text": {
+                "default": "End to end ALM integration and samples",
+                "es": "Integración y ejemplos de ALM de extremo a extremo"
+              }
+            },
+            {
+              "value": "Providing an easier install process",
+              "text": {
+                "default": "Providing an easier install process",
+                "es": "Proporcionar un proceso de instalación más fácil"
+              }
+            },
+            {
+              "value": "Providing an sample pre-configured projects and ROI calculations",
+              "text": {
+                "default": "Providing an sample pre-configured projects and ROI calculations",
+                "es": "Proporcionar una muestra de proyectos preconfigurados y cálculos de ROI"
+              }
+            },
+            {
+              "value": "Providing industry specific ROI calculations",
+              "text": {
+                "default": "Providing industry specific ROI calculations",
+                "es": "Proporcionar cálculos de ROI específicos de la industria"
+              }
+            },
+            {
+              "value": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+              "text": {
+                "default": "Providing ready made documentation packs we can import into our organization to help **nurture** new makers",
+                "es": "Proporcionar paquetes de documentación listos para usar que podemos importar a nuestra organización para ayudar **nutrir** Nuevos fabricantes"
+              }
+            },
+            {
+              "value": "Improved Documentation",
+              "text": {
+                "default": "Improved Documentation",
+                "es": "Documentación mejorada"
+              }
+            },
+            {
+              "value": "Infrastructure Operations Templates",
+              "text": {
+                "default": "Infrastructure Operations Templates",
+                "es": "Plantillas de operaciones de infraestructura"
+              }
+            },
+            {
+              "value": "Security and compliance safeguards",
+              "text": {
+                "default": "Security and compliance safeguards",
+                "es": "Salvaguardas de seguridad y cumplimiento"
+              }
+            },
+            {
+              "value": "Unit, Integration and System testing roadmap",
+              "text": {
+                "default": "Unit, Integration and System testing roadmap",
+                "es": "Hoja de ruta de pruebas de unidades, integración y sistemas"
+              }
+            },
+            {
+              "value": "More information on RPA Migration",
+              "text": {
+                "default": "More information on RPA Migration",
+                "es": "Más información sobre la migración de RPA"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an easier install process')",
+          "html": {
+            "default": "<b>Easier Install</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>App Source Install</> issue",
+            "es": "<b>Instalación más sencilla</b> Revisar o comentar el <a href='https://github.com/microsoft/powercat-automation-kit/issues/18' target='_blank'>Problema de instalación de origen de la aplicación</>"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({roadmap},'Providing an sample pre-configured projects and ROI calculations')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Optional ability to import sample Automation Projects</> issue",
+            "es": "<b>Datos de muestra</b> Revisar o comentar el <a href='https://github.com/microsoft/powercat-automation-kit/issues/19' target='_blank'>Capacidad opcional para importar proyectos de automatización de muestra</> problema"
+          }
+        },
+        {
+          "name": "ranked-roadmap",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the roadmap areas of interest for you (long tap on selection with a touch screen)",
+            "es": "Por favor, clasifique las áreas de la hoja de ruta de interés para usted (toque largo en la selección con una pantalla táctil)"
+          },
+          "visibleIf": "{roadmap.length} > 1",
+          "choicesFromQuestion": "roadmap",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "checkbox",
+          "name": "questions",
+          "title": {
+            "default": "What questions are top of mind for you?",
+            "es": "¿Qué preguntas son lo más importante para ti?"
+          },
+          "isRequired": true,
+          "hasOther": true,
+          "colCount": 1,
+          "choices": [
+            {
+              "value": "Not sure",
+              "text": {
+                "default": "Not sure",
+                "es": "No estoy seguro"
+              }
+            },
+            {
+              "value": "Kit differences",
+              "text": {
+                "default": "What are the differences between the different kits managed by the Power CAT team?",
+                "es": "¿Cuáles son las diferencias entre los diferentes kits gestionados por el equipo Power CAT?"
+              }
+            },
+            {
+              "value": "ALM",
+              "text": {
+                "default": "Do you have examples of end to ALM working with the Automation Kit?",
+                "es": "¿Tiene ejemplos de ALM de extremo trabajando con el kit de automatización?"
+              }
+            },
+            {
+              "value": "Data",
+              "text": {
+                "default": "Do you have examples of KPIs for my industry?",
+                "es": "¿Tiene ejemplos de KPI para mi industria?"
+              }
+            },
+            {
+              "value": "Roadmap",
+              "text": {
+                "default": "What is the roadmap for the Automation Kit?",
+                "es": "¿Cuál es la hoja de ruta para el kit de automatización?"
+              }
+            },
+            {
+              "value": "FAQ",
+              "text": {
+                "default": "What are frequently asked questions about the Automation Kit?",
+                "es": "¿Cuáles son las preguntas frecuentes sobre el Automation Kit?"
+              }
+            },
+            {
+              "value": "Install",
+              "text": {
+                "default": "Are you looking to simplify the install experience?",
+                "es": "¿Está buscando simplificar la experiencia de instalación?"
+              }
+            },
+            {
+              "value": "Localization",
+              "text": {
+                "default": "Can you tell me more about localization of Applications and Dashboards?",
+                "es": "¿Puede decirme más sobre la localización de aplicaciones y paneles?"
+              }
+            },
+            {
+              "value": "Issues",
+              "text": {
+                "default": "Where can I see a list of current issues for the Automation Kit?",
+                "es": "¿Dónde puedo ver una lista de problemas actuales para el kit de automatización?"
+              }
+            },
+            {
+              "value": "Case studies",
+              "text": {
+                "default": "Can you provide further case studies of how the Automation Kit has been used by and assisted other organizations?",
+                "es": "¿Puede proporcionar más estudios de casos sobre cómo el Kit de automatización ha sido utilizado y ayudado a otras organizaciones?"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'FAQ')",
+          "html": {
+            "default": "<b>Frequently Asked Questions</b> Review or comment on the <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>FAQ</> page",
+            "es": "<b>Preguntas frecuentes</b> Revisar o comentar el <a href='/powercat-automation-kit/frequently-asked-questions' target='_blank'>Página FAQ</>"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({questions},'Issues')",
+          "html": {
+            "default": "<b>Sample Data</b> Review or comment on the <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>Open issues</>",
+            "es": "<b>Datos de muestra</b> Revisar o comentar el <a href='https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aopen+is%3Aissue' target='_blank'>Temas abiertos</>"
+          }
+        },
+        {
+          "name": "ranked-questions",
+          "type": "ranking",
+          "title": {
+            "default": "Please rank the areas of interest to you (long tap on selection with a touch screen)",
+            "es": "Por favor, clasifique las áreas de interés para usted (toque largo en la selección con una pantalla táctil)"
+          },
+          "visibleIf": "{questions.length} > 1",
+          "choicesFromQuestion": "questions",
+          "choicesFromQuestionMode": "selected",
+          "isRequired": true
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Any other feedback?",
+            "es": "¿Algún otro comentario?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "auto-register",
+          "label": {
+            "default": "Send an automatic invitation for each Office Hours?",
+            "es": "¿Enviar una invitación automática para cada horario de oficina?"
+          },
+          "isRequired": false
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "<b>NOTE:</b> You can unregister later if needed by visiting <a href='/office-hours/unregister'>Unregister<a> page",
+            "es": "<b>NOTA:</b> Puede cancelar el registro más tarde si es necesario visitando <a href='/office-hours/unregister'>Anular el registro<a> página"
+          },
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "name": "register-name",
+          "title": {
+            "default": "Your name to register with",
+            "es": "Su nombre para registrarse"
+          },
+          "isRequired": true,
+          "visibleIf": "{auto-register} = true"
+        },
+        {
+          "type": "text",
+          "inputMask": "email",
+          "name": "register-email",
+          "title": {
+            "default": "Your email address to register with",
+            "es": "Su dirección de correo electrónico para registrarse"
+          },
+          "visibleIf": "{auto-register} = true",
+          "isRequired": true,
+          "validators": [
+            {
+              "type": "email"
+            }
+          ]
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "title": {
+            "default": "Do you want to send the results of the your feedback so that the Core Automation Kit team can tailor the office hours based on your responses",
+            "es": "¿Desea enviar los resultados de sus comentarios para que el equipo de Core Automation Kit pueda adaptar las horas de oficina en función de sus respuestas?"
+          },
+          "label": {
+            "default": "Send results?",
+            "es": "¿Enviar resultados?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = false",
+          "html": {
+            "default": "We hope these questions will help you determine an idea of topics or questions if you attend",
+            "es": "Esperamos que estas preguntas le ayuden a determinar una idea de temas o preguntas si asiste"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improve office hours.",
+            "es": "Esperamos recibir sus comentarios. Como equipo central de Automation Kit, utilizamos los comentarios para mejorar las horas de oficina."
+          }
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "es": "¿Enviar sus comentarios ahora?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "es": "Estado: "
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,22 +1,18 @@
 ---
-title: "Versione di febbraio 2023"
-description: "Kit di automazione - Febbraio 2023"
+title: "Versione di marzo 2023"
+description: "Kit di automazione - Marzo 2023"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BA7B829B3653A8B2CFE946A1845B7FA363D6AF08
+generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
 ---
 
-![Nifty Emmy](/images/nifty-emmy.png)
+La versione di marzo del {{<product-name>}} è la sesta versione di anteprima pubblica. Questa versione è incentrata su quanto segue:
 
-L'uscita di marzo (nifty-emmy) del {{<product-name>}} è la sesta versione di anteprima pubblica. Questa versione dovrebbe concentrarsi su:
-
-- Ulteriori aggiornamenti dell'utilità di pianificazione (ad esempio filtri)
-- Integrazione ALM con [Pipeline per Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) E la [Acceleratore ALM per Power Platform](https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components)
-- Semplificazione dell'installazione
-- Video e dimostrazioni
+- Ulteriori aggiornamenti dell'utilità di pianificazione per filtrare per macchina/gruppo di computer ed eseguire il flusso di Power Automate Desktop
+- Aggiornamento per supportare v1 e [Schema v2](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
 
 {{<questions name="/content/it/releases/march-2023.json" completed="Grazie per aver fornito feedback" showNavigationButtons="false" locale="it">}}
 
@@ -26,35 +22,28 @@ Prova [Guida introduttiva](/it/get-started) o unisciti al nostro [Orario d'uffic
 
 ## Versione precedente
 
-- [dicembre 2022](/it/releases/december-2022) (zelante-Antonelli)
+- [febbraio 2023](/it/releases/february-2023)
 
 ## Prossima versione
 
-- Marzo 2023 (nifty-emmy)
+- aprile 2023
 
 ## Pietre miliari del progetto
 
-[Kit di automazione - Febbraio 2023](https://github.com/orgs/microsoft/projects/486/views/9)
+[Kit di automazione - Marzo 2023](https://github.com/orgs/microsoft/projects/486/views/10)
 
 [Kit di automazione - Backlog](https://github.com/orgs/microsoft/projects/486/views/1)
 
 Esaminare il [Note sulle pietre miliari](/it/releases/milestones) per maggiori informazioni
 
-## Note chiave
-
-Caratteristiche principali di questa versione:
-
-- Da aggiornare
-
 ## Note sulla versione
 
-Incluso con [Kit di automazione - Febbraio 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-February2023) per bug e problemi chiusi
+Incluso con [Kit di automazione - Marzo 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-March2023) per bug e problemi chiusi
 
 ## Rilasciare risorse
 
-- [Kit di automazione - Febbraio 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-February2023)
+- [Kit di automazione - Marzo 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-March2023)
 
 ## Cronologia dei rilasci
 
 Pieno [Cronologia dei rilasci](/it/releases)
-

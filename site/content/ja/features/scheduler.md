@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
+generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 ---
 
 {{<toc>}}
@@ -27,7 +27,7 @@ Automation Kit スケジューラを使用すると、Power Automate デスク�
 -日、週、月、スケジュールビューでスケジュールを表示
 -スケジュールされたフローの状態を表示する (成功、失敗、またはスケジュール済み)
 -クラウド・フローの実行時間の表示
--エラーがあれば詳細を表示します。
+-エラーの詳細を表示します。
 
 ## 筆記
 

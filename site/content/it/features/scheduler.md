@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
+generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 ---
 
 {{<toc>}}
@@ -27,7 +27,7 @@ Le caratteristiche principali dello scheduler sono:
 - Visualizza la pianificazione per giorno, settimana, mese e visualizzazione pianificazione
 - Visualizzare lo stato dei flussi pianificati (operazione riuscita, non riuscita o pianificata)
 - Visualizzare la durata di un'esecuzione di Cloud Flow
-- Visualizza i dettagli eventuali errori.
+- Visualizzare i dettagli di eventuali errori.
 
 ## Note
 

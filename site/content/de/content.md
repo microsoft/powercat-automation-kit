@@ -4,7 +4,7 @@ description: "Automation Kit - Site-Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
+generated: A54D358D82AC6FC728B158E2C068243701C9262A
 ---
 
 {{<toc>}}
@@ -93,6 +93,8 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [Automation Kit – Verlauf der Bürozeiten](/de/office-hours/history)
 
+- [Automation Kit - Bürozeiten März 2023](/de/office-hours/march-2023)
+
 - [Automation Kit - Bürozeiten November 2022](/de/office-hours/november-2022)
 
 - [Automation Kit - Bürozeiten Oktober 2022](/de/office-hours/october-2022)
@@ -111,7 +113,7 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [Automation Kit - Februar 2023](/de/releases/february-2023)
 
-- [Automation Kit - Februar 2023](/de/releases/march-2023)
+- [Automation Kit - März 2023](/de/releases/march-2023)
 
 - [Automation Kit - Meilensteine der Veröffentlichung](/de/releases/milestones)
 

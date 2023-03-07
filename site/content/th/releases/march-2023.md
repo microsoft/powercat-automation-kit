@@ -1,22 +1,18 @@
 ---
-title: "วางจําหน่ายกุมภาพันธ์ 2023"
-description: "ชุดระบบอัตโนมัติ - กุมภาพันธ์ 2023"
+title: "วางจําหน่ายมีนาคม 2023"
+description: "ชุดระบบอัตโนมัติ - มีนาคม 2023"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BA7B829B3653A8B2CFE946A1845B7FA363D6AF08
+generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
 ---
 
-![ดีเอ็มมี่](/images/nifty-emmy.png)
+การเปิดตัว {{ ในเดือนมีนาคม<product-name>}} เป็นการเผยแพร่ตัวอย่างสาธารณะครั้งที่หก รุ่นนี้มุ่งเน้นไปที่สิ่งต่อไปนี้:
 
-ปล่อยมีนาคม (nifty-emmy) ของ {{<product-name>}} เป็นการเผยแพร่ตัวอย่างสาธารณะครั้งที่หก รุ่นนี้คาดว่าจะมุ่งเน้นไปที่:
-
-- การอัปเดตตัวจัดกําหนดการเพิ่มเติม (ตัวอย่างเช่น ตัวกรอง)
-- การรวม ALM กับ [ท่อสําหรับ Power Platform](https://learn.microsoft.com/en-us/power-platform/alm/pipelines) และ [ALM Accelerator สําหรับ Power Platform](https://learn.microsoft.com/en-us/power-platform/guidance/coe/almacceleratorpowerplatform-components)
-- การลดความซับซ้อนของการติดตั้ง
-- วิธีการวิดีโอและการสาธิต
+- การอัปเดตตัวจัดกําหนดการเพิ่มเติมเพื่อกรองตามกลุ่มเครื่อง/เครื่อง และเรียกใช้โฟลว์เดสก์ท็อป Power Automate
+- อัปเดตเพื่อรองรับ v1 an [สคีมา v2](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
 
 {{<questions name="/content/th/releases/march-2023.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
 
@@ -26,35 +22,28 @@ generated: BA7B829B3653A8B2CFE946A1845B7FA363D6AF08
 
 ## รุ่นก่อนวางจําหน่าย
 
-- [ธันวาคม 2022](/th/releases/december-2022) (กระตือรือร้น-แอนโทเนลลี)
+- [กุมภาพันธ์ 2023](/th/releases/february-2023)
 
 ## รุ่นถัดไป
 
-- มีนาคม 2023 (ดี-เอมมี่)
+- เมษายน 2023
 
 ## เหตุการณ์สําคัญของโครงการ
 
-[ชุดระบบอัตโนมัติ - กุมภาพันธ์ 2023](https://github.com/orgs/microsoft/projects/486/views/9)
+[ชุดระบบอัตโนมัติ - มีนาคม 2023](https://github.com/orgs/microsoft/projects/486/views/10)
 
 [ชุดระบบอัตโนมัติ - งานในมือ](https://github.com/orgs/microsoft/projects/486/views/1)
 
 ตรวจสอบปุ่ม [หมายเหตุเหตุการณ์สําคัญ](/th/releases/milestones) สําหรับข้อมูลเพิ่มเติม
 
-## หมายเหตุสําคัญ
-
-คุณสมบัติที่สําคัญในรุ่นนี้:
-
-- จะได้รับการอัปเดต
-
 ## บันทึกประจํารุ่น
 
-มาพร้อมกับ [ชุดระบบอัตโนมัติ - กุมภาพันธ์ 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-February2023) สําหรับข้อบกพร่องและปัญหาที่ปิด
+มาพร้อมกับ [ชุดระบบอัตโนมัติ - มีนาคม 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-March2023) สําหรับข้อบกพร่องและปัญหาที่ปิด
 
 ## ปล่อยสินทรัพย์
 
-- [ชุดระบบอัตโนมัติ - กุมภาพันธ์ 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-February2023)
+- [ชุดระบบอัตโนมัติ - มีนาคม 2023](https://github.com/microsoft/powercat-automation-kit/releases/tag/AutomationKit-March2023)
 
 ## ประวัติการวางจําหน่าย
 
 เต็ม [ประวัติการวางจําหน่าย](/th/releases)
-

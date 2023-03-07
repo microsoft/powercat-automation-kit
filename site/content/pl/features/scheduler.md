@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B8DC4418FD2312850E01B5DB52344E2BB9B93C2F
+generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 ---
 
 {{<toc>}}
@@ -27,7 +27,7 @@ Kluczowe funkcje harmonogramu to:
 - Wyświetlanie harmonogramu według widoku Dzień, Tydzień, Miesiąc i Harmonogram
 - Wyświetlanie stanu zaplanowanych przepływów (Powodzenie, Niepowodzenie lub Zaplanowane)
 - Wyświetlanie czasu trwania uruchomienia usługi Cloud Flow
-- Zobacz szczegóły, wszelkie błędy.
+- Wyświetl szczegóły wszelkich błędów.
 
 ## Notatki
 

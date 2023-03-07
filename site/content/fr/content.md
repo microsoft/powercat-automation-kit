@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Index du site"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
+generated: A54D358D82AC6FC728B158E2C068243701C9262A
 ---
 
 {{<toc>}}
@@ -93,6 +93,8 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [Kit d’automatisation - Historique des heures de bureau](/fr/office-hours/history)
 
+- [Kit d’automatisation - Heures de bureau Mars 2023](/fr/office-hours/march-2023)
+
 - [Kit d’automatisation - Heures de bureau novembre 2022](/fr/office-hours/november-2022)
 
 - [Kit d’automatisation - Heures de bureau Octobre 2022](/fr/office-hours/october-2022)
@@ -111,7 +113,7 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [Kit d’automatisation - Février 2023](/fr/releases/february-2023)
 
-- [Kit d’automatisation - Février 2023](/fr/releases/march-2023)
+- [Kit d’automatisation - Mars 2023](/fr/releases/march-2023)
 
 - [Kit d’automatisation - Jalons de publication](/fr/releases/milestones)
 

@@ -4,7 +4,7 @@ description: "Automatiseringssæt - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
+generated: A54D358D82AC6FC728B158E2C068243701C9262A
 ---
 
 {{<toc>}}
@@ -93,6 +93,8 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [Automatiseringssæt - Oversigt over åbningstider](/da/office-hours/history)
 
+- [Automationssæt - Kontortid marts 2023](/da/office-hours/march-2023)
+
 - [Automatiseringssæt - Kontortid november 2022](/da/office-hours/november-2022)
 
 - [Automatiseringssæt - Kontortid oktober 2022](/da/office-hours/october-2022)
@@ -111,7 +113,7 @@ generated: 19FBCE63028057EDBE090F8F7F1BC0580E709B45
 
 - [Automatiseringssæt - februar 2023](/da/releases/february-2023)
 
-- [Automatiseringssæt - februar 2023](/da/releases/march-2023)
+- [Automatiseringssæt - marts 2023](/da/releases/march-2023)
 
 - [Automationssæt - Milepæle for udgivelse](/da/releases/milestones)
 
