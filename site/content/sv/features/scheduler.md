@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 00B15DA73732A60B73A09229CEF9B843E259A121
+generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
 ---
 
 {{<toc>}}
@@ -15,7 +15,7 @@ generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 
 Med Automation Kit Scheduler kan du visa schemat för återkommande Power Automate Cloud-flöden i lösningar som innehåller anrop till Power Automate Desktop-flöden.
 
-Denna funktion introducerades som en del av [Februari 2023](/sv/releases/february-2023)kommer senare versioner att fortsätta att förbättra och utöka schemaläggarens funktionalitet.
+Den här funktionen uppdaterades som en del av [Mars 2023](/sv/releases/march-2023)kommer senare versioner att fortsätta att förbättra och utöka schemaläggarens funktionalitet.
 
 {{<border>}}
 ![Scheduler](/images/schedule.png)
@@ -24,10 +24,53 @@ Denna funktion introducerades som en del av [Februari 2023](/sv/releases/februar
 De viktigaste funktionerna i schemaläggaren är:
 
 - Möjligheten att visa schemat för återkommande molnflöden
+- Filtrera schema efter dator- och datorgrupper
+- Köra ett Power Automate Desktop-flöde
 - Visa schema efter dag-, vecko-, månads- och schemavy
 - Visa status för Schemalagda flöden (Lyckades, Misslyckades eller Schemalagd)
 - Visa varaktigheten för en Cloud Flow-körning
 - Visa information om eventuella fel.
+
+## Kör flöde
+
+### Skrivskyddat beteende för schemalagda flöden
+
+När ett flöde schemaläggs för framtida körning är det som standard inställt på skrivskyddat läge och inaktiverat för omedelbar körning. Det innebär att användare inte kan ändra eller köra flödet förrän det schemalagda datumet och tiden har passerat. Det här beteendet är utformat för att ge en bättre användarupplevelse och förhindra oavsiktlig körning av flöden innan de är avsedda att köras.
+Det finns flera fördelar med den här metoden, bland annat:
+
+- Förhindra oavsiktlig körning: Genom att inaktivera omedelbar körning av flöden som är schemalagda för framtida körning är det mindre troligt att användare av misstag kör ett flöde innan det är avsett att köras.
+
+- Förbättrad förutsägbarhet: Genom att ställa in flöden i skrivskyddat läge när de schemaläggs för framtida körning kan användarna enklare förutsäga när flöden kommer att köras och se till att de har nödvändiga indata och resurser redo.
+
+- Konsekvent användarupplevelse: Genom att standardisera beteendet för schemalagda flöden kan det ge en konsekvent och förutsägbar användarupplevelse i alla instanser av Flow.
+
+- Om du vill ändra eller köra ett schemalagt flöde kan användarna redigera flödet och uppdatera det schemalagda datumet och den schemalagda tiden. När det nya schemat har ställts in inaktiveras flödet återigen för omedelbar körning och ställs in i skrivskyddat läge tills det nya schemat har passerat.
+
+## Felmeddelanden
+
+Möjliga felmeddelanden som kan uppstå när du kör körningsflödet.
+
+### Felmeddelande: "InvalidArgument – Det går inte att hitta en giltig anslutning som är associerad med den angivna anslutningsreferensen."
+
+#### Beskrivning
+
+Det här felmeddelandet indikerar vanligtvis att det finns ett problem med anslutningsreferensen som anges i koden eller konfigurationen. Systemet kan inte hitta en giltig anslutning som är associerad med referensen, vilket hindrar den från att utföra den begärda åtgärden.
+
+#### Orsakar
+
+Det finns flera möjliga orsaker till det här felmeddelandet, inklusive:
+
+- Felaktig eller ogiltig anslutningsreferens: Den angivna anslutningsreferensen kan vara ogiltig eller felaktig, vilket kan leda till att systemet inte hittar en giltig anslutning som är associerad med den.
+
+- Anslutningen har tagits bort eller ändrats: Om anslutningen som används i koden eller konfigurationen har tagits bort eller ändrats kan det leda till att systemet inte hittar en giltig anslutning som är associerad med referensen.
+
+- Behörighetsproblem: Användarkontot som kör koden eller konfigurationen kanske inte har de behörigheter som krävs för att komma åt anslutningen eller de resurser som är associerade med den.
+
+#### Resolution
+
+Lös problemet genom att vidta följande steg:
+
+- Verifiera anslutningsreferensen: Kontrollera anslutningsreferensen i koden eller konfigurationen och se till att den är giltig och korrekt.
 
 ## Anteckningar
 

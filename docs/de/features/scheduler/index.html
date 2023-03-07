@@ -62,6 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#einleitung">Einleitung</a></li>
+    <li><a href="#ablauf">Ablauf</a>
+      <ul>
+        <li><a href="#schreibgeschütztes-verhalten-geplanter-flows">Schreibgeschütztes Verhalten geplanter Flows</a></li>
+      </ul>
+    </li>
+    <li><a href="#fehlermeldungen">Fehlermeldungen</a>
+      <ul>
+        <li><a href="#fehlermeldung-invalidargument---kann-keine-gültige-verbindung-finden-die-dem-angegebenen-verbindungsverweis-zugeordnet-ist">Fehlermeldung: &ldquo;InvalidArgument - Kann keine gültige Verbindung finden, die dem angegebenen Verbindungsverweis zugeordnet ist.&rdquo;</a></li>
+      </ul>
+    </li>
     <li><a href="#notizen">Notizen</a></li>
     <li><a href="#installieren">Installieren</a></li>
     <li><a href="#fahrplan">Fahrplan</a></li>
@@ -70,7 +80,7 @@
 </nav>
 <h2 id="einleitung">Einleitung</h2>
 <p>Der Automation Kit Scheduler ermöglicht es, den Zeitplan für wiederkehrende Power Automate Cloud-Flows innerhalb von Lösungen anzuzeigen, die Aufrufe von Power Automate Desktop-Flows enthalten.</p>
-<p>Diese Funktion wurde im Rahmen der <a href="https://microsoft.github.io/powercat-automation-kit/de/releases/february-2023">Februar 2023</a>, Spätere Versionen werden die Funktionalität des Schedulers weiter verbessern und erweitern.</p>
+<p>Diese Funktion wurde im Rahmen der <a href="https://microsoft.github.io/powercat-automation-kit/de/releases/march-2023">März 2023</a>, Spätere Versionen werden die Funktionalität des Schedulers weiter verbessern und erweitern.</p>
 <style>
     .outerBorder {
         border: 1px;
@@ -94,10 +104,53 @@
 <p>Die wichtigsten Funktionen des Schedulers sind:</p>
 <ul>
 <li>Die Möglichkeit, den Zeitplan wiederkehrender Cloud-Flows anzuzeigen</li>
+<li>Filterplan nach Maschine und Maschinengruppen</li>
+<li>Ausführen eines Power Automate Desktop-Ablaufs</li>
 <li>Zeitplan nach Tag, Woche, Monat und Zeitplanansicht anzeigen</li>
 <li>Anzeigen des Status geplanter Flows (Erfolg, Fehler oder Geplant)</li>
 <li>Anzeigen der Dauer eines Cloud Flow-Laufs</li>
 <li>Zeigen Sie die Details aller Fehler an.</li>
+</ul>
+<h2 id="ablauf">Ablauf</h2>
+<h3 id="schreibgeschütztes-verhalten-geplanter-flows">Schreibgeschütztes Verhalten geplanter Flows</h3>
+<p>Wenn ein Flow für die zukünftige Ausführung geplant ist, wird er standardmäßig auf den schreibgeschützten Modus festgelegt und für die sofortige Ausführung deaktiviert. Dies bedeutet, dass Benutzer den Flow erst ändern oder ausführen können, wenn das geplante Datum und die geplante Uhrzeit abgelaufen sind. Dieses Verhalten wurde entwickelt, um eine bessere Benutzererfahrung zu bieten und die versehentliche Ausführung von Flows zu verhindern, bevor sie ausgeführt werden sollen.
+Dieser Ansatz bietet mehrere Vorteile, darunter:</p>
+<ul>
+<li>
+<p>Verhindern einer versehentlichen Ausführung: Durch das Deaktivieren der sofortigen Ausführung von Flows, die für die zukünftige Ausführung geplant sind, ist es weniger wahrscheinlich, dass Benutzer versehentlich einen Flow ausführen, bevor er ausgeführt werden soll.</p>
+</li>
+<li>
+<p>Verbesserte Vorhersagbarkeit: Indem Flows bei der geplanten zukünftigen Ausführung in den schreibgeschützten Modus versetzt werden, können Benutzer leichter vorhersagen, wann Flows ausgeführt werden, und sicherstellen, dass sie über die erforderlichen Eingaben und Ressourcen verfügen.</p>
+</li>
+<li>
+<p>Konsistente Benutzererfahrung: Durch die Standardisierung des Verhaltens geplanter Flows kann eine konsistente und vorhersagbare Benutzererfahrung über alle Instanzen von Flow hinweg bereitgestellt werden.</p>
+</li>
+<li>
+<p>Um einen geplanten Flow zu ändern oder auszuführen, können Benutzer den Flow bearbeiten und das geplante Datum und die geplante Uhrzeit aktualisieren. Sobald der neue Zeitplan festgelegt wurde, wird der Ablauf für die sofortige Ausführung wieder deaktiviert und in den schreibgeschützten Modus versetzt, bis der neue Zeitplan abgelaufen ist.</p>
+</li>
+</ul>
+<h2 id="fehlermeldungen">Fehlermeldungen</h2>
+<p>Mögliche Fehlermeldungen, die beim Ausführen des Ausführungsflusses auftreten können.</p>
+<h3 id="fehlermeldung-invalidargument---kann-keine-gültige-verbindung-finden-die-dem-angegebenen-verbindungsverweis-zugeordnet-ist">Fehlermeldung: &ldquo;InvalidArgument - Kann keine gültige Verbindung finden, die dem angegebenen Verbindungsverweis zugeordnet ist.&rdquo;</h3>
+<h4 id="beschreibung">Beschreibung</h4>
+<p>Diese Fehlermeldung weist in der Regel darauf hin, dass ein Problem mit dem im Code oder in der Konfiguration angegebenen Verbindungsverweis vorliegt. Das System kann keine gültige Verbindung finden, die dem Verweis zugeordnet ist, wodurch es die angeforderte Aktion nicht ausführen kann.</p>
+<h4 id="bewirkt">Bewirkt</h4>
+<p>Es gibt mehrere mögliche Ursachen für diese Fehlermeldung, einschließlich:</p>
+<ul>
+<li>
+<p>Falsche oder ungültige Verbindungsreferenz: Die angegebene Verbindungsreferenz kann ungültig oder falsch sein, was dazu führen kann, dass das System eine gültige Verbindung, die ihr zugeordnet ist, nicht finden kann.</p>
+</li>
+<li>
+<p>Verbindung gelöscht oder geändert: Wenn die im Code oder in der Konfiguration verwendete Verbindung gelöscht oder geändert wurde, kann dies dazu führen, dass das System keine gültige Verbindung findet, die der Referenz zugeordnet ist.</p>
+</li>
+<li>
+<p>Berechtigungsproblem: Das Benutzerkonto, das den Code oder die Konfiguration ausführt, verfügt möglicherweise nicht über die erforderlichen Berechtigungen für den Zugriff auf die Verbindung oder die ihr zugeordneten Ressourcen.</p>
+</li>
+</ul>
+<h4 id="auflösung">Auflösung</h4>
+<p>Um dieses Problem zu beheben, können Sie die folgenden Schritte ausführen:</p>
+<ul>
+<li>Überprüfen der Verbindungsreferenz: Überprüfen Sie die im Code oder in der Konfiguration angegebene Verbindungsreferenz, und stellen Sie sicher, dass sie gültig und korrekt ist.</li>
 </ul>
 <h2 id="notizen">Notizen</h2>
 <p>Für das aktuelle Release gelten folgende Hinweise</p>

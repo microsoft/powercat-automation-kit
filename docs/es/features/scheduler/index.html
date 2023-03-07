@@ -62,6 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#introducción">Introducción</a></li>
+    <li><a href="#flujo-de-ejecución">Flujo de ejecución</a>
+      <ul>
+        <li><a href="#comportamiento-de-solo-lectura-de-flujos-programados">Comportamiento de solo lectura de flujos programados</a></li>
+      </ul>
+    </li>
+    <li><a href="#mensajes-de-error">Mensajes de error</a>
+      <ul>
+        <li><a href="#mensaje-de-error-invalidargument---no-se-puede-encontrar-una-conexión-válida-asociada-con-la-referencia-de-conexión-proporcionada">Mensaje de error: &ldquo;InvalidArgument - No se puede encontrar una conexión válida asociada con la referencia de conexión proporcionada&rdquo;.</a></li>
+      </ul>
+    </li>
     <li><a href="#notas">Notas</a></li>
     <li><a href="#instalar">Instalar</a></li>
     <li><a href="#hoja-de-ruta">Hoja de ruta</a></li>
@@ -70,7 +80,7 @@
 </nav>
 <h2 id="introducción">Introducción</h2>
 <p>El Programador del kit de automatización permite ver la programación de flujos recurrentes de Power Automate Cloud dentro de Soluciones que incluyen llamadas a flujos de Power Automate Desktop.</p>
-<p>Esta característica se introdujo como parte de la <a href="https://microsoft.github.io/powercat-automation-kit/es/releases/february-2023">Febrero 2023</a>, las versiones posteriores continuarán mejorando y aumentando la funcionalidad del programador.</p>
+<p>Esta característica se actualizó como parte de la <a href="https://microsoft.github.io/powercat-automation-kit/es/releases/march-2023">Marzo 2023</a>, las versiones posteriores continuarán mejorando y aumentando la funcionalidad del programador.</p>
 <style>
     .outerBorder {
         border: 1px;
@@ -94,10 +104,53 @@
 <p>Las características clave del programador son:</p>
 <ul>
 <li>La capacidad de ver la programación de flujos de nube recurrentes</li>
+<li>Programación de filtros por máquina y grupos de máquinas</li>
+<li>Ejecutar un flujo de Power Automate Desktop</li>
 <li>Ver programación por día, semana, mes y vista de programación</li>
 <li>Ver el estado de los flujos programados (correctos, fallidos o programados)</li>
 <li>Ver la duración de una ejecución de Cloud Flow</li>
 <li>Ver los detalles de cualquier error.</li>
+</ul>
+<h2 id="flujo-de-ejecución">Flujo de ejecución</h2>
+<h3 id="comportamiento-de-solo-lectura-de-flujos-programados">Comportamiento de solo lectura de flujos programados</h3>
+<p>De forma predeterminada, cuando un flujo se programa para su ejecución futura, se establece en modo de solo lectura y se deshabilita para su ejecución inmediata. Esto significa que los usuarios no pueden modificar o ejecutar el flujo hasta que haya pasado la fecha y hora programadas. Este comportamiento está diseñado para proporcionar una mejor experiencia de usuario y evitar la ejecución accidental de flujos antes de que se pretenda ejecutar.
+Hay varios beneficios para este enfoque, incluyendo:</p>
+<ul>
+<li>
+<p>Prevención de la ejecución accidental: al deshabilitar la ejecución inmediata de flujos programados para ejecución futura, es menos probable que los usuarios ejecuten accidentalmente un flujo antes de que se pretenda que se ejecute.</p>
+</li>
+<li>
+<p>Previsibilidad mejorada: Al establecer los flujos en modo de solo lectura cuando están programados para su ejecución futura, los usuarios pueden predecir más fácilmente cuándo se ejecutarán los flujos y asegurarse de que tienen listas las entradas y los recursos necesarios.</p>
+</li>
+<li>
+<p>Experiencia de usuario coherente: al estandarizar el comportamiento de los flujos programados, puede proporcionar una experiencia de usuario coherente y predecible en todas las instancias de Flow.</p>
+</li>
+<li>
+<p>Para modificar o ejecutar un flujo programado, los usuarios pueden editar el flujo y actualizar la fecha y hora programadas. Una vez que se haya establecido la nueva programación, el flujo se deshabilitará una vez más para su ejecución inmediata y se establecerá en modo de solo lectura hasta que la nueva programación haya pasado.</p>
+</li>
+</ul>
+<h2 id="mensajes-de-error">Mensajes de error</h2>
+<p>Posibles mensajes de error que podrían producirse al ejecutar el flujo de ejecución.</p>
+<h3 id="mensaje-de-error-invalidargument---no-se-puede-encontrar-una-conexión-válida-asociada-con-la-referencia-de-conexión-proporcionada">Mensaje de error: &ldquo;InvalidArgument - No se puede encontrar una conexión válida asociada con la referencia de conexión proporcionada&rdquo;.</h3>
+<h4 id="descripción">Descripción</h4>
+<p>Este mensaje de error normalmente indica que hay un problema con la referencia de conexión proporcionada en el código o la configuración. El sistema no puede localizar una conexión válida asociada a la referencia, lo que le impide ejecutar la acción solicitada.</p>
+<h4 id="causas">Causas</h4>
+<p>Hay varias causas potenciales para este mensaje de error, incluyendo:</p>
+<ul>
+<li>
+<p>Referencia de conexión incorrecta o no válida: la referencia de conexión proporcionada puede ser inválida o incorrecta, lo que puede provocar que el sistema no encuentre una conexión válida asociada a ella.</p>
+</li>
+<li>
+<p>Conexión eliminada o cambiada: Si la conexión utilizada en el código o la configuración se ha eliminado o modificado, puede provocar que el sistema no pueda localizar una conexión válida asociada con la referencia.</p>
+</li>
+<li>
+<p>Problema de permisos: es posible que la cuenta de usuario que ejecuta el código o la configuración no tenga los permisos necesarios para acceder a la conexión o a los recursos asociados a ella.</p>
+</li>
+</ul>
+<h4 id="resolución">Resolución</h4>
+<p>Para resolver este problema, puede realizar los pasos siguientes:</p>
+<ul>
+<li>Verifique la referencia de conexión: compruebe la referencia de conexión proporcionada en el código o la configuración y asegúrese de que es válida y correcta.</li>
 </ul>
 <h2 id="notas">Notas</h2>
 <p>Para la versión actual, se aplican las siguientes notas</p>

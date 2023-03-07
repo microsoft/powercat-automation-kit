@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 00B15DA73732A60B73A09229CEF9B843E259A121
+generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
 ---
 
 {{<toc>}}
@@ -15,7 +15,7 @@ generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 
 El Programador del kit de automatización permite ver la programación de flujos recurrentes de Power Automate Cloud dentro de Soluciones que incluyen llamadas a flujos de Power Automate Desktop.
 
-Esta característica se introdujo como parte de la [Febrero 2023](/es/releases/february-2023), las versiones posteriores continuarán mejorando y aumentando la funcionalidad del programador.
+Esta característica se actualizó como parte de la [Marzo 2023](/es/releases/march-2023), las versiones posteriores continuarán mejorando y aumentando la funcionalidad del programador.
 
 {{<border>}}
 ![Programador](/images/schedule.png)
@@ -24,10 +24,53 @@ Esta característica se introdujo como parte de la [Febrero 2023](/es/releases/f
 Las características clave del programador son:
 
 - La capacidad de ver la programación de flujos de nube recurrentes
+- Programación de filtros por máquina y grupos de máquinas
+- Ejecutar un flujo de Power Automate Desktop
 - Ver programación por día, semana, mes y vista de programación
 - Ver el estado de los flujos programados (correctos, fallidos o programados)
 - Ver la duración de una ejecución de Cloud Flow
 - Ver los detalles de cualquier error.
+
+## Flujo de ejecución
+
+### Comportamiento de solo lectura de flujos programados
+
+De forma predeterminada, cuando un flujo se programa para su ejecución futura, se establece en modo de solo lectura y se deshabilita para su ejecución inmediata. Esto significa que los usuarios no pueden modificar o ejecutar el flujo hasta que haya pasado la fecha y hora programadas. Este comportamiento está diseñado para proporcionar una mejor experiencia de usuario y evitar la ejecución accidental de flujos antes de que se pretenda ejecutar.
+Hay varios beneficios para este enfoque, incluyendo:
+
+- Prevención de la ejecución accidental: al deshabilitar la ejecución inmediata de flujos programados para ejecución futura, es menos probable que los usuarios ejecuten accidentalmente un flujo antes de que se pretenda que se ejecute.
+
+- Previsibilidad mejorada: Al establecer los flujos en modo de solo lectura cuando están programados para su ejecución futura, los usuarios pueden predecir más fácilmente cuándo se ejecutarán los flujos y asegurarse de que tienen listas las entradas y los recursos necesarios.
+
+- Experiencia de usuario coherente: al estandarizar el comportamiento de los flujos programados, puede proporcionar una experiencia de usuario coherente y predecible en todas las instancias de Flow.
+
+- Para modificar o ejecutar un flujo programado, los usuarios pueden editar el flujo y actualizar la fecha y hora programadas. Una vez que se haya establecido la nueva programación, el flujo se deshabilitará una vez más para su ejecución inmediata y se establecerá en modo de solo lectura hasta que la nueva programación haya pasado.
+
+## Mensajes de error
+
+Posibles mensajes de error que podrían producirse al ejecutar el flujo de ejecución.
+
+### Mensaje de error: "InvalidArgument - No se puede encontrar una conexión válida asociada con la referencia de conexión proporcionada".
+
+#### Descripción
+
+Este mensaje de error normalmente indica que hay un problema con la referencia de conexión proporcionada en el código o la configuración. El sistema no puede localizar una conexión válida asociada a la referencia, lo que le impide ejecutar la acción solicitada.
+
+#### Causas
+
+Hay varias causas potenciales para este mensaje de error, incluyendo:
+
+- Referencia de conexión incorrecta o no válida: la referencia de conexión proporcionada puede ser inválida o incorrecta, lo que puede provocar que el sistema no encuentre una conexión válida asociada a ella.
+
+- Conexión eliminada o cambiada: Si la conexión utilizada en el código o la configuración se ha eliminado o modificado, puede provocar que el sistema no pueda localizar una conexión válida asociada con la referencia.
+
+- Problema de permisos: es posible que la cuenta de usuario que ejecuta el código o la configuración no tenga los permisos necesarios para acceder a la conexión o a los recursos asociados a ella.
+
+#### Resolución
+
+Para resolver este problema, puede realizar los pasos siguientes:
+
+- Verifique la referencia de conexión: compruebe la referencia de conexión proporcionada en el código o la configuración y asegúrese de que es válida y correcta.
 
 ## Notas
 

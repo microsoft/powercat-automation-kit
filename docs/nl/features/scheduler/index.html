@@ -62,6 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#introductie">Introductie</a></li>
+    <li><a href="#flow-uitvoeren">Flow uitvoeren</a>
+      <ul>
+        <li><a href="#alleen-lezen-gedrag-van-geplande-stromen">Alleen-lezen gedrag van geplande stromen</a></li>
+      </ul>
+    </li>
+    <li><a href="#foutberichten">Foutberichten</a>
+      <ul>
+        <li><a href="#foutbericht-invalidargument---kan-geen-geldige-verbinding-vinden-die-is-gekoppeld-aan-de-opgegeven-verbindingsreferentie">Foutbericht: &lsquo;InvalidArgument - Kan geen geldige verbinding vinden die is gekoppeld aan de opgegeven verbindingsreferentie&rsquo;.</a></li>
+      </ul>
+    </li>
     <li><a href="#notities">Notities</a></li>
     <li><a href="#installeren">Installeren</a></li>
     <li><a href="#routekaart">Routekaart</a></li>
@@ -70,7 +80,7 @@
 </nav>
 <h2 id="introductie">Introductie</h2>
 <p>Met de Automation Kit Scheduler kunt u de planning van terugkerende Power Automate Cloud-stromen in oplossingen bekijken die aanroepen naar Power Automate Desktop-stromen bevatten.</p>
-<p>Deze functie is geïntroduceerd als onderdeel van de <a href="https://microsoft.github.io/powercat-automation-kit/nl/releases/february-2023">februari 2023</a>, Zullen latere releases de functionaliteit van de planner blijven verbeteren en uitbreiden.</p>
+<p>Deze functie is bijgewerkt als onderdeel van de <a href="https://microsoft.github.io/powercat-automation-kit/nl/releases/march-2023">maart 2023</a>, Zullen latere releases de functionaliteit van de planner blijven verbeteren en uitbreiden.</p>
 <style>
     .outerBorder {
         border: 1px;
@@ -94,10 +104,53 @@
 <p>De belangrijkste kenmerken van de planner zijn:</p>
 <ul>
 <li>De mogelijkheid om het schema van terugkerende cloudstromen te bekijken</li>
+<li>Filterschema op machine- en machinegroepen</li>
+<li>Een Power Automate-bureaubladstroom uitvoeren</li>
 <li>Bekijk het schema op dag, week, maand en planningsweergave</li>
 <li>De status van geplande stromen weergeven (geslaagd, mislukt of gepland)</li>
 <li>De duur van een Cloud Flow-run weergeven</li>
 <li>Bekijk de details van eventuele fouten.</li>
+</ul>
+<h2 id="flow-uitvoeren">Flow uitvoeren</h2>
+<h3 id="alleen-lezen-gedrag-van-geplande-stromen">Alleen-lezen gedrag van geplande stromen</h3>
+<p>Wanneer een stroom is gepland voor toekomstige uitvoering, wordt deze standaard ingesteld op de modus Alleen-lezen en uitgeschakeld voor onmiddellijke uitvoering. Dit betekent dat gebruikers de stroom niet kunnen wijzigen of uitvoeren totdat de geplande datum en tijd zijn verstreken. Dit gedrag is ontworpen om een betere gebruikerservaring te bieden en te voorkomen dat stromen per ongeluk worden uitgevoerd voordat ze moeten worden uitgevoerd.
+Deze aanpak heeft verschillende voordelen, waaronder:</p>
+<ul>
+<li>
+<p>Onbedoelde uitvoering voorkomen: door de onmiddellijke uitvoering van stromen die zijn gepland voor toekomstige uitvoering uit te schakelen, is de kans kleiner dat gebruikers per ongeluk een stroom uitvoeren voordat deze bedoeld is om te worden uitgevoerd.</p>
+</li>
+<li>
+<p>Verbeterde voorspelbaarheid: door stromen in te stellen op alleen-lezen modus wanneer ze zijn gepland voor toekomstige uitvoering, kunnen gebruikers gemakkelijker voorspellen wanneer stromen zullen worden uitgevoerd en ervoor zorgen dat ze de benodigde inputs en resources klaar hebben.</p>
+</li>
+<li>
+<p>Consistente gebruikerservaring: door het gedrag van geplande stromen te standaardiseren, kan het een consistente en voorspelbare gebruikerservaring bieden voor alle exemplaren van Flow.</p>
+</li>
+<li>
+<p>Als u een geplande stroom wilt wijzigen of uitvoeren, kunnen gebruikers de stroom bewerken en de geplande datum en tijd bijwerken. Zodra het nieuwe schema is ingesteld, wordt de stroom opnieuw uitgeschakeld voor onmiddellijke uitvoering en ingesteld op de alleen-lezenmodus totdat het nieuwe schema is verstreken.</p>
+</li>
+</ul>
+<h2 id="foutberichten">Foutberichten</h2>
+<p>Mogelijke foutmeldingen die kunnen optreden bij het uitvoeren van de runflow.</p>
+<h3 id="foutbericht-invalidargument---kan-geen-geldige-verbinding-vinden-die-is-gekoppeld-aan-de-opgegeven-verbindingsreferentie">Foutbericht: &lsquo;InvalidArgument - Kan geen geldige verbinding vinden die is gekoppeld aan de opgegeven verbindingsreferentie&rsquo;.</h3>
+<h4 id="beschrijving">Beschrijving</h4>
+<p>Dit foutbericht geeft meestal aan dat er een probleem is met de verbindingsverwijzing in de code of configuratie. Het systeem kan geen geldige verbinding vinden die aan de verwijzing is gekoppeld, waardoor het de gevraagde actie niet kan uitvoeren.</p>
+<h4 id="oorzaken">Oorzaken</h4>
+<p>Er zijn verschillende mogelijke oorzaken voor dit foutbericht, waaronder:</p>
+<ul>
+<li>
+<p>Onjuiste of ongeldige verbindingsverwijzing: De opgegeven verbindingsreferentie kan ongeldig of onjuist zijn, waardoor het systeem een geldige verbinding die eraan is gekoppeld, niet kan vinden.</p>
+</li>
+<li>
+<p>Verbinding verwijderd of gewijzigd: Als de verbinding die in de code of configuratie wordt gebruikt, is verwijderd of gewijzigd, kan dit ertoe leiden dat het systeem geen geldige verbinding kan vinden die aan de verwijzing is gekoppeld.</p>
+</li>
+<li>
+<p>Probleem met machtigingen: het gebruikersaccount dat de code of configuratie uitvoert, heeft mogelijk niet de benodigde machtigingen om toegang te krijgen tot de verbinding of de bronnen die eraan zijn gekoppeld.</p>
+</li>
+</ul>
+<h4 id="resolutie">Resolutie</h4>
+<p>U kunt dit probleem oplossen door de volgende stappen uit te voeren:</p>
+<ul>
+<li>Controleer de verbindingsreferentie: Controleer de verbindingsreferentie in de code of configuratie en controleer of deze geldig en correct is.</li>
 </ul>
 <h2 id="notities">Notities</h2>
 <p>Voor de huidige release zijn de volgende opmerkingen van toepassing</p>

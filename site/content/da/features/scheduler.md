@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 00B15DA73732A60B73A09229CEF9B843E259A121
+generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
 ---
 
 {{<toc>}}
@@ -15,7 +15,7 @@ generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 
 Automatiseringspakken Scheduler giver mulighed for at få vist tidsplanen for tilbagevendende Power Automate Cloud-flows i løsninger, der omfatter opkald til Power Automate Desktop-flows.
 
-Denne funktion blev introduceret som en del af [Marts 2023](/da/releases/february-2023), Senere udgivelser vil fortsætte med at forbedre og udvide funktionaliteten i planlæggeren.
+Denne funktion blev opdateret som en del af [Marts 2023](/da/releases/march-2023), Senere udgivelser vil fortsætte med at forbedre og udvide funktionaliteten i planlæggeren.
 
 {{<border>}}
 ![Planlægger](/images/schedule.png)
@@ -24,10 +24,53 @@ Denne funktion blev introduceret som en del af [Marts 2023](/da/releases/februar
 De vigtigste funktioner i planlæggeren er:
 
 - Muligheden for at få vist tidsplanen for tilbagevendende cloudflows
+- Filtrer tidsplan efter maskin- og maskingrupper
+- Køre et Power Automate Desktop-flow
 - Se tidsplan efter dag, uge, måned og tidsplanvisning
 - Få vist status for planlagte flow (Fuldført, Mislykket eller Planlagt)
 - Se varigheden af en Cloud Flow-kørsel
 - Se detaljerne om eventuelle fejl.
+
+## Kør flow
+
+### Skrivebeskyttet funktionsmåde for planlagte flows
+
+Når et flow er planlagt til fremtidig udførelse, er det som standard indstillet til skrivebeskyttet tilstand og deaktiveret til øjeblikkelig udførelse. Det betyder, at brugerne ikke kan ændre eller udføre flowet, før den planlagte dato og det planlagte klokkeslæt er overskredet. Denne funktionsmåde er designet til at give en bedre brugeroplevelse og forhindre utilsigtet udførelse af flows, før de er beregnet til at køre.
+Der er flere fordele ved denne tilgang, herunder:
+
+- Forebyggelse af utilsigtet udførelse: Ved at deaktivere øjeblikkelig udførelse af flows, der er planlagt til fremtidig udførelse, er det mindre sandsynligt, at brugerne kører et flow ved et uheld, før det er beregnet til at køre.
+
+- Forbedret forudsigelighed: Ved at indstille flows til skrivebeskyttet tilstand, når de er planlagt til fremtidig udførelse, kan brugerne lettere forudsige, hvornår flows kører, og sikre, at de har de nødvendige input og ressourcer klar.
+
+- Ensartet brugeroplevelse: Ved at standardisere funktionsmåden for planlagte flows kan den give en ensartet og forudsigelig brugeroplevelse på tværs af alle forekomster af Flow.
+
+- Hvis du vil ændre eller udføre et planlagt flow, kan brugerne redigere flowet og opdatere den planlagte dato og det planlagte klokkeslæt. Når den nye tidsplan er indstillet, deaktiveres flowet igen til øjeblikkelig udførelse og indstilles til skrivebeskyttet tilstand, indtil den nye tidsplan er gået.
+
+## Fejlmeddelelser
+
+Mulige fejlmeddelelser, der kan opstå under udførelse af kørselsflow.
+
+### Fejlmeddelelse: "InvalidArgument - Kan ikke finde en gyldig forbindelse, der er knyttet til den angivne forbindelsesreference."
+
+#### Beskrivelse: __________
+
+Denne fejlmeddelelse angiver typisk, at der er et problem med forbindelsesreferencen i koden eller konfigurationen. Systemet kan ikke finde en gyldig forbindelse, der er knyttet til referencen, hvilket forhindrer det i at udføre den ønskede handling.
+
+#### Årsager
+
+Der er flere mulige årsager til denne fejlmeddelelse, herunder:
+
+- Forkert eller ugyldig forbindelsesreference: Den angivne forbindelsesreference kan være ugyldig eller forkert, hvilket kan medføre, at systemet ikke kan finde en gyldig forbindelse, der er knyttet til det.
+
+- Forbindelse slettet eller ændret: Hvis den forbindelse, der bruges i koden eller konfigurationen, er blevet slettet eller ændret, kan det medføre, at systemet ikke kan finde en gyldig forbindelse, der er knyttet til referencen.
+
+- Problem med tilladelser: Den brugerkonto, der udfører koden eller konfigurationen, har muligvis ikke de nødvendige tilladelser til at få adgang til forbindelsen eller de ressourcer, der er knyttet til den.
+
+#### Opløsning
+
+Du kan løse dette problem ved at udføre følgende fremgangsmåde:
+
+- Bekræft forbindelsesreferencen: Kontroller forbindelsesreferencen i koden eller konfigurationen, og sørg for, at den er gyldig og korrekt.
 
 ## Noter
 

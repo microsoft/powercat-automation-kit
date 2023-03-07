@@ -62,6 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#införandet">Införandet</a></li>
+    <li><a href="#kör-flöde">Kör flöde</a>
+      <ul>
+        <li><a href="#skrivskyddat-beteende-för-schemalagda-flöden">Skrivskyddat beteende för schemalagda flöden</a></li>
+      </ul>
+    </li>
+    <li><a href="#felmeddelanden">Felmeddelanden</a>
+      <ul>
+        <li><a href="#felmeddelande-invalidargument--det-går-inte-att-hitta-en-giltig-anslutning-som-är-associerad-med-den-angivna-anslutningsreferensen">Felmeddelande: &ldquo;InvalidArgument – Det går inte att hitta en giltig anslutning som är associerad med den angivna anslutningsreferensen.&rdquo;</a></li>
+      </ul>
+    </li>
     <li><a href="#anteckningar">Anteckningar</a></li>
     <li><a href="#installera">Installera</a></li>
     <li><a href="#färdplan">Färdplan</a></li>
@@ -70,7 +80,7 @@
 </nav>
 <h2 id="införandet">Införandet</h2>
 <p>Med Automation Kit Scheduler kan du visa schemat för återkommande Power Automate Cloud-flöden i lösningar som innehåller anrop till Power Automate Desktop-flöden.</p>
-<p>Denna funktion introducerades som en del av <a href="https://microsoft.github.io/powercat-automation-kit/sv/releases/february-2023">Februari 2023</a>kommer senare versioner att fortsätta att förbättra och utöka schemaläggarens funktionalitet.</p>
+<p>Den här funktionen uppdaterades som en del av <a href="https://microsoft.github.io/powercat-automation-kit/sv/releases/march-2023">Mars 2023</a>kommer senare versioner att fortsätta att förbättra och utöka schemaläggarens funktionalitet.</p>
 <style>
     .outerBorder {
         border: 1px;
@@ -94,10 +104,53 @@
 <p>De viktigaste funktionerna i schemaläggaren är:</p>
 <ul>
 <li>Möjligheten att visa schemat för återkommande molnflöden</li>
+<li>Filtrera schema efter dator- och datorgrupper</li>
+<li>Köra ett Power Automate Desktop-flöde</li>
 <li>Visa schema efter dag-, vecko-, månads- och schemavy</li>
 <li>Visa status för Schemalagda flöden (Lyckades, Misslyckades eller Schemalagd)</li>
 <li>Visa varaktigheten för en Cloud Flow-körning</li>
 <li>Visa information om eventuella fel.</li>
+</ul>
+<h2 id="kör-flöde">Kör flöde</h2>
+<h3 id="skrivskyddat-beteende-för-schemalagda-flöden">Skrivskyddat beteende för schemalagda flöden</h3>
+<p>När ett flöde schemaläggs för framtida körning är det som standard inställt på skrivskyddat läge och inaktiverat för omedelbar körning. Det innebär att användare inte kan ändra eller köra flödet förrän det schemalagda datumet och tiden har passerat. Det här beteendet är utformat för att ge en bättre användarupplevelse och förhindra oavsiktlig körning av flöden innan de är avsedda att köras.
+Det finns flera fördelar med den här metoden, bland annat:</p>
+<ul>
+<li>
+<p>Förhindra oavsiktlig körning: Genom att inaktivera omedelbar körning av flöden som är schemalagda för framtida körning är det mindre troligt att användare av misstag kör ett flöde innan det är avsett att köras.</p>
+</li>
+<li>
+<p>Förbättrad förutsägbarhet: Genom att ställa in flöden i skrivskyddat läge när de schemaläggs för framtida körning kan användarna enklare förutsäga när flöden kommer att köras och se till att de har nödvändiga indata och resurser redo.</p>
+</li>
+<li>
+<p>Konsekvent användarupplevelse: Genom att standardisera beteendet för schemalagda flöden kan det ge en konsekvent och förutsägbar användarupplevelse i alla instanser av Flow.</p>
+</li>
+<li>
+<p>Om du vill ändra eller köra ett schemalagt flöde kan användarna redigera flödet och uppdatera det schemalagda datumet och den schemalagda tiden. När det nya schemat har ställts in inaktiveras flödet återigen för omedelbar körning och ställs in i skrivskyddat läge tills det nya schemat har passerat.</p>
+</li>
+</ul>
+<h2 id="felmeddelanden">Felmeddelanden</h2>
+<p>Möjliga felmeddelanden som kan uppstå när du kör körningsflödet.</p>
+<h3 id="felmeddelande-invalidargument--det-går-inte-att-hitta-en-giltig-anslutning-som-är-associerad-med-den-angivna-anslutningsreferensen">Felmeddelande: &ldquo;InvalidArgument – Det går inte att hitta en giltig anslutning som är associerad med den angivna anslutningsreferensen.&rdquo;</h3>
+<h4 id="beskrivning">Beskrivning</h4>
+<p>Det här felmeddelandet indikerar vanligtvis att det finns ett problem med anslutningsreferensen som anges i koden eller konfigurationen. Systemet kan inte hitta en giltig anslutning som är associerad med referensen, vilket hindrar den från att utföra den begärda åtgärden.</p>
+<h4 id="orsakar">Orsakar</h4>
+<p>Det finns flera möjliga orsaker till det här felmeddelandet, inklusive:</p>
+<ul>
+<li>
+<p>Felaktig eller ogiltig anslutningsreferens: Den angivna anslutningsreferensen kan vara ogiltig eller felaktig, vilket kan leda till att systemet inte hittar en giltig anslutning som är associerad med den.</p>
+</li>
+<li>
+<p>Anslutningen har tagits bort eller ändrats: Om anslutningen som används i koden eller konfigurationen har tagits bort eller ändrats kan det leda till att systemet inte hittar en giltig anslutning som är associerad med referensen.</p>
+</li>
+<li>
+<p>Behörighetsproblem: Användarkontot som kör koden eller konfigurationen kanske inte har de behörigheter som krävs för att komma åt anslutningen eller de resurser som är associerade med den.</p>
+</li>
+</ul>
+<h4 id="resolution">Resolution</h4>
+<p>Lös problemet genom att vidta följande steg:</p>
+<ul>
+<li>Verifiera anslutningsreferensen: Kontrollera anslutningsreferensen i koden eller konfigurationen och se till att den är giltig och korrekt.</li>
 </ul>
 <h2 id="anteckningar">Anteckningar</h2>
 <p>För den aktuella versionen gäller följande information</p>

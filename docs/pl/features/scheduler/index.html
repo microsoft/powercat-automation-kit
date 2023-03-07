@@ -62,6 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#wprowadzenie">Wprowadzenie</a></li>
+    <li><a href="#przebieg-przepływu">Przebieg przepływu</a>
+      <ul>
+        <li><a href="#zachowanie-zaplanowanych-przepływów-tylko-do-odczytu">Zachowanie zaplanowanych przepływów tylko do odczytu</a></li>
+      </ul>
+    </li>
+    <li><a href="#komunikaty-o-błędach">Komunikaty o błędach</a>
+      <ul>
+        <li><a href="#komunikat-o-błędzie-invalidargument--nie-można-znaleźć-prawidłowego-połączenia-skojarzonego-z-podanym-odwołaniem-do-połączenia">Komunikat o błędzie: &ldquo;InvalidArgument — nie można znaleźć prawidłowego połączenia skojarzonego z podanym odwołaniem do połączenia.&rdquo;</a></li>
+      </ul>
+    </li>
     <li><a href="#notatki">Notatki</a></li>
     <li><a href="#instalować">Instalować</a></li>
     <li><a href="#mapa-drogowa">Mapa drogowa</a></li>
@@ -70,7 +80,7 @@
 </nav>
 <h2 id="wprowadzenie">Wprowadzenie</h2>
 <p>Harmonogram zestawu Automation Kit umożliwia wyświetlanie harmonogramu cyklicznych przepływów Power Automate Cloud wewnątrz rozwiązań, które obejmują wywołania przepływów programu Power Automate Desktop.</p>
-<p>Ta funkcja została wprowadzona jako część <a href="https://microsoft.github.io/powercat-automation-kit/pl/releases/february-2023">luty 2023</a>, Późniejsze wersje będą nadal ulepszać i rozwijać funkcjonalność harmonogramu.</p>
+<p>Ta funkcja została zaktualizowana w ramach <a href="https://microsoft.github.io/powercat-automation-kit/pl/releases/march-2023">marzec 2023</a>, Późniejsze wersje będą nadal ulepszać i rozwijać funkcjonalność harmonogramu.</p>
 <style>
     .outerBorder {
         border: 1px;
@@ -94,10 +104,53 @@
 <p>Kluczowe funkcje harmonogramu to:</p>
 <ul>
 <li>Możliwość przeglądania harmonogramu cyklicznych przepływów w chmurze</li>
+<li>Harmonogram filtrowania według maszyny i grup maszyn</li>
+<li>Uruchamianie przepływu programu Power Automate Desktop</li>
 <li>Wyświetlanie harmonogramu według widoku Dzień, Tydzień, Miesiąc i Harmonogram</li>
 <li>Wyświetlanie stanu zaplanowanych przepływów (Powodzenie, Niepowodzenie lub Zaplanowane)</li>
 <li>Wyświetlanie czasu trwania uruchomienia usługi Cloud Flow</li>
 <li>Wyświetl szczegóły wszelkich błędów.</li>
+</ul>
+<h2 id="przebieg-przepływu">Przebieg przepływu</h2>
+<h3 id="zachowanie-zaplanowanych-przepływów-tylko-do-odczytu">Zachowanie zaplanowanych przepływów tylko do odczytu</h3>
+<p>Domyślnie, gdy przepływ jest zaplanowany do wykonania w przyszłości, jest on ustawiony na tryb tylko do odczytu i wyłączony do natychmiastowego wykonania. Oznacza to, że użytkownicy nie mogą modyfikować ani wykonywać przepływu, dopóki nie minie zaplanowana data i godzina. To zachowanie ma na celu zapewnienie lepszego środowiska użytkownika i zapobieganie przypadkowemu wykonaniu przepływów przed ich planowanym uruchomieniem.
+Takie podejście ma kilka zalet, w tym:</p>
+<ul>
+<li>
+<p>Zapobieganie przypadkowemu wykonaniu: Wyłączając natychmiastowe wykonywanie przepływów, które są zaplanowane do wykonania w przyszłości, użytkownicy są mniej narażeni na przypadkowe uruchomienie przepływu przed jego planowanym uruchomieniem.</p>
+</li>
+<li>
+<p>Zwiększona przewidywalność: Ustawiając przepływy na tryb tylko do odczytu, gdy są zaplanowane do wykonania w przyszłości, użytkownicy mogą łatwiej przewidzieć, kiedy przepływy zostaną uruchomione, i upewnić się, że mają przygotowane niezbędne dane wejściowe i zasoby.</p>
+</li>
+<li>
+<p>Spójne środowisko użytkownika: Standaryzacja zachowania zaplanowanych przepływów może zapewnić spójne i przewidywalne środowisko użytkownika we wszystkich wystąpieniach przepływu.</p>
+</li>
+<li>
+<p>Aby zmodyfikować lub wykonać zaplanowany przepływ, użytkownicy mogą edytować przepływ i aktualizować zaplanowaną datę i godzinę. Po ustawieniu nowego harmonogramu przepływ zostanie ponownie wyłączony do natychmiastowego wykonania i ustawiony w trybie tylko do odczytu do momentu przejścia nowego harmonogramu.</p>
+</li>
+</ul>
+<h2 id="komunikaty-o-błędach">Komunikaty o błędach</h2>
+<p>Możliwe komunikaty o błędach, które mogą wystąpić podczas wykonywania przepływu uruchamiania.</p>
+<h3 id="komunikat-o-błędzie-invalidargument--nie-można-znaleźć-prawidłowego-połączenia-skojarzonego-z-podanym-odwołaniem-do-połączenia">Komunikat o błędzie: &ldquo;InvalidArgument — nie można znaleźć prawidłowego połączenia skojarzonego z podanym odwołaniem do połączenia.&rdquo;</h3>
+<h4 id="opis">Opis</h4>
+<p>Ten komunikat o błędzie zazwyczaj wskazuje, że występuje problem z odwołaniem do połączenia podanym w kodzie lub konfiguracji. System nie może zlokalizować prawidłowego połączenia skojarzonego z odwołaniem, co uniemożliwia wykonanie żądanej akcji.</p>
+<h4 id="powoduje">Powoduje</h4>
+<p>Istnieje kilka potencjalnych przyczyn tego komunikatu o błędzie, w tym:</p>
+<ul>
+<li>
+<p>Nieprawidłowe lub nieprawidłowe odwołanie do połączenia: Podane odwołanie do połączenia może być nieprawidłowe lub niepoprawne, co może spowodować, że system nie zlokalizuje prawidłowego połączenia skojarzonego z nim.</p>
+</li>
+<li>
+<p>Połączenie usunięte lub zmienione: Jeśli połączenie użyte w kodzie lub konfiguracji zostało usunięte lub zmodyfikowane, może to spowodować, że system nie zlokalizuje prawidłowego połączenia skojarzonego z odwołaniem.</p>
+</li>
+<li>
+<p>Problem z uprawnieniami: konto użytkownika wykonujące kod lub konfigurację może nie mieć uprawnień niezbędnych do uzyskania dostępu do połączenia lub skojarzonych z nim zasobów.</p>
+</li>
+</ul>
+<h4 id="rezolucja">Rezolucja</h4>
+<p>Aby rozwiązać ten problem, można wykonać następujące czynności:</p>
+<ul>
+<li>Sprawdź odwołanie do połączenia: Sprawdź odwołanie do połączenia podane w kodzie lub konfiguracji i upewnij się, że jest prawidłowe i poprawne.</li>
 </ul>
 <h2 id="notatki">Notatki</h2>
 <p>W przypadku bieżącej wersji obowiązują następujące uwagi</p>

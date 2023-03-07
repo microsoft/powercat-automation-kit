@@ -62,6 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#introduzione">Introduzione</a></li>
+    <li><a href="#esegui-flusso">Esegui flusso</a>
+      <ul>
+        <li><a href="#comportamento-di-sola-lettura-dei-flussi-pianificati">Comportamento di sola lettura dei flussi pianificati</a></li>
+      </ul>
+    </li>
+    <li><a href="#messaggi-di-errore">Messaggi di errore</a>
+      <ul>
+        <li><a href="#messaggio-di-errore-invalidargument---impossibile-trovare-una-connessione-valida-associata-al-riferimento-di-connessione-fornito">Messaggio di errore: &ldquo;InvalidArgument - Impossibile trovare una connessione valida associata al riferimento di connessione fornito.&rdquo;</a></li>
+      </ul>
+    </li>
     <li><a href="#note">Note</a></li>
     <li><a href="#installare">Installare</a></li>
     <li><a href="#cartina-stradale">Cartina stradale</a></li>
@@ -70,7 +80,7 @@
 </nav>
 <h2 id="introduzione">Introduzione</h2>
 <p>L&rsquo;Automation Kit Scheduler consente di visualizzare la pianificazione dei flussi ricorrenti di Power Automate Cloud all&rsquo;interno delle soluzioni che includono chiamate ai flussi Power Automate Desktop.</p>
-<p>Questa funzionalità è stata introdotta come parte del <a href="https://microsoft.github.io/powercat-automation-kit/it/releases/february-2023">febbraio 2023</a>, le versioni successive continueranno a migliorare e far crescere la funzionalità dell&rsquo;utilità di pianificazione.</p>
+<p>Questa funzionalità è stata aggiornata come parte del <a href="https://microsoft.github.io/powercat-automation-kit/it/releases/march-2023">aprile 2023</a>, le versioni successive continueranno a migliorare e far crescere la funzionalità dell&rsquo;utilità di pianificazione.</p>
 <style>
     .outerBorder {
         border: 1px;
@@ -94,10 +104,53 @@
 <p>Le caratteristiche principali dello scheduler sono:</p>
 <ul>
 <li>La possibilità di visualizzare la pianificazione dei flussi cloud ricorrenti</li>
+<li>Filtrare la pianificazione per macchina e gruppi di macchine</li>
+<li>Eseguire un flusso di Power Automate Desktop</li>
 <li>Visualizza la pianificazione per giorno, settimana, mese e visualizzazione pianificazione</li>
 <li>Visualizzare lo stato dei flussi pianificati (operazione riuscita, non riuscita o pianificata)</li>
 <li>Visualizzare la durata di un&rsquo;esecuzione di Cloud Flow</li>
 <li>Visualizzare i dettagli di eventuali errori.</li>
+</ul>
+<h2 id="esegui-flusso">Esegui flusso</h2>
+<h3 id="comportamento-di-sola-lettura-dei-flussi-pianificati">Comportamento di sola lettura dei flussi pianificati</h3>
+<p>Per impostazione predefinita, quando un flusso è pianificato per l&rsquo;esecuzione futura, viene impostato sulla modalità di sola lettura e disabilitato per l&rsquo;esecuzione immediata. Ciò significa che gli utenti non possono modificare o eseguire il flusso fino a quando non sono trascorsi la data e l&rsquo;ora pianificate. Questo comportamento è progettato per fornire una migliore esperienza utente e impedire l&rsquo;esecuzione accidentale dei flussi prima che siano destinati all&rsquo;esecuzione.
+Ci sono diversi vantaggi di questo approccio, tra cui:</p>
+<ul>
+<li>
+<p>Prevenzione dell&rsquo;esecuzione accidentale: disabilitando l&rsquo;esecuzione immediata dei flussi pianificati per l&rsquo;esecuzione futura, è meno probabile che gli utenti eseguano accidentalmente un flusso prima che sia previsto per l&rsquo;esecuzione.</p>
+</li>
+<li>
+<p>Maggiore prevedibilità: impostando i flussi in modalità di sola lettura quando sono pianificati per l&rsquo;esecuzione futura, gli utenti possono prevedere più facilmente quando verranno eseguiti i flussi e assicurarsi di avere gli input e le risorse necessari pronti.</p>
+</li>
+<li>
+<p>Esperienza utente coerente: standardizzando il comportamento dei flussi pianificati, può fornire un&rsquo;esperienza utente coerente e prevedibile in tutte le istanze di Flow.</p>
+</li>
+<li>
+<p>Per modificare o eseguire un flusso pianificato, gli utenti possono modificare il flusso e aggiornare la data e l&rsquo;ora pianificate. Una volta impostata la nuova pianificazione, il flusso verrà nuovamente disabilitato per l&rsquo;esecuzione immediata e impostato in modalità di sola lettura fino al superamento della nuova pianificazione.</p>
+</li>
+</ul>
+<h2 id="messaggi-di-errore">Messaggi di errore</h2>
+<p>Possibili messaggi di errore che potrebbero verificarsi durante l&rsquo;esecuzione del flusso di esecuzione.</p>
+<h3 id="messaggio-di-errore-invalidargument---impossibile-trovare-una-connessione-valida-associata-al-riferimento-di-connessione-fornito">Messaggio di errore: &ldquo;InvalidArgument - Impossibile trovare una connessione valida associata al riferimento di connessione fornito.&rdquo;</h3>
+<h4 id="descrizione">Descrizione</h4>
+<p>Questo messaggio di errore indica in genere che si è verificato un problema con il riferimento di connessione fornito nel codice o nella configurazione. Il sistema non è in grado di individuare una connessione valida associata al riferimento, il che impedisce l&rsquo;esecuzione dell&rsquo;azione richiesta.</p>
+<h4 id="cause">Cause</h4>
+<p>Esistono diverse cause potenziali per questo messaggio di errore, tra cui:</p>
+<ul>
+<li>
+<p>Riferimento di connessione errato o non valido: il riferimento di connessione fornito potrebbe essere non valido o errato, il che può impedire al sistema di individuare una connessione valida associata.</p>
+</li>
+<li>
+<p>Connessione eliminata o modificata: se la connessione utilizzata nel codice o nella configurazione è stata eliminata o modificata, il sistema può impedire al sistema di individuare una connessione valida associata al riferimento.</p>
+</li>
+<li>
+<p>Problema di autorizzazioni: l&rsquo;account utente che esegue il codice o la configurazione potrebbe non disporre delle autorizzazioni necessarie per accedere alla connessione o alle risorse ad essa associate.</p>
+</li>
+</ul>
+<h4 id="risoluzione">Risoluzione</h4>
+<p>Per risolvere il problema, è possibile effettuare le seguenti operazioni:</p>
+<ul>
+<li>Verificare il riferimento di connessione: controllare il riferimento di connessione fornito nel codice o nella configurazione e assicurarsi che sia valido e corretto.</li>
 </ul>
 <h2 id="note">Note</h2>
 <p>Per la versione corrente si applicano le seguenti note</p>

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 00B15DA73732A60B73A09229CEF9B843E259A121
+generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
 ---
 
 {{<toc>}}
@@ -15,7 +15,7 @@ generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 
 L'Automation Kit Scheduler consente di visualizzare la pianificazione dei flussi ricorrenti di Power Automate Cloud all'interno delle soluzioni che includono chiamate ai flussi Power Automate Desktop.
 
-Questa funzionalità è stata introdotta come parte del [febbraio 2023](/it/releases/february-2023), le versioni successive continueranno a migliorare e far crescere la funzionalità dell'utilità di pianificazione.
+Questa funzionalità è stata aggiornata come parte del [aprile 2023](/it/releases/march-2023), le versioni successive continueranno a migliorare e far crescere la funzionalità dell'utilità di pianificazione.
 
 {{<border>}}
 ![Pianificazione](/images/schedule.png)
@@ -24,10 +24,53 @@ Questa funzionalità è stata introdotta come parte del [febbraio 2023](/it/rele
 Le caratteristiche principali dello scheduler sono:
 
 - La possibilità di visualizzare la pianificazione dei flussi cloud ricorrenti
+- Filtrare la pianificazione per macchina e gruppi di macchine
+- Eseguire un flusso di Power Automate Desktop
 - Visualizza la pianificazione per giorno, settimana, mese e visualizzazione pianificazione
 - Visualizzare lo stato dei flussi pianificati (operazione riuscita, non riuscita o pianificata)
 - Visualizzare la durata di un'esecuzione di Cloud Flow
 - Visualizzare i dettagli di eventuali errori.
+
+## Esegui flusso
+
+### Comportamento di sola lettura dei flussi pianificati
+
+Per impostazione predefinita, quando un flusso è pianificato per l'esecuzione futura, viene impostato sulla modalità di sola lettura e disabilitato per l'esecuzione immediata. Ciò significa che gli utenti non possono modificare o eseguire il flusso fino a quando non sono trascorsi la data e l'ora pianificate. Questo comportamento è progettato per fornire una migliore esperienza utente e impedire l'esecuzione accidentale dei flussi prima che siano destinati all'esecuzione.
+Ci sono diversi vantaggi di questo approccio, tra cui:
+
+- Prevenzione dell'esecuzione accidentale: disabilitando l'esecuzione immediata dei flussi pianificati per l'esecuzione futura, è meno probabile che gli utenti eseguano accidentalmente un flusso prima che sia previsto per l'esecuzione.
+
+- Maggiore prevedibilità: impostando i flussi in modalità di sola lettura quando sono pianificati per l'esecuzione futura, gli utenti possono prevedere più facilmente quando verranno eseguiti i flussi e assicurarsi di avere gli input e le risorse necessari pronti.
+
+- Esperienza utente coerente: standardizzando il comportamento dei flussi pianificati, può fornire un'esperienza utente coerente e prevedibile in tutte le istanze di Flow.
+
+- Per modificare o eseguire un flusso pianificato, gli utenti possono modificare il flusso e aggiornare la data e l'ora pianificate. Una volta impostata la nuova pianificazione, il flusso verrà nuovamente disabilitato per l'esecuzione immediata e impostato in modalità di sola lettura fino al superamento della nuova pianificazione.
+
+## Messaggi di errore
+
+Possibili messaggi di errore che potrebbero verificarsi durante l'esecuzione del flusso di esecuzione.
+
+### Messaggio di errore: "InvalidArgument - Impossibile trovare una connessione valida associata al riferimento di connessione fornito."
+
+#### Descrizione
+
+Questo messaggio di errore indica in genere che si è verificato un problema con il riferimento di connessione fornito nel codice o nella configurazione. Il sistema non è in grado di individuare una connessione valida associata al riferimento, il che impedisce l'esecuzione dell'azione richiesta.
+
+#### Cause
+
+Esistono diverse cause potenziali per questo messaggio di errore, tra cui:
+
+- Riferimento di connessione errato o non valido: il riferimento di connessione fornito potrebbe essere non valido o errato, il che può impedire al sistema di individuare una connessione valida associata.
+
+- Connessione eliminata o modificata: se la connessione utilizzata nel codice o nella configurazione è stata eliminata o modificata, il sistema può impedire al sistema di individuare una connessione valida associata al riferimento.
+
+- Problema di autorizzazioni: l'account utente che esegue il codice o la configurazione potrebbe non disporre delle autorizzazioni necessarie per accedere alla connessione o alle risorse ad essa associate.
+
+#### Risoluzione
+
+Per risolvere il problema, è possibile effettuare le seguenti operazioni:
+
+- Verificare il riferimento di connessione: controllare il riferimento di connessione fornito nel codice o nella configurazione e assicurarsi che sia valido e corretto.
 
 ## Note
 

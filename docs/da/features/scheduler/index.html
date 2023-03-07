@@ -62,6 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#indførelsen">Indførelsen</a></li>
+    <li><a href="#kør-flow">Kør flow</a>
+      <ul>
+        <li><a href="#skrivebeskyttet-funktionsmåde-for-planlagte-flows">Skrivebeskyttet funktionsmåde for planlagte flows</a></li>
+      </ul>
+    </li>
+    <li><a href="#fejlmeddelelser">Fejlmeddelelser</a>
+      <ul>
+        <li><a href="#fejlmeddelelse-invalidargument---kan-ikke-finde-en-gyldig-forbindelse-der-er-knyttet-til-den-angivne-forbindelsesreference">Fejlmeddelelse: &ldquo;InvalidArgument - Kan ikke finde en gyldig forbindelse, der er knyttet til den angivne forbindelsesreference.&rdquo;</a></li>
+      </ul>
+    </li>
     <li><a href="#noter">Noter</a></li>
     <li><a href="#installere">Installere</a></li>
     <li><a href="#køreplan">Køreplan</a></li>
@@ -70,7 +80,7 @@
 </nav>
 <h2 id="indførelsen">Indførelsen</h2>
 <p>Automatiseringspakken Scheduler giver mulighed for at få vist tidsplanen for tilbagevendende Power Automate Cloud-flows i løsninger, der omfatter opkald til Power Automate Desktop-flows.</p>
-<p>Denne funktion blev introduceret som en del af <a href="https://microsoft.github.io/powercat-automation-kit/da/releases/february-2023">Marts 2023</a>, Senere udgivelser vil fortsætte med at forbedre og udvide funktionaliteten i planlæggeren.</p>
+<p>Denne funktion blev opdateret som en del af <a href="https://microsoft.github.io/powercat-automation-kit/da/releases/march-2023">Marts 2023</a>, Senere udgivelser vil fortsætte med at forbedre og udvide funktionaliteten i planlæggeren.</p>
 <style>
     .outerBorder {
         border: 1px;
@@ -94,10 +104,53 @@
 <p>De vigtigste funktioner i planlæggeren er:</p>
 <ul>
 <li>Muligheden for at få vist tidsplanen for tilbagevendende cloudflows</li>
+<li>Filtrer tidsplan efter maskin- og maskingrupper</li>
+<li>Køre et Power Automate Desktop-flow</li>
 <li>Se tidsplan efter dag, uge, måned og tidsplanvisning</li>
 <li>Få vist status for planlagte flow (Fuldført, Mislykket eller Planlagt)</li>
 <li>Se varigheden af en Cloud Flow-kørsel</li>
 <li>Se detaljerne om eventuelle fejl.</li>
+</ul>
+<h2 id="kør-flow">Kør flow</h2>
+<h3 id="skrivebeskyttet-funktionsmåde-for-planlagte-flows">Skrivebeskyttet funktionsmåde for planlagte flows</h3>
+<p>Når et flow er planlagt til fremtidig udførelse, er det som standard indstillet til skrivebeskyttet tilstand og deaktiveret til øjeblikkelig udførelse. Det betyder, at brugerne ikke kan ændre eller udføre flowet, før den planlagte dato og det planlagte klokkeslæt er overskredet. Denne funktionsmåde er designet til at give en bedre brugeroplevelse og forhindre utilsigtet udførelse af flows, før de er beregnet til at køre.
+Der er flere fordele ved denne tilgang, herunder:</p>
+<ul>
+<li>
+<p>Forebyggelse af utilsigtet udførelse: Ved at deaktivere øjeblikkelig udførelse af flows, der er planlagt til fremtidig udførelse, er det mindre sandsynligt, at brugerne kører et flow ved et uheld, før det er beregnet til at køre.</p>
+</li>
+<li>
+<p>Forbedret forudsigelighed: Ved at indstille flows til skrivebeskyttet tilstand, når de er planlagt til fremtidig udførelse, kan brugerne lettere forudsige, hvornår flows kører, og sikre, at de har de nødvendige input og ressourcer klar.</p>
+</li>
+<li>
+<p>Ensartet brugeroplevelse: Ved at standardisere funktionsmåden for planlagte flows kan den give en ensartet og forudsigelig brugeroplevelse på tværs af alle forekomster af Flow.</p>
+</li>
+<li>
+<p>Hvis du vil ændre eller udføre et planlagt flow, kan brugerne redigere flowet og opdatere den planlagte dato og det planlagte klokkeslæt. Når den nye tidsplan er indstillet, deaktiveres flowet igen til øjeblikkelig udførelse og indstilles til skrivebeskyttet tilstand, indtil den nye tidsplan er gået.</p>
+</li>
+</ul>
+<h2 id="fejlmeddelelser">Fejlmeddelelser</h2>
+<p>Mulige fejlmeddelelser, der kan opstå under udførelse af kørselsflow.</p>
+<h3 id="fejlmeddelelse-invalidargument---kan-ikke-finde-en-gyldig-forbindelse-der-er-knyttet-til-den-angivne-forbindelsesreference">Fejlmeddelelse: &ldquo;InvalidArgument - Kan ikke finde en gyldig forbindelse, der er knyttet til den angivne forbindelsesreference.&rdquo;</h3>
+<h4 id="beskrivelse-__________">Beskrivelse: __________</h4>
+<p>Denne fejlmeddelelse angiver typisk, at der er et problem med forbindelsesreferencen i koden eller konfigurationen. Systemet kan ikke finde en gyldig forbindelse, der er knyttet til referencen, hvilket forhindrer det i at udføre den ønskede handling.</p>
+<h4 id="årsager">Årsager</h4>
+<p>Der er flere mulige årsager til denne fejlmeddelelse, herunder:</p>
+<ul>
+<li>
+<p>Forkert eller ugyldig forbindelsesreference: Den angivne forbindelsesreference kan være ugyldig eller forkert, hvilket kan medføre, at systemet ikke kan finde en gyldig forbindelse, der er knyttet til det.</p>
+</li>
+<li>
+<p>Forbindelse slettet eller ændret: Hvis den forbindelse, der bruges i koden eller konfigurationen, er blevet slettet eller ændret, kan det medføre, at systemet ikke kan finde en gyldig forbindelse, der er knyttet til referencen.</p>
+</li>
+<li>
+<p>Problem med tilladelser: Den brugerkonto, der udfører koden eller konfigurationen, har muligvis ikke de nødvendige tilladelser til at få adgang til forbindelsen eller de ressourcer, der er knyttet til den.</p>
+</li>
+</ul>
+<h4 id="opløsning">Opløsning</h4>
+<p>Du kan løse dette problem ved at udføre følgende fremgangsmåde:</p>
+<ul>
+<li>Bekræft forbindelsesreferencen: Kontroller forbindelsesreferencen i koden eller konfigurationen, og sørg for, at den er gyldig og korrekt.</li>
 </ul>
 <h2 id="noter">Noter</h2>
 <p>For den aktuelle version gælder følgende bemærkninger</p>

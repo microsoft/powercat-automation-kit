@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 00B15DA73732A60B73A09229CEF9B843E259A121
+generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
 ---
 
 {{<toc>}}
@@ -15,7 +15,7 @@ generated: 00B15DA73732A60B73A09229CEF9B843E259A121
 
 Harmonogram zestawu Automation Kit umożliwia wyświetlanie harmonogramu cyklicznych przepływów Power Automate Cloud wewnątrz rozwiązań, które obejmują wywołania przepływów programu Power Automate Desktop.
 
-Ta funkcja została wprowadzona jako część [luty 2023](/pl/releases/february-2023), Późniejsze wersje będą nadal ulepszać i rozwijać funkcjonalność harmonogramu.
+Ta funkcja została zaktualizowana w ramach [marzec 2023](/pl/releases/march-2023), Późniejsze wersje będą nadal ulepszać i rozwijać funkcjonalność harmonogramu.
 
 {{<border>}}
 ![Harmonogram](/images/schedule.png)
@@ -24,10 +24,53 @@ Ta funkcja została wprowadzona jako część [luty 2023](/pl/releases/february-
 Kluczowe funkcje harmonogramu to:
 
 - Możliwość przeglądania harmonogramu cyklicznych przepływów w chmurze
+- Harmonogram filtrowania według maszyny i grup maszyn
+- Uruchamianie przepływu programu Power Automate Desktop
 - Wyświetlanie harmonogramu według widoku Dzień, Tydzień, Miesiąc i Harmonogram
 - Wyświetlanie stanu zaplanowanych przepływów (Powodzenie, Niepowodzenie lub Zaplanowane)
 - Wyświetlanie czasu trwania uruchomienia usługi Cloud Flow
 - Wyświetl szczegóły wszelkich błędów.
+
+## Przebieg przepływu
+
+### Zachowanie zaplanowanych przepływów tylko do odczytu
+
+Domyślnie, gdy przepływ jest zaplanowany do wykonania w przyszłości, jest on ustawiony na tryb tylko do odczytu i wyłączony do natychmiastowego wykonania. Oznacza to, że użytkownicy nie mogą modyfikować ani wykonywać przepływu, dopóki nie minie zaplanowana data i godzina. To zachowanie ma na celu zapewnienie lepszego środowiska użytkownika i zapobieganie przypadkowemu wykonaniu przepływów przed ich planowanym uruchomieniem.
+Takie podejście ma kilka zalet, w tym:
+
+- Zapobieganie przypadkowemu wykonaniu: Wyłączając natychmiastowe wykonywanie przepływów, które są zaplanowane do wykonania w przyszłości, użytkownicy są mniej narażeni na przypadkowe uruchomienie przepływu przed jego planowanym uruchomieniem.
+
+- Zwiększona przewidywalność: Ustawiając przepływy na tryb tylko do odczytu, gdy są zaplanowane do wykonania w przyszłości, użytkownicy mogą łatwiej przewidzieć, kiedy przepływy zostaną uruchomione, i upewnić się, że mają przygotowane niezbędne dane wejściowe i zasoby.
+
+- Spójne środowisko użytkownika: Standaryzacja zachowania zaplanowanych przepływów może zapewnić spójne i przewidywalne środowisko użytkownika we wszystkich wystąpieniach przepływu.
+
+- Aby zmodyfikować lub wykonać zaplanowany przepływ, użytkownicy mogą edytować przepływ i aktualizować zaplanowaną datę i godzinę. Po ustawieniu nowego harmonogramu przepływ zostanie ponownie wyłączony do natychmiastowego wykonania i ustawiony w trybie tylko do odczytu do momentu przejścia nowego harmonogramu.
+
+## Komunikaty o błędach
+
+Możliwe komunikaty o błędach, które mogą wystąpić podczas wykonywania przepływu uruchamiania.
+
+### Komunikat o błędzie: "InvalidArgument — nie można znaleźć prawidłowego połączenia skojarzonego z podanym odwołaniem do połączenia."
+
+#### Opis
+
+Ten komunikat o błędzie zazwyczaj wskazuje, że występuje problem z odwołaniem do połączenia podanym w kodzie lub konfiguracji. System nie może zlokalizować prawidłowego połączenia skojarzonego z odwołaniem, co uniemożliwia wykonanie żądanej akcji.
+
+#### Powoduje
+
+Istnieje kilka potencjalnych przyczyn tego komunikatu o błędzie, w tym:
+
+- Nieprawidłowe lub nieprawidłowe odwołanie do połączenia: Podane odwołanie do połączenia może być nieprawidłowe lub niepoprawne, co może spowodować, że system nie zlokalizuje prawidłowego połączenia skojarzonego z nim.
+
+- Połączenie usunięte lub zmienione: Jeśli połączenie użyte w kodzie lub konfiguracji zostało usunięte lub zmodyfikowane, może to spowodować, że system nie zlokalizuje prawidłowego połączenia skojarzonego z odwołaniem.
+
+- Problem z uprawnieniami: konto użytkownika wykonujące kod lub konfigurację może nie mieć uprawnień niezbędnych do uzyskania dostępu do połączenia lub skojarzonych z nim zasobów.
+
+#### Rezolucja
+
+Aby rozwiązać ten problem, można wykonać następujące czynności:
+
+- Sprawdź odwołanie do połączenia: Sprawdź odwołanie do połączenia podane w kodzie lub konfiguracji i upewnij się, że jest prawidłowe i poprawne.
 
 ## Notatki
 

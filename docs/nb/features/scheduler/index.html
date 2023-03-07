@@ -62,6 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#introduksjon">Introduksjon</a></li>
+    <li><a href="#kjør-flyt">Kjør flyt</a>
+      <ul>
+        <li><a href="#skrivebeskyttet-virkemåte-for-planlagte-flyter">Skrivebeskyttet virkemåte for planlagte flyter</a></li>
+      </ul>
+    </li>
+    <li><a href="#feilmeldinger">Feilmeldinger</a>
+      <ul>
+        <li><a href="#feilmelding-invalidargument---finner-ikke-en-gyldig-tilkobling-knyttet-til-den-angitte-tilkoblingsreferansen">Feilmelding: &ldquo;InvalidArgument - Finner ikke en gyldig tilkobling knyttet til den angitte tilkoblingsreferansen.&rdquo;</a></li>
+      </ul>
+    </li>
     <li><a href="#notater">Notater</a></li>
     <li><a href="#installere">Installere</a></li>
     <li><a href="#veikart">Veikart</a></li>
@@ -70,7 +80,7 @@
 </nav>
 <h2 id="introduksjon">Introduksjon</h2>
 <p>Automation Kit Scheduler gjør det mulig å vise tidsplanen for regelmessige Power Automate Cloud-flyter i løsninger som inkluderer kall til Power Automate Desktop-flyter.</p>
-<p>Denne funksjonen ble introdusert som en del av <a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/february-2023">Februar 2023</a>, Senere utgivelser vil fortsette å forbedre og utvide funksjonaliteten planleggeren.</p>
+<p>Denne funksjonen ble oppdatert som en del av <a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/march-2023">Mars 2023</a>, Senere utgivelser vil fortsette å forbedre og utvide funksjonaliteten planleggeren.</p>
 <style>
     .outerBorder {
         border: 1px;
@@ -94,10 +104,53 @@
 <p>De viktigste funksjonene i planleggeren er:</p>
 <ul>
 <li>Muligheten til å vise tidsplanen for regelmessige skyflyter</li>
+<li>Filtrer tidsplan etter maskin og maskingrupper</li>
+<li>Kjøre en Power Automate Desktop-flyt</li>
 <li>Vise tidsplan etter dag, uke, måned og tidsplanvisning</li>
 <li>Vise statusen for Planlagte flyter (Vellykket, Feil eller Planlagt)</li>
 <li>Vise varigheten av en Cloud Flow-kjøring</li>
 <li>Vis detaljer om eventuelle feil.</li>
+</ul>
+<h2 id="kjør-flyt">Kjør flyt</h2>
+<h3 id="skrivebeskyttet-virkemåte-for-planlagte-flyter">Skrivebeskyttet virkemåte for planlagte flyter</h3>
+<p>Når en flyt er planlagt for fremtidig kjøring, er den som standard satt til skrivebeskyttet modus og deaktivert for umiddelbar kjøring. Dette betyr at brukere ikke kan endre eller kjøre flyten før den planlagte datoen og klokkeslettet er passert. Denne virkemåten er utformet for å gi en bedre brukeropplevelse og forhindre utilsiktet kjøring av flyter før de er ment å kjøre.
+Det er flere fordeler med denne tilnærmingen, inkludert:</p>
+<ul>
+<li>
+<p>Forhindre utilsiktet kjøring: Ved å deaktivere umiddelbar kjøring av flyter som er planlagt for fremtidig kjøring, er det mindre sannsynlig at brukere ved et uhell kjører en flyt før den er ment å kjøre.</p>
+</li>
+<li>
+<p>Forbedret forutsigbarhet: Ved å sette flyter i skrivebeskyttet modus når de planlegges for fremtidig kjøring, kan brukere enklere forutsi når flyter vil kjøre og sikre at de har de nødvendige inndataene og ressursene klare.</p>
+</li>
+<li>
+<p>Konsekvent brukeropplevelse: Ved å standardisere virkemåten til planlagte flyter kan den gi en konsekvent og forutsigbar brukeropplevelse på tvers av alle forekomster av Flow.</p>
+</li>
+<li>
+<p>Hvis du vil endre eller kjøre en planlagt flyt, kan brukere redigere flyten og oppdatere den planlagte datoen og klokkeslettet. Når den nye tidsplanen er angitt, deaktiveres flyten igjen for umiddelbar kjøring og settes til skrivebeskyttet modus til den nye tidsplanen er passert.</p>
+</li>
+</ul>
+<h2 id="feilmeldinger">Feilmeldinger</h2>
+<p>Mulige feilmeldinger som kan oppstå når du kjører flyt.</p>
+<h3 id="feilmelding-invalidargument---finner-ikke-en-gyldig-tilkobling-knyttet-til-den-angitte-tilkoblingsreferansen">Feilmelding: &ldquo;InvalidArgument - Finner ikke en gyldig tilkobling knyttet til den angitte tilkoblingsreferansen.&rdquo;</h3>
+<h4 id="beskrivelse">Beskrivelse</h4>
+<p>Denne feilmeldingen angir vanligvis at det er et problem med tilkoblingsreferansen som er angitt i koden eller konfigurasjonen. Systemet kan ikke finne en gyldig tilkobling knyttet til referansen, noe som hindrer det i å utføre den forespurte handlingen.</p>
+<h4 id="årsaker">Årsaker</h4>
+<p>Det finnes flere mulige årsaker til denne feilmeldingen, inkludert:</p>
+<ul>
+<li>
+<p>Feil eller ugyldig tilkoblingsreferanse: Den angitte tilkoblingsreferansen kan være ugyldig eller feil, noe som kan føre til at systemet ikke finner en gyldig tilkobling som er knyttet til den.</p>
+</li>
+<li>
+<p>Tilkoblingen er slettet eller endret: Hvis tilkoblingen som brukes i koden eller konfigurasjonen, er slettet eller endret, kan det føre til at systemet ikke finner en gyldig tilkobling som er knyttet til referansen.</p>
+</li>
+<li>
+<p>Tillatelsesproblem: Brukerkontoen som utfører koden eller konfigurasjonen, har kanskje ikke de nødvendige tillatelsene for å få tilgang til tilkoblingen eller ressursene som er knyttet til den.</p>
+</li>
+</ul>
+<h4 id="resolusjon">Resolusjon</h4>
+<p>Hvis du vil løse dette problemet, kan du gjøre følgende:</p>
+<ul>
+<li>Kontroller tilkoblingsreferansen: Kontroller tilkoblingsreferansen som er angitt i koden eller konfigurasjonen, og kontroller at den er gyldig og riktig.</li>
 </ul>
 <h2 id="notater">Notater</h2>
 <p>For gjeldende versjon gjelder følgende merknader</p>

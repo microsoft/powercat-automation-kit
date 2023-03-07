@@ -62,6 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#flux-dexécution">Flux d’exécution</a>
+      <ul>
+        <li><a href="#comportement-en-lecture-seule-des-flux-planifiés">Comportement en lecture seule des flux planifiés</a></li>
+      </ul>
+    </li>
+    <li><a href="#messages-derreur">Messages d’erreur</a>
+      <ul>
+        <li><a href="#message-derreur---invalidargument---impossible-de-trouver-une-connexion-valide-associée-à-la-référence-de-connexion-fournie-">Message d’erreur : « InvalidArgument - Impossible de trouver une connexion valide associée à la référence de connexion fournie. »</a></li>
+      </ul>
+    </li>
     <li><a href="#notes">Notes</a></li>
     <li><a href="#installer">Installer</a></li>
     <li><a href="#feuille-de-route">Feuille de route</a></li>
@@ -70,7 +80,7 @@
 </nav>
 <h2 id="introduction">Introduction</h2>
 <p>Le Planificateur du Kit d’automatisation permet d’afficher la planification des flux Power Automate Cloud récurrents dans les solutions qui incluent des appels aux flux Power Automate Desktop.</p>
-<p>Cette fonctionnalité a été introduite dans le cadre de l&rsquo; <a href="https://microsoft.github.io/powercat-automation-kit/fr/releases/february-2023">Février 2023</a>, les versions ultérieures continueront d’améliorer et de développer les fonctionnalités du planificateur.</p>
+<p>Cette fonctionnalité a été mise à jour dans le cadre de l&rsquo; <a href="https://microsoft.github.io/powercat-automation-kit/fr/releases/march-2023">Mars 2023</a>, les versions ultérieures continueront d’améliorer et de développer les fonctionnalités du planificateur.</p>
 <style>
     .outerBorder {
         border: 1px;
@@ -94,10 +104,53 @@
 <p>Les principales caractéristiques du planificateur sont les suivantes :</p>
 <ul>
 <li>La possibilité de visualiser la planification des flux cloud récurrents</li>
+<li>Filtrer la planification par machine et groupes de machines</li>
+<li>Exécuter un flux Power Automate Desktop</li>
 <li>Voir le calendrier par jour, semaine, mois et affichage horaire</li>
 <li>Afficher l’état des flux planifiés (Succès, Échec ou Planifié)</li>
 <li>Afficher la durée d’une exécution de Cloud Flow</li>
 <li>Affichez les détails des erreurs.</li>
+</ul>
+<h2 id="flux-dexécution">Flux d’exécution</h2>
+<h3 id="comportement-en-lecture-seule-des-flux-planifiés">Comportement en lecture seule des flux planifiés</h3>
+<p>Par défaut, lorsqu’un flux est planifié pour une exécution future, il est défini en mode lecture seule et désactivé pour une exécution immédiate. Cela signifie que les utilisateurs ne peuvent pas modifier ou exécuter le flux tant que la date et l’heure planifiées ne sont pas écoulées. Ce comportement est conçu pour fournir une meilleure expérience utilisateur et empêcher l’exécution accidentelle des flux avant qu’ils ne soient destinés à s’exécuter.
+Cette approche présente plusieurs avantages, notamment :</p>
+<ul>
+<li>
+<p>Prévention de l’exécution accidentelle : en désactivant l’exécution immédiate des flux planifiés pour une exécution ultérieure, les utilisateurs sont moins susceptibles d’exécuter accidentellement un flux avant qu’il ne soit destiné à s’exécuter.</p>
+</li>
+<li>
+<p>Amélioration de la prévisibilité : en définissant les flux en mode lecture seule lorsqu’ils sont planifiés pour une exécution future, les utilisateurs peuvent plus facilement prédire quand les flux s’exécuteront et s’assurer qu’ils disposent des entrées et des ressources nécessaires.</p>
+</li>
+<li>
+<p>Expérience utilisateur cohérente : en standardisant le comportement des flux planifiés, il peut fournir une expérience utilisateur cohérente et prévisible sur toutes les instances de Flow.</p>
+</li>
+<li>
+<p>Pour modifier ou exécuter un flux planifié, les utilisateurs peuvent modifier le flux et mettre à jour la date et l’heure planifiées. Une fois la nouvelle planification définie, le flux sera à nouveau désactivé pour une exécution immédiate et défini en mode lecture seule jusqu’à ce que la nouvelle planification soit passée.</p>
+</li>
+</ul>
+<h2 id="messages-derreur">Messages d’erreur</h2>
+<p>Messages d’erreur possibles pouvant se produire lors de l’exécution du flux d’exécution.</p>
+<h3 id="message-derreur---invalidargument---impossible-de-trouver-une-connexion-valide-associée-à-la-référence-de-connexion-fournie-">Message d’erreur : « InvalidArgument - Impossible de trouver une connexion valide associée à la référence de connexion fournie. »</h3>
+<h4 id="description">Description</h4>
+<p>Ce message d’erreur indique généralement qu’il existe un problème avec la référence de connexion fournie dans le code ou la configuration. Le système ne peut pas localiser une connexion valide associée à la référence, ce qui l’empêche d’exécuter l’action demandée.</p>
+<h4 id="causes">Causes</h4>
+<p>Il existe plusieurs causes potentielles de ce message d’erreur, notamment :</p>
+<ul>
+<li>
+<p>Référence de connexion incorrecte ou non valide : la référence de connexion fournie peut être non valide ou incorrecte, ce qui peut empêcher le système de localiser une connexion valide qui lui est associée.</p>
+</li>
+<li>
+<p>Connexion supprimée ou modifiée : si la connexion utilisée dans le code ou la configuration a été supprimée ou modifiée, le système peut ne pas localiser une connexion valide associée à la référence.</p>
+</li>
+<li>
+<p>Problème d’autorisations : le compte d’utilisateur exécutant le code ou la configuration peut ne pas disposer des autorisations nécessaires pour accéder à la connexion ou aux ressources qui lui sont associées.</p>
+</li>
+</ul>
+<h4 id="résolution">Résolution</h4>
+<p>Pour résoudre ce problème, vous pouvez suivre les étapes suivantes :</p>
+<ul>
+<li>Vérifier la référence de connexion : vérifiez la référence de connexion fournie dans le code ou la configuration et assurez-vous qu’elle est valide et correcte.</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <p>Pour la version actuelle, les remarques suivantes s’appliquent</p>
