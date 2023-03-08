@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ In zukünftigen Versionen werden die folgenden Funktionen als neue Funktionen be
 
 1. Führen Sie den Cloud-Flow anstelle des Desktop-Flows aus. Dies umfasst dann den Verlauf der Cloud-Flow-Ausführung und die Ausführung aller zusätzlichen Cloud-Flow-Aktionen und -Parameter, die an den Desktop-Flow übergeben werden.
 
-2. Führen Sie Power Automate Desktop mit einem anderen Status aus.
-
-3. Öffnen Sie Desktop- und Cloud-Flow-Ausführungsseiten.
+2. Öffnen Sie Desktop- und Cloud-Flow-Ausführungsseiten.
 
 ### Schreibgeschütztes Verhalten geplanter Flows
 

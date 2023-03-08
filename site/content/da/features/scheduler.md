@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ I fremtidige udgivelser betragtes følgende som nye funktioner:
 
 1. Udfør cloudflowet i stedet for skrivebordsflowet. Dette omfatter derefter historik for kørsel af cloudflow og udførelse af eventuelle yderligere cloudflowhandlinger og parametre, der overføres til skrivebordsflowet.
 
-2. Udfør Power Automate Desktop med forskellig status.
-
-3. Åbn desktop- og cloudflow-kørselssider.
+2. Åbn desktop- og cloudflow-kørselssider.
 
 ### Skrivebeskyttet funktionsmåde for planlagte flows
 

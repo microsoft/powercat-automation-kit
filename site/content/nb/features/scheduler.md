@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ I fremtidige utgivelser vurderes følgende som nye funksjoner:
 
 1. Utfør skyflyten i stedet for skrivebordsflyten. Dette inkluderer deretter kjøreloggen for skyflyten og kjøring av eventuelle ekstra skyflythandlinger og parametere som sendes til skrivebordsflyten.
 
-2. Utfør Power Automate Desktop med forskjellig status.
-
-3. Åpne sider for skrivebords- og skyflytkjøring.
+2. Åpne sider for skrivebords- og skyflytkjøring.
 
 ### Skrivebeskyttet virkemåte for planlagte flyter
 

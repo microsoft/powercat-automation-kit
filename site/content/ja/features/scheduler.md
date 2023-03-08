@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ Automation Kit スケジューラを使用すると、Power Automate デスク�
 
 1.デスクトップ フローではなくクラウド フローを実行します。これには、クラウド フローの実行履歴と実行、デスクトップ フローに渡される追加のクラウド フロー アクションとパラメーターが含まれます。
 
-2.Power Automate デスクトップを異なるステータスで実行します。
-
-3.デスクトップとクラウドのフロー実行ページを開きます。
+2.デスクトップとクラウドのフロー実行ページを開きます。
 
 ### スケジュールされたフローの読み取り専用動作
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ Dans les versions futures, les éléments suivants sont considérés comme de no
 
 1. Exécutez le flux cloud plutôt que le flux de bureau. Cela inclura ensuite l’historique d’exécution du flux cloud et l’exécution de toutes les actions et paramètres de flux cloud supplémentaires transmis au flux de bureau.
 
-2. Exécutez Power Automate Desktop avec un état différent.
-
-3. Ouvrez les pages d’exécution Desktop et Cloud Flow.
+2. Ouvrez les pages d’exécution Desktop et Cloud Flow.
 
 ### Comportement en lecture seule des flux planifiés
 

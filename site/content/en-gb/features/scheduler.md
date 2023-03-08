@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ In future releases the following is being considered as new features:
 
 1. Execute the cloud flow rather than the desktop flow. This will then include cloud flow run history and execution any additional cloud flow actions and parameters that are passed to the desktop flow.
 
-2. Execute Power Automate Desktop with different status.
-
-3. Open Desktop and Cloud flow run pages.
+2. Open Desktop and Cloud flow run pages.
 
 ### Read-only behavior of scheduled flows
 

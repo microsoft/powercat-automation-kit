@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ En futuras versiones, se considerarán nuevas características las siguientes:
 
 1. Ejecute el flujo de nube en lugar del flujo de escritorio. Esto incluirá el historial de ejecución del flujo de nube y la ejecución de cualquier acción y parámetros adicionales de flujo de nube que se pasen al flujo de escritorio.
 
-2. Ejecute Power Automate Desktop con un estado diferente.
-
-3. Abra las páginas de ejecución de flujo de escritorio y nube.
+2. Abra las páginas de ejecución de flujo de escritorio y nube.
 
 ### Comportamiento de solo lectura de flujos programados
 

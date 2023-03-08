@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 
 1.执行云端流而不是桌面流。然后，这将包括云端流运行历史记录，并执行传递给桌面流的任何其他云端流操作和参数。
 
-2.以不同的状态执行电源自动化桌面。
-
-3.打开桌面和云端流运行页面。
+2.打开桌面和云端流运行页面。
 
 ### 计划流的只读行为
 

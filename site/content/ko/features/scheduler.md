@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 
 1. 데스크톱 흐름이 아닌 클라우드 흐름을 실행합니다. 그런 다음 클라우드 흐름 실행 기록과 데스크톱 흐름에 전달되는 추가 클라우드 흐름 작업 및 매개 변수 실행이 포함됩니다.
 
-2. 다른 상태의 파워 오토메이트 데스크톱을 실행합니다.
-
-3. 데스크톱 및 클라우드 흐름 실행 페이지를 엽니다.
+2. 데스크톱 및 클라우드 흐름 실행 페이지를 엽니다.
 
 ### 예약된 흐름의 읽기 전용 동작
 

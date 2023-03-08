@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ I framtida versioner betraktas följande som nya funktioner:
 
 1. Kör molnflödet i stället för datorflödet. Detta inkluderar sedan körningshistorik för molnflöde och körning av eventuella ytterligare molnflödesåtgärder och parametrar som skickas till datorflödet.
 
-2. Kör Power Automate Desktop med olika status.
-
-3. Öppna körningssidorna för Desktop och Cloud flow.
+2. Öppna körningssidorna för Desktop och Cloud flow.
 
 ### Skrivskyddat beteende för schemalagda flöden
 

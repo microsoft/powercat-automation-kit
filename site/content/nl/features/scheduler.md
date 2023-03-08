@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ In toekomstige releases wordt het volgende als nieuwe functies beschouwd:
 
 1. Voer de cloudstroom uit in plaats van de bureaubladstroom. Dit omvat vervolgens de geschiedenis van het uitvoeren van cloudstromen en het uitvoeren van aanvullende cloudstroomacties en parameters die worden doorgegeven aan de bureaubladstroom.
 
-2. Voer Power Automate Desktop uit met een andere status.
-
-3. Open desktop- en cloudstroomrunpagina's.
+2. Open desktop- en cloudstroomrunpagina's.
 
 ### Alleen-lezen gedrag van geplande stromen
 

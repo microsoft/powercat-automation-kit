@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ W przyszłych wersjach następujące funkcje będą uważane za nowe:
 
 1. Wykonuj przepływ w chmurze, a nie przepływ pulpitu. Obejmuje to następnie historię uruchamiania przepływu w chmurze i wykonanie, wszelkie dodatkowe akcje przepływu w chmurze i parametry, które są przekazywane do przepływu pulpitu.
 
-2. Uruchom program Power Automate Desktop z innym stanem.
-
-3. Otwórz strony uruchamiania przepływu pulpitu i chmury.
+2. Otwórz strony uruchamiania przepływu pulpitu i chmury.
 
 ### Zachowanie zaplanowanych przepływów tylko do odczytu
 

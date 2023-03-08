@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
+generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 ---
 
 {{<toc>}}
@@ -73,9 +73,7 @@ Nelle versioni future verranno prese in considerazione le seguenti nuove funzion
 
 1. Eseguire il flusso cloud anziché il flusso desktop. Ciò includerà quindi la cronologia di esecuzione del flusso cloud e l'esecuzione di eventuali azioni e parametri aggiuntivi del flusso cloud passati al flusso desktop.
 
-2. Esegui Power Automate Desktop con uno stato diverso.
-
-3. Apri le pagine di esecuzione del flusso Desktop e Cloud.
+2. Apri le pagine di esecuzione del flusso Desktop e Cloud.
 
 ### Comportamento di sola lettura dei flussi pianificati
 
