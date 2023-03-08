@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ U kunt dit probleem oplossen door de volgende stappen uit te voeren:
 
 - Controleer de verbindingsreferentie: Controleer de verbindingsreferentie in de code of configuratie en controleer of deze geldig en correct is.
 
-- Bestaande verbindingen verwijderen en opnieuw maken: Als de stroomcontrole waarschuwt dat er geen verbindingsreferentie wordt gebruikt, gebruikt u de stroomcontrole om de bestaande verbinding te verwijderen. Maak de verbindingsverwijzing naar de groep Machine of Machine opnieuw.
+- Bestaande verbindingen verwijderen en opnieuw maken: Als de stroomcontrole waarschuwt dat er geen verbindingsreferentie is gebruikt, kunt u de stroomcontrole gebruiken om bestaande verbindingen te verwijderen. Zodra de verbindingen zijn verwijderd, kunt u verbindingsverwijzingen naar de groep Machine of Machine opnieuw maken om de stroom uit te voeren.
 
 ## Notities
 

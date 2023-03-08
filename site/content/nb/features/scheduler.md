@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ Hvis du vil løse dette problemet, kan du gjøre følgende:
 
 - Kontroller tilkoblingsreferansen: Kontroller tilkoblingsreferansen som er angitt i koden eller konfigurasjonen, og kontroller at den er gyldig og riktig.
 
-- Slett eksisterende tilkoblinger og opprett på nytt: Hvis flytkontrollen advarer om at en tilkoblingsreferanse ikke brukes, bruker du flytkontrollen til å slette eksisterende tilkobling. Opprett tilkoblingsreferansen til gruppen Maskin eller Maskin på nytt.
+- Slett eksisterende tilkoblinger og opprett på nytt: Hvis flytkontrollen advarer om at en tilkoblingsreferanse ikke er brukt, kan du bruke flytkontrollen til å slette eksisterende tilkoblinger. Når tilkoblingene er slettet, kan du opprette tilkoblingsreferanser til maskin- eller maskingruppen på nytt for å aktivere flyten som skal kjøres.
 
 ## Notater
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ Aby rozwiązać ten problem, można wykonać następujące czynności:
 
 - Sprawdź odwołanie do połączenia: Sprawdź odwołanie do połączenia podane w kodzie lub konfiguracji i upewnij się, że jest prawidłowe i poprawne.
 
-- Usuń istniejące połączenia i odtwórz: Jeśli narzędzie Flow Checker ostrzega, że odwołanie do połączenia nie jest używane, użyj narzędzia sprawdzania przepływu, aby usunąć istniejące połączenie. Utwórz ponownie odwołanie do połączenia z komputerem lub grupą Maszyna.
+- Usuń istniejące połączenia i odtwórz: Jeśli narzędzie Flow Checker ostrzega, że odwołanie do połączenia nie zostało użyte, możesz użyć narzędzia Flow Checker, aby usunąć istniejące połączenia. Po usunięciu połączeń można ponownie utworzyć odwołania do połączenia z komputerem lub grupą komputerów, aby umożliwić uruchomienie przepływu.
 
 ## Notatki
 

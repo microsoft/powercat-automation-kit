@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ Du kan løse dette problem ved at udføre følgende fremgangsmåde:
 
 - Bekræft forbindelsesreferencen: Kontroller forbindelsesreferencen i koden eller konfigurationen, og sørg for, at den er gyldig og korrekt.
 
-- Slet eksisterende forbindelser, og genskab: Hvis flowkontrollen advarer om, at der ikke bruges en forbindelsesreference, skal du bruge flowkontrollen til at slette eksisterende forbindelse. Genskabe forbindelsesreference til gruppen Maskine eller Maskine.
+- Slet eksisterende forbindelser, og genskab: Hvis flowkontrollen advarer om, at der ikke er brugt en forbindelsesreference, kan du bruge flowkontrollen til at slette eksisterende forbindelser. Når forbindelserne er slettet, kan du genskabe forbindelsesreferencer til gruppen Maskine eller Maskine for at gøre det muligt at køre flowet.
 
 ## Noter
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 
 -验证连接引用：检查代码或配置中提供的连接引用，并确保其有效且正确。
 
--删除现有连接并重新创建：如果流检查器警告未使用连接引用，请使用流检查器删除现有连接。重新创建对计算机或计算机组的连接引用。
+-删除现有连接并重新创建：如果流检查器警告未使用连接引用，则可以使用流检查器删除现有连接。删除连接后，可以重新创建对计算机或计算机组的连接引用，以使流能够运行。
 
 ## 笔记
 

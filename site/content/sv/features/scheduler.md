@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ Lös problemet genom att vidta följande steg:
 
 - Verifiera anslutningsreferensen: Kontrollera anslutningsreferensen i koden eller konfigurationen och se till att den är giltig och korrekt.
 
-- Ta bort befintliga anslutningar och återskapa: Om flödeskontrollen varnar för att en anslutningsreferens inte används använder du flödeskontrollen för att ta bort befintlig anslutning. Återskapa anslutningsreferensen till gruppen Dator eller Dator.
+- Ta bort befintliga anslutningar och återskapa: Om flödeskontrollen varnar för att en anslutningsreferens inte har använts kan du använda flödeskontrollen för att ta bort befintliga anslutningar. När anslutningarna har tagits bort kan du återskapa anslutningsreferenser till gruppen Dator eller Dator så att flödet kan köras.
 
 ## Anteckningar
 

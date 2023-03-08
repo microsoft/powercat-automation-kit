@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ Para resolver este problema, puede realizar los pasos siguientes:
 
 - Verifique la referencia de conexión: compruebe la referencia de conexión proporcionada en el código o la configuración y asegúrese de que es válida y correcta.
 
-- Eliminar conexiones existentes y volver a crear: Si el Comprobador de flujo advierte que no se utiliza una referencia de conexión, utilice el Comprobador de flujo para eliminar la conexión existente. Vuelva a crear la referencia de conexión al equipo o al grupo de máquinas.
+- Eliminar conexiones existentes y volver a crear: Si el Comprobador de flujo advierte que no se ha utilizado una referencia de conexión, puede utilizar el Comprobador de flujo para eliminar las conexiones existentes. Una vez eliminadas las conexiones, puede volver a crear referencias de conexión al equipo o grupo de máquinas para permitir que se ejecute el flujo.
 
 ## Notas
 

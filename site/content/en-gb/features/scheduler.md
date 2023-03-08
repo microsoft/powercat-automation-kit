@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ To resolve this issue, you can take the following steps:
 
 - Verify the connection reference: Check the connection reference provided in the code or configuration and ensure that it is valid and correct.
 
-- Delete existing connections and recreate: If the Flow Checker warns that a connection reference is not used use the flow checker to delete existing connection. Recreate connection reference to the Machine or Machine group.
+- Delete existing connections and recreate: If the Flow Checker warns that a connection reference have not used been used you can use the flow checker to delete existing connections. Once the connections are deleted you can recreate connection references to the Machine or Machine group to enable the flow to be run.
 
 ## Notes
 

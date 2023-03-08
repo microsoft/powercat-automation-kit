@@ -115,7 +115,7 @@ To resolve this issue, you can take the following steps:
 
 - Verify the connection reference: Check the connection reference provided in the code or configuration and ensure that it is valid and correct.
 
-- Delete existing connections and recreate: If the Flow Checker warns that a connection reference is not used use the flow checker to delete existing connection. Recreate connection reference to the Machine or Machine group.
+- Delete existing connections and recreate: If the Flow Checker warns that a connection reference have not used been used you can use the flow checker to delete existing connections. Once the connections are deleted you can recreate connection references to the Machine or Machine group to enable the flow to be run.
 
 ## Notes
 

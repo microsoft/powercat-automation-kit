@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 
 - 연결 참조 확인: 코드 또는 구성에 제공된 연결 참조를 확인하고 유효하고 올바른지 확인합니다.
 
-- 기존 연결을 삭제하고 다시 만들기: 흐름 검사기에서 연결 참조가 사용되지 않는다고 경고하는 경우 흐름 검사기를 사용하여 기존 연결을 삭제합니다. 컴퓨터 또는 컴퓨터 그룹에 대한 연결 참조를 다시 만듭니다.
+- 기존 연결을 삭제하고 다시 만들기: 흐름 검사기에서 연결 참조가 사용되지 않았다는 경고가 표시되면 흐름 검사기를 사용하여 기존 연결을 삭제할 수 있습니다. 연결이 삭제되면 Machine 또는 Machine 그룹에 대한 연결 참조를 다시 만들어 흐름을 실행할 수 있습니다.
 
 ## 노트
 

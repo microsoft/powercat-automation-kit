@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ Pour résoudre ce problème, vous pouvez suivre les étapes suivantes :
 
 - Vérifier la référence de connexion : vérifiez la référence de connexion fournie dans le code ou la configuration et assurez-vous qu’elle est valide et correcte.
 
-- Supprimer les connexions existantes et recréer : si le vérificateur de flux avertit qu’une référence de connexion n’est pas utilisée, utilisez le vérificateur de flux pour supprimer la connexion existante. Recréez la référence de connexion à la machine ou au groupe de machines.
+- Supprimer les connexions existantes et recréer : si le vérificateur de flux avertit qu’une référence de connexion n’a pas été utilisée, vous pouvez utiliser le vérificateur de flux pour supprimer les connexions existantes. Une fois les connexions supprimées, vous pouvez recréer des références de connexion au groupe Machine ou Machine pour permettre l’exécution du flux.
 
 ## Notes
 

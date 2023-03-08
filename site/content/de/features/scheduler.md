@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ Um dieses Problem zu beheben, können Sie die folgenden Schritte ausführen:
 
 - Überprüfen der Verbindungsreferenz: Überprüfen Sie die im Code oder in der Konfiguration angegebene Verbindungsreferenz, und stellen Sie sicher, dass sie gültig und korrekt ist.
 
-- Vorhandene Verbindungen löschen und neu erstellen: Wenn der Flow Checker warnt, dass kein Verbindungsverweis verwendet wird, verwenden Sie den Flow Checker, um eine vorhandene Verbindung zu löschen. Erstellen Sie den Verbindungsverweis auf die Computer- oder Computergruppe neu.
+- Vorhandene Verbindungen löschen und neu erstellen: Wenn der Flow Checker warnt, dass keine Verbindungsreferenz verwendet wurde, können Sie den Flow Checker verwenden, um vorhandene Verbindungen zu löschen. Nachdem die Verbindungen gelöscht wurden, können Sie Verbindungsverweise auf die Computer- oder Computergruppe neu erstellen, damit der Flow ausgeführt werden kann.
 
 ## Notizen
 

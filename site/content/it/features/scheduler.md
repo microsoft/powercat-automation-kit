@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
+generated: CB8CDD66959E9D2E4AE7FD54BE0C6D04AA2A02E3
 ---
 
 {{<toc>}}
@@ -116,7 +116,7 @@ Per risolvere il problema, è possibile effettuare le seguenti operazioni:
 
 - Verificare il riferimento di connessione: controllare il riferimento di connessione fornito nel codice o nella configurazione e assicurarsi che sia valido e corretto.
 
-- Eliminare le connessioni esistenti e ricreare: se Verifica flusso avvisa che non viene utilizzato un riferimento di connessione, utilizzare il controllo di flusso per eliminare la connessione esistente. Ricreare il riferimento di connessione al gruppo Computer o Computer.
+- Eliminare le connessioni esistenti e ricreare: se Verifica flusso avverte che non è stato utilizzato un riferimento di connessione, è possibile utilizzare Verifica flusso per eliminare le connessioni esistenti. Una volta eliminate le connessioni, è possibile ricreare i riferimenti di connessione al gruppo Computer o Machine per consentire l'esecuzione del flusso.
 
 ## Note
 
