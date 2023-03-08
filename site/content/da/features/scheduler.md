@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ De vigtigste funktioner i planlæggeren er:
 - Se varigheden af en Cloud Flow-kørsel
 - Se detaljerne om eventuelle fejl.
 
-## Kør flow
+## Cloud-flow
+
+Som nævnt ovenfor er det kun cloudflows, der er inkluderet som en del af en løsning. Den seneste [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) indeholder oplysninger om, hvordan du bruger den nye prøveversion af "Dataverse-løsninger som standard" til at sikre, at cloudflows er inkluderet i løsninger. Brug af denne funktion kan hjælpe brugerne med at sikre, at de planlagte cloudflows, der oprettes, er synlige i planlæggeren.
+
+## Kalendervisninger
+
+## Dag, uge, måned visninger
+
+Dag-, uge- og månedsvisningerne viser oplysninger om Desktop Cloud-flowkørsler, der er udført eller er planlagt til at blive udført.
+
+Elementer er farvekodet som følger:
+
+- Grøn angiver vellykket løb
+
+- Rød angiver mislykket kørsel
+
+- Blå angiver en planlagt fremtidig kørsel.
+
+Status- og kørselsoplysningerne er tilgængelige med lang berøring eller svævemus på begivenheden.
+
+### Køreplan
+
+{{<border>}}
+![Planlægger - Kør nu](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+Tidsplanvisningen indeholder et sæt cloudflow baseret på tid fra det aktuelle tidspunkt og fremtidige planlagte flow i løbet af de næste dage.
+
+## Kør nu
+
+{{<border>}}
+![Planlægger - Kør nu](/images/scheduler-run-now.png)
+{{</border>}}
+
+Den aktuelle version af Kør nu udfører Power Automate-skrivebordet. Det antages, at der ikke kræves nogen parametre for at udføre skrivebordsflowet. De yderligere kørselsoplysninger er tilgængelige i oplysningerne om seneste kørsel på skrivebordet.
+
+### Planlagte ændringer
+
+I fremtidige udgivelser betragtes følgende som nye funktioner:
+
+1. Udfør cloudflowet i stedet for skrivebordsflowet. Dette omfatter derefter historik for kørsel af cloudflow og udførelse af eventuelle yderligere cloudflowhandlinger og parametre, der overføres til skrivebordsflowet.
+
+2. Udfør Power Automate Desktop med forskellig status.
+
+3. Åbn desktop- og cloudflow-kørselssider.
 
 ### Skrivebeskyttet funktionsmåde for planlagte flows
 
@@ -71,6 +115,8 @@ Der er flere mulige årsager til denne fejlmeddelelse, herunder:
 Du kan løse dette problem ved at udføre følgende fremgangsmåde:
 
 - Bekræft forbindelsesreferencen: Kontroller forbindelsesreferencen i koden eller konfigurationen, og sørg for, at den er gyldig og korrekt.
+
+- Slet eksisterende forbindelser, og genskab: Hvis flowkontrollen advarer om, at der ikke bruges en forbindelsesreference, skal du bruge flowkontrollen til at slette eksisterende forbindelse. Genskabe forbindelsesreference til gruppen Maskine eller Maskine.
 
 ## Noter
 

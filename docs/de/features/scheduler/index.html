@@ -62,8 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#einleitung">Einleitung</a></li>
-    <li><a href="#ablauf">Ablauf</a>
+    <li><a href="#cloud-flows">Cloud-Flows</a></li>
+    <li><a href="#kalenderansichten">Kalenderansichten</a></li>
+    <li><a href="#tages--wochen--monatsansichten">Tages-, Wochen-, Monatsansichten</a>
       <ul>
+        <li><a href="#zeitplan">Zeitplan</a></li>
+      </ul>
+    </li>
+    <li><a href="#jetzt-ausführen">Jetzt ausführen</a>
+      <ul>
+        <li><a href="#geplante-änderungen">Geplante Änderungen</a></li>
         <li><a href="#schreibgeschütztes-verhalten-geplanter-flows">Schreibgeschütztes Verhalten geplanter Flows</a></li>
       </ul>
     </li>
@@ -111,7 +119,81 @@
 <li>Anzeigen der Dauer eines Cloud Flow-Laufs</li>
 <li>Zeigen Sie die Details aller Fehler an.</li>
 </ul>
-<h2 id="ablauf">Ablauf</h2>
+<h2 id="cloud-flows">Cloud-Flows</h2>
+<p>Wie oben erwähnt, nur Cloud-Flows, die als Teil einer Lösung enthalten sind. Die jüngste <a href="https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/">https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/</a> enthält Informationen zur Verwendung der neuen Vorschau von &ldquo;Dataverse-Lösungen standardmäßig&rdquo;, um sicherzustellen, dass Cloud-Flows in Lösungen enthalten sind. Mithilfe dieser Funktion können Benutzer sicherstellen, dass die geplanten Cloud-Flows, die erstellt werden, im Scheduler sichtbar sind.</p>
+<h2 id="kalenderansichten">Kalenderansichten</h2>
+<h2 id="tages--wochen--monatsansichten">Tages-, Wochen-, Monatsansichten</h2>
+<p>Die Tages-, Wochen- und Monatsansichten zeigen Informationen zu Desktop Cloud-Flussläufen an, die ausgeführt wurden oder ausgeführt werden sollen.</p>
+<p>Die Artikel sind wie folgt farbcodiert:</p>
+<ul>
+<li>
+<p>Grün zeigt erfolgreichen Lauf an</p>
+</li>
+<li>
+<p>Rot zeigt fehlgeschlagene Ausführung an</p>
+</li>
+<li>
+<p>Blau zeigt eine geplante zukünftige Ausführung an.</p>
+</li>
+</ul>
+<p>Die Status- und Ausführungsinformationen sind durch langes Berühren oder Bewegen der Maus auf das Ereignis verfügbar.</p>
+<h3 id="zeitplan">Zeitplan</h3>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Scheduler - Jetzt ausführen">
+
+    </center>
+</div>
+
+<p>Die Zeitplanansicht enthält eine Reihe von Cloud-Flows, die auf der Zeit aus der aktuellen Zeit und zukünftigen geplanten Flows in den nächsten Tagen basieren.</p>
+<h2 id="jetzt-ausführen">Jetzt ausführen</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Scheduler - Jetzt ausführen">
+
+    </center>
+</div>
+
+<p>Die aktuelle Version von Jetzt ausführen führt den Power Automate-Desktop aus. Es wird davon ausgegangen, dass zum Ausführen des Desktopflusses keine Parameter erforderlich sind. Die zusätzlichen Ausführungsinformationen finden Sie in den Informationen zur letzten Ausführung des Desktops.</p>
+<h3 id="geplante-änderungen">Geplante Änderungen</h3>
+<p>In zukünftigen Versionen werden die folgenden Funktionen als neue Funktionen betrachtet:</p>
+<ol>
+<li>
+<p>Führen Sie den Cloud-Flow anstelle des Desktop-Flows aus. Dies umfasst dann den Verlauf der Cloud-Flow-Ausführung und die Ausführung aller zusätzlichen Cloud-Flow-Aktionen und -Parameter, die an den Desktop-Flow übergeben werden.</p>
+</li>
+<li>
+<p>Führen Sie Power Automate Desktop mit einem anderen Status aus.</p>
+</li>
+<li>
+<p>Öffnen Sie Desktop- und Cloud-Flow-Ausführungsseiten.</p>
+</li>
+</ol>
 <h3 id="schreibgeschütztes-verhalten-geplanter-flows">Schreibgeschütztes Verhalten geplanter Flows</h3>
 <p>Wenn ein Flow für die zukünftige Ausführung geplant ist, wird er standardmäßig auf den schreibgeschützten Modus festgelegt und für die sofortige Ausführung deaktiviert. Dies bedeutet, dass Benutzer den Flow erst ändern oder ausführen können, wenn das geplante Datum und die geplante Uhrzeit abgelaufen sind. Dieses Verhalten wurde entwickelt, um eine bessere Benutzererfahrung zu bieten und die versehentliche Ausführung von Flows zu verhindern, bevor sie ausgeführt werden sollen.
 Dieser Ansatz bietet mehrere Vorteile, darunter:</p>
@@ -150,7 +232,12 @@ Dieser Ansatz bietet mehrere Vorteile, darunter:</p>
 <h4 id="auflösung">Auflösung</h4>
 <p>Um dieses Problem zu beheben, können Sie die folgenden Schritte ausführen:</p>
 <ul>
-<li>Überprüfen der Verbindungsreferenz: Überprüfen Sie die im Code oder in der Konfiguration angegebene Verbindungsreferenz, und stellen Sie sicher, dass sie gültig und korrekt ist.</li>
+<li>
+<p>Überprüfen der Verbindungsreferenz: Überprüfen Sie die im Code oder in der Konfiguration angegebene Verbindungsreferenz, und stellen Sie sicher, dass sie gültig und korrekt ist.</p>
+</li>
+<li>
+<p>Vorhandene Verbindungen löschen und neu erstellen: Wenn der Flow Checker warnt, dass kein Verbindungsverweis verwendet wird, verwenden Sie den Flow Checker, um eine vorhandene Verbindung zu löschen. Erstellen Sie den Verbindungsverweis auf die Computer- oder Computergruppe neu.</p>
+</li>
 </ul>
 <h2 id="notizen">Notizen</h2>
 <p>Für das aktuelle Release gelten folgende Hinweise</p>
@@ -186,7 +273,7 @@ Dieser Ansatz bietet mehrere Vorteile, darunter:</p>
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"de\": \"Welche der folgenden Optionen ist für Ihre Scheduler-Funktionalität am nützlichsten?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"de\": \"Die Möglichkeit, Zeitpläne nach Tag anzuzeigen\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"de\": \"Die Möglichkeit, Zeitpläne nach Woche anzuzeigen\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"de\": \"Die Möglichkeit, Zeitpläne nach Monat anzuzeigen\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"de\": \"Sehen Sie sich die Ergebnisse der Läufe an\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"de\": \"Welche neuen Funktionen möchten Sie der Scheduler-Funktionalität hinzufügen?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"de\": \"Die Möglichkeit, nach Status zu filtern (Erfolg, Fehlgeschlagen, Geplant)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by flow name\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by flow name\",\r\n                \"de\": \"Die Möglichkeit, nach Flow-Namen zu filtern\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"de\": \"Die Möglichkeit, nach Maschine / Maschinengruppe zu filtern\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"de\": \"Definieren von Warnungen für fehlgeschlagene Läufe\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"de\": \"Neustart / Stop-Flow-Ausführung\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"de\": \"Abhängigkeiten zwischen Flow-Läufen definieren\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"de\": \"Sehen Sie sich die Ergebnisse der Läufe an\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"de\": \"Möchten Sie das Feedback zum Scheduler senden?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"de\": \"Wir freuen uns auf Ihr Feedback. Als Kernteam von Automation Kit nutzen wir das Feedback, um unsere Anleitung und Roadmap zu verbessern.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"de\": \"Hatten Sie weiteres Feedback?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"de\": \"Jetzt Ihr Feedback senden?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"de\": \"Status: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"de\": \"Welche der folgenden Optionen ist für Ihre Scheduler-Funktionalität am nützlichsten?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"de\": \"Die Möglichkeit, Zeitpläne nach Tag anzuzeigen\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"de\": \"Die Möglichkeit, Zeitpläne nach Woche anzuzeigen\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"de\": \"Die Möglichkeit, Zeitpläne nach Monat anzuzeigen\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to run a flow\",\r\n              \"text\": {\r\n                \"default\": \"The ability to run a flow\",\r\n                \"de\": \"Die Fähigkeit, einen Flow auszuführen\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"de\": \"Sehen Sie sich die Ergebnisse der Läufe an\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"de\": \"Welche neuen Funktionen möchten Sie der Scheduler-Funktionalität hinzufügen?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"de\": \"Die Möglichkeit, nach Status zu filtern (Erfolg, Fehlgeschlagen, Geplant)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"de\": \"Die Möglichkeit, nach Maschine / Maschinengruppe zu filtern\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"de\": \"Definieren von Warnungen für fehlgeschlagene Läufe\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"de\": \"Neustart / Stop-Flow-Ausführung\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"de\": \"Abhängigkeiten zwischen Flow-Läufen definieren\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"de\": \"Sehen Sie sich die Ergebnisse der Läufe an\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"de\": \"Möchten Sie das Feedback zum Scheduler senden?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"de\": \"Wir freuen uns auf Ihr Feedback. Als Kernteam von Automation Kit nutzen wir das Feedback, um unsere Anleitung und Roadmap zu verbessern.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"de\": \"Ihr Name (optional)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"de\": \"Ihr Name (optional)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-organization\",\r\n          \"title\": {\r\n            \"default\": \"You organization (optional)\",\r\n            \"de\": \"Ihre Organisation (optional)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"dropdown\",\r\n          \"name\": \"optional-role\",\r\n          \"title\": {\r\n            \"default\": \"Role (optional)\",\r\n            \"de\": \"Rolle (optional)\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"COE Administrator\",\r\n              \"text\": {\r\n                \"default\": \"COE Administrator\",\r\n                \"de\": \"COE-Administrator\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Automation Engineer\",\r\n              \"text\": {\r\n                \"default\": \"Automation Engineer\",\r\n                \"de\": \"Automatisierungsingenieur\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Business User\",\r\n              \"text\": {\r\n                \"default\": \"Business User\",\r\n                \"de\": \"Geschäftsanwender\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Other\",\r\n              \"text\": {\r\n                \"default\": \"Other\",\r\n                \"de\": \"Andere\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-role-other\",\r\n          \"title\": {\r\n            \"default\": \"You role\",\r\n            \"de\": \"Ihre Rolle\"\r\n          },\r\n          \"visibleIf\": \"{optional-role} = 'Other'\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-contact\",\r\n          \"title\": {\r\n            \"default\": \"You contact details (optional)\",\r\n            \"de\": \"Ihre Kontaktdaten (optional)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"de\": \"Hatten Sie weiteres Feedback?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"de\": \"Jetzt Ihr Feedback senden?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"de\": \"Status: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 

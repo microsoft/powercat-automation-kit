@@ -62,8 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#introduksjon">Introduksjon</a></li>
-    <li><a href="#kjør-flyt">Kjør flyt</a>
+    <li><a href="#skyflyter">Skyflyter</a></li>
+    <li><a href="#kalender-visninger">Kalender-visninger</a></li>
+    <li><a href="#visninger-for-dag-uke-måned">Visninger for dag, uke, måned</a>
       <ul>
+        <li><a href="#timeplan">Timeplan</a></li>
+      </ul>
+    </li>
+    <li><a href="#kjør-nå">Kjør nå</a>
+      <ul>
+        <li><a href="#planlagte-endringer">Planlagte endringer</a></li>
         <li><a href="#skrivebeskyttet-virkemåte-for-planlagte-flyter">Skrivebeskyttet virkemåte for planlagte flyter</a></li>
       </ul>
     </li>
@@ -111,7 +119,81 @@
 <li>Vise varigheten av en Cloud Flow-kjøring</li>
 <li>Vis detaljer om eventuelle feil.</li>
 </ul>
-<h2 id="kjør-flyt">Kjør flyt</h2>
+<h2 id="skyflyter">Skyflyter</h2>
+<p>Som nevnt ovenfor er det bare skyflyter som er inkludert som en del av en løsning. Den siste <a href="https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/">https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/</a> inneholder informasjon om hvordan du bruker den nye forhåndsvisningen av Dataverse-løsninger som standard for å sikre at skyflyter inkluderes i løsninger. Bruk av denne funksjonen kan hjelpe brukere med å sikre at de planlagte skyflytene som opprettes, er synlige i planleggeren.</p>
+<h2 id="kalender-visninger">Kalender-visninger</h2>
+<h2 id="visninger-for-dag-uke-måned">Visninger for dag, uke, måned</h2>
+<p>Dag-, ukes- og månedsvisningene viser informasjon om Desktop Cloud-flytkjøringer som har kjørt eller er planlagt utført.</p>
+<p>Elementene er fargekodet som følger:</p>
+<ul>
+<li>
+<p>Grønt indikerer vellykket kjøring</p>
+</li>
+<li>
+<p>Rødt indikerer mislykket kjøring</p>
+</li>
+<li>
+<p>Blå indikerer en planlagt fremtidig kjøring.</p>
+</li>
+</ul>
+<p>Status- og kjøreinformasjonen er tilgjengelig med lang berøring eller pekerfølsomme mus på arrangementet.</p>
+<h3 id="timeplan">Timeplan</h3>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Planlegger - Kjør nå">
+
+    </center>
+</div>
+
+<p>Tidsplanvisningen inneholder et sett med skyflyter basert på tid fra gjeldende klokkeslett og fremtidige planlagte flyter i løpet av de neste dagene.</p>
+<h2 id="kjør-nå">Kjør nå</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Planlegger - Kjør nå">
+
+    </center>
+</div>
+
+<p>Den gjeldende versjonen av Kjør nå kjører Power Automate-skrivebordet. Det antas at det ikke er noen parametere som kreves for å utføre skrivebordsflyten. Den ekstra kjøreinformasjonen er tilgjengelig i informasjonen om siste kjøring på skrivebordet.</p>
+<h3 id="planlagte-endringer">Planlagte endringer</h3>
+<p>I fremtidige utgivelser vurderes følgende som nye funksjoner:</p>
+<ol>
+<li>
+<p>Utfør skyflyten i stedet for skrivebordsflyten. Dette inkluderer deretter kjøreloggen for skyflyten og kjøring av eventuelle ekstra skyflythandlinger og parametere som sendes til skrivebordsflyten.</p>
+</li>
+<li>
+<p>Utfør Power Automate Desktop med forskjellig status.</p>
+</li>
+<li>
+<p>Åpne sider for skrivebords- og skyflytkjøring.</p>
+</li>
+</ol>
 <h3 id="skrivebeskyttet-virkemåte-for-planlagte-flyter">Skrivebeskyttet virkemåte for planlagte flyter</h3>
 <p>Når en flyt er planlagt for fremtidig kjøring, er den som standard satt til skrivebeskyttet modus og deaktivert for umiddelbar kjøring. Dette betyr at brukere ikke kan endre eller kjøre flyten før den planlagte datoen og klokkeslettet er passert. Denne virkemåten er utformet for å gi en bedre brukeropplevelse og forhindre utilsiktet kjøring av flyter før de er ment å kjøre.
 Det er flere fordeler med denne tilnærmingen, inkludert:</p>
@@ -150,7 +232,12 @@ Det er flere fordeler med denne tilnærmingen, inkludert:</p>
 <h4 id="resolusjon">Resolusjon</h4>
 <p>Hvis du vil løse dette problemet, kan du gjøre følgende:</p>
 <ul>
-<li>Kontroller tilkoblingsreferansen: Kontroller tilkoblingsreferansen som er angitt i koden eller konfigurasjonen, og kontroller at den er gyldig og riktig.</li>
+<li>
+<p>Kontroller tilkoblingsreferansen: Kontroller tilkoblingsreferansen som er angitt i koden eller konfigurasjonen, og kontroller at den er gyldig og riktig.</p>
+</li>
+<li>
+<p>Slett eksisterende tilkoblinger og opprett på nytt: Hvis flytkontrollen advarer om at en tilkoblingsreferanse ikke brukes, bruker du flytkontrollen til å slette eksisterende tilkobling. Opprett tilkoblingsreferansen til gruppen Maskin eller Maskin på nytt.</p>
+</li>
 </ul>
 <h2 id="notater">Notater</h2>
 <p>For gjeldende versjon gjelder følgende merknader</p>
@@ -186,7 +273,7 @@ Det er flere fordeler med denne tilnærmingen, inkludert:</p>
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"nb\": \"Hvilket av følgende er mest nyttig for din tilknytning til Scheduler-funksjonalitet?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"nb\": \"Muligheten til å vise tidsplaner etter dag\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"nb\": \"Muligheten til å vise tidsplaner etter uke\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"nb\": \"Muligheten til å vise tidsplaner etter måned\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"nb\": \"Se resultatene av løpene\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"nb\": \"Hvilke nye funksjoner vil du legge til i Scheduler-funksjonaliteten?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"nb\": \"Muligheten til å filtrere etter status (Vellykket, Mislykket, Planlagt)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by flow name\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by flow name\",\r\n                \"nb\": \"Muligheten til å filtrere etter flytnavn\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"nb\": \"Muligheten til å filtrere etter maskin / maskingruppe\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"nb\": \"Definere varsler for mislykkede kjøringer\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"nb\": \"Start på nytt / stopp flytkjøring\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"nb\": \"Definere avhengigheter mellom flytkjøringer\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"nb\": \"Se resultatene av løpene\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"nb\": \"Vil du sende tilbakemeldingen på Scheduler?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"nb\": \"Vi ser frem til å få din tilbakemelding. Som et kjerneteam for automatiseringssett bruker vi tilbakemeldingene til å forbedre veiledningen og veikartet vårt\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"nb\": \"Har du noen andre tilbakemeldinger?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"nb\": \"Send tilbakemelding nå?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"nb\": \"Status: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"nb\": \"Hvilket av følgende er mest nyttig for din tilknytning til Scheduler-funksjonalitet?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"nb\": \"Muligheten til å vise tidsplaner etter dag\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"nb\": \"Muligheten til å vise tidsplaner etter uke\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"nb\": \"Muligheten til å vise tidsplaner etter måned\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to run a flow\",\r\n              \"text\": {\r\n                \"default\": \"The ability to run a flow\",\r\n                \"nb\": \"Muligheten til å kjøre en flyt\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"nb\": \"Se resultatene av løpene\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"nb\": \"Hvilke nye funksjoner vil du legge til i Scheduler-funksjonaliteten?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"nb\": \"Muligheten til å filtrere etter status (Vellykket, Mislykket, Planlagt)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"nb\": \"Muligheten til å filtrere etter maskin / maskingruppe\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"nb\": \"Definere varsler for mislykkede kjøringer\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"nb\": \"Start på nytt / stopp flytkjøring\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"nb\": \"Definere avhengigheter mellom flytkjøringer\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"nb\": \"Se resultatene av løpene\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"nb\": \"Vil du sende tilbakemeldingen på Scheduler?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"nb\": \"Vi ser frem til å få din tilbakemelding. Som et kjerneteam for automatiseringssett bruker vi tilbakemeldingene til å forbedre veiledningen og veikartet vårt\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"nb\": \"You name (valgfritt)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"nb\": \"You name (valgfritt)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-organization\",\r\n          \"title\": {\r\n            \"default\": \"You organization (optional)\",\r\n            \"nb\": \"Du organisasjon (valgfritt)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"dropdown\",\r\n          \"name\": \"optional-role\",\r\n          \"title\": {\r\n            \"default\": \"Role (optional)\",\r\n            \"nb\": \"Rolle (valgfritt)\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"COE Administrator\",\r\n              \"text\": {\r\n                \"default\": \"COE Administrator\",\r\n                \"nb\": \"COE-administrator\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Automation Engineer\",\r\n              \"text\": {\r\n                \"default\": \"Automation Engineer\",\r\n                \"nb\": \"Automasjonsingeniør\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Business User\",\r\n              \"text\": {\r\n                \"default\": \"Business User\",\r\n                \"nb\": \"Bedriftsbruker\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Other\",\r\n              \"text\": {\r\n                \"default\": \"Other\",\r\n                \"nb\": \"Annen\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-role-other\",\r\n          \"title\": {\r\n            \"default\": \"You role\",\r\n            \"nb\": \"Din rolle\"\r\n          },\r\n          \"visibleIf\": \"{optional-role} = 'Other'\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-contact\",\r\n          \"title\": {\r\n            \"default\": \"You contact details (optional)\",\r\n            \"nb\": \"Du kontaktinformasjon (valgfritt)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"nb\": \"Har du noen andre tilbakemeldinger?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"nb\": \"Send tilbakemelding nå?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"nb\": \"Status: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 

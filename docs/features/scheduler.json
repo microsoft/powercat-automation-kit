@@ -22,6 +22,7 @@
                         "The ability to view schedules by day",
                         "The ability to view schedules by week",
                         "The ability to view schedules by month",
+                        "The ability to run a flow",
                         "See the results of runs"
                     ]
                 },
@@ -34,7 +35,6 @@
                     "hasOther": true,
                     "choices": [
                         "The ability to filter by status (Success, Fail, Scheduled)",
-                        "The ability to filter by flow name",
                         "The ability to filter by machine / machine group",
                         "Define alerts for failed runs",
                         "Restart / Stop flow execution",
@@ -52,6 +52,47 @@
                     "type": "html",
                     "visibleIf": "{send-results} = true",
                     "html": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap"
+                },
+                {
+                    "type": "text",
+                    "name": "optional-name",
+                    "title": "You name (optional)",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "text",
+                    "name": "optional-name",
+                    "title": "You name (optional)",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "text",
+                    "name": "optional-organization",
+                    "title": "You organization (optional)",
+                    "visibleIf": "{send-results} = true"
+                },
+                {
+                    "type": "dropdown",
+                    "name": "optional-role",
+                    "title": "Role (optional)",
+                    "choices": [
+                        "COE Administrator",
+                        "Automation Engineer",
+                        "Business User",
+                        "Other"
+                    ]
+                },
+                {
+                    "type": "text",
+                    "name": "optional-role-other",
+                    "title": "You role",
+                    "visibleIf": "{optional-role} = 'Other'"
+                },
+                {
+                    "type": "text",
+                    "name": "optional-contact",
+                    "title": "You contact details (optional)",
+                    "visibleIf": "{send-results} = true"
                 },
                 {
                     "type": "comment",

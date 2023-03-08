@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ Die wichtigsten Funktionen des Schedulers sind:
 - Anzeigen der Dauer eines Cloud Flow-Laufs
 - Zeigen Sie die Details aller Fehler an.
 
-## Ablauf
+## Cloud-Flows
+
+Wie oben erwähnt, nur Cloud-Flows, die als Teil einer Lösung enthalten sind. Die jüngste [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) enthält Informationen zur Verwendung der neuen Vorschau von "Dataverse-Lösungen standardmäßig", um sicherzustellen, dass Cloud-Flows in Lösungen enthalten sind. Mithilfe dieser Funktion können Benutzer sicherstellen, dass die geplanten Cloud-Flows, die erstellt werden, im Scheduler sichtbar sind.
+
+## Kalenderansichten
+
+## Tages-, Wochen-, Monatsansichten
+
+Die Tages-, Wochen- und Monatsansichten zeigen Informationen zu Desktop Cloud-Flussläufen an, die ausgeführt wurden oder ausgeführt werden sollen.
+
+Die Artikel sind wie folgt farbcodiert:
+
+- Grün zeigt erfolgreichen Lauf an
+
+- Rot zeigt fehlgeschlagene Ausführung an
+
+- Blau zeigt eine geplante zukünftige Ausführung an.
+
+Die Status- und Ausführungsinformationen sind durch langes Berühren oder Bewegen der Maus auf das Ereignis verfügbar.
+
+### Zeitplan
+
+{{<border>}}
+![Scheduler - Jetzt ausführen](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+Die Zeitplanansicht enthält eine Reihe von Cloud-Flows, die auf der Zeit aus der aktuellen Zeit und zukünftigen geplanten Flows in den nächsten Tagen basieren.
+
+## Jetzt ausführen
+
+{{<border>}}
+![Scheduler - Jetzt ausführen](/images/scheduler-run-now.png)
+{{</border>}}
+
+Die aktuelle Version von Jetzt ausführen führt den Power Automate-Desktop aus. Es wird davon ausgegangen, dass zum Ausführen des Desktopflusses keine Parameter erforderlich sind. Die zusätzlichen Ausführungsinformationen finden Sie in den Informationen zur letzten Ausführung des Desktops.
+
+### Geplante Änderungen
+
+In zukünftigen Versionen werden die folgenden Funktionen als neue Funktionen betrachtet:
+
+1. Führen Sie den Cloud-Flow anstelle des Desktop-Flows aus. Dies umfasst dann den Verlauf der Cloud-Flow-Ausführung und die Ausführung aller zusätzlichen Cloud-Flow-Aktionen und -Parameter, die an den Desktop-Flow übergeben werden.
+
+2. Führen Sie Power Automate Desktop mit einem anderen Status aus.
+
+3. Öffnen Sie Desktop- und Cloud-Flow-Ausführungsseiten.
 
 ### Schreibgeschütztes Verhalten geplanter Flows
 
@@ -71,6 +115,8 @@ Es gibt mehrere mögliche Ursachen für diese Fehlermeldung, einschließlich:
 Um dieses Problem zu beheben, können Sie die folgenden Schritte ausführen:
 
 - Überprüfen der Verbindungsreferenz: Überprüfen Sie die im Code oder in der Konfiguration angegebene Verbindungsreferenz, und stellen Sie sicher, dass sie gültig und korrekt ist.
+
+- Vorhandene Verbindungen löschen und neu erstellen: Wenn der Flow Checker warnt, dass kein Verbindungsverweis verwendet wird, verwenden Sie den Flow Checker, um eine vorhandene Verbindung zu löschen. Erstellen Sie den Verbindungsverweis auf die Computer- oder Computergruppe neu.
 
 ## Notizen
 

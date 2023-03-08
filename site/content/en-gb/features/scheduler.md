@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ The key features of the scheduler are:
 - View the duration of a Cloud Flow run
 - View the details of any errors.
 
-## Run Flow
+## Cloud Flows
+
+As noted above only cloud flows that are included as part of a solution. The recent [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) includes information on how to use the new preview of "Dataverse solutions by default" to help ensure that cloud flows are included in solutions. Using this feature can assist users in ensuring the scheduled cloud flows that are created are visible in the scheduler.
+
+## Calendar Views
+
+## Day, Week, Month Views
+
+The day, week, month views display information on Desktop Cloud flow runs that have executed or are scheduled to be executed.
+
+Items are color coded as follows:
+
+- Green indicates successful run
+
+- Red indicates failed run
+
+- Blue indicates a scheduled future run.
+
+The status and run information is available with long touch or hover mouse on the event.
+
+### Schedule
+
+{{<border>}}
+![Scheduler - Run Now](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+The schedule view includes a set of cloud flows based on time from the current time and future scheduled flows over the next days.
+
+## Run Now
+
+{{<border>}}
+![Scheduler - Run Now](/images/scheduler-run-now.png)
+{{</border>}}
+
+The current version of Run Now will execute the the Power Automate desktop. It is assume that there is no parameters required to execute the desktop flow. The additional run information is available in the Desktop last run information.
+
+### Planned Changes
+
+In future releases the following is being considered as new features:
+
+1. Execute the cloud flow rather than the desktop flow. This will then include cloud flow run history and execution any additional cloud flow actions and parameters that are passed to the desktop flow.
+
+2. Execute Power Automate Desktop with different status.
+
+3. Open Desktop and Cloud flow run pages.
 
 ### Read-only behavior of scheduled flows
 
@@ -71,6 +115,8 @@ There are several potential causes for this error message, including:
 To resolve this issue, you can take the following steps:
 
 - Verify the connection reference: Check the connection reference provided in the code or configuration and ensure that it is valid and correct.
+
+- Delete existing connections and recreate: If the Flow Checker warns that a connection reference is not used use the flow checker to delete existing connection. Recreate connection reference to the Machine or Machine group.
 
 ## Notes
 

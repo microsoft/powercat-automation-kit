@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ De belangrijkste kenmerken van de planner zijn:
 - De duur van een Cloud Flow-run weergeven
 - Bekijk de details van eventuele fouten.
 
-## Flow uitvoeren
+## Cloudstromen
+
+Zoals hierboven vermeld, alleen cloudstromen die zijn opgenomen als onderdeel van een oplossing. De recente [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) bevat informatie over het gebruik van de nieuwe preview van 'Dataverse-oplossingen standaard' om ervoor te zorgen dat cloudstromen worden opgenomen in oplossingen. Het gebruik van deze functie kan gebruikers helpen ervoor te zorgen dat de geplande cloudstromen die worden gemaakt, zichtbaar zijn in de planner.
+
+## Agendaweergaven
+
+## Dag, Week, Maand Weergaven
+
+De dag-, week- en maandweergaven geven informatie weer over Desktop Cloud-stroomruns die zijn uitgevoerd of gepland zijn om te worden uitgevoerd.
+
+Items hebben de volgende kleurcodes:
+
+- Groen geeft een geslaagde run aan
+
+- Rood geeft mislukte uitvoering aan
+
+- Blauw geeft een geplande toekomstige run aan.
+
+De status- en uitvoeringsinformatie is beschikbaar met een lange aanraak- of muisaanwijzer op de gebeurtenis.
+
+### Rooster
+
+{{<border>}}
+![Scheduler - Nu uitvoeren](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+De planningsweergave bevat een set cloudstromen op basis van de tijd van de huidige tijd en toekomstige geplande stromen in de komende dagen.
+
+## Nu uitvoeren
+
+{{<border>}}
+![Scheduler - Nu uitvoeren](/images/scheduler-run-now.png)
+{{</border>}}
+
+De huidige versie van Nu uitvoeren voert het Power Automate-bureaublad uit. Er wordt van uitgegaan dat er geen parameters nodig zijn om de bureaubladstroom uit te voeren. De aanvullende uitvoeringsinformatie is beschikbaar in de informatie over de laatste uitvoering op het bureaublad.
+
+### Geplande wijzigingen
+
+In toekomstige releases wordt het volgende als nieuwe functies beschouwd:
+
+1. Voer de cloudstroom uit in plaats van de bureaubladstroom. Dit omvat vervolgens de geschiedenis van het uitvoeren van cloudstromen en het uitvoeren van aanvullende cloudstroomacties en parameters die worden doorgegeven aan de bureaubladstroom.
+
+2. Voer Power Automate Desktop uit met een andere status.
+
+3. Open desktop- en cloudstroomrunpagina's.
 
 ### Alleen-lezen gedrag van geplande stromen
 
@@ -71,6 +115,8 @@ Er zijn verschillende mogelijke oorzaken voor dit foutbericht, waaronder:
 U kunt dit probleem oplossen door de volgende stappen uit te voeren:
 
 - Controleer de verbindingsreferentie: Controleer de verbindingsreferentie in de code of configuratie en controleer of deze geldig en correct is.
+
+- Bestaande verbindingen verwijderen en opnieuw maken: Als de stroomcontrole waarschuwt dat er geen verbindingsreferentie wordt gebruikt, gebruikt u de stroomcontrole om de bestaande verbinding te verwijderen. Maak de verbindingsverwijzing naar de groep Machine of Machine opnieuw.
 
 ## Notities
 

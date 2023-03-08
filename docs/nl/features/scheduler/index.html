@@ -62,8 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#introductie">Introductie</a></li>
-    <li><a href="#flow-uitvoeren">Flow uitvoeren</a>
+    <li><a href="#cloudstromen">Cloudstromen</a></li>
+    <li><a href="#agendaweergaven">Agendaweergaven</a></li>
+    <li><a href="#dag-week-maand-weergaven">Dag, Week, Maand Weergaven</a>
       <ul>
+        <li><a href="#rooster">Rooster</a></li>
+      </ul>
+    </li>
+    <li><a href="#nu-uitvoeren">Nu uitvoeren</a>
+      <ul>
+        <li><a href="#geplande-wijzigingen">Geplande wijzigingen</a></li>
         <li><a href="#alleen-lezen-gedrag-van-geplande-stromen">Alleen-lezen gedrag van geplande stromen</a></li>
       </ul>
     </li>
@@ -111,7 +119,81 @@
 <li>De duur van een Cloud Flow-run weergeven</li>
 <li>Bekijk de details van eventuele fouten.</li>
 </ul>
-<h2 id="flow-uitvoeren">Flow uitvoeren</h2>
+<h2 id="cloudstromen">Cloudstromen</h2>
+<p>Zoals hierboven vermeld, alleen cloudstromen die zijn opgenomen als onderdeel van een oplossing. De recente <a href="https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/">https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/</a> bevat informatie over het gebruik van de nieuwe preview van &lsquo;Dataverse-oplossingen standaard&rsquo; om ervoor te zorgen dat cloudstromen worden opgenomen in oplossingen. Het gebruik van deze functie kan gebruikers helpen ervoor te zorgen dat de geplande cloudstromen die worden gemaakt, zichtbaar zijn in de planner.</p>
+<h2 id="agendaweergaven">Agendaweergaven</h2>
+<h2 id="dag-week-maand-weergaven">Dag, Week, Maand Weergaven</h2>
+<p>De dag-, week- en maandweergaven geven informatie weer over Desktop Cloud-stroomruns die zijn uitgevoerd of gepland zijn om te worden uitgevoerd.</p>
+<p>Items hebben de volgende kleurcodes:</p>
+<ul>
+<li>
+<p>Groen geeft een geslaagde run aan</p>
+</li>
+<li>
+<p>Rood geeft mislukte uitvoering aan</p>
+</li>
+<li>
+<p>Blauw geeft een geplande toekomstige run aan.</p>
+</li>
+</ul>
+<p>De status- en uitvoeringsinformatie is beschikbaar met een lange aanraak- of muisaanwijzer op de gebeurtenis.</p>
+<h3 id="rooster">Rooster</h3>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Scheduler - Nu uitvoeren">
+
+    </center>
+</div>
+
+<p>De planningsweergave bevat een set cloudstromen op basis van de tijd van de huidige tijd en toekomstige geplande stromen in de komende dagen.</p>
+<h2 id="nu-uitvoeren">Nu uitvoeren</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Scheduler - Nu uitvoeren">
+
+    </center>
+</div>
+
+<p>De huidige versie van Nu uitvoeren voert het Power Automate-bureaublad uit. Er wordt van uitgegaan dat er geen parameters nodig zijn om de bureaubladstroom uit te voeren. De aanvullende uitvoeringsinformatie is beschikbaar in de informatie over de laatste uitvoering op het bureaublad.</p>
+<h3 id="geplande-wijzigingen">Geplande wijzigingen</h3>
+<p>In toekomstige releases wordt het volgende als nieuwe functies beschouwd:</p>
+<ol>
+<li>
+<p>Voer de cloudstroom uit in plaats van de bureaubladstroom. Dit omvat vervolgens de geschiedenis van het uitvoeren van cloudstromen en het uitvoeren van aanvullende cloudstroomacties en parameters die worden doorgegeven aan de bureaubladstroom.</p>
+</li>
+<li>
+<p>Voer Power Automate Desktop uit met een andere status.</p>
+</li>
+<li>
+<p>Open desktop- en cloudstroomrunpagina&rsquo;s.</p>
+</li>
+</ol>
 <h3 id="alleen-lezen-gedrag-van-geplande-stromen">Alleen-lezen gedrag van geplande stromen</h3>
 <p>Wanneer een stroom is gepland voor toekomstige uitvoering, wordt deze standaard ingesteld op de modus Alleen-lezen en uitgeschakeld voor onmiddellijke uitvoering. Dit betekent dat gebruikers de stroom niet kunnen wijzigen of uitvoeren totdat de geplande datum en tijd zijn verstreken. Dit gedrag is ontworpen om een betere gebruikerservaring te bieden en te voorkomen dat stromen per ongeluk worden uitgevoerd voordat ze moeten worden uitgevoerd.
 Deze aanpak heeft verschillende voordelen, waaronder:</p>
@@ -150,7 +232,12 @@ Deze aanpak heeft verschillende voordelen, waaronder:</p>
 <h4 id="resolutie">Resolutie</h4>
 <p>U kunt dit probleem oplossen door de volgende stappen uit te voeren:</p>
 <ul>
-<li>Controleer de verbindingsreferentie: Controleer de verbindingsreferentie in de code of configuratie en controleer of deze geldig en correct is.</li>
+<li>
+<p>Controleer de verbindingsreferentie: Controleer de verbindingsreferentie in de code of configuratie en controleer of deze geldig en correct is.</p>
+</li>
+<li>
+<p>Bestaande verbindingen verwijderen en opnieuw maken: Als de stroomcontrole waarschuwt dat er geen verbindingsreferentie wordt gebruikt, gebruikt u de stroomcontrole om de bestaande verbinding te verwijderen. Maak de verbindingsverwijzing naar de groep Machine of Machine opnieuw.</p>
+</li>
 </ul>
 <h2 id="notities">Notities</h2>
 <p>Voor de huidige release zijn de volgende opmerkingen van toepassing</p>
@@ -186,7 +273,7 @@ Deze aanpak heeft verschillende voordelen, waaronder:</p>
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"nl\": \"Welke van de volgende is het meest nuttig voor uw gerelateerde Scheduler-functionaliteit?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"nl\": \"De mogelijkheid om schema's per dag te bekijken\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"nl\": \"De mogelijkheid om schema's per week te bekijken\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"nl\": \"De mogelijkheid om schema's per maand te bekijken\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"nl\": \"Bekijk de resultaten van runs\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"nl\": \"Welke nieuwe functies wilt u toevoegen aan de Scheduler-functionaliteit?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"nl\": \"De mogelijkheid om te filteren op status (Geslaagd, Mislukt, Gepland)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by flow name\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by flow name\",\r\n                \"nl\": \"De mogelijkheid om te filteren op stroomnaam\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"nl\": \"De mogelijkheid om te filteren op machine / machinegroep\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"nl\": \"Waarschuwingen definiëren voor mislukte uitvoeringen\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"nl\": \"Herstart / Stop stroomuitvoering\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"nl\": \"Afhankelijkheden definiëren tussen stroomruns\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"nl\": \"Bekijk de resultaten van runs\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"nl\": \"Wil je de feedback op Scheduler sturen?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"nl\": \"We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om onze begeleiding en roadmap te verbeteren.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"nl\": \"Heb je nog andere feedback gehad?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"nl\": \"Nu uw feedback verzenden?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"nl\": \"Status: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"nl\": \"Welke van de volgende is het meest nuttig voor uw gerelateerde Scheduler-functionaliteit?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"nl\": \"De mogelijkheid om schema's per dag te bekijken\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"nl\": \"De mogelijkheid om schema's per week te bekijken\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"nl\": \"De mogelijkheid om schema's per maand te bekijken\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to run a flow\",\r\n              \"text\": {\r\n                \"default\": \"The ability to run a flow\",\r\n                \"nl\": \"De mogelijkheid om een flow uit te voeren\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"nl\": \"Bekijk de resultaten van runs\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"nl\": \"Welke nieuwe functies wilt u toevoegen aan de Scheduler-functionaliteit?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"nl\": \"De mogelijkheid om te filteren op status (Geslaagd, Mislukt, Gepland)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"nl\": \"De mogelijkheid om te filteren op machine / machinegroep\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"nl\": \"Waarschuwingen definiëren voor mislukte uitvoeringen\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"nl\": \"Herstart / Stop stroomuitvoering\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"nl\": \"Afhankelijkheden definiëren tussen stroomruns\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"nl\": \"Bekijk de resultaten van runs\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"nl\": \"Wil je de feedback op Scheduler sturen?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"nl\": \"We kijken uit naar uw feedback. Als kernteam van Automation Kit gebruiken we de feedback om onze begeleiding en roadmap te verbeteren.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"nl\": \"Uw naam (optioneel)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"nl\": \"Uw naam (optioneel)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-organization\",\r\n          \"title\": {\r\n            \"default\": \"You organization (optional)\",\r\n            \"nl\": \"Uw organisatie (optioneel)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"dropdown\",\r\n          \"name\": \"optional-role\",\r\n          \"title\": {\r\n            \"default\": \"Role (optional)\",\r\n            \"nl\": \"Rol (optioneel)\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"COE Administrator\",\r\n              \"text\": {\r\n                \"default\": \"COE Administrator\",\r\n                \"nl\": \"COE-beheerder\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Automation Engineer\",\r\n              \"text\": {\r\n                \"default\": \"Automation Engineer\",\r\n                \"nl\": \"Automatiseringsingenieur\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Business User\",\r\n              \"text\": {\r\n                \"default\": \"Business User\",\r\n                \"nl\": \"Zakelijke gebruiker\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Other\",\r\n              \"text\": {\r\n                \"default\": \"Other\",\r\n                \"nl\": \"Ander\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-role-other\",\r\n          \"title\": {\r\n            \"default\": \"You role\",\r\n            \"nl\": \"Jouw rol\"\r\n          },\r\n          \"visibleIf\": \"{optional-role} = 'Other'\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-contact\",\r\n          \"title\": {\r\n            \"default\": \"You contact details (optional)\",\r\n            \"nl\": \"Uw contactgegevens (optioneel)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"nl\": \"Heb je nog andere feedback gehad?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"nl\": \"Nu uw feedback verzenden?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"nl\": \"Status: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 

@@ -44,6 +44,13 @@
               }
             },
             {
+              "value": "The ability to run a flow",
+              "text": {
+                "default": "The ability to run a flow",
+                "th": "ความสามารถในการเรียกใช้โฟลว์"
+              }
+            },
+            {
               "value": "See the results of runs",
               "text": {
                 "default": "See the results of runs",
@@ -68,13 +75,6 @@
               "text": {
                 "default": "The ability to filter by status (Success, Fail, Scheduled)",
                 "th": "ความสามารถในการกรองตามสถานะ (สําเร็จล้มเหลวกําหนดเวลา)"
-              }
-            },
-            {
-              "value": "The ability to filter by flow name",
-              "text": {
-                "default": "The ability to filter by flow name",
-                "th": "ความสามารถในการกรองตามชื่อโฟลว์"
               }
             },
             {
@@ -130,6 +130,89 @@
             "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap",
             "th": "เราหวังว่าจะได้รับความคิดเห็นของคุณ ในฐานะทีม Automation Kit หลัก เราใช้ข้อเสนอแนะเพื่อปรับปรุงคําแนะนําและแผนงานของเรา"
           }
+        },
+        {
+          "type": "text",
+          "name": "optional-name",
+          "title": {
+            "default": "You name (optional)",
+            "th": "ชื่อคุณ (ไม่บังคับ)"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "text",
+          "name": "optional-name",
+          "title": {
+            "default": "You name (optional)",
+            "th": "ชื่อคุณ (ไม่บังคับ)"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "text",
+          "name": "optional-organization",
+          "title": {
+            "default": "You organization (optional)",
+            "th": "องค์กรของคุณ (ไม่บังคับ)"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "dropdown",
+          "name": "optional-role",
+          "title": {
+            "default": "Role (optional)",
+            "th": "บทบาท (ไม่บังคับ)"
+          },
+          "choices": [
+            {
+              "value": "COE Administrator",
+              "text": {
+                "default": "COE Administrator",
+                "th": "ผู้ดูแลระบบ COE"
+              }
+            },
+            {
+              "value": "Automation Engineer",
+              "text": {
+                "default": "Automation Engineer",
+                "th": "วิศวกรระบบอัตโนมัติ"
+              }
+            },
+            {
+              "value": "Business User",
+              "text": {
+                "default": "Business User",
+                "th": "ผู้ใช้ทางธุรกิจ"
+              }
+            },
+            {
+              "value": "Other",
+              "text": {
+                "default": "Other",
+                "th": "อื่น"
+              }
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "name": "optional-role-other",
+          "title": {
+            "default": "You role",
+            "th": "บทบาทคุณ"
+          },
+          "visibleIf": "{optional-role} = 'Other'"
+        },
+        {
+          "type": "text",
+          "name": "optional-contact",
+          "title": {
+            "default": "You contact details (optional)",
+            "th": "รายละเอียดการติดต่อคุณ (ไม่บังคับ)"
+          },
+          "visibleIf": "{send-results} = true"
         },
         {
           "type": "comment",

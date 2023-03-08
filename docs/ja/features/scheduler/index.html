@@ -62,8 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#紹介">紹介</a></li>
-    <li><a href="#実行フロー">実行フロー</a>
+    <li><a href="#クラウドフロー">クラウドフロー</a></li>
+    <li><a href="#カレンダービュー">カレンダービュー</a></li>
+    <li><a href="#日週月のビュー">日、週、月のビュー</a>
       <ul>
+        <li><a href="#計画">計画</a></li>
+      </ul>
+    </li>
+    <li><a href="#今すぐ実行">今すぐ実行</a>
+      <ul>
+        <li><a href="#計画変更">計画変更</a></li>
         <li><a href="#スケジュールされたフローの読み取り専用動作">スケジュールされたフローの読み取り専用動作</a></li>
       </ul>
     </li>
@@ -109,7 +117,65 @@
 -スケジュールされたフローの状態を表示する (成功、失敗、またはスケジュール済み)
 -クラウド・フローの実行時間の表示
 -エラーの詳細を表示します。</p>
-<h2 id="実行フロー">実行フロー</h2>
+<h2 id="クラウドフロー">クラウドフロー</h2>
+<p>前述のように、ソリューションの一部として含まれるクラウド フローのみ。最近の<a href="https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/">https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/</a>クラウド フローがソリューションに含まれるようにするために、「既定の Dataverse ソリューション」の新しいプレビューを使用する方法に関する情報が含まれています。この機能を使用すると、ユーザーは、作成されたスケジュールされたクラウド フローがスケジューラに表示されるようにすることができます。</p>
+<h2 id="カレンダービュー">カレンダービュー</h2>
+<h2 id="日週月のビュー">日、週、月のビュー</h2>
+<p>日、週、月のビューには、実行された、または実行がスケジュールされているDesktop Cloudフローの実行に関する情報が表示されます。</p>
+<p>アイテムは次のように色分けされています。</p>
+<p>-緑は実行が成功したことを示します</p>
+<p>-赤は実行の失敗を示します</p>
+<p>-青は、スケジュールされた将来の実行を示します。</p>
+<p>ステータスと実行情報は、イベントを長押しするか、マウスをホバーすることで確認できます。</p>
+<h3 id="計画">計画</h3>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="スケジューラ - 今すぐ実行">
+
+    </center>
+</div>
+
+<p>スケジュール ビューには、現在の時刻からの時間に基づく一連のクラウド フローと、今後数日間の将来のスケジュールされたフローが含まれます。</p>
+<h2 id="今すぐ実行">今すぐ実行</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="スケジューラ - 今すぐ実行">
+
+    </center>
+</div>
+
+<p>現在のバージョンの [今すぐ実行] では、Power Automate デスクトップが実行されます。デスクトップ フローの実行に必要なパラメーターがないことを前提としています。追加の実行情報は、デスクトップの最終実行情報で確認できます。</p>
+<h3 id="計画変更">計画変更</h3>
+<p>今後のリリースでは、次の機能が新機能として検討されます。</p>
+<p>1.デスクトップ フローではなくクラウド フローを実行します。これには、クラウド フローの実行履歴と実行、デスクトップ フローに渡される追加のクラウド フロー アクションとパラメーターが含まれます。</p>
+<p>2.Power Automate デスクトップを異なるステータスで実行します。</p>
+<p>3.デスクトップとクラウドのフロー実行ページを開きます。</p>
 <h3 id="スケジュールされたフローの読み取り専用動作">スケジュールされたフローの読み取り専用動作</h3>
 <p>既定では、フローが将来の実行にスケジュールされると、フローは読み取り専用モードに設定され、すぐに実行できないように無効になります。つまり、ユーザーは、スケジュールされた日時が経過するまでフローを変更または実行できません。この動作は、ユーザー エクスペリエンスを向上させ、フローが実行される前に誤って実行されるのを防ぐように設計されています。
 このアプローチには、次のようないくつかの利点があります。</p>
@@ -130,6 +196,7 @@
 <h4 id="解決">解決</h4>
 <p>この問題を解決するには、次の手順を実行します。</p>
 <p>-接続参照を確認する: コードまたは構成で提供されている接続参照を確認し、有効で正しいことを確認します。</p>
+<p>-既存の接続を削除して再作成する: フローチェッカーが接続参照が使用されていないことを警告する場合は、フローチェッカーを使用して既存の接続を削除します。コンピュータまたはコンピュータ グループへの接続参照を再作成します。</p>
 <h2 id="筆記">筆記</h2>
 <p>現在のリリースでは、次の注意事項が適用されます。</p>
 <p>1.ソリューションに含まれる Power Automate デスクトップ ソリューションと Power Automate ソリューションのみが表示されます。
@@ -160,7 +227,7 @@
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"ja\": \"スケジューラ機能に関連するのに最も役立つのは次のうちどれですか?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"ja\": \"日ごとにスケジュールを表示する機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"ja\": \"週ごとにスケジュールを表示する機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"ja\": \"月ごとにスケジュールを表示する機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"ja\": \"実行結果を確認する\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"ja\": \"スケジューラ機能にどのような新機能を追加しますか?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"ja\": \"ステータス(成功、失敗、スケジュール)でフィルタリングする機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by flow name\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by flow name\",\r\n                \"ja\": \"フロー名でフィルタリングする機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"ja\": \"マシン/マシングループでフィルタリングする機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"ja\": \"失敗した実行のアラートを定義する\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"ja\": \"フロー実行の再開/停止\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"ja\": \"フロー実行間の依存関係の定義\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"ja\": \"実行結果を確認する\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"ja\": \"スケジューラに関するフィードバックを送信しますか?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"ja\": \"皆様からのフィードバックをお待ちしております。オートメーションキットのコアチームとして、フィードバックを使用してガイダンスとロードマップを改善します\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"ja\": \"他にフィードバックはありましたか?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"ja\": \"今すぐフィードバックを送信しますか?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"ja\": \"地位：\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"ja\": \"スケジューラ機能に関連するのに最も役立つのは次のうちどれですか?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"ja\": \"日ごとにスケジュールを表示する機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"ja\": \"週ごとにスケジュールを表示する機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"ja\": \"月ごとにスケジュールを表示する機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to run a flow\",\r\n              \"text\": {\r\n                \"default\": \"The ability to run a flow\",\r\n                \"ja\": \"フローを実行する機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"ja\": \"実行結果を確認する\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"ja\": \"スケジューラ機能にどのような新機能を追加しますか?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"ja\": \"ステータス(成功、失敗、スケジュール)でフィルタリングする機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"ja\": \"マシン/マシングループでフィルタリングする機能\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"ja\": \"失敗した実行のアラートを定義する\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"ja\": \"フロー実行の再開/停止\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"ja\": \"フロー実行間の依存関係の定義\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"ja\": \"実行結果を確認する\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"ja\": \"スケジューラに関するフィードバックを送信しますか?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"ja\": \"皆様からのフィードバックをお待ちしております。オートメーションキットのコアチームとして、フィードバックを使用してガイダンスとロードマップを改善します\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"ja\": \"あなたの名前(オプション)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"ja\": \"あなたの名前(オプション)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-organization\",\r\n          \"title\": {\r\n            \"default\": \"You organization (optional)\",\r\n            \"ja\": \"組織 (オプション)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"dropdown\",\r\n          \"name\": \"optional-role\",\r\n          \"title\": {\r\n            \"default\": \"Role (optional)\",\r\n            \"ja\": \"ロール (オプション)\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"COE Administrator\",\r\n              \"text\": {\r\n                \"default\": \"COE Administrator\",\r\n                \"ja\": \"COE 管理者\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Automation Engineer\",\r\n              \"text\": {\r\n                \"default\": \"Automation Engineer\",\r\n                \"ja\": \"オートメーションエンジニア\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Business User\",\r\n              \"text\": {\r\n                \"default\": \"Business User\",\r\n                \"ja\": \"ビジネスユーザー\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Other\",\r\n              \"text\": {\r\n                \"default\": \"Other\",\r\n                \"ja\": \"他\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-role-other\",\r\n          \"title\": {\r\n            \"default\": \"You role\",\r\n            \"ja\": \"あなたの役割\"\r\n          },\r\n          \"visibleIf\": \"{optional-role} = 'Other'\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-contact\",\r\n          \"title\": {\r\n            \"default\": \"You contact details (optional)\",\r\n            \"ja\": \"連絡先の詳細(オプション)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"ja\": \"他にフィードバックはありましたか?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"ja\": \"今すぐフィードバックを送信しますか?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"ja\": \"地位：\"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 

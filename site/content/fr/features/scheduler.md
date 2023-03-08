@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ Les principales caractéristiques du planificateur sont les suivantes :
 - Afficher la durée d’une exécution de Cloud Flow
 - Affichez les détails des erreurs.
 
-## Flux d’exécution
+## Flux de nuages
+
+Comme indiqué ci-dessus, seuls les flux de nuages inclus dans une solution. Le récent [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) inclut des informations sur l’utilisation de la nouvelle version préliminaire des « solutions Dataverse par défaut » pour garantir que les flux cloud sont inclus dans les solutions. L’utilisation de cette fonctionnalité peut aider les utilisateurs à s’assurer que les flux cloud planifiés créés sont visibles dans le planificateur.
+
+## Affichages du calendrier
+
+## Vues jour, semaine, mois
+
+Les vues jour, semaine, mois affichent des informations sur les exécutions de flux Desktop Cloud qui ont été exécutées ou planifiées.
+
+Les articles sont codés par couleur comme suit :
+
+- Le vert indique une exécution réussie
+
+- Le rouge indique l’échec de l’exécution
+
+- Le bleu indique une exécution future planifiée.
+
+Les informations d’état et d’exécution sont disponibles avec une longue souris tactile ou survolée sur l’événement.
+
+### Horaire
+
+{{<border>}}
+![Planificateur - Exécuter maintenant](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+La vue de planification inclut un ensemble de flux de nuages basés sur l’heure actuelle et les flux planifiés futurs au cours des prochains jours.
+
+## Exécuter maintenant
+
+{{<border>}}
+![Planificateur - Exécuter maintenant](/images/scheduler-run-now.png)
+{{</border>}}
+
+La version actuelle de l’Exécuter maintenant exécute le bureau Power Automate. Il est supposé qu’aucun paramètre n’est requis pour exécuter le flux de bureau. Les informations d’exécution supplémentaires sont disponibles dans les informations de dernière exécution du bureau.
+
+### Changements prévus
+
+Dans les versions futures, les éléments suivants sont considérés comme de nouvelles fonctionnalités :
+
+1. Exécutez le flux cloud plutôt que le flux de bureau. Cela inclura ensuite l’historique d’exécution du flux cloud et l’exécution de toutes les actions et paramètres de flux cloud supplémentaires transmis au flux de bureau.
+
+2. Exécutez Power Automate Desktop avec un état différent.
+
+3. Ouvrez les pages d’exécution Desktop et Cloud Flow.
 
 ### Comportement en lecture seule des flux planifiés
 
@@ -71,6 +115,8 @@ Il existe plusieurs causes potentielles de ce message d’erreur, notamment :
 Pour résoudre ce problème, vous pouvez suivre les étapes suivantes :
 
 - Vérifier la référence de connexion : vérifiez la référence de connexion fournie dans le code ou la configuration et assurez-vous qu’elle est valide et correcte.
+
+- Supprimer les connexions existantes et recréer : si le vérificateur de flux avertit qu’une référence de connexion n’est pas utilisée, utilisez le vérificateur de flux pour supprimer la connexion existante. Recréez la référence de connexion à la machine ou au groupe de machines.
 
 ## Notes
 

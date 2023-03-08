@@ -62,8 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#소개">소개</a></li>
-    <li><a href="#흐름-실행">흐름 실행</a>
+    <li><a href="#클라우드-흐름">클라우드 흐름</a></li>
+    <li><a href="#달력-보기">달력 보기</a></li>
+    <li><a href="#일-주-월-보기">일, 주, 월 보기</a>
       <ul>
+        <li><a href="#일정">일정</a></li>
+      </ul>
+    </li>
+    <li><a href="#지금-실행">지금 실행</a>
+      <ul>
+        <li><a href="#계획된-변경-사항">계획된 변경 사항</a></li>
         <li><a href="#예약된-흐름의-읽기-전용-동작">예약된 흐름의 읽기 전용 동작</a></li>
       </ul>
     </li>
@@ -111,7 +119,81 @@
 <li>클라우드 흐름 실행 기간 보기</li>
 <li>오류의 세부 정보를 봅니다.</li>
 </ul>
-<h2 id="흐름-실행">흐름 실행</h2>
+<h2 id="클라우드-흐름">클라우드 흐름</h2>
+<p>위에서 언급했듯이 솔루션의 일부로 포함된 클라우드 흐름만 있습니다. 최근 <a href="https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/">https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/</a> 에는 &ldquo;기본적으로 Dataverse 솔루션&quot;의 새 미리 보기를 사용하여 클라우드 흐름이 솔루션에 포함되도록 하는 방법에 대한 정보가 포함되어 있습니다. 이 기능을 사용하면 사용자가 생성된 예약된 클라우드 흐름이 스케줄러에 표시되도록 하는 데 도움이 될 수 있습니다.</p>
+<h2 id="달력-보기">달력 보기</h2>
+<h2 id="일-주-월-보기">일, 주, 월 보기</h2>
+<p>일, 주, 월 보기에는 실행되었거나 실행되도록 예약된 Desktop Cloud 흐름 실행에 대한 정보가 표시됩니다.</p>
+<p>항목은 다음과 같이 색상으로 구분됩니다.</p>
+<ul>
+<li>
+<p>녹색은 성공적인 실행을 나타냅니다.</p>
+</li>
+<li>
+<p>빨간색은 실행 실패를 나타냅니다.</p>
+</li>
+<li>
+<p>파란색은 예정된 향후 실행을 나타냅니다.</p>
+</li>
+</ul>
+<p>상태 및 실행 정보는 이벤트를 길게 터치하거나 마우스로 가리키는 방법으로 사용할 수 있습니다.</p>
+<h3 id="일정">일정</h3>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="스케줄러 - 지금 실행">
+
+    </center>
+</div>
+
+<p>일정 보기에는 현재 시간의 시간과 다음 날의 향후 예약된 흐름을 기반으로 하는 클라우드 흐름 집합이 포함됩니다.</p>
+<h2 id="지금-실행">지금 실행</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="스케줄러 - 지금 실행">
+
+    </center>
+</div>
+
+<p>지금 실행의 현재 버전은 Power Automate 데스크톱을 실행합니다. 여기서는 데스크톱 흐름을 실행하는 데 필요한 매개 변수가 없다고 가정합니다. 추가 실행 정보는 Desktop 마지막 실행 정보에서 사용할 수 있습니다.</p>
+<h3 id="계획된-변경-사항">계획된 변경 사항</h3>
+<p>향후 릴리스에서는 다음이 새로운 기능으로 고려되고 있습니다.</p>
+<ol>
+<li>
+<p>데스크톱 흐름이 아닌 클라우드 흐름을 실행합니다. 그런 다음 클라우드 흐름 실행 기록과 데스크톱 흐름에 전달되는 추가 클라우드 흐름 작업 및 매개 변수 실행이 포함됩니다.</p>
+</li>
+<li>
+<p>다른 상태의 파워 오토메이트 데스크톱을 실행합니다.</p>
+</li>
+<li>
+<p>데스크톱 및 클라우드 흐름 실행 페이지를 엽니다.</p>
+</li>
+</ol>
 <h3 id="예약된-흐름의-읽기-전용-동작">예약된 흐름의 읽기 전용 동작</h3>
 <p>기본적으로 흐름이 향후 실행되도록 예약되면 읽기 전용 모드로 설정되고 즉시 실행할 수 없습니다. 즉, 사용자는 예약된 날짜 및 시간이 지날 때까지 흐름을 수정하거나 실행할 수 없습니다. 이 동작은 더 나은 사용자 환경을 제공하고 흐름이 실행되기 전에 실수로 실행되는 것을 방지하도록 설계되었습니다.
 이 접근 방식에는 다음과 같은 몇 가지 이점이 있습니다.</p>
@@ -150,7 +232,12 @@
 <h4 id="해상도">해상도</h4>
 <p>이 문제를 해결하려면 다음 단계를 수행할 수 있습니다.</p>
 <ul>
-<li>연결 참조 확인: 코드 또는 구성에 제공된 연결 참조를 확인하고 유효하고 올바른지 확인합니다.</li>
+<li>
+<p>연결 참조 확인: 코드 또는 구성에 제공된 연결 참조를 확인하고 유효하고 올바른지 확인합니다.</p>
+</li>
+<li>
+<p>기존 연결을 삭제하고 다시 만들기: 흐름 검사기에서 연결 참조가 사용되지 않는다고 경고하는 경우 흐름 검사기를 사용하여 기존 연결을 삭제합니다. 컴퓨터 또는 컴퓨터 그룹에 대한 연결 참조를 다시 만듭니다.</p>
+</li>
 </ul>
 <h2 id="노트">노트</h2>
 <p>현재 릴리스의 경우 다음 참고 사항이 적용됩니다.</p>
@@ -186,7 +273,7 @@
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"ko\": \"다음 중 스케줄러 기능과 관련하여 가장 유용한 것은 무엇입니까?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"ko\": \"일별 일정을 볼 수있는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"ko\": \"주별로 일정을 볼 수있는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"ko\": \"월별로 일정을 볼 수있는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"ko\": \"실행 결과 보기\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"ko\": \"스케줄러 기능에 어떤 새로운 기능을 추가하시겠습니까?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"ko\": \"상태(성공, 실패, 예약)별로 필터링하는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by flow name\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by flow name\",\r\n                \"ko\": \"흐름 이름으로 필터링하는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"ko\": \"기계 / 기계 그룹별로 필터링하는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"ko\": \"실패한 실행에 대한 경고 정의\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"ko\": \"흐름 실행 다시 시작/중지\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"ko\": \"흐름 실행 간의 종속성 정의\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"ko\": \"실행 결과 보기\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"ko\": \"스케줄러에 대한 피드백을 보내시겠습니까?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"ko\": \"여러분의 피드백을 기다리겠습니다. 핵심 자동화 키트 팀으로서 우리는 피드백을 사용하여 지침과 로드맵을 개선합니다.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"ko\": \"다른 피드백이 있었나요?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"ko\": \"지금 피드백을 보내시겠습니까?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"ko\": \"상태: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"ko\": \"다음 중 스케줄러 기능과 관련하여 가장 유용한 것은 무엇입니까?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"ko\": \"일별 일정을 볼 수있는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"ko\": \"주별로 일정을 볼 수있는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"ko\": \"월별로 일정을 볼 수있는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to run a flow\",\r\n              \"text\": {\r\n                \"default\": \"The ability to run a flow\",\r\n                \"ko\": \"흐름을 실행하는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"ko\": \"실행 결과 보기\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"ko\": \"스케줄러 기능에 어떤 새로운 기능을 추가하시겠습니까?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"ko\": \"상태(성공, 실패, 예약)별로 필터링하는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"ko\": \"기계 / 기계 그룹별로 필터링하는 기능\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"ko\": \"실패한 실행에 대한 경고 정의\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"ko\": \"흐름 실행 다시 시작/중지\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"ko\": \"흐름 실행 간의 종속성 정의\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"ko\": \"실행 결과 보기\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"ko\": \"스케줄러에 대한 피드백을 보내시겠습니까?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"ko\": \"여러분의 피드백을 기다리겠습니다. 핵심 자동화 키트 팀으로서 우리는 피드백을 사용하여 지침과 로드맵을 개선합니다.\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"ko\": \"사용자 이름 (선택 사항)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"ko\": \"사용자 이름 (선택 사항)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-organization\",\r\n          \"title\": {\r\n            \"default\": \"You organization (optional)\",\r\n            \"ko\": \"사용자 조직(선택 사항)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"dropdown\",\r\n          \"name\": \"optional-role\",\r\n          \"title\": {\r\n            \"default\": \"Role (optional)\",\r\n            \"ko\": \"역할(선택 사항)\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"COE Administrator\",\r\n              \"text\": {\r\n                \"default\": \"COE Administrator\",\r\n                \"ko\": \"COE 관리자\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Automation Engineer\",\r\n              \"text\": {\r\n                \"default\": \"Automation Engineer\",\r\n                \"ko\": \"자동화 엔지니어\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Business User\",\r\n              \"text\": {\r\n                \"default\": \"Business User\",\r\n                \"ko\": \"비즈니스 사용자\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Other\",\r\n              \"text\": {\r\n                \"default\": \"Other\",\r\n                \"ko\": \"다른\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-role-other\",\r\n          \"title\": {\r\n            \"default\": \"You role\",\r\n            \"ko\": \"당신의 역할\"\r\n          },\r\n          \"visibleIf\": \"{optional-role} = 'Other'\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-contact\",\r\n          \"title\": {\r\n            \"default\": \"You contact details (optional)\",\r\n            \"ko\": \"연락처 세부 정보(선택 사항)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"ko\": \"다른 피드백이 있었나요?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"ko\": \"지금 피드백을 보내시겠습니까?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"ko\": \"상태: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 

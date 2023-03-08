@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ De viktigaste funktionerna i schemaläggaren är:
 - Visa varaktigheten för en Cloud Flow-körning
 - Visa information om eventuella fel.
 
-## Kör flöde
+## Molnflöden
+
+Som nämnts ovan endast molnflöden som ingår som en del av en lösning. Den senaste [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) innehåller information om hur du använder den nya förhandsversionen av "Dataverse-lösningar som standard" för att säkerställa att molnflöden ingår i lösningar. Med den här funktionen kan användarna se till att de schemalagda molnflöden som skapas visas i schemaläggaren.
+
+## Kalendervyer
+
+## Dag, vecka, månad visningar
+
+Dag-, vecko- och månadsvyerna visar information om Desktop Cloud-flödeskörningar som har körts eller är schemalagda att köras.
+
+Objekten är färgkodade enligt följande:
+
+- Grönt indikerar lyckad körning
+
+- Rött indikerar misslyckad körning
+
+- Blå indikerar en schemalagd framtida körning.
+
+Status- och körningsinformationen är tillgänglig med lång tryckning eller muspekare på händelsen.
+
+### Schema
+
+{{<border>}}
+![Schemaläggare - Kör nu](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+Schemavyn innehåller en uppsättning molnflöden baserat på tid från den aktuella tiden och framtida schemalagda flöden under de kommande dagarna.
+
+## Kör nu
+
+{{<border>}}
+![Schemaläggare - Kör nu](/images/scheduler-run-now.png)
+{{</border>}}
+
+Den aktuella versionen av Kör nu kör Power Automate desktop. Det förutsätter att det inte krävs några parametrar för att köra datorflödet. Den ytterligare körningsinformationen finns i skrivbordsinformationen för senaste körning.
+
+### Planerade förändringar
+
+I framtida versioner betraktas följande som nya funktioner:
+
+1. Kör molnflödet i stället för datorflödet. Detta inkluderar sedan körningshistorik för molnflöde och körning av eventuella ytterligare molnflödesåtgärder och parametrar som skickas till datorflödet.
+
+2. Kör Power Automate Desktop med olika status.
+
+3. Öppna körningssidorna för Desktop och Cloud flow.
 
 ### Skrivskyddat beteende för schemalagda flöden
 
@@ -71,6 +115,8 @@ Det finns flera möjliga orsaker till det här felmeddelandet, inklusive:
 Lös problemet genom att vidta följande steg:
 
 - Verifiera anslutningsreferensen: Kontrollera anslutningsreferensen i koden eller konfigurationen och se till att den är giltig och korrekt.
+
+- Ta bort befintliga anslutningar och återskapa: Om flödeskontrollen varnar för att en anslutningsreferens inte används använder du flödeskontrollen för att ta bort befintlig anslutning. Återskapa anslutningsreferensen till gruppen Dator eller Dator.
 
 ## Anteckningar
 

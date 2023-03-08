@@ -62,8 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#indførelsen">Indførelsen</a></li>
-    <li><a href="#kør-flow">Kør flow</a>
+    <li><a href="#cloud-flow">Cloud-flow</a></li>
+    <li><a href="#kalendervisninger">Kalendervisninger</a></li>
+    <li><a href="#dag-uge-måned-visninger">Dag, uge, måned visninger</a>
       <ul>
+        <li><a href="#køreplan">Køreplan</a></li>
+      </ul>
+    </li>
+    <li><a href="#kør-nu">Kør nu</a>
+      <ul>
+        <li><a href="#planlagte-ændringer">Planlagte ændringer</a></li>
         <li><a href="#skrivebeskyttet-funktionsmåde-for-planlagte-flows">Skrivebeskyttet funktionsmåde for planlagte flows</a></li>
       </ul>
     </li>
@@ -74,7 +82,7 @@
     </li>
     <li><a href="#noter">Noter</a></li>
     <li><a href="#installere">Installere</a></li>
-    <li><a href="#køreplan">Køreplan</a></li>
+    <li><a href="#køreplan-1">Køreplan</a></li>
     <li><a href="#feedback">Feedback</a></li>
   </ul>
 </nav>
@@ -111,7 +119,81 @@
 <li>Se varigheden af en Cloud Flow-kørsel</li>
 <li>Se detaljerne om eventuelle fejl.</li>
 </ul>
-<h2 id="kør-flow">Kør flow</h2>
+<h2 id="cloud-flow">Cloud-flow</h2>
+<p>Som nævnt ovenfor er det kun cloudflows, der er inkluderet som en del af en løsning. Den seneste <a href="https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/">https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/</a> indeholder oplysninger om, hvordan du bruger den nye prøveversion af &ldquo;Dataverse-løsninger som standard&rdquo; til at sikre, at cloudflows er inkluderet i løsninger. Brug af denne funktion kan hjælpe brugerne med at sikre, at de planlagte cloudflows, der oprettes, er synlige i planlæggeren.</p>
+<h2 id="kalendervisninger">Kalendervisninger</h2>
+<h2 id="dag-uge-måned-visninger">Dag, uge, måned visninger</h2>
+<p>Dag-, uge- og månedsvisningerne viser oplysninger om Desktop Cloud-flowkørsler, der er udført eller er planlagt til at blive udført.</p>
+<p>Elementer er farvekodet som følger:</p>
+<ul>
+<li>
+<p>Grøn angiver vellykket løb</p>
+</li>
+<li>
+<p>Rød angiver mislykket kørsel</p>
+</li>
+<li>
+<p>Blå angiver en planlagt fremtidig kørsel.</p>
+</li>
+</ul>
+<p>Status- og kørselsoplysningerne er tilgængelige med lang berøring eller svævemus på begivenheden.</p>
+<h3 id="køreplan">Køreplan</h3>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Planlægger - Kør nu">
+
+    </center>
+</div>
+
+<p>Tidsplanvisningen indeholder et sæt cloudflow baseret på tid fra det aktuelle tidspunkt og fremtidige planlagte flow i løbet af de næste dage.</p>
+<h2 id="kør-nu">Kør nu</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Planlægger - Kør nu">
+
+    </center>
+</div>
+
+<p>Den aktuelle version af Kør nu udfører Power Automate-skrivebordet. Det antages, at der ikke kræves nogen parametre for at udføre skrivebordsflowet. De yderligere kørselsoplysninger er tilgængelige i oplysningerne om seneste kørsel på skrivebordet.</p>
+<h3 id="planlagte-ændringer">Planlagte ændringer</h3>
+<p>I fremtidige udgivelser betragtes følgende som nye funktioner:</p>
+<ol>
+<li>
+<p>Udfør cloudflowet i stedet for skrivebordsflowet. Dette omfatter derefter historik for kørsel af cloudflow og udførelse af eventuelle yderligere cloudflowhandlinger og parametre, der overføres til skrivebordsflowet.</p>
+</li>
+<li>
+<p>Udfør Power Automate Desktop med forskellig status.</p>
+</li>
+<li>
+<p>Åbn desktop- og cloudflow-kørselssider.</p>
+</li>
+</ol>
 <h3 id="skrivebeskyttet-funktionsmåde-for-planlagte-flows">Skrivebeskyttet funktionsmåde for planlagte flows</h3>
 <p>Når et flow er planlagt til fremtidig udførelse, er det som standard indstillet til skrivebeskyttet tilstand og deaktiveret til øjeblikkelig udførelse. Det betyder, at brugerne ikke kan ændre eller udføre flowet, før den planlagte dato og det planlagte klokkeslæt er overskredet. Denne funktionsmåde er designet til at give en bedre brugeroplevelse og forhindre utilsigtet udførelse af flows, før de er beregnet til at køre.
 Der er flere fordele ved denne tilgang, herunder:</p>
@@ -150,7 +232,12 @@ Der er flere fordele ved denne tilgang, herunder:</p>
 <h4 id="opløsning">Opløsning</h4>
 <p>Du kan løse dette problem ved at udføre følgende fremgangsmåde:</p>
 <ul>
-<li>Bekræft forbindelsesreferencen: Kontroller forbindelsesreferencen i koden eller konfigurationen, og sørg for, at den er gyldig og korrekt.</li>
+<li>
+<p>Bekræft forbindelsesreferencen: Kontroller forbindelsesreferencen i koden eller konfigurationen, og sørg for, at den er gyldig og korrekt.</p>
+</li>
+<li>
+<p>Slet eksisterende forbindelser, og genskab: Hvis flowkontrollen advarer om, at der ikke bruges en forbindelsesreference, skal du bruge flowkontrollen til at slette eksisterende forbindelse. Genskabe forbindelsesreference til gruppen Maskine eller Maskine.</p>
+</li>
 </ul>
 <h2 id="noter">Noter</h2>
 <p>For den aktuelle version gælder følgende bemærkninger</p>
@@ -166,7 +253,7 @@ Der er flere fordele ved denne tilgang, herunder:</p>
 <li>Du har downloadet AutomationKit.zip-filen fra afsnittet Aktiver i det seneste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-udgivelse</a></li>
 <li>Du har importeret den nyeste AutomationKitScheduler_*_administreret.zip fil ved hjælp af. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Læs mere</a></li>
 </ol>
-<h2 id="køreplan">Køreplan</h2>
+<h2 id="køreplan-1">Køreplan</h2>
 <p>Du kan besøge vores <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub-problemer</a> for at se foreslåede nye funktioner.</p>
 <p>Du kan tilføje en ny <a href="https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Cenhancement%2Cscheduler&template=2-automation-kit-feature.yml&title=%5BAutomation+Kit+-+Feature%5D%3A+FEATURE+TITLE" target="_blank">Anmodning om planlægningsfunktion</a></p>
 <h2 id="feedback">Feedback</h2>
@@ -186,7 +273,7 @@ Der er flere fordele ved denne tilgang, herunder:</p>
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"da\": \"Hvilket af følgende er mest nyttigt for din relaterede til Scheduler-funktionalitet?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"da\": \"Muligheden for at se tidsplaner efter dag\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"da\": \"Muligheden for at se tidsplaner efter uge\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"da\": \"Muligheden for at se tidsplaner efter måned\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"da\": \"Se resultaterne af kørsler\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"da\": \"Hvilke nye funktioner vil du gerne have tilføjet til Scheduler-funktionaliteten?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"da\": \"Muligheden for at filtrere efter status (Succes, Mislykket, Planlagt)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by flow name\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by flow name\",\r\n                \"da\": \"Muligheden for at filtrere efter flownavn\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"da\": \"Evnen til at filtrere efter maskine / maskingruppe\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"da\": \"Definer beskeder for mislykkede kørsler\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"da\": \"Genstart/stop flowkørsel\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"da\": \"Definere afhængigheder mellem flowkørsler\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"da\": \"Se resultaterne af kørsler\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"da\": \"Vil du sende feedback på Scheduler?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"da\": \"Vi ser frem til at få din feedback. Som et centralt Automation Kit-team bruger vi feedbacken til at forbedre vores vejledning og køreplan\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"da\": \"Har du andre tilbagemeldinger?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"da\": \"Send din feedback nu?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"da\": \"Status: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"da\": \"Hvilket af følgende er mest nyttigt for din relaterede til Scheduler-funktionalitet?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"da\": \"Muligheden for at se tidsplaner efter dag\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"da\": \"Muligheden for at se tidsplaner efter uge\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"da\": \"Muligheden for at se tidsplaner efter måned\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to run a flow\",\r\n              \"text\": {\r\n                \"default\": \"The ability to run a flow\",\r\n                \"da\": \"Evnen til at køre et flow\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"da\": \"Se resultaterne af kørsler\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"da\": \"Hvilke nye funktioner vil du gerne have tilføjet til Scheduler-funktionaliteten?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"da\": \"Muligheden for at filtrere efter status (Succes, Mislykket, Planlagt)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"da\": \"Evnen til at filtrere efter maskine / maskingruppe\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"da\": \"Definer beskeder for mislykkede kørsler\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"da\": \"Genstart/stop flowkørsel\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"da\": \"Definere afhængigheder mellem flowkørsler\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"da\": \"Se resultaterne af kørsler\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"da\": \"Vil du sende feedback på Scheduler?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"da\": \"Vi ser frem til at få din feedback. Som et centralt Automation Kit-team bruger vi feedbacken til at forbedre vores vejledning og køreplan\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"da\": \"Dit navn (valgfrit)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"da\": \"Dit navn (valgfrit)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-organization\",\r\n          \"title\": {\r\n            \"default\": \"You organization (optional)\",\r\n            \"da\": \"Din organisation (valgfrit)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"dropdown\",\r\n          \"name\": \"optional-role\",\r\n          \"title\": {\r\n            \"default\": \"Role (optional)\",\r\n            \"da\": \"Rolle (valgfrit)\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"COE Administrator\",\r\n              \"text\": {\r\n                \"default\": \"COE Administrator\",\r\n                \"da\": \"COE-administrator\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Automation Engineer\",\r\n              \"text\": {\r\n                \"default\": \"Automation Engineer\",\r\n                \"da\": \"Ingeniør til automatisering\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Business User\",\r\n              \"text\": {\r\n                \"default\": \"Business User\",\r\n                \"da\": \"Erhvervsbruger\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Other\",\r\n              \"text\": {\r\n                \"default\": \"Other\",\r\n                \"da\": \"Andet__________\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-role-other\",\r\n          \"title\": {\r\n            \"default\": \"You role\",\r\n            \"da\": \"Din rolle\"\r\n          },\r\n          \"visibleIf\": \"{optional-role} = 'Other'\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-contact\",\r\n          \"title\": {\r\n            \"default\": \"You contact details (optional)\",\r\n            \"da\": \"Dine kontaktoplysninger (valgfrit)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"da\": \"Har du andre tilbagemeldinger?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"da\": \"Send din feedback nu?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"da\": \"Status: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 

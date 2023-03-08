@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
 -查看云端流运行的持续时间
 -查看任何错误的详细信息。
 
-## 运行流
+## 云端流
+
+如上所述，仅作为解决方案的一部分包含的云端流。最近的[https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/)包括有关如何使用“默认情况下的 Dataverse 解决方案”的新预览版来帮助确保解决方案中包含云端流的信息。使用此功能可以帮助用户确保创建的计划云端流在计划程序中可见。
+
+## 日历视图
+
+## 日、周、月视图
+
+日、周、月视图显示有关已执行或计划执行的桌面云流运行的信息。
+
+项目的颜色编码如下：
+
+-绿色表示运行成功
+
+-红色表示运行失败
+
+-蓝色表示计划的未来运行。
+
+在事件上长按或悬停鼠标即可获得状态和运行信息。
+
+### 附表
+
+{{<border>}}
+![调度程序 - 立即运行](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+计划视图包括一组基于当前时间和未来几天计划流的云端流。
+
+## 立即运行
+
+{{<border>}}
+![调度程序 - 立即运行](/images/scheduler-run-now.png)
+{{</border>}}
+
+当前版本的“立即运行”将执行 Power Automate 桌面。假定执行桌面流不需要任何参数。桌面上次运行信息中提供了其他运行信息。
+
+### 计划变更
+
+在将来的版本中，以下功能将被视为新功能：
+
+1.执行云端流而不是桌面流。然后，这将包括云端流运行历史记录，并执行传递给桌面流的任何其他云端流操作和参数。
+
+2.以不同的状态执行电源自动化桌面。
+
+3.打开桌面和云端流运行页面。
 
 ### 计划流的只读行为
 
@@ -71,6 +115,8 @@ generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
 要解决此问题，您可以执行以下步骤：
 
 -验证连接引用：检查代码或配置中提供的连接引用，并确保其有效且正确。
+
+-删除现有连接并重新创建：如果流检查器警告未使用连接引用，请使用流检查器删除现有连接。重新创建对计算机或计算机组的连接引用。
 
 ## 笔记
 

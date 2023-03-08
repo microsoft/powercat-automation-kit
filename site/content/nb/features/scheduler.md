@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ De viktigste funksjonene i planleggeren er:
 - Vise varigheten av en Cloud Flow-kjøring
 - Vis detaljer om eventuelle feil.
 
-## Kjør flyt
+## Skyflyter
+
+Som nevnt ovenfor er det bare skyflyter som er inkludert som en del av en løsning. Den siste [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) inneholder informasjon om hvordan du bruker den nye forhåndsvisningen av Dataverse-løsninger som standard for å sikre at skyflyter inkluderes i løsninger. Bruk av denne funksjonen kan hjelpe brukere med å sikre at de planlagte skyflytene som opprettes, er synlige i planleggeren.
+
+## Kalender-visninger
+
+## Visninger for dag, uke, måned
+
+Dag-, ukes- og månedsvisningene viser informasjon om Desktop Cloud-flytkjøringer som har kjørt eller er planlagt utført.
+
+Elementene er fargekodet som følger:
+
+- Grønt indikerer vellykket kjøring
+
+- Rødt indikerer mislykket kjøring
+
+- Blå indikerer en planlagt fremtidig kjøring.
+
+Status- og kjøreinformasjonen er tilgjengelig med lang berøring eller pekerfølsomme mus på arrangementet.
+
+### Timeplan
+
+{{<border>}}
+![Planlegger - Kjør nå](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+Tidsplanvisningen inneholder et sett med skyflyter basert på tid fra gjeldende klokkeslett og fremtidige planlagte flyter i løpet av de neste dagene.
+
+## Kjør nå
+
+{{<border>}}
+![Planlegger - Kjør nå](/images/scheduler-run-now.png)
+{{</border>}}
+
+Den gjeldende versjonen av Kjør nå kjører Power Automate-skrivebordet. Det antas at det ikke er noen parametere som kreves for å utføre skrivebordsflyten. Den ekstra kjøreinformasjonen er tilgjengelig i informasjonen om siste kjøring på skrivebordet.
+
+### Planlagte endringer
+
+I fremtidige utgivelser vurderes følgende som nye funksjoner:
+
+1. Utfør skyflyten i stedet for skrivebordsflyten. Dette inkluderer deretter kjøreloggen for skyflyten og kjøring av eventuelle ekstra skyflythandlinger og parametere som sendes til skrivebordsflyten.
+
+2. Utfør Power Automate Desktop med forskjellig status.
+
+3. Åpne sider for skrivebords- og skyflytkjøring.
 
 ### Skrivebeskyttet virkemåte for planlagte flyter
 
@@ -71,6 +115,8 @@ Det finnes flere mulige årsaker til denne feilmeldingen, inkludert:
 Hvis du vil løse dette problemet, kan du gjøre følgende:
 
 - Kontroller tilkoblingsreferansen: Kontroller tilkoblingsreferansen som er angitt i koden eller konfigurasjonen, og kontroller at den er gyldig og riktig.
+
+- Slett eksisterende tilkoblinger og opprett på nytt: Hvis flytkontrollen advarer om at en tilkoblingsreferanse ikke brukes, bruker du flytkontrollen til å slette eksisterende tilkobling. Opprett tilkoblingsreferansen til gruppen Maskin eller Maskin på nytt.
 
 ## Notater
 

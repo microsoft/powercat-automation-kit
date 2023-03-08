@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ Le caratteristiche principali dello scheduler sono:
 - Visualizzare la durata di un'esecuzione di Cloud Flow
 - Visualizzare i dettagli di eventuali errori.
 
-## Esegui flusso
+## Flussi di cloud
+
+Come indicato in precedenza, solo i flussi cloud inclusi come parte di una soluzione. Il recente [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) include informazioni su come usare la nuova anteprima di "Soluzioni Common Data Service per impostazione predefinita" per garantire che i flussi cloud siano inclusi nelle soluzioni. L'utilizzo di questa funzionalità può aiutare gli utenti a garantire che i flussi cloud pianificati creati siano visibili nell'utilità di pianificazione.
+
+## Visualizzazioni calendario
+
+## Visualizzazioni giornaliere, settimanali, mensili
+
+Le visualizzazioni giornaliere, settimanali e mensili visualizzano informazioni sulle esecuzioni del flusso Desktop Cloud che sono state eseguite o pianificate per essere eseguite.
+
+Gli articoli sono codificati a colori come segue:
+
+- Il verde indica che l'esecuzione è riuscita
+
+- Il rosso indica l'esecuzione non riuscita
+
+- Il blu indica un'esecuzione futura pianificata.
+
+Le informazioni sullo stato e sull'esecuzione sono disponibili con un tocco prolungato o il passaggio del mouse sull'evento.
+
+### Programma
+
+{{<border>}}
+![Utilità di pianificazione - Esegui ora](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+La visualizzazione della pianificazione include un set di flussi cloud basati sul tempo trascorso dall'ora corrente e sui flussi pianificati futuri nei giorni successivi.
+
+## Esegui ora
+
+{{<border>}}
+![Utilità di pianificazione - Esegui ora](/images/scheduler-run-now.png)
+{{</border>}}
+
+La versione corrente di Esegui ora eseguirà il desktop Power Automate. Si presuppone che non siano necessari parametri per eseguire il flusso desktop. Le informazioni aggiuntive sull'esecuzione sono disponibili nelle informazioni sull'ultima esecuzione del desktop.
+
+### Modifiche pianificate
+
+Nelle versioni future verranno prese in considerazione le seguenti nuove funzionalità:
+
+1. Eseguire il flusso cloud anziché il flusso desktop. Ciò includerà quindi la cronologia di esecuzione del flusso cloud e l'esecuzione di eventuali azioni e parametri aggiuntivi del flusso cloud passati al flusso desktop.
+
+2. Esegui Power Automate Desktop con uno stato diverso.
+
+3. Apri le pagine di esecuzione del flusso Desktop e Cloud.
 
 ### Comportamento di sola lettura dei flussi pianificati
 
@@ -71,6 +115,8 @@ Esistono diverse cause potenziali per questo messaggio di errore, tra cui:
 Per risolvere il problema, è possibile effettuare le seguenti operazioni:
 
 - Verificare il riferimento di connessione: controllare il riferimento di connessione fornito nel codice o nella configurazione e assicurarsi che sia valido e corretto.
+
+- Eliminare le connessioni esistenti e ricreare: se Verifica flusso avvisa che non viene utilizzato un riferimento di connessione, utilizzare il controllo di flusso per eliminare la connessione esistente. Ricreare il riferimento di connessione al gruppo Computer o Computer.
 
 ## Note
 

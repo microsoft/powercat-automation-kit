@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ Las características clave del programador son:
 - Ver la duración de una ejecución de Cloud Flow
 - Ver los detalles de cualquier error.
 
-## Flujo de ejecución
+## Flujos de nube
+
+Como se señaló anteriormente, solo los flujos de nube que se incluyen como parte de una solución. El reciente [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) incluye información sobre cómo usar la nueva versión preliminar de "Soluciones de Dataverse de forma predeterminada" para ayudar a garantizar que los flujos de nube se incluyan en las soluciones. El uso de esta función puede ayudar a los usuarios a garantizar que los flujos de nube programados que se crean sean visibles en el programador.
+
+## Vistas de calendario
+
+## Vistas de día, semana, mes
+
+Las vistas de día, semana y mes muestran información sobre las ejecuciones de flujo de Desktop Cloud que se han ejecutado o están programadas para ejecutarse.
+
+Los elementos están codificados por colores de la siguiente manera:
+
+- El verde indica que la ejecución se ha ejecutado correctamente
+
+- El rojo indica que se ha producido un error de ejecución
+
+- El azul indica una ejecución futura programada.
+
+La información de estado y ejecución está disponible con un toque prolongado o pasar el mouse sobre el evento.
+
+### Horario
+
+{{<border>}}
+![Programador - Ejecutar ahora](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+La vista de programación incluye un conjunto de flujos de nube basados en el tiempo de la hora actual y los flujos programados futuros en los próximos días.
+
+## Ejecutar ahora
+
+{{<border>}}
+![Programador - Ejecutar ahora](/images/scheduler-run-now.png)
+{{</border>}}
+
+La versión actual de Ejecutar ahora ejecutará el escritorio de Power Automate. Se supone que no hay parámetros necesarios para ejecutar el flujo de escritorio. La información adicional de ejecución está disponible en la información de última ejecución del escritorio.
+
+### Cambios planificados
+
+En futuras versiones, se considerarán nuevas características las siguientes:
+
+1. Ejecute el flujo de nube en lugar del flujo de escritorio. Esto incluirá el historial de ejecución del flujo de nube y la ejecución de cualquier acción y parámetros adicionales de flujo de nube que se pasen al flujo de escritorio.
+
+2. Ejecute Power Automate Desktop con un estado diferente.
+
+3. Abra las páginas de ejecución de flujo de escritorio y nube.
 
 ### Comportamiento de solo lectura de flujos programados
 
@@ -71,6 +115,8 @@ Hay varias causas potenciales para este mensaje de error, incluyendo:
 Para resolver este problema, puede realizar los pasos siguientes:
 
 - Verifique la referencia de conexión: compruebe la referencia de conexión proporcionada en el código o la configuración y asegúrese de que es válida y correcta.
+
+- Eliminar conexiones existentes y volver a crear: Si el Comprobador de flujo advierte que no se utiliza una referencia de conexión, utilice el Comprobador de flujo para eliminar la conexión existente. Vuelva a crear la referencia de conexión al equipo o al grupo de máquinas.
 
 ## Notas
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: B97833AB30777C813B3E62592D32D7E5B882ACEE
+generated: 2DF7D515E7C2AA8A19F2806A7041680579D7AD85
 ---
 
 {{<toc>}}
@@ -31,7 +31,51 @@ Kluczowe funkcje harmonogramu to:
 - Wyświetlanie czasu trwania uruchomienia usługi Cloud Flow
 - Wyświetl szczegóły wszelkich błędów.
 
-## Przebieg przepływu
+## Przepływy w chmurze
+
+Jak wspomniano powyżej, tylko przepływy chmury, które są uwzględnione jako część rozwiązania. Najnowsze [https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/](https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/) zawiera informacje o tym, jak używać nowej wersji zapoznawczej "Domyślne rozwiązania Dataverse", aby upewnić się, że przepływy w chmurze są uwzględniane w rozwiązaniach. Korzystanie z tej funkcji może pomóc użytkownikom w zapewnieniu, że zaplanowane przepływy chmury, które są tworzone, są widoczne w harmonogramie.
+
+## Widoki kalendarza
+
+## Widoki dnia, tygodnia, miesiąca
+
+Widoki dnia, tygodnia i miesiąca wyświetlają informacje o przebiegach przepływu Desktop Cloud, które zostały wykonane lub są zaplanowane do wykonania.
+
+Elementy są oznaczone kolorami w następujący sposób:
+
+- Zielony oznacza udany bieg
+
+- Czerwony oznacza nieudane uruchomienie
+
+- Kolor niebieski oznacza zaplanowany przyszły przebieg.
+
+Informacje o stanie i przebiegu są dostępne po długim dotknięciu lub najechaniu myszą na wydarzenie.
+
+### Harmonogram
+
+{{<border>}}
+![Harmonogram — Uruchom teraz](/images/scheduler-schedule-view.png)
+{{</border>}}
+
+Widok harmonogramu zawiera zestaw przepływów w chmurze opartych na czasie od bieżącego czasu i przyszłych zaplanowanych przepływach w ciągu następnych dni.
+
+## Uruchom teraz
+
+{{<border>}}
+![Harmonogram — Uruchom teraz](/images/scheduler-run-now.png)
+{{</border>}}
+
+Bieżąca wersja polecenia Uruchom teraz spowoduje wykonanie pulpitu usługi Power Automate. Zakłada się, że nie ma żadnych parametrów wymaganych do wykonania przepływu pulpitu. Dodatkowe informacje o uruchomieniu są dostępne w informacjach o ostatnim uruchomieniu pulpitu.
+
+### Planowane zmiany
+
+W przyszłych wersjach następujące funkcje będą uważane za nowe:
+
+1. Wykonuj przepływ w chmurze, a nie przepływ pulpitu. Obejmuje to następnie historię uruchamiania przepływu w chmurze i wykonanie, wszelkie dodatkowe akcje przepływu w chmurze i parametry, które są przekazywane do przepływu pulpitu.
+
+2. Uruchom program Power Automate Desktop z innym stanem.
+
+3. Otwórz strony uruchamiania przepływu pulpitu i chmury.
 
 ### Zachowanie zaplanowanych przepływów tylko do odczytu
 
@@ -71,6 +115,8 @@ Istnieje kilka potencjalnych przyczyn tego komunikatu o błędzie, w tym:
 Aby rozwiązać ten problem, można wykonać następujące czynności:
 
 - Sprawdź odwołanie do połączenia: Sprawdź odwołanie do połączenia podane w kodzie lub konfiguracji i upewnij się, że jest prawidłowe i poprawne.
+
+- Usuń istniejące połączenia i odtwórz: Jeśli narzędzie Flow Checker ostrzega, że odwołanie do połączenia nie jest używane, użyj narzędzia sprawdzania przepływu, aby usunąć istniejące połączenie. Utwórz ponownie odwołanie do połączenia z komputerem lub grupą Maszyna.
 
 ## Notatki
 

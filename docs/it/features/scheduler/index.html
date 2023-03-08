@@ -62,8 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#introduzione">Introduzione</a></li>
-    <li><a href="#esegui-flusso">Esegui flusso</a>
+    <li><a href="#flussi-di-cloud">Flussi di cloud</a></li>
+    <li><a href="#visualizzazioni-calendario">Visualizzazioni calendario</a></li>
+    <li><a href="#visualizzazioni-giornaliere-settimanali-mensili">Visualizzazioni giornaliere, settimanali, mensili</a>
       <ul>
+        <li><a href="#programma">Programma</a></li>
+      </ul>
+    </li>
+    <li><a href="#esegui-ora">Esegui ora</a>
+      <ul>
+        <li><a href="#modifiche-pianificate">Modifiche pianificate</a></li>
         <li><a href="#comportamento-di-sola-lettura-dei-flussi-pianificati">Comportamento di sola lettura dei flussi pianificati</a></li>
       </ul>
     </li>
@@ -111,7 +119,81 @@
 <li>Visualizzare la durata di un&rsquo;esecuzione di Cloud Flow</li>
 <li>Visualizzare i dettagli di eventuali errori.</li>
 </ul>
-<h2 id="esegui-flusso">Esegui flusso</h2>
+<h2 id="flussi-di-cloud">Flussi di cloud</h2>
+<p>Come indicato in precedenza, solo i flussi cloud inclusi come parte di una soluzione. Il recente <a href="https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/">https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/</a> include informazioni su come usare la nuova anteprima di &ldquo;Soluzioni Common Data Service per impostazione predefinita&rdquo; per garantire che i flussi cloud siano inclusi nelle soluzioni. L&rsquo;utilizzo di questa funzionalità può aiutare gli utenti a garantire che i flussi cloud pianificati creati siano visibili nell&rsquo;utilità di pianificazione.</p>
+<h2 id="visualizzazioni-calendario">Visualizzazioni calendario</h2>
+<h2 id="visualizzazioni-giornaliere-settimanali-mensili">Visualizzazioni giornaliere, settimanali, mensili</h2>
+<p>Le visualizzazioni giornaliere, settimanali e mensili visualizzano informazioni sulle esecuzioni del flusso Desktop Cloud che sono state eseguite o pianificate per essere eseguite.</p>
+<p>Gli articoli sono codificati a colori come segue:</p>
+<ul>
+<li>
+<p>Il verde indica che l&rsquo;esecuzione è riuscita</p>
+</li>
+<li>
+<p>Il rosso indica l&rsquo;esecuzione non riuscita</p>
+</li>
+<li>
+<p>Il blu indica un&rsquo;esecuzione futura pianificata.</p>
+</li>
+</ul>
+<p>Le informazioni sullo stato e sull&rsquo;esecuzione sono disponibili con un tocco prolungato o il passaggio del mouse sull&rsquo;evento.</p>
+<h3 id="programma">Programma</h3>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Utilità di pianificazione - Esegui ora">
+
+    </center>
+</div>
+
+<p>La visualizzazione della pianificazione include un set di flussi cloud basati sul tempo trascorso dall&rsquo;ora corrente e sui flussi pianificati futuri nei giorni successivi.</p>
+<h2 id="esegui-ora">Esegui ora</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Utilità di pianificazione - Esegui ora">
+
+    </center>
+</div>
+
+<p>La versione corrente di Esegui ora eseguirà il desktop Power Automate. Si presuppone che non siano necessari parametri per eseguire il flusso desktop. Le informazioni aggiuntive sull&rsquo;esecuzione sono disponibili nelle informazioni sull&rsquo;ultima esecuzione del desktop.</p>
+<h3 id="modifiche-pianificate">Modifiche pianificate</h3>
+<p>Nelle versioni future verranno prese in considerazione le seguenti nuove funzionalità:</p>
+<ol>
+<li>
+<p>Eseguire il flusso cloud anziché il flusso desktop. Ciò includerà quindi la cronologia di esecuzione del flusso cloud e l&rsquo;esecuzione di eventuali azioni e parametri aggiuntivi del flusso cloud passati al flusso desktop.</p>
+</li>
+<li>
+<p>Esegui Power Automate Desktop con uno stato diverso.</p>
+</li>
+<li>
+<p>Apri le pagine di esecuzione del flusso Desktop e Cloud.</p>
+</li>
+</ol>
 <h3 id="comportamento-di-sola-lettura-dei-flussi-pianificati">Comportamento di sola lettura dei flussi pianificati</h3>
 <p>Per impostazione predefinita, quando un flusso è pianificato per l&rsquo;esecuzione futura, viene impostato sulla modalità di sola lettura e disabilitato per l&rsquo;esecuzione immediata. Ciò significa che gli utenti non possono modificare o eseguire il flusso fino a quando non sono trascorsi la data e l&rsquo;ora pianificate. Questo comportamento è progettato per fornire una migliore esperienza utente e impedire l&rsquo;esecuzione accidentale dei flussi prima che siano destinati all&rsquo;esecuzione.
 Ci sono diversi vantaggi di questo approccio, tra cui:</p>
@@ -150,7 +232,12 @@ Ci sono diversi vantaggi di questo approccio, tra cui:</p>
 <h4 id="risoluzione">Risoluzione</h4>
 <p>Per risolvere il problema, è possibile effettuare le seguenti operazioni:</p>
 <ul>
-<li>Verificare il riferimento di connessione: controllare il riferimento di connessione fornito nel codice o nella configurazione e assicurarsi che sia valido e corretto.</li>
+<li>
+<p>Verificare il riferimento di connessione: controllare il riferimento di connessione fornito nel codice o nella configurazione e assicurarsi che sia valido e corretto.</p>
+</li>
+<li>
+<p>Eliminare le connessioni esistenti e ricreare: se Verifica flusso avvisa che non viene utilizzato un riferimento di connessione, utilizzare il controllo di flusso per eliminare la connessione esistente. Ricreare il riferimento di connessione al gruppo Computer o Computer.</p>
+</li>
 </ul>
 <h2 id="note">Note</h2>
 <p>Per la versione corrente si applicano le seguenti note</p>
@@ -186,7 +273,7 @@ Ci sono diversi vantaggi di questo approccio, tra cui:</p>
 <script>
     
     
-    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"it\": \"Quale delle seguenti opzioni è più utile per la funzionalità relativa all'Utilità di pianificazione?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"it\": \"La possibilità di visualizzare le pianificazioni per giorno\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"it\": \"La possibilità di visualizzare gli orari per settimana\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"it\": \"La possibilità di visualizzare le pianificazioni per mese\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"it\": \"Visualizzare i risultati delle corse\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"it\": \"Quali nuove funzionalità si desidera aggiungere alla funzionalità dell'utilità di pianificazione?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"it\": \"Possibilità di filtrare in base allo stato (Operazione riuscita, Non riuscita, Pianificata)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by flow name\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by flow name\",\r\n                \"it\": \"Possibilità di filtrare in base al nome del flusso\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"it\": \"La possibilità di filtrare per macchina / gruppo di macchine\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"it\": \"Definire gli avvisi per le esecuzioni non riuscite\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"it\": \"Riavvia / Interrompi l'esecuzione del flusso\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"it\": \"Definire le dipendenze tra le esecuzioni di flusso\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"it\": \"Visualizzare i risultati delle corse\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"it\": \"Vuoi inviare il feedback su Scheduler?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"it\": \"Non vediamo l'ora di ricevere il tuo feedback. Come team principale di Automation Kit, utilizziamo il feedback per migliorare la nostra guida e la nostra tabella di marcia\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"it\": \"Hai avuto altri feedback?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"it\": \"Invia il tuo feedback ora?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"it\": \"Stato: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
+    data = "{\r\n  \"triggers\": [\r\n    {\r\n      \"type\": \"setvalue\",\r\n      \"expression\": \"{send-results} = true\",\r\n      \"setToName\": \"code\",\r\n      \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n    }\r\n  ],\r\n  \"pages\": [\r\n    {\r\n      \"name\": \"welcome\",\r\n      \"elements\": [\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"features\",\r\n          \"title\": {\r\n            \"default\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n            \"it\": \"Quale delle seguenti opzioni è più utile per la funzionalità relativa all'Utilità di pianificazione?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to view schedules by day\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by day\",\r\n                \"it\": \"La possibilità di visualizzare le pianificazioni per giorno\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by week\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by week\",\r\n                \"it\": \"La possibilità di visualizzare gli orari per settimana\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to view schedules by month\",\r\n              \"text\": {\r\n                \"default\": \"The ability to view schedules by month\",\r\n                \"it\": \"La possibilità di visualizzare le pianificazioni per mese\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to run a flow\",\r\n              \"text\": {\r\n                \"default\": \"The ability to run a flow\",\r\n                \"it\": \"La capacità di eseguire un flusso\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"it\": \"Visualizzare i risultati delle corse\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"checkbox\",\r\n          \"name\": \"new-features\",\r\n          \"title\": {\r\n            \"default\": \"What new features would you like added to the Scheduler functionality?\",\r\n            \"it\": \"Quali nuove funzionalità si desidera aggiungere alla funzionalità dell'utilità di pianificazione?\"\r\n          },\r\n          \"isRequired\": true,\r\n          \"colCount\": 1,\r\n          \"hasOther\": true,\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                \"it\": \"Possibilità di filtrare in base allo stato (Operazione riuscita, Non riuscita, Pianificata)\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"The ability to filter by machine / machine group\",\r\n              \"text\": {\r\n                \"default\": \"The ability to filter by machine / machine group\",\r\n                \"it\": \"La possibilità di filtrare per macchina / gruppo di macchine\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define alerts for failed runs\",\r\n              \"text\": {\r\n                \"default\": \"Define alerts for failed runs\",\r\n                \"it\": \"Definire gli avvisi per le esecuzioni non riuscite\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Restart / Stop flow execution\",\r\n              \"text\": {\r\n                \"default\": \"Restart / Stop flow execution\",\r\n                \"it\": \"Riavvia / Interrompi l'esecuzione del flusso\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Define dependencies between flow runs\",\r\n              \"text\": {\r\n                \"default\": \"Define dependencies between flow runs\",\r\n                \"it\": \"Definire le dipendenze tra le esecuzioni di flusso\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"See the results of runs\",\r\n              \"text\": {\r\n                \"default\": \"See the results of runs\",\r\n                \"it\": \"Visualizzare i risultati delle corse\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"boolean\",\r\n          \"name\": \"send-results\",\r\n          \"label\": {\r\n            \"default\": \"Do you want to send the feedback on Scheduler?\",\r\n            \"it\": \"Vuoi inviare il feedback su Scheduler?\"\r\n          },\r\n          \"isRequired\": true\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results} = true\",\r\n          \"html\": {\r\n            \"default\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\",\r\n            \"it\": \"Non vediamo l'ora di ricevere il tuo feedback. Come team principale di Automation Kit, utilizziamo il feedback per migliorare la nostra guida e la nostra tabella di marcia\"\r\n          }\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"it\": \"Il tuo nome (facoltativo)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-name\",\r\n          \"title\": {\r\n            \"default\": \"You name (optional)\",\r\n            \"it\": \"Il tuo nome (facoltativo)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-organization\",\r\n          \"title\": {\r\n            \"default\": \"You organization (optional)\",\r\n            \"it\": \"La tua organizzazione (opzionale)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"dropdown\",\r\n          \"name\": \"optional-role\",\r\n          \"title\": {\r\n            \"default\": \"Role (optional)\",\r\n            \"it\": \"Ruolo (facoltativo)\"\r\n          },\r\n          \"choices\": [\r\n            {\r\n              \"value\": \"COE Administrator\",\r\n              \"text\": {\r\n                \"default\": \"COE Administrator\",\r\n                \"it\": \"Amministratore del COE\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Automation Engineer\",\r\n              \"text\": {\r\n                \"default\": \"Automation Engineer\",\r\n                \"it\": \"Ingegnere dell'automazione\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Business User\",\r\n              \"text\": {\r\n                \"default\": \"Business User\",\r\n                \"it\": \"Utente aziendale\"\r\n              }\r\n            },\r\n            {\r\n              \"value\": \"Other\",\r\n              \"text\": {\r\n                \"default\": \"Other\",\r\n                \"it\": \"Altro\"\r\n              }\r\n            }\r\n          ]\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-role-other\",\r\n          \"title\": {\r\n            \"default\": \"You role\",\r\n            \"it\": \"Il tuo ruolo\"\r\n          },\r\n          \"visibleIf\": \"{optional-role} = 'Other'\"\r\n        },\r\n        {\r\n          \"type\": \"text\",\r\n          \"name\": \"optional-contact\",\r\n          \"title\": {\r\n            \"default\": \"You contact details (optional)\",\r\n            \"it\": \"I tuoi dati di contatto (facoltativo)\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"comment\",\r\n          \"name\": \"other-feedback\",\r\n          \"title\": {\r\n            \"default\": \"Did you have any other feedback?\",\r\n            \"it\": \"Hai avuto altri feedback?\"\r\n          },\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"feedback-task\",\r\n          \"name\": \"send-results\",\r\n          \"title\": {\r\n            \"default\": \"Send your feedback now?\",\r\n            \"it\": \"Invia il tuo feedback ora?\"\r\n          },\r\n          \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n          \"visibleIf\": \"{send-results} = true\"\r\n        },\r\n        {\r\n          \"type\": \"html\",\r\n          \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n          \"html\": {\r\n            \"default\": \"Status: {send-results-status}\",\r\n            \"it\": \"Stato: \"\r\n          }\r\n        }\r\n      ]\r\n    }\r\n  ]\r\n}"
     
 </script>
 

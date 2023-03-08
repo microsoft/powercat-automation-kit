@@ -62,8 +62,16 @@
       <nav id="TableOfContents">
   <ul>
     <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#run-flow">Run Flow</a>
+    <li><a href="#cloud-flows">Cloud Flows</a></li>
+    <li><a href="#calendar-views">Calendar Views</a></li>
+    <li><a href="#day-week-month-views">Day, Week, Month Views</a>
       <ul>
+        <li><a href="#schedule">Schedule</a></li>
+      </ul>
+    </li>
+    <li><a href="#run-now">Run Now</a>
+      <ul>
+        <li><a href="#planned-changes">Planned Changes</a></li>
         <li><a href="#read-only-behavior-of-scheduled-flows">Read-only behavior of scheduled flows</a></li>
       </ul>
     </li>
@@ -111,7 +119,81 @@
 <li>View the duration of a Cloud Flow run</li>
 <li>View the details of any errors.</li>
 </ul>
-<h2 id="run-flow">Run Flow</h2>
+<h2 id="cloud-flows">Cloud Flows</h2>
+<p>As noted above only cloud flows that are included as part of a solution. The recent <a href="https://powerautomate.microsoft.com/vi-vn/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/">https://powerautomate.microsoft.com/blog/more-manageable-cloud-flows-with-dataverse-solutions-by-default/</a> includes information on how to use the new preview of &ldquo;Dataverse solutions by default&rdquo; to help ensure that cloud flows are included in solutions. Using this feature can assist users in ensuring the scheduled cloud flows that are created are visible in the scheduler.</p>
+<h2 id="calendar-views">Calendar Views</h2>
+<h2 id="day-week-month-views">Day, Week, Month Views</h2>
+<p>The day, week, month views display information on Desktop Cloud flow runs that have executed or are scheduled to be executed.</p>
+<p>Items are color coded as follows:</p>
+<ul>
+<li>
+<p>Green indicates successful run</p>
+</li>
+<li>
+<p>Red indicates failed run</p>
+</li>
+<li>
+<p>Blue indicates a scheduled future run.</p>
+</li>
+</ul>
+<p>The status and run information is available with long touch or hover mouse on the event.</p>
+<h3 id="schedule">Schedule</h3>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Scheduler - Run Now">
+
+    </center>
+</div>
+
+<p>The schedule view includes a set of cloud flows based on time from the current time and future scheduled flows over the next days.</p>
+<h2 id="run-now">Run Now</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Scheduler - Run Now">
+
+    </center>
+</div>
+
+<p>The current version of Run Now will execute the the Power Automate desktop. It is assume that there is no parameters required to execute the desktop flow. The additional run information is available in the Desktop last run information.</p>
+<h3 id="planned-changes">Planned Changes</h3>
+<p>In future releases the following is being considered as new features:</p>
+<ol>
+<li>
+<p>Execute the cloud flow rather than the desktop flow. This will then include cloud flow run history and execution any additional cloud flow actions and parameters that are passed to the desktop flow.</p>
+</li>
+<li>
+<p>Execute Power Automate Desktop with different status.</p>
+</li>
+<li>
+<p>Open Desktop and Cloud flow run pages.</p>
+</li>
+</ol>
 <h3 id="read-only-behavior-of-scheduled-flows">Read-only behavior of scheduled flows</h3>
 <p>By default, when a flow is scheduled for future execution, it is set to read-only mode and disabled for immediate execution. This means that users cannot modify or execute the flow until the scheduled date and time has passed. This behavior is designed to provide a better user experience and prevent accidental execution of flows before they are intended to run.
 There are several benefits to this approach, including:</p>
@@ -150,7 +232,12 @@ There are several benefits to this approach, including:</p>
 <h4 id="resolution">Resolution</h4>
 <p>To resolve this issue, you can take the following steps:</p>
 <ul>
-<li>Verify the connection reference: Check the connection reference provided in the code or configuration and ensure that it is valid and correct.</li>
+<li>
+<p>Verify the connection reference: Check the connection reference provided in the code or configuration and ensure that it is valid and correct.</p>
+</li>
+<li>
+<p>Delete existing connections and recreate: If the Flow Checker warns that a connection reference is not used use the flow checker to delete existing connection. Recreate connection reference to the Machine or Machine group.</p>
+</li>
 </ul>
 <h2 id="notes">Notes</h2>
 <p>For the current release the following notes apply</p>
@@ -186,7 +273,7 @@ There are several benefits to this approach, including:</p>
 <script>
     
     
-    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"features\",\r\n                    \"title\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"The ability to view schedules by day\",\r\n                        \"The ability to view schedules by week\",\r\n                        \"The ability to view schedules by month\",\r\n                        \"See the results of runs\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"new-features\",\r\n                    \"title\": \"What new features would you like added to the Scheduler functionality?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                        \"The ability to filter by flow name\",\r\n                        \"The ability to filter by machine / machine group\",\r\n                        \"Define alerts for failed runs\",\r\n                        \"Restart / Stop flow execution\",\r\n                        \"Define dependencies between flow runs\",\r\n                        \"See the results of runs\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on Scheduler?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
+    data = "{\r\n    \"triggers\": [\r\n        {\r\n            \"type\": \"setvalue\",\r\n            \"expression\": \"{send-results} = true\",\r\n            \"setToName\": \"code\",\r\n            \"setValue\": \"Feedback-AK4PP-Scheduler\"\r\n        }\r\n    ],\r\n    \"pages\": [\r\n        {\r\n            \"name\": \"welcome\",\r\n            \"elements\": [\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"features\",\r\n                    \"title\": \"Which of the following is most useful for your related to Scheduler functionality?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"The ability to view schedules by day\",\r\n                        \"The ability to view schedules by week\",\r\n                        \"The ability to view schedules by month\",\r\n                        \"The ability to run a flow\",\r\n                        \"See the results of runs\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"checkbox\",\r\n                    \"name\": \"new-features\",\r\n                    \"title\": \"What new features would you like added to the Scheduler functionality?\",\r\n                    \"isRequired\": true,\r\n                    \"colCount\": 1,\r\n                    \"hasOther\": true,\r\n                    \"choices\": [\r\n                        \"The ability to filter by status (Success, Fail, Scheduled)\",\r\n                        \"The ability to filter by machine / machine group\",\r\n                        \"Define alerts for failed runs\",\r\n                        \"Restart / Stop flow execution\",\r\n                        \"Define dependencies between flow runs\",\r\n                        \"See the results of runs\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"boolean\",\r\n                    \"name\": \"send-results\",\r\n                    \"label\": \"Do you want to send the feedback on Scheduler?\",\r\n                    \"isRequired\": true\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results} = true\",\r\n                    \"html\": \"We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our guidance and roadmap\"\r\n                },\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"name\": \"optional-name\",\r\n                    \"title\": \"You name (optional)\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"name\": \"optional-name\",\r\n                    \"title\": \"You name (optional)\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"name\": \"optional-organization\",\r\n                    \"title\": \"You organization (optional)\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"dropdown\",\r\n                    \"name\": \"optional-role\",\r\n                    \"title\": \"Role (optional)\",\r\n                    \"choices\": [\r\n                        \"COE Administrator\",\r\n                        \"Automation Engineer\",\r\n                        \"Business User\",\r\n                        \"Other\"\r\n                    ]\r\n                },\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"name\": \"optional-role-other\",\r\n                    \"title\": \"You role\",\r\n                    \"visibleIf\": \"{optional-role} = 'Other'\"\r\n                },\r\n                {\r\n                    \"type\": \"text\",\r\n                    \"name\": \"optional-contact\",\r\n                    \"title\": \"You contact details (optional)\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"comment\",\r\n                    \"name\": \"other-feedback\",\r\n                    \"title\": \"Did you have any other feedback?\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"feedback-task\",\r\n                    \"name\": \"send-results\",\r\n                    \"title\": \"Send your feedback now?\",\r\n                    \"destination\": \"https://aka.ms/ak4pp-feedback2\",\r\n                    \"visibleIf\": \"{send-results} = true\"\r\n                },\r\n                {\r\n                    \"type\": \"html\",\r\n                    \"visibleIf\": \"{send-results-status.length} \u003e 0\",\r\n                    \"html\": \"Status: {send-results-status}\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}"
     
 </script>
 
