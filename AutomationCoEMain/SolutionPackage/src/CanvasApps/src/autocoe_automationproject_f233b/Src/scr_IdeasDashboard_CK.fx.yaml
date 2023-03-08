@@ -12499,7 +12499,8 @@ scr_IdeasDashboard_CK As screen:
                         "Project Saved Successfully",
                         NotificationType.Success
                     );
-                    UpdateContext({selectedRecord: "SetSelection" & Text(Rand())});
+                    If(Len(_selectedProjectId)>0,
+                    UpdateContext({selectedRecord: "SetSelection" & Text(Rand())}));
                 );
                 
             );
