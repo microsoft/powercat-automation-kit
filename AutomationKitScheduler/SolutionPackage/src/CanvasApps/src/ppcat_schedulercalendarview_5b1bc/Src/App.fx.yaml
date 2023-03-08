@@ -1,6 +1,6 @@
 App As appinfo:
     BackEnabled: =false
-    OnStart: |-
+    OnStart: |+
         =Set(
             AppTheme,
             {
@@ -67,44 +67,6 @@ App As appinfo:
             SearchBoxThemeJson,
             JSON(SearchBoxTheme)
         );
-        ClearCollect(
-            colProcess,
-            Filter(
-                Processes,
-                Category = 'Category (Processes)'.'Modern Flow'
-            )
-        );
-        ClearCollect(
-            processClientdata,
-            AddColumns(
-                colProcess,
-                "clientData",
-                'Client Data'
-            )
-        );
         
-        ClearCollect(
-            EventStatusIdentifiers,
-            Table(
-                {
-                    key: "Succeeded",
-                    title: "Succeeded",
-                    color: "#bad80a33",
-                    iconName: "CircleFill"
-                },
-                {
-                    key: "Not Started",
-                    title: "Not Started",
-                    color: "#86c7ff",
-                    iconName: "CircleFill"
-                },
-                {
-                    key: "Failed",
-                    title: "Failed",
-                    color: "#e811231a",
-                    iconName: "CircleFill"
-                }
-            )
-        );
     StartScreen: =
 

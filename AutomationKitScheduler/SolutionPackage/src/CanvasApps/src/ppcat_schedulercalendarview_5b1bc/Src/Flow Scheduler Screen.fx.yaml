@@ -18,7 +18,29 @@
         //Set(enviornmentid,Environment());
         
         
-        
+        ClearCollect(
+            EventStatusIdentifiers,
+            Table(
+                {
+                    key: "Succeeded",
+                    title: "Succeeded",
+                    color: "#bad80a33",
+                    iconName: "CircleFill"
+                },
+                {
+                    key: "Not Started",
+                    title: "Not Started",
+                    color: "#86c7ff",
+                    iconName: "CircleFill"
+                },
+                {
+                    key: "Failed",
+                    title: "Failed",
+                    color: "#e811231a",
+                    iconName: "CircleFill"
+                }
+            )
+        );
         
 
     "Elevation1 As 'Fluent Elevation (1.0.14)'":
@@ -62,9 +84,12 @@
             "CommandBar1 As 'Fluent Command Bar (1.0.14)'.pcfdataset":
                 DisplayMode: =DisplayMode.Edit
                 Height: =35
+                ItemDisplayName: =""
                 Items: |-
                     =Table(
                            {ItemKey:"learnMore",ItemDisplayName:"Learn more",ItemIconName:"Info"})
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
                 OnSelect: |-
                     =If(Self.Selected.ItemKey="learnMore",Launch("https://microsoft.github.io/powercat-automation-kit/features/scheduler/"))
                 Theme: =AppThemeJson
@@ -73,23 +98,6 @@
                 X: =0
                 Y: =0
                 ZIndex: =1
-
-            "SearchBox1 As 'Fluent SearchBox (1.0.14) Preview'":
-                DisplayMode: =DisplayMode.Edit
-                Height: =33
-                InputEvent: |
-                    =
-                OnChange: |-
-                    =Set(searchQuery,"");
-                    Set(searchQuery,"name eq '" &Self.SearchText);
-                PlaceHolderText: ="Search flow"
-                Theme: =SearchBoxThemeJson
-                Underlined: =true
-                Visible: =false
-                Width: =300
-                X: =0
-                Y: =0
-                ZIndex: =3
 
         Header As groupContainer.verticalAutoLayoutContainer:
             AlignInContainer: =AlignInContainer.SetByContainer
@@ -205,7 +213,7 @@
                             LayoutMinHeight: =32
                             LayoutMinWidth: =320
                             PaddingTop: =0.00
-                            Text: =Index(EventStatusIdentifiers,1).title
+                            Text: =Last(FirstN(EventStatusIdentifiers,1)).title
                             VerticalAlignment: =VerticalAlign.Top
                             Width: =80
                             Wrap: =true
@@ -247,7 +255,7 @@
                             LayoutMinHeight: =32
                             LayoutMinWidth: =320
                             PaddingTop: =0.00
-                            Text: =Index(EventStatusIdentifiers,2).title
+                            Text: =Last(FirstN(EventStatusIdentifiers,2)).title
                             VerticalAlignment: =VerticalAlign.Top
                             Width: =80
                             Wrap: =true
@@ -289,7 +297,7 @@
                             LayoutMinHeight: =32
                             LayoutMinWidth: =320
                             PaddingTop: =0.00
-                            Text: =Index(EventStatusIdentifiers,3).title
+                            Text: =Last(FirstN(EventStatusIdentifiers,3)).title
                             VerticalAlignment: =VerticalAlign.Top
                             Width: =80
                             Wrap: =true
@@ -627,11 +635,12 @@
             ZIndex: =4
 
             "PADScheduleViewer1 As 'Power Automate Desktop Scheduler'":
+                AlignInContainer: =AlignInContainer.Stretch
                 DisplayMode: =DisplayMode.Edit
                 FillPortions: =1
                 filterField: =filterQuery
-                Height: =550
-                LayoutMinHeight: =200
+                Height: =200
+                LayoutMinHeight: =550
                 LayoutMinWidth: =200
                 Width: =200
                 X: =0
