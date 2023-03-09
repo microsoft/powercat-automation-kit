@@ -6,15 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
+generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
 ---
 
 Mars-utgivelsen av {{<product-name>}} er den sjette offentlige forhåndsversjonen. Denne utgivelsen fokuserte på følgende:
 
-- Ytterligere planleggeroppdateringer for å filtrere etter maskin / maskingruppe og kjøre Power Automate Desktop-flyt
+- Videre [Oppdateringer av planleggeren](/nb/features/scheduler) for å filtrere etter maskin/maskingruppe og kjøre Power Automate Desktop-flyt
 - Oppdatering for å støtte v1 an [v2 skjema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
-
-{{<questions name="/content/nb/releases/march-2023.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}
 
 ## Kom i gang
 
@@ -47,3 +45,5 @@ Inkludert i [Automatiseringssett - mars 2023](https://github.com/microsoft/power
 ## Historikk for utgivelser
 
 Full [Historikk for utgivelser](/nb/releases)
+
+{{<questions name="/content/nb/releases/march-2023.json" completed="Takk for at du gir tilbakemelding" showNavigationButtons="false" locale="nb">}}

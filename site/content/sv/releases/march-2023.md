@@ -6,15 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
+generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
 ---
 
 Marsutgåvan av {{<product-name>}} är den sjätte offentliga förhandsversionen. Den här versionen fokuserade på följande:
 
-- Ytterligare schemaläggningsuppdateringar för att filtrera efter dator/datorgrupp och köra Power Automate Desktop-flöde
+- Ytterligare [Schemaläggare uppdateringar](/sv/features/scheduler) för att filtrera efter dator/datorgrupp och köra Power Automate Desktop-flöde
 - Uppdatera för att stödja v1 och [v2-schema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
-
-{{<questions name="/content/sv/releases/march-2023.json" completed="Tack för att du ger feedback" showNavigationButtons="false" locale="sv">}}
 
 ## Sätta igång
 
@@ -47,3 +45,5 @@ Ingår i [Automation Kit - Mars 2023](https://github.com/microsoft/powercat-auto
 ## Historik
 
 Full [Historik](/sv/releases)
+
+{{<questions name="/content/sv/releases/march-2023.json" completed="Tack för att du ger feedback" showNavigationButtons="false" locale="sv">}}

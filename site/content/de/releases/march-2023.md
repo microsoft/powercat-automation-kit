@@ -6,15 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
+generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
 ---
 
 Die März-Veröffentlichung der {{<product-name>}} ist die sechste öffentliche Vorschauversion. Diese Version konzentrierte sich auf Folgendes:
 
-- Weitere Scheduler-Updates zum Filtern nach Maschine / Maschinengruppe und Run Power Automate Desktop-Ablauf
+- Weiter [Scheduler-Updates](/de/features/scheduler) zum Filtern nach Maschine / Maschinengruppe und Ausführen von Power Automate Desktop-Ablauf
 - Update zur Unterstützung von v1 und [v2-Schema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
-
-{{<questions name="/content/de/releases/march-2023.json" completed="Vielen Dank für Ihr Feedback" showNavigationButtons="false" locale="de">}}
 
 ## Loslegen
 
@@ -47,3 +45,5 @@ Im Lieferumfang enthalten [Automation Kit - März 2023](https://github.com/micro
 ## Versionshistorie
 
 Voll [Versionshistorie](/de/releases)
+
+{{<questions name="/content/de/releases/march-2023.json" completed="Vielen Dank für Ihr Feedback" showNavigationButtons="false" locale="de">}}

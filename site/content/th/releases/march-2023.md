@@ -6,15 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
+generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
 ---
 
 การเปิดตัว {{ ในเดือนมีนาคม<product-name>}} เป็นการเผยแพร่ตัวอย่างสาธารณะครั้งที่หก รุ่นนี้มุ่งเน้นไปที่สิ่งต่อไปนี้:
 
-- การอัปเดตตัวจัดกําหนดการเพิ่มเติมเพื่อกรองตามกลุ่มเครื่อง/เครื่อง และเรียกใช้โฟลว์เดสก์ท็อป Power Automate
+- เลย [การอัปเดตตัวจัดกําหนดการ](/th/features/scheduler) เพื่อกรองตามกลุ่มเครื่อง/เครื่อง และเรียกใช้โฟลว์เดสก์ท็อป Power Automate
 - อัปเดตเพื่อรองรับ v1 an [สคีมา v2](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
-
-{{<questions name="/content/th/releases/march-2023.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
 
 ## เริ่มต้นใช้งาน
 
@@ -47,3 +45,5 @@ generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
 ## ประวัติการวางจําหน่าย
 
 เต็ม [ประวัติการวางจําหน่าย](/th/releases)
+
+{{<questions name="/content/th/releases/march-2023.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}

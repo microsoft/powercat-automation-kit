@@ -6,15 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
+generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
 ---
 
 La version de mars du {{<product-name>}} est la sixième version d’aperçu publique. Cette version s’est concentrée sur les points suivants :
 
-- Autres mises à jour du planificateur pour filtrer par machine / groupe de machines et exécuter le flux Power Automate Desktop
+- Plus loin [Mises à jour du planificateur](/fr/features/scheduler) pour filtrer par machine / groupe de machines et exécuter Power Automate Desktop flow
 - Mise à jour pour prendre en charge la v1 et [Schéma v2](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
-
-{{<questions name="/content/fr/releases/march-2023.json" completed="Merci de nous avoir fait part de vos commentaires" showNavigationButtons="false" locale="fr">}}
 
 ## Démarrer
 
@@ -47,3 +45,5 @@ Inclus avec [Kit d’automatisation - Mars 2023](https://github.com/microsoft/po
 ## Historique des versions
 
 Plein [Historique des versions](/fr/releases)
+
+{{<questions name="/content/fr/releases/march-2023.json" completed="Merci de nous avoir fait part de vos commentaires" showNavigationButtons="false" locale="fr">}}

@@ -6,25 +6,25 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
+generated: F157949646536FA3BC8B19B8EC98CEFE5986CF21
 ---
 
 La page contient des liens vers l’historique des versions de {{<product-name>}}.
 
 En savoir plus sur notre [Notes d’étape de publication](/fr/releases/milestones)
 
-Chaque version nommera un nom de code unique attribué pour rendre l’identification de la version plus mémorable. Pour en savoir plus sur le processus de génération de noms, lisez [Dénomination de la version](/fr/releases/naming).
-
 ## 2023
 
-- [Février 2023](/fr/releases/february-2023) - (Nifty-Emmy)
+- [Mars 2023](/fr/releases/march-2023)
+
+- [Février 2023](/fr/releases/february-2023)
 
 ### 2022
 
-- [Décembre 2022](/fr/releases/december-2022) - (Zélé-Antonelli)
+- [Décembre 2022](/fr/releases/december-2022)
 
-- [Novembre 2022](/fr/releases/november-2022) - (Archimède pointu)
+- [Novembre 2022](/fr/releases/november-2022)
 
-- [Octobre 2022](/fr/releases/october-2022) - (optimiste-dhawan)
+- [Octobre 2022](/fr/releases/october-2022)
 
-- [Septembre 2022](/fr/releases/september-2022) - (vibrant-elion)
+- [Septembre 2022](/fr/releases/september-2022)

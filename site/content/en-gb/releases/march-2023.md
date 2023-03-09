@@ -6,15 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
+generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
 ---
 
 The March release of the {{<product-name>}} is the sixth public preview release. This release focused on the following:
 
-- Further scheduler updates to filter by Machine / Machine Group and Run Power Automate Desktop flow
+- Further [scheduler updates](/en-gb/features/scheduler) to filter by Machine / Machine Group and Run Power Automate Desktop flow
 - Update to support v1 an [v2 schema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
-
-{{<questions name="/content/en-gb/releases/march-2023.json" completed="Thank you for providing feedback" showNavigationButtons="false" locale="en-gb">}}
 
 ## Get Started
 
@@ -47,3 +45,5 @@ Included with [Automation Kit - March 2023](https://github.com/microsoft/powerca
 ## Release History
 
 Full [release history](/en-gb/releases)
+
+{{<questions name="/content/en-gb/releases/march-2023.json" completed="Thank you for providing feedback" showNavigationButtons="false" locale="en-gb">}}

@@ -6,25 +6,25 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
+generated: F157949646536FA3BC8B19B8EC98CEFE5986CF21
 ---
 
 De pagina bevat koppelingen naar de releasegeschiedenis voor de {{<product-name>}}.
 
 Lees meer over onze [Opmerkingen bij releasemijlpaal](/nl/releases/milestones)
 
-Elke release krijgt een unieke codenaam toegewezen om de release-identificatie gedenkwaardiger te maken. Lees voor meer informatie over het proces voor het genereren van namen [Naamgeving van de release](/nl/releases/naming).
-
 ## 2023
 
-- [februari 2023](/nl/releases/february-2023) - (handig-emmy)
+- [maart 2023](/nl/releases/march-2023)
+
+- [februari 2023](/nl/releases/february-2023)
 
 ### 2022
 
-- [augustus 2022](/nl/releases/december-2022) - (ijverig-antonelli)
+- [augustus 2022](/nl/releases/december-2022)
 
-- [mei 2022](/nl/releases/november-2022) - (scherp-archimedes)
+- [mei 2022](/nl/releases/november-2022)
 
-- [oktober 2022](/nl/releases/october-2022) - (vrolijk-dhawan)
+- [oktober 2022](/nl/releases/october-2022)
 
-- [augustus 2022](/nl/releases/september-2022) - (levendig-elion)
+- [augustus 2022](/nl/releases/september-2022)

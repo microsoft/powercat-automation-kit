@@ -6,25 +6,25 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 05EFEAB5FB6BD40E44646C7408CDA0496B419396
+generated: F157949646536FA3BC8B19B8EC98CEFE5986CF21
 ---
 
 Strona zawiera łącza do historii wydań dla {{<product-name>}}.
 
 Przeczytaj więcej na naszej stronie [Informacje o kamieniach milowych wydania](/pl/releases/milestones)
 
-Każde wydanie będzie miało unikatową nazwę kodową przypisaną tak, aby identyfikacja wydania była łatwiejsza do zapamiętania. Aby dowiedzieć się więcej o procesie generowania nazwy, przeczytaj [Nazewnictwo wydań](/pl/releases/naming).
-
 ## 2023
 
-- [luty 2023](/pl/releases/february-2023) - (Nifty-Emmy)
+- [marzec 2023](/pl/releases/march-2023)
+
+- [luty 2023](/pl/releases/february-2023)
 
 ### 2022
 
-- [grudzień 2022](/pl/releases/december-2022) - (gorliwy-Antonelli)
+- [grudzień 2022](/pl/releases/december-2022)
 
-- [listopad 2022](/pl/releases/november-2022) - (ostry-archimedes)
+- [listopad 2022](/pl/releases/november-2022)
 
-- [październik 2022](/pl/releases/october-2022) - (optymistyczna-dhawan)
+- [październik 2022](/pl/releases/october-2022)
 
-- [wrzesień 2022](/pl/releases/september-2022) - (vibrant-elion)
+- [wrzesień 2022](/pl/releases/september-2022)

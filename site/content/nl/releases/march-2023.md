@@ -6,15 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
+generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
 ---
 
 De maart release van de {{<product-name>}} is de zesde publieke preview release. Deze release was gericht op het volgende:
 
-- Verdere plannerupdates om te filteren op machine/ machinegroep en Power Automate Desktop-stroom uit te voeren
+- Verder [updates van de planner](/nl/features/scheduler) om te filteren op machine / machinegroep en power automate desktopstroom uit te voeren
 - Update ter ondersteuning van v1 an [v2-schema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
-
-{{<questions name="/content/nl/releases/march-2023.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}
 
 ## Slag
 
@@ -47,3 +45,5 @@ Inbegrepen bij [Automation Kit - maart 2023](https://github.com/microsoft/powerc
 ## Release geschiedenis
 
 Vol [release geschiedenis](/nl/releases)
+
+{{<questions name="/content/nl/releases/march-2023.json" completed="Bedankt voor het geven van feedback" showNavigationButtons="false" locale="nl">}}

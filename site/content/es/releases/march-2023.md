@@ -6,15 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
+generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
 ---
 
 La publicación en marzo del {{<product-name>}} es la sexta versión de versión preliminar pública. Esta versión se centró en lo siguiente:
 
-- Más actualizaciones del programador para filtrar por máquina / grupo de máquinas y ejecutar el flujo de Power Automate Desktop
+- Más lejos [Actualizaciones del programador](/es/features/scheduler) para filtrar por máquina / grupo de máquinas y ejecutar el flujo de Power Automate Desktop
 - Actualización para admitir v1 y [Esquema v2](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
-
-{{<questions name="/content/es/releases/march-2023.json" completed="Gracias por proporcionar comentarios" showNavigationButtons="false" locale="es">}}
 
 ## Comenzar
 
@@ -47,3 +45,5 @@ Incluido con [Kit de automatización - Marzo 2023](https://github.com/microsoft/
 ## Historial de versiones
 
 Lleno [Historial de versiones](/es/releases)
+
+{{<questions name="/content/es/releases/march-2023.json" completed="Gracias por proporcionar comentarios" showNavigationButtons="false" locale="es">}}

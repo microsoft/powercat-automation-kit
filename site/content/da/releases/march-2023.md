@@ -6,15 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: EEF3A121DAE0461ECB1A26B750B8A8AB516233A5
+generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
 ---
 
 Marts-udgivelsen af {{<product-name>}} er den sjette offentlige prøveversion. Denne udgivelse fokuserede på følgende:
 
-- Yderligere planlægningsopdateringer for at filtrere efter maskin-/maskingruppe og køre Power Automate Desktop-flow
+- Videre [Opdateringer af planlæggere](/da/features/scheduler) for at filtrere efter maskine/maskingruppe og køre Power Automate Desktop-flow
 - Opdatering til understøttelse af v1 an [v2 skema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
-
-{{<questions name="/content/da/releases/march-2023.json" completed="Tak, fordi du gav feedback" showNavigationButtons="false" locale="da">}}
 
 ## Sådan kommer du i gang
 
@@ -47,3 +45,5 @@ Inkluderet med [Automatiseringssæt - marts 2023](https://github.com/microsoft/p
 ## Frigivelse historie
 
 Fuld [Frigivelse historie](/da/releases)
+
+{{<questions name="/content/da/releases/march-2023.json" completed="Tak, fordi du gav feedback" showNavigationButtons="false" locale="da">}}
