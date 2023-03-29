@@ -12,7 +12,7 @@ namespace AutomationKIT_Satellite {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.5.0.0")]
     internal sealed partial class AutomationKit_Satellite : global::System.Configuration.ApplicationSettingsBase {
         
         private static AutomationKit_Satellite defaultInstance = ((AutomationKit_Satellite)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new AutomationKit_Satellite())));
@@ -38,6 +38,15 @@ namespace AutomationKIT_Satellite {
         public string Const_Azure_Default_Folder_Name {
             get {
                 return ((string)(this["Const_Azure_Default_Folder_Name"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("autocoe_SolutionManagerArtifactsReadUserId")]
+        public string Const_Env_UserID_For_AppRegistration {
+            get {
+                return ((string)(this["Const_Env_UserID_For_AppRegistration"]));
             }
         }
     }
