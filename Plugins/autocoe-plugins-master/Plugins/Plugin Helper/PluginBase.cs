@@ -14,8 +14,12 @@
 //     Runtime Version:4.0.30319.1
 // </auto-generated>
 using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.PluginTelemetry;
 using System;
+using System.Runtime.CompilerServices;
 using System.ServiceModel;
+using System.Diagnostics.CodeAnalysis;
+using Microsoft.Xrm.Sdk.Extensions;
 
 namespace AutoCoE.Extensibility.Plugins.PluginHelper
 {
@@ -89,7 +93,7 @@ namespace AutoCoE.Extensibility.Plugins.PluginHelper
             {
                 localPluginContext.Trace($"Exiting {PluginClassName}.Execute()");
             }
-        } 
+        }
 
         /// <summary>
         /// Placeholder for a custom plug-in implementation. 
@@ -105,61 +109,109 @@ namespace AutoCoE.Extensibility.Plugins.PluginHelper
     //This interface provides an abstraction on top of IServiceProvider for commonly used PowerApps CDS Plugin development constructs
     public interface ILocalPluginContext
     {
+        /// <summary>
+        /// The PowerPlatform Dataverse organization service for the Current Executing user.
+        /// </summary>
+        /// 
         // The PowerApps CDS organization service for current user account
         IOrganizationService CurrentUserService { get; }
 
         // The PowerApps CDS organization service for system user account
         IOrganizationService SystemUserService { get; }
 
-        // IPluginExecutionContext contains information that describes the run-time environment in which the plugin executes, information related to the execution pipeline, and entity business information
+        /// <summary>
+        /// The PowerPlatform Dataverse organization service for the Account that was registered to run this plugin, This could be the same user as InitiatingUserService.
+        /// </summary>
+        //IOrganizationService PluginUserService { get; }
+
+        /// <summary>
+        /// IPluginExecutionContext contains information that describes the run-time environment in which the plug-in executes, information related to the execution pipeline, and entity business information.
+        /// </summary>
         IPluginExecutionContext PluginExecutionContext { get; }
 
-        // Synchronous registered plugins can post the execution context to the Microsoft Azure Service Bus.
-        // It is through this notification service that synchronous plug-ins can send brokered messages to the Microsoft Azure Service Bus
+        /// <summary>
+        /// Synchronous registered plug-ins can post the execution context to the Microsoft Azure Service Bus. <br/>
+        /// It is through this notification service that synchronous plug-ins can send brokered messages to the Microsoft Azure Service Bus.
+        /// </summary>
         IServiceEndpointNotificationService NotificationService { get; }
 
-        // Provides logging run time trace information for plug-ins. 
+        /// <summary>
+        /// Provides logging run-time trace information for plug-ins.
+        /// </summary>
         ITracingService TracingService { get; }
 
-        // Writes a trace message to the CDS trace log
+        /// <summary>
+        /// General Service Provide for things not accounted for in the base class.
+        /// </summary>
+        IServiceProvider ServiceProvider { get; }
+
+        /// <summary>
+        /// OrganizationService Factory for creating connection for other then current user and system.
+        /// </summary>
+        IOrganizationServiceFactory OrgSvcFactory { get; }
+
+        /// <summary>
+        /// ILogger for this plugin.
+        /// </summary>
+        ILogger Logger { get; }
+
+        /// <summary>
+        /// Writes a trace message to the trace log.
+        /// </summary>
+        /// <param name="message">Message name to trace.</param>
         void Trace(string message);
     }
 
     /// <summary>
     /// Plug-in context object. 
     /// </summary>
+    [ExcludeFromCodeCoverage]    
     public class LocalPluginContext : ILocalPluginContext
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "LocalPluginContext")]
-        internal IServiceProvider ServiceProvider { get; private set; }
+        /// <summary>
+        /// The PowerPlatform Dataverse organization service for the Current Executing user.
+        /// </summary>
+        /// 
+        public IOrganizationService CurrentUserService { get; }
+
+        // The PowerApps CDS organization service for system user account
+        public IOrganizationService SystemUserService { get; }
 
         /// <summary>
-        /// The PowerApps CDS organization service for current user account.
+        /// The PowerPlatform Dataverse organization service for the Account that was registered to run this plugin, This could be the same user as InitiatingUserService.
         /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "LocalPluginContext")]
-        public IOrganizationService CurrentUserService { get; private set; }
-
-        /// <summary>
-        /// The PowerApps CDS organization service for system user account.
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "LocalPluginContext")]
-        public IOrganizationService SystemUserService { get; private set; }
+       // public IOrganizationService PluginUserService { get; }
 
         /// <summary>
         /// IPluginExecutionContext contains information that describes the run-time environment in which the plug-in executes, information related to the execution pipeline, and entity business information.
         /// </summary>
-        public IPluginExecutionContext PluginExecutionContext { get; private set; }
+        public IPluginExecutionContext PluginExecutionContext { get; }
 
         /// <summary>
-        /// Synchronous registered plug-ins can post the execution context to the Microsoft Azure Service Bus. <br/> 
+        /// Synchronous registered plug-ins can post the execution context to the Microsoft Azure Service Bus. <br/>
         /// It is through this notification service that synchronous plug-ins can send brokered messages to the Microsoft Azure Service Bus.
         /// </summary>
-        public IServiceEndpointNotificationService NotificationService { get; private set; }
+        public IServiceEndpointNotificationService NotificationService { get; }
 
         /// <summary>
-        /// Provides logging run-time trace information for plug-ins. 
+        /// Provides logging run-time trace information for plug-ins.
         /// </summary>
-        public ITracingService TracingService { get; private set; }
+        public ITracingService TracingService { get; }
+
+        /// <summary>
+        /// General Service Provider for things not accounted for in the base class.
+        /// </summary>
+        public IServiceProvider ServiceProvider { get; }
+
+        /// <summary>
+        /// OrganizationService Factory for creating connection for other then current user and system.
+        /// </summary>
+        public IOrganizationServiceFactory OrgSvcFactory { get; }
+
+        /// <summary>
+        /// ILogger for this plugin.
+        /// </summary>
+        public ILogger Logger { get; }
 
         /// <summary>
         /// Helper object that stores the services available in this plug-in.
@@ -169,21 +221,34 @@ namespace AutoCoE.Extensibility.Plugins.PluginHelper
         {
             if (serviceProvider == null)
             {
-                throw new InvalidPluginExecutionException("serviceProvider");
+                throw new InvalidPluginExecutionException(nameof(serviceProvider));
             }
 
+            ServiceProvider = serviceProvider;
+
+            Logger = serviceProvider.Get<ILogger>();
+
+            PluginExecutionContext = serviceProvider.Get<IPluginExecutionContext>();
+
+
             // Obtain the execution context service from the service provider.
-            PluginExecutionContext = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
+            //PluginExecutionContext = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
 
             // Obtain the tracing service from the service provider.
             TracingService = new LocalTracingService(serviceProvider);
 
             // Get the notification service from the service provider.
-            NotificationService = (IServiceEndpointNotificationService)serviceProvider.GetService(typeof(IServiceEndpointNotificationService));
+            //NotificationService = (IServiceEndpointNotificationService)serviceProvider.GetService(typeof(IServiceEndpointNotificationService));
+
+            NotificationService = serviceProvider.Get<IServiceEndpointNotificationService>();
 
             // Obtain the organization factory service from the service provider.
-            IOrganizationServiceFactory factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
+            //IOrganizationServiceFactory factory = (IOrganizationServiceFactory)serviceProvider.GetService(typeof(IOrganizationServiceFactory));
 
+            IOrganizationServiceFactory factory = serviceProvider.Get<IOrganizationServiceFactory>();
+
+           // PluginUserService = serviceProvider.GetOrganizationService(PluginExecutionContext.UserId); // User that the plugin is registered to run as, Could be same as current user.
+                        
             // Use the factory to generate the organization service.
             CurrentUserService = factory.CreateOrganizationService(PluginExecutionContext.UserId);
 
@@ -215,6 +280,8 @@ namespace AutoCoE.Extensibility.Plugins.PluginHelper
     }
 
     // Specialized ITracingService implementation that prefixes all traced messages with a time delta for Plugin performance diagnostics
+    [ExcludeFromCodeCoverage]
+
     public class LocalTracingService : ITracingService
     {
         private readonly ITracingService _tracingService;
