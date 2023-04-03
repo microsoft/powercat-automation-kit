@@ -628,16 +628,16 @@ namespace AutomationKIT
                             else if (columncount == 2)
 
                                 if (!string.IsNullOrEmpty(column.ToString()))
-                                {   
-                                    
-                                    if ( !DateTime.TryParseExact(column.ToString(), "MM/dd/yyyy hh:mm:ss tt",
+                                {
+
+                                    if (!DateTime.TryParseExact(column.ToString(), "MM/dd/yyyy hh:mm:ss tt",
                                                                CultureInfo.InvariantCulture, DateTimeStyles.None,
                                                                out DTcompletedon))
                                     {
                                         DTcompletedon = DateTime.Parse(column.ToString());
                                     }
 
-                                    flowsessiontrace.Attributes["autocoe_completedon"] = DTcompletedon;                                    
+                                    flowsessiontrace.Attributes["autocoe_completedon"] = DTcompletedon;
                                 }
                                 else
                                     flowsessiontrace.Attributes["autocoe_completedon"] = null;
@@ -671,8 +671,6 @@ namespace AutomationKIT
                                 flowsessiontrace.Attributes["autocoe_flowrunid"] = column;
                             else if (columncount == 15)
                                 flowsessiontrace.Attributes["autocoe_flowsessionid"] = column;
-                            //if (columncount == 16) 
-                            //    flowsessiontrace.Attributes["autocoe_flowsessiontraceid"] = column;
                             else if (columncount == 17)
                                 flowsessiontrace.Attributes["autocoe_flowtriggeruri"] = column;
                             else if (columncount == 18)
@@ -684,8 +682,6 @@ namespace AutomationKIT
 
                             else if (columncount == 19)
                                 flowsessiontrace.Attributes["autocoe_hostname"] = column;
-                            //else if (columncount == 20)
-                            //    flowsessiontrace.Attributes["importsequencenumber"] = column;
                             else if (columncount == 21)
                                 flowsessiontrace.Attributes["autocoe_maker"] = ProjectBusinessOwner;
                             else if (columncount == 22)
@@ -696,18 +692,23 @@ namespace AutomationKIT
                                 flowsessiontrace.Attributes["autocoe_solutionid"] = column;
                             else if (columncount == 25)
                                 flowsessiontrace.Attributes["autocoe_solutionname"] = column;
-                            //else if (columncount == 26)
-                            //    flowsessiontrace.Attributes["autocoe_solutionowner"] = column;
-                            //else if (columncount == 27)
-                            //    flowsessiontrace.Attributes["autocoe_solutionowneremail"] = column;
                             else if (columncount == 28)
+                                
                                 if (!string.IsNullOrEmpty(column.ToString()))
-                                {                                    
-                                    DTcompletedon = DateTime.Parse(column.ToString());                                    
-                                    flowsessiontrace.Attributes["autocoe_startedon"] = DTcompletedon;
+                                {
+
+                                    if (!DateTime.TryParseExact(column.ToString(), "MM/dd/yyyy hh:mm:ss tt",
+                                                               CultureInfo.InvariantCulture, DateTimeStyles.None,
+                                                               out DTstartedon))
+                                    {
+                                        DTstartedon = DateTime.Parse(column.ToString());
+                                    }
+
+                                    flowsessiontrace.Attributes["autocoe_startedon"] = DTstartedon;
                                 }
                                 else
                                     flowsessiontrace.Attributes["autocoe_startedon"] = null;
+                            
 
                             else if (columncount == 34)
                                 flowsessiontrace.Attributes["autocoe_workflowuniqueid"] = column;

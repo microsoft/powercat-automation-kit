@@ -46,6 +46,7 @@ namespace AutomationKIT_Satellite
         private Guid Azure_AppId;
         private string const_SystemAdmin_SecurityRole;
         private string const_Azure_DefaultFolderName;
+        private string const_EnvUserID_AppRegistration;
 
 
         #endregion
@@ -63,7 +64,7 @@ namespace AutomationKIT_Satellite
             
             const_SystemAdmin_SecurityRole = AutomationKIT_Satellite.AutomationKit_Satellite.Default.Const_SysAdmin_Security_Role.ToString();
             const_Azure_DefaultFolderName = AutomationKIT_Satellite.AutomationKit_Satellite.Default.Const_Azure_Default_Folder_Name.ToString();
-
+            const_EnvUserID_AppRegistration = AutomationKIT_Satellite.AutomationKit_Satellite.Default.Const_Env_UserID_For_AppRegistration.ToString();
             try
             {
                 if (RuntimeSettings != null)
@@ -465,7 +466,6 @@ namespace AutomationKIT_Satellite
 
             PackageLog.Log("Assigning users to security role '" + const_SystemAdmin_SecurityRole + "' for user " + userid.ToString() + " , role id = " + roleid.ToString());
 
-
             //assigning user to role
             if (roleid != Guid.Empty && userid != Guid.Empty)
             {
@@ -481,6 +481,12 @@ namespace AutomationKIT_Satellite
                     PackageLog.Log("Unable to assign user to security role '" + const_SystemAdmin_SecurityRole + "'. Error:" + ex.Message.ToString());
                     result = false;
                 }
+
+                //Getting Environment variable ID
+                Guid envDefId = GetEnvDefinitionIdForApplicationRegUserID();
+                //Updating environment variable
+                result = UpdateEnvValueForEnvUserID(envDefId,userid);
+
             }
             else
             {
@@ -490,5 +496,68 @@ namespace AutomationKIT_Satellite
 
             return result;
         }
+        
+        private Guid GetEnvDefinitionIdForApplicationRegUserID()
+        { 
+            Guid resultId =Guid.Empty;
+
+            var queryEnvDefinition = new QueryExpression("environmentvariabledefinition");
+
+            queryEnvDefinition.ColumnSet.AddColumns("environmentvariabledefinitionid");
+            queryEnvDefinition.Criteria.AddCondition("schemaname", ConditionOperator.Equal, const_EnvUserID_AppRegistration);
+            var resultEnvDefinition = CrmSvc.RetrieveMultiple(queryEnvDefinition);
+
+            if (resultEnvDefinition.Entities.Count > 0)
+            {
+                var results = resultEnvDefinition.Entities[0];
+                Guid.TryParse( results["environmentvariabledefinitionid"].ToString(),out resultId);
+                PackageLog.Log("environment var Definition found and ID=" + resultId);
+            }
+
+            return resultId;
+
+        }
+
+        private bool UpdateEnvValueForEnvUserID(Guid envDefId,Guid UserId )
+        {
+            var queryEnvValues = new QueryExpression("environmentvariablevalue");
+
+            queryEnvValues.ColumnSet.AddColumns("value");
+            
+            queryEnvValues.Criteria.AddCondition("environmentvariabledefinitionid", ConditionOperator.Equal, envDefId);
+            var resultEnvValues = CrmSvc.RetrieveMultiple(queryEnvValues);
+
+            int valuesCount = resultEnvValues.Entities.Count;
+            PackageLog.Log("environment var values count=" + valuesCount + " for " + const_EnvUserID_AppRegistration);
+
+            if (valuesCount > 0) 
+            {
+                foreach (Entity EnvValue in resultEnvValues.Entities)
+                {
+                    EnvValue["value"] = UserId.ToString();
+                    CrmSvc.Update(EnvValue);
+                    PackageLog.Log("Successfully Updated environment variable Value");
+                }
+
+                }
+            else
+            {
+                var environmentvariablevalue = new Entity("environmentvariablevalue");
+                environmentvariablevalue.Attributes["value"] = UserId.ToString();
+                environmentvariablevalue.Attributes["environmentvariabledefinitionid"] = envDefId;
+                environmentvariablevalue.Attributes["statecode"] = new OptionSetValue(1);
+                environmentvariablevalue.Attributes["statuscode"] = new OptionSetValue(2);
+                Guid RecordID = CrmSvc.Create(environmentvariablevalue);
+
+                PackageLog.Log("Successfully created environment variable Value");
+
+            }
+
+            return true;
+
+        }
+
     }
+
+
 }

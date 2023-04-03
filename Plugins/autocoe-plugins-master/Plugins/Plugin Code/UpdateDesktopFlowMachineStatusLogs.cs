@@ -99,7 +99,7 @@ namespace AutoCoE.Extensibility.Plugins
 
                     // DeleteOrphanedMachineStatuses = If the DoAnOrphanedMachineCheck = true then this flag determines whether the Dataverse record should be deleted or just set to Inactive.
                     bool deleteOrphanedMachineStatuses = (bool)context.InputParameters["DeleteOrphanedMachineStatuses"];
-                    
+
                     // Converting the incoming JSON records to custom List of DataverseFlowMachine objects
                     var pagedMachines = PluginUtility
                         .Deserialize<List<DataverseFlowMachine>>((context.InputParameters["PagedFlowMachines"] as string));
@@ -107,7 +107,7 @@ namespace AutoCoE.Extensibility.Plugins
                     // Get the machineIds for further processing
                     var machineIds = pagedMachines.Select(m => m.flowmachineid).ToArray();
 
-                    if (machineIds != null && machineIds.Length < 1)  
+                    if (machineIds != null && machineIds.Length < 1)
                     {
                         // Tracing Service allows to post debugging and custom logs to Plug-In Trace-Log available under the advanced settings of the Dataverse environment
                         tracingService.Trace($"Automation CoE - UpdateDesktopFlowMachineStatusLogs - Machine Id list is empty - exiting plugin now.");
@@ -137,7 +137,8 @@ namespace AutoCoE.Extensibility.Plugins
                             // Call the unbound Dataverse API - BatchGetFlowMachineStatus to get the individual machine statuses 
                             var results = GetLiveMachineStatus(currentUserService, nextBatch);
 
-                            if (results != null) { 
+                            if (results != null)
+                            {
                                 // De-serialize the JSON results and store them in a custom List of MachineStatus objects
                                 mStats.AddRange(PluginUtility.Deserialize<List<MachineStatus>>(results));
                             }
@@ -150,7 +151,7 @@ namespace AutoCoE.Extensibility.Plugins
                         // we're ignoring this here because of the large amount of API calls this might produce.
                         // It should also not have any negative impact on performance, because we're anyhow only updating machines with a changed status.
                         // Only the first time this plugin runs, where no machine status log entry exists, we have potentially larger volumes of machines to update.
-                        
+
                         // Important to note here is that we didn't use the UpsertRequest because this would introduce a higher amount of internal API calls which
                         // can be easily avoided by doing dedicated Inserts and Updates instead.
 
@@ -313,7 +314,7 @@ namespace AutoCoE.Extensibility.Plugins
                         catch (FaultException<OrganizationServiceFault> ex)
                         {
                             tracingService.Trace($"The application terminated with an error.");
-                            tracingService.Trace($"Timestamp: { ex.Detail.Timestamp}");
+                            tracingService.Trace($"Timestamp: {ex.Detail.Timestamp}");
                             tracingService.Trace($"Code: {ex.Detail.ErrorCode}");
                             tracingService.Trace($"Message: {ex.Detail.Message}");
                         }
@@ -432,7 +433,7 @@ namespace AutoCoE.Extensibility.Plugins
 
                     // Create a new array without the failing machineId
                     string[] newArray = nextBatch.Where(s => !s.Equals(guidStr, StringComparison.OrdinalIgnoreCase)).ToArray();
-                    
+
                     // Call the same function recursively until all invalid machineId's are removed
                     return GetLiveMachineStatus(currentUserService, newArray);
                 }

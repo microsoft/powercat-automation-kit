@@ -65,7 +65,7 @@ namespace AutoCoE.Extensibility.Plugins
         /// is stored in the context. This means that you should not use global variables in plug-ins.
         /// </remarks>
         /// 
-                
+
         private bool v2ShemaFound = false;
 
         protected override void ExecuteCdsPlugin(ILocalPluginContext localContext)
@@ -75,13 +75,12 @@ namespace AutoCoE.Extensibility.Plugins
                 throw new InvalidPluginExecutionException(nameof(localContext));
             }
             // Obtain the tracing service
-            ITracingService tracingService = localContext.TracingService;
-
-            int SchemaVersion=0;
+            ITracingService tracingService = localContext.TracingService;            
+            int SchemaVersion = 0;
             string DefinitionData;
 
             try
-            {                 
+            {
                 // Obtain the execution context from the service provider.  
                 IPluginExecutionContext context = (IPluginExecutionContext)localContext.PluginExecutionContext;
 
@@ -99,10 +98,10 @@ namespace AutoCoE.Extensibility.Plugins
                         if (!context.InputParameters.Contains("StoreExtractedScript"))
                             throw new InvalidPluginExecutionException($"We couldn't find a valid StoreExtractedScript parameter value in the context.InputParameters Collection.");
 
-                        autocoe_DesktopFlowDefinition desktopFlowDefEntity = currentUserService.Retrieve(autocoe_DesktopFlowDefinition.EntityLogicalName,Guid.Parse(context.InputParameters["DesktopFlowDefinitionId"].ToString()), new ColumnSet(true)).ToEntity<autocoe_DesktopFlowDefinition>();
+                        autocoe_DesktopFlowDefinition desktopFlowDefEntity = currentUserService.Retrieve(autocoe_DesktopFlowDefinition.EntityLogicalName, Guid.Parse(context.InputParameters["DesktopFlowDefinitionId"].ToString()), new ColumnSet(true)).ToEntity<autocoe_DesktopFlowDefinition>();
                         bool storeExtractedScript = (bool)context.InputParameters["StoreExtractedScript"];
 
-                        if (desktopFlowDefEntity == null) 
+                        if (desktopFlowDefEntity == null)
                             throw new InvalidPluginExecutionException($"We couldn't find a valid Desktop Flow Definition for Desktop Flow Definition Id: {context.InputParameters["DesktopFlowDefinitionId"]}.");
 
                         tracingService.Trace($"Automation CoE - DesktopFlowDefinitionScriptExtraction - Desktop Flow Id: {desktopFlowDefEntity.Id} ");
@@ -111,9 +110,9 @@ namespace AutoCoE.Extensibility.Plugins
                         string desktopFlowclientdata = PluginUtility.GetDesktopFlowScriptById(desktopFlowDefEntity.autocoe_DesktopFlow.Id, currentUserService);
 
                         string strschemaversion = "";
-                        var queryflow = new QueryExpression("workflow");                        
+                        var queryflow = new QueryExpression("workflow");
                         queryflow.ColumnSet.AddColumns("workflowid");
-                        queryflow.ColumnSet.AddColumns("schemaversion");                        
+                        queryflow.ColumnSet.AddColumns("schemaversion");
                         queryflow.ColumnSet.AddColumns("definition");
                         queryflow.Criteria.AddCondition("workflowid", ConditionOperator.Equal, desktopFlowDefEntity.autocoe_DesktopFlow.Id);
                         try
@@ -122,12 +121,12 @@ namespace AutoCoE.Extensibility.Plugins
                             if (resultflow.Entities.Count > 0)
                             {
                                 strschemaversion = resultflow[0]["schemaversion"].ToString();
-                                strschemaversion= strschemaversion.Trim();
+                                strschemaversion = strschemaversion.Trim();
 
                                 if (!string.IsNullOrEmpty(strschemaversion))
-                                int.TryParse( strschemaversion.Replace(".",""), out SchemaVersion);
+                                    int.TryParse(strschemaversion.Replace(".", ""), out SchemaVersion);
                                 DefinitionData = resultflow[0]["definition"].ToString();
-                                tracingService.Trace("Observed schema version =" + strschemaversion);      
+                                tracingService.Trace("Observed schema version =" + strschemaversion);
 
                                 v2ShemaFound = SchemaVersion >= 202206 && string.IsNullOrWhiteSpace(desktopFlowclientdata);
 
@@ -136,7 +135,7 @@ namespace AutoCoE.Extensibility.Plugins
                             else
                             {
                                 throw new InvalidPluginExecutionException("Unable to find schema and definition data for flow " + desktopFlowDefEntity.Id);
-                                
+
                             }
 
 
@@ -152,7 +151,7 @@ namespace AutoCoE.Extensibility.Plugins
                         if (desktopFlowDefEntity.autocoe_DesktopFlow != null)
                         {
                             if (v2ShemaFound)
-                            {   
+                            {
                                 //working in v2 schema scenario
 
                                 desktopFlowScript = PluginUtility.CleanInvalidChars(DefinitionData); ;
@@ -162,7 +161,7 @@ namespace AutoCoE.Extensibility.Plugins
                                     if (storeExtractedScript)
                                     {
                                         //store desktopflow script for v2 schema
-                                        
+
                                         // Chek if the script text has exceeded the maximum Dataverse field length and trim it if needed
                                         if (!String.IsNullOrWhiteSpace(desktopFlowScript) && desktopFlowScript.Length <= 1048576 /*Max field length in Dataverse*/)
                                             desktopFlowDefEntity.Attributes["autocoe_script"] = desktopFlowScript;
@@ -253,7 +252,7 @@ namespace AutoCoE.Extensibility.Plugins
                                 }
 
                             }
-                            
+
                         }
                     }
                     catch (Exception ex)
@@ -273,7 +272,7 @@ namespace AutoCoE.Extensibility.Plugins
                 throw new InvalidPluginExecutionException("An error occurred executing Plugin AutoCoE.Extensibility.Plugins.DataModel.DesktopFlowDefinitionScriptExtraction .", ex);
             }
         }
-               
+
         private void GenerateDesktopFlowDLPProfile(IOrganizationService currentUserService, string desktopFlowScript, Guid desktopFlowDefId, ITracingService tracingService)
         {
             //Creating / updateing current selectors to DLP Profiles table
@@ -297,16 +296,16 @@ namespace AutoCoE.Extensibility.Plugins
 
                 // Only if we find an occurance in current script
                 if (regExMatchCount > 0)
-                {  
+                {
                     if (dlpProfs.Where(
                         d => d.autocoe_DesktopFlowId == desktopFlowDefinition.autocoe_DesktopFlow.Id.ToString() &&
                         d.autocoe_SelectorId == action.autocoe_SelectorId &&
                         d.autocoe_ModuleName == action.autocoe_ModuleName &&
                         d.autocoe_ModuleSource == action.autocoe_ModuleSource &&
                         d.autocoe_OccurrenceCount == regExMatchCount).FirstOrDefault() != null)
-                    { 
+                    {
                         continue; // Nothing change, so no need to upsert anything
-                       }
+                    }
                     else
                     {
                         //Identifying of old actions with occurance count <> current count for selector
@@ -337,14 +336,14 @@ namespace AutoCoE.Extensibility.Plugins
                             }
                             else
                             {
-                                tracingService.Trace("DLP profile not found with params autocoe_selectorid="+ action.autocoe_SelectorId + ",autocoe_ModuleName="+ action.autocoe_ModuleName + ",autocoe_ModuleSource="+ action.autocoe_ModuleSource+ ",autocoe_desktopflowid="+ desktopFlowDefinition.autocoe_DesktopFlow.Id.ToString());
+                                tracingService.Trace("DLP profile not found with params autocoe_selectorid=" + action.autocoe_SelectorId + ",autocoe_ModuleName=" + action.autocoe_ModuleName + ",autocoe_ModuleSource=" + action.autocoe_ModuleSource + ",autocoe_desktopflowid=" + desktopFlowDefinition.autocoe_DesktopFlow.Id.ToString());
                             }
                         }
 
-                    }                  
+                    }
 
                     //Creating selector in DLP profile table
-                    
+
                     KeyAttributeCollection keyColl = new KeyAttributeCollection();
                     keyColl.Add("autocoe_desktopflowid", desktopFlowDefinition.autocoe_DesktopFlow.Id.ToString());
                     keyColl.Add("autocoe_selectorid", action.autocoe_SelectorId);
@@ -391,8 +390,8 @@ namespace AutoCoE.Extensibility.Plugins
                     }
 
                 }
-            }           
-          
+            }
+
             if (toBeDeletedActions.Count() > 0)
             {
                 // Deleting actions, which are found in dataverse and removed in desktop flow script (occurance count =0)
@@ -417,8 +416,8 @@ namespace AutoCoE.Extensibility.Plugins
                     }
                 }
             }
-                   
+
         }
-      
+
     }
 }
