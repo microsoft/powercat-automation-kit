@@ -5,7 +5,7 @@ stages:
 - stage: get_key_stage
   displayName: 'Get Key' 
   jobs:
-  - job: key_key
+  - job: get_key
     timeoutInMinutes: 0
     pool: 
       vmImage: 'windows-2022'
@@ -13,7 +13,7 @@ stages:
     - pwsh: |
         $envVariable = "SigningKey"
         $filename = "$(Build.SourcesDirectory)\powercat-automation-kit\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"
-        if ( [System.Environment]::GetEnvironmentVariable($envVariable) -neq $NULL ) {
+        if ( [System.Environment]::GetEnvironmentVariable($envVariable) -ne $NULL ) {
         $base64 = System.Environment]::GetEnvironmentVariable($envVariable)
         $bytes = [Convert]::FromBase64String($base64)
         [IO.File]::WriteAllBytes($filename, $bytes)
