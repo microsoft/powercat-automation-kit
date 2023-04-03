@@ -158,7 +158,7 @@ scr_SolutionDetails As screen:
                                 Set(CurrentObjectType,"All");
                                 Clear(col_SolutionArtifacts);
                                 UpdateContext({_showArtifactShimmer:true});
-                                ClearCollect(col_SolutionArtifacts,GetDataverseSolutionArtifacts.Run(galSolutions.Selected.'Solution Identifier',First(EnvironmentDetails).EnvironmentURL));
+                                ClearCollect(col_SolutionArtifacts,GetDataverseSolutionArtifacts.Run(galSolutions.Selected.'Solution Identifier'));
                                 UpdateContext({_showArtifactShimmer:false});
                             PaddingBottom: =10
                             PaddingLeft: =10
@@ -224,7 +224,7 @@ scr_SolutionDetails As screen:
 
                         icNamingConventionWarning As icon.Reload:
                             BorderColor: =RGBA(166, 166, 166, 1)
-                            Color: =If( varDisableFlowNaming = true, DarkRed, UIAccentColor)
+                            Color: =If( varDisableFlowNaming = true, Color.DarkRed, UIAccentColor)
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             DisabledColor: =RGBA(220, 220, 220, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
@@ -267,7 +267,7 @@ scr_SolutionDetails As screen:
                             BorderStyle: =BorderStyle.None
                             BorderThickness: =2
                             Color: |-
-                                =If(varDisableFlowNaming = true, DarkRed,
+                                =If(varDisableFlowNaming = true, Color.DarkRed,
                                 RGBA(51, 51, 51, 1)
                                 )
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
@@ -1147,7 +1147,7 @@ scr_SolutionDetails As screen:
         GridContainerControl_2 As GridContainerControl:
             HeaderFields: |-
                 ={
-                    Headers: [
+                    Headers: ForAll([
                         {Index: 1, Name: "    Display name", Width: 500, Visible: true},
                         {Index: 3, Name: "Type", Width: 270, Visible: true},
                         {Index: 8, Name: "Is metered", Width: 100,Visible: true},
@@ -1158,7 +1158,7 @@ scr_SolutionDetails As screen:
                         {Index: 5, Name: "Last modified", Width: 140, Visible: true},
                         {Index: 6, Name: "Owner", Width: 185, Visible: true},
                         {Index: 10, Name: "Header 10", Width: 100, Visible: false}
-                    ]
+                    ], {Value: ThisRecord})
                 }
             Height: =Parent.Height
             Width: =Parent.Width
