@@ -1,0 +1,21 @@
+# Get Signing key template for:
+# - Read value from Environment variable
+# - Convert Base64 into file
+stages:
+- stage: get_key_stage
+  displayName: 'Get Key' 
+  jobs:
+  - job: get_key
+    timeoutInMinutes: 0
+    pool: 
+      vmImage: 'windows-2022'
+    steps:
+    - pwsh: |
+        $envVariable = "SigningKey"
+        $filename = "$(Build.SourcesDirectory)\powercat-automation-kit\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"
+        if ( [System.Environment]::GetEnvironmentVariable($envVariable) -ne $NULL ) {
+        $base64 = System.Environment]::GetEnvironmentVariable($envVariable)
+        $bytes = [Convert]::FromBase64String($base64)
+        [IO.File]::WriteAllBytes($filename, $bytes)
+        }
+      displayName: 'Signing Key'
