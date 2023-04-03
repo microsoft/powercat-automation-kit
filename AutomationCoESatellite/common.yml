@@ -1,8 +1,14 @@
-jobs:
-  - job: Key Setup
-    pool:
-     name: "Azure Pipelines"
-     vmImage: "windows-2022"
+# Get Signing key template for:
+# - Read value from Environment variable
+# - Convert Base64 into file
+stages:
+- stage: get_key_stage
+  displayName: 'Get Key' 
+  jobs:
+  - job: key_key
+    timeoutInMinutes: 0
+    pool: 
+      vmImage: 'windows-2022'
     steps:
     - pwsh: |
         $envVariable = "SigningKey"
