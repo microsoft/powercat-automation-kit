@@ -84,7 +84,7 @@ scr_SolutionDeploymentDetails As screen:
                         FillPortions: =1
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Semibold
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         PaddingBottom: =20
                         PaddingLeft: =20
@@ -181,7 +181,7 @@ scr_SolutionDeploymentDetails As screen:
                                         DisabledColor: =RGBA(166, 166, 166, 1)
                                         FocusedBorderThickness: =4
                                         Font: =Font.'Segoe UI'
-                                        FontWeight: =Semibold
+                                        FontWeight: =FontWeight.Semibold
                                         Size: =13
                                         Text: ="Solution name"
                                         Width: =200
@@ -416,7 +416,7 @@ scr_SolutionDeploymentDetails As screen:
                                 btnNext_Name_1 As button:
                                     BorderColor: =BTNAccent_Border
                                     BorderThickness: =1
-                                    Color: =White
+                                    Color: =Color.White
                                     DisabledBorderColor: =RGBA(0, 0, 0, 0)
                                     DisabledColor: =RGBA(166, 166, 166, 1)
                                     DisabledFill: =RGBA(244, 244, 244, 1)
@@ -425,7 +425,7 @@ scr_SolutionDeploymentDetails As screen:
                                     Font: =Font.'Segoe UI'
                                     FontWeight: =FontWeight.Semibold
                                     HoverBorderColor: =BTNAccent_HoverBorder
-                                    HoverColor: =White
+                                    HoverColor: =Color.White
                                     HoverFill: =BTNAccent_HoverFill
                                     OnSelect: |-
                                         =UpdateContext({_showConfirmationBox:true})
@@ -452,7 +452,7 @@ scr_SolutionDeploymentDetails As screen:
             Reset(cb_DeployDestinationEnv)
         OnConfirmation: |+
             =UpdateContext({_showConfirmationBox:false});
-            Navigate(scr_SolutionDeployment ,Fade);
+            Navigate(scr_SolutionDeployment ,ScreenTransition.Fade);
             //Notify("Your Solution '"& txt_deploySolutionName.Text &"' is queued for deployment. Watch your email for deployment status",NotificationType.Success);
             //'Deployment-PowerAppsTrigger'.Run(txt_deploySolutionName.Text,cb_DeployDestinationEnv.Selected.environmentName, User().FullName,User().Email);
             Reset(cb_DeployDestinationEnv);

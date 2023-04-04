@@ -52,7 +52,7 @@ scr_SolutionRunLogs_CK As screen:
                 DateDiff(
                     'Started On',
                     'Completed On',
-                    Seconds
+                    TimeUnit.Seconds
                 )
             )
         );
@@ -327,8 +327,8 @@ scr_SolutionRunLogs_CK As screen:
                         CurrentSortColumn: =ctxSortCol
                         CurrentSortDirection: |-
                             =If(ctxSortAsc,
-                                '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Ascending,
-                                '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Descending) 
+                                'PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending,
+                                'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending) 
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
                         Height: =Parent.Height
@@ -379,12 +379,12 @@ scr_SolutionRunLogs_CK As screen:
                             If(Self.EventName="Sort", 
                             UpdateContext({
                                             ctxSortCol:Self.SortEventColumn,
-                                            ctxSortAsc:If(Self.SortEventDirection='''PowerCAT.FluentDetailsList.SortEventDirection'''.Ascending,true,false)
+                                            ctxSortAsc:If(Self.SortEventDirection='PowerCAT.FluentDetailsList.SortEventDirection'.Ascending,true,false)
                              })
                             );
                             
                         RaiseOnRowSelectionChangeEvent: =true
-                        SelectionType: ='''PowerCAT.FluentDetailsList.SelectionType'''.Single
+                        SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.Single
                         Theme: =AppThemeJson
                         Width: =200
                         X: =0
@@ -473,7 +473,7 @@ scr_SolutionRunLogs_CK As screen:
 
     FlowSessionFilterPanel As Panel:
         Buttons: |-
-            =If(!IsBlank(DateValueStartDate.Value),Table({Label: "Apply", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary, Enabled:false},{Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard }))
+            =If(!IsBlank(DateValueStartDate.Value),Table({Label: "Apply", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary, Enabled:false},{Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard }))
         DialogWidth: =Parent.Width * 0.6
         Fill: =FlowSessionFilterPanel.OverlayColor
         Height: =Parent.Height
@@ -514,7 +514,7 @@ scr_SolutionRunLogs_CK As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayFields: =["Value"]
-            DisplayMode: =Disabled
+            DisplayMode: =DisplayMode.Disabled
             FocusedBorderColor: =RGBA(0, 120, 212, 1)
             FocusedBorderThickness: =2
             Font: =Font.'Segoe UI'
@@ -555,7 +555,7 @@ scr_SolutionRunLogs_CK As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayFields: =["Value"]
-            DisplayMode: =Disabled
+            DisplayMode: =DisplayMode.Disabled
             FocusedBorderColor: =RGBA(0, 120, 212, 1)
             FocusedBorderThickness: =2
             Font: =Font.'Segoe UI'
@@ -595,7 +595,7 @@ scr_SolutionRunLogs_CK As screen:
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)
             DisplayFields: =["Value"]
-            DisplayMode: =Disabled
+            DisplayMode: =DisplayMode.Disabled
             FocusedBorderColor: =RGBA(0, 120, 212, 1)
             FocusedBorderThickness: =2
             Font: =Font.'Segoe UI'
@@ -624,7 +624,7 @@ scr_SolutionRunLogs_CK As screen:
         "ChkboxStartDate As 'Check box'":
             Checked: =true
             Color: =ColorValue(AppTheme.palette.neutralPrimary)
-            DisplayMode: =Disabled
+            DisplayMode: =DisplayMode.Disabled
             Height: =32
             Label: ="Start Date"
             Width: =160
@@ -635,7 +635,7 @@ scr_SolutionRunLogs_CK As screen:
         "ChkboxEndDate As 'Check box'":
             Checked: =true
             Color: =ColorValue(AppTheme.palette.neutralPrimary)
-            DisplayMode: =Disabled
+            DisplayMode: =DisplayMode.Disabled
             Height: =32
             Label: ="End Date"
             Width: =160
@@ -658,11 +658,11 @@ scr_SolutionRunLogs_CK As screen:
 
         "DateValueEndDate As 'Date picker'":
             AccessibleLabel: =
-            DisplayMode: =Disabled
+            DisplayMode: =DisplayMode.Disabled
             Height: =29
             InitialPickerDate: =
             Tooltip: =
-            Value: =DateAdd(DateValueStartDate.Value,_filterDurationDays,Days)
+            Value: =DateAdd(DateValueStartDate.Value,_filterDurationDays,TimeUnit.Days)
             Width: =251
             X: =418
             Y: =155

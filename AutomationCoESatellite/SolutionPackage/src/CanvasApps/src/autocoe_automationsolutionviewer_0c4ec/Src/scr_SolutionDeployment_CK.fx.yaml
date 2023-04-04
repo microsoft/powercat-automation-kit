@@ -422,7 +422,7 @@ scr_SolutionDeployment_CK As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Semibold
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         PaddingBottom: =20
                         PaddingLeft: =30
@@ -442,12 +442,13 @@ scr_SolutionDeployment_CK As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Bold
+                        FontWeight: =FontWeight.Bold
                         Height: =70
                         PaddingLeft: =25
                         PaddingTop: =0
                         Size: =35
-                        Text: =CountRows(Distinct(col_Solutions,'Solution Identifier'))
+                        Text: |-
+                            =CountRows(ForAll(Distinct(col_Solutions,'Solution Identifier'), {Result: ThisRecord.Value}))
                         VerticalAlign: =VerticalAlign.Top
                         ZIndex: =2
 
@@ -461,7 +462,7 @@ scr_SolutionDeployment_CK As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Semibold
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         PaddingBottom: =20
                         PaddingLeft: =25
@@ -480,7 +481,7 @@ scr_SolutionDeployment_CK As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Bold
+                        FontWeight: =FontWeight.Bold
                         Height: =70
                         OnSelect: =Navigate(scr_SolutionDeployment_CK,ScreenTransition.Fade)
                         PaddingLeft: =25
@@ -500,7 +501,7 @@ scr_SolutionDeployment_CK As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Semibold
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         PaddingBottom: =20
                         PaddingLeft: =25
@@ -519,7 +520,7 @@ scr_SolutionDeployment_CK As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Bold
+                        FontWeight: =FontWeight.Bold
                         Height: =70
                         PaddingLeft: =25
                         PaddingTop: =0
@@ -538,7 +539,7 @@ scr_SolutionDeployment_CK As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Semibold
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         PaddingBottom: =20
                         PaddingLeft: =25
@@ -557,7 +558,7 @@ scr_SolutionDeployment_CK As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Bold
+                        FontWeight: =FontWeight.Bold
                         Height: =70
                         PaddingLeft: =25
                         PaddingTop: =0
@@ -820,7 +821,7 @@ scr_SolutionDeployment_CK As screen:
             ZIndex: =13
 
         btnSubmitSolution2Meter_1 As Button:
-            ButtonType: ='''Microsoft.CoreControls.Button.ButtonType'''.Standard
+            ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
             DisplayMode: =If(CountRows(DefaultProjectCollection)>0,DisplayMode.Edit,DisplayMode.Disabled)
             FillColor: =ColorValue(AppTheme.palette.themePrimary)
             Height: =32
@@ -834,7 +835,7 @@ scr_SolutionDeployment_CK As screen:
             ZIndex: =14
 
         btnCancelSolution2Meter_1 As Button:
-            ButtonType: ='''Microsoft.CoreControls.Button.ButtonType'''.Standard
+            ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
             DisplayMode: =Edit
             FillColor: =ColorValue(AppTheme.palette.white)
             Height: =32

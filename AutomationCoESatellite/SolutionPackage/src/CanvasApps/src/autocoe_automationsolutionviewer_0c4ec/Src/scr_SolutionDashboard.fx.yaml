@@ -224,7 +224,7 @@ scr_SolutionDashboard As screen:
                         GridContainerControl_1 As GridContainerControl:
                             HeaderFields: |-
                                 ={
-                                    Headers: [
+                                    Headers: ForAll([
                                         {Index: 1, Name: "Name", Width: 250, Visible: true},
                                         {Index: 2, Name: "Display name", Width: 320, Visible: true},
                                         {Index: 3, Name: "Metering on", Width: 100, Visible: true},
@@ -235,7 +235,7 @@ scr_SolutionDashboard As screen:
                                         {Index: 8, Name: "Header 8", Width: 100, Visible: false},
                                         {Index: 9, Name: "Header 9", Width: 100, Visible: false},
                                         {Index: 10, Name: "Header 10", Width: 100, Visible: false}
-                                    ]
+                                    ], {Value: ThisRecord})
                                 }
                             Height: =Parent.Height
                             Width: =Parent.Width
@@ -534,7 +534,7 @@ scr_SolutionDashboard As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Semibold
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         PaddingBottom: =20
                         PaddingLeft: =30
@@ -554,12 +554,13 @@ scr_SolutionDashboard As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Bold
+                        FontWeight: =FontWeight.Bold
                         Height: =70
                         PaddingLeft: =25
                         PaddingTop: =0
                         Size: =35
-                        Text: =CountRows(Distinct(col_Solutions,'Solution Identifier'))
+                        Text: |-
+                            =CountRows(ForAll(Distinct(col_Solutions,'Solution Identifier'), {Result: ThisRecord.Value}))
                         VerticalAlign: =VerticalAlign.Top
                         ZIndex: =2
 
@@ -573,7 +574,7 @@ scr_SolutionDashboard As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Semibold
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         PaddingBottom: =20
                         PaddingLeft: =25
@@ -592,7 +593,7 @@ scr_SolutionDashboard As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Bold
+                        FontWeight: =FontWeight.Bold
                         Height: =70
                         OnSelect: =Navigate(scr_SolutionDashboard,ScreenTransition.Fade)
                         PaddingLeft: =25
@@ -612,7 +613,7 @@ scr_SolutionDashboard As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Semibold
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         PaddingBottom: =20
                         PaddingLeft: =25
@@ -631,7 +632,7 @@ scr_SolutionDashboard As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Bold
+                        FontWeight: =FontWeight.Bold
                         Height: =70
                         PaddingLeft: =25
                         PaddingTop: =0
@@ -650,7 +651,7 @@ scr_SolutionDashboard As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Semibold
+                        FontWeight: =FontWeight.Semibold
                         Height: =60
                         PaddingBottom: =20
                         PaddingLeft: =25
@@ -669,7 +670,7 @@ scr_SolutionDashboard As screen:
                         DisabledColor: =RGBA(166, 166, 166, 1)
                         FocusedBorderThickness: =4
                         Font: =Font.'Segoe UI'
-                        FontWeight: =Bold
+                        FontWeight: =FontWeight.Bold
                         Height: =70
                         PaddingLeft: =25
                         PaddingTop: =0

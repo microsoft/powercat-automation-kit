@@ -21,13 +21,22 @@ scr_SolutionDetails_CK As screen:
             );
             UpdateContext({_showArtifactShimmer: true});
             UpdateContext({_prevselectedSolution: _selectedSolution});
-            ClearCollect(
+            /*ClearCollect(
                 tempCollection,
                 GetDataverseSolutionArtifacts.Run(
                     _selectedSolution.'Solution Identifier',
                     First(EnvironmentDetails).EnvironmentURL
                 )
-            );
+            );*/
+        
+            IfError(
+            ClearCollect(
+                tempCollection,
+                GetDataverseSolutionArtifacts.Run(
+                    _selectedSolution.'Solution Identifier')
+            ),Notify("Unable to retrive solution components. Please verify respective permissions",NotificationType.Error););
+        	
+        
             ClearCollect(
                 col_SolutionArtifacts,
                 AddColumns(
@@ -471,7 +480,7 @@ scr_SolutionDetails_CK As screen:
                             LayoutMinWidth: =200
                             OnChange: =false
                             Text: ="Flow"
-                            TextAlignment: ='''PowerCAT.Icon.TextAlignment'''.Center
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Theme: =AppThemeJson
                             Tooltip: ="Flow naming convention"
                             Visible: =varDisableFlowNaming
@@ -513,7 +522,7 @@ scr_SolutionDetails_CK As screen:
 
                         icNamingConventionWarning_1 As icon.Reload:
                             BorderColor: =RGBA(166, 166, 166, 1)
-                            Color: =If( varDisableFlowNaming = true, DarkRed, UIAccentColor)
+                            Color: =If( varDisableFlowNaming = true, Color.DarkRed, UIAccentColor)
                             DisabledBorderColor: =RGBA(0, 0, 0, 0)
                             DisabledColor: =RGBA(220, 220, 220, 1)
                             DisabledFill: =RGBA(0, 0, 0, 0)
@@ -899,8 +908,7 @@ scr_SolutionDetails_CK As screen:
             ClearCollect(
                     tempCollection,
                     GetDataverseSolutionArtifacts.Run(
-                        _selectedSolution.'Solution Identifier',
-                        First(EnvironmentDetails).EnvironmentURL
+                        _selectedSolution.'Solution Identifier'
                     )
                 );
                 ClearCollect(
@@ -991,7 +999,7 @@ scr_SolutionDetails_CK As screen:
 
     ConfirmationDialogControl_Add_2 As Dialog:
         Buttons: |-
-            =Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Yes", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary})
+            =Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary})
         DialogHeight: =250
         Fill: =ConfirmationDialogControl_Add_2.OverlayColor
         Height: =Parent.Height
@@ -1011,8 +1019,7 @@ scr_SolutionDetails_CK As screen:
             ClearCollect(
                 tempCollection,
                 GetDataverseSolutionArtifacts.Run(
-                    _selectedSolution.'Solution Identifier',
-                    First(EnvironmentDetails).EnvironmentURL
+                    _selectedSolution.'Solution Identifier'
                 )
             );
             
@@ -1102,7 +1109,7 @@ scr_SolutionDetails_CK As screen:
 
     ConfirmationDialogControl_Disable_2 As Dialog:
         Buttons: |-
-            =Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Yes", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary})
+            =Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary})
         DialogHeight: =250
         Fill: =ConfirmationDialogControl_Disable_2.OverlayColor
         Height: =Parent.Height
@@ -1146,7 +1153,7 @@ scr_SolutionDetails_CK As screen:
 
     ConfirmationDialogControl_Enable_2 As Dialog:
         Buttons: |-
-            =Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Yes", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary})
+            =Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary})
         DialogHeight: =250
         Fill: =ConfirmationDialogControl_Enable_2.OverlayColor
         Height: =Parent.Height
@@ -1182,7 +1189,7 @@ scr_SolutionDetails_CK As screen:
 
     EditCloudFlowPanel As Panel:
         Buttons: |-
-            =If(_DisablePanelBtn, Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard }), Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Save", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary, Disable:true}))
+            =If(_DisablePanelBtn, Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard }), Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Save", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary, Disable:true}))
         Fill: =EditCloudFlowPanel.OverlayColor
         Height: =Parent.Height
         OnButtonSelect: |

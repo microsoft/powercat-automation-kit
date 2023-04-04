@@ -1,10 +1,24 @@
 {
   "properties": {
-    "connectionReferences": {},
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_05953"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
     "definition": {
       "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
       "contentVersion": "1.0.0.0",
       "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
         "$authentication": {
           "defaultValue": {},
           "type": "SecureObject"
@@ -27,70 +41,16 @@
                   "x-ms-dynamically-added": true,
                   "description": "Please enter your input",
                   "x-ms-content-hint": "TEXT"
-                },
-                "text_1": {
-                  "title": "Environment URL",
-                  "type": "string",
-                  "x-ms-dynamically-added": true,
-                  "description": "Please enter your input",
-                  "x-ms-content-hint": "TEXT"
                 }
               },
               "required": [
-                "text",
-                "text_1"
+                "text"
               ]
             }
           }
         }
       },
       "actions": {
-        "Get_Dataverse_Bearer_Token": {
-          "runAfter": {},
-          "metadata": {
-            "operationMetadataId": "c166b532-ba78-4f05-a208-1a6e701d94eb"
-          },
-          "type": "Workflow",
-          "inputs": {
-            "host": {
-              "workflowReferenceName": "8a017897-6fa3-ec11-983f-0022480b188a"
-            },
-            "body": {
-              "text": "@triggerBody()['text_1']"
-            }
-          }
-        },
-        "Get_Solution_Artifacts": {
-          "runAfter": {
-            "Bearer_Token": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "5e7ec53b-6b7d-405f-ab93-a6ca3576f3ba"
-          },
-          "type": "Http",
-          "inputs": {
-            "method": "GET",
-            "uri": "@{triggerBody()['text_1']}/api/data/v9.2/msdyn_solutioncomponentsummaries?$filter=(msdyn_solutionid%20eq%20@{triggerBody()['text']})",
-            "headers": {
-              "Authorization": "@{outputs('Bearer_Token')}",
-              "Prefer": "odata.include-annotations=*"
-            }
-          }
-        },
-        "Bearer_Token": {
-          "runAfter": {
-            "Get_Dataverse_Bearer_Token": [
-              "Succeeded"
-            ]
-          },
-          "metadata": {
-            "operationMetadataId": "8d7617c7-3886-413a-b324-5b8316653a15"
-          },
-          "type": "Compose",
-          "inputs": "Bearer @{outputs('Get_Dataverse_Bearer_Token')?['Body']?['access_token']}"
-        },
         "Select_only_a_couple_of_fields": {
           "runAfter": {
             "Get_Solution_Artifacts": [
@@ -217,11 +177,30 @@
               }
             }
           }
+        },
+        "Get_Solution_Artifacts": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "e1bb47f0-fd88-4834-a09c-3d78e4057d1d"
+          },
+          "type": "OpenApiConnection",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "actionName": "autocoe_GetDataverseSolutionArtifacts",
+              "item/SolutionManagerSolutionId": "@triggerBody()['text']"
+            },
+            "authentication": "@parameters('$authentication')"
+          }
         }
       },
       "outputs": {}
     },
-    "templateName": null
+    "templateName": ""
   },
   "schemaVersion": "1.0.0.0"
 }

@@ -348,8 +348,8 @@ scr_SolutionDashboard_CK As screen:
                             CurrentSortColumn: =ctxSortCol
                             CurrentSortDirection: |-
                                 =If(ctxSortAsc,
-                                    '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Ascending,
-                                    '''PowerCAT.FluentDetailsList.CurrentSortDirection'''.Descending) 
+                                    'PowerCAT.FluentDetailsList.CurrentSortDirection'.Ascending,
+                                    'PowerCAT.FluentDetailsList.CurrentSortDirection'.Descending) 
                             DisplayMode: =DisplayMode.Edit
                             Height: =Parent.Height - Self.Y
                             Items: |
@@ -442,7 +442,7 @@ scr_SolutionDashboard_CK As screen:
                                             {
                                                 ctxSortCol: Self.SortEventColumn,
                                                 ctxSortAsc: If(
-                                                    Self.SortEventDirection = '''PowerCAT.FluentDetailsList.SortEventDirection'''.Ascending,
+                                                    Self.SortEventDirection = 'PowerCAT.FluentDetailsList.SortEventDirection'.Ascending,
                                                     true,
                                                     false
                                                 )
@@ -453,7 +453,7 @@ scr_SolutionDashboard_CK As screen:
                                 );
                             RaiseOnRowSelectionChangeEvent: =true
                             RecordKey: =""
-                            SelectionType: ='''PowerCAT.FluentDetailsList.SelectionType'''.Single
+                            SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.Single
                             Theme: =AppThemeJson
                             Width: =Parent.Width-Self.X
                             X: =10 
@@ -556,7 +556,7 @@ scr_SolutionDashboard_CK As screen:
                                   {
                                       ItemKey: "tabAllSoln",
                                       ItemDisplayName: "Total Solution",
-                                      ItemCount:CountRows(Distinct(col_Solutions,'Solution Identifier'))
+                                      ItemCount:CountRows(ForAll(Distinct(col_Solutions,'Solution Identifier'), {Result: ThisRecord.Value}))
                                   },
                                   {
                                       ItemKey: "tabUnmanagedSoln",
@@ -583,7 +583,7 @@ scr_SolutionDashboard_CK As screen:
 
     ConfirmationDialog_RemoveAll As Dialog:
         Buttons: |-
-            =Table({Label: "Cancel", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Standard } ,{Label: "Yes", ButtonType:'''Microsoft.CoreControls.Button.ButtonType'''.Primary})
+            =Table({Label: "Cancel", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Standard } ,{Label: "Yes", ButtonType:'Microsoft.CoreControls.Button.ButtonType'.Primary})
         Description: =""
         DialogHeight: =200
         Fill: =ConfirmationDialog_RemoveAll.OverlayColor
@@ -912,7 +912,7 @@ scr_SolutionDashboard_CK As screen:
             ZIndex: =13
 
         btnSubmitSolution2Meter As Button:
-            ButtonType: ='''Microsoft.CoreControls.Button.ButtonType'''.Standard
+            ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
             DisplayMode: =If(CountRows(DefaultProjectCollection)>0,DisplayMode.Edit,DisplayMode.Disabled)
             FillColor: =ColorValue(AppTheme.palette.themePrimary)
             Height: =32
@@ -934,7 +934,7 @@ scr_SolutionDashboard_CK As screen:
                     );
                     Navigate(
                         scr_SolutionDetails_CK,
-                        Fade,{_selectedSolution:_selectedSolution}
+                        ScreenTransition.Fade,{_selectedSolution:_selectedSolution}
                     );
                     Notify(
                         "Your Solution '" & lblSolutionNameVal.Text & "' has been added to the metered list.",
@@ -950,7 +950,7 @@ scr_SolutionDashboard_CK As screen:
             ZIndex: =14
 
         btnCancelSolution2Meter As Button:
-            ButtonType: ='''Microsoft.CoreControls.Button.ButtonType'''.Standard
+            ButtonType: ='Microsoft.CoreControls.Button.ButtonType'.Standard
             DisplayMode: =Edit
             FillColor: =ColorValue(AppTheme.palette.white)
             Height: =32
