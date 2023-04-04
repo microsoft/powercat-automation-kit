@@ -88,8 +88,6 @@
                 Items: |-
                     =Table(
                            {ItemKey:"learnMore",ItemDisplayName:"Learn more",ItemIconName:"Info"})
-                LayoutMinHeight: =200
-                LayoutMinWidth: =200
                 OnSelect: |-
                     =If(Self.Selected.ItemKey="learnMore",Launch("https://microsoft.github.io/powercat-automation-kit/features/scheduler/"))
                 Theme: =AppThemeJson
@@ -635,14 +633,10 @@
             ZIndex: =4
 
             "PADScheduleViewer1 As 'Power Automate Desktop Scheduler'":
-                AlignInContainer: =AlignInContainer.Stretch
                 DisplayMode: =DisplayMode.Edit
-                FillPortions: =1
                 filterField: =filterQuery
-                Height: =200
-                LayoutMinHeight: =550
-                LayoutMinWidth: =200
-                Width: =200
+                Height: =Parent.Height - Parent.PaddingTop * 3
+                Width: =Parent.Width - Parent.PaddingLeft * 2
                 X: =0
                 Y: =0
                 ZIndex: =1
