@@ -77,8 +77,6 @@ steps:
 
     Copy-Item 'Install_AutomationKit.ps1' -Destination '$(Pipeline.Workspace)\assetstaging'
 
-    
-
     Copy-Item 'Microsoft_AutomationKIT_Main_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'Microsoft_AutomationKIT_Satellite_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationKitScheduler*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
@@ -88,6 +86,7 @@ steps:
 
     [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression')
     $zipfile = '$(Pipeline.Workspace)\assetstaging\Microsoft_AutomationKIT_Main_Package.zip'
+    $files   = '[Content_Types].xml'
 
     $stream = New-Object IO.FileStream($zipfile, [IO.FileMode]::Open)
     $mode   = [IO.Compression.ZipArchiveMode]::Update
@@ -100,7 +99,6 @@ steps:
     $stream.Dispose()
 
     $zipfile = '$(Pipeline.Workspace)\assetstaging\Microsoft_AutomationKIT_Satellite_Package.zip'
-    $files   = '[Content_Types].xml'
 
     $stream = New-Object IO.FileStream($zipfile, [IO.FileMode]::Open)
     $mode   = [IO.Compression.ZipArchiveMode]::Update
