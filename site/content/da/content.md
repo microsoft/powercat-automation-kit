@@ -4,7 +4,7 @@ description: "Automatiseringssæt - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A54D358D82AC6FC728B158E2C068243701C9262A
+generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 ---
 
 {{<toc>}}
@@ -84,6 +84,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 - [Automationssæt - Installer](/da/get-started/install)
 
+- [Automation Kit - Satellit - Kom godt i gang](/da/get-started/satellite)
+
 - [Automation Kit - Opsætning](/da/get-started/setup)
 
 
@@ -108,6 +110,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 
 ### Placering: /releases/
+
+- [Automatiseringssæt - april 2023](/da/releases/april-2023)
 
 - [Automatiseringssæt - december 2022](/da/releases/december-2022)
 

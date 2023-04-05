@@ -9,7 +9,7 @@ tags: ['Office Hours']
 generated: DA3C633A053D3FA4CB87C2593C1692E57A7B8D6D
 ---
 
-Willkommen auf der Landing Page für Power Platform Bürozeiten im November 2022.
+Willkommen auf der Landingpage des Automation Kits für Power Platform Bürozeiten im November 2022.
 
 Sie können sich für die Sprechstunde anmelden [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) findet am Dienstag, den 15. November 2022 zwischen 7:00 Uhr und 8:00 Uhr PDT statt (siehe andere Zeitzonen UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

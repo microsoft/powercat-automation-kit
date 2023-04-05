@@ -13,7 +13,7 @@ generated: 42940454F8C75C0160E5E7D94767DD18DFFC13C6
 
 <br/>
 
-Die {{<product-name>}} **Migrationsmodul** bietet Ihnen bewährte Tools und Anleitungen basierend auf Kundengesprächen, um Ihre Migrationsreise zu beschleunigen. Durch die Nutzung der Stärken von Microsoft Power Platform, Microsoft Azure und den breiteren Microsoft Cloud-Diensten können Sie:
+Die {{<product-name>}} **Migrationsmodul** bietet Ihnen ein bewährtes Set an Tools und Anleitungen, die auf der Zusammenarbeit mit Kunden basieren, um Ihre Migration zu beschleunigen. Durch die Nutzung der Stärken von Microsoft Power Platform, Microsoft Azure und den umfassenderen Microsoft Cloud-Diensten können Sie:
 
 - Verwirklichen Sie Ihre Ziele, Kosteneinsparungen zu erzielen.
 
@@ -49,7 +49,7 @@ Die folgende Liste bietet einen Überblick über die Bereiche, die wir für die 
 
 ### Umwandlung
 
-- **Cloud-Integration** Beispielkomponenten, die verwendet werden können, um den Konvertierungsprozess zu beschleunigen, um Lösungen in die Power Platform Microsoft Cloud zu migrieren.
+- **Cloud-Integration** Beispielkomponenten, die verwendet werden können, um den Konvertierungsprozess zu beschleunigen, um Lösungen in die Power Platform, Microsoft Cloud, zu migrieren.
 
 - **Nicht-funktionale Anforderungen** Qualitätstestansatz, DevOps-Monitoring, Dokumentation migrierter Lösungen
 

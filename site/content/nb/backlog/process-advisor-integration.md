@@ -1,6 +1,6 @@
 ---
-title: "Process Advisor Integrering"
-description: "Automatiseringssett - Process Advisor Integrasjon"
+title: "Process Advisor Integrasjon"
+description: "Automatiseringssett – Process Advisor-integrasjon"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
@@ -43,20 +43,20 @@ Den {{<product-name>}} integreres med [Process Advisor](https://learn.microsoft.
 
 - **Prosessering av gruvedrift** Analyse av forretningsprosesser for å identifisere og støtte forretningssaken for å opprette automatiseringsprosjekter som støttes av dataanalyse.
 
-- **Datadrevet automatisering Prosjektforespørsler** Bruk resultatene av prosessanalysen til å opprette et automatiseringsprosjekt fra Process Advisor resultater.
+- **Datadrevet automatisering Prosjektforespørsler** Bruk resultatene fra prosessanalysen til å opprette et automatiseringsprosjekt fra Process Advisor resultatene.
 
-- **Semi-automatisert automatisering Prosjektopprettelse** Integrer Dataverse-data mellom Process Advisor og Automation Kit for å redusere arbeidsmengden for å opprette automatiseringsprosjekt.
+- **Semi-automatisert automatisering Prosjektopprettelse** Integrer Dataverse-data mellom Process Advisor og automatiseringssett for å redusere arbeidsmengden for å opprette automatiseringsprosjekt.
 
 - **Analyse av Power Automate Desktop** Analyser RPA-prosessdata for å identifisere forbedringer for å modernisere, forbedre robusthet og pålitelighet ved hjelp av oppgaveutvinning.
 
 ## Prosessering av gruvedrift
 
-Ved å bruke Process mining med Process Advisor kan du oppdage ineffektivitet i organisasjonsomfattende prosesser. Denne innsikten gjør det mulig å få en dyp forståelse av prosessene dine ved hjelp av hendelsesloggfiler som du kan få fra opptakssystemet ditt (apper du bruker i prosessene dine). Prosessutvinning viser kart over prosessene dine med data og beregninger for å gjenkjenne ytelsesproblemer. Eksempler på prosesser som er egnet for prosessutvinning inkluderer kundefordringer og ordre til kontanter.
+Ved å bruke prosessutvinning med Process Advisor kan du oppdage ineffektivitet i prosesser for hele organisasjonen. Denne innsikten gjør at du kan få en dyp forståelse av prosessene dine ved hjelp av hendelsesloggfiler som du kan få fra opptakssystemet ditt (apper du bruker i prosessene dine). Prosessutvinning viser kart over prosessene dine med data og beregninger for å gjenkjenne ytelsesproblemer. Eksempler på prosesser som egner seg for prosessutvinning inkluderer kundefordringer og ordre-til-kontanter.
 
 Med disse dataene kan du opprette datadrevne prosjektforespørsler for automatisering.
 
 ## Opprettelse av automatiseringsprosjekter
 
-Ved hjelp av resultatene fra Process Advisor prosessutvinning og rapportering kan du bruke følgende Process Advisor informasjon til å støtte automatiseringsprosjektet ved hjelp av Process Advisor beregnede analyseresultater:
+Ved hjelp av resultatene av Process Advisor prosessutvinning og rapportering kan du bruke følgende Process Advisor informasjon til å støtte automatiseringsprosjektet ved hjelp av Process Advisor beregnede analyseresultatene:
 
 Automatisering Kit|Process Advisor|Notater        |

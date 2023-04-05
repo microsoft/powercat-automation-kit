@@ -11,7 +11,7 @@ generated: 382AD969728AB696166C764CCA8233ED06486218
 
 Om du vill starta Power BI-instrumentpanelen för Automation Center of Excellence behöver du miljö-URL:en för din huvudmiljö (där Automation CoE Main är installerat).
 
-Om du vill hämta miljö-URL:en går du till Power Platform Admin Center, går till Miljöer, väljer miljön och noterar miljö-URL:en:
+Hämta miljö-URL:en genom att gå till Power Platform administrationscenter, gå till Miljöer, välja miljö och notera miljö-URL:en:
 
 ![Skärmen Hämta miljö – Power Platform administrationscenter](/images/get-environment.png)
 

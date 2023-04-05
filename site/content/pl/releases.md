@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: F157949646536FA3BC8B19B8EC98CEFE5986CF21
+generated: 91FF96BB5FB4FF2737B1A0A4DF66DAA2F4FFE122
 ---
 
 Strona zawiera łącza do historii wydań dla {{<product-name>}}.
@@ -14,6 +14,8 @@ Strona zawiera łącza do historii wydań dla {{<product-name>}}.
 Przeczytaj więcej na naszej stronie [Informacje o kamieniach milowych wydania](/pl/releases/milestones)
 
 ## 2023
+
+- [kwiecień 2023](/pl/releases/april-2023)
 
 - [marzec 2023](/pl/releases/march-2023)
 

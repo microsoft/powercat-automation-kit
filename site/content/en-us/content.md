@@ -83,6 +83,8 @@ include_footer: true
 
 - [Automation Kit - Install](/get-started/install)
 
+- [Automation Kit - Satellite - Get Started](/get-started/satellite)
+
 - [Automation Kit - Setup](/get-started/setup)
 
 
@@ -107,6 +109,8 @@ include_footer: true
 
 
 ### Location: /releases/
+
+- [Automation Kit - April 2023](/releases/april-2023)
 
 - [Automation Kit - December 2022](/releases/december-2022)
 

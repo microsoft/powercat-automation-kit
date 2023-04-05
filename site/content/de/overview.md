@@ -40,7 +40,7 @@ Weitere Videos finden Sie auf der [Automation Kit-Wiedergabeliste](https://www.y
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Das Schlüsselszenario des Automation Kit für Power Platform besteht darin, die Verwendung von Power Automate für Desktop-Lösungen zu beschleunigen, indem Sie den Return on Investment durch Automatisierung vorhandener Prozesse nahezu in Echtzeit definieren, überprüfen und überwachen können.
+Das Schlüsselszenario des Automation Kit für Power Platform besteht darin, die Nutzung von Power Automate für Desktop-Lösungen zu beschleunigen, indem Sie den Return on Investment durch die Automatisierung bestehender Prozesse nahezu in Echtzeit definieren, überprüfen und überwachen können.
 
 {{</slide>}}
 
@@ -67,7 +67,7 @@ Aus Betriebs- und Risikosicht den Zugriff auf Konnektoren und Daten zu kontrolli
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Das Power Platform CoE-Kit umfasst einen Fokus auf eine breitere Mieter- und Umgebungsverwaltung.
+Das Power Platform CoE-Kit konzentriert sich auf die Verwaltung von Mandanten und Umgebungen.
 
 Das Automatisierungskit ergänzt diese Tools, indem es sich speziell auf Schlüsselelemente von Power Automate Desktop-Abläufen konzentriert, sodass der ROI und die Auswirkungen nahezu in Echtzeit demonstriert werden können.
 

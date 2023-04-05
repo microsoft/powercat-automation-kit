@@ -9,7 +9,7 @@ tags: ['Office Hours']
 generated: 86C928F8ABDEA45B0077FE5E6199263FE7EB6B1C
 ---
 
-Välkommen till Automation Kit för Power Platform målsida för kontorstid i mars 2023.
+Välkommen till landningssidan för Automation Kit för Power Platform mars 2023 kontorstid.
 
 Du kan anmäla dig till kontorstidssessionen [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) hålls tisdagen den 14 mars 2023 mellan 7:00 och 8:00 PDT (Se andra tidszoner UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

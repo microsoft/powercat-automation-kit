@@ -9,7 +9,7 @@ tags: ['Office Hours']
 generated: 59825C3BA5D5CC7F7AB170DA1F38BB8F7E3808A9
 ---
 
-Willkommen beim Automation Kit für Power Platform Sprechstunde Oktober 2022 Landing Page.
+Willkommen auf der Landingpage des Automation Kit für Power Platform Bürozeiten im Oktober 2022.
 
 Sie können sich für die Sprechstunde anmelden [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) findet am Dienstag, den 11. Oktober 2022 zwischen 7:00 und 8:00 Uhr PDT statt (Siehe andere Zeitzonen [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

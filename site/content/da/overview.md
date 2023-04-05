@@ -40,7 +40,7 @@ Du kan se yderligere videoer på [Afspilningsliste til automatiseringssæt](http
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Nøglescenariet i automatiseringspakken til Power Platform er at fremskynde brugen af Power Automate til skrivebordsløsninger ved at give dig mulighed for at definere, gennemgå og overvåge investeringsafkastet ved automatisering af eksisterende processer i næsten realtid.
+Hovedscenariet i Automation Kit til Power Platform er at fremskynde brugen af Power Automate til skrivebordsløsninger ved at give dig mulighed for at definere, gennemse og overvåge investeringsafkastet ved automatisering af eksisterende processer i næsten realtid.
 
 {{</slide>}}
 
@@ -67,7 +67,7 @@ Fra et operationelt og risikomæssigt synspunkt at kontrollere adgangen til stik
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Det Power Platform CoE-sæt inkluderer fokus på bredere lejere og miljøstyring.
+Power Platform CoE-pakken indeholder fokus på bredere lejer- og miljøstyring.
 
 Automatiseringspakken supplerer disse værktøjer ved at fokusere specifikt på nøgleelementer i Power Automate Desktop-flows, så investeringsafkastet og effekten kan demonstreres i næsten realtid.
 
@@ -170,7 +170,7 @@ Data Packs udvider installationsprocessen og giver mulighed for at importere for
 
 I forlængelse af de eksisterende ALM Accelerator-funktioner planlægger vi at tilføje RPA-specifikke handlinger, der gør processen med at integrere Power Automate Desktop-komponenter til en automatiseret udrulnings- og gennemgangsproces.
 
-Læs mere om [Administrerede miljøer Power Platform pipelines og ALM-acceleratoren](/da/features/alm) og hvordan de kan hjælpe dig med at implementere og administrere dine automatiseringsløsninger.
+Læs mere om [Administrerede miljøer Power Platform pipelines og ALM Accelerator](/da/features/alm) og hvordan de kan hjælpe dig med at implementere og administrere dine automatiseringsløsninger.
 
 {{</slide>}}
 

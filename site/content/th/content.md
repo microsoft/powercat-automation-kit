@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A54D358D82AC6FC728B158E2C068243701C9262A
+generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 ---
 
 {{<toc>}}
@@ -84,6 +84,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 - [ชุดระบบอัตโนมัติ - ติดตั้ง](/th/get-started/install)
 
+- [Automation Kit - Satellite - เริ่มต้นใช้งาน](/th/get-started/satellite)
+
 - [ชุดระบบอัตโนมัติ - การตั้งค่า](/th/get-started/setup)
 
 
@@ -108,6 +110,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 
 ### สถานที่: /รีลีส/
+
+- [ชุดระบบอัตโนมัติ - เมษายน 2023](/th/releases/april-2023)
 
 - [ชุดระบบอัตโนมัติ - ธันวาคม 2022](/th/releases/december-2022)
 

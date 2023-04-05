@@ -9,7 +9,7 @@ tags: ['Office Hours']
 generated: 86C928F8ABDEA45B0077FE5E6199263FE7EB6B1C
 ---
 
-Velkommen til landingssiden for automatiseringssættet til Power Platform. marts 2023.
+Velkommen til Automation Kit til Power Platform startside for åbningstider i marts.
 
 Du kan tilmelde dig mødet i kontortiden [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) afholdes tirsdag den 14. marts 2023 mellem kl. 07.00 og 08.00 PDT (Se andre tidszoner UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

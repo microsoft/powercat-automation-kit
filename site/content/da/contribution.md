@@ -11,7 +11,7 @@ generated: 4F1A86248C4313A15D35FC198A76A7A970A61A37
 
 Som et Open Source-projekt, der er bygget oven på Power Platform og Microsoft Cloud, er vores mål hurtigt at levere værktøjer og vejledning, der hjælper med at fremskynde din hyperautomatiseringsrejse.
 
-Som en del af denne rejse, når vi inkuberer, modnes og samarbejder med Core Power Platform-ingeniørteamet baseret på din feedback. Ved hjælp af denne feedback vil vi se på at inkludere læring i kerneproduktet for at forbedre og reagere på dine behov.
+Som en del af denne rejse inkuberer, modner og samarbejder vi med Core Power Platform ingeniørteamet baseret på din feedback. Ved hjælp af denne feedback vil vi forsøge at inkludere læring i kerneproduktet for at forbedre og reagere på dine behov.
 
 I denne sammenhæng er der flere måder, du kan bidrage til projektet for at forbedre vores køreplan og funktioner:
 

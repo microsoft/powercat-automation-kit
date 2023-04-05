@@ -51,7 +51,7 @@ Die {{<product-name>}} integriert sich in [Process Advisor](https://learn.micros
 
 ## Verarbeitung Bergbau
 
-Durch die Verwendung von Process Mining mit Process Advisor können Sie Ineffizienzen in unternehmensweiten Prozessen entdecken. Diese Einblicke ermöglichen es Ihnen, ein tiefes Verständnis Ihrer Prozesse mithilfe von Ereignisprotokolldateien zu erlangen, die Sie von Ihrem Aufzeichnungssystem abrufen können (Apps, die Sie in Ihren Prozessen verwenden). Process Mining zeigt Karten Ihrer Prozesse mit Daten und Metriken an, um Leistungsprobleme zu erkennen. Beispielprozesse, die sich für Process Mining eignen, sind Debitorenbuchhaltung und Order-to-Cash.
+Die Verwendung von Process Mining mit Process Advisor ermöglicht es Ihnen, Ineffizienzen in unternehmensweiten Prozessen zu entdecken. Diese Erkenntnisse ermöglichen es Ihnen, ein tiefes Verständnis Ihrer Prozesse zu erlangen, indem Sie Ereignisprotokolldateien verwenden, die Sie aus Ihrem Aufzeichnungssystem abrufen können (Apps, die Sie in Ihren Prozessen verwenden). Process Mining zeigt Karten Ihrer Prozesse mit Daten und Metriken an, um Leistungsprobleme zu erkennen. Beispiele für Prozesse, die sich für Process Mining eignen, sind die Debitorenbuchhaltung und Order-to-Cash.
 
 Mit diesen Daten können Sie datengesteuerte Automatisierungsprojektanforderungen erstellen.
 

@@ -4,7 +4,7 @@ description: "オートメーションキット - サイトインデックス"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A54D358D82AC6FC728B158E2C068243701C9262A
+generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 ---
 
 {{<toc>}}
@@ -84,6 +84,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 - [自動化キット - インストール](/ja/get-started/install)
 
+- [自動化キット - サテライト - はじめに](/ja/get-started/satellite)
+
 - [オートメーションキット - セットアップ](/ja/get-started/setup)
 
 
@@ -108,6 +110,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 
 ### 場所: /リリース/
+
+- [自動化キット - 2023年4月](/ja/releases/april-2023)
 
 - [自動化キット - 2022年12月](/ja/releases/december-2022)
 

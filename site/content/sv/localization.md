@@ -23,7 +23,7 @@ generated: 53AFF7C6E0B1889AF1A221C000C138D19F1390BA
 
 Det uppskattas av [Förenta Nationerna](https://hr.un.org/unhq/languages/english) att 1,5 miljarder människor talar engelska. Men med tanke på att världens befolkning uppskattas vara [8 miljarder](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) senast i november 2022 utgör detta ett tydligt behov av att stödja andra språk.
 
-Power Platform Automation Kit-teamet arbetar som standard med amerikansk engelska för innehåll som inte ingår i Microsoft Learn-plattformen. För att tillgodose icke-engelsktalande experimenterar vi med en automatiserad process som konverterar innehåll som är en del av vår Automation-startupplevelse. Med hjälp av detta tillvägagångssätt strävar vi efter att skala till ett bredare samhälle.
+Power Platform Automation Kit-teamet fungerar som standard med amerikansk engelska för innehåll som inte ingår i Microsoft Learn plattformen. För att tillgodose icke-engelsktalande experimenterar vi med en automatiserad process som konverterar innehåll som är en del av vår Automation-startupplevelse. Med hjälp av detta tillvägagångssätt strävar vi efter att skala till ett bredare samhälle.
 
 Det som hjälper oss som team är att få [feedback](/sv#provide-feedback) från vår användargrupp om vikten av lokalisering för dig. Även om den här metoden inte ersätter en professionell översättningsprocess, tar vi gärna emot all feedback du har om den erfarenhet du får av att komma igång och använda Automation Kit. Vi ser fram emot att se hur vi kan stödja en bredare och mer varierad uppsättning upplevelser när vi experimenterar och ständigt förbättras över tiden.
 

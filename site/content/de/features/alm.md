@@ -25,9 +25,9 @@ Diese Seite bietet eine Übersicht über Komponenten, die Sie bei der Verwendung
 
 ## Zusammenfassung
 
-Bei der Suche nach ALM für Power Platform Lösungen, die Power Automate Desktop-Komponenten enthalten
+Wenn Sie sich ALM für Power Platform Lösungen ansehen, die Power Automate Desktop-Komponenten enthalten
 
-1. Überprüfen Sie die Funktionen von Managed Environment Power Platform Pipelines, um die Vorteile der produktinternen Funktionen auf Unternehmensebene zur Verwaltung und Steuerung von Lösungen innerhalb von Umgebungen zu nutzen.
+1. Sehen Sie sich die Funktionen von Managed Environment Power Platform Pipelines an, um die unternehmensweiten In-Product-Features für die Verwaltung und Steuerung von Lösungen in Umgebungen zu nutzen.
 
 <br/>
 
@@ -35,7 +35,7 @@ Bei der Suche nach ALM für Power Platform Lösungen, die Power Automate Desktop
 
 <br/>
 
-3. Erwägen Sie die Verwendung der [ALM Accelerator für Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). ALM Accelerator stellt einen vordefinierten Satz von Azure DevOps-Vorlagen bereit, die viele der Power Platform ALM-Aufgaben mithilfe der integrierten Quellcodeverwaltungssteuerung automatisieren.
+3. Erwägen Sie die Verwendung der [ALM Accelerator für Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-components). Der ALM Accelerator stellt einen vordefinierten Satz von Azure DevOps-Vorlagen bereit, mit denen viele der Power Platform ALM-Aufgaben mithilfe einer integrierten Quellcodeverwaltungssteuerung automatisiert werden.
 
 ## Lernen von Power CAT
 
@@ -67,7 +67,7 @@ Das Automation Kit-Team arbeitet mit dem ALM Accelerator-Team zusammen, um Power
 
 Verwaltete Umgebungen bieten Ihnen die Möglichkeit, Governance in großem Maßstab zu rationalisieren und zu vereinfachen. Administratoren können Managed Environments mit nur wenigen Klicks aktivieren und sofort Funktionen aufleuchten, die mehr Transparenz und mehr Kontrolle bei geringerem Aufwand für die Verwaltung all Ihrer Low-Code-Assets bieten.
 
-Verwaltete Umgebungen sind ein wichtiger Bestandteil der Power Platform-Familie, genauso wie AI Builder Intelligenz in unsere Produkte eingebracht hat und Dataverse das Daten-Backbone bereitstellt. Verwaltete Umgebungen optimieren die Governance der Plattform in großem Maßstab.
+Verwaltete Umgebungen sind ein wichtiger Bestandteil der Power Platform-Familie, so wie AI Builder Intelligenz in unsere Produkte einfließen ließ und Dataverse das Daten-Backbone bereitstellt. Verwaltete Umgebungen optimieren die Governance der Plattform in großem Maßstab.
 
 {{</slide>}}
 
@@ -81,7 +81,7 @@ Verwaltete Umgebungen bieten Ihnen:
 - Konfigurieren der Lösungsprüfung für Sicherheits- oder Zuverlässigkeitsprüfungen, um Regeln automatisch auszuführen, wenn eine Lösung in eine verwaltete Umgebung importiert wird
 - Passen Sie die Begrüßungs- und Freigabeerfahrung des Herstellers an, damit Sie Benutzer auf den richtigen Pfad führen.
 - Weniger Aufwand Rationalisieren, vereinfachen und automatisieren Sie sofort einsatzbereite Schritte mit wenigen Klicks. 
-- Die Power Platform Pipelines bieten die Möglichkeit, den Application Lifecycle Management (ALM)-Prozess zu vereinfachen.
+- Die Power Platform Pipelines bietet die Möglichkeit, den Application Lifecycle Management (ALM)-Prozess zu vereinfachen.
 
 {{</slide>}}
 
@@ -111,9 +111,9 @@ In den kommenden Wochen und Monaten werden Sie auf der Startseite Einblicke in d
 
 {{<slide  id="slide5" audio="features/alm/pipeline-extensibility.mp3?v=1" description="Pipeline Extensibility" image="features/alm/pipeline-extensibility.svg?v=1" >}}
 
-Sie haben eine Reihe von Optionen, die Sie für Ihre ALM-Entscheidungen im Power Platform berücksichtigen können. Die verwaltete Umgebung Power Platform Pipelines bieten im Produkt Application Lifecycle Management.
+Sie haben eine Reihe von Optionen, die Sie für Ihre ALM-Auswahl in der Power Platform in Betracht ziehen sollten. Die verwaltete Umgebung Power Platform Pipelines im Produkt Application Lifecycle Management bereitstellen.
 
-Optional können Sie die Erweiterungspunkte der verwalteten Umgebung Power Platform Pipelines in Kombination mit [Power Platform Buildtools für Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)das [GitHub-Aktionen für Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) oder [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) , um Ihre eigenen benutzerdefinierten ALM-DevOps-Prozesse zu rollen.
+Optional können Sie die Erweiterungspunkte der verwalteten Umgebung Power Platform Pipelines in Kombination mit [Power Platform Erstellen von Tools für Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)das [GitHub-Aktionen für Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) oder [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) , um Ihre eigenen benutzerdefinierten ALM-DevOps-Prozesse zu rollen.
 
 Schließlich konnten Sie die Vorteile der [ALM Accelerator für Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) aus dem CoE-Kit, um vorgefertigte Vorlagen und Beispiele für End-to-End-ALM mithilfe von Azure DevOps bereitzustellen. Der ALM Accelerator bietet viele gängige Szenarien, um Ihre Lösungen umgebungsübergreifend zu erstellen und zu steuern.
 
@@ -121,9 +121,9 @@ Schließlich konnten Sie die Vorteile der [ALM Accelerator für Power Platform](
 
 {{<slide  id="slide6" audio="features/alm/alm-accelerator-for-power-platform-overview.mp3?v=1" description="ALM Accelerator for Power Platform Overview" image="features/alm/alm-accelerator-for-power-platform-overview.svg?v=1" >}}
 
-Was ist ALM Accelerator für Power Platform?
+Was ist ALM Accelerator for Power Platform?
 
-Der ALM Accelerator for Power Platform umfasst Power Apps, die auf Azure DevOps Pipelines und der Git-Quellcodeverwaltung basieren. Die App bietet eine vereinfachte Schnittstelle für Hersteller, um die Komponenten in ihren Power Platform Solutions regelmäßig zur Quellcodeverwaltung zu exportieren und Bereitstellungsanforderungen zu erstellen, um ihre Arbeit vor der Bereitstellung in Zielumgebungen überprüfen zu lassen.
+Der ALM Accelerator für Power Platform umfasst Power Apps, die auf Azure DevOps Pipelines und der Git-Quellcodeverwaltung basieren. Die App bietet eine vereinfachte Benutzeroberfläche für Hersteller, um die Komponenten in ihren Power Platform-Lösungen regelmäßig zur Quellcodeverwaltung zu exportieren und Bereitstellungsanforderungen zu erstellen, damit ihre Arbeit vor der Bereitstellung in Zielumgebungen überprüft wird.
 
 {{</slide>}}
 
@@ -138,9 +138,9 @@ ALM Accelerator-Vorlagen für Azure DevOps-Pipelines erleichtern die Automatisie
 ALM Accelerator enthält Pipeline-Vorlagen, um eine 3-stufige Bereitstellung in der Produktion zu unterstützen.
 Vorlagen können an spezifische Anforderungen und Szenarien angepasst werden
 
-Der ALM Accelerator for Power Platform ist eine Canvas-App, die auf Azure DevOps Pipelines aufbaut, um eine vereinfachte Schnittstelle für Maker bereitzustellen, um regelmäßig Pull-Anforderungen für ihre Entwicklungsarbeit im Power Platform zu erstellen und zu erstellen. 
+Der ALM Accelerator for Power Platform ist eine Canvas-App, die auf Azure DevOps Pipelines aufbaut, um eine vereinfachte Schnittstelle für Maker bereitzustellen, mit der sie regelmäßig Pull-Anforderungen für ihre Entwicklungsarbeit im Power Platform festlegen und erstellen können. 
 
-Die Kombination aus Azure DevOps Pipelines und der Canvas-App macht die vollständige Lösung von ALM Accelerator für Power Platform aus. 
-Die Pipelines und die App sind Referenzimplementierungen. Sie wurden intern für die Verwendung durch das Entwicklungsteam für das CoE Starter Kit entwickelt, wurden jedoch Open Source veröffentlicht und veröffentlicht, um zu demonstrieren, wie gesundes ALM im Power Platform erreicht werden kann. Sie können unverändert verwendet oder für bestimmte Geschäftsszenarien angepasst werden.
+Die Kombination aus den Azure DevOps Pipelines und der Canvas-App bildet den vollständigen ALM Accelerator für Power Platform Lösung. 
+Die Pipelines und die App sind Referenzimplementierungen. Sie wurden für die interne Verwendung durch das Entwicklungsteam für das CoE Starter Kit entwickelt, sind jedoch Open Source und wurden veröffentlicht, um zu demonstrieren, wie gesundes ALM in der Power Platform erreicht werden kann. Sie können unverändert verwendet oder für bestimmte Geschäftsszenarien angepasst werden.
 
 {{</slide>}}

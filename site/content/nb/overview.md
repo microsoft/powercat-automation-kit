@@ -40,7 +40,7 @@ Du kan se flere videoer på [Spilleliste for automatiseringssett](https://www.yo
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Hovedscenarioet for automatiseringspakken for Power Platform er å akselerere bruken av Power Automate for skrivebordsløsninger ved å la deg definere, se gjennom og overvåke avkastningen på investeringen ved automatisering av eksisterende prosesser i nær sanntid.
+Hovedscenarioet med automatiseringssettet for Power Platform er å akselerere bruken av Power Automate for skrivebordsløsninger ved å la deg definere, gjennomgå og overvåke avkastningen på investeringen i nær sanntid ved automatisering av eksisterende prosesser.
 
 {{</slide>}}
 
@@ -67,7 +67,7 @@ Fra et operasjonelt og risikosynspunkt for å kontrollere tilgangen til koblinge
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Det Power Platform CoE-settet inkluderer fokus på bredere leietaker og administrert miljø.
+Det Power Platform CoE-settet inkluderer fokus på bredere leietaker- og miljøstyrt.
 
 Automatiseringssettet utfyller disse verktøysettene ved å fokusere spesifikt på nøkkelelementer i Power Automate Desktop-flyter, slik at avkastningen og innvirkningen kan demonstreres i nær sanntid.
 
@@ -170,7 +170,7 @@ Ved å utvide installasjonsprosessen vil datapakker gi muligheten til å importe
 
 Ved å utvide de eksisterende ALM Accelerator-funksjonene planlegger vi å legge til RPA-spesifikke handlinger som gjør prosessen med å integrere Power Automate Desktop-komponenter i en automatisert distribusjons- og gjennomgangsprosess.
 
-Les mer om [Administrerte miljøer Power Platform pipeliner og ALM-akseleratoren](/nb/features/alm) og hvordan de kan hjelpe deg med å distribuere og administrere automatiseringsløsninger.
+Les mer om [Administrerte miljøer Power Platform pipeliner og ALM Accelerator](/nb/features/alm) og hvordan de kan hjelpe deg med å distribuere og administrere automatiseringsløsninger.
 
 {{</slide>}}
 
@@ -178,7 +178,7 @@ Les mer om [Administrerte miljøer Power Platform pipeliner og ALM-akseleratoren
 
 Når vi ser nærmere på milepælene våre, tilbakefører vi etterslepselementer for å utvide den nye migreringsmodulen til automatiseringen.
 
-Dypere integrasjon med Process Advisor for å bistå med prosessen med å identifisere og kvalifisere forventet avkastning på automatisering
+Dypere integrasjon med Process Advisor for å hjelpe med prosessen med å identifisere og kvalifisere forventet avkastning på automatisering
 
 Når vi ønsker å utvide de vertsbaserte RPA-agentene, vil vi se etter eksempler som akseler bruken av Azure-vertsbaserte agenter for kunder som krevde automatisering av infrastrukturoperasjoner for å integrere med distribuerte automatiseringsprosjekter.
 

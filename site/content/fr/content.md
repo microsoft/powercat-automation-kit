@@ -4,7 +4,7 @@ description: "Kit d’automatisation - Index du site"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A54D358D82AC6FC728B158E2C068243701C9262A
+generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 ---
 
 {{<toc>}}
@@ -84,6 +84,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 - [Kit d’automatisation - Installer](/fr/get-started/install)
 
+- [Kit d’automatisation - Satellite - Démarrer](/fr/get-started/satellite)
+
 - [Kit d’automatisation - Configuration](/fr/get-started/setup)
 
 
@@ -108,6 +110,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 
 ### Emplacement : /releases/
+
+- [Kit d’automatisation - Avril 2023](/fr/releases/april-2023)
 
 - [Kit d’automatisation - Décembre 2022](/fr/releases/december-2022)
 

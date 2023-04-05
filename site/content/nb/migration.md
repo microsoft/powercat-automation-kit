@@ -13,7 +13,7 @@ generated: 42940454F8C75C0160E5E7D94767DD18DFFC13C6
 
 <br/>
 
-Den {{<product-name>}} **Modul for overføring** gir deg et velprøvd sett med verktøy og veiledning basert på engasjementer med kunder for å akselerere migreringsreisen. Ved å utnytte styrken til Microsoft Power Platform, Microsoft Azure og de bredere Microsoft Cloud-tjenestene kan du:
+Den {{<product-name>}} **Modul for overføring** gir deg et velprøvd sett med verktøy og veiledning basert på engasjementer med kunder for å få fart på overføringsreisen. Ved å utnytte styrken til Microsoft Power Platform, Microsoft Azure og de bredere Microsoft Cloud-tjenestene kan du:
 
 - Realiser målene dine om å gi kostnadsbesparelser.
 
@@ -49,7 +49,7 @@ Listen nedenfor gir en oversikt over områder vi prioriterer for inkludering i a
 
 ### Konvertering
 
-- **Skyintegrasjon** eksempelkomponenter som kan brukes til å akselerere konverteringsprosessen for å migrere løsninger til Power Platform, Microsoft Cloud.
+- **Skyintegrasjon** eksempelkomponenter som kan brukes til å akselerere konverteringsprosessen for å overføre løsninger til Power Platform, Microsoft Cloud.
 
 - **Ikke-funksjonelle krav** dekker tilnærming til kvalitetstesting, DevOps-overvåking, Dokumentasjon av migrerte løsninger
 

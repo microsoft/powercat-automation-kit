@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A54D358D82AC6FC728B158E2C068243701C9262A
+generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 ---
 
 {{<toc>}}
@@ -84,6 +84,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 - [自动化套件 - 安装](/zh-hans/get-started/install)
 
+- [自动化套件 - 卫星 - 入门](/zh-hans/get-started/satellite)
+
 - [自动化套件 - 设置](/zh-hans/get-started/setup)
 
 
@@ -108,6 +110,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 
 ### 当前位置： /发布/
+
+- [自动化套件 - 2023 年 4 月](/zh-hans/releases/april-2023)
 
 - [自动化套件 - 2022 年 12 月](/zh-hans/releases/december-2022)
 

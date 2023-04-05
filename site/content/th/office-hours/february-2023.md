@@ -9,7 +9,7 @@ tags: ['Office Hours']
 generated: F7FAD20AAC0C973F0DA61C5C1291DD4D1F4D445B
 ---
 
-ยินดีต้อนรับสู่หน้าแลนดิ้งเพจ Automation Kit สําหรับ Power Platform กุมภาพันธ์ 2023 ในเวลาทําการ
+ยินดีต้อนรับสู่ Automation Kit สําหรับหน้า Landing Page Power Platform กุมภาพันธ์ 2023 เวลาทําการ
 
 คุณสามารถลงทะเบียนสําหรับเวลาทําการ [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) จะจัดขึ้นในวันอังคารที่ 14 กุมภาพันธ์ 2023 ระหว่างเวลา 7:00 น. ถึง 8:00 น. PDT (ดูเขตเวลาอื่น UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

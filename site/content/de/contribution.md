@@ -9,9 +9,9 @@ tags: ['Contribution', 'Guidance']
 generated: 4F1A86248C4313A15D35FC198A76A7A970A61A37
 ---
 
-Als Open-Source-Projekt, das auf der Power Platform und der Microsoft Cloud aufbaut, ist es unser Ziel, schnell Tools und Anleitungen bereitzustellen, um Ihre Hyperautomatisierung zu beschleunigen.
+Als Open-Source-Projekt, das auf der Power Platform und der Microsoft Cloud aufbaut, ist es unser Ziel, schnell Tools und Anleitungen bereitzustellen, die Ihnen helfen, Ihre Hyper-Automatisierung zu beschleunigen.
 
-Als Teil dieser Reise inkubieren, reifen und arbeiten wir mit dem Core Power Platform Engineering-Team basierend auf Ihrem Feedback zusammen. Mit diesem Feedback werden wir versuchen, Erkenntnisse in das Kernprodukt aufzunehmen, um Ihre Bedürfnisse zu verbessern und darauf zu reagieren.
+Als Teil dieser Reise entwickeln wir uns auf der Grundlage Ihres Feedbacks und arbeiten mit dem Core Power Platform Engineering-Team zusammen. Anhand dieses Feedbacks werden wir versuchen, Erkenntnisse in das Kernprodukt aufzunehmen, um Ihre Bedürfnisse zu verbessern und darauf zu reagieren.
 
 Vor diesem Hintergrund gibt es mehrere Möglichkeiten, wie Sie zum Projekt beitragen können, um unsere Roadmap und Funktionen zu verbessern:
 

@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A54D358D82AC6FC728B158E2C068243701C9262A
+generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 ---
 
 {{<toc>}}
@@ -84,6 +84,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 - [자동화 키트 - 설치](/ko/get-started/install)
 
+- [자동화 키트 - 위성 - 시작하기](/ko/get-started/satellite)
+
 - [자동화 키트 - 설정](/ko/get-started/setup)
 
 
@@ -108,6 +110,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 
 ### 위치: /릴리스/
+
+- [자동화 키트 - 2023년 4월](/ko/releases/april-2023)
 
 - [자동화 키트 - 2022년 12월](/ko/releases/december-2022)
 

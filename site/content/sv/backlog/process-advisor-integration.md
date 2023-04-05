@@ -1,6 +1,6 @@
 ---
 title: "Process Advisor Integration"
-description: "Automation Kit - Process Advisor integration"
+description: "Automation Kit - Process Advisor Integration"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
@@ -43,7 +43,7 @@ Den {{<product-name>}} integreras med [Process Advisor](https://learn.microsoft.
 
 - **Bearbetning av gruvdrift** Analys av affärsprocesser för att identifiera och stödja affärsfallet för att skapa automatiseringsprojekt som stöds av dataanalys.
 
-- **Projektförfrågningar för datadriven automatisering** Använd resultatet av din processanalys för att skapa ett Automation-projekt från Process Advisor resultat.
+- **Projektförfrågningar för datadriven automatisering** Använd resultaten av din processanalys för att skapa ett automatiseringsprojekt från Process Advisor resultat.
 
 - **Halvautomatiserat skapande av automatiseringsprojekt** Integrera Dataverse-data mellan Process Advisor och Automation Kit för att minska mängden arbete för att skapa Automation-projekt.
 
@@ -51,12 +51,12 @@ Den {{<product-name>}} integreras med [Process Advisor](https://learn.microsoft.
 
 ## Bearbetning av gruvdrift
 
-Genom att använda Process mining med Process Advisor kan du upptäcka ineffektivitet i organisationsomfattande processer. Med dessa insikter kan du få en djup förståelse för dina processer med hjälp av händelseloggfiler som du kan få från ditt inspelningssystem (appar som du använder i dina processer). Process mining visar kartor över dina processer med data och mätvärden för att känna igen prestandaproblem. Exempel på processer som är lämpliga för processutvinning inkluderar kundfordringar och order-till-kontanter.
+Genom att använda processutvinning med Process Advisor kan du upptäcka ineffektivitet i organisationsomfattande processer. Med dessa insikter kan du få en djup förståelse för dina processer med hjälp av händelseloggfiler som du kan hämta från ditt inspelningssystem (appar som du använder i dina processer). Process mining visar kartor över dina processer med data och mått för att identifiera prestandaproblem. Exempel på processer som är lämpliga för processutvinning inkluderar kundfordringar och order-to-cash.
 
 Med dessa data kan du skapa datadrivna Automation Project-begäranden.
 
 ## Skapa automatiseringsprojekt
 
-Med hjälp av resultaten av Process Advisor processutvinning och rapportering kan du använda följande Process Advisor information för att stödja ditt automatiseringsprojekt med hjälp av Process Advisor beräknade analysresultat:
+Med hjälp av resultaten från Process Advisor processutvinning och rapportering kan du använda följande Process Advisor information för att stödja ditt automatiseringsprojekt med hjälp av Process Advisor beräknade analysresultat:
 
 Automation Kit|Process Advisor|Anteckningar        |

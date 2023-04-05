@@ -9,7 +9,7 @@ tags: ['Office Hours']
 generated: 86C928F8ABDEA45B0077FE5E6199263FE7EB6B1C
 ---
 
-Willkommen auf der Zielseite des Automation Kit für Power Platform Bürozeiten März 2023.
+Willkommen auf der Landingpage des Automation Kit für Power Platform Sprechstunden im März 2023.
 
 Sie können sich für die Sprechstunde anmelden [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) findet am Dienstag, den 14. März 2023 zwischen 7:00 Uhr und 8:00 Uhr PDT statt (Siehe andere Zeitzonen UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

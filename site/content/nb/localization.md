@@ -23,7 +23,7 @@ generated: 53AFF7C6E0B1889AF1A221C000C138D19F1390BA
 
 Det er estimert av [FN](https://hr.un.org/unhq/languages/english) at 1,5 milliarder mennesker snakker engelsk. Men gitt verdens befolkning er anslått til å være [8 milliarder](https://www.un.org/en/desa/world-population-reach-8-billion-15-november-2022) innen november 2022 presenterer dette et klart behov for å støtte andre språk.
 
-Power Platform Automation Kit-teamet fungerer som standard med amerikansk engelsk for innhold som ikke er en del av Microsoft Learn-plattformen. For å imøtekomme ikke-engelsktalende eksperimenterer vi med en automatisert prosess som konverterer innhold som er en del av vår automasjonsstarteropplevelse. Ved å bruke denne tilnærmingen tar vi sikte på å skalere til et bredere samfunn.
+Power Platform Automation Kit-teamet fungerer som standard med amerikansk engelsk for innhold som ikke er en del av Microsoft Learn-plattformen. For å imøtekomme ikke-engelsktalende eksperimenterer vi med en automatisert prosess som konverterer innhold som er en del av vår automatiseringsstartopplevelse. Ved hjelp av denne tilnærmingen tar vi sikte på å skalere til et bredere samfunn.
 
 Det som hjelper oss som et team, er å få [tilbakemelding](/nb#provide-feedback) fra brukerfellesskapet vårt om viktigheten av lokalisering for deg. Selv om denne tilnærmingen ikke erstatter en profesjonell oversettelsesprosess, tar vi gjerne imot tilbakemeldinger du har på opplevelsen av at lokalisering gir deg i gang og bruker automatiseringssettet. Vi ser frem til å se hvordan vi kan støtte et bredere og mer mangfoldig sett med erfaringer når vi eksperimenterer og kontinuerlig forbedrer oss over tid.
 

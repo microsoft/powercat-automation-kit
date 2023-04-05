@@ -40,7 +40,7 @@ Du kan titta på fler videor på [Spellista för automatiseringssats](https://ww
 
 {{<slide  id="slide1" audio="overview/Slide01.mp3" description="Automation Kit Overview" image="overview/Slide01.SVG" >}}
 
-Det viktigaste scenariot i Automation Kit för Power Platform är att påskynda användningen av Power Automate för datorlösningar genom att låta dig definiera, granska och övervaka avkastningen på investeringen i nära realtid genom automatisering av befintliga processer.
+Huvudscenariot för Automation Kit för Power Platform är att påskynda användningen av Power Automate för datorlösningar genom att låta dig definiera, granska och övervaka avkastningen på investeringen nästan i realtid genom automatisering av befintliga processer.
 
 {{</slide>}}
 
@@ -67,7 +67,7 @@ Ur drifts- och risksynpunkt för att kontrollera åtkomsten till anslutningsappa
 {{</slide>}}
 
 {{<slide  id="slide4" audio="overview/Slide04.mp3" description="Automation Kit vs CoE Kit" image="overview/Slide04.SVG" >}}
-Det Power Platform CoE Kit innehåller fokus på bredare klientorganisation och miljö som hanteras.
+Power Platform CoE Kit innehåller ett fokus på bredare klient- och miljöhantering.
 
 Automatiseringspaketet kompletterar dessa uppsättningar verktyg genom att fokusera specifikt på viktiga element i Power Automate Desktop-flöden så att avkastningen och effekten kan demonstreras i nära realtid.
 

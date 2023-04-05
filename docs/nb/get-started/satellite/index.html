@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en-us">
+    <a id="topOfPage"></a>
+    <head>
+        
+
+<meta property="og:title" content="Satellitt - Kom i gang" />
+<meta property="og:description" content="Automatiseringssett - Satellitt - Kom i gang" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/nb/get-started/satellite/" /><meta property="article:section" content="get-started" />
+
+
+
+
+
+<meta name="description" content="Automatiseringssett for Power Platform startsted. Definer og mål Power Automate Desktops avkastning på investeringen, koble til læringsinnhold og kundehistorier." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="og:image" content="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.png" />
+<meta name="og:image:alt" content="Automation Kit Logo" />
+
+        <title>Automation Kit for Power Platform</title>
+        
+<link rel="icon" type="image/png" href="https://microsoft.github.io/powercat-automation-kit/images/favicon.png" />
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/style.min.900ac3346e02b249eca52c9ae838525e38bee9dc718fb9fd6cc0fbcfa923b149.css" integrity="sha256-kArDNG4CsknspSya6DhSXji&#43;6dxxj7n9bMD7z6kjsUk=">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/icons.css">
+<link href="https://microsoft.github.io/powercat-automation-kit/css/survey-jquery/modern.min.css" type="text/css" rel="stylesheet">
+<script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+
+    </head>
+    <body>
+    
+
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-gray">
+    <div class="container d-flex justify-content-between">
+        <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/nb/">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="56">
+        </a>
+        <span class="my-1 title text-black">Automatiseringssett for Power Platform</span>
+    </div>
+</nav>
+<article>
+  <a id="topofpage"></a>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">Satellitt - Kom i gang</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h1 id="oversikt">Oversikt</h1>
+<p>Velkommen til startsiden for satellittløsningen. Denne delen dekker viktige endringer som ble gjort i april 2023 og senere utgivelser. Etter april 2023 har vi fjernet behovet for Azure Key Vault for å lagre Azure-programleier, program-ID og hemmelig informasjon om Azure-apper.</p>
+<h2 id="konseptuell-design">Konseptuell design</h2>
+<p>Vår læringsside skisserer <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design">Konseptuell design</a> til {{produktnavn}}. Nøkkelelementet i løsningen er det Power Platform hovedmiljøet.</p>
+<p>Det er vanligvis flere satellittproduksjonsmiljøer som kjører automatiseringsprosjektene dine. Avhengig av miljøstrategien kan dette også være utviklings- eller testmiljøer.</p>
+<p>Mellom disse miljøene er det en synkroniseringsprosess i nær sanntid som inkluderer telemetri for sky- eller skrivebordsflyt, bruk av maskin- og maskingrupper og revisjonslogger. Power BI-instrumentbordet for automatiseringspakken viser denne informasjonen.</p>
+<h2 id="hva-har-endret-seg">Hva har endret seg</h2>
+<p>Som en del av løsningen <a href="https://github.com/microsoft/powercat-automation-kit/issues/84">[Automatiseringssett – funksjon]: Azure Key Vault-alternativ for satellittmiljøer</a> Azure Key Vault er ikke lenger nødvendig. Dette er viktig fordi det betydelig reduserer kompleksiteten ved installasjon og hvordan sikkerhet administreres for å få løsningsartefakter ved bruk av Automation Solution Manager.</p>
+<h2 id="hva-er-det-samme">Hva er det samme?</h2>
+<p>Når nøkkelelementene er de samme som de eldre utgivelsene før april 2023 og april 2023, er behovet for et Azure Active Directory-program.</p>
+<p>En <a href="https://learn.microsoft.com/power-platform/admin/manage-application-users">applikasjon bruker</a> er en type bruker i Power Platform som identifiseres av tilstedeværelsen av ApplicationId-attributtet i systembrukeroppføringen. Programbrukere opprettes i Azure Active Directory (Azure AD) og brukes til å godkjenne og autorisere tilgang til Power Platform. De brukes vanligvis til å representere et program eller en tjeneste som trenger tilgang til data eller utføre operasjoner i Power Platform på vegne av brukere eller andre programmer.</p>
+<p>Programbrukeren brukes spesifikt av Automation Solution Manager slik at du kan spørre løsningskomponentene i et miljø, slik at du kan gjøre det mulig for en bruker å måle en distribuert Power Platform løsning.</p>
+<h2 id="installere">Installere</h2>
+<p>Den <a href="https://microsoft.github.io/powercat-automation-kit/nb/get-started/install">Installasjon av kommandolinje</a> for satellittløsninger vil be deg om Azure Active Directory-programnavnet og Azure Active Directory-program-ID. Ved hjelp av denne informasjonen vil det:</p>
+<ol>
+<li>Legge til Azure Active Directory-programmet som en programbruker</li>
+<li>Legge til programbrukeren i Systemadministrator-rollen</li>
+<li>Legg til bruker-IDen for programbrukeren i miljøvariabelen <strong>Artefakter i løsningsbehandling leser bruker-ID</strong></li>
+</ol>
+<p>Den nye rollen Dataverse-rollen <strong>Bruker av automatiseringsløsningsbehandling</strong> er lagt til som gjør det mulig for brukere å kalle den nye egendefinerte API-en for Dataverse GetDataverseSolutionArtifacts som spør etter løsningsartefakter ved hjelp av den angitte miljøvariabelen <strong>Artefakter i løsningsbehandling leser bruker-ID</strong>.</p>
+<p>Hvis du ønsker å installere satellittløsningen manuelt, må følgende endringer gjøres i <a href="https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite">Sett opp satellitter</a> instruks.</p>
+<ol>
+<li>Hopp over trinnet &ldquo;Legg til en ny klienthemmelighet&rdquo; da denne ikke lenger er nødvendig for april 2023 eller nyere.</li>
+<li>Hopp over trinnet for å opprette hemmeligheter i Azure Key Vault.</li>
+<li>Legg til bruker-IDen til programbrukeren i <strong>Artefakter i løsningsbehandling leser bruker-ID</strong> Miljøvariabel.</li>
+</ol>
+<h2 id="post-installer">Post Installer</h2>
+<p>Kontroller at bruker(e) som skal kjøre Automation Solution Manager-programmet, får tillatelse til <strong>Bruker av automatiseringsløsningsbehandling</strong> Dataverse-sikkerhetsrolle.</p>
+<h2 id="tidligere-utgivelser">Tidligere utgivelser</h2>
+<p>Før utgivelsen i april 2023 krevde installasjoner av satellittløsning miljøvariabler av typen hemmelig. Dette krevde en <a href="https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview">Azure Key Vault</a> for å lagre verdiene for leier-ID, program-ID og programhemmelighet. For å bruke denne funksjonen kreves også <a href="https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites">Forutsetninger</a> av Azure Key Vault som er den samme leieren, oppsett av Microsoft.PowerPlatform som en ressursleverandør.</p>
+<p>I mars 2023-utgivelsene eller eldre ble Azure Key Vault brukt til å lagre en leier-ID, APplication Id og programhemmelighet. Ved hjelp av disse verdiene ble det bedt om et tilgangstoken for å spørre Dataverse slik at den kunne returnere listen over løsningskomponenter.</p>
+<h2 id="anbefalinger">Anbefalinger</h2>
+<p>For eksisterende brukere anbefales det å forenkle pågående administrasjon og fjerne behovet for en avhengighet av Azure Key Vault som du oppgraderer den eksisterende satellittinstallasjonen til april 2023 eller senere for å dra nytte av de nye funksjonene.</p>
+
+    </div>
+  </div>
+</article>
+
+    
+    
+    <footer class="d-print-none">
+    <nav class="navbar navbar-light bg-light d-flex justify-content-around">
+  <div class="container pt-3">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-logo">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg">
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>Produkt</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/nb/releases">
+              Utgivelser
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/nb/frequently-asked-questions">
+              Faq
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/nb/support">
+              Støtte
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/nb/office-hours">
+              Kontortid
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/automation-kit-learn">
+              Oppdag funksjoner
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/ak4pp-issues">
+              Problemer
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit/milestones?status=open">
+              Milepæler
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit/releases">
+              Utgivelser
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://privacy.microsoft.com/privacystatement">
+              Personvernpolicy
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>Lære</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">
+              Kom i gang
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit">
+              Konfigurere automatiseringssettet
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit">
+              Bruk automatiseringssettet
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>Blogg</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/automation-kit-blog">
+              Offentlig forhåndsversjon
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/">
+              Cineplex Kundehistorie
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+          <h3></h3>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item" rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit">
+                <span class="icon"><i class="fa fa-github"></i></span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </nav>
+</footer>
+    
+
+    
+
+    
+
+    <script src="https://microsoft.github.io/powercat-automation-kit/js/jquery/3.6.1/jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/feather-icons/4.29.0/feather.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/modernizr/2.8.3/modernizr.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/survey-jquery/1.9.55/survey.jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/showdown/2.1.0/showdown.min.js" ></script>
+</html>

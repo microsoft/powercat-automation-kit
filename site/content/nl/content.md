@@ -4,7 +4,7 @@ description: "Automatiseringskit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A54D358D82AC6FC728B158E2C068243701C9262A
+generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 ---
 
 {{<toc>}}
@@ -84,6 +84,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 - [Automation Kit - Installeren](/nl/get-started/install)
 
+- [Automation Kit - Satelliet - Aan de slag](/nl/get-started/satellite)
+
 - [Automatiseringskit - Installatie](/nl/get-started/setup)
 
 
@@ -108,6 +110,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 
 ### Locatie: /releases/
+
+- [Automatiseringskit - april 2023](/nl/releases/april-2023)
 
 - [Automatiseringskit - december 2022](/nl/releases/december-2022)
 

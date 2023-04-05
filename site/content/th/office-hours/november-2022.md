@@ -9,7 +9,7 @@ tags: ['Office Hours']
 generated: DA3C633A053D3FA4CB87C2593C1692E57A7B8D6D
 ---
 
-ยินดีต้อนรับสู่หน้า Landing Page สําหรับชุดระบบอัตโนมัติสําหรับ Power Platform พฤศจิกายน 2022
+ยินดีต้อนรับสู่ Automation Kit สําหรับหน้า Landing Page Power Platform พฤศจิกายน 2022 ในเวลาทําการ
 
 คุณสามารถลงทะเบียนสําหรับเวลาทําการ [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) จะจัดขึ้นในวันอังคารที่ 15 พฤศจิกายน 2022 ระหว่างเวลา 7:00 น. ถึง 8:00 น. PDT (ดูเขตเวลาอื่น UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

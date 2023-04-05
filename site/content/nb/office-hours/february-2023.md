@@ -9,7 +9,7 @@ tags: ['Office Hours']
 generated: F7FAD20AAC0C973F0DA61C5C1291DD4D1F4D445B
 ---
 
-Velkommen til automatiseringssettet for landingssiden for Power Platform kontortid i februar 2023.
+Velkommen til Automation Kit for Power Platform landingssiden for kontortid i februar 2023.
 
 Du kan registrere deg for økten for kontortid [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) skal holdes tirsdag 14. februar 2023 mellom kl. 07.00 og 08.00 PDT (Se andre tidssoner UTC -7 [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 

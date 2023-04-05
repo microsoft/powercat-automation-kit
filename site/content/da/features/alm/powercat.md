@@ -28,7 +28,7 @@ Automatiseringssættet udnytter [ALM Accelerator](https://aka.ms/aa4pp) for at l
 
 I lighed med den udgivelsesproces, der bruges til andre Power CAT-administrerede sæt, er {{<product-name>}} bruger ALM Accelerator til at implementere udgivelser i vores offentlige GitHub-udgivelser.
 
-Vores interne proces har et Power Platform miljø for udvikling, test og produktion. Når vi er klar til en udgivelse, pakker vores integrerede GitHub Actions de administrerede og ikke-administrerede implementeringsløsninger sammen med produktbemærkninger automatisk til en GitHub Draft-udgivelse.
+Vores interne proces har et Power Platform miljø for udvikling, test og produktion. Når vi er klar til en udgivelse, pakker vores integrerede GitHub-handlinger automatisk de administrerede og ikke-administrerede udrulningsløsninger sammen med produktbemærkninger til en GitHub-kladdeudgivelse.
 
 Når kladdeudgivelsen er klar, kan vi udgive nye versioner eller hotfixes efter behov.
 
@@ -48,7 +48,7 @@ Nu hvor vi har denne automatisering på plads, har den automatiserede ALM-udgive
 
 Du kan undersøge vores åbne ALM-relaterede efterslæbsposter i vores [GitHub-problemer Register](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
-Samlet set bygger vi videre på de eksisterende out of the box Power Platform og Microsoft DevOps produktfunktioner sammen ALM Accelerator. Denne kombination giver os mulighed for at fokusere på specifikke udvidelser, der hjælper med hyperautomtion.
+Samlet set bygger vi videre på de eksisterende standard-Power Platform- og Microsoft DevOps-produktfunktioner sammen ALM Accelerator. Denne kombination giver os mulighed for at fokusere på specifikke udvidelser, der hjælper med hyperautomtion.
 
 ## Feedback
 
@@ -60,7 +60,7 @@ Samlet set bygger vi videre på de eksisterende out of the box Power Platform og
 
 Power CAT-teamet bruger ALM Accelerator til at bygge og implementere hver af vores [Udgivelser](https://github.com/microsoft/powercat-automation-kit/releases).
 
-Hver udgivelse fremmer ændringer fra vores udvikling til test- og produktionsmiljøer. De Power Platform løsninger i sættet bruger en automatiseret proces til at pakke aktiver til implementering til offentlige GitHub-udgivelser.
+Hver udgivelse fremmer ændringer fra vores udvikling til test- og produktionsmiljøer. De Power Platform løsninger i sættet bruger en automatiseret proces til at pakke aktiver til udrulning til offentlige GitHub-udgivelser.
 
 I fremtidige milepæle vil vi udvide på eksisterende platform [ALM-funktioner](/da/features/alm) for at give eksempler på, hvordan valideringsregler og visuel sammenligning af RPA-prøver kan medtages som en del af DevOps-processen.  
 
@@ -70,13 +70,13 @@ I fremtidige milepæle vil vi udvide på eksisterende platform [ALM-funktioner](
 
 Følgende skitserer de vigtigste trin i udgivelsesprocessen for automatiseringssæt:
 
-1. Ændringer, der foretages i vores Power Platform Dev-miljø, gemmes i en filial i det offentlige GitHub-lager
+1. Ændringer foretaget i vores Power Platform Dev-miljø gemmes i en filial i det offentlige GitHub-lager
 
 2. Når ændringer er klar til optagelse i en testudgivelse, flettes de ind i hovedgrenen ved hjælp af en pullanmodning. Før pullanmodningen kan fuldføres, skal Azure DevOps-valideringspipelinen fuldføres, og pullanmodningen skal gennemgås.
 
-3. Når pullanmodningen har bestået de automatiske kontroller og modtaget gennemgangsgodkendelse, kan den flettes ind i hovedgrenen. Denne fletning udløser testpipelinen til Azure DevOps-build, som publicerer det administrerede build i test- Power Platform miljøet.
+3. Når pullanmodningen har bestået de automatiske kontroller og modtaget gennemgangsgodkendelse, kan den flettes ind i hovedgrenen. Denne fletning udløser Azure DevOps-buildpipelinen til Power Platform test, som publicerer det administrerede build til testmiljøet.
 
-4. Efter intern test udløses Azure DevOps-produktionspipelinen manuelt for at generere en Production Power Platform-udrulning.
+4. Efter intern test udløses Azure DevOps-produktionspipelinen manuelt for at generere en produktions- Power Platform udrulning.
 
 5. Når udgivelsen er klar, opretter Azure DevOps-pipelinen en kladdeudgivelse med produktbemærkninger og buildaktiver. Den endelige udgivelsesbuild lukker alle åbne problemer og lukker milepælen. Udgivet build-tag GitHub-lageret med en måneds- og årsetiket anvendt.
 

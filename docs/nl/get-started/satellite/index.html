@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en-us">
+    <a id="topOfPage"></a>
+    <head>
+        
+
+<meta property="og:title" content="Satelliet - Aan de slag" />
+<meta property="og:description" content="Automation Kit - Satelliet - Aan de slag" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/nl/get-started/satellite/" /><meta property="article:section" content="get-started" />
+
+
+
+
+
+<meta name="description" content="Automation Kit voor Power Platform starterssite. Definieer en meet het rendement op de investering van Power Automate Desktop, link naar leerinhoud en verhalen van klanten." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="og:image" content="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.png" />
+<meta name="og:image:alt" content="Automation Kit Logo" />
+
+        <title>Automation Kit for Power Platform</title>
+        
+<link rel="icon" type="image/png" href="https://microsoft.github.io/powercat-automation-kit/images/favicon.png" />
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/style.min.900ac3346e02b249eca52c9ae838525e38bee9dc718fb9fd6cc0fbcfa923b149.css" integrity="sha256-kArDNG4CsknspSya6DhSXji&#43;6dxxj7n9bMD7z6kjsUk=">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/icons.css">
+<link href="https://microsoft.github.io/powercat-automation-kit/css/survey-jquery/modern.min.css" type="text/css" rel="stylesheet">
+<script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+
+    </head>
+    <body>
+    
+
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-gray">
+    <div class="container d-flex justify-content-between">
+        <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/nl/">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="56">
+        </a>
+        <span class="my-1 title text-black">Automatiseringskit voor Power Platform</span>
+    </div>
+</nav>
+<article>
+  <a id="topofpage"></a>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">Satelliet - Aan de slag</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h1 id="overzicht">Overzicht</h1>
+<p>Welkom op de startpagina voor de satellietoplossing. In dit gedeelte worden belangrijke wijzigingen behandeld die in april 2023 en latere releases zijn aangebracht. Na april 2023 hebben we de noodzaak voor Azure Key Vault verwijderd om Azure Application-tenant, Application Id en geheime informatie over Azure Application op te slaan.</p>
+<h2 id="conceptueel-ontwerp">Conceptueel ontwerp</h2>
+<p>Onze leerpagina schetst de <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design">Conceptueel ontwerp</a> van de {{productnaam}}. Het belangrijkste element van de oplossing is de Power Platform hoofdomgeving.</p>
+<p>Er zijn meestal verschillende satellietproductieomgevingen die uw automatiseringsprojecten uitvoeren. Afhankelijk van uw omgevingsstrategie kunnen dit ook ontwikkel- of testomgevingen zijn.</p>
+<p>Tussen deze omgevingen is er een bijna realtime synchronisatieproces dat cloud- of desktopstroomtelemetrie, machine- en machinegroepgebruik en auditlogboeken omvat. Op het Power BI-dashboard voor de Automation Kit wordt deze informatie weergegeven.</p>
+<h2 id="wat-is-er-veranderd">Wat is er veranderd?</h2>
+<p>Als onderdeel van het oplossen <a href="https://github.com/microsoft/powercat-automation-kit/issues/84">[Automation Kit - Functie]: Azure Key Vault-alternatief voor satellietomgevingen</a> Azure Key Vault is niet langer vereist. Dit is belangrijk omdat het de complexiteit van de installatie aanzienlijk vermindert en hoe de beveiliging wordt beheerd om oplossingsartefacten te verkrijgen bij het gebruik van de Automation Solution Manager.</p>
+<h2 id="wat-is-hetzelfde">Wat is hetzelfde?</h2>
+<p>Zodra de belangrijkste elementen hetzelfde zijn als de oudere releases van vóór april 2023 en april 2023, is er behoefte aan een Azure Active Directory-toepassing.</p>
+<p>Een <a href="https://learn.microsoft.com/power-platform/admin/manage-application-users">applicatie gebruiker</a> is een type gebruiker in de Power Platform dat wordt geïdentificeerd door de aanwezigheid van het kenmerk ApplicationId in de systeemgebruikersrecord. Toepassingsgebruikers worden gemaakt in Azure Active Directory (Azure AD) en worden gebruikt om de toegang tot de Power Platform te verifiëren en te autoriseren. Ze worden meestal gebruikt om een toepassing of service te vertegenwoordigen die toegang moet krijgen tot gegevens of bewerkingen moet uitvoeren in de Power Platform namens gebruikers of andere toepassingen.</p>
+<p>Specifiek wordt de toepassingsgebruiker gebruikt door automation solution manager om u in staat te stellen de oplossingsonderdelen in een omgeving op te vragen, zodat u een gebruiker in staat kunt stellen een geïmplementeerde Power Platform oplossing te meten.</p>
+<h2 id="installeren">Installeren</h2>
+<p>De <a href="https://microsoft.github.io/powercat-automation-kit/nl/get-started/install">opdrachtregel installeren</a> voor satellietoplossingen wordt u gevraagd om de Naam van azure Active Directory-toepassing en azure Active Directory-toepassings-id. Met behulp van deze informatie wordt het volgende gedaan:</p>
+<ol>
+<li>De Azure Active Directory-toepassing toevoegen als toepassingsgebruiker</li>
+<li>De toepassingsgebruiker toevoegen aan de rol systeembeheerder</li>
+<li>De gebruikers-id van de toepassingsgebruiker toevoegen aan de omgevingsvariabele <strong>Oplossingsbeheerartefacten Lees gebruikers-id</strong></li>
+</ol>
+<p>De nieuwe rol dataverse rol <strong>Gebruiker van Automation Solution Manager</strong> is toegevoegd waarmee gebruikers de nieuwe Dataverse GetDataverseSolutionArtifacts Custom API kunnen aanroepen die oplossingsartefacten opvraagt met behulp van de meegeleverde omgevingsvariabele <strong>Oplossingsbeheerartefacten Lees gebruikers-id</strong>.</p>
+<p>Als u de satelitte-oplossing handmatig wilt installeren, moeten de volgende wijzigingen worden aangebracht in de <a href="https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite">Satellieten instellen</a> aanwijzingen.</p>
+<ol>
+<li>Sla de stap &ldquo;Een nieuw clientgeheim toevoegen&rdquo; over, omdat dit niet langer nodig is voor april 2023 of nieuwer.</li>
+<li>Sla de stap over om geheimen te maken in de Azure Key Vault.</li>
+<li>Voeg de gebruikers-id van de toepassingsgebruiker toe aan de <strong>Oplossingsbeheerartefacten Lees gebruikers-id</strong> Omgevingsvariabele.</li>
+</ol>
+<h2 id="na-installatie">Na installatie</h2>
+<p>Zorg ervoor dat de gebruiker(s) die de Automation Solution Manager-toepassing uitvoeren, de <strong>Gebruiker van Automation Solution Manager</strong> Dataverse beveiligingsrol.</p>
+<h2 id="vorige-releases">Vorige releases</h2>
+<p>Vóór de release van april 2023 vereisten installaties van satellite solution omgevingsvariabelen van type secret. Hiervoor was een <a href="https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview">Azure Key Vault</a> om de waarden voor tenant-id, toepassings-id en toepassingsgeheim op te slaan. Om deze functie te gebruiken, was ook de <a href="https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites">prerequistes</a> of de Azure Key Vault is dezelfde tenant, setup van Microsoft.PowerPlatform als resource provider.</p>
+<p>In de releases van maart 2023 of ouder werd de Azure Key Vault gebruikt om een tenant-id, APplication Id en Application Secret op te slaan. Met behulp van deze waarden werd een toegangstoken gevraagd om gegevensversum op te vragen, zodat het de lijst met oplossingsonderdelen kon retourneren.</p>
+<h2 id="aanbevelingen">Aanbevelingen</h2>
+<p>Voor bestaande gebruikers wordt aanbevolen om doorlopend beheer te vereenvoudigen en de noodzaak van een afhankelijkheid van Azure Key Vault weg te nemen dat u de bestaande satellietinstallatie upgradet naar april 2023 of later om te profiteren van de nieuwe functies.</p>
+
+    </div>
+  </div>
+</article>
+
+    
+    
+    <footer class="d-print-none">
+    <nav class="navbar navbar-light bg-light d-flex justify-content-around">
+  <div class="container pt-3">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-logo">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg">
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>Product</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/nl/releases">
+              Releases
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/nl/frequently-asked-questions">
+              FAQ
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/nl/support">
+              Steunen
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/nl/office-hours">
+              Kantooruren
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/automation-kit-learn">
+              Ontdek functies
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/ak4pp-issues">
+              Kwesties
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit/milestones?status=open">
+              Mijlpalen
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit/releases">
+              Releases
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://privacy.microsoft.com/privacystatement">
+              Privacybeleid
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>Leren</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">
+              Slag
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit">
+              De Automatiseringskit configureren
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit">
+              De Automation Kit gebruiken
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>Blog</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/automation-kit-blog">
+              Openbare preview
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/">
+              Cineplex Klantverhaal
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+          <h3></h3>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item" rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit">
+                <span class="icon"><i class="fa fa-github"></i></span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </nav>
+</footer>
+    
+
+    
+
+    
+
+    <script src="https://microsoft.github.io/powercat-automation-kit/js/jquery/3.6.1/jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/feather-icons/4.29.0/feather.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/modernizr/2.8.3/modernizr.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/survey-jquery/1.9.55/survey.jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/showdown/2.1.0/showdown.min.js" ></script>
+</html>

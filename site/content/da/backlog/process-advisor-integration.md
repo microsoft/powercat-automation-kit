@@ -45,13 +45,13 @@ Den {{<product-name>}} integreres med [Process Advisor](https://learn.microsoft.
 
 - **Projektanmodninger om datadrevet automatisering** Brug resultaterne af din procesanalyse til at oprette et automatiseringsprojekt ud fra Process Advisor resultater.
 
-- **Oprettelse af semiautomatiske automatiseringsprojekter** Integrer Dataverse-data mellem Process Advisor og Automation Kit for at reducere mængden af arbejde for at oprette Automation Project.
+- **Oprettelse af semiautomatiske automatiseringsprojekter** Integrer Dataverse-data mellem Process Advisor og Automation Kit for at reducere mængden af arbejde med at oprette automatiseringsprojekt.
 
 - **Analyse af Power Automate Desktop** Analysér RPA-procesdata for at identificere forbedringer for at modernisere, forbedre robustheden og pålideligheden ved hjælp af Task mining.
 
 ## Forarbejdning af minedrift
 
-Brug af Process mining med Process Advisor giver dig mulighed for at opdage ineffektivitet i processer i hele organisationen. Denne indsigt giver dig mulighed for at få en dyb forståelse af dine processer ved hjælp af hændelseslogfiler, som du kan få fra dit optagelsessystem (apps, du bruger i dine processer). Process mining viser kort over dine processer med data og metrics for at genkende problemer med ydeevnen. Eksempler på processer, der er egnede til procesminedrift, omfatter tilgodehavender og ordre-til-kontanter.
+Brug af Process mining med Process Advisor giver dig mulighed for at opdage ineffektivitet i processer i hele organisationen. Denne indsigt giver dig mulighed for at få en dyb forståelse af dine processer ved hjælp af hændelseslogfiler, som du kan få fra dit registreringssystem (apps, du bruger i dine processer). Process mining viser kort over dine processer med data og målepunkter for at genkende problemer med ydeevnen. Eksempler på processer, der er egnede til procesmining, omfatter debitorer og ordre-til-kontanter.
 
 Disse data giver dig mulighed for at oprette datadrevne Automation Project-anmodninger.
 

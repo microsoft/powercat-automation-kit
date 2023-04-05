@@ -28,7 +28,7 @@ Automatiseringssettet utnytter [ALM-akselerator](https://aka.ms/aa4pp) for å ti
 
 I likhet med utgivelsesprosessen som brukes for andre Power CAT-administrerte sett, er {{<product-name>}} bruker ALM Accelerator til å distribuere utgivelser til våre offentlige GitHub-utgivelser.
 
-Vår interne prosess har et Power Platform miljø for utvikling, test og produksjon. Når vi er klare for en utgivelse, pakker våre integrerte GitHub-handlinger de administrerte og uadministrerte distribusjonsløsningene sammen med produktmerknader automatisk for en GitHub Draft-utgivelse.
+Vår interne prosess har et Power Platform miljø for utvikling, test og produksjon. Når vi er klare for en utgivelse, pakker våre integrerte GitHub Actions de administrerte og ikke-administrerte distribusjonsløsningene sammen med produktmerknader automatisk for en GitHub Draft-utgivelse.
 
 Når utkastet til utgivelsen er klar, kan vi publisere nye versjoner eller hurtigreparasjoner etter behov.
 
@@ -48,7 +48,7 @@ Nå som vi har denne automatiseringen på plass, har den automatiserte ALM-utgiv
 
 Du kan undersøke våre åpne ALM-relaterte etterslepsposter i vår [Register for GitHub-problemer](https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Aalm)
 
-Samlet sett bygger vi videre på de eksisterende Power Platform og Microsoft DevOps-produktfunksjonene sammen ALM Accelerator. Denne kombinasjonen lar oss fokusere på spesifikke utvidelser som hjelper med hyperautomtion.
+Samlet bygger vi på de eksisterende bruksklare Power Platform og Microsoft DevOps-produktfunksjonene sammen ALM Accelerator. Denne kombinasjonen lar oss fokusere på spesifikke utvidelser som hjelper med hyperautomsjon.
 
 ## Tilbakemelding
 
@@ -60,7 +60,7 @@ Samlet sett bygger vi videre på de eksisterende Power Platform og Microsoft Dev
 
 Power CAT-teamet bruker ALM-akseleratoren til å bygge og distribuere hver av våre [Utgivelser](https://github.com/microsoft/powercat-automation-kit/releases).
 
-Hver utgivelse fremmer endringer fra utviklingen vår til test- og produksjonsmiljøer. De Power Platform løsningene i settet bruker en automatisert prosess for å pakke ressurser for distribusjon til offentlige GitHub-utgivelser.
+Hver utgivelse fremmer endringer fra vår utvikling til test- og produksjonsmiljøer. De Power Platform løsningene i settet bruker en automatisert prosess for å pakke ressurser for distribusjon til offentlige GitHub-utgivelser.
 
 I fremtidige milepæler vil vi utvide på eksisterende plattform [ALM-funksjoner](/nb/features/alm) for å gi eksempler på hvordan du inkluderer valideringsregler og visuell sammenligning av RPA-eksempler som en del av DevOps-prosessen.  
 
@@ -74,9 +74,9 @@ Følgende beskriver viktige trinn i utgivelsesprosessen for automatiseringssette
 
 2. Når endringer er klare for inkludering i en testversjon, slås de sammen til hovedgrenen ved hjelp av en henteforespørsel. Før pull-forespørselen kan fullføres, må Azure DevOps-valideringspipelinen fullføres og pull-forespørselen gjennomgås.
 
-3. Når pull-forespørselen har bestått de automatiserte kontrollene og mottatt godkjenningen for gjennomgang, kan den slås sammen til hovedgrenen. Denne flettingen utløser testdatasamlebåndet for Azure DevOps-kompilering, som publiserer den administrerte versjonen til testmiljøet Power Platform.
+3. Når henteforespørselen har bestått de automatiserte kontrollene og mottatt godkjenning for gjennomgang, kan den slås sammen til hovedgrenen. Denne sammenslåingen utløser testen Azure DevOps build pipeline som publiserer den administrerte versjonen til test- Power Platform-miljøet.
 
-4. Etter intern testing utløses Azure DevOps-produksjonspipelinen manuelt for å generere en Production Power Platform-distribusjon.
+4. Etter intern testing utløses produksjonsdatasamlebåndet for Azure DevOps manuelt for å generere en produksjons- Power Platform-distribusjon.
 
 5. Når utgivelsen er klar, oppretter Azure DevOps-datasamlebåndet et utkast til utgivelse, inkludert produktmerknader og build-ressurser. Den endelige versjonen vil lukke alle åpne problemer og lukke milepælen. Publisert build-kode GitHub-repositoriet med en Måned og år-etikett brukt.
 

@@ -13,7 +13,7 @@ generated: 42940454F8C75C0160E5E7D94767DD18DFFC13C6
 
 <br/>
 
-Den {{<product-name>}} **Modul för migrering** ger dig en beprövad uppsättning verktyg och vägledning baserat på engagemang med kunder för att påskynda din migreringsresa. Genom att utnyttja styrkan hos Microsoft Power Platform, Microsoft Azure och de bredare Microsoft Cloud-tjänsterna kan du:
+Den {{<product-name>}} **Modul för migrering** ger dig en beprövad uppsättning verktyg och vägledning baserat på engagemang med kunder för att påskynda migreringsresan. Genom att utnyttja styrkan i Microsoft Power Platform, Microsoft Azure och de bredare Microsoft Cloud-tjänsterna kan du:
 
 - Förverkliga dina mål att ge kostnadsbesparingar.
 

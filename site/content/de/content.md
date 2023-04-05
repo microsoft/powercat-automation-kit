@@ -4,7 +4,7 @@ description: "Automation Kit - Site-Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A54D358D82AC6FC728B158E2C068243701C9262A
+generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 ---
 
 {{<toc>}}
@@ -84,6 +84,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 - [Automation Kit - Installieren](/de/get-started/install)
 
+- [Automation Kit - Satellit - Erste Schritte](/de/get-started/satellite)
+
 - [Automation Kit - Setup](/de/get-started/setup)
 
 
@@ -108,6 +110,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 
 ### Ort: /releases/
+
+- [Automation Kit - April 2023](/de/releases/april-2023)
 
 - [Automation Kit - Dezember 2022](/de/releases/december-2022)
 

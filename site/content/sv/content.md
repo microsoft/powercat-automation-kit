@@ -4,7 +4,7 @@ description: "Automation Kit - Webbplatsindex"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A54D358D82AC6FC728B158E2C068243701C9262A
+generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 ---
 
 {{<toc>}}
@@ -44,7 +44,7 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 ### Plats: /backlog/
 
-- [Automation Kit - Process Advisor integration](/sv/backlog/process-advisor-integration)
+- [Automation Kit - Process Advisor Integration](/sv/backlog/process-advisor-integration)
 
 
 ### Plats: /bidrag/
@@ -84,6 +84,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 - [Automation Kit - Installera](/sv/get-started/install)
 
+- [Automation Kit - Satellit - Kom igång](/sv/get-started/satellite)
+
 - [Automation Kit - Inställning](/sv/get-started/setup)
 
 
@@ -108,6 +110,8 @@ generated: A54D358D82AC6FC728B158E2C068243701C9262A
 
 
 ### Plats: /releaser/
+
+- [Automation Kit - april 2023](/sv/releases/april-2023)
 
 - [Automation Kit - December 2022](/sv/releases/december-2022)
 

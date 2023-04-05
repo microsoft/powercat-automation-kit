@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en-us">
+    <a id="topOfPage"></a>
+    <head>
+        
+
+<meta property="og:title" content="Satélite - Primeros pasos" />
+<meta property="og:description" content="Kit de automatización - Satélite - Primeros pasos" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/es/get-started/satellite/" /><meta property="article:section" content="get-started" />
+
+
+
+
+
+<meta name="description" content="Kit de automatización para Power Platform sitio de inicio. Defina y mida el retorno de la inversión de Power Automate Desktop, vincule contenido de aprendizaje e historias de clientes." />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="og:image" content="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.png" />
+<meta name="og:image:alt" content="Automation Kit Logo" />
+
+        <title>Automation Kit for Power Platform</title>
+        
+<link rel="icon" type="image/png" href="https://microsoft.github.io/powercat-automation-kit/images/favicon.png" />
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/style.min.900ac3346e02b249eca52c9ae838525e38bee9dc718fb9fd6cc0fbcfa923b149.css" integrity="sha256-kArDNG4CsknspSya6DhSXji&#43;6dxxj7n9bMD7z6kjsUk=">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/icons.css">
+<link href="https://microsoft.github.io/powercat-automation-kit/css/survey-jquery/modern.min.css" type="text/css" rel="stylesheet">
+<script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+
+    </head>
+    <body>
+    
+
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-gray">
+    <div class="container d-flex justify-content-between">
+        <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/es/">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="56">
+        </a>
+        <span class="my-1 title text-black">Kit de automatización para Power Platform</span>
+    </div>
+</nav>
+<article>
+  <a id="topofpage"></a>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">Satélite - Primeros pasos</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h1 id="visión-general">Visión general</h1>
+<p>Bienvenido a la página de inicio de la solución Satellite. Esta sección cubre los cambios importantes realizados en abril de 2023 y versiones posteriores. Después de abril de 2023, hemos eliminado la necesidad de Azure Key Vault para almacenar el inquilino de la aplicación de Azure, el identificador de la aplicación y la información secreta de la aplicación de Azure.</p>
+<h2 id="diseño-conceptual">Diseño conceptual</h2>
+<p>Nuestra página de aprendizaje describe el <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design">Diseño conceptual</a> del {{product-name}}. El elemento clave de la solución es el entorno Power Platform principal.</p>
+<p>Por lo general, hay varios entornos de producción satelital que ejecutan sus proyectos de automatización. Dependiendo de su estrategia de entorno, estos también podrían ser entornos de desarrollo o prueba.</p>
+<p>Entre estos entornos hay un proceso de sincronización casi en tiempo real que incluye telemetría de flujo de nube o escritorio, uso de máquinas y grupos de máquinas y registros de auditoría. El panel de Power BI para el Kit de automatización muestra esta información.</p>
+<h2 id="lo-que-ha-cambiado">Lo que ha cambiado</h2>
+<p>Como parte de la resolución <a href="https://github.com/microsoft/powercat-automation-kit/issues/84">[Automation Kit - Feature]: alternativa de Azure Key Vault para entornos satélite</a> Azure Key Vault ya no es necesario. Esto es importante, ya que reduce significativamente la complejidad de la instalación y la forma en que se administra la seguridad para obtener artefactos de solución cuando se usa Automation Solution Manager.</p>
+<h2 id="qué-es-lo-mismo">¿Qué es lo mismo?</h2>
+<p>Una vez que los elementos clave son los mismos que las versiones anteriores a abril de 2023 y abril de 2023, es la necesidad de una aplicación de Azure Active Directory.</p>
+<p>Un <a href="https://learn.microsoft.com/power-platform/admin/manage-application-users">Usuario de la aplicación</a> es un tipo de usuario del Power Platform que se identifica por la presencia del atributo ApplicationId en el registro de usuario del sistema. Los usuarios de la aplicación se crean en Azure Active Directory (Azure AD) y se usan para autenticar y autorizar el acceso a la Power Platform. Normalmente se utilizan para representar una aplicación o servicio que necesita acceder a datos o realizar operaciones en el Power Platform en nombre de usuarios u otras aplicaciones.</p>
+<p>Específicamente, el Administrador de soluciones de automatización usa el usuario de la aplicación para permitirle consultar los componentes de la solución en un entorno para que pueda permitir que un usuario mida una solución Power Platform implementada.</p>
+<h2 id="instalar">Instalar</h2>
+<p>El <a href="https://microsoft.github.io/powercat-automation-kit/es/get-started/install">Instalación de línea de comandos</a> para soluciones satélite le pedirá el nombre de la aplicación de Azure Active Directory y el identificador de aplicación de Azure Active Directory. Con esta información:</p>
+<ol>
+<li>Agregar la aplicación de Azure Active Directory como usuario de la aplicación</li>
+<li>Agregar el usuario de la aplicación a la función Administrador del sistema</li>
+<li>Agregar el ID de usuario del usuario de la aplicación a la variable de entorno <strong>Artefactos de Solution Manager Leer ID de usuario</strong></li>
+</ol>
+<p>El nuevo rol dataverse rol <strong>Usuario de Automation Solution Manager</strong> se ha agregado que permite a los usuarios llamar a la nueva API personalizada Dataverse GetDataverseSolutionArtifacts de Dataverse que consultará los artefactos de la solución mediante la variable de entorno proporcionada <strong>Artefactos de Solution Manager Leer ID de usuario</strong>.</p>
+<p>Si desea instalar la solución satelitte manualmente, se deben realizar los siguientes cambios en el <a href="https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite">Configurar satélites</a> instrucciones.</p>
+<ol>
+<li>Omita el paso &ldquo;Agregar un nuevo secreto de cliente&rdquo;, ya que ya no es necesario para abril de 2023 o posterior.</li>
+<li>Omita el paso para crear secretos en el Almacén de claves de Azure.</li>
+<li>Agregue el ID de usuario del usuario de la aplicación a la carpeta <strong>Artefactos de Solution Manager Leer ID de usuario</strong> Variable de entorno.</li>
+</ol>
+<h2 id="después-de-la-instalación">Después de la instalación</h2>
+<p>Asegúrese de que los usuarios que ejecutarán la aplicación Automation Solution Manager reciban la <strong>Usuario de Automation Solution Manager</strong> Rol de seguridad de Dataverse.</p>
+<h2 id="versiones-anteriores">Versiones anteriores</h2>
+<p>Antes de la versión de abril de 2023, las instalaciones de la solución satelital requerían variables de entorno de tipo secreto. Esto requirió un <a href="https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview">Azure Key Vault</a> para almacenar los valores de Id. de inquilino, Id. de aplicación y Secreto de aplicación. Para utilizar esta función también se requiere el <a href="https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites">Prerrequisitos</a> de que Azure Key Vault es el mismo inquilino, configuración de Microsoft.PowerPlatform como proveedor de recursos.</p>
+<p>En las versiones de marzo de 2023 o anteriores, Azure Key Vault se usaba para almacenar un identificador de inquilino, un identificador de aplicación y un secreto de aplicación. Con estos valores, se solicitó un token de acceso para consultar dataverse para que pudiera devolver la lista de componentes de la solución.</p>
+<h2 id="recomendaciones">Recomendaciones</h2>
+<p>Para los usuarios existentes, se recomienda simplificar la administración continua y eliminar la necesidad de una dependencia del Almacén de claves de Azure de actualizar la instalación satélite existente a abril de 2023 o posterior para aprovechar las nuevas características.</p>
+
+    </div>
+  </div>
+</article>
+
+    
+    
+    <footer class="d-print-none">
+    <nav class="navbar navbar-light bg-light d-flex justify-content-around">
+  <div class="container pt-3">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-logo">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg">
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>Producto</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/es/releases">
+              Libera
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/es/frequently-asked-questions">
+              Preguntas más frecuentes
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/es/support">
+              Apoyo
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/es/office-hours">
+              Horario de oficina
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/automation-kit-learn">
+              Descubre las características
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/ak4pp-issues">
+              Cuestiones
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit/milestones?status=open">
+              Hitos
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit/releases">
+              Libera
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://privacy.microsoft.com/privacystatement">
+              Política de privacidad
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>Aprender</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">
+              Comenzar
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit">
+              Configurar el kit de automatización
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit">
+              Usar el kit de automatización
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>Blog</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/automation-kit-blog">
+              Vista previa pública
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/">
+              Historia de cliente de Cineplex
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+          <h3></h3>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item" rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit">
+                <span class="icon"><i class="fa fa-github"></i></span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </nav>
+</footer>
+    
+
+    
+
+    
+
+    <script src="https://microsoft.github.io/powercat-automation-kit/js/jquery/3.6.1/jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/feather-icons/4.29.0/feather.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/modernizr/2.8.3/modernizr.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/survey-jquery/1.9.55/survey.jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/showdown/2.1.0/showdown.min.js" ></script>
+</html>

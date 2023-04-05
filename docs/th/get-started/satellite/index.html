@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en-us">
+    <a id="topOfPage"></a>
+    <head>
+        
+
+<meta property="og:title" content="ดาวเทียม - เริ่มต้นใช้งาน" />
+<meta property="og:description" content="Automation Kit - Satellite - เริ่มต้นใช้งาน" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://microsoft.github.io/powercat-automation-kit/th/get-started/satellite/" /><meta property="article:section" content="get-started" />
+
+
+
+
+
+<meta name="description" content="ชุดระบบอัตโนมัติสําหรับไซต์เริ่มต้น Power Platform กําหนดและวัดผลตอบแทนจากการลงทุนของ Power Automate Desktop ลิงก์ไปยังเนื้อหาการเรียนรู้และเรื่องราวของลูกค้า" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+<meta name="og:image" content="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.png" />
+<meta name="og:image:alt" content="Automation Kit Logo" />
+
+        <title>Automation Kit for Power Platform</title>
+        
+<link rel="icon" type="image/png" href="https://microsoft.github.io/powercat-automation-kit/images/favicon.png" />
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/style.min.900ac3346e02b249eca52c9ae838525e38bee9dc718fb9fd6cc0fbcfa923b149.css" integrity="sha256-kArDNG4CsknspSya6DhSXji&#43;6dxxj7n9bMD7z6kjsUk=">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/vs.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<link rel="stylesheet" type="text/css" href="https://microsoft.github.io/powercat-automation-kit/css/icons.css">
+<link href="https://microsoft.github.io/powercat-automation-kit/css/survey-jquery/modern.min.css" type="text/css" rel="stylesheet">
+<script type="module" src="https://unpkg.com/@fluentui/web-components"></script>
+
+    </head>
+    <body>
+    
+
+    
+<nav class="navbar navbar-expand-lg navbar-dark bg-gray">
+    <div class="container d-flex justify-content-between">
+        <a class="navbar-item" href="https://microsoft.github.io/powercat-automation-kit/th/">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg" alt="" width="112" height="56">
+        </a>
+        <span class="my-1 title text-black">ชุดระบบอัตโนมัติสําหรับ Power Platform</span>
+    </div>
+</nav>
+<article>
+  <a id="topofpage"></a>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-centered-tablet-portrait">
+        <h1 class="title section-title">ดาวเทียม - เริ่มต้นใช้งาน</h1>
+        <h5 class="subtitle is-5 is-muted"></h5>
+        <div class="divider"></div>
+      </div>
+    </div>
+
+    <div class="content">
+      <h1 id="ภาพรวม">ภาพรวม</h1>
+<p>ยินดีต้อนรับสู่หน้าเริ่มต้นสําหรับโซลูชันดาวเทียม ส่วนนี้ครอบคลุมการเปลี่ยนแปลงที่สําคัญที่เกิดขึ้นในเดือนเมษายน 2023 และรุ่นที่ใหม่กว่า หลังจากเดือนเมษายน 2023 เราได้ลบความจําเป็นในการใช้ Azure Key Vault เพื่อจัดเก็บผู้เช่าแอปพลิเคชัน Azure รหัสแอปพลิเคชัน และข้อมูลลับของแอปพลิเคชัน Azure</p>
+<h2 id="การออกแบบตามแนวคด">การออกแบบตามแนวคิด</h2>
+<p>หน้าการเรียนรู้ของเราสรุป <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design">การออกแบบตามแนวคิด</a> ของ {{product-name}} องค์ประกอบหลักของการแก้ปัญหาคือสภาพแวดล้อมหลัก Power Platform</p>
+<p>โดยปกติจะมีสภาพแวดล้อมการผลิตดาวเทียมหลายแบบที่ดําเนินโครงการอัตโนมัติของคุณ ขึ้นอยู่กับกลยุทธ์สภาพแวดล้อมของคุณสิ่งเหล่านี้อาจเป็นสภาพแวดล้อมการพัฒนาหรือทดสอบ</p>
+<p>ระหว่างสภาพแวดล้อมเหล่านี้มีกระบวนการซิงโครไนซ์แบบเกือบเรียลไทม์ซึ่งรวมถึงการวัดและส่งข้อมูลทางไกลแบบคลาวด์หรือเดสก์ท็อปการใช้งานกลุ่มเครื่องจักรและเครื่องและบันทึกการตรวจสอบ แดชบอร์ด Power BI สําหรับชุดการทํางานอัตโนมัติจะแสดงข้อมูลนี้</p>
+<h2 id="สงทเปลยนแปลงไป">สิ่งที่เปลี่ยนแปลงไป</h2>
+<p>เป็นส่วนหนึ่งของการแก้ไข <a href="https://github.com/microsoft/powercat-automation-kit/issues/84">[Automation Kit - Feature]: ทางเลือก Azure Key Vault สําหรับสภาพแวดล้อมดาวเทียม</a> ไม่จําเป็นต้องใช้ Azure Key Vault อีกต่อไป นี่เป็นสิ่งสําคัญเนื่องจากช่วยลดความซับซ้อนของการติดตั้งและวิธีการรักษาความปลอดภัยเพื่อรับสิ่งประดิษฐ์ของโซลูชันเมื่อใช้ตัวจัดการโซลูชันอัตโนมัติ</p>
+<h2 id="อะไรเหมอนกน">อะไรเหมือนกัน?</h2>
+<p>เมื่อองค์ประกอบสําคัญเหมือนกันคือรุ่นก่อนเดือนเมษายน 2023 และเมษายน 2023 ที่เก่ากว่าคือความต้องการแอปพลิเคชัน Azure Active Directory</p>
+<p>2019 <a href="https://learn.microsoft.com/power-platform/admin/manage-application-users">ผู้ใช้แอปพลิเคชัน</a> เป็นชนิดของผู้ใช้ใน Power Platform ที่ระบุ โดยการปรากฏตัวของแอตทริบิวต์ ApplicationId ในเรกคอร์ดผู้ใช้ระบบ ผู้ใช้แอปพลิเคชันถูกสร้างขึ้นใน Azure Active Directory (Azure AD) และใช้เพื่อรับรองความถูกต้องและอนุญาตการเข้าถึง Power Platform โดยทั่วไปจะใช้เพื่อแสดงถึงแอปพลิเคชันหรือบริการที่ต้องการเข้าถึงข้อมูลหรือดําเนินการใน Power Platform ในนามของผู้ใช้หรือแอปพลิเคชันอื่นๆ</p>
+<p>โดยเฉพาะอย่างยิ่งผู้ใช้แอปพลิเคชันถูกใช้โดย Automation Solution Manager เพื่อให้คุณสามารถสอบถามส่วนประกอบของโซลูชันในสภาพแวดล้อมเพื่อให้คุณสามารถเปิดใช้งานผู้ใช้เพื่อวัดโซลูชัน Power Platform ที่ปรับใช้ได้</p>
+<h2 id="ตดตง">ติดตั้ง</h2>
+<p>การ <a href="https://microsoft.github.io/powercat-automation-kit/th/get-started/install">ติดตั้งบรรทัดคําสั่ง</a> สําหรับโซลูชันดาวเทียมจะพร้อมท์ให้คุณใส่ชื่อแอปพลิเคชัน Azure Active Directory และรหัสแอปพลิเคชัน Azure Active Directory การใช้ข้อมูลนี้จะ:</p>
+<ol>
+<li>เพิ่มแอปพลิเคชัน Azure Active Directory เป็นผู้ใช้แอปพลิเคชัน</li>
+<li>เพิ่มผู้ใช้แอปพลิเคชันไปยังบทบาทผู้ดูแลระบบ</li>
+<li>เพิ่มรหัสผู้ใช้ของผู้ใช้แอปพลิเคชันลงในตัวแปรสภาพแวดล้อม <strong>Solution Manager Artifacts อ่าน User ID</strong></li>
+</ol>
+<p>บทบาทใหม่ dataverse บทบาท <strong>ผู้ใช้ Automation Solution Manager</strong> มีการเพิ่มที่อนุญาตให้ผู้ใช้เรียกใช้ Dataverse GetDataverseSolutionArtifacts Custom API ใหม่ที่จะสอบถามอาร์ทิแฟกต์โซลูชันโดยใช้ตัวแปรสภาพแวดล้อมที่ให้ไว้ <strong>Solution Manager Artifacts อ่าน User ID</strong>.</p>
+<p>หากคุณต้องการติดตั้งโซลูชัน satelitte ด้วยตนเองจําเป็นต้องทําการเปลี่ยนแปลงต่อไปนี้กับ <a href="https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite">ตั้งค่าดาวเทียม</a> คำ แนะ นำ</p>
+<ol>
+<li>ข้ามขั้นตอน &ldquo;เพิ่มข้อมูลลับไคลเอ็นต์ใหม่&rdquo; เนื่องจากไม่จําเป็นอีกต่อไปสําหรับเดือนเมษายน 2023 หรือใหม่กว่า</li>
+<li>ข้ามขั้นตอนเพื่อสร้างข้อมูลลับใน Azure Key Vault</li>
+<li>เพิ่มรหัสผู้ใช้ของผู้ใช้แอปพลิเคชันไปยัง <strong>Solution Manager Artifacts อ่าน User ID</strong> ตัวแปรสภาพแวดล้อม</li>
+</ol>
+<h2 id="โพสตตดตง">โพสต์ติดตั้ง</h2>
+<p>ตรวจสอบให้แน่ใจว่าผู้ใช้ที่จะเรียกใช้แอปพลิเคชัน Automation Solution Manager ได้รับ <strong>ผู้ใช้ Automation Solution Manager</strong> Security role ของ Dataverse</p>
+<h2 id="รนกอนหนา">รุ่นก่อนหน้า</h2>
+<p>ก่อนการเปิดตัวในเดือนเมษายน 2023 การติดตั้งโซลูชันดาวเทียมจําเป็นต้องมีตัวแปรสภาพแวดล้อมของประเภทลับ สิ่งนี้จําเป็นต้องมี <a href="https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview">Azure Key Vault</a> เพื่อจัดเก็บค่าสําหรับ Tenant Id, Application Id และ Application Secret ในการใช้คุณสมบัตินี้จําเป็นต้องมี <a href="https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites">ข้อกําหนดเบื้องต้น</a> ของ Azure Key Vault เป็น im ผู้เช่ารายเดียวกัน การตั้งค่า Microsoft.PowerPlatform เป็นผู้ให้บริการทรัพยากร</p>
+<p>ในเดือนมีนาคม 2023 หรือเก่ากว่า Azure Key Vault ถูกใช้เพื่อจัดเก็บรหัสผู้เช่า รหัส APplication และข้อมูลลับของแอปพลิเคชัน การใช้ค่าเหล่านี้โทเค็นการเข้าถึงถูกขอให้สืบค้น dataverse เพื่อให้สามารถส่งคืนรายการส่วนประกอบของโซลูชันได้</p>
+<h2 id="คำ-แนะ-นำ">คำ แนะ นำ</h2>
+<p>สําหรับผู้ใช้ที่มีอยู่ขอแนะนําให้ลดความซับซ้อนของการจัดการอย่างต่อเนื่องและขจัดความจําเป็นในการพึ่งพา Azure Key Vault ที่คุณอัปเกรดการติดตั้งดาวเทียมที่มีอยู่เป็นเดือนเมษายน 2023 หรือใหม่กว่าเพื่อใช้ประโยชน์จากคุณลักษณะใหม่</p>
+
+    </div>
+  </div>
+</article>
+
+    
+    
+    <footer class="d-print-none">
+    <nav class="navbar navbar-light bg-light d-flex justify-content-around">
+  <div class="container pt-3">
+    <div class="row d-flex justify-content-center">
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-logo">
+          <img src="https://microsoft.github.io/powercat-automation-kit/images/logos/automation-kit.svg">
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>ผลิตภัณฑ์</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/th/releases">
+              รุ่น
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/th/frequently-asked-questions">
+              คำถามที่ถามบ่อย
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/th/support">
+              สนับสนุน
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://microsoft.github.io/powercat-automation-kit/th/office-hours">
+              เวลาทําการ
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/automation-kit-learn">
+              ค้นพบคุณสมบัติ
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/ak4pp-issues">
+              ปัญหา
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit/milestones?status=open">
+              เหตุการณ์สําคัญ
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit/releases">
+              รุ่น
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://privacy.microsoft.com/privacystatement">
+              นโยบายความเป็นส่วนตัว
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>เรียน</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites">
+              เริ่มต้นใช้งาน
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/configure-automation-kit">
+              กําหนดค่าชุดระบบอัตโนมัติ
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://learn.microsoft.com/power-automate/guidance/automation-kit/use-automation-kit">
+              ใช้ชุดการทํางานอัตโนมัติ
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+            <h3>บล็อก</h3>
+        </div>
+        <ul class="link-list">
+          <li>
+            <a rel="noopener" target="_blank" href="https://aka.ms/automation-kit-blog">
+              การแสดงตัวอย่างสาธารณะ
+            </a>
+          </li>
+          <li>
+            <a rel="noopener" target="_blank" href="https://powerautomate.microsoft.com/blog/cineplex-digital-transformation-with-power-automate-rpa-led-by-citizen-developers/">
+              เรื่องราวของลูกค้าซีนีเพล็กซ์
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="footer-header">
+          <h3></h3>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item" rel="noopener" target="_blank" href="https://github.com/microsoft/powercat-automation-kit">
+                <span class="icon"><i class="fa fa-github"></i></span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    </nav>
+</footer>
+    
+
+    
+
+    
+
+    <script src="https://microsoft.github.io/powercat-automation-kit/js/jquery/3.6.1/jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/feather-icons/4.29.0/feather.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/modernizr/2.8.3/modernizr.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/survey-jquery/1.9.55/survey.jquery.min.js" ></script>
+<script src="https://microsoft.github.io/powercat-automation-kit/js/showdown/2.1.0/showdown.min.js" ></script>
+</html>

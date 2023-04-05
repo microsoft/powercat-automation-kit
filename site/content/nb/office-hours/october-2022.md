@@ -9,7 +9,7 @@ tags: ['Office Hours']
 generated: 59825C3BA5D5CC7F7AB170DA1F38BB8F7E3808A9
 ---
 
-Velkommen til Automation Kit for Power Platform oktober 2022 landingsside for kontortid.
+Velkommen til Automation Kit for Power Platform landingsside for kontortid i oktober 2022.
 
 Du kan registrere deg for økten for kontortid [https://aka.ms/ak4ppofficehours](https://aka.ms/ak4ppofficehours) avholdes tirsdag 11. oktober 2022 mellom kl. 07.00 og 08.00 PDT (se andre tidssoner [https://aka.ms/ak4pp-times](https://aka.ms/ak4pp-times)).
 
