@@ -76,6 +76,23 @@ steps:
     . .\build.ps1 "$(Pipeline.Workspace)"
 
     Copy-Item 'Install_AutomationKit.ps1' -Destination '$(Pipeline.Workspace)\assetstaging'
+
+    [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression')
+    $zipfile = [IO.Path]::Combine($PSScriptRoot,'Microsoft_AutomationKIT_Main_Package.zip')
+
+    $stream = New-Object IO.FileStream($zipfile, [IO.FileMode]::Open)
+    $mode   = [IO.Compression.ZipArchiveMode]::Update
+    $zip    = New-Object IO.Compression.ZipArchive($stream, $mode)
+
+    $entry = ($zip.Entries | ? { "[Content_Types].xml" -eq $_.Name }) 
+    if ( $entry.Count -eq 2 ) {
+        $entry[0].Delete()
+    }
+
+    $zip.Dispose()
+    $stream.Close()
+    $stream.Dispose()
+    
     Copy-Item 'Microsoft_AutomationKIT_Main_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'Microsoft_AutomationKIT_Satellite_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationKitScheduler*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
