@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # 개요
@@ -15,7 +15,7 @@ Satellite 솔루션의 시작 페이지에 오신 것을 환영합니다. 이 �
 
 ## 개념 설계
 
-우리의 학습 페이지는 다음을 간략하게 설명합니다. [개념 설계](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) {{제품 이름}}의. 솔루션의 핵심 요소는 Power Platform 기본 환경입니다.
+우리의 학습 페이지는 다음을 간략하게 설명합니다. [개념 설계](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) 의 {{<product-name>}}. 솔루션의 핵심 요소는 Power Platform 기본 환경입니다.
 
 일반적으로 자동화 프로젝트를 실행하는 여러 위성 프로덕션 환경이 있습니다. 환경 전략에 따라 개발 또는 테스트 환경일 수도 있습니다.
 

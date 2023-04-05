@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # 概述
@@ -15,7 +15,7 @@ generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
 
 ## 概念设计
 
-我们的学习页面概述了[概念设计](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) 的 {{产品名称}}。解决方案的关键要素是主环境Power Platform。
+我们的学习页面概述了[概念设计](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design)的 {{<product-name>}}.解决方案的关键要素是主环境Power Platform。
 
 通常有几个卫星生产环境运行您的自动化项目。根据您的环境策略，这些也可能是开发或测试环境。
 

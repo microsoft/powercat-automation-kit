@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # Overzicht
@@ -15,7 +15,7 @@ Welkom op de startpagina voor de satellietoplossing. In dit gedeelte worden bela
 
 ## Conceptueel ontwerp
 
-Onze leerpagina schetst de [Conceptueel ontwerp](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) van de {{productnaam}}. Het belangrijkste element van de oplossing is de Power Platform hoofdomgeving.
+Onze leerpagina schetst de [Conceptueel ontwerp](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) van de {{<product-name>}}. Het belangrijkste element van de oplossing is de Power Platform hoofdomgeving.
 
 Er zijn meestal verschillende satellietproductieomgevingen die uw automatiseringsprojecten uitvoeren. Afhankelijk van uw omgevingsstrategie kunnen dit ook ontwikkel- of testomgevingen zijn.
 

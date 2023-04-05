@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # 概要
@@ -15,7 +15,7 @@ generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
 
 ## 概念設計
 
-私たちの学習ページの概要は[概念設計](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) の {{製品名}} です。ソリューションの重要な要素は、Power Platformメイン環境です。
+私たちの学習ページの概要は[概念設計](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design)の {{<product-name>}}.ソリューションの重要な要素は、Power Platformメイン環境です。
 
 通常、自動化プロジェクトを実行するサテライト実稼働環境は複数あります。環境戦略によっては、開発環境またはテスト環境になることもあります。
 

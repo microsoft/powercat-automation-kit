@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # Overview
@@ -15,7 +15,7 @@ Welcome to the starter page for the Satellite solution. This section covers impo
 
 ## Conceptual Design
 
-Our learn page outlines the [Conceptual Design](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) of the {{product-name}}. The key element of the solution is the Power Platform main environment.
+Our learn page outlines the [Conceptual Design](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) of the {{<product-name>}}. The key element of the solution is the Power Platform main environment.
 
 There are usually several satellite production environments that run your automation projects. Depending on your environment strategy, these could also be development or test environments.
 

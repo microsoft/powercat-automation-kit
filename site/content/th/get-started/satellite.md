@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # ภาพรวม
@@ -15,7 +15,7 @@ generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
 
 ## การออกแบบตามแนวคิด
 
-หน้าการเรียนรู้ของเราสรุป [การออกแบบตามแนวคิด](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) ของ {{product-name}} องค์ประกอบหลักของการแก้ปัญหาคือสภาพแวดล้อมหลัก Power Platform
+หน้าการเรียนรู้ของเราสรุป [การออกแบบตามแนวคิด](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) ของ {{<product-name>}}. องค์ประกอบหลักของการแก้ปัญหาคือสภาพแวดล้อมหลัก Power Platform
 
 โดยปกติจะมีสภาพแวดล้อมการผลิตดาวเทียมหลายแบบที่ดําเนินโครงการอัตโนมัติของคุณ ขึ้นอยู่กับกลยุทธ์สภาพแวดล้อมของคุณสิ่งเหล่านี้อาจเป็นสภาพแวดล้อมการพัฒนาหรือทดสอบ
 

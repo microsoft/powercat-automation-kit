@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # Visión general
@@ -15,7 +15,7 @@ Bienvenido a la página de inicio de la solución Satellite. Esta sección cubre
 
 ## Diseño conceptual
 
-Nuestra página de aprendizaje describe el [Diseño conceptual](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) del {{product-name}}. El elemento clave de la solución es el entorno Power Platform principal.
+Nuestra página de aprendizaje describe el [Diseño conceptual](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) del {{<product-name>}}. El elemento clave de la solución es el entorno Power Platform principal.
 
 Por lo general, hay varios entornos de producción satelital que ejecutan sus proyectos de automatización. Dependiendo de su estrategia de entorno, estos también podrían ser entornos de desarrollo o prueba.
 

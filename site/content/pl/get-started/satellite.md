@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # Przegląd
@@ -15,7 +15,7 @@ Witamy na stronie startowej rozwiązania satelitarnego. W tej sekcji omówiono w
 
 ## Projekt koncepcyjny
 
-Nasza strona szkoleniowa przedstawia [Projekt koncepcyjny](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) {{product-name}}. Kluczowym elementem rozwiązania jest Power Platform główne środowisko.
+Nasza strona szkoleniowa przedstawia [Projekt koncepcyjny](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) z {{<product-name>}}. Kluczowym elementem rozwiązania jest Power Platform główne środowisko.
 
 Zwykle istnieje kilka środowisk produkcji satelitarnej, które obsługują projekty automatyzacji. W zależności od strategii środowiska mogą to być również środowiska programistyczne lub testowe.
 

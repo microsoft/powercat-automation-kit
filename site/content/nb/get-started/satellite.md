@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # Oversikt
@@ -15,7 +15,7 @@ Velkommen til startsiden for satellittløsningen. Denne delen dekker viktige end
 
 ## Konseptuell design
 
-Vår læringsside skisserer [Konseptuell design](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) til {{produktnavn}}. Nøkkelelementet i løsningen er det Power Platform hovedmiljøet.
+Vår læringsside skisserer [Konseptuell design](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) av {{<product-name>}}. Nøkkelelementet i løsningen er det Power Platform hovedmiljøet.
 
 Det er vanligvis flere satellittproduksjonsmiljøer som kjører automatiseringsprosjektene dine. Avhengig av miljøstrategien kan dette også være utviklings- eller testmiljøer.
 

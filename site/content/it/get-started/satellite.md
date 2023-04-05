@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # Panoramica
@@ -15,7 +15,7 @@ Benvenuti nella pagina iniziale per la soluzione Satellite. Questa sezione illus
 
 ## Progettazione concettuale
 
-La nostra pagina di apprendimento delinea il [Progettazione concettuale](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) del {{nome-prodotto}}. L'elemento chiave della soluzione è l'ambiente principale Power Platform.
+La nostra pagina di apprendimento delinea il [Progettazione concettuale](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) del {{<product-name>}}. L'elemento chiave della soluzione è l'ambiente principale Power Platform.
 
 Di solito ci sono diversi ambienti di produzione satellite che eseguono i tuoi progetti di automazione. A seconda della strategia dell'ambiente, questi potrebbero anche essere ambienti di sviluppo o di test.
 

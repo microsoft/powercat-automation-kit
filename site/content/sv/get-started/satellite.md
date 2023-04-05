@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # Överblick
@@ -15,7 +15,7 @@ Välkommen till startsidan för satellitlösningen. Det här avsnittet beskriver
 
 ## Konstruktions
 
-Vår lärsida beskriver [Konstruktions](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) för {{product-name}}. Nyckelelementet i lösningen är den Power Platform huvudmiljön.
+Vår lärsida beskriver [Konstruktions](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) av {{<product-name>}}. Nyckelelementet i lösningen är den Power Platform huvudmiljön.
 
 Det finns vanligtvis flera satellitproduktionsmiljöer som kör dina automationsprojekt. Beroende på din miljöstrategi kan dessa också vara utvecklings- eller testmiljöer.
 

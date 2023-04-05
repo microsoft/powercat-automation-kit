@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: D34A3BCCCE29730419418EAC4DDC091FAB118A83
+generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 ---
 
 # Überblick
@@ -15,7 +15,7 @@ Willkommen auf der Startseite für die Satellite-Lösung. In diesem Abschnitt we
 
 ## Konzeptentwurf
 
-Auf unserer Lernseite finden Sie die [Konzeptentwurf](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) des {{product-name}}. Das Schlüsselelement der Lösung ist die Power Platform Hauptumgebung.
+Auf unserer Lernseite finden Sie die [Konzeptentwurf](https://learn.microsoft.com/power-automate/guidance/automation-kit/overview/introduction#conceptual-design) der {{<product-name>}}. Das Schlüsselelement der Lösung ist die Power Platform Hauptumgebung.
 
 In der Regel gibt es mehrere Satellitenproduktionsumgebungen, in denen Ihre Automatisierungsprojekte ausgeführt werden. Abhängig von Ihrer Umgebungsstrategie können dies auch Entwicklungs- oder Testumgebungen sein.
 
