@@ -665,6 +665,15 @@
       "visibleIf": "contains({installType}, 'Satellite solution')",
       "elements": [
         {
+          "name": "satellite-april-2023",
+          "type": "boolean",
+          "title": {
+            "default": "Install version, April 2023 or later?",
+            "es": "¿Versión de instalación, abril de 2023 o posterior?"
+          },
+          "isRequired": true
+        },
+        {
           "type": "checkbox",
           "name": "prereqTest2",
           "title": {
@@ -708,25 +717,25 @@
               }
             },
             {
-              "value": "Configured Azure Application API Permissions",
               "text": {
                 "default": "Configured Azure Application API Permissions",
                 "es": "Permisos configurados de la API de aplicaciones de Azure"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             },
             {
-              "value": "Configured Azure Application ClientId and Secret",
               "text": {
                 "default": "Configured Azure Application ClientId and Secret",
                 "es": "ClientId y secreto de aplicación de Azure configurados"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             },
             {
-              "value": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
               "text": {
                 "default": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
                 "es": "Un almacén de claves de Azure para almacenar el IdCliente y el Id. de inquilino"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             }
           ]
         },
@@ -1034,14 +1043,32 @@
           "html": {
             "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below",
             "es": "Seguir [Guía de configuración de variables de entorno](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) Para obtener los valores de los elementos siguientes"
-          }
+          },
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "type": "html",
           "html": {
             "default": "**NOTES:**<br/>- To import satellite solution, the user needs Azure Key Vault role of [Key Vault Secret User](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration#access-policies-to-azure-roles-mapping) or higher<br/>- The Azure Key Vault (AKV) settings below should have the following format /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.KeyVault/vaults/{Key Vault Name}/secrets/{Secret Name}<br/>- As the flow owner the importing user will need **Basic User** and **Service Reader**",
             "es": "**NOTAS:**<br/>- Para importar la solución satelital, el usuario necesita el rol Azure Key Vault de [Usuario secreto de Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration#access-policies-to-azure-roles-mapping) o superior<br/>- La configuración de Azure Key Vault (AKV) a continuación debe tener el siguiente formato /subscriptions//resourceGroups//providers/Microsoft.KeyVault/vaults//Secretos/<br/>- Como propietario del flujo, el usuario importador necesitará **Usuario básico** y **Lector de servicios**"
-          }
+          },
+          "visibleIf": "{satellite-april-2023} == false"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "**NOTES:**<br/>- For the April 2023 release or later Azure Key Vault is no longer required for install<br/>-The Azure Application Id will be used to get solution artifacts in the Automation Manager<br/>- The Application Id will be added as Application User and added to role **Desktop Flow Definition Admin**",
+            "es": "**NOTAS:**<br/>- Para la versión de abril de 2023 o posterior, Azure Key Vault ya no es necesario para la instalación<br/>-El identificador de aplicación de Azure se usará para obtener artefactos de solución en Automation Manager<br/>- El ID de la aplicación se agregará como Usuario de la aplicación y se agregará al rol **Administrador de definición de flujo de escritorio**"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below **except** Azure Key Vault environment variables (AKV Client Id, AKV Client SecretAKV Tenant ID Secret) which are no longer required",
+            "es": "Seguir [Guía de configuración de variables de entorno](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) Para obtener los valores de los elementos siguientes **exceptuar** Variables de entorno de Azure Key Vault (AKV Client Id, AKV Client SecretAKV Tenant ID Secret) que ya no son necesarias"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
         },
         {
           "name": "satellite-azureKeyVaultClientId",
@@ -1050,7 +1077,8 @@
             "default": "AKV Client Id Secret",
             "es": "Secreto de ID de cliente de AKV"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-azureKeyVaultClientSecret",
@@ -1059,7 +1087,8 @@
             "default": "AKV Client Secret Secret",
             "es": "Secreto de cliente de AKV"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-azureKeyVaultTenantIdSecret",
@@ -1068,7 +1097,8 @@
             "default": "AKV Tenant Id Secret",
             "es": "Secreto de ID de inquilino de AKV"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-automationCoEAlertEmailRecipient",
@@ -1221,6 +1251,14 @@
             "default": "Create the Azure app id as a Dataverse Application User?",
             "es": "¿Crear el identificador de la aplicación de Azure como usuario de la aplicación Dataverse?"
           }
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "From April 2023 release an later an Azure Application Id is required. You can check the created application in <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps' target='_blank'>Azure Portal<a> for the Azure Application Id",
+            "es": "A partir de la versión de abril de 2023 y posteriormente, se requiere un identificador de aplicación de Azure. Puede comprobar la aplicación creada en <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps' target='_blank'>Azure Portal<a> para el identificador de aplicación de Azure"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
         },
         {
           "name": "satellite-azureAppName",

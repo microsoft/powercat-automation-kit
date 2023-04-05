@@ -665,6 +665,15 @@
       "visibleIf": "contains({installType}, 'Satellite solution')",
       "elements": [
         {
+          "name": "satellite-april-2023",
+          "type": "boolean",
+          "title": {
+            "default": "Install version, April 2023 or later?",
+            "th": "ติดตั้งเวอร์ชันเมษายน 2023 หรือใหม่กว่า?"
+          },
+          "isRequired": true
+        },
+        {
           "type": "checkbox",
           "name": "prereqTest2",
           "title": {
@@ -708,25 +717,25 @@
               }
             },
             {
-              "value": "Configured Azure Application API Permissions",
               "text": {
                 "default": "Configured Azure Application API Permissions",
                 "th": "กําหนดค่าสิทธิ์ API แอปพลิเคชัน Azure"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             },
             {
-              "value": "Configured Azure Application ClientId and Secret",
               "text": {
                 "default": "Configured Azure Application ClientId and Secret",
                 "th": "กําหนดค่า Azure Application ClientId และลับเฉพาะ"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             },
             {
-              "value": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
               "text": {
                 "default": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
                 "th": "กชุดเก็บคีย์ Azure เพื่อจัดเก็บรหัสไคลเอ็นต์ รหัสลับ และรหัสผู้เช่า"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             }
           ]
         },
@@ -1034,14 +1043,32 @@
           "html": {
             "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below",
             "th": "ตาม [คู่มือการตั้งค่าตัวแปรสภาพแวดล้อม](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) เพื่อรับค่าสําหรับรายการด้านล่าง"
-          }
+          },
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "type": "html",
           "html": {
             "default": "**NOTES:**<br/>- To import satellite solution, the user needs Azure Key Vault role of [Key Vault Secret User](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration#access-policies-to-azure-roles-mapping) or higher<br/>- The Azure Key Vault (AKV) settings below should have the following format /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.KeyVault/vaults/{Key Vault Name}/secrets/{Secret Name}<br/>- As the flow owner the importing user will need **Basic User** and **Service Reader**",
             "th": "**หมาย เหตุ:**<br/>- ในการนําเข้าโซลูชันดาวเทียมผู้ใช้ต้องการบทบาท Azure Key Vault ของ [คีย์กลูผู้ใช้ลับ](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration#access-policies-to-azure-roles-mapping) หรือสูงกว่า<br/>- การตั้งค่า Azure Key Vault (AKV) ด้านล่างควรมีรูปแบบ /การสมัครใช้งาน/ ดังต่อไปนี้/กลุ่มทรัพยากร//ผู้ให้บริการ/ไมโครซอฟท์.KeyVault/ห้องนิรภัย//ความลับ/<br/>- ในฐานะเจ้าของโฟลว์ผู้ใช้ที่นําเข้าจะต้อง **ผู้ใช้พื้นฐาน** และ **เครื่องอ่านบริการ**"
-          }
+          },
+          "visibleIf": "{satellite-april-2023} == false"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "**NOTES:**<br/>- For the April 2023 release or later Azure Key Vault is no longer required for install<br/>-The Azure Application Id will be used to get solution artifacts in the Automation Manager<br/>- The Application Id will be added as Application User and added to role **Desktop Flow Definition Admin**",
+            "th": "**หมาย เหตุ:**<br/>- สําหรับการเปิดตัวในเดือนเมษายน 2023 หรือใหม่กว่า Azure Key Vault ไม่จําเป็นต้องติดตั้งอีกต่อไป<br/>-รหัสแอปพลิเคชัน Azure จะถูกใช้เพื่อรับสิ่งประดิษฐ์ของโซลูชันใน Automation Manager<br/>- รหัสแอปพลิเคชันจะถูกเพิ่มเป็นผู้ใช้แอปพลิเคชันและเพิ่มบทบาท **ผู้ดูแลระบบ Desktop Flow Definition**"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below **except** Azure Key Vault environment variables (AKV Client Id, AKV Client SecretAKV Tenant ID Secret) which are no longer required",
+            "th": "ตาม [คู่มือการตั้งค่าตัวแปรสภาพแวดล้อม](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) เพื่อรับค่าสําหรับรายการด้านล่าง **นอกจาก** ตัวแปรสภาพแวดล้อม Azure Key Vault (รหัสไคลเอ็นต์ AKV, ความลับรหัสผู้เช่า AKVAKV) ซึ่งไม่จําเป็นอีกต่อไป"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
         },
         {
           "name": "satellite-azureKeyVaultClientId",
@@ -1050,7 +1077,8 @@
             "default": "AKV Client Id Secret",
             "th": "ความลับของรหัสไคลเอ็นต์ AKV"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-azureKeyVaultClientSecret",
@@ -1059,7 +1087,8 @@
             "default": "AKV Client Secret Secret",
             "th": "ความลับของลูกค้า AKV"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-azureKeyVaultTenantIdSecret",
@@ -1068,7 +1097,8 @@
             "default": "AKV Tenant Id Secret",
             "th": "ความลับรหัสผู้เช่า AKV"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-automationCoEAlertEmailRecipient",
@@ -1221,6 +1251,14 @@
             "default": "Create the Azure app id as a Dataverse Application User?",
             "th": "สร้างรหัสแอป Azure เป็นผู้ใช้แอปพลิเคชัน Dataverse หรือไม่"
           }
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "From April 2023 release an later an Azure Application Id is required. You can check the created application in <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps' target='_blank'>Azure Portal<a> for the Azure Application Id",
+            "th": "ตั้งแต่เดือนเมษายน 2023 เป็นต้นไป จําเป็นต้องมีรหัสแอปพลิเคชัน Azure คุณสามารถตรวจสอบแอปพลิเคชันที่สร้างขึ้นใน <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps' target='_blank'>Azure Portal<a> สําหรับ Azure Application ID"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
         },
         {
           "name": "satellite-azureAppName",

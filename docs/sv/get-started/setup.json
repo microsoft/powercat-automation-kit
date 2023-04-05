@@ -47,7 +47,7 @@
           "visibleIf": "contains({installType}, 'Main solution')",
           "html": {
             "default": "Will collect connection information for Main solution deployment. The main solution manages and monitors metered Power Automate Desktop solutions. Normally there will be one Main solution deployment per Power Platform tenant",
-            "sv": "Samlar in anslutningsinformation för distribution av huvudlösningen. Huvudlösningen hanterar och övervakar Power Automate Desktop-lösningar med datapriser. Normalt finns det en huvudlösningsdistribution per Power Platform klientorganisation"
+            "sv": "Samlar in anslutningsinformation för distribution av huvudlösningen. Huvudlösningen hanterar och övervakar avgiftsbelagda Power Automate Desktop-lösningar. Normalt finns det en huvudlösningsdistribution per Power Platform klientorganisation"
           }
         },
         {
@@ -55,7 +55,7 @@
           "visibleIf": "contains({installType}, 'Satellite solution')",
           "html": {
             "default": "Will collect information required to setup a monitored Power Platform environment. Power Automate cloud flows to centralize information with the central main solution Automation Kit environment. Normally there will be multiple satellite solution deployments per Power Platform tenant",
-            "sv": "Samlar in information som krävs för att konfigurera en övervakad Power Platform miljö. Power Automate molnflöden för att centralisera information med den centrala huvudlösningen Automation Kit-miljön. Normalt sker det flera satellitlösningsdistributioner per Power Platform klientorganisation"
+            "sv": "Samlar in information som krävs för att konfigurera en övervakad Power Platform miljö. Power Automate molnflöden för att centralisera information med den centrala huvudlösningen Automation Kit-miljön. Normalt finns det flera satellitlösningsdistributioner per Power Platform klientorganisation"
           }
         },
         {
@@ -387,7 +387,7 @@
           "type": "text",
           "title": {
             "default": "Copy Power Platform for Admins Automation Connection details page link here",
-            "sv": "Kopiera länken Power Platform for Admins Automation Connection Connection (information om  för administratörer) här"
+            "sv": "Kopiera Power Platform för Admins Automation Anslutningsinformation sidlänk här"
           },
           "startWithNewLine": false,
           "isRequired": true,
@@ -406,7 +406,7 @@
           "type": "html",
           "html": {
             "default": "![Connector Icon](https://connectoricons-prod.azureedge.net/releases/v1.0.1602/1.0.1602.3056/powerplatformforadmins/icon.png =32x32) The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
-            "sv": "! [Ikon för anslutningsapp]([https://connectoricons-prod.azureedge.net/releases/v1.0.1602/1.0.1602.3056/powerplatformforadmins/icon.png]() =32x32) Anslutningsappen Power Platform for Admins Automation används för att fråga information om dina distribuerade lösningar"
+            "sv": "! [Ikon för anslutningsapp]([https://connectoricons-prod.azureedge.net/releases/v1.0.1602/1.0.1602.3056/powerplatformforadmins/icon.png]() =32x32) Anslutningsappen Power Platform för administratörer Automation används för att fråga efter information om dina distribuerade lösningar"
           }
         }
       ]
@@ -665,6 +665,15 @@
       "visibleIf": "contains({installType}, 'Satellite solution')",
       "elements": [
         {
+          "name": "satellite-april-2023",
+          "type": "boolean",
+          "title": {
+            "default": "Install version, April 2023 or later?",
+            "sv": "Installera version, april 2023 eller senare?"
+          },
+          "isRequired": true
+        },
+        {
           "type": "checkbox",
           "name": "prereqTest2",
           "title": {
@@ -708,25 +717,25 @@
               }
             },
             {
-              "value": "Configured Azure Application API Permissions",
               "text": {
                 "default": "Configured Azure Application API Permissions",
                 "sv": "Konfigurerade API-behörigheter för Azure-program"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             },
             {
-              "value": "Configured Azure Application ClientId and Secret",
               "text": {
                 "default": "Configured Azure Application ClientId and Secret",
                 "sv": "Konfigurerat Azure Application ClientId och hemlighet"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             },
             {
-              "value": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
               "text": {
                 "default": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
                 "sv": "En Azure Key Vault för att lagra ClientId, hemlighet och klientorganisations-ID"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             }
           ]
         },
@@ -998,7 +1007,7 @@
           "type": "text",
           "title": {
             "default": "Copy Power Platform for Admins Automation Connection details page link here",
-            "sv": "Kopiera länken Power Platform for Admins Automation Connection Connection (information om  för administratörer) här"
+            "sv": "Kopiera Power Platform för Admins Automation Anslutningsinformation sidlänk här"
           },
           "startWithNewLine": false,
           "isRequired": true,
@@ -1017,7 +1026,7 @@
           "type": "html",
           "html": {
             "default": "![Power Platform for Admins Connection Icon](https://connectoricons-prod.azureedge.net/releases/v1.0.1602/1.0.1602.3056/powerplatformforadmins/icon.png =32x32) The Power Platform for Admins Automation connector is used to query information about your deployed solutions",
-            "sv": "! [Power Platform för administratörer anslutningsikon]([https://connectoricons-prod.azureedge.net/releases/v1.0.1602/1.0.1602.3056/powerplatformforadmins/icon.png]() =32x32) Anslutningsappen Power Platform for Admins Automation används för att fråga information om dina distribuerade lösningar"
+            "sv": "! [Power Platform för administratörer anslutningsikon]([https://connectoricons-prod.azureedge.net/releases/v1.0.1602/1.0.1602.3056/powerplatformforadmins/icon.png]() =32x32) Anslutningsappen Power Platform för administratörer Automation används för att fråga efter information om dina distribuerade lösningar"
           }
         }
       ]
@@ -1034,14 +1043,32 @@
           "html": {
             "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below",
             "sv": "Följa [Inställningsguide för miljövariabel](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) för att få värdena för objekten nedan"
-          }
+          },
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "type": "html",
           "html": {
             "default": "**NOTES:**<br/>- To import satellite solution, the user needs Azure Key Vault role of [Key Vault Secret User](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration#access-policies-to-azure-roles-mapping) or higher<br/>- The Azure Key Vault (AKV) settings below should have the following format /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.KeyVault/vaults/{Key Vault Name}/secrets/{Secret Name}<br/>- As the flow owner the importing user will need **Basic User** and **Service Reader**",
             "sv": "**ANTECKNINGAR:**<br/>– Om du vill importera en satellitlösning behöver användaren Azure Key Vault rollen [Key Vault hemlig användare](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration#access-policies-to-azure-roles-mapping) eller högre<br/>- Inställningarna Azure Key Vault (AKV) nedan bör ha följande format /subscriptions//resourceGroups//leverantörer/Microsoft.KeyVault/valv//Hemligheter/<br/>- Som flödesägare behöver den importerande användaren **Grundläggande användare** och **Läsare av tjänst**"
-          }
+          },
+          "visibleIf": "{satellite-april-2023} == false"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "**NOTES:**<br/>- For the April 2023 release or later Azure Key Vault is no longer required for install<br/>-The Azure Application Id will be used to get solution artifacts in the Automation Manager<br/>- The Application Id will be added as Application User and added to role **Desktop Flow Definition Admin**",
+            "sv": "**ANTECKNINGAR:**<br/>- För versionen från april 2023 eller senare krävs Azure Key Vault inte längre för installation<br/>-Azure Application Id används för att hämta lösningsartefakter i Automation Manager<br/>- Program-ID:t läggs till som programanvändare och läggs till i rollen **Administratör för definition av datorflöde**"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below **except** Azure Key Vault environment variables (AKV Client Id, AKV Client SecretAKV Tenant ID Secret) which are no longer required",
+            "sv": "Följa [Inställningsguide för miljövariabel](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) för att hämta värdena för artiklarna nedan **utom** Azure Key Vault miljövariabler (AKV-klient-ID, AKV-klienthemlighet för AKV-klientorganisations-ID) som inte längre krävs"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
         },
         {
           "name": "satellite-azureKeyVaultClientId",
@@ -1050,7 +1077,8 @@
             "default": "AKV Client Id Secret",
             "sv": "Hemlighet för AKV-klient-ID"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-azureKeyVaultClientSecret",
@@ -1059,7 +1087,8 @@
             "default": "AKV Client Secret Secret",
             "sv": "Hemlig hemlighet för AKV-klient"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-azureKeyVaultTenantIdSecret",
@@ -1068,7 +1097,8 @@
             "default": "AKV Tenant Id Secret",
             "sv": "Hemlighet för AKV-klientorganisations-ID"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-automationCoEAlertEmailRecipient",
@@ -1221,6 +1251,14 @@
             "default": "Create the Azure app id as a Dataverse Application User?",
             "sv": "Skapa Azure-app-ID:t som en Dataverse-programanvändare?"
           }
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "From April 2023 release an later an Azure Application Id is required. You can check the created application in <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps' target='_blank'>Azure Portal<a> for the Azure Application Id",
+            "sv": "Från och med april 2023 krävs ett senare Azure-program-ID. Du kan kontrollera den skapade applikationen i <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps' target='_blank'>Azure Portal<a> för Azure-program-ID:t"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
         },
         {
           "name": "satellite-azureAppName",

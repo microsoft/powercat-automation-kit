@@ -665,6 +665,15 @@
       "visibleIf": "contains({installType}, 'Satellite solution')",
       "elements": [
         {
+          "name": "satellite-april-2023",
+          "type": "boolean",
+          "title": {
+            "default": "Install version, April 2023 or later?",
+            "ko": "설치 버전, 2023년 4월 이후?"
+          },
+          "isRequired": true
+        },
+        {
           "type": "checkbox",
           "name": "prereqTest2",
           "title": {
@@ -708,25 +717,25 @@
               }
             },
             {
-              "value": "Configured Azure Application API Permissions",
               "text": {
                 "default": "Configured Azure Application API Permissions",
                 "ko": "구성된 Azure 응용 프로그램 API 권한"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             },
             {
-              "value": "Configured Azure Application ClientId and Secret",
               "text": {
                 "default": "Configured Azure Application ClientId and Secret",
                 "ko": "구성된 Azure 응용 프로그램 클라이언트 ID 및 암호"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             },
             {
-              "value": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
               "text": {
                 "default": "An Azure Key Vault to store the ClientId, Secret and Tenant Id",
                 "ko": "클라이언트 ID, 비밀 및 테넌트 ID를 저장하는 Azure 키 자격 증명 모음"
-              }
+              },
+              "visibleIf": "{satellite-april-2023} == false"
             }
           ]
         },
@@ -1034,14 +1043,32 @@
           "html": {
             "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below",
             "ko": "뒤따르다 [환경 변수 설정 가이드](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) 아래 항목에 대한 값을 얻으려면"
-          }
+          },
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "type": "html",
           "html": {
             "default": "**NOTES:**<br/>- To import satellite solution, the user needs Azure Key Vault role of [Key Vault Secret User](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration#access-policies-to-azure-roles-mapping) or higher<br/>- The Azure Key Vault (AKV) settings below should have the following format /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Name}/providers/Microsoft.KeyVault/vaults/{Key Vault Name}/secrets/{Secret Name}<br/>- As the flow owner the importing user will need **Basic User** and **Service Reader**",
             "ko": "**노트:**<br/>- 위성 솔루션을 가져오려면 사용자에게 Azure 키 자격 증명 모음 역할이 필요합니다. [키 자격 증명 모음 비밀 사용자](https://learn.microsoft.com/en-us/azure/key-vault/general/rbac-migration#access-policies-to-azure-roles-mapping) 이상<br/>- 아래의 AKV(Azure 키 자격 증명 모음) 설정의 형식은 다음과 같아야 합니다./리소스 그룹//providers/Microsoft.KeyVault/vaults//비밀/<br/>- 가져오는 사용자에게 필요한 흐름 소유자 **기본 사용자** 그리고 **서비스 리더**"
-          }
+          },
+          "visibleIf": "{satellite-april-2023} == false"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "**NOTES:**<br/>- For the April 2023 release or later Azure Key Vault is no longer required for install<br/>-The Azure Application Id will be used to get solution artifacts in the Automation Manager<br/>- The Application Id will be added as Application User and added to role **Desktop Flow Definition Admin**",
+            "ko": "**노트:**<br/>- 2023년 4월 릴리스 이상의 경우 Azure 키 자격 증명 모음을 더 이상 설치할 필요가 없습니다.<br/>-Azure 응용 프로그램 ID는 자동화 관리자에서 솔루션 아티팩트를 가져오는 데 사용됩니다.<br/>- 응용 프로그램 ID가 응용 프로그램 사용자로 추가되고 역할에 추가됩니다. **데스크톱 흐름 정의 관리자**"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Follow [Environment Variable Setup Guide](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) to obtain the values for the items below **except** Azure Key Vault environment variables (AKV Client Id, AKV Client SecretAKV Tenant ID Secret) which are no longer required",
+            "ko": "뒤따르다 [환경 변수 설정 가이드](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables) 아래 항목에 대한 값을 얻으려면 **제외한** 더 이상 필요하지 않은 Azure 키 자격 증명 모음 환경 변수(AKV 클라이언트 ID, AKV 클라이언트 비밀AKV 테넌트 ID 비밀)"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
         },
         {
           "name": "satellite-azureKeyVaultClientId",
@@ -1050,7 +1077,8 @@
             "default": "AKV Client Id Secret",
             "ko": "AKV 클라이언트 ID 비밀"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-azureKeyVaultClientSecret",
@@ -1059,7 +1087,8 @@
             "default": "AKV Client Secret Secret",
             "ko": "AKV 클라이언트 비밀"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-azureKeyVaultTenantIdSecret",
@@ -1068,7 +1097,8 @@
             "default": "AKV Tenant Id Secret",
             "ko": "AKV 테넌트 ID 비밀"
           },
-          "isRequired": true
+          "isRequired": true,
+          "visibleIf": "{satellite-april-2023} == false"
         },
         {
           "name": "satellite-automationCoEAlertEmailRecipient",
@@ -1221,6 +1251,14 @@
             "default": "Create the Azure app id as a Dataverse Application User?",
             "ko": "Azure 앱 ID를 Dataverse 애플리케이션 사용자로 만드시겠습니까?"
           }
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "From April 2023 release an later an Azure Application Id is required. You can check the created application in <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps' target='_blank'>Azure Portal<a> for the Azure Application Id",
+            "ko": "2023년 4월 릴리스부터 Azure 애플리케이션 ID가 필요합니다. 생성 된 응용 프로그램을 확인할 수 있습니다. <a href='https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps' target='_blank'>Azure Portal<a> Azure 응용 프로그램 ID의 경우"
+          },
+          "visibleIf": "{satellite-april-2023} == true"
         },
         {
           "name": "satellite-azureAppName",
