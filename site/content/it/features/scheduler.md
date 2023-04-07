@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
+generated: 48371CA8CFDFD0F4020EBF42F1E13B1B5B8901F9
 ---
 
 {{<toc>}}
@@ -127,10 +127,10 @@ Per la versione corrente si applicano le seguenti note
 
 Per installare la soluzione di pianificazione è possibile eseguire le operazioni seguenti:
 
-1. Garantire il framework dei componenti Power Apps <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Per saperne di più</a>
+1. Assicurati che il framework dei componenti Power Apps sia abilitato <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Per saperne di più</a>
 1. Hai installato il Creator Kit nell'ambiente di destinazione. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installazione da origine app</a>
 1. Hai scaricato il file AutomationKit.zip dalla sezione Risorse dell'ultima <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Versione di GitHub</a>
-1. È stata importata la versione più recente di AutomationKitScheduler_*_gestito.zip file utilizzando. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Per saperne di più</a>
+1. Hai importato l'ultima versione di AutomationKitScheduler_*_gestito.zip file utilizzando. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Per saperne di più</a>
 
 ## Cartina stradale
 

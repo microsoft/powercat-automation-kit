@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
+generated: 48371CA8CFDFD0F4020EBF42F1E13B1B5B8901F9
 ---
 
 {{<toc>}}
@@ -127,7 +127,7 @@ Voor de huidige release zijn de volgende opmerkingen van toepassing
 
 Om de scheduler-oplossing te installeren, kunt u het volgende doen:
 
-1. Zorg voor een Power Apps-onderdeelframework <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lees meer</a>
+1. Ervoor zorgen dat power apps-onderdeelframework is ingeschakeld <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lees meer</a>
 1. U hebt de Creator Kit in de doelomgeving geïnstalleerd. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installeren vanuit app-bron</a>
 1. U hebt het AutomationKit.zip-bestand gedownload van het gedeelte Activa van de nieuwste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-versie</a>
 1. U hebt de nieuwste AutomationKitScheduler geïmporteerd_*_beheerd.zip bestand gebruiken. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lees meer</a>

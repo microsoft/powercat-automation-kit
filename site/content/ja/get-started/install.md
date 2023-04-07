@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-最新バージョンのオートメーションキットをインストールするには、以下の手順を使用します。コマンドラインツールを使用できない場合は、「」に記載されている手動の手順を使用できます。[セットアップガイダンス](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+コマンドラインを使用して最新バージョンのオートメーションキットをインストールするには、以下の手順を使用できます。コマンドラインツールを使用できない場合は、「」に記載されている手動の手順を使用できます。[セットアップガイダンス](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1.あなたが持っていることを確認してください<a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Power Apps コンポーネント フレームワーク機能を有効にする</a>メイン環境とサテライト環境の両方にオートメーションキットをインストールする環境で。
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     -必要に応じて、ソリューションに含まれる Power Automate フローを有効にする必要があります
 
-1.セットアップが完了したら、**Automation-kit-main-install.json**又は**Automation-kit-satellite-install.json**ファイルを**オートメーションキットインストール**上のフォルダ
+1.Webサイトのセットアップ手順が完了したら、ダウンロードしたものをコピーできます**Automation-kit-main-install.json**又は**Automation-kit-satellite-install.json**ファイルを**オートメーションキットインストール**上のフォルダ
 
 1.ファイルがダウンロードされると、スクリプトは**y**メインソリューションをインストールするには、**n**サテライトソリューションをインストールするには
 

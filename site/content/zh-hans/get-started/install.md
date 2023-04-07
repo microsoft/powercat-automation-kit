@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-要安装最新版本的自动化工具包，请使用以下步骤。如果无法使用命令行工具，可以使用中记录的手动步骤[设置指南](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+要使用命令行安装最新版本的自动化工具包，可以使用以下步骤。如果无法使用命令行工具，可以使用中记录的手动步骤[设置指南](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1.确保您有<a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">启用 Power Apps 组件框架功能</a>在要为主环境和从属环境安装自动化工具包的环境中。
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     -（可选）启用电源自动化 应启用解决方案中包含的流
 
-1.完成设置后，复制**automation-kit-main-install.json**或**automation-kit-satellite-install.json**文件到**自动化套件安装**上面的文件夹
+1.完成网站设置步骤后，您可以复制下载的内容**automation-kit-main-install.json**或**automation-kit-satellite-install.json**文件到**自动化套件安装**上面的文件夹
 
 1.下载文件后，脚本将提示**y**要安装主解决方案，**n**安装卫星解决方案
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
+generated: 48371CA8CFDFD0F4020EBF42F1E13B1B5B8901F9
 ---
 
 {{<toc>}}
@@ -127,7 +127,7 @@ generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
 
 스케줄러 솔루션을 설치하려면 다음을 수행할 수 있습니다.
 
-1. Power Apps 구성 요소 프레임워크 확인 <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">더보기</a>
+1. Power Apps 구성 요소 프레임워크가 사용하도록 설정되어 있는지 확인 <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">더보기</a>
 1. 크리에이터 키트를 대상 환경에 설치했습니다. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">앱 소스에서 설치</a>
 1. 최신 자산의 섹션에서 AutomationKit.zip 파일을 다운로드했습니다. <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">깃허브 릴리스</a>
 1. 최신 AutomationKitScheduler를 가져왔습니다._*_관리.zip 파일 사용. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">더보기</a>

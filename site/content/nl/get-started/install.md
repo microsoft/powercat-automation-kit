@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-Als u de nieuwste versie van de Automation Kit wilt installeren, gebruikt u de onderstaande stappen. Als u de opdrachtregelprogramma's niet kunt gebruiken, kunt u de handmatige stappen gebruiken die zijn beschreven in [Richtlijnen voor het instellen](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+Als u de nieuwste versie van de Automation Kit wilt installeren via de opdrachtregel, kunt u de onderstaande stappen uitvoeren. Als u de opdrachtregelprogramma's niet kunt gebruiken, kunt u de handmatige stappen gebruiken die zijn beschreven in [Richtlijnen voor het instellen](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Zorg ervoor dat je <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">De frameworkfunctie voor Power Apps-onderdelen inschakelen</a> in de omgevingen waarin u de Automation Kit voor zowel hoofd- als satellietomgevingen wilt installeren.
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     - Optioneel Power Automate-stromen inschakelen in de oplossingen moet zijn ingeschakeld
 
-1. Nadat u de installatie hebt voltooid, kopieert u de **automation-kit-main-install.json** of **automation-kit-satellite-install.json** bestand naar de **AutomationKitInstalleer** map boven
+1. Nadat u de stappen voor het instellen van de website hebt voltooid, kunt u gedownloade **automation-kit-main-install.json** of **automation-kit-satellite-install.json** bestand naar de **AutomationKitInstalleer** map boven
 
 1. Zodra het bestand is gedownload, zal het script vragen om **y** om de hoofdoplossing te installeren, **n** om satellietoplossing te installeren
 

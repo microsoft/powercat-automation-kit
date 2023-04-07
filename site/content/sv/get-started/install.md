@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-Om du vill installera den senaste versionen av Automation Kit använder du följande steg nedan. Om du inte kan använda kommandoradsverktygen kan du använda de manuella stegen som dokumenteras i [Vägledning för installation](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+Om du vill installera den senaste versionen av Automation Kit med kommandoraden kan du använda följande steg nedan. Om du inte kan använda kommandoradsverktygen kan du använda de manuella stegen som dokumenteras i [Vägledning för installation](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Se till att du har <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivera funktionen Power Apps component framework</a> i de miljöer som du vill installera Automation Kit för både huvud- och satellitmiljöer.
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     - Du kan också aktivera Power Automate-flöden som finns i lösningarna ska vara aktiverade
 
-1. När du har slutfört installationen kopierar du **automation-kit-main-install.json** eller **automation-kit-satellite-install.json** fil till **AutomationKitInstallera** mappen ovan
+1. När du har slutfört konfigurationsstegen för webbplatsen kan du kopiera nedladdade **automation-kit-main-install.json** eller **automation-kit-satellite-install.json** fil till **AutomationKitInstallera** mappen ovan
 
 1. När filen har laddats ner kommer skriptet att fråga efter **y** för att installera huvudlösningen, **n** för att installera satellitlösning
 

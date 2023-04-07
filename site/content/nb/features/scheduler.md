@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
+generated: 48371CA8CFDFD0F4020EBF42F1E13B1B5B8901F9
 ---
 
 {{<toc>}}
@@ -127,7 +127,7 @@ For gjeldende versjon gjelder følgende merknader
 
 For å installere planleggerløsningen kan du gjøre følgende:
 
-1. Sikre rammeverket for Power Apps-komponenten <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Les også</a>
+1. Sikre at Power Apps component framework er aktivert <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Les også</a>
 1. Du har installert Creator Kit i målmiljøet. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer fra appkilde</a>
 1. Du har lastet ned AutomationKit.zip-filen fra Aktiva-delen av den nyeste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-utgivelse</a>
 1. Du har importert den nyeste AutomationKitScheduler_*_administrert.zip fil ved hjelp av. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Les også</a>

@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-Führen Sie die folgenden Schritte aus, um die neueste Version des Automation Kits zu installieren. Wenn Sie die Befehlszeilentools nicht verwenden können, können Sie die unter [Anleitung zur Einrichtung](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+Um die neueste Version des Automation Kits über die Befehlszeile zu installieren, können Sie die folgenden Schritte ausführen. Wenn Sie die Befehlszeilentools nicht verwenden können, können Sie die manuellen Schritte ausführen, die unter [Anleitung zur Einrichtung](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Stellen Sie sicher, dass Sie <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivieren des Power Apps-Komponentenframeworkfeatures</a> in den Umgebungen, in denen Sie das Automation Kit für Haupt- und Satellitenumgebungen installieren möchten.
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     - Optional Power Automate Flows aktivieren, die in den Lösungen enthalten sind, sollten aktiviert sein
 
-1. Nachdem Sie das Setup abgeschlossen haben, kopieren Sie die **automation-kit-main-install.json** oder **automation-kit-satellite-install.json** Datei in die **AutomationKitInstallieren** Ordner oben
+1. Nachdem Sie die Schritte zur Einrichtung der Website abgeschlossen haben, können Sie sie kopieren, herunterladen: **automation-kit-main-install.json** oder **automation-kit-satellite-install.json** Datei in die **AutomationKitInstallieren** Ordner oben
 
 1. Sobald die Datei heruntergeladen wurde, fordert das Skript nach **y** , um die Hauptlösung zu installieren, **n** So installieren Sie die Satellitenlösung
 

@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-Hvis du vil installere den nyeste versjonen av automatiseringssettet, bruker du fremgangsmåten nedenfor. Hvis du ikke kan bruke kommandolinjeverktøyene, kan du bruke de manuelle trinnene som er dokumentert i [Veiledning for oppsett](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+Hvis du vil installere den nyeste versjonen av automatiseringssettet ved hjelp av kommandolinjen, kan du bruke følgende trinn nedenfor. Hvis du ikke kan bruke kommandolinjeverktøyene, kan du bruke de manuelle trinnene som er dokumentert i [Veiledning for oppsett](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Sørg for at du har <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivere Power Apps-komponentrammeverkfunksjonen</a> i miljøene du vil installere automatiseringssettet for både hoved- og satellittmiljøer.
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     - Eventuelt Aktiver Power Automate-flyter i løsningene bør være aktivert
 
-1. Når du har fullført konfigurasjonen, kopierer du **automatisering-kit-main-install.json** eller **automatisering-kit-satellitt-install.json** -filen til **AutomationKitInstall** mappen ovenfor
+1. Når du har fullført konfigurasjonstrinnene for webområdet, kan du kopiere nedlastede **automatisering-kit-main-install.json** eller **automatisering-kit-satellitt-install.json** -filen til **AutomationKitInstall** mappen ovenfor
 
 1. Når filen er lastet ned skriptet vil be om **y** for å installere hovedløsningen, **n** Slik installerer du satellittløsning
 

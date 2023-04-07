@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 3F83FF798201535796AF37FD8DEF08AF131F7791
+generated: 48371CA8CFDFD0F4020EBF42F1E13B1B5B8901F9
 ---
 
 {{<toc>}}
@@ -127,7 +127,7 @@ För den aktuella versionen gäller följande information
 
 För att installera schemaläggningslösningen kan du göra följande:
 
-1. Se till att Power Apps komponentramverk <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Läs mer</a>
+1. Se till att Power Apps component framework är aktiverat <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Läs mer</a>
 1. Du har installerat Creator Kit i målmiljön. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installera från appkällan</a>
 1. Du har laddat ned filen AutomationKit.zip från avsnittet Tillgångar i den senaste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-versionen</a>
 1. Du har importerat den senaste AutomationKitScheduler_*_hanterad.zip fil med. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Läs mer</a>

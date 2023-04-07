@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-Para instalar la versión más reciente del Kit de automatización, siga estos pasos. Si no puede utilizar las herramientas de línea de comandos, puede utilizar los pasos manuales documentados en [Guía de configuración](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+Para instalar la versión más reciente del Kit de automatización mediante la línea de comandos, puede seguir estos pasos. Si no puede utilizar las herramientas de línea de comandos, puede utilizar los pasos manuales documentados en [Guía de configuración](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Asegúrese de que tiene <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Habilitar la característica del marco de componentes de Power Apps</a> en los entornos en los que desea instalar el Kit de automatización para entornos principal y satélite.
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     - Opcionalmente, se debe habilitar Habilitar Power Automate Los flujos contenidos en las soluciones deben estar habilitados
 
-1. Después de completar la instalación, copie el **automation-kit-main-install.json** o **automation-kit-satellite-install.json** a la carpeta **AutomationKitInstall** carpeta anterior
+1. Después de completar los pasos de configuración del sitio web, puede copiar descargado **automation-kit-main-install.json** o **automation-kit-satellite-install.json** a la carpeta **AutomationKitInstall** carpeta anterior
 
 1. Una vez descargado el archivo, el script solicitará **y** para instalar la solución principal, **n** Para instalar la solución satelital
 

@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-ในการติดตั้ง Automation Kit เวอร์ชันล่าสุดให้ใช้ขั้นตอนต่อไปนี้ด้านล่าง หากคุณไม่สามารถใช้เครื่องมือบรรทัดคําสั่งคุณสามารถใช้ขั้นตอนด้วยตนเองที่ระบุไว้ใน [คําแนะนําในการตั้งค่า](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+ในการติดตั้ง Automation Kit เวอร์ชันล่าสุดโดยใช้บรรทัดคําสั่งคุณสามารถใช้ขั้นตอนต่อไปนี้ด้านล่าง หากคุณไม่สามารถใช้เครื่องมือบรรทัดคําสั่งคุณสามารถใช้ขั้นตอนด้วยตนเองที่บันทึกไว้ใน [คําแนะนําในการตั้งค่า](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. ตรวจสอบให้แน่ใจว่าคุณมี <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">เปิดใช้งานฟีเจอร์เฟรมเวิร์กส่วนประกอบ Power Apps</a> ในสภาพแวดล้อมที่คุณต้องการติดตั้งชุดระบบอัตโนมัติสําหรับทั้งสภาพแวดล้อมหลักและดาวเทียม
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     - ควรเปิดใช้งานโฟลว์ Power Automate ที่มีอยู่ในโซลูชันหรือไม่
 
-1. หลังจากที่คุณเสร็จสิ้นการคัดลอกการตั้งค่าการ **อัตโนมัติ- ชุดหลัก- install.json** หรือ **อัตโนมัติชุดดาวเทียมติดตั้ง.json** ไฟล์ไปยัง **ระบบอัตโนมัติKitติดตั้ง** โฟลเดอร์ด้านบน
+1. หลังจากเสร็จสิ้นขั้นตอนการตั้งค่าเว็บไซต์คุณสามารถคัดลอกที่ดาวน์โหลดมา **อัตโนมัติ- ชุดหลัก- install.json** หรือ **อัตโนมัติชุดดาวเทียมติดตั้ง.json** ไฟล์ไปยัง **ระบบอัตโนมัติKitติดตั้ง** โฟลเดอร์ด้านบน
 
 1. เมื่อดาวน์โหลดไฟล์สคริปต์จะแจ้งให้ **y** เพื่อติดตั้งโซลูชันหลัก **n** เพื่อติดตั้งโซลูชันดาวเทียม
 

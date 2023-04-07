@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-Pour installer la dernière version du kit d’automatisation, procédez comme suit ci-dessous. Si vous ne parvenez pas à utiliser les outils de ligne de commande, vous pouvez utiliser les étapes manuelles décrites dans [Guide de configuration](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+Pour installer la dernière version du Kit d’automatisation à l’aide de la ligne de commande, vous pouvez suivre les étapes ci-dessous. Si vous ne parvenez pas à utiliser les outils de ligne de commande, vous pouvez utiliser les étapes manuelles décrites dans [Guide de configuration](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Assurez-vous d’avoir <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Activer la fonctionnalité d’infrastructure des composants Power Apps</a> dans les environnements dans lesquels vous souhaitez installer le Kit d’automatisation pour les environnements principal et satellite.
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     - Activer éventuellement Power Automate Les flux contenus dans les solutions doivent être activés
 
-1. Une fois l’installation terminée, copiez le **automation-kit-main-install.json** ou **automation-kit-satellite-install.json** au dossier **AutomationKitInstall** dossier ci-dessus
+1. Après avoir terminé les étapes de configuration du site Web, vous pouvez copier téléchargé **automation-kit-main-install.json** ou **automation-kit-satellite-install.json** au dossier **AutomationKitInstall** dossier ci-dessus
 
 1. Une fois le fichier téléchargé, le script vous demandera **y** pour installer la solution principale, **n** Pour installer la solution satellite
 

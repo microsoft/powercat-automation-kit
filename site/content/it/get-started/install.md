@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-Per installare la versione più recente di Automation Kit, attenersi alla seguente procedura. Se non è possibile utilizzare gli strumenti da riga di comando, è possibile utilizzare i passaggi manuali documentati in [Linee guida per l'installazione](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+Per installare la versione più recente di Automation Kit utilizzando la riga di comando, è possibile utilizzare la procedura seguente di seguito. Se non è possibile utilizzare gli strumenti da riga di comando, è possibile utilizzare i passaggi manuali documentati in [Linee guida per l'installazione](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Assicurati di avere <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Abilitare la funzionalità del framework dei componenti Power Apps</a> negli ambienti in cui si desidera installare il Kit di automazione sia per ambienti Main che Satellite.
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     - Facoltativamente, l'opzione Abilita flussi Power Automate contenuti nelle soluzioni deve essere abilitata
 
-1. Dopo aver completato l'installazione, copiare il pulsante **automation-kit-main-install.json** o **automation-kit-satellite-install.json** nella cartella **AutomationKitInstalla** cartella sopra
+1. Dopo aver completato i passaggi di configurazione del sito Web, è possibile copiare i download **automation-kit-main-install.json** o **automation-kit-satellite-install.json** nella cartella **AutomationKitInstalla** cartella sopra
 
 1. Una volta scaricato il file, lo script richiederà **y** per installare la soluzione principale, **n** Per installare la soluzione satellitare
 

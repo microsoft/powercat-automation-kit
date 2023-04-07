@@ -6,10 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: E411405FB97013556375CA50CEF1CE90FA09CDE0
+generated: BE794663219503619DAA0ED6466A08FC407E83AE
 ---
 
-최신 버전의 자동화 키트를 설치하려면 아래 단계를 따르십시오. 명령줄 도구를 사용할 수 없는 경우 에 설명된 수동 단계를 사용할 수 있습니다. [설정 지침](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
+명령줄을 사용하여 최신 버전의 자동화 키트를 설치하려면 아래 단계를 사용할 수 있습니다. 명령줄 도구를 사용할 수 없는 경우 에 설명된 수동 단계를 사용할 수 있습니다. [설정 지침](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. 다음이 있는지 확인하십시오. <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Power Apps 구성 요소 프레임워크 기능 사용</a> 기본 및 위성 환경 모두에 대해 자동화 키트를 설치하려는 환경에서.
 
@@ -55,7 +55,7 @@ Unblock-File Install_AutomationKit.ps1
     
     - 선택적으로 Power Automate 사용 솔루션에 포함된 흐름을 사용하도록 설정해야 합니다.
 
-1. 설정을 완료한 후 **automation-kit-main-install.json** 또는 **automation-kit-satellite-install.json** 파일에 **자동화키트설치** 위의 폴더
+1. 웹 사이트 설정 단계를 완료 한 후 다운로드 한 내용을 복사 할 수 있습니다. **automation-kit-main-install.json** 또는 **automation-kit-satellite-install.json** 파일에 **자동화키트설치** 위의 폴더
 
 1. 파일이 다운로드되면 스크립트는 **y** 기본 솔루션을 설치하려면 **n** 위성 솔루션을 설치하려면
 
