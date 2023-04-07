@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # Przegląd
@@ -43,7 +43,7 @@ Ten [Instalacja z wiersza poleceń](/pl/get-started/install) dla rozwiązań sat
 
 Nowa rola dataverse roli **Użytkownik usługi Automation Solution Manager** został dodany, który umożliwia użytkownikom wywoływanie nowego niestandardowego interfejsu API Dataverse GetDataverseSolutionArtifacts, który będzie wysyłać zapytania do artefaktów rozwiązania przy użyciu dostarczonej zmiennej środowiskowej **Artefakty menedżera rozwiązań odczytują identyfikator użytkownika**.
 
-Jeśli chcesz zainstalować rozwiązanie satelity ręcznie, należy wprowadzić następujące zmiany w [Konfigurowanie satelitów](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) Instrukcje.
+Jeśli chcesz zainstalować rozwiązanie satelity ręcznie, należy wprowadzić następujące zmiany w [Konfigurowanie satelitów](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) Instrukcje.
 
 1. Pomiń krok "Dodaj nowy klucz tajny klienta", ponieważ nie jest on już potrzebny w kwietniu 2023 r. lub nowszym.
 1. Pomiń krok tworzenia wpisów tajnych w usłudze Azure Key Vault.Skip the step to create Secrets in the Azure Key Vault.
@@ -55,7 +55,7 @@ Upewnij się, że użytkownikom, którzy będą uruchamiać aplikację Automatio
 
 ## Poprzednie wydania
 
-Przed wydaniem w kwietniu 2023 r. instalacje rozwiązania Satellite wymagały zmiennych środowiskowych typu secret. Wymagało to [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) , aby zapisać wartości identyfikatora dzierżawy, identyfikatora aplikacji i klucza tajnego aplikacji. Aby korzystać z tej funkcji, wymagane jest również [Wymagania wstępne](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) usługi Azure Key Vault jest tą samą dzierżawą, konfiguracja Microsoft.PowerPlatform jako dostawcy zasobów.
+Przed wydaniem w kwietniu 2023 r. instalacje rozwiązania Satellite wymagały zmiennych środowiskowych typu secret. Wymagało to [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) , aby zapisać wartości identyfikatora dzierżawy, identyfikatora aplikacji i klucza tajnego aplikacji. Aby korzystać z tej funkcji, wymagane jest również [Wymagania wstępne](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) usługi Azure Key Vault jest tą samą dzierżawą, konfiguracja Microsoft.PowerPlatform jako dostawcy zasobów.
 
 W wersjach z marca 2023 r. lub starszych usługa Azure Key Vault była używana do przechowywania identyfikatora dzierżawy, identyfikatora APplication i klucza tajnego aplikacji. Korzystając z tych wartości, zażądano tokenu dostępu do zapytania dataverse, aby mógł zwrócić listę składników rozwiązania.
 

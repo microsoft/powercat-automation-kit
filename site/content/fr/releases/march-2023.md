@@ -6,13 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
+generated: 35239223597AD99B6E8C8379608D789AFF167FA1
 ---
 
 La version de mars du {{<product-name>}} est la sixième version d’aperçu publique. Cette version s’est concentrée sur les points suivants :
 
 - Plus loin [Mises à jour du planificateur](/fr/features/scheduler) pour filtrer par machine / groupe de machines et exécuter Power Automate Desktop flow
-- Mise à jour pour prendre en charge la v1 et [Schéma v2](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
+- Mise à jour pour prendre en charge la v1 et [Schéma v2](https://learn.microsoft.com/power-automate/desktop-flows/schema)
 
 ## Démarrer
 

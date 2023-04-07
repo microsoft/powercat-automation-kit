@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['ALM', 'Guidance']
-generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
+generated: D3A4F6D207C148D3C321363A90995BEBC9D6EDD2
 ---
 
 {{<slideStyles>}}
@@ -113,7 +113,7 @@ En las próximas semanas y meses, verá información sobre el uso en la página 
 
 Tiene varias opciones a considerar para sus opciones de ALM en el Power Platform. El entorno administrado Power Platform canalizaciones proporcionan en la gestión del ciclo de vida de las aplicaciones del producto.
 
-Opcionalmente, puede utilizar los puntos de extensión del entorno administrado Power Platform canalizaciones combinadas con [Power Platform Herramientas de compilación para Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)el [Acciones de GitHub para Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) o [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) para implementar sus propios procesos personalizados de ALM DevOps.
+Opcionalmente, puede utilizar los puntos de extensión del entorno administrado Power Platform canalizaciones combinadas con [Power Platform Herramientas de compilación para Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)el [Acciones de GitHub para Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) o [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) para implementar sus propios procesos personalizados de ALM DevOps.
 
 Finalmente podrías aprovechar el [Acelerador ALM para Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) desde el kit de CoE para proporcionar plantillas y ejemplos precompilados para ALM de un extremo a otro mediante Azure DevOps. El acelerador de ALM proporciona muchos escenarios comunes para crear y gobernar sus soluciones en todos los entornos.
 

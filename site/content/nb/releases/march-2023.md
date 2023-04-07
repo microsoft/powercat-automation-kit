@@ -6,13 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
+generated: 35239223597AD99B6E8C8379608D789AFF167FA1
 ---
 
 Mars-utgivelsen av {{<product-name>}} er den sjette offentlige forhåndsversjonen. Denne utgivelsen fokuserte på følgende:
 
 - Videre [Oppdateringer av planleggeren](/nb/features/scheduler) for å filtrere etter maskin/maskingruppe og kjøre Power Automate Desktop-flyt
-- Oppdatering for å støtte v1 an [v2 skjema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
+- Oppdatering for å støtte v1 an [v2 skjema](https://learn.microsoft.com/power-automate/desktop-flows/schema)
 
 ## Kom i gang
 

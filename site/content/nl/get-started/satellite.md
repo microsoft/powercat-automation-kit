@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # Overzicht
@@ -43,7 +43,7 @@ De [opdrachtregel installeren](/nl/get-started/install) voor satellietoplossinge
 
 De nieuwe rol dataverse rol **Gebruiker van Automation Solution Manager** is toegevoegd waarmee gebruikers de nieuwe Dataverse GetDataverseSolutionArtifacts Custom API kunnen aanroepen die oplossingsartefacten opvraagt met behulp van de meegeleverde omgevingsvariabele **Oplossingsbeheerartefacten Lees gebruikers-id**.
 
-Als u de satelitte-oplossing handmatig wilt installeren, moeten de volgende wijzigingen worden aangebracht in de [Satellieten instellen](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) aanwijzingen.
+Als u de satelitte-oplossing handmatig wilt installeren, moeten de volgende wijzigingen worden aangebracht in de [Satellieten instellen](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) aanwijzingen.
 
 1. Sla de stap "Een nieuw clientgeheim toevoegen" over, omdat dit niet langer nodig is voor april 2023 of nieuwer.
 1. Sla de stap over om geheimen te maken in de Azure Key Vault.
@@ -55,7 +55,7 @@ Zorg ervoor dat de gebruiker(s) die de Automation Solution Manager-toepassing ui
 
 ## Vorige releases
 
-Vóór de release van april 2023 vereisten installaties van satellite solution omgevingsvariabelen van type secret. Hiervoor was een [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) om de waarden voor tenant-id, toepassings-id en toepassingsgeheim op te slaan. Om deze functie te gebruiken, was ook de [prerequistes](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) of de Azure Key Vault is dezelfde tenant, setup van Microsoft.PowerPlatform als resource provider.
+Vóór de release van april 2023 vereisten installaties van satellite solution omgevingsvariabelen van type secret. Hiervoor was een [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) om de waarden voor tenant-id, toepassings-id en toepassingsgeheim op te slaan. Om deze functie te gebruiken, was ook de [prerequistes](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) of de Azure Key Vault is dezelfde tenant, setup van Microsoft.PowerPlatform als resource provider.
 
 In de releases van maart 2023 of ouder werd de Azure Key Vault gebruikt om een tenant-id, APplication Id en Application Secret op te slaan. Met behulp van deze waarden werd een toegangstoken gevraagd om gegevensversum op te vragen, zodat het de lijst met oplossingsonderdelen kon retourneren.
 

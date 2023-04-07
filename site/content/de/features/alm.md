@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['ALM', 'Guidance']
-generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
+generated: D3A4F6D207C148D3C321363A90995BEBC9D6EDD2
 ---
 
 {{<slideStyles>}}
@@ -113,7 +113,7 @@ In den kommenden Wochen und Monaten werden Sie auf der Startseite Einblicke in d
 
 Sie haben eine Reihe von Optionen, die Sie für Ihre ALM-Auswahl in der Power Platform in Betracht ziehen sollten. Die verwaltete Umgebung Power Platform Pipelines im Produkt Application Lifecycle Management bereitstellen.
 
-Optional können Sie die Erweiterungspunkte der verwalteten Umgebung Power Platform Pipelines in Kombination mit [Power Platform Erstellen von Tools für Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)das [GitHub-Aktionen für Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) oder [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) , um Ihre eigenen benutzerdefinierten ALM-DevOps-Prozesse zu rollen.
+Optional können Sie die Erweiterungspunkte der verwalteten Umgebung Power Platform Pipelines in Kombination mit [Power Platform Erstellen von Tools für Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)das [GitHub-Aktionen für Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) oder [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) , um Ihre eigenen benutzerdefinierten ALM-DevOps-Prozesse zu rollen.
 
 Schließlich konnten Sie die Vorteile der [ALM Accelerator für Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) aus dem CoE-Kit, um vorgefertigte Vorlagen und Beispiele für End-to-End-ALM mithilfe von Azure DevOps bereitzustellen. Der ALM Accelerator bietet viele gängige Szenarien, um Ihre Lösungen umgebungsübergreifend zu erstellen und zu steuern.
 

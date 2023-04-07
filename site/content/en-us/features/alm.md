@@ -112,7 +112,7 @@ In the coming weeks and months, you will see usage insights on the home page. Ne
 
 You have a number of options to consider for your ALM choices in the Power Platform. The Managed Environment Power Platform pipelines provide in product Application Lifecycle management.
 
-Optionally you could use the extension points of the Managed Environment Power Platform pipelines combined with [Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), the [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) or [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) to roll your own custom ALM DevOps processes.
+Optionally you could use the extension points of the Managed Environment Power Platform pipelines combined with [Power Platform Build Tools for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), the [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) or [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) to roll your own custom ALM DevOps processes.
 
 Finally you could take advantage of the [ALM Accelerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) from the CoE Kit to provide pre-built templates and samples for End-to-End ALM using Azure DevOps. The ALM Accelerator provide s many common scenarios to build and govern your solutions across environments.
 

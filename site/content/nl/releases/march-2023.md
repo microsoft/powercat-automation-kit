@@ -6,13 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
+generated: 35239223597AD99B6E8C8379608D789AFF167FA1
 ---
 
 De maart release van de {{<product-name>}} is de zesde publieke preview release. Deze release was gericht op het volgende:
 
 - Verder [updates van de planner](/nl/features/scheduler) om te filteren op machine / machinegroep en power automate desktopstroom uit te voeren
-- Update ter ondersteuning van v1 an [v2-schema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
+- Update ter ondersteuning van v1 an [v2-schema](https://learn.microsoft.com/power-automate/desktop-flows/schema)
 
 ## Slag
 

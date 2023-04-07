@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # Panoramica
@@ -43,7 +43,7 @@ Le [Installazione dalla riga di comando](/it/get-started/install) per le soluzio
 
 Il nuovo ruolo Common Data Service di ruolo **Utente di Automation Solution Manager** è stato aggiunto che consente agli utenti di chiamare la nuova API personalizzata Common Data Service GetDataverseSolutionArtifacts che eseguirà query sugli elementi della soluzione utilizzando la variabile di ambiente fornita **ID utente di lettura degli artefatti di Solution Manager**.
 
-Se si desidera installare manualmente la soluzione di satelitte, è necessario apportare le seguenti modifiche al [Configurare i satelliti](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) disposizioni.
+Se si desidera installare manualmente la soluzione di satelitte, è necessario apportare le seguenti modifiche al [Configurare i satelliti](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) disposizioni.
 
 1. Salta il passaggio "Aggiungi un nuovo segreto client" poiché non è più necessario per aprile 2023 o versioni successive.
 1. Saltare il passaggio per creare segreti nell'insieme di credenziali delle chiavi di Azure.
@@ -55,7 +55,7 @@ Assicurarsi che agli utenti che eseguiranno l'applicazione Automation Solution M
 
 ## Versioni precedenti
 
-Prima della versione di aprile 2023 le installazioni della soluzione Satellite richiedevano variabili di ambiente di tipo segreto. Ciò ha richiesto un [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) per archiviare i valori per ID tenant, ID applicazione e Segreto applicazione. Per utilizzare questa funzione è inoltre necessario il [Prerequisiti](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) dell'Azure Key Vault essendo im lo stesso tenant, configurazione di Microsoft.PowerPlatform come provider di risorse.
+Prima della versione di aprile 2023 le installazioni della soluzione Satellite richiedevano variabili di ambiente di tipo segreto. Ciò ha richiesto un [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) per archiviare i valori per ID tenant, ID applicazione e Segreto applicazione. Per utilizzare questa funzione è inoltre necessario il [Prerequisiti](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) dell'Azure Key Vault essendo im lo stesso tenant, configurazione di Microsoft.PowerPlatform come provider di risorse.
 
 Nelle versioni di marzo 2023 o precedenti Azure Key Vault è stato usato per archiviare un ID tenant, un ID APplication e un segreto applicazione. Utilizzando questi valori, è stato richiesto un token di accesso per eseguire query su Common Data Service in modo da poter restituire l'elenco dei componenti della soluzione.
 

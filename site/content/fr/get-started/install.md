@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: BE794663219503619DAA0ED6466A08FC407E83AE
+generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
 ---
 
 Pour installer la dernière version du Kit d’automatisation à l’aide de la ligne de commande, vous pouvez suivre les étapes ci-dessous. Si vous ne parvenez pas à utiliser les outils de ligne de commande, vous pouvez utiliser les étapes manuelles décrites dans [Guide de configuration](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
-1. Assurez-vous d’avoir <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Activer la fonctionnalité d’infrastructure des composants Power Apps</a> dans les environnements dans lesquels vous souhaitez installer le Kit d’automatisation pour les environnements principal et satellite.
+1. Assurez-vous d’avoir <a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Activer la fonctionnalité d’infrastructure des composants Power Apps</a> dans les environnements dans lesquels vous souhaitez installer le Kit d’automatisation pour les environnements principal et satellite.
 
-1. S’assurer que l' <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installé</a> dans les environnements dans lesquels vous souhaitez installer
+1. S’assurer que l' <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installé</a> dans les environnements dans lesquels vous souhaitez installer
 
 1. Ouvrez la dernière version à partir du <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Versions du kit d’automatisation GitHub</a>
 
@@ -25,7 +25,7 @@ Pour installer la dernière version du Kit d’automatisation à l’aide de la 
 
 1. Choisir **AutomationKitInstall.zip** et utilisez le menu contextuel pour **Extraire tout**
 
-1. Assurez-vous d’avoir le <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> Installé
+1. Assurez-vous d’avoir le <a href="https://learn.microsoft.com/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> Installé
 
 1. Exécutez le script PowerShell à l’aide de la ligne de commande suivante
 

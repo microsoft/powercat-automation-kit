@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # 개요
@@ -43,7 +43,7 @@ Satellite 솔루션의 시작 페이지에 오신 것을 환영합니다. 이 �
 
 새 역할 데이터버스 역할 **자동화 솔루션 관리자 사용자** 사용자가 제공된 환경 변수를 사용하여 솔루션 아티팩트를 쿼리하는 새로운 Dataverse GetDataverseSolutionArtifacts 사용자 지정 API를 호출할 수 있도록 추가되었습니다. **솔루션 관리자 아티팩트 읽기 사용자 ID**.
 
-위성 솔루션을 수동으로 설치하려면 다음과 같이 변경해야 합니다. [위성 설정](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) 지시.
+위성 솔루션을 수동으로 설치하려면 다음과 같이 변경해야 합니다. [위성 설정](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) 지시.
 
 1. 2023년 4월 이상에는 더 이상 필요하지 않으므로 "새 클라이언트 암호 추가" 단계를 건너뜁니다.
 1. Azure 키 자격 증명 모음에서 비밀을 만드는 단계를 건너뜁니다.
@@ -55,7 +55,7 @@ Satellite 솔루션의 시작 페이지에 오신 것을 환영합니다. 이 �
 
 ## 이전 릴리스
 
-2023년 4월 릴리스 이전에 Satellite 솔루션을 설치하려면 암호 유형의 환경 변수가 필요했습니다. 이를 위해서는 [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) 테넌트 ID, 애플리케이션 ID 및 애플리케이션 비밀에 대한 값을 저장합니다. 이 기능을 사용하려면 [전제 조건](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) Azure Key Vault가 동일한 테넌트인 경우 Microsoft.PowerPlatform을 리소스 공급자로 설정합니다.
+2023년 4월 릴리스 이전에 Satellite 솔루션을 설치하려면 암호 유형의 환경 변수가 필요했습니다. 이를 위해서는 [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) 테넌트 ID, 애플리케이션 ID 및 애플리케이션 비밀에 대한 값을 저장합니다. 이 기능을 사용하려면 [전제 조건](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) Azure Key Vault가 동일한 테넌트인 경우 Microsoft.PowerPlatform을 리소스 공급자로 설정합니다.
 
 2023년 3월 또는 이전 릴리스에서는 Azure 키 자격 증명 모음을 사용하여 테넌트 ID, 앱 적용 ID 및 애플리케이션 비밀을 저장했습니다. 이러한 값을 사용하여 솔루션 구성 요소 목록을 반환할 수 있도록 dataverse를 쿼리하기 위해 액세스 토큰이 요청되었습니다.
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # Überblick
@@ -43,7 +43,7 @@ Das [Installation über die Befehlszeile](/de/get-started/install) Für Satellit
 
 Die neue Rolle Dataverse-Rolle **Automation Solution Manager-Benutzer** wurde hinzugefügt, die es Benutzern ermöglicht, die neue benutzerdefinierte Dataverse-API GetDataverseSolutionArtifacts aufzurufen, die Lösungsartefakte mithilfe der bereitgestellten Umgebungsvariablen abfragt **Solution-Manager-Artefakte Benutzer-ID lesen**.
 
-Wenn Sie die Satelitte-Lösung manuell installieren möchten, müssen die folgenden Änderungen an der [Satelliten einrichten](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) Anweisungen.
+Wenn Sie die Satelitte-Lösung manuell installieren möchten, müssen die folgenden Änderungen an der [Satelliten einrichten](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) Anweisungen.
 
 1. Überspringen Sie den Schritt "Neuen geheimen Clientschlüssel hinzufügen", da dieser für April 2023 oder neuer nicht mehr benötigt wird.
 1. Überspringen Sie den Schritt zum Erstellen von geheimen Schlüsseln im Azure-Schlüsseltresor.
@@ -55,7 +55,7 @@ Stellen Sie sicher, dass Benutzer, die die Automation Solution Manager-Anwendung
 
 ## Frühere Versionen
 
-Vor der Veröffentlichung im April 2023 erforderten Installationen der Satellitenlösung Umgebungsvariablen vom Typ geheim. Dies erforderte eine [Azure-Schlüsseltresor](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) , um die Werte für Mandanten-ID, Anwendungs-ID und Anwendungsschlüssel zu speichern. Um diese Funktion nutzen zu können, benötigen Sie auch die [Voraussetzungen](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) Da der Azure-Schlüsseltresor im selben Mandanten ist, richten Sie Microsoft.PowerPlatform als Ressourcenanbieter ein.
+Vor der Veröffentlichung im April 2023 erforderten Installationen der Satellitenlösung Umgebungsvariablen vom Typ geheim. Dies erforderte eine [Azure-Schlüsseltresor](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) , um die Werte für Mandanten-ID, Anwendungs-ID und Anwendungsschlüssel zu speichern. Um diese Funktion nutzen zu können, benötigen Sie auch die [Voraussetzungen](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) Da der Azure-Schlüsseltresor im selben Mandanten ist, richten Sie Microsoft.PowerPlatform als Ressourcenanbieter ein.
 
 In den Versionen vom März 2023 oder älter wurde der Azure-Schlüsseltresor verwendet, um eine Mandanten-ID, eine Appplikations-ID und einen geheimen Anwendungsschlüssel zu speichern. Mit diesen Werten wurde ein Zugriffstoken angefordert, um Dataverse abzufragen, damit es die Liste der Lösungskomponenten zurückgeben konnte.
 

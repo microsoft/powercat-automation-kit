@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 48371CA8CFDFD0F4020EBF42F1E13B1B5B8901F9
+generated: 74448AAD8893663688F10D12DCCC2009D386B0CE
 ---
 
 {{<toc>}}
@@ -127,10 +127,10 @@ Para la versión actual, se aplican las siguientes notas
 
 Para instalar la solución del programador, puede hacer lo siguiente:
 
-1. Asegúrese de que el marco de componentes de Power Apps esté habilitado <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Leer más</a>
-1. Has instalado Creator Kit en el entorno de destino. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Instalar desde el origen de la aplicación</a>
+1. Asegúrese de que el marco de componentes de Power Apps esté habilitado <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Leer más</a>
+1. Has instalado Creator Kit en el entorno de destino. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Instalar desde el origen de la aplicación</a>
 1. Ha descargado el archivo AutomationKit.zip desde la sección Activos de la última versión <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Versión de GitHub</a>
-1. Ha importado la versión más reciente de AutomationKitScheduler_*_administrado.zip archivo usando. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Leer más</a>
+1. Ha importado la versión más reciente de AutomationKitScheduler_*_administrado.zip archivo usando. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Leer más</a>
 
 ## Hoja de ruta
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['ALM', 'Guidance']
-generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
+generated: D3A4F6D207C148D3C321363A90995BEBC9D6EDD2
 ---
 
 {{<slideStyles>}}
@@ -113,7 +113,7 @@ Power Automate 데스크톱 구성 요소를 포함하는 Power Platform 솔루�
 
 Power Platform ALM 선택에 대해 고려해야 할 여러 가지 옵션이 있습니다. 관리되는 환경 Power Platform 파이프라인은 제품 응용 프로그램 수명 주기 관리에서 제공합니다.
 
-선택적으로 파이프라인Power Platform 결합된 관리되는 환경의 확장 지점을 사용할 수 있습니다. [Power Platform Azure DevOps를 위한 빌드 도구](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) 또는 [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) 을 사용하여 사용자 지정 ALM DevOps 프로세스를 롤링할 수 있습니다.
+선택적으로 파이프라인Power Platform 결합된 관리되는 환경의 확장 지점을 사용할 수 있습니다. [Power Platform Azure DevOps를 위한 빌드 도구](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) 또는 [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) 을 사용하여 사용자 지정 ALM DevOps 프로세스를 롤링할 수 있습니다.
 
 마지막으로 당신은 활용할 수 있습니다 [Power Platform용 ALM 가속기](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) CoE 키트에서 Azure DevOps를 사용하여 엔드투엔드 ALM에 대한 미리 빌드된 템플릿 및 샘플을 제공합니다. ALM 가속기는 여러 환경에서 솔루션을 빌드하고 제어할 수 있는 많은 일반적인 시나리오를 제공합니다.
 

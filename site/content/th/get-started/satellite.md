@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # ภาพรวม
@@ -43,7 +43,7 @@ generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 
 บทบาทใหม่ dataverse บทบาท **ผู้ใช้ Automation Solution Manager** มีการเพิ่มที่อนุญาตให้ผู้ใช้เรียกใช้ Dataverse GetDataverseSolutionArtifacts Custom API ใหม่ที่จะสอบถามอาร์ทิแฟกต์โซลูชันโดยใช้ตัวแปรสภาพแวดล้อมที่ให้ไว้ **Solution Manager Artifacts อ่าน User ID**.
 
-หากคุณต้องการติดตั้งโซลูชัน satelitte ด้วยตนเองจําเป็นต้องทําการเปลี่ยนแปลงต่อไปนี้กับ [ตั้งค่าดาวเทียม](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) คำ แนะ นำ 
+หากคุณต้องการติดตั้งโซลูชัน satelitte ด้วยตนเองจําเป็นต้องทําการเปลี่ยนแปลงต่อไปนี้กับ [ตั้งค่าดาวเทียม](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) คำ แนะ นำ 
 
 1. ข้ามขั้นตอน "เพิ่มข้อมูลลับไคลเอ็นต์ใหม่" เนื่องจากไม่จําเป็นอีกต่อไปสําหรับเดือนเมษายน 2023 หรือใหม่กว่า
 1. ข้ามขั้นตอนเพื่อสร้างข้อมูลลับใน Azure Key Vault
@@ -55,7 +55,7 @@ generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 
 ## รุ่นก่อนหน้า
 
-ก่อนการเปิดตัวในเดือนเมษายน 2023 การติดตั้งโซลูชันดาวเทียมจําเป็นต้องมีตัวแปรสภาพแวดล้อมของประเภทลับ สิ่งนี้จําเป็นต้องมี [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) เพื่อจัดเก็บค่าสําหรับ Tenant Id, Application Id และ Application Secret ในการใช้คุณสมบัตินี้จําเป็นต้องมี [ข้อกําหนดเบื้องต้น](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) ของ Azure Key Vault เป็น im ผู้เช่ารายเดียวกัน การตั้งค่า Microsoft.PowerPlatform เป็นผู้ให้บริการทรัพยากร
+ก่อนการเปิดตัวในเดือนเมษายน 2023 การติดตั้งโซลูชันดาวเทียมจําเป็นต้องมีตัวแปรสภาพแวดล้อมของประเภทลับ สิ่งนี้จําเป็นต้องมี [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) เพื่อจัดเก็บค่าสําหรับ Tenant Id, Application Id และ Application Secret ในการใช้คุณสมบัตินี้จําเป็นต้องมี [ข้อกําหนดเบื้องต้น](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) ของ Azure Key Vault เป็น im ผู้เช่ารายเดียวกัน การตั้งค่า Microsoft.PowerPlatform เป็นผู้ให้บริการทรัพยากร
 
 ในเดือนมีนาคม 2023 หรือเก่ากว่า Azure Key Vault ถูกใช้เพื่อจัดเก็บรหัสผู้เช่า รหัส APplication และข้อมูลลับของแอปพลิเคชัน การใช้ค่าเหล่านี้โทเค็นการเข้าถึงถูกขอให้สืบค้น dataverse เพื่อให้สามารถส่งคืนรายการส่วนประกอบของโซลูชันได้
 

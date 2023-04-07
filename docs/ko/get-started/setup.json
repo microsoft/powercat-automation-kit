@@ -34,6 +34,13 @@
               }
             },
             {
+              "value": "Scheduler solution",
+              "text": {
+                "default": "Scheduler solution",
+                "ko": "스케줄러 솔루션"
+              }
+            },
+            {
               "value": "Security Group Setup",
               "text": {
                 "default": "Security Group Setup",
@@ -56,6 +63,14 @@
           "html": {
             "default": "Will collect information required to setup a monitored Power Platform environment. Power Automate cloud flows to centralize information with the central main solution Automation Kit environment. Normally there will be multiple satellite solution deployments per Power Platform tenant",
             "ko": "모니터링되는 Power Platform 환경을 설정하는 데 필요한 정보를 수집합니다. Power 클라우드 흐름을 자동화하여 중앙 기본 솔루션 자동화 키트 환경으로 정보를 중앙 집중화합니다. 일반적으로 테넌트당 여러 위성 솔루션 배포가 Power Platform 있습니다."
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Scheduler solution')",
+          "html": {
+            "default": "Display calendar based solution to view Power Automate Desktop flows that are triggered from a recurring cloud flow",
+            "ko": "달력 기반 솔루션을 표시하여 반복되는 클라우드 흐름에서 트리거되는 Power Automate 데스크톱 흐름을 봅니다."
           }
         },
         {
@@ -96,6 +111,20 @@
               "text": {
                 "default": "I DO NOT have environment administrator rights",
                 "ko": "환경 관리자 권한이 없습니다."
+              }
+            },
+            {
+              "value": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+              "text": {
+                "default": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+                "ko": "그 [Power Apps 구성 요소 프레임워크 기능](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) 환경에서 사용하도록 설정되었습니다."
+              }
+            },
+            {
+              "value": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+              "text": {
+                "default": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+                "ko": "그 [크리에이터 키트](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) 환경에 설치되었습니다."
               }
             },
             {
@@ -696,6 +725,20 @@
               }
             },
             {
+              "value": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+              "text": {
+                "default": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+                "ko": "그 [Power Apps 구성 요소 프레임워크 기능](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) 환경에서 사용하도록 설정되었습니다."
+              }
+            },
+            {
+              "value": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+              "text": {
+                "default": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+                "ko": "그 [크리에이터 키트](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) 환경에 설치되었습니다."
+              }
+            },
+            {
               "value": "[Install Microsoft Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli)",
               "text": {
                 "default": "[Install Microsoft Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli)",
@@ -1071,6 +1114,16 @@
           "visibleIf": "{satellite-april-2023} == true"
         },
         {
+          "name": "satellite-tellMeMore",
+          "type": "boolean",
+          "title": {
+            "default": "Tell me more about each variable",
+            "ko": "각 변수에 대한 자세한 정보"
+          },
+          "isRequired": false,
+          "default": false
+        },
+        {
           "name": "satellite-azureKeyVaultClientId",
           "type": "text",
           "title": {
@@ -1079,6 +1132,14 @@
           },
           "isRequired": true,
           "visibleIf": "{satellite-april-2023} == false"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Only required for March 2023 or earlier release. Contains the value of the Azure Key Vault Url that stores the Client Id of the Azure Application",
+            "ko": "2023년 3월 또는 이전 릴리스에만 필요합니다. Azure 응용 프로그램의 클라이언트 ID를 저장하는 Azure 키 자격 증명 모음 URL의 값을 포함합니다."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-azureKeyVaultClientSecret",
@@ -1091,6 +1152,14 @@
           "visibleIf": "{satellite-april-2023} == false"
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Only required for March 2023 or earlier release. Contains the value of the Azure Key Vault Url that stores the Client Secret of the Azure Application",
+            "ko": "2023년 3월 또는 이전 릴리스에만 필요합니다. Azure 응용 프로그램의 클라이언트 암호를 저장하는 Azure 키 자격 증명 모음 URL의 값을 포함합니다."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-azureKeyVaultTenantIdSecret",
           "type": "text",
           "title": {
@@ -1099,6 +1168,14 @@
           },
           "isRequired": true,
           "visibleIf": "{satellite-april-2023} == false"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Only required for March 2023 or earlier release. Contains the value of the Azure Key Vault Url that stores the Tenant Id of the Azure Application",
+            "ko": "2023년 3월 또는 이전 릴리스에만 필요합니다. Azure 응용 프로그램의 테넌트 ID를 저장하는 Azure 키 자격 증명 모음 URL의 값을 포함합니다."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-automationCoEAlertEmailRecipient",
@@ -1110,6 +1187,14 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "The email address where operational reports and alerts should be sent to, for this environment.",
+            "ko": "이 환경에 대한 작업 보고서 및 경고를 보내야 하는 전자 메일 주소입니다."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-automationProjectAppId",
           "type": "text",
           "title": {
@@ -1117,6 +1202,14 @@
             "ko": "자동화 프로젝트 앱 ID"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Enter the Automation Project app Id of the Power Apps that is deployed with the main solution (main environment)",
+            "ko": "기본 솔루션과 함께 배포된 Power Apps의 자동화 프로젝트 앱 ID를 입력합니다(기본 환경)."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-desktopFlowsBaseUrl",
@@ -1128,6 +1221,14 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Follow the steps in [Desktop flows base url steps](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables#steps-to-get-the-desktop-flow-base-url)",
+            "ko": "의 단계를 따릅니다. [데스크톱 흐름 기본 URL 단계](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables#steps-to-get-the-desktop-flow-base-url)"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-environmentId",
           "type": "text",
           "title": {
@@ -1135,6 +1236,14 @@
             "ko": "환경 아이디"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Use Session details to find this value from current environment that you're importing into (satellite)",
+            "ko": "세션 세부 정보를 사용하여 가져오는 현재 환경(위성)에서 이 값을 찾습니다."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-environmentName",
@@ -1146,6 +1255,14 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Display name of the current environment (satellite)",
+            "ko": "현재 환경(위성)의 표시 이름"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-environmentRegion",
           "type": "text",
           "title": {
@@ -1153,6 +1270,14 @@
             "ko": "환경 지역"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Region of the satellite. Can be found in the Power Platform admin center",
+            "ko": "위성의 영역. Power Platform 관리 센터에서 찾을 수 있습니다."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-environmentUniqueName",
@@ -1164,6 +1289,14 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Use Session details to find this value from the current environment that you're importing into (satellite) Also must add .crm to the end of the string. Example: unq08ed139e532b4edc8f38851fd1bb3279.crm. Please note that the extension 'crm', 'crm[x]', and more. is region dependent. See [datacenter regions](https://learn.microsoft.com/power-platform/admin/new-datacenter-regions)",
+            "ko": "세션 세부 정보를 사용하여 가져오는 현재 환경(위성)에서 이 값 찾기 또한 문자열 끝에 .crm을 추가해야 합니다. 예: unq08ed139e532b4edc8f38851fd1bb3279.crm. 확장자 'crm', 'crm'에 유의하십시오.[x]' 등을 참조하십시오. 지역에 따라 다릅니다. 보다 [데이터 센터 지역](https://learn.microsoft.com/power-platform/admin/new-datacenter-regions)"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-environmentUniqueNameMain",
           "type": "text",
           "title": {
@@ -1173,13 +1306,29 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Use Session details to find this value from **Main**. Also must add .crm to the end of the string. For example: unq08ed139e532b4edc8f38851fd1bb3279.crm. Please note that the extension 'crm', 'crm[x]', and more. is region dependent. [See datacenter regions](https://learn.microsoft.com/en-us/power-platform/admin/new-datacenter-regions)",
+            "ko": "세션 세부 정보를 사용하여 다음에서 이 값 찾기 **주요한**. 또한 문자열 끝에 .crm을 추가해야합니다. 예: unq08ed139e532b4edc8f38851fd1bb3279.crm. 확장자 'crm', 'crm'에 유의하십시오.[x]' 등을 참조하십시오. 지역에 따라 다릅니다. [데이터 센터 지역 보기](https://learn.microsoft.com/en-us/power-platform/admin/new-datacenter-regions)"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-environmentUrl",
           "type": "text",
           "title": {
-            "default": "Environment Url",
-            "ko": "환경 URL"
+            "default": "Environment Url (Satellite Environment)",
+            "ko": "환경 URL (위성 환경)"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Open a new tab and then sign in to the [Power Platform admin center](https://aka.ms/ppac).",
+            "ko": "새 탭을 열고 로그인합니다. [Power Platform 관리 센터](https://aka.ms/ppac)."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-flowSessionTraceRecordOwnerId",
@@ -1189,6 +1338,14 @@
             "ko": "흐름 세션 추적 레코드 소유자 ID"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "This is the UserID (GUID) from the Users table inside the satellite environment for the admin account. Select Tables under Data on the left > User > Data. Change the view to 'All columns'. Find the Auto CoE Admin account that is importing solution, and then copy the value under User.",
+            "ko": "관리자 계정에 대한 위성 환경 내의 사용자 테이블에 있는 사용자 ID(GUID)입니다. 사용자 > 데이터 왼쪽의 데이터 아래에서 테이블을 >. 보기를 '모든 열'로 변경합니다. 솔루션을 가져오는 Auto CoE 관리자 계정을 찾은 다음 사용자 아래의 값을 복사합니다."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         }
       ]
     },
@@ -1303,6 +1460,113 @@
           "name": "downloadResults",
           "fileName": "automation-kit-satellite-install.json",
           "filter": "satellite"
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Scheduler Solution - Prerequisites",
+        "ko": "스케줄러 솔루션 - 필수 구성 요소"
+      },
+      "name": "prereqTest1",
+      "visibleIf": "contains({installType}, 'Scheduler solution')",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "prereqTest-scheduler",
+          "title": {
+            "default": "Verify that the following has been setup for the environment you will install the Automation Kit Scheduler solution",
+            "ko": "자동화 키트 스케줄러 솔루션을 설치할 환경에 대해 다음이 설정되었는지 확인합니다."
+          },
+          "choices": [
+            {
+              "value": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "text": {
+                "default": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "ko": "환경 관리자 권한이 있으므로 [파워앱 구성 요소 프레임워크 기능](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
+              }
+            },
+            {
+              "value": "I DO NOT have environment administrator rights",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "ko": "환경 관리자 권한이 없습니다."
+              }
+            },
+            {
+              "value": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+              "text": {
+                "default": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+                "ko": "그 [Power Apps 구성 요소 프레임워크 기능](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) 환경에서 사용하도록 설정되었습니다."
+              }
+            },
+            {
+              "value": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+              "text": {
+                "default": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+                "ko": "그 [크리에이터 키트](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) 환경에 설치되었습니다."
+              }
+            },
+            {
+              "value": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
+              "text": {
+                "default": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
+                "ko": "'Power Apps 사용자당', '앱당' 또는 '사용한 만큼 지불' 라이선스(자동화 프로젝트의 관리자, 기여자 또는 뷰어가 될 사용자)"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest-scheduler}, 'I DO NOT have environment administrator rights')",
+          "html": {
+            "default": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights.",
+            "ko": "환경 관리자를 활성화해야 합니다. <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>파워앱 구성 요소 프레임워크 기능</a>. PowerApps 구성 요소 프레임워크 기능을 사용하도록 설정한 경우 환경 관리자 권한이 필요하지 않습니다."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "isSystemCustomizer",
+          "visibleIf": "contains({prereqTest-scheduler}, 'I DO NOT have environment administrator rights')",
+          "title": {
+            "default": "Are you a member of the System Customizer role for the environment?",
+            "ko": "환경에 대한 시스템 사용자 지정자 역할의 구성원입니까?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest-scheduler}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+          "html": {
+            "default": "You will need need to have a minimum of System Customizer to import the Automation Kit solution",
+            "ko": "자동화 키트 솔루션을 가져오려면 최소 시스템 사용자 지정자가 있어야 합니다."
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Scheduler Solution",
+        "ko": "스케줄러 솔루션"
+      },
+      "visibleIf": "contains({installType}, 'Scheduler solution')",
+      "elements": [
+        {
+          "name": "scheduler-download",
+          "type": "boolean",
+          "title": {
+            "default": "Downloaded **AutomationKitScheduler_*_managed.zip** managed solution from [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) ",
+            "ko": "다운로드 **자동화킷스케줄러_*_관리.zip** 관리 가능한 솔루션 [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) "
+          },
+          "isRequired": true
+        },
+        {
+          "name": "scheduler-import",
+          "type": "boolean",
+          "title": {
+            "default": "[Imported solution](https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions) into environment.",
+            "ko": "[수입 솔루션](https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions) 환경으로."
+          },
+          "isRequired": true
         }
       ]
     }

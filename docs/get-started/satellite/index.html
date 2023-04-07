@@ -79,7 +79,7 @@
 <li>Add the User Id of the Application user to the environment variable <strong>Solution Manager Artifacts Read User Id</strong></li>
 </ol>
 <p>The new role dataverse role <strong>Automation Solution Manager User</strong> has been added that allows users to call the new Dataverse GetDataverseSolutionArtifacts Custom API that will query solution artifacts using the provided environment variable <strong>Solution Manager Artifacts Read User Id</strong>.</p>
-<p>If you wish to install the satelitte solution manually the following changes need to be made to the <a href="https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite">Set up satellites</a> instructions.</p>
+<p>If you wish to install the satelitte solution manually the following changes need to be made to the <a href="https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite">Set up satellites</a> instructions.</p>
 <ol>
 <li>Skip the step &ldquo;Add a new client secret&rdquo; as this no longer needed for April 2023 or newer.</li>
 <li>Skip the step to create Secrets in the Azure Key Vault.</li>
@@ -88,7 +88,7 @@
 <h2 id="post-install">Post Install</h2>
 <p>Ensure that user(s) that will run the Automation Solution Manager application are granted the <strong>Automation Solution Manager User</strong> Dataverse security role.</p>
 <h2 id="previous-releases">Previous Releases</h2>
-<p>Prior to the April 2023 release installations of Satellite solution required environment variables of type secret. This required an <a href="https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview">Azure Key Vault</a> to store the values for Tenant Id, Application Id and Application Secret. To use this feature also required the <a href="https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites">prerequistes</a> of the Azure Key Vault being im the same tenant, setup of Microsoft.PowerPlatform as a resource provider.</p>
+<p>Prior to the April 2023 release installations of Satellite solution required environment variables of type secret. This required an <a href="https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview">Azure Key Vault</a> to store the values for Tenant Id, Application Id and Application Secret. To use this feature also required the <a href="https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites">prerequistes</a> of the Azure Key Vault being im the same tenant, setup of Microsoft.PowerPlatform as a resource provider.</p>
 <p>In the March 2023 or older releases the Azure Key Vault was used to store a Tenant Id, APplication Id and Application Secret. Using these values an access token was requested to query dataverse so that it could return the list of Solution Components.</p>
 <h2 id="recommendations">Recommendations</h2>
 <p>For existing users it is recommended to simplify ongoing management and remove the need for a dependency of Azure Key Vault that you upgrade the existing satellite install to April 2023 or later to take advantages of the new features.</p>

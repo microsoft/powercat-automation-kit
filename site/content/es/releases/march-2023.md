@@ -6,13 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
+generated: 35239223597AD99B6E8C8379608D789AFF167FA1
 ---
 
 La publicación en marzo del {{<product-name>}} es la sexta versión de versión preliminar pública. Esta versión se centró en lo siguiente:
 
 - Más lejos [Actualizaciones del programador](/es/features/scheduler) para filtrar por máquina / grupo de máquinas y ejecutar el flujo de Power Automate Desktop
-- Actualización para admitir v1 y [Esquema v2](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
+- Actualización para admitir v1 y [Esquema v2](https://learn.microsoft.com/power-automate/desktop-flows/schema)
 
 ## Comenzar
 

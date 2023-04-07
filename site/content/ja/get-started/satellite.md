@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # 概要
@@ -43,7 +43,7 @@ generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 
 新しいロール データバース ロール**自動化ソリューションマネージャーユーザー**は、指定された環境変数を使用してソリューション成果物を照会する新しい Dataverse GetDataverseSolutionArtifacts カスタム API をユーザーが呼び出すことができることが追加されました。**ソリューション マネージャーの成果物の読み取りユーザー ID**.
 
-サテリットソリューションを手動でインストールする場合は、次の変更を行う必要があります。[サテライトを設定する](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite)指示。
+サテリットソリューションを手動でインストールする場合は、次の変更を行う必要があります。[サテライトを設定する](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite)指示。
 
 1.「新しいクライアント シークレットを追加する」は、2023 年 4 月以降では不要になったため、スキップします。
 1.Azure キー コンテナーにシークレットを作成する手順をスキップします。
@@ -55,7 +55,7 @@ generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 
 ## 以前のリリース
 
-2023 年 4 月のリリースより前のリリースでは、Satellite ソリューションのインストールには、シークレット型の環境変数が必要でした。これには、[Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview)を使用して、テナント ID、アプリケーション ID、およびアプリケーション シークレットの値を格納します。この機能を使用するには、[前提条件](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites)Azure Key Vault が同じテナントであり、リソース プロバイダーとしての Microsoft.PowerPlatform のセットアップです。
+2023 年 4 月のリリースより前のリリースでは、Satellite ソリューションのインストールには、シークレット型の環境変数が必要でした。これには、[Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview)を使用して、テナント ID、アプリケーション ID、およびアプリケーション シークレットの値を格納します。この機能を使用するには、[前提条件](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites)Azure Key Vault が同じテナントであり、リソース プロバイダーとしての Microsoft.PowerPlatform のセットアップです。
 
 2023 年 3 月以前のリリースでは、Azure Key Vault を使用してテナント ID、アプリケーション ID、アプリケーション シークレットが格納されていました。これらの値を使用して、ソリューション コンポーネントの一覧を返すことができるように、dataverse を照会するためのアクセス トークンが要求されました。
 

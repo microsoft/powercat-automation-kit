@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # 概述
@@ -43,7 +43,7 @@ generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 
 新角色数据节角色**自动化解决方案管理器用户**已添加允许用户调用新的 Dataverse GetDataverseSolutionArtifacts 自定义 API，该 API 将使用提供的环境变量查询解决方案工件**解决方案管理器工件读取用户 ID**.
 
-如果您希望手动安装 satelitte 解决方案，则需要对[设置卫星](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite)指示。
+如果您希望手动安装 satelitte 解决方案，则需要对[设置卫星](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite)指示。
 
 1.跳过“添加新客户端密码”步骤，因为 2023 年 4 月或更高版本不再需要此步骤。
 1.跳过在 Azure 密钥保管库中创建机密的步骤。
@@ -55,7 +55,7 @@ generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
 
 ## 以前的版本
 
-在 2023 年 4 月版本之前，安装卫星解决方案需要 secret 类型的环境变量。这需要[Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview)以存储租户 ID、应用程序 ID 和应用程序机密的值。要使用此功能还需要[先决条件](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites)Azure Key Vault 是同一租户，将 Microsoft.PowerPlatform 设置为资源提供程序。
+在 2023 年 4 月版本之前，安装卫星解决方案需要 secret 类型的环境变量。这需要[Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview)以存储租户 ID、应用程序 ID 和应用程序机密的值。要使用此功能还需要[先决条件](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites)Azure Key Vault 是同一租户，将 Microsoft.PowerPlatform 设置为资源提供程序。
 
 在 2023 年 3 月或更早版本中，Azure 密钥保管库用于存储租户 ID、应用程序 ID 和应用程序机密。使用这些值请求访问令牌来查询 dataverse，以便它可以返回解决方案组件的列表。
 

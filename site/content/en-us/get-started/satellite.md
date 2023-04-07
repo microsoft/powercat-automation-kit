@@ -42,7 +42,7 @@ The [command line install](/get-started/install) for satellite solutions will pr
 
 The new role dataverse role **Automation Solution Manager User** has been added that allows users to call the new Dataverse GetDataverseSolutionArtifacts Custom API that will query solution artifacts using the provided environment variable **Solution Manager Artifacts Read User Id**.
 
-If you wish to install the satelitte solution manually the following changes need to be made to the [Set up satellites](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) instructions.
+If you wish to install the satelitte solution manually the following changes need to be made to the [Set up satellites](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) instructions.
 
 1. Skip the step "Add a new client secret" as this no longer needed for April 2023 or newer.
 1. Skip the step to create Secrets in the Azure Key Vault.
@@ -54,7 +54,7 @@ Ensure that user(s) that will run the Automation Solution Manager application ar
 
 ## Previous Releases
 
-Prior to the April 2023 release installations of Satellite solution required environment variables of type secret. This required an [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) to store the values for Tenant Id, Application Id and Application Secret. To use this feature also required the [prerequistes](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) of the Azure Key Vault being im the same tenant, setup of Microsoft.PowerPlatform as a resource provider.
+Prior to the April 2023 release installations of Satellite solution required environment variables of type secret. This required an [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) to store the values for Tenant Id, Application Id and Application Secret. To use this feature also required the [prerequistes](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) of the Azure Key Vault being im the same tenant, setup of Microsoft.PowerPlatform as a resource provider.
 
 In the March 2023 or older releases the Azure Key Vault was used to store a Tenant Id, APplication Id and Application Secret. Using these values an access token was requested to query dataverse so that it could return the list of Solution Components.
 

@@ -11,7 +11,7 @@ tags: ['Release']
 The March release of the {{<product-name>}} is the sixth public preview release. This release focused on the following:
 
 - Further [scheduler updates](/features/scheduler) to filter by Machine / Machine Group and Run Power Automate Desktop flow
-- Update to support v1 an [v2 schema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
+- Update to support v1 an [v2 schema](https://learn.microsoft.com/power-automate/desktop-flows/schema)
 
 ## Get Started
 

@@ -6,13 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
+generated: 35239223597AD99B6E8C8379608D789AFF167FA1
 ---
 
 Marsutgåvan av {{<product-name>}} är den sjätte offentliga förhandsversionen. Den här versionen fokuserade på följande:
 
 - Ytterligare [Schemaläggare uppdateringar](/sv/features/scheduler) för att filtrera efter dator/datorgrupp och köra Power Automate Desktop-flöde
-- Uppdatera för att stödja v1 och [v2-schema](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
+- Uppdatera för att stödja v1 och [v2-schema](https://learn.microsoft.com/power-automate/desktop-flows/schema)
 
 ## Sätta igång
 

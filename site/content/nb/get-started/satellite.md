@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # Oversikt
@@ -43,7 +43,7 @@ Den [Installasjon av kommandolinje](/nb/get-started/install) for satellittløsni
 
 Den nye rollen Dataverse-rollen **Bruker av automatiseringsløsningsbehandling** er lagt til som gjør det mulig for brukere å kalle den nye egendefinerte API-en for Dataverse GetDataverseSolutionArtifacts som spør etter løsningsartefakter ved hjelp av den angitte miljøvariabelen **Artefakter i løsningsbehandling leser bruker-ID**.
 
-Hvis du ønsker å installere satellittløsningen manuelt, må følgende endringer gjøres i [Sett opp satellitter](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) instruks.
+Hvis du ønsker å installere satellittløsningen manuelt, må følgende endringer gjøres i [Sett opp satellitter](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) instruks.
 
 1. Hopp over trinnet "Legg til en ny klienthemmelighet" da denne ikke lenger er nødvendig for april 2023 eller nyere.
 1. Hopp over trinnet for å opprette hemmeligheter i Azure Key Vault.
@@ -55,7 +55,7 @@ Kontroller at bruker(e) som skal kjøre Automation Solution Manager-programmet, 
 
 ## Tidligere utgivelser
 
-Før utgivelsen i april 2023 krevde installasjoner av satellittløsning miljøvariabler av typen hemmelig. Dette krevde en [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) for å lagre verdiene for leier-ID, program-ID og programhemmelighet. For å bruke denne funksjonen kreves også [Forutsetninger](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) av Azure Key Vault som er den samme leieren, oppsett av Microsoft.PowerPlatform som en ressursleverandør.
+Før utgivelsen i april 2023 krevde installasjoner av satellittløsning miljøvariabler av typen hemmelig. Dette krevde en [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) for å lagre verdiene for leier-ID, program-ID og programhemmelighet. For å bruke denne funksjonen kreves også [Forutsetninger](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) av Azure Key Vault som er den samme leieren, oppsett av Microsoft.PowerPlatform som en ressursleverandør.
 
 I mars 2023-utgivelsene eller eldre ble Azure Key Vault brukt til å lagre en leier-ID, APplication Id og programhemmelighet. Ved hjelp av disse verdiene ble det bedt om et tilgangstoken for å spørre Dataverse slik at den kunne returnere listen over løsningskomponenter.
 

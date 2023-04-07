@@ -6,13 +6,13 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: B5CED459C6ED29A9A98DE9047A584399C2BE6B77
+generated: 35239223597AD99B6E8C8379608D789AFF167FA1
 ---
 
 การเปิดตัว {{ ในเดือนมีนาคม<product-name>}} เป็นการเผยแพร่ตัวอย่างสาธารณะครั้งที่หก รุ่นนี้มุ่งเน้นไปที่สิ่งต่อไปนี้:
 
 - เลย [การอัปเดตตัวจัดกําหนดการ](/th/features/scheduler) เพื่อกรองตามกลุ่มเครื่อง/เครื่อง และเรียกใช้โฟลว์เดสก์ท็อป Power Automate
-- อัปเดตเพื่อรองรับ v1 an [สคีมา v2](https://learn.microsoft.com/en-us/power-automate/desktop-flows/schema)
+- อัปเดตเพื่อรองรับ v1 an [สคีมา v2](https://learn.microsoft.com/power-automate/desktop-flows/schema)
 
 ## เริ่มต้นใช้งาน
 

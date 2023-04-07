@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 48371CA8CFDFD0F4020EBF42F1E13B1B5B8901F9
+generated: 74448AAD8893663688F10D12DCCC2009D386B0CE
 ---
 
 {{<toc>}}
@@ -127,10 +127,10 @@ For the current release the following notes apply
 
 To install the scheduler solution you can do the following:
 
-1. Ensure Power Apps component framework enabled <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Read more</a>
-1. You have installed the Creator Kit into the target environment. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Install from App Source</a>
+1. Ensure Power Apps component framework enabled <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Read more</a>
+1. You have installed the Creator Kit into the target environment. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Install from App Source</a>
 1. You have downloaded the AutomationKit.zip file from the Assets section of the latest <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub release</a>
-1. You have imported the latest AutomationKitScheduler_*_managed.zip file using. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Read more</a>
+1. You have imported the latest AutomationKitScheduler_*_managed.zip file using. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Read more</a>
 
 ## Roadmap
 

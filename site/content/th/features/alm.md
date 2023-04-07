@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['ALM', 'Guidance']
-generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
+generated: D3A4F6D207C148D3C321363A90995BEBC9D6EDD2
 ---
 
 {{<slideStyles>}}
@@ -113,7 +113,7 @@ generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
 
 คุณมีตัวเลือกมากมายที่ต้องพิจารณาสําหรับตัวเลือก ALM ของคุณใน Power Platform ไปป์ไลน์ Power Platform สภาพแวดล้อมที่มีการจัดการมีให้ในการจัดการวงจรชีวิตของแอปพลิเคชันผลิตภัณฑ์
 
-หรือคุณสามารถใช้จุดขยายของไปป์ไลน์ Managed Environment Power Platform รวมกับ [Power Platform สร้างเครื่องมือสําหรับ Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [การดําเนินการ GitHub สําหรับ Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) หรือ [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) เพื่อม้วนกระบวนการ ALM DevOps แบบกําหนดเองของคุณเอง
+หรือคุณสามารถใช้จุดขยายของไปป์ไลน์ Managed Environment Power Platform รวมกับ [Power Platform สร้างเครื่องมือสําหรับ Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools), [การดําเนินการ GitHub สําหรับ Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) หรือ [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) เพื่อม้วนกระบวนการ ALM DevOps แบบกําหนดเองของคุณเอง
 
 ในที่สุดคุณสามารถใช้ประโยชน์จาก [ALM Accelerator สําหรับ Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) จาก CoE Kit เพื่อจัดเตรียมเทมเพลตและตัวอย่างที่สร้างไว้ล่วงหน้าสําหรับ ALM แบบ End-to-End โดยใช้ Azure DevOps ส่วนช่วยดําเนินการ ALM มีสถานการณ์ทั่วไปมากมายเพื่อสร้างและควบคุมโซลูชันของคุณในสภาพแวดล้อมต่างๆ
 

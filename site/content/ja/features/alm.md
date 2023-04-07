@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['ALM', 'Guidance']
-generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
+generated: D3A4F6D207C148D3C321363A90995BEBC9D6EDD2
 ---
 
 {{<slideStyles>}}
@@ -113,7 +113,7 @@ Automation Kit チームは、ALM アクセラレータ チームと協力して
 
 Power Platformでの ALM の選択について考慮すべきオプションがいくつかあります。マネージド環境Power Platformパイプラインは、製品のアプリケーション ライフサイクル管理で提供されます。
 
-オプションで、マネージド環境の拡張ポイントを使用してPower Platformパイプラインを [Azure DevOps 用のPower Platformビルド ツール](https://learn.microsoft.com/power-platform/alm/devops-build-tools)ザ[GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions)又は[Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction)を使用して、独自のカスタム ALM DevOps プロセスをロールします。
+オプションで、マネージド環境の拡張ポイントを使用してPower Platformパイプラインを [Azure DevOps 用のPower Platformビルド ツール](https://learn.microsoft.com/power-platform/alm/devops-build-tools)ザ[GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions)又は[Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction)を使用して、独自のカスタム ALM DevOps プロセスをロールします。
 
 最後に、[Power PlatformのためのALMアクセラレータ](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)を CoE キットから提供し、Azure DevOps を使用したエンドツーエンド ALM 用のビルド済みのテンプレートとサンプルを提供します。ALM アクセラレータには、環境間でソリューションを構築および管理するための多くの一般的なシナリオが用意されています。
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # Aperçu
@@ -43,7 +43,7 @@ Le [Installation par ligne de commande](/fr/get-started/install) pour les soluti
 
 Le nouveau rôle dataverse **Utilisateur d’Automation Solution Manager** a été ajouté qui permet aux utilisateurs d’appeler la nouvelle API personnalisée Dataverse GetDataverseSolutionArtifacts qui interrogera les artefacts de solution à l’aide de la variable d’environnement fournie **ID utilisateur lu par les artefacts de Solution Manager**.
 
-Si vous souhaitez installer la solution satelitte manuellement, les modifications suivantes doivent être apportées au [Configurer des satellites](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) instructions.
+Si vous souhaitez installer la solution satelitte manuellement, les modifications suivantes doivent être apportées au [Configurer des satellites](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) instructions.
 
 1. Ignorez l’étape « Ajouter une nouvelle clé secrète client » car elle n’est plus nécessaire pour avril 2023 ou plus récent.
 1. Ignorez l’étape de création de secrets dans Azure Key Vault.
@@ -55,7 +55,7 @@ Assurez-vous que le ou les utilisateurs qui exécuteront l’application Automat
 
 ## Versions précédentes
 
-Avant la publication d’avril 2023, les installations de la solution Satellite nécessitaient des variables d’environnement de type secret. Cela nécessitait un [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) pour stocker les valeurs de l’ID du client, de l’ID d’application et du secret d’application. Pour utiliser cette fonctionnalité, il fallait également que le [Conditions préalables](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) du coffre de clés Azure étant le même locataire, configuration de Microsoft.PowerPlatform en tant que fournisseur de ressources.
+Avant la publication d’avril 2023, les installations de la solution Satellite nécessitaient des variables d’environnement de type secret. Cela nécessitait un [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) pour stocker les valeurs de l’ID du client, de l’ID d’application et du secret d’application. Pour utiliser cette fonctionnalité, il fallait également que le [Conditions préalables](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) du coffre de clés Azure étant le même locataire, configuration de Microsoft.PowerPlatform en tant que fournisseur de ressources.
 
 Dans les versions de mars 2023 ou antérieures, Azure Key Vault était utilisé pour stocker un ID de locataire, un ID d’application et un secret d’application. À l’aide de ces valeurs, un jeton d’accès a été demandé pour interroger dataverse afin qu’il puisse renvoyer la liste des composants de solution.
 

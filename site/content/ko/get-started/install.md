@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: BE794663219503619DAA0ED6466A08FC407E83AE
+generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
 ---
 
 명령줄을 사용하여 최신 버전의 자동화 키트를 설치하려면 아래 단계를 사용할 수 있습니다. 명령줄 도구를 사용할 수 없는 경우 에 설명된 수동 단계를 사용할 수 있습니다. [설정 지침](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
-1. 다음이 있는지 확인하십시오. <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Power Apps 구성 요소 프레임워크 기능 사용</a> 기본 및 위성 환경 모두에 대해 자동화 키트를 설치하려는 환경에서.
+1. 다음이 있는지 확인하십시오. <a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Power Apps 구성 요소 프레임워크 기능 사용</a> 기본 및 위성 환경 모두에 대해 자동화 키트를 설치하려는 환경에서.
 
-1. 다음을 확인합니다. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">크리에이터 키트 설치됨</a> 설치하려는 환경 모자로
+1. 다음을 확인합니다. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">크리에이터 키트 설치됨</a> 설치하려는 환경 모자로
 
 1. 에서 최신 릴리스를 엽니다. <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">자동화 키트 GitHub 릴리스</a>
 
@@ -25,7 +25,7 @@ generated: BE794663219503619DAA0ED6466A08FC407E83AE
 
 1. 고르다 **자동화키트설치.zip** 상황에 맞는 메뉴를 사용하여 **모두 추출**
 
-1. 당신이 가지고 있는지 확인하십시오 <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> 설치
+1. 당신이 가지고 있는지 확인하십시오 <a href="https://learn.microsoft.com/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> 설치
 
 1. 다음 명령줄을 사용하여 powershell 스크립트를 실행합니다.
 

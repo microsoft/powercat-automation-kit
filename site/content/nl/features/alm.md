@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['ALM', 'Guidance']
-generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
+generated: D3A4F6D207C148D3C321363A90995BEBC9D6EDD2
 ---
 
 {{<slideStyles>}}
@@ -113,7 +113,7 @@ In de komende weken en maanden ziet u gebruiksinzichten op de startpagina. Nieuw
 
 U hebt een aantal opties om te overwegen voor uw ALM-keuzes in de Power Platform. De managed environment Power Platform pipelines bieden in product Application Lifecycle management.
 
-Optioneel kunt u de uitbreidingspunten van de beheerde omgeving gebruiken Power Platform pijplijnen in combinatie met [Power Platform Build Tools voor Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)de [GitHub-acties voor Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) of [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) om uw eigen aangepaste ALM DevOps-processen te implementeren.
+Optioneel kunt u de uitbreidingspunten van de beheerde omgeving gebruiken Power Platform pijplijnen in combinatie met [Power Platform Build Tools voor Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)de [GitHub-acties voor Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) of [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) om uw eigen aangepaste ALM DevOps-processen te implementeren.
 
 Eindelijk kunt u profiteren van de [ALM Accelerator voor Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) van de CoE Kit om vooraf gebouwde sjablonen en voorbeelden te bieden voor End-to-End ALM met behulp van Azure DevOps. De ALM Accelerator biedt vele veelvoorkomende scenario's om uw oplossingen in verschillende omgevingen te bouwen en te beheren.
 

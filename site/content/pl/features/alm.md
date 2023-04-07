@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['ALM', 'Guidance']
-generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
+generated: D3A4F6D207C148D3C321363A90995BEBC9D6EDD2
 ---
 
 {{<slideStyles>}}
@@ -113,7 +113,7 @@ W nadchodzących tygodniach i miesiącach zobaczysz statystyki użycia na stroni
 
 W Power Platform należy wziąć pod uwagę kilka opcji wyboru ALM. Potoki Power Platform środowiska zarządzanego zapewniają zarządzanie cyklem życia aplikacji produktu.
 
-Opcjonalnie można użyć punktów rozszerzeń potoków Power Platform środowiska zarządzanego w połączeniu z [Narzędzia kompilacji Power Platform dla usługi Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)ten [Akcje usługi GitHub dla usługi Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) lub [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) , aby wdrożyć własne niestandardowe procesy ALM DevOps.
+Opcjonalnie można użyć punktów rozszerzeń potoków Power Platform środowiska zarządzanego w połączeniu z [Narzędzia kompilacji Power Platform dla usługi Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)ten [Akcje usługi GitHub dla usługi Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) lub [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) , aby wdrożyć własne niestandardowe procesy ALM DevOps.
 
 Wreszcie możesz skorzystać z [Akcelerator ALM dla Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) z zestawu CoE Kit, aby zapewnić wstępnie utworzone szablony i przykłady dla kompleksowego zarządzania obiektami ALM przy użyciu usługi Azure DevOps. Akcelerator ALM zapewnia wiele typowych scenariuszy tworzenia rozwiązań i zarządzania nimi w różnych środowiskach.
 

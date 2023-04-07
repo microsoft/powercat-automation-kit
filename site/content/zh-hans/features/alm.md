@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['ALM', 'Guidance']
-generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
+generated: D3A4F6D207C148D3C321363A90995BEBC9D6EDD2
 ---
 
 {{<slideStyles>}}
@@ -113,7 +113,7 @@ generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
 
 对于Power Platform中的 ALM 选择，您有许多选项需要考虑。管道Power Platform在产品应用程序生命周期管理中提供的托管环境。
 
-（可选）可以将托管环境的扩展点Power Platform管道结合使用 [Power Platform Azure DevOps 的构建工具](https://learn.microsoft.com/power-platform/alm/devops-build-tools)这[GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions)或[Power Platform命令行界面](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction)以推出您自己的自定义 ALM 开发运营流程。
+（可选）可以将托管环境的扩展点Power Platform管道结合使用 [Power Platform Azure DevOps 的构建工具](https://learn.microsoft.com/power-platform/alm/devops-build-tools)这[GitHub Actions for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions)或[Power Platform命令行界面](https://learn.microsoft.com/power-platform/developer/cli/introduction)以推出您自己的自定义 ALM 开发运营流程。
 
 最后，您可以利用[用于Power Platform的 ALM 加速器](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog)从 CoE 工具包中，为使用 Azure DevOps 的端到端 ALM 提供预构建的模板和示例。ALM 加速器提供了许多常见方案来跨环境构建和管理解决方案。
 

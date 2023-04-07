@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 48371CA8CFDFD0F4020EBF42F1E13B1B5B8901F9
+generated: 74448AAD8893663688F10D12DCCC2009D386B0CE
 ---
 
 {{<toc>}}
@@ -127,10 +127,10 @@ W przypadku bieżącej wersji obowiązują następujące uwagi
 
 Aby zainstalować rozwiązanie harmonogramu, możesz wykonać następujące czynności:
 
-1. Upewnij się, że struktura składników Power Apps jest włączona <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Czytaj całość</a>
-1. Zestaw twórców został zainstalowany w środowisku docelowym. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Instalowanie ze źródła aplikacjiInstall from App Source</a>
+1. Upewnij się, że struktura składników Power Apps jest włączona <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Czytaj całość</a>
+1. Zestaw twórców został zainstalowany w środowisku docelowym. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Instalowanie ze źródła aplikacjiInstall from App Source</a>
 1. Plik AutomationKit.zip został pobrany z sekcji Zasoby najnowszej wersji <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Wydanie usługi GitHub</a>
-1. Zaimportowano najnowszą wersję AutomationKitScheduler_*_zarządzane.zip plik za pomocą. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Czytaj całość</a>
+1. Zaimportowano najnowszą wersję AutomationKitScheduler_*_zarządzane.zip plik za pomocą. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Czytaj całość</a>
 
 ## Mapa drogowa
 

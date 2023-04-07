@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['ALM', 'Guidance']
-generated: F31C7A819085D27E133F8A04DCD42B2BCCD4711D
+generated: D3A4F6D207C148D3C321363A90995BEBC9D6EDD2
 ---
 
 {{<slideStyles>}}
@@ -113,7 +113,7 @@ I de kommende ukene og månedene vil du se bruksinnsikt på hjemmesiden. Nye tre
 
 Du har en rekke alternativer å vurdere for ALM-valgene dine i Power Platform. Det administrerte miljøet Power Platform pipeliner gir i administrasjon av produktprogramlivssyklus.
 
-Du kan eventuelt bruke utvidelsespunktene til det administrerte miljøet Power Platform pipeliner kombinert med [Power Platform Utvikle verktøy for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)den [GitHub-handlinger for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) eller [Power Platform CLI](https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction) for å rulle dine egne tilpassede ALM DevOps-prosesser.
+Du kan eventuelt bruke utvidelsespunktene til det administrerte miljøet Power Platform pipeliner kombinert med [Power Platform Utvikle verktøy for Azure DevOps](https://learn.microsoft.com/power-platform/alm/devops-build-tools)den [GitHub-handlinger for Microsoft Power Platform](https://learn.microsoft.com/power-platform/alm/devops-github-actions) eller [Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction) for å rulle dine egne tilpassede ALM DevOps-prosesser.
 
 Endelig kan du dra nytte av [ALM-akselerator for Power Platform](https://learn.microsoft.com/power-platform/guidance/coe/almacceleratorpowerplatform-learningcatalog) fra CoE Kit for å levere forhåndsbygde maler og eksempler for ende-til-ende ALM ved hjelp av Azure DevOps. ALM Accelerator inneholder mange vanlige scenarier for å bygge og styre løsningene dine på tvers av miljøer.
 

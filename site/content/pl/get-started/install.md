@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: BE794663219503619DAA0ED6466A08FC407E83AE
+generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
 ---
 
 Aby zainstalować najnowszą wersję zestawu Automation Kit przy użyciu wiersza polecenia, możesz wykonać następujące kroki poniżej. Jeśli nie możesz użyć narzędzi wiersza polecenia, możesz wykonać ręczne kroki opisane w sekcji [Wskazówki dotyczące konfiguracji](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
-1. Upewnij się, że masz <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Włącz funkcję struktury składników Power Apps</a> w środowiskach, w których chcesz zainstalować zestaw Automation Kit zarówno dla środowiska głównego, jak i satelitarnego.
+1. Upewnij się, że masz <a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Włącz funkcję struktury składników Power Apps</a> w środowiskach, w których chcesz zainstalować zestaw Automation Kit zarówno dla środowiska głównego, jak i satelitarnego.
 
-1. Upewnij się, że <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Zainstalowany zestaw twórców</a> w środowiskach, w których chcesz zainstalować
+1. Upewnij się, że <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Zainstalowany zestaw twórców</a> w środowiskach, w których chcesz zainstalować
 
 1. Otwórz najnowszą wersję z <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Wydania zestawu Automation Kit GitHub</a>
 
@@ -25,7 +25,7 @@ Aby zainstalować najnowszą wersję zestawu Automation Kit przy użyciu wiersza
 
 1. Wybrać **AutomationKitInstall.zip** i użyj menu kontekstowego, aby **Wyodrębnij wszystko**
 
-1. Upewnij się, że masz <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> Zainstalowana
+1. Upewnij się, że masz <a href="https://learn.microsoft.com/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> Zainstalowana
 
 1. Wykonaj skrypt programu PowerShell przy użyciu następującego wiersza poleceniaExecute the PowerShell script using the following command line
 

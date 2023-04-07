@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Process Advisor', 'Integration', 'RPA']
-generated: A51CC6A1EB6E9681ED2302F8F389D50BCC752BB6
+generated: 43CC06A24918E86A3EF2FB210C196D0296D46B26
 ---
 --------------|---------------|-------------|
 Duration Total (Total Processing Time in minutes)|Duration Total Per activity|Top-level metrics currently only median and average duration which can be transformed with some customization
@@ -29,7 +29,7 @@ NOTE:
 
 1. We currently have items on the Automation Kit backlog to add additional templates and applications in upcoming milestones that enable you quickly get started with integrating your Processed Advisor data with the Automation Kit.
 
-2. More information on configuring your Process Advisor analysis with a custom workspace can be found in [Load your process analytics in power bi](https://learn.microsoft.com/en-us/power-automate/process-mining-pbi-workspace#load-your-process-analytics-in-power-bi)
+2. More information on configuring your Process Advisor analysis with a custom workspace can be found in [Load your process analytics in power bi](https://learn.microsoft.com/power-automate/process-mining-pbi-workspace#load-your-process-analytics-in-power-bi)
 
 ### Power Automate Templates
 
@@ -39,7 +39,7 @@ You could use out of the box Power BI connector actions and Power Automate cloud
 
 {{<questions name="/content/en-us/backlog/process-advisor-integration.json" completed="Thank you for completing Process Advisor questions" showNavigationButtons=false >}}
 
-그 {{<product-name>}} 와 통합 [Process Advisor](https://learn.microsoft.com/en-us/power-automate/process-advisor-overview) 다음 시나리오를 지원합니다.
+그 {{<product-name>}} 와 통합 [Process Advisor](https://learn.microsoft.com/power-automate/process-advisor-overview) 다음 시나리오를 지원합니다.
 
 - **가공 마이닝** 비즈니스 프로세스 분석을 통해 비즈니스 사례를 식별하고 지원하여 데이터 분석으로 지원되는 자동화 프로젝트를 만듭니다.
 

@@ -8,7 +8,7 @@ author: Grant-Archibald-MS
 tags: ['Process Advisor', 'Integration', 'RPA']
 ---
 
-The {{<product-name>}} integrates with [Process Advisor](https://learn.microsoft.com/en-us/power-automate/process-advisor-overview) to support the following scenarios:
+The {{<product-name>}} integrates with [Process Advisor](https://learn.microsoft.com/power-automate/process-advisor-overview) to support the following scenarios:
 
 - **Processing Mining** Analysis of Business Processes to identify and support the business case to create Automation Projects supported by data analysis.
 
@@ -50,7 +50,7 @@ NOTE:
 
 1. We currently have items on the Automation Kit backlog to add additional templates and applications in upcoming milestones that enable you quickly get started with integrating your Processed Advisor data with the Automation Kit.
 
-2. More information on configuring your Process Advisor analysis with a custom workspace can be found in [Load your process analytics in power bi](https://learn.microsoft.com/en-us/power-automate/process-mining-pbi-workspace#load-your-process-analytics-in-power-bi)
+2. More information on configuring your Process Advisor analysis with a custom workspace can be found in [Load your process analytics in power bi](https://learn.microsoft.com/power-automate/process-mining-pbi-workspace#load-your-process-analytics-in-power-bi)
 
 ### Power Automate Templates
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Satellite']
-generated: 6883D16022FA80683F6DFF779929B1FC8B73E83F
+generated: 425608BE149AA6D640338A5F34EB704ADDAAAEF5
 ---
 
 # Visión general
@@ -43,7 +43,7 @@ El [Instalación de línea de comandos](/es/get-started/install) para soluciones
 
 El nuevo rol dataverse rol **Usuario de Automation Solution Manager** se ha agregado que permite a los usuarios llamar a la nueva API personalizada Dataverse GetDataverseSolutionArtifacts de Dataverse que consultará los artefactos de la solución mediante la variable de entorno proporcionada **Artefactos de Solution Manager Leer ID de usuario**.
 
-Si desea instalar la solución satelitte manualmente, se deben realizar los siguientes cambios en el [Configurar satélites](https://learn.microsoft.com/en-us/power-automate/guidance/automation-kit/setup/satellite) instrucciones.
+Si desea instalar la solución satelitte manualmente, se deben realizar los siguientes cambios en el [Configurar satélites](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/satellite) instrucciones.
 
 1. Omita el paso "Agregar un nuevo secreto de cliente", ya que ya no es necesario para abril de 2023 o posterior.
 1. Omita el paso para crear secretos en el Almacén de claves de Azure.
@@ -55,7 +55,7 @@ Asegúrese de que los usuarios que ejecutarán la aplicación Automation Solutio
 
 ## Versiones anteriores
 
-Antes de la versión de abril de 2023, las instalaciones de la solución satelital requerían variables de entorno de tipo secreto. Esto requirió un [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) para almacenar los valores de Id. de inquilino, Id. de aplicación y Secreto de aplicación. Para utilizar esta función también se requiere el [Prerrequisitos](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/environmentvariables#prerequisites) de que Azure Key Vault es el mismo inquilino, configuración de Microsoft.PowerPlatform como proveedor de recursos.
+Antes de la versión de abril de 2023, las instalaciones de la solución satelital requerían variables de entorno de tipo secreto. Esto requirió un [Azure Key Vault](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#use-azure-key-vault-secrets-preview) para almacenar los valores de Id. de inquilino, Id. de aplicación y Secreto de aplicación. Para utilizar esta función también se requiere el [Prerrequisitos](https://learn.microsoft.com/power-apps/maker/data-platform/environmentvariables#prerequisites) de que Azure Key Vault es el mismo inquilino, configuración de Microsoft.PowerPlatform como proveedor de recursos.
 
 En las versiones de marzo de 2023 o anteriores, Azure Key Vault se usaba para almacenar un identificador de inquilino, un identificador de aplicación y un secreto de aplicación. Con estos valores, se solicitó un token de acceso para consultar dataverse para que pudiera devolver la lista de componentes de la solución.
 

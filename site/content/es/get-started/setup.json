@@ -34,6 +34,13 @@
               }
             },
             {
+              "value": "Scheduler solution",
+              "text": {
+                "default": "Scheduler solution",
+                "es": "Solución de programador"
+              }
+            },
+            {
               "value": "Security Group Setup",
               "text": {
                 "default": "Security Group Setup",
@@ -56,6 +63,14 @@
           "html": {
             "default": "Will collect information required to setup a monitored Power Platform environment. Power Automate cloud flows to centralize information with the central main solution Automation Kit environment. Normally there will be multiple satellite solution deployments per Power Platform tenant",
             "es": "Recopilará la información necesaria para configurar un entorno Power Platform supervisado. Power Automate los flujos de nube para centralizar la información con la solución principal central del entorno Automation Kit. Normalmente habrá varias implementaciones de soluciones satélite por Power Platform inquilino"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({installType}, 'Scheduler solution')",
+          "html": {
+            "default": "Display calendar based solution to view Power Automate Desktop flows that are triggered from a recurring cloud flow",
+            "es": "Mostrar una solución basada en calendario para ver los flujos de Power Automate Desktop que se desencadenan desde un flujo de nube recurrente"
           }
         },
         {
@@ -96,6 +111,20 @@
               "text": {
                 "default": "I DO NOT have environment administrator rights",
                 "es": "NO TENGO derechos de administrador del entorno"
+              }
+            },
+            {
+              "value": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+              "text": {
+                "default": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+                "es": "El [Característica de Power Apps Component Framework](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) se ha habilitado en el entorno"
+              }
+            },
+            {
+              "value": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+              "text": {
+                "default": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+                "es": "El [Kit para creadores](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) se ha instalado en el entorno"
               }
             },
             {
@@ -696,6 +725,20 @@
               }
             },
             {
+              "value": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+              "text": {
+                "default": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+                "es": "El [Característica de Power Apps Component Framework](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) se ha habilitado en el entorno"
+              }
+            },
+            {
+              "value": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+              "text": {
+                "default": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+                "es": "El [Kit para creadores](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) se ha instalado en el entorno"
+              }
+            },
+            {
               "value": "[Install Microsoft Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli)",
               "text": {
                 "default": "[Install Microsoft Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli)",
@@ -1071,6 +1114,16 @@
           "visibleIf": "{satellite-april-2023} == true"
         },
         {
+          "name": "satellite-tellMeMore",
+          "type": "boolean",
+          "title": {
+            "default": "Tell me more about each variable",
+            "es": "Cuéntame más sobre cada variable"
+          },
+          "isRequired": false,
+          "default": false
+        },
+        {
           "name": "satellite-azureKeyVaultClientId",
           "type": "text",
           "title": {
@@ -1079,6 +1132,14 @@
           },
           "isRequired": true,
           "visibleIf": "{satellite-april-2023} == false"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Only required for March 2023 or earlier release. Contains the value of the Azure Key Vault Url that stores the Client Id of the Azure Application",
+            "es": "Solo se requiere para marzo de 2023 o versiones anteriores. Contiene el valor de la dirección URL del Almacén de claves de Azure que almacena el identificador de cliente de la aplicación de Azure."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-azureKeyVaultClientSecret",
@@ -1091,6 +1152,14 @@
           "visibleIf": "{satellite-april-2023} == false"
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Only required for March 2023 or earlier release. Contains the value of the Azure Key Vault Url that stores the Client Secret of the Azure Application",
+            "es": "Solo se requiere para marzo de 2023 o versiones anteriores. Contiene el valor de la dirección URL del Almacén de claves de Azure que almacena el secreto de cliente de la aplicación de Azure."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-azureKeyVaultTenantIdSecret",
           "type": "text",
           "title": {
@@ -1099,6 +1168,14 @@
           },
           "isRequired": true,
           "visibleIf": "{satellite-april-2023} == false"
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Only required for March 2023 or earlier release. Contains the value of the Azure Key Vault Url that stores the Tenant Id of the Azure Application",
+            "es": "Solo se requiere para marzo de 2023 o versiones anteriores. Contiene el valor de la dirección URL del Almacén de claves de Azure que almacena el identificador de inquilino de la aplicación de Azure."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-automationCoEAlertEmailRecipient",
@@ -1110,6 +1187,14 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "The email address where operational reports and alerts should be sent to, for this environment.",
+            "es": "La dirección de correo electrónico a la que se deben enviar los informes operativos y las alertas para este entorno."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-automationProjectAppId",
           "type": "text",
           "title": {
@@ -1117,6 +1202,14 @@
             "es": "Id. de aplicación de proyecto de automatización"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Enter the Automation Project app Id of the Power Apps that is deployed with the main solution (main environment)",
+            "es": "Escriba el identificador de la aplicación Proyecto de automatización de Power Apps que se implementa con la solución principal (entorno principal)"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-desktopFlowsBaseUrl",
@@ -1128,6 +1221,14 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Follow the steps in [Desktop flows base url steps](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables#steps-to-get-the-desktop-flow-base-url)",
+            "es": "Siga los pasos descritos en [Pasos de URL base de flujos de escritorio](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables#steps-to-get-the-desktop-flow-base-url)"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-environmentId",
           "type": "text",
           "title": {
@@ -1135,6 +1236,14 @@
             "es": "ID de entorno"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Use Session details to find this value from current environment that you're importing into (satellite)",
+            "es": "Usar Detalles de la sesión para encontrar este valor del entorno actual que está importando a (satélite)"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-environmentName",
@@ -1146,6 +1255,14 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Display name of the current environment (satellite)",
+            "es": "Nombre para mostrar del entorno actual (satélite)"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-environmentRegion",
           "type": "text",
           "title": {
@@ -1153,6 +1270,14 @@
             "es": "Región de Medio Ambiente"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Region of the satellite. Can be found in the Power Platform admin center",
+            "es": "Región del satélite. Se puede encontrar en el centro de administración de Power Platform"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-environmentUniqueName",
@@ -1164,6 +1289,14 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Use Session details to find this value from the current environment that you're importing into (satellite) Also must add .crm to the end of the string. Example: unq08ed139e532b4edc8f38851fd1bb3279.crm. Please note that the extension 'crm', 'crm[x]', and more. is region dependent. See [datacenter regions](https://learn.microsoft.com/power-platform/admin/new-datacenter-regions)",
+            "es": "Use Detalles de la sesión para buscar este valor del entorno actual que está importando (satélite) También debe agregar .crm al final de la cadena. Ejemplo: unq08ed139e532b4edc8f38851fd1bb3279.crm. Tenga en cuenta que la extensión 'crm', 'crm[x]', y más. depende de la región. Ver [Regiones de centros de datos](https://learn.microsoft.com/power-platform/admin/new-datacenter-regions)"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-environmentUniqueNameMain",
           "type": "text",
           "title": {
@@ -1173,13 +1306,29 @@
           "isRequired": true
         },
         {
+          "type": "html",
+          "html": {
+            "default": "Use Session details to find this value from **Main**. Also must add .crm to the end of the string. For example: unq08ed139e532b4edc8f38851fd1bb3279.crm. Please note that the extension 'crm', 'crm[x]', and more. is region dependent. [See datacenter regions](https://learn.microsoft.com/en-us/power-platform/admin/new-datacenter-regions)",
+            "es": "Utilice Detalles de la sesión para encontrar este valor en **Principal**. También debe agregar .crm al final de la cadena. Por ejemplo: unq08ed139e532b4edc8f38851fd1bb3279.crm. Tenga en cuenta que la extensión 'crm', 'crm[x]', y más. depende de la región. [Ver regiones de centros de datos](https://learn.microsoft.com/en-us/power-platform/admin/new-datacenter-regions)"
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
+        },
+        {
           "name": "satellite-environmentUrl",
           "type": "text",
           "title": {
-            "default": "Environment Url",
-            "es": "Dirección URL del entorno"
+            "default": "Environment Url (Satellite Environment)",
+            "es": "URL del entorno (entorno satelital)"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "Open a new tab and then sign in to the [Power Platform admin center](https://aka.ms/ppac).",
+            "es": "Abra una nueva pestaña y, a continuación, inicie sesión en el [Power Platform centro de administración](https://aka.ms/ppac)."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         },
         {
           "name": "satellite-flowSessionTraceRecordOwnerId",
@@ -1189,6 +1338,14 @@
             "es": "ID de propietario del registro de seguimiento de sesión de flujo"
           },
           "isRequired": true
+        },
+        {
+          "type": "html",
+          "html": {
+            "default": "This is the UserID (GUID) from the Users table inside the satellite environment for the admin account. Select Tables under Data on the left > User > Data. Change the view to 'All columns'. Find the Auto CoE Admin account that is importing solution, and then copy the value under User.",
+            "es": "Este es el ID de usuario (GUID) de la tabla Usuarios dentro del entorno satélite para la cuenta de administrador. Seleccione Tablas en Datos a la izquierda > Datos de > de usuario. Cambie la vista a 'Todas las columnas'. Busque la cuenta de administrador de CoE automático que está importando la solución y, a continuación, copie el valor en Usuario."
+          },
+          "visibleIf": "{satellite-tellMeMore} == true"
         }
       ]
     },
@@ -1303,6 +1460,113 @@
           "name": "downloadResults",
           "fileName": "automation-kit-satellite-install.json",
           "filter": "satellite"
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Scheduler Solution - Prerequisites",
+        "es": "Solución de programador: requisitos previos"
+      },
+      "name": "prereqTest1",
+      "visibleIf": "contains({installType}, 'Scheduler solution')",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "prereqTest-scheduler",
+          "title": {
+            "default": "Verify that the following has been setup for the environment you will install the Automation Kit Scheduler solution",
+            "es": "Compruebe que se ha configurado lo siguiente para el entorno en el que instalará la solución Programador del kit de automatización"
+          },
+          "choices": [
+            {
+              "value": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+              "text": {
+                "default": "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                "es": "Tiene derechos de administrador del entorno para que podamos habilitar [Característica del marco de componentes de PowerApps](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)"
+              }
+            },
+            {
+              "value": "I DO NOT have environment administrator rights",
+              "text": {
+                "default": "I DO NOT have environment administrator rights",
+                "es": "NO TENGO derechos de administrador del entorno"
+              }
+            },
+            {
+              "value": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+              "text": {
+                "default": "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+                "es": "El [Característica de Power Apps Component Framework](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) se ha habilitado en el entorno"
+              }
+            },
+            {
+              "value": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+              "text": {
+                "default": "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+                "es": "El [Kit para creadores](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) se ha instalado en el entorno"
+              }
+            },
+            {
+              "value": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
+              "text": {
+                "default": "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
+                "es": "Licencia 'Power Apps por usuario', 'Por aplicación' o 'Pago por uso' para usuarios que serán administradores, colaboradores o espectadores de proyectos de automatización"
+              }
+            }
+          ]
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest-scheduler}, 'I DO NOT have environment administrator rights')",
+          "html": {
+            "default": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights.",
+            "es": "Deberá tener un administrador del entorno habilitado <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>Característica del marco de componentes de PowerApps</a>. Si tiene habilitada la característica de marco de componentes de PowerApps, no necesita derechos de administrador del entorno."
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "isSystemCustomizer",
+          "visibleIf": "contains({prereqTest-scheduler}, 'I DO NOT have environment administrator rights')",
+          "title": {
+            "default": "Are you a member of the System Customizer role for the environment?",
+            "es": "¿Es miembro del rol Personalizador del sistema para el entorno?"
+          }
+        },
+        {
+          "type": "html",
+          "visibleIf": "contains({prereqTest-scheduler}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+          "html": {
+            "default": "You will need need to have a minimum of System Customizer to import the Automation Kit solution",
+            "es": "Necesitará tener un mínimo de Personalizador del sistema para importar la solución del kit de automatización"
+          }
+        }
+      ]
+    },
+    {
+      "title": {
+        "default": "Scheduler Solution",
+        "es": "Solución Programador"
+      },
+      "visibleIf": "contains({installType}, 'Scheduler solution')",
+      "elements": [
+        {
+          "name": "scheduler-download",
+          "type": "boolean",
+          "title": {
+            "default": "Downloaded **AutomationKitScheduler_*_managed.zip** managed solution from [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) ",
+            "es": "Descargó **AutomationKitScheduler_*_gestionado.zip** Solución gestionada desde [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) "
+          },
+          "isRequired": true
+        },
+        {
+          "name": "scheduler-import",
+          "type": "boolean",
+          "title": {
+            "default": "[Imported solution](https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions) into environment.",
+            "es": "[Solución importada](https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions) en el medio ambiente."
+          },
+          "isRequired": true
         }
       ]
     }

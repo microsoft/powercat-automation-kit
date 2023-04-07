@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: BE794663219503619DAA0ED6466A08FC407E83AE
+generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
 ---
 
 Hvis du vil installere den nyeste versjonen av automatiseringssettet ved hjelp av kommandolinjen, kan du bruke følgende trinn nedenfor. Hvis du ikke kan bruke kommandolinjeverktøyene, kan du bruke de manuelle trinnene som er dokumentert i [Veiledning for oppsett](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
-1. Sørg for at du har <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivere Power Apps-komponentrammeverkfunksjonen</a> i miljøene du vil installere automatiseringssettet for både hoved- og satellittmiljøer.
+1. Sørg for at du har <a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivere Power Apps-komponentrammeverkfunksjonen</a> i miljøene du vil installere automatiseringssettet for både hoved- og satellittmiljøer.
 
-1. Sørg for at <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installert</a> i miljøene du ønsker å installere i
+1. Sørg for at <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installert</a> i miljøene du ønsker å installere i
 
 1. Åpne den nyeste versjonen fra <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Utgivelser av automatiseringssett GitHub</a>
 
@@ -25,7 +25,7 @@ Hvis du vil installere den nyeste versjonen av automatiseringssettet ved hjelp a
 
 1. Velge **AutomationKitInstall.zip** og bruk kontekstmenyen til å **Pakk ut alle**
 
-1. Sørg for at du har <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> Installert
+1. Sørg for at du har <a href="https://learn.microsoft.com/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> Installert
 
 1. Utfør powershell-skriptet ved hjelp av følgende kommandolinje
 

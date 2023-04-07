@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: 48371CA8CFDFD0F4020EBF42F1E13B1B5B8901F9
+generated: 74448AAD8893663688F10D12DCCC2009D386B0CE
 ---
 
 {{<toc>}}
@@ -127,10 +127,10 @@ For den aktuelle version gælder følgende bemærkninger
 
 For at installere planlægningsløsningen kan du gøre følgende:
 
-1. Sørg for, at Power Apps component framework er aktiveret <a href="https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Læs mere</a>
-1. Du har installeret Creator Kit i destinationsmiljøet. <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer fra App Source</a>
+1. Sørg for, at Power Apps component framework er aktiveret <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Læs mere</a>
+1. Du har installeret Creator Kit i destinationsmiljøet. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer fra App Source</a>
 1. Du har downloadet AutomationKit.zip-filen fra afsnittet Aktiver i det seneste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-udgivelse</a>
-1. Du har importeret den nyeste AutomationKitScheduler_*_administreret.zip fil ved hjælp af. <a href='https://learn.microsoft.com/en-us/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Læs mere</a>
+1. Du har importeret den nyeste AutomationKitScheduler_*_administreret.zip fil ved hjælp af. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Læs mere</a>
 
 ## Køreplan
 

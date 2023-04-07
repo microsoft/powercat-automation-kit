@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: BE794663219503619DAA0ED6466A08FC407E83AE
+generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
 ---
 
 Als u de nieuwste versie van de Automation Kit wilt installeren via de opdrachtregel, kunt u de onderstaande stappen uitvoeren. Als u de opdrachtregelprogramma's niet kunt gebruiken, kunt u de handmatige stappen gebruiken die zijn beschreven in [Richtlijnen voor het instellen](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
-1. Zorg ervoor dat je <a ref='https://learn.microsoft.com/en-us/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">De frameworkfunctie voor Power Apps-onderdelen inschakelen</a> in de omgevingen waarin u de Automation Kit voor zowel hoofd- als satellietomgevingen wilt installeren.
+1. Zorg ervoor dat je <a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">De frameworkfunctie voor Power Apps-onderdelen inschakelen</a> in de omgevingen waarin u de Automation Kit voor zowel hoofd- als satellietomgevingen wilt installeren.
 
-1. Zorg ervoor dat de <a href="https://appsource.microsoft.com/en-us/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit geïnstalleerd</a> in de omgevingen waarin u wilt installeren
+1. Zorg ervoor dat de <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit geïnstalleerd</a> in de omgevingen waarin u wilt installeren
 
 1. Open de nieuwste versie van de <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Automation Kit GitHub-releases</a>
 
@@ -25,7 +25,7 @@ Als u de nieuwste versie van de Automation Kit wilt installeren via de opdrachtr
 
 1. Selecteren **AutomationKitInstalleer.zip** en gebruik het contextmenu om **Alles extraheren**
 
-1. Zorg ervoor dat u de <a href="https://learn.microsoft.com/en-us/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> Geïnstalleerd
+1. Zorg ervoor dat u de <a href="https://learn.microsoft.com/power-platform/developer/cli/introduction" target="_blank">Power Platform CLI</a> Geïnstalleerd
 
 1. Voer het powershell-script uit met behulp van de volgende opdrachtregel
 

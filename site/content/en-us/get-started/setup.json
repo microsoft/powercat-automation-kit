@@ -15,6 +15,7 @@
                     "choices": [
                         "Main solution",
                         "Satellite solution",
+                        "Scheduler solution",
                         "Security Group Setup"
                     ]
                 },
@@ -30,11 +31,17 @@
                 },
                 {
                     "type": "html",
+                    "visibleIf": "contains({installType}, 'Scheduler solution')",
+                    "html": "Display calendar based solution to view Power Automate Desktop flows that are triggered from a recurring cloud flow"
+                },
+                {
+                    "type": "html",
                     "visibleIf": "contains({installType}, 'Security Group Setup')",
                     "html": "Configure users / groups that should be assigned to security groups for Administration, Contribution and View permissions for Automation projects"
                 }
             ]
         },
+       
         {
             "title": "Main Solution - Prerequisites",
             "name": "prereqTest1",
@@ -47,6 +54,8 @@
                     "choices": [
                         "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
                         "I DO NOT have environment administrator rights",
+                        "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+                        "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
                         "[Install Microsoft Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli)",
                         "The environment DLP policy allows for following connectors [Approvals](https://learn.microsoft.com/en-us/connectors/approvals/), [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
                         "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects",
@@ -420,6 +429,8 @@
                     "choices": [
                         "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
                         "I DO NOT have environment administrator rights",
+                        "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+                        "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
                         "[Install Microsoft Power Platform CLI](https://learn.microsoft.com/power-platform/developer/cli/introduction#install-microsoft-power-platform-cli)",
                         "The environment DLP policy allows for the following connectors [Microsoft Dataverse](https://learn.microsoft.com/en-us/connectors/commondataserviceforapps/), [Microsoft Dataverse (Legacy)](https://learn.microsoft.com/en-us/connectors/commondataservice/), [Office 365 Outlook](https://learn.microsoft.com/en-us/connectors/office365/), [Office 365 Users](https://learn.microsoft.com/en-us/connectors/office365users/), [Power Automate Management](https://learn.microsoft.com/en-us/connectors/flowmanagement/) and [Power Platform for Admins](https://learn.microsoft.com/en-us/connectors/powerplatformforadmins/)",
                         "An Azure Application Registration",
@@ -655,11 +666,23 @@
                     "visibleIf": "{satellite-april-2023} == true"
                 },
                 {
+                    "name": "satellite-tellMeMore",
+                    "type": "boolean",
+                    "title": "Tell me more about each variable",
+                    "isRequired": false,
+                    "default": false
+                },
+                {
                     "name": "satellite-azureKeyVaultClientId",
                     "type": "text",
                     "title": "AKV Client Id Secret",
                     "isRequired": true,
                     "visibleIf": "{satellite-april-2023} == false"
+                },
+                {
+                    "type": "html",
+                    "html": "Only required for March 2023 or earlier release. Contains the value of the Azure Key Vault Url that stores the Client Id of the Azure Application",
+                    "visibleIf": "{satellite-tellMeMore} == true"
                 },
                 {
                     "name": "satellite-azureKeyVaultClientSecret",
@@ -669,11 +692,21 @@
                     "visibleIf": "{satellite-april-2023} == false"
                 },
                 {
+                    "type": "html",
+                    "html": "Only required for March 2023 or earlier release. Contains the value of the Azure Key Vault Url that stores the Client Secret of the Azure Application",
+                    "visibleIf": "{satellite-tellMeMore} == true"
+                },
+                {
                     "name": "satellite-azureKeyVaultTenantIdSecret",
                     "type": "text",
                     "title": "AKV Tenant Id Secret",
                     "isRequired": true,
                     "visibleIf": "{satellite-april-2023} == false"
+                },
+                {
+                    "type": "html",
+                    "html": "Only required for March 2023 or earlier release. Contains the value of the Azure Key Vault Url that stores the Tenant Id of the Azure Application",
+                    "visibleIf": "{satellite-tellMeMore} == true"
                 },
                 {
                     "name": "satellite-automationCoEAlertEmailRecipient",
@@ -682,10 +715,20 @@
                     "isRequired": true
                 },
                 {
+                    "type": "html",
+                    "html": "The email address where operational reports and alerts should be sent to, for this environment.",
+                    "visibleIf": "{satellite-tellMeMore} == true"
+                },
+                {
                     "name": "satellite-automationProjectAppId",
                     "type": "text",
                     "title": "Automation Project App Id",
                     "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "html": "Enter the Automation Project app Id of the Power Apps that is deployed with the main solution (main environment)",
+                    "visibleIf": "{satellite-tellMeMore} == true"
                 },
                 {
                     "name": "satellite-desktopFlowsBaseUrl",
@@ -694,10 +737,20 @@
                     "isRequired": true
                 },
                 {
+                    "type": "html",
+                    "html": "Follow the steps in [Desktop flows base url steps](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/environment-variables#steps-to-get-the-desktop-flow-base-url)",
+                    "visibleIf": "{satellite-tellMeMore} == true"
+                },
+                {
                     "name": "satellite-environmentId",
                     "type": "text",
                     "title": "Environment Id",
                     "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "html": "Use Session details to find this value from current environment that you're importing into (satellite)",
+                    "visibleIf": "{satellite-tellMeMore} == true"
                 },
                 {
                     "name": "satellite-environmentName",
@@ -706,10 +759,20 @@
                     "isRequired": true
                 },
                 {
+                    "type": "html",
+                    "html": "Display name of the current environment (satellite)",
+                    "visibleIf": "{satellite-tellMeMore} == true"
+                },
+                {
                     "name": "satellite-environmentRegion",
                     "type": "text",
                     "title": "Environment Region",
                     "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "html": "Region of the satellite. Can be found in the Power Platform admin center",
+                    "visibleIf": "{satellite-tellMeMore} == true"
                 },
                 {
                     "name": "satellite-environmentUniqueName",
@@ -718,22 +781,42 @@
                     "isRequired": true
                 },
                 {
+                    "type": "html",
+                    "html": "Use Session details to find this value from the current environment that you're importing into (satellite) Also must add .crm to the end of the string. Example: unq08ed139e532b4edc8f38851fd1bb3279.crm. Please note that the extension 'crm', 'crm[x]', and more. is region dependent. See [datacenter regions](https://learn.microsoft.com/power-platform/admin/new-datacenter-regions)",
+                    "visibleIf": "{satellite-tellMeMore} == true"
+                },
+                {
                     "name": "satellite-environmentUniqueNameMain",
                     "type": "text",
                     "title": "Environment Unique Name (Automation Kit Main)",
                     "isRequired": true
                 },
                 {
+                    "type": "html",
+                    "html": "Use Session details to find this value from **Main**. Also must add .crm to the end of the string. For example: unq08ed139e532b4edc8f38851fd1bb3279.crm. Please note that the extension 'crm', 'crm[x]', and more. is region dependent. [See datacenter regions](https://learn.microsoft.com/en-us/power-platform/admin/new-datacenter-regions)",
+                    "visibleIf": "{satellite-tellMeMore} == true"
+                },
+                {
                     "name": "satellite-environmentUrl",
                     "type": "text",
-                    "title": "Environment Url",
+                    "title": "Environment Url (Satellite Environment)",
                     "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "html": "Open a new tab and then sign in to the [Power Platform admin center](https://aka.ms/ppac).",
+                    "visibleIf": "{satellite-tellMeMore} == true"
                 },
                 {
                     "name": "satellite-flowSessionTraceRecordOwnerId",
                     "type": "text",
                     "title": "Flow Session Trace Record Owner Id",
                     "isRequired": true
+                },
+                {
+                    "type": "html",
+                    "html": "This is the UserID (GUID) from the Users table inside the satellite environment for the admin account. Select Tables under Data on the left > User > Data. Change the view to 'All columns'. Find the Auto CoE Admin account that is importing solution, and then copy the value under User.",
+                    "visibleIf": "{satellite-tellMeMore} == true"
                 }
             ]
         },
@@ -809,6 +892,60 @@
                     "name": "downloadResults",
                     "fileName": "automation-kit-satellite-install.json",
                     "filter": "satellite"
+                }
+            ]
+        },
+        {
+            "title": "Scheduler Solution - Prerequisites",
+            "name": "prereqTest1",
+            "visibleIf": "contains({installType}, 'Scheduler solution')",
+            "elements": [
+                {
+                    "type": "checkbox",
+                    "name": "prereqTest-scheduler",
+                    "title": "Verify that the following has been setup for the environment you will install the Automation Kit Scheduler solution",
+                    "choices": [
+                        "You have have environment administrator rights so we can enable [PowerApps component framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature)",
+                        "I DO NOT have environment administrator rights",
+                        "The [Power Apps Component Framework feature](https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature) has been enabled in the environment",
+                        "The [Creator Kit](https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1) has been installed in the environment",
+                        "'Power Apps Per User', 'Per App' or 'Pays as you go' license for users who will be Administrators, Contributors or viewers of Automation Projects"
+                    ]
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({prereqTest-scheduler}, 'I DO NOT have environment administrator rights')",
+                    "html": "You will need to have have an environment admin enable <a href='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target='blank'>PowerApps component framework feature</a>. If you have PowerApps component framework feature enabled you do not need environment administrator rights."
+                },
+                {
+                    "type": "boolean",
+                    "name": "isSystemCustomizer",
+                    "visibleIf": "contains({prereqTest-scheduler}, 'I DO NOT have environment administrator rights')",
+                    "title": "Are you a member of the System Customizer role for the environment?"
+                },
+                {
+                    "type": "html",
+                    "visibleIf": "contains({prereqTest-scheduler}, 'I DO NOT have environment administrator rights') and {isSystemCustomizer} = false",
+                    "html": "You will need need to have a minimum of System Customizer to import the Automation Kit solution"
+                }
+            ]
+            
+        },
+        {
+            "title": "Scheduler Solution",
+            "visibleIf": "contains({installType}, 'Scheduler solution')",
+            "elements": [
+                {
+                    "name": "scheduler-download",
+                    "type": "boolean",
+                    "title": "Downloaded **AutomationKitScheduler_*_managed.zip** managed solution from [https://github.com/microsoft/powercat-automation-kit/releases](https://github.com/microsoft/powercat-automation-kit/releases) ",
+                    "isRequired": true
+                },
+                {
+                    "name": "scheduler-import",
+                    "type": "boolean",
+                    "title": "[Imported solution](https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions) into environment.",
+                    "isRequired": true
                 }
             ]
         }
