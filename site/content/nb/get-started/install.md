@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
+generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
 ---
 
 Hvis du vil installere den nyeste versjonen av automatiseringssettet ved hjelp av kommandolinjen, kan du bruke følgende trinn nedenfor. Hvis du ikke kan bruke kommandolinjeverktøyene, kan du bruke de manuelle trinnene som er dokumentert i [Veiledning for oppsett](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Sørg for at du har <a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Aktivere Power Apps-komponentrammeverkfunksjonen</a> i miljøene du vil installere automatiseringssettet for både hoved- og satellittmiljøer.
 
-1. Sørg for at <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installert</a> i miljøene du ønsker å installere i
+1. Sørg for at <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit installert</a> i miljøene du vil installere i
 
 1. Åpne den nyeste versjonen fra <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Utgivelser av automatiseringssett GitHub</a>
 

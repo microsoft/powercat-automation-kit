@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
+generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
 ---
 
 Aby zainstalować najnowszą wersję zestawu Automation Kit przy użyciu wiersza polecenia, możesz wykonać następujące kroki poniżej. Jeśli nie możesz użyć narzędzi wiersza polecenia, możesz wykonać ręczne kroki opisane w sekcji [Wskazówki dotyczące konfiguracji](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).

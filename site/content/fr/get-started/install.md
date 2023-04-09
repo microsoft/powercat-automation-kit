@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
+generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
 ---
 
 Pour installer la dernière version du Kit d’automatisation à l’aide de la ligne de commande, vous pouvez suivre les étapes ci-dessous. Si vous ne parvenez pas à utiliser les outils de ligne de commande, vous pouvez utiliser les étapes manuelles décrites dans [Guide de configuration](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).

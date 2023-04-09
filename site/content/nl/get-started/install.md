@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
+generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
 ---
 
 Als u de nieuwste versie van de Automation Kit wilt installeren via de opdrachtregel, kunt u de onderstaande stappen uitvoeren. Als u de opdrachtregelprogramma's niet kunt gebruiken, kunt u de handmatige stappen gebruiken die zijn beschreven in [Richtlijnen voor het instellen](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).

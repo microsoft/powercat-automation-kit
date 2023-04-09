@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
+generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
 ---
 
 要使用命令行安装最新版本的自动化工具包，可以使用以下步骤。如果无法使用命令行工具，可以使用中记录的手动步骤[设置指南](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1.确保您有<a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">启用 Power Apps 组件框架功能</a>在要为主环境和从属环境安装自动化工具包的环境中。
 
-1.确保<a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">已安装创建者工具包</a>进入您希望安装到的环境中
+1.确保<a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">已安装创建者工具包</a>到您要安装到的环境中
 
 1.从<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">自动化工具包 GitHub 发布</a>
 

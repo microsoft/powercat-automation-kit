@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
+generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
 ---
 
 コマンドラインを使用して最新バージョンのオートメーションキットをインストールするには、以下の手順を使用できます。コマンドラインツールを使用できない場合は、「」に記載されている手動の手順を使用できます。[セットアップガイダンス](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1.あなたが持っていることを確認してください<a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Power Apps コンポーネント フレームワーク機能を有効にする</a>メイン環境とサテライト環境の両方にオートメーションキットをインストールする環境で。
 
-1.次のことを確認してください。<a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">クリエイターキットがインストールされている</a>インストールしたい環境に
+1.次のことを確認してください。<a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">クリエイターキットがインストールされている</a>インストール先の環境に
 
 1.から最新リリースを開きます。<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Automation Kit GitHub リリース</a>
 

@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
+generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
 ---
 
 ในการติดตั้ง Automation Kit เวอร์ชันล่าสุดโดยใช้บรรทัดคําสั่งคุณสามารถใช้ขั้นตอนต่อไปนี้ด้านล่าง หากคุณไม่สามารถใช้เครื่องมือบรรทัดคําสั่งคุณสามารถใช้ขั้นตอนด้วยตนเองที่บันทึกไว้ใน [คําแนะนําในการตั้งค่า](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. ตรวจสอบให้แน่ใจว่าคุณมี <a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">เปิดใช้งานฟีเจอร์เฟรมเวิร์กส่วนประกอบ Power Apps</a> ในสภาพแวดล้อมที่คุณต้องการติดตั้งชุดระบบอัตโนมัติสําหรับทั้งสภาพแวดล้อมหลักและดาวเทียม
 
-1. ตรวจสอบให้แน่ใจว่าปุ่ม <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">ติดตั้งชุดครีเอเตอร์แล้ว</a> ในสภาพแวดล้อมที่คุณต้องการติดตั้งลงในหมวก
+1. ตรวจสอบให้แน่ใจว่าปุ่ม <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">ติดตั้งชุดครีเอเตอร์แล้ว</a> ในสภาพแวดล้อมที่คุณต้องการติดตั้ง
 
 1. เปิดรุ่นล่าสุดจาก <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">การเผยแพร่ชุดระบบอัตโนมัติ GitHub</a>
 

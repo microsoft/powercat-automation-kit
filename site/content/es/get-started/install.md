@@ -6,14 +6,14 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 10CE5DBCADF4F09FCAA4261FD8FBEBDE34B6FB2E
+generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
 ---
 
 Para instalar la versión más reciente del Kit de automatización mediante la línea de comandos, puede seguir estos pasos. Si no puede utilizar las herramientas de línea de comandos, puede utilizar los pasos manuales documentados en [Guía de configuración](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Asegúrese de que tiene <a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Habilitar la característica del marco de componentes de Power Apps</a> en los entornos en los que desea instalar el Kit de automatización para entornos principal y satélite.
 
-1. Asegúrese de que el <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit instalado</a> en el entorno en el que desea instalar
+1. Asegúrese de que el <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1?tab=Reviews" target="_blank">Creator Kit instalado</a> en los entornos en los que desea instalar
 
 1. Abra la versión más reciente desde el <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Lanzamiento de GitHub de Automation Kit</a>
 
