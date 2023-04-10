@@ -10,12 +10,14 @@
     },
     "resourceGroupName": {
       "type": "string",
+      "defaultValue": "[concat('automation-kit-byodl-synapse-', parameters('workspaceName'), '-rg')]",
       "metadata": {
         "description": "Name of the resource group where the Synapse workspace will be created."
       }
     },
     "location": {
       "type": "string",
+      "defaultValue": "westus",
       "metadata": {
         "description": "Location for all resources."
       }
@@ -55,6 +57,9 @@
             "[parameters('workspaceName')]"
           ]
         }
+      ],
+      "dependsOn": [
+        "[resourceId('Microsoft.Resources/resourceGroups/', parameters('resourceGroupName'))]"
       ]
     }
   ]
