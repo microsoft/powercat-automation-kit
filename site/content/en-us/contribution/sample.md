@@ -24,7 +24,7 @@ This page provides a sample for authoring content
 
 Use the questions below to explore different feedback question types
 
-{{<questions name="/content/en-us/contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/contribution/sample.json" completed="Thank you for completing questions" showNavigationButtons=false />}}
 
 </div>
 

@@ -8,6 +8,8 @@ author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
 ---
 
+<div class="optional">
+
 To install the latest version of the Automation Kit using the command line, you can use the following steps below. If you are unable to use the command line tools you can use the manual steps documented in [Setup Guidance](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
 1. Ensure that you have <a ref='https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature' target="_blank">Enable the Power Apps component framework feature</a> in the environments that you want to install the Automation Kit for both Main and Satellite environments.
@@ -64,4 +66,7 @@ Unblock-File Install_AutomationKit.ps1
 
 Want to provide feedback on the [setup process](/get-started/setup)? The questions below help us improve the process.
 
-{{<questions name="/content/en-us/get-started/setup-feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/get-started/setup-feedback.json" completed="Thank you for providing feedback" showNavigationButtons=false />}}
+
+</div>
+

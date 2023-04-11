@@ -11,4 +11,4 @@ tags: ['Feedback']
 
 Please provide your feedback to the following questions:
 
-{{<questions  name="/content/en-us/feedback.json" completed="Thank you for completing questions" showNavigationButtons=false  >}}
+{{<questions  name="/content/en-us/feedback.json" completed="Thank you for completing questions" showNavigationButtons=false />}}

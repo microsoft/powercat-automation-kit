@@ -87,6 +87,8 @@ include_footer: true
 
 - [Automation Kit - Setup](/get-started/setup)
 
+- [Automation Kit - Get Started Videos](/get-started/videos)
+
 
 ### Location: /office-hours/
 

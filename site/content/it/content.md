@@ -4,7 +4,7 @@ description: "Kit di automazione - Indice del sito"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
+generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 - [Kit di automazione - Satellite - Inizia](/it/get-started/satellite)
 
 - [Kit di automazione - Configurazione](/it/get-started/setup)
+
+- [Automation Kit - Video introduttivi](/it/get-started/videos)
 
 
 ### Luogo: /office-hours/

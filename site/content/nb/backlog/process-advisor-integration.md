@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Process Advisor', 'Integration', 'RPA']
-generated: 43CC06A24918E86A3EF2FB210C196D0296D46B26
+generated: 1314509EA465891ED5914448D4EC119A8218FE57
 ---
 --------------|---------------|-------------|
 Duration Total (Total Processing Time in minutes)|Duration Total Per activity|Top-level metrics currently only median and average duration which can be transformed with some customization
@@ -37,7 +37,7 @@ You could use out of the box Power BI connector actions and Power Automate cloud
 
 ## Questions
 
-{{<questions name="/content/en-us/backlog/process-advisor-integration.json" completed="Thank you for completing Process Advisor questions" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/backlog/process-advisor-integration.json" completed="Thank you for completing Process Advisor questions" showNavigationButtons=false />}}
 
 Den {{<product-name>}} integreres med [Process Advisor](https://learn.microsoft.com/power-automate/process-advisor-overview) for å støtte følgende scenarier:
 

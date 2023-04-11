@@ -6,8 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
+generated: 41BD476CCC700CAAAD43657E9716A73ABDD00A15
 ---
+
+<div class="optional">
 
 Para instalar la versión más reciente del Kit de automatización mediante la línea de comandos, puede seguir estos pasos. Si no puede utilizar las herramientas de línea de comandos, puede utilizar los pasos manuales documentados en [Guía de configuración](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
@@ -66,3 +68,6 @@ Unblock-File Install_AutomationKit.ps1
 Desea proporcionar comentarios sobre el [Proceso de instalación](/es/get-started/setup)? Las siguientes preguntas nos ayudan a mejorar el proceso.
 
 {{<questions name="/content/es/get-started/setup-feedback.json" completed="Gracias por proporcionar comentarios" showNavigationButtons="false" locale="es">}}
+
+</div>
+

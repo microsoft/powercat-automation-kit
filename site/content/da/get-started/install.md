@@ -6,8 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
+generated: 41BD476CCC700CAAAD43657E9716A73ABDD00A15
 ---
+
+<div class="optional">
 
 Hvis du vil installere den nyeste version af Automation Kit ved hjælp af kommandolinjen, kan du bruge følgende trin nedenfor. Hvis du ikke kan bruge kommandolinjeværktøjerne, kan du bruge de manuelle trin, der er beskrevet i [Vejledning til opsætning](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
@@ -66,3 +68,6 @@ Unblock-File Install_AutomationKit.ps1
 Ønsker at give feedback på [opsætningsproces](/da/get-started/setup)? Spørgsmålene nedenfor hjælper os med at forbedre processen.
 
 {{<questions name="/content/da/get-started/setup-feedback.json" completed="Tak, fordi du gav feedback" showNavigationButtons="false" locale="da">}}
+
+</div>
+

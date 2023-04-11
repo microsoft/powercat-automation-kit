@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Office Hours']
-generated: 86C928F8ABDEA45B0077FE5E6199263FE7EB6B1C
+generated: AF522FB17B5D0A0A181FD9D976019B194BE1C60A
 ---
 
 2023년 3월 근무 시간 랜딩 페이지를 위한 자동화 키트Power Platform 오신 것을 환영합니다.

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 4FB940E2D946AE8F1948D37E5188A7A4419A7B23
+generated: A55646C202C1FA9948AEB86D061E85538425B096
 ---
 
 ## Wprowadzenie

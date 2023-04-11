@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BBDEACB41F0DF2C6134A7D02A14813579ED820A1
+generated: 70F8AE9388E5A7A2C552E4D72FD6B4089739CDAC
 ---
 
 สําหรับการเปิดตัว {{ ในเดือนเมษายน<product-name>}} เรารู้สึกตื่นเต้นที่จะประกาศว่าเราได้ทําการเปลี่ยนแปลงที่สําคัญบางอย่างในโซลูชันดาวเทียมของเรา เราได้ลบความต้องการ Azure Key Vault และแทนที่ด้วยปลั๊กอิน Dataverse ที่ใช้ความปลอดภัยของผู้ใช้แอปพลิเคชันแทนค่าจาก Key Vault 

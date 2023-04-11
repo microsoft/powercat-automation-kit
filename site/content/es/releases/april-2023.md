@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BBDEACB41F0DF2C6134A7D02A14813579ED820A1
+generated: 70F8AE9388E5A7A2C552E4D72FD6B4089739CDAC
 ---
 
 Para el lanzamiento de abril del {{<product-name>}} nos complace anunciar que hemos realizado algunos cambios clave en nuestra solución satelital. Hemos eliminado la necesidad de Azure Key Vault y lo hemos reemplazado por un complemento de Dataverse que usa la seguridad del usuario de la aplicación en lugar de los valores de Key Vault. 

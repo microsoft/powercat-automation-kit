@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Localization']
-generated: 53AFF7C6E0B1889AF1A221C000C138D19F1390BA
+generated: B663DBE982197FB3ECF0CBA5F0324E4044487914
 ---
 
 **สถานะ:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} อยู่ระหว่างดําเนินการ - การทดลอง

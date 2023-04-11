@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Office Hours']
-generated: F2418D2093AF75F27EEB7B01A27A8DDDEAF1E221
+generated: 019E7821C140C788C44A8774A595A1E21FE8691A
 ---
 
 Utilice la siguiente pregunta para cancelar su registro automático para {{<product-name>}}. Le enviaremos un código de confirmación que puede utilizar para [Confirmar cancelación del registro](/es/office-hours/unregister-confirm)

@@ -7,7 +7,7 @@ include_footer: true
 index: false
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install', 'Feedback']
-generated: 2CBF3486FA8BE332832DCD755358EE4DA70994B7
+generated: FDC95599A67EFB5CA70F1FFA34C7CF1FB9575A3F
 ---
 
 에 대한 피드백을 제공하고 싶습니다. [설정 프로세스](/ko/get-started/setup)? 아래 질문은 프로세스를 개선하는 데 도움이 됩니다.

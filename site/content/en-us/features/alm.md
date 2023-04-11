@@ -58,7 +58,7 @@ Review our [Automation Kit ALM related backlog](https://github.com/microsoft/pow
 
 ## Feedback
 
-{{<questions name="/content/en-us/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/features/alm.json" completed="Thank you for providing feedback" showNavigationButtons=false />}}
 
 </div>
 

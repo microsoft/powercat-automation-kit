@@ -4,7 +4,7 @@ description: "Automation Kit - Calculator"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: A395D9B90CE714462F5170710C6C39AA2873234A
+generated: 9555D5C30760CDAC2304D7C3BAFC9E7C2AA3142D
 ---
 
 
@@ -255,4 +255,4 @@ window.surveyChanged = function (sender, options) {
     }
 }
 </script>
-{{</questions>}}
+{{<questions locale="en-gb">}}

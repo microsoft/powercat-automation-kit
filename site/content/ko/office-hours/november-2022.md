@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Office Hours']
-generated: DA3C633A053D3FA4CB87C2593C1692E57A7B8D6D
+generated: 1200CD413D9DD7AA007E782222EA3A40D5FB476A
 ---
 
 2022년 11월 Power Platform 근무 시간 랜딩 페이지를 위한 자동화 키트에 오신 것을 환영합니다.

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 35239223597AD99B6E8C8379608D789AFF167FA1
+generated: 01E17BF2AD55BD52390C64493DF55D37111AE12B
 ---
 
 การเปิดตัว {{ ในเดือนมีนาคม<product-name>}} เป็นการเผยแพร่ตัวอย่างสาธารณะครั้งที่หก รุ่นนี้มุ่งเน้นไปที่สิ่งต่อไปนี้:

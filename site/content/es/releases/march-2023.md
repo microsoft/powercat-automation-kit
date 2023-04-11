@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 35239223597AD99B6E8C8379608D789AFF167FA1
+generated: 01E17BF2AD55BD52390C64493DF55D37111AE12B
 ---
 
 La publicación en marzo del {{<product-name>}} es la sexta versión de versión preliminar pública. Esta versión se centró en lo siguiente:

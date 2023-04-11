@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
+generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 - [Automation Kit - Satellite - เริ่มต้นใช้งาน](/th/get-started/satellite)
 
 - [ชุดระบบอัตโนมัติ - การตั้งค่า](/th/get-started/setup)
+
+- [Automation Kit - เริ่มต้นใช้งานวิดีโอ](/th/get-started/videos)
 
 
 ### ที่ตั้ง: /เวลาทําการ/

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: D5469C2D91BA5B0BE46255054E4D9B5EBD5F05F3
+generated: 4CE35C77CCB1144C59EC8C0F04B249B6701EF2B9
 ---
 
 ![ニフティエミー賞](/images/nifty-emmy.png)

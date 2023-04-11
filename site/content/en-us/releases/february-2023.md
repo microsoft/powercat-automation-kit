@@ -12,7 +12,7 @@ tags: ['Release']
 
 The February release (nifty-emmy) of the {{<product-name>}} is the fifth public preview release. This release focuses on adding a new [Scheduler](/features/scheduler) functionality to allow users to see the recurring schedules Power Automate Cloud flows that include calls to Power Automate Desktop flows.
 
-{{<questions name="/content/en-us/releases/february-2023.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/releases/february-2023.json" completed="Thank you for providing feedback" showNavigationButtons=false />}}
 
 ## Get Started
 

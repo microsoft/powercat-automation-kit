@@ -13,4 +13,4 @@ tags: ['Maturity', 'Guidance']
 
 Use the questions below determine your automation maturity model and discover how the {{<product-name>}} or other related solutions can help you improve your automation maturity using the Power Platform.
 
-{{<questions name="/content/en-us/automation-maturity-model.json" completed="" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/automation-maturity-model.json" completed="" showNavigationButtons=false />}}

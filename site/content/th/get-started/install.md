@@ -6,8 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
+generated: 41BD476CCC700CAAAD43657E9716A73ABDD00A15
 ---
+
+<div class="optional">
 
 ในการติดตั้ง Automation Kit เวอร์ชันล่าสุดโดยใช้บรรทัดคําสั่งคุณสามารถใช้ขั้นตอนต่อไปนี้ด้านล่าง หากคุณไม่สามารถใช้เครื่องมือบรรทัดคําสั่งคุณสามารถใช้ขั้นตอนด้วยตนเองที่บันทึกไว้ใน [คําแนะนําในการตั้งค่า](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
@@ -66,3 +68,6 @@ Unblock-File Install_AutomationKit.ps1
 ต้องการแสดงความคิดเห็นเกี่ยวกับ [ขั้นตอนการตั้งค่า](/th/get-started/setup)? คําถามด้านล่างช่วยให้เราปรับปรุงกระบวนการ
 
 {{<questions name="/content/th/get-started/setup-feedback.json" completed="ขอขอบคุณที่ให้ข้อเสนอแนะ" showNavigationButtons="false" locale="th">}}
+
+</div>
+

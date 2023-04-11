@@ -7,7 +7,7 @@ include_footer: true
 index: false
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install', 'Feedback']
-generated: 2CBF3486FA8BE332832DCD755358EE4DA70994B7
+generated: FDC95599A67EFB5CA70F1FFA34C7CF1FB9575A3F
 ---
 
 Desea proporcionar comentarios sobre el [Proceso de instalación](/es/get-started/setup)? Las siguientes preguntas nos ayudan a mejorar el proceso.

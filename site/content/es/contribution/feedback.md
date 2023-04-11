@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Feedback']
-generated: ACE9F23A95644F4296F9CC9ED3E8CD1ADB0EAA00
+generated: 33EB9B78F9C0FDA47E9B696715BE381E1C90E65B
 ---
 
 Buscando contribuir con sus comentarios al {{<product-name>}}? Puede utilizar las secciones siguientes para explorar los diferentes tipos de comentarios.

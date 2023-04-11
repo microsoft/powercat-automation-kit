@@ -16,4 +16,4 @@ Learn how to start making a contribution to the starter documentation for the {{
 
 You can use the questions below to guide your setup and contribution experience
 
-{{<questions name="/content/en-us/contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/contribution/documentation.json" completed="Thank you for completing setup questions" showNavigationButtons=false />}}

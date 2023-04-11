@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Office Hours']
-generated: 59825C3BA5D5CC7F7AB170DA1F38BB8F7E3808A9
+generated: E480878AC039725C684F6070102770E81619E2C0
 ---
 
 Witamy na stronie docelowej Automation Kit for Power Platform October 2022 godziny pracy.

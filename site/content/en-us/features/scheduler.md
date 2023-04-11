@@ -139,4 +139,4 @@ You can add a new <a href="https://github.com/microsoft/powercat-automation-kit/
 
 ## Feedback
 
-{{<questions name="/content/en-us/features/scheduler.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/features/scheduler.json" completed="Thank you for providing feedback" showNavigationButtons=false />}}

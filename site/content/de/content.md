@@ -4,7 +4,7 @@ description: "Automation Kit - Site-Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
+generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 - [Automation Kit - Satellit - Erste Schritte](/de/get-started/satellite)
 
 - [Automation Kit - Setup](/de/get-started/setup)
+
+- [Automation Kit – Videos zu den ersten Schritten](/de/get-started/videos)
 
 
 ### Ort: /Bürozeiten/

@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
+generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 - [자동화 키트 - 위성 - 시작하기](/ko/get-started/satellite)
 
 - [자동화 키트 - 설정](/ko/get-started/setup)
+
+- [자동화 키트 - 시작 비디오](/ko/get-started/videos)
 
 
 ### 위치: /근무 시간/

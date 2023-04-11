@@ -6,8 +6,10 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: BBA164EE25537E568BEC4EE4FC9CAA168C26E18B
+generated: 41BD476CCC700CAAAD43657E9716A73ABDD00A15
 ---
+
+<div class="optional">
 
 명령줄을 사용하여 최신 버전의 자동화 키트를 설치하려면 아래 단계를 사용할 수 있습니다. 명령줄 도구를 사용할 수 없는 경우 에 설명된 수동 단계를 사용할 수 있습니다. [설정 지침](https://learn.microsoft.com/power-automate/guidance/automation-kit/setup/prerequisites).
 
@@ -66,3 +68,6 @@ Unblock-File Install_AutomationKit.ps1
 에 대한 피드백을 제공하고 싶습니다. [설정 프로세스](/ko/get-started/setup)? 아래 질문은 프로세스를 개선하는 데 도움이 됩니다.
 
 {{<questions name="/content/ko/get-started/setup-feedback.json" completed="피드백을 제공해 주셔서 감사합니다." showNavigationButtons="false" locale="ko">}}
+
+</div>
+

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BBDEACB41F0DF2C6134A7D02A14813579ED820A1
+generated: 70F8AE9388E5A7A2C552E4D72FD6B4089739CDAC
 ---
 
 4월 릴리스의 경우 {{<product-name>}} 위성 솔루션에 몇 가지 주요 변경 사항을 적용했음을 발표하게 되어 기쁩니다. Azure 키 자격 증명 모음의 필요성을 제거하고 키 자격 증명 모음의 값 대신 애플리케이션 사용자 보안을 사용하는 Dataverse 플러그 인으로 대체했습니다. 

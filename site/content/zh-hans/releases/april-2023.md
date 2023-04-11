@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BBDEACB41F0DF2C6134A7D02A14813579ED820A1
+generated: 70F8AE9388E5A7A2C552E4D72FD6B4089739CDAC
 ---
 
 对于 4 月发布的 {{<product-name>}} 我们很高兴地宣布，我们对卫星解决方案进行了一些关键更改。我们删除了对 Azure 密钥保管库的需求，并将其替换为使用应用程序用户安全性而不是密钥保管库中的值的 Dataverse 插件。

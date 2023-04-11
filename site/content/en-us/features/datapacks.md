@@ -72,4 +72,4 @@ pac data import -d AutomationKit-SampleData.zip --environment https://contoso.cr
 
 ## Feedback
 
-{{<questions name="/content/en-us/features/datapacks.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/features/datapacks.json" completed="Thank you for providing feedback" showNavigationButtons=false />}}

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Office Hours']
-generated: F2418D2093AF75F27EEB7B01A27A8DDDEAF1E221
+generated: 019E7821C140C788C44A8774A595A1E21FE8691A
 ---
 
 Brug venligst nedenstående spørgsmål til at annullere din automatiske registrering til {{<product-name>}}. Vi sender dig en bekræftelseskode, som du kan bruge til at [bekræfte afmelding](/da/office-hours/unregister-confirm)

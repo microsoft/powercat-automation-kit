@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BBDEACB41F0DF2C6134A7D02A14813579ED820A1
+generated: 70F8AE9388E5A7A2C552E4D72FD6B4089739CDAC
 ---
 
 4 月のリリースでは、{{<product-name>}} サテライトソリューションにいくつかの重要な変更を加えたことを発表できることを嬉しく思います。Azure Key Vault の必要性を取り除き、Key Vault の値の代わりにアプリケーション ユーザー セキュリティを使用する Dataverse プラグインに置き換えました。

@@ -62,5 +62,5 @@ Full [release history](/releases)
 
 ## Feedback
 
-{{<questions name="/content/en-us/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false >}}
+{{<questions name="/content/en-us/releases/december-2022.json" completed="Thank you for providing feedback" showNavigationButtons=false />}}
 

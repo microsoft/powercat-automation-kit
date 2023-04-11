@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BBDEACB41F0DF2C6134A7D02A14813579ED820A1
+generated: 70F8AE9388E5A7A2C552E4D72FD6B4089739CDAC
 ---
 
 Für die April-Veröffentlichung der {{<product-name>}} freuen wir uns, Ihnen mitteilen zu können, dass wir einige wichtige Änderungen an unserer Satellitenlösung vorgenommen haben. Wir haben Azure Key Vault überflüssig gemacht und durch ein Dataverse-Plug-In ersetzt, das die Sicherheit von Anwendungsbenutzern anstelle von Werten aus Key Vault verwendet. 

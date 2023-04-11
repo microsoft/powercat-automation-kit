@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: BBDEACB41F0DF2C6134A7D02A14813579ED820A1
+generated: 70F8AE9388E5A7A2C552E4D72FD6B4089739CDAC
 ---
 
 W kwietniowym wydaniu {{<product-name>}} z przyjemnością ogłaszamy, że wprowadziliśmy kilka kluczowych zmian w naszym rozwiązaniu satelitarnym. Usunęliśmy potrzebę korzystania z usługi Azure Key Vault i zastąpiliśmy ją wtyczką Dataverse, która używa zabezpieczeń użytkowników aplikacji zamiast wartości z usługi Key Vault.We have removed the need for Azure Key Vault and replace it with a Dataverse Plugin that uses Application User security instead of values from Key Vault. 

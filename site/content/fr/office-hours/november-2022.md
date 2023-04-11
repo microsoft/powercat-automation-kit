@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Office Hours']
-generated: DA3C633A053D3FA4CB87C2593C1692E57A7B8D6D
+generated: 1200CD413D9DD7AA007E782222EA3A40D5FB476A
 ---
 
 Bienvenue sur la page d’accueil du kit d’automatisation pour Power Platform novembre 2022 sur les heures de bureau.

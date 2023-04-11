@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Documentation', 'Guidelines']
-generated: 424CC45B8575007C40B78F192752571766A46330
+generated: FDFC9FC8C9627B70DE64FB6ED3B4F1C8486ED5E2
 ---
 
 **地位：**{{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 进行中的工作 - 审查中

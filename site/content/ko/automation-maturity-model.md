@@ -7,7 +7,7 @@ include_footer: true
 index: false
 author: Grant-Archibald-MS
 tags: ['Maturity', 'Guidance']
-generated: 61E85E2F7CD222FF1C8F6693B4504A60C57130A3
+generated: 442032770DAFDE16A12ABE42001CDC205EC35524
 ---
 
 **상태:** {{<externalImage src="https://github.githubassets.com/images/icons/emoji/unicode/1f6a7.png" size="16x16" text="Construction Icon">}} 진행 중인 작업 - 검토 중

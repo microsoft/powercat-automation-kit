@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
+generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
 ---
 
 {{<toc>}}
@@ -87,6 +87,8 @@ generated: 43E879DEC5FDBB270795AC822AF1EC32EFFA2BC8
 - [自动化套件 - 卫星 - 入门](/zh-hans/get-started/satellite)
 
 - [自动化套件 - 设置](/zh-hans/get-started/setup)
+
+- [自动化套件 - 入门视频](/zh-hans/get-started/videos)
 
 
 ### 地点： /办公时间/

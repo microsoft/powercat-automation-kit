@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Office Hours']
-generated: 86C928F8ABDEA45B0077FE5E6199263FE7EB6B1C
+generated: AF522FB17B5D0A0A181FD9D976019B194BE1C60A
 ---
 
 Velkommen til Automation Kit for Power Platform landingssiden for kontortid i mars 2023.
