@@ -1,66 +1,71 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "workspaceName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Synapse workspace to be created."
-      }
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "workspaceName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the Synapse workspace to create."
+            }
+        },
+        "storageAccountName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the Azure Data Lake Storage account to use."
+            }
+        },
+        "sqlPoolName": {
+            "type": "string",
+            "metadata": {
+                "description": "The name of the SQL Serverless pool to create."
+            }
+        }
     },
-    "resourceGroupName": {
-      "type": "string",
-      "defaultValue": "[concat('automation-kit-byodl-synapse-', parameters('workspaceName'), '-rg')]",
-      "metadata": {
-        "description": "Name of the resource group where the Synapse workspace will be created."
-      }
+    "variables": {
+        "storageAccountResourceId": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Storage/storageAccounts/', parameters('storageAccountName'))]"
     },
-    "location": {
-      "type": "string",
-      "defaultValue": "westus",
-      "metadata": {
-        "description": "Location for all resources."
-      }
-    }
-  },
-  "resources": [
-    {
-      "type": "Microsoft.Synapse/workspaces",
-      "apiVersion": "2021-06-01-preview",
-      "name": "[parameters('workspaceName')]",
-      "location": "[parameters('location')]",
-      "properties": {},
-      "sku": {
-        "name": "default"
-      },
-      "resources": [
+    "resources": [
         {
-          "type": "dataLakeStorageGen2",
-          "name": "[concat(parameters('workspaceName'), 'dls')]",
-          "apiVersion": "2021-06-01-preview",
-          "location": "[parameters('location')]",
-          "properties": {},
-          "dependsOn": [
-            "[parameters('workspaceName')]"
-          ]
+            "type": "Microsoft.Synapse/workspaces",
+            "apiVersion": "2021-03-01-preview",
+            "name": "[parameters('workspaceName')]",
+            "location": "[resourceGroup().location]",
+            "properties": {}
         },
         {
-          "type": "sqlPools",
-          "name": "[concat(parameters('workspaceName'), 'sql')]",
-          "apiVersion": "2021-06-01-preview",
-          "location": "[parameters('location')]",
-          "properties": {},
-          "sku": {
-            "name": "DW100c"
-          },
-          "dependsOn": [
-            "[parameters('workspaceName')]"
-          ]
+            "type": "Microsoft.Synapse/workspaces/sqlPools",
+            "apiVersion": "2021-03-01-preview",
+            "name": "[concat(parameters('workspaceName'), '/', parameters('sqlPoolName'))]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Synapse/workspaces', parameters('workspaceName'))]"
+            ],
+            "properties": {
+                "sku": {
+                    "name": "SqlPoolLicenseIncluded",
+                    "tier": "Standard"
+                },
+                "autoPause": {
+                    "enabled": true,
+                    "delayInMinutes": 15
+                },
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "536870912000",
+                "resourceId": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Sql/servers/', parameters('workspaceName'), '-srv')]"
+            }
+        },
+        {
+            "type": "Microsoft.Synapse/workspaces/dataLakeStorageAccounts",
+            "apiVersion": "2021-03-01-preview",
+            "name": "[concat(parameters('workspaceName'), '/', parameters('storageAccountName'))]",
+            "location": "[resourceGroup().location]",
+            "dependsOn": [
+                "[resourceId('Microsoft.Synapse/workspaces', parameters('workspaceName'))]",
+                "[variables('storageAccountResourceId')]"
+            ],
+            "properties": {
+                "storageAccountId": "[variables('storageAccountResourceId')]"
+            }
         }
-      ],
-      "dependsOn": [
-        "[resourceId('Microsoft.Resources/resourceGroups/', parameters('resourceGroupName'))]"
-      ]
-    }
-  ]
+    ]
 }
