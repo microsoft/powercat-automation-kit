@@ -10,7 +10,7 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 
 - **Synapse workspace:** You must have a Synapse workspace and the Synapse Administrator role access within the Synapse Studio. The Synapse workspace must be in the same region as your Azure Data Lake Storage Gen2 account with allowAll IP addresses access rule. The storage account must be added as a linked service within the Synapse Studio. 
 
-- To create a Synapse workspace, click here **Creating a Synapse workspace** ().
+- To create a Synapse workspace, [click here](https://portal.azure.com/#create/Microsoft.Synapse) **Creating a Synapse workspace** .
 - To enbale restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage. [click here](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/azure-synapse-link-msi) to follow the instructions.
 
 -Check here [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake), 
@@ -49,8 +49,15 @@ Reccomnedations :
 
 - click here to find the simplified version of custom sql view which you can create in Azure synapse lake DB under a new schema to access it on Power BI, Custom view has been much simplified for better performance to load larger datasets.These view will serve as straightforward, clean sources of data that Power BI connects
 
-- click here to ** get the custom sql view script for desktop flow activities. **
+- [click here](https://github.com/microsoft/powercat-automation-kit/blob/c192589e5dd795ab5ff66ac2f8d8b9304d55ddfb/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Power%20BI/Scripts/flowsessionview.sql) to ** get the custom sql view script for desktop flow activities. **
 
-![image](https://user-images.githubusercontent.com/29349597/232244757-49b8d5ee-0e6c-458d-af8f-25ecc2b4b147.png)
+![image](https://user-images.githubusercontent.com/29349597/232245432-930bc4bc-a895-4b35-8ad9-d39a2b7c87a0.png)
+
+Toc onnect Synapse with Power BI use the Serverless SQL endpoint and start reporting on your Dataverse data using Power BI. 
+![image](https://user-images.githubusercontent.com/29349597/232245861-35c52a34-a89a-46c1-89bf-4bc415498505.png)
+Grab the Serverless SQL endpoint by going to Azure portal and navigating to your Azure Synapse Analytics workspace.
+![image](https://user-images.githubusercontent.com/29349597/232245894-dc109c1d-af37-4ff6-b75b-1e72833bc7d6.png)
 
 
+
+Follow the Power BI best practices and guideance for Power platform [here](https://learn.microsoft.com/en-us/power-bi/guidance/powerbi-modeling-guidance-for-power-platform) 
