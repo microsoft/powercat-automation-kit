@@ -11,10 +11,9 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 - **Synapse workspace:** You must have a Synapse workspace and the Synapse Administrator role access within the Synapse Studio. The Synapse workspace must be in the same region as your Azure Data Lake Storage Gen2 account with allowAll IP addresses access rule. The storage account must be added as a linked service within the Synapse Studio. 
 
 - To create a Synapse workspace, [click here](https://portal.azure.com/#create/Microsoft.Synapse) **Creating a Synapse workspace** .
-- To enbale restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage. [click here](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/azure-synapse-link-msi) to follow the instructions.
+- To enbale restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage. [click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/readme.md) to follow the instructions.
 
 -Check here [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake), 
-Azure Synapse Link for Dataverse uses a log-based change tracking mechanism to replicate the data from Dataverse to Azure Synapse Analytics in near real-time. This replication process is fully managed by Microsoft and does not require any ETL jobs or pipelines to be created.
 
 # Getting Started
 
