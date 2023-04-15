@@ -31,7 +31,7 @@ Azure Data Lake Storage provides layered security, including the ability to limi
 
 ![image](https://user-images.githubusercontent.com/29349597/232248437-4d7b95e0-85c0-4c99-ba70-3f80c43ccfe4.png)
 
-###Or while creating a new Synapse workspace 
+### Or while creating a new Synapse workspace 
 ![image](https://user-images.githubusercontent.com/29349597/232248435-fdeb4a21-462f-4256-8ab9-37e24618a693.png)
 
 
