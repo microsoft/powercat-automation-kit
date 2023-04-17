@@ -3,12 +3,12 @@ Azure Data Lake Storage provides layered security, including the ability to limi
 
 # Getting strated
 
-- Create enterprise policy &rarr; [Click here] (https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/CreateIdentityEnterprisePolicy.ps1) to get the powershell script
-- Grant reader access to the enterprise policy &rarr; Click here to run the powershell script
+- Create enterprise policy &rarr; [Click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/CreateIdentityEnterprisePolicy.ps1) 
+- Grant reader access to the enterprise policy &rarr; [Click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/Grant-ReaderAccess.ps1) 
 - Connect enterprise policy to Dataverse environment
   - Obtain the Dataverse environment ID.
   - Sign into the Power Platform admin center.Select Environments, and then open your environment. In the Details section, copy the Environment ID.
-  - To link to the Dataverse environment, run this PowerShell script: ./ NewIdentity.ps1
+  - To link to the Dataverse environment, run this PowerShell script: ./ NewIdentity.ps1 [click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/NewIdentity.ps1)
 ![image](https://user-images.githubusercontent.com/29349597/232248283-27c05d8e-4553-4771-800f-60754f3a2317.png)
 
 ### Configure network access to the Azure Data Lake Storage Gen2
