@@ -3,7 +3,7 @@ Azure Data Lake Storage provides layered security, including the ability to limi
 
 # Getting strated
 
-- Create enterprise policy &rarr; Click here to run the powershell script
+- Create enterprise policy &rarr; [Click here] (https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/CreateIdentityEnterprisePolicy.ps1) to get the powershell script
 - Grant reader access to the enterprise policy &rarr; Click here to run the powershell script
 - Connect enterprise policy to Dataverse environment
   - Obtain the Dataverse environment ID.
