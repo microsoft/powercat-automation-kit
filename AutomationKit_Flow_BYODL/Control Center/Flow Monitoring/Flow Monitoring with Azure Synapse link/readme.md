@@ -61,7 +61,7 @@ Feed your Dataverse data to Power BI using Direct Query or Import mode via Azure
 
 <img src="https://user-images.githubusercontent.com/29349597/232245432-930bc4bc-a895-4b35-8ad9-d39a2b7c87a0.png" width="500"/>
 
-Toc onnect Synapse with Power BI use the Serverless SQL endpoint and start reporting on your Dataverse data using Power BI. 
+To connect Synapse with Power BI use the Serverless SQL endpoint and start reporting on your Dataverse data using Power BI. 
 <img src="https://user-images.githubusercontent.com/29349597/232245861-35c52a34-a89a-46c1-89bf-4bc415498505.png" width="500" />
 
 Grab the Serverless SQL endpoint by going to Azure portal and navigating to your Azure Synapse Analytics workspace.
