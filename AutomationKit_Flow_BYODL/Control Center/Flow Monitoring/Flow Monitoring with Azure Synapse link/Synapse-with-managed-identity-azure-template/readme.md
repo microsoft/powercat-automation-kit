@@ -9,7 +9,7 @@ Azure Data Lake Storage provides layered security, including the ability to limi
   - Obtain the Dataverse environment ID.
   - Sign into the Power Platform admin center.Select Environments, and then open your environment. In the Details section, copy the Environment ID.
   - To link to the Dataverse environment, run this PowerShell script: ./ NewIdentity.ps1 [click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/NewIdentity.ps1)
-![image](https://user-images.githubusercontent.com/29349597/232248283-27c05d8e-4553-4771-800f-60754f3a2317.png)
+<img src="https://user-images.githubusercontent.com/29349597/232248283-27c05d8e-4553-4771-800f-60754f3a2317.png" width="500" />
 
 ### Configure network access to the Azure Data Lake Storage Gen2
 
@@ -18,7 +18,7 @@ Azure Data Lake Storage provides layered security, including the ability to limi
 - Enabled from selected virtual networks and IP addresses.
 - Under Resource instances, select Allow Azure services on the trusted services list to access this storage account
 - Select Save.
-![image](https://user-images.githubusercontent.com/29349597/232248314-a6e3a007-c76c-420e-8eef-aaa65de924f6.png)
+<img src="https://user-images.githubusercontent.com/29349597/232248314-a6e3a007-c76c-420e-8eef-aaa65de924f6.png" width="500" />
 
 ### Configure network access to the Azure Synapse Workspace
 - Open the Azure Synapse workspace connected to your Azure Synapse Link for Dataverse profile.
@@ -29,10 +29,10 @@ Azure Data Lake Storage provides layered security, including the ability to limi
     - Add a new IP firewall rule, give it a name, Start IP, and End IP.
     - Select Save when done. For more information: Azure Synapse Analytics IP firewall rules
 
-![image](https://user-images.githubusercontent.com/29349597/232248437-4d7b95e0-85c0-4c99-ba70-3f80c43ccfe4.png)
+<img src="https://user-images.githubusercontent.com/29349597/232248437-4d7b95e0-85c0-4c99-ba70-3f80c43ccfe4.png" width="500" />
 
 ### Or while creating a new Synapse workspace 
-![image](https://user-images.githubusercontent.com/29349597/232248435-fdeb4a21-462f-4256-8ab9-37e24618a693.png)
+<img src="https://user-images.githubusercontent.com/29349597/232248435-fdeb4a21-462f-4256-8ab9-37e24618a693.png" width="500" />
 
 
 
