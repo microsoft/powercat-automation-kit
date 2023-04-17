@@ -14,10 +14,10 @@ tags: ['Get Started', 'Install']
 
 {{<presentation slides="1,2">}}
 
-{{<slide id="slide1" cdnVideo="MainInstall.mp4" description="Walkthrough video of installing the Automation Kit main solution" >}}
+{{<slide id="slide1" cdnVideo="MainInstall.mp4?v=1" cdnVtt="MainInstall.vtt" description="Walkthrough video of installing the Automation Kit main solution" >}}
 Walkthrough video of installing the Automation Kit main solution
 {{</slide>}}
 
-{{<slide id="slide2" cdnVideo="SatelliteInstall.mp4" description="Walkthrough video of installing the Automation Kit satellite solution" >}}
+{{<slide id="slide2" cdnVideo="SatelliteInstall.mp4?v=1" cdnVtt="SatelliteInstall.vtt" description="Walkthrough video of installing the Automation Kit satellite solution" >}}
 Walkthrough video of installing the Automation Kit satellite solution
 {{</slide>}}

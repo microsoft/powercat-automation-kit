@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Get Started', 'Install']
-generated: 8462642F8EDE4CF0B7D177F6512D5D71E09DE91A
+generated: B6E0A8D56AC9ABF4A4E56281D6134575FB79F1FA
 ---
 
 {{<slideStyles>}}
@@ -15,10 +15,10 @@ generated: 8462642F8EDE4CF0B7D177F6512D5D71E09DE91A
 
 {{<presentation slides="1,2">}}
 
-{{<slide id="slide1" cdnVideo="MainInstall.mp4" description="Walkthrough video of installing the Automation Kit main solution" >}}
+{{<slide id="slide1" cdnVideo="MainInstall.mp4?v=1" cdnVtt="MainInstall.vtt" description="Walkthrough video of installing the Automation Kit main solution" >}}
 Walkthrough video of installing the Automation Kit main solution
 {{</slide>}}
 
-{{<slide id="slide2" cdnVideo="SatelliteInstall.mp4" description="Walkthrough video of installing the Automation Kit satellite solution" >}}
+{{<slide id="slide2" cdnVideo="SatelliteInstall.mp4?v=1" cdnVtt="SatelliteInstall.vtt" description="Walkthrough video of installing the Automation Kit satellite solution" >}}
 Walkthrough video of installing the Automation Kit satellite solution
 {{</slide>}}
