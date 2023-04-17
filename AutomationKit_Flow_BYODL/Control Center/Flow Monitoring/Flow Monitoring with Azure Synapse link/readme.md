@@ -6,9 +6,10 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 
 | Service                   | Requirements                                                                                                                                                                                                                      |
 |---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dataverse                 | Must have the Dataverse system administrator security role. Tables you want to export via Synapse Link must have the Track changes property enabled.                                                                            |
-| Azure Data Lake Storage Gen2 | Must have an Azure Data Lake Storage Gen2 account. Must have Owner and Storage Blob Data Contributor role access.<br>- Storage account must enable Hierarchical namespace and public network access for both initial setup and delta sync. Allow storage account key access is required only for the initial setup. |
-| Synapse workspace         | Must have a Synapse workspace. Must have the Synapse Administrator role access within the Synapse Studio.The Synapse workspace must be in the same region as your Azure Data Lake Storage Gen2 account with allowAll IP addresses access rule. The storage account must be added as a linked service within the Synapse Studio. |
+| Dataverse                 | *Must have the Dataverse system administrator security role.<br>* Tables you want to export via Synapse Link must have the Track changes property enabled.                                                                            |
+| Azure Data Lake Storage Gen2 | *Must have an Azure Data Lake Storage Gen2 account.<br>* Must have Owner and Storage Blob Data Contributor role access.<br>* Storage account must enable Hierarchical namespace.<br>* Allow storage account key access is required only for the initial setup. |
+| Synapse workspace         | *Must have a Synapse workspace.<br>* Must have the Synapse Administrator role access within the Synapse Studio.<br>* The Synapse workspace must be in the same region as your Azure Data Lake Storage Gen2 account.<br>* The storage account must be added as a linked service within the Synapse Studio. |
+
 
 
 # Getting Started
@@ -17,7 +18,8 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 Dataverse includes the ability to synchronize tables to Azure Data Lake Storage (ADLS) and then connect to that data through an Azure Synapse workspace. With minimal effort, you can set up Azure Synapse Link to populate Dataverse data into Azure Synapse and enable data teams to discover deeper insights.
 
 Azure Synapse Link enables a continuous replication of the data and metadata from Dataverse into the data lake. It also provides a built-in serverless SQL pool as a convenient data source for Power BI queries.
-![image](https://user-images.githubusercontent.com/29349597/232242259-599bc503-983b-4a0b-ac60-40b97b01430a.png)
+
+<img src="https://user-images.githubusercontent.com/29349597/232242259-599bc503-983b-4a0b-ac60-40b97b01430a.png" width="500"/>
 
 ## Create an Azure Synapse Link for Dataverse with your Azure Synapse Workspace
 
@@ -35,7 +37,7 @@ https://user-images.githubusercontent.com/29349597/232242364-6e031cf9-7572-452d-
      * When you create the link, Azure Synapse Link for Dataverse gets details about the currently linked enterprise policy under the Dataverse environment then caches the identity client secret URL to connect to Azure.
 
         - Sign into Power Apps and select your environment.
-        - In your web browsers address bar, append ?athena.managedIdentity=true to the web address that ends with exporttodatalake.
+        - In your web browsers address bar, **append ?athena.managedIdentity=true to the web address that ends with exporttodatalake**.
         - On the left navigation pane, select Azure Synapse Link, and then select + New link. If the item isn’t in the left navigation pane, select …More and then select the item you want.
        - Select Select Enterprise Policy with Managed Service Identity, and then select Next.
        - Add the tables you want to export, and then select Save.
@@ -53,18 +55,18 @@ As soon as you launch your Azure Synapse workspace, you can start processing you
 
 Feed your Dataverse data to Power BI using Direct Query or Import mode via Azure Synapse Analytics connector in Get Data in Power BI. 
 
-Reccomnedations :
+**Reccomnedations :**
 
-- click here to find the simplified version of custom sql view which you can create in Azure synapse lake DB under a new schema to access it on Power BI, Custom view has been much simplified for better performance to load larger datasets.These view will serve as straightforward, clean sources of data that Power BI connects
+- [click here](https://github.com/microsoft/powercat-automation-kit/blob/c192589e5dd795ab5ff66ac2f8d8b9304d55ddfb/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Power%20BI/Scripts/flowsessionview.sql) to find the simplified version of custom sql view which you can create in Azure synapse lake DB under a new schema to access it on Power BI, Custom view has been much simplified for better performance to load larger datasets.These view will serve as straightforward, clean sources of data that Power BI connects
 
-- [click here](https://github.com/microsoft/powercat-automation-kit/blob/c192589e5dd795ab5ff66ac2f8d8b9304d55ddfb/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Power%20BI/Scripts/flowsessionview.sql) to ** get the custom sql view script for desktop flow activities. **
-
-![image](https://user-images.githubusercontent.com/29349597/232245432-930bc4bc-a895-4b35-8ad9-d39a2b7c87a0.png)
+<img src="https://user-images.githubusercontent.com/29349597/232245432-930bc4bc-a895-4b35-8ad9-d39a2b7c87a0.png" width="500"/>
 
 Toc onnect Synapse with Power BI use the Serverless SQL endpoint and start reporting on your Dataverse data using Power BI. 
-![image](https://user-images.githubusercontent.com/29349597/232245861-35c52a34-a89a-46c1-89bf-4bc415498505.png)
+<img src="https://user-images.githubusercontent.com/29349597/232245861-35c52a34-a89a-46c1-89bf-4bc415498505.png" width="500" />
+
 Grab the Serverless SQL endpoint by going to Azure portal and navigating to your Azure Synapse Analytics workspace.
-![image](https://user-images.githubusercontent.com/29349597/232245894-dc109c1d-af37-4ff6-b75b-1e72833bc7d6.png)
+
+<img src="https://user-images.githubusercontent.com/29349597/232245894-dc109c1d-af37-4ff6-b75b-1e72833bc7d6.png" width="500" />
 
 
 
