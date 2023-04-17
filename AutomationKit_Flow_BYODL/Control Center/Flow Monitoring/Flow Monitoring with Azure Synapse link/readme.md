@@ -4,30 +4,16 @@ Azure Synapse Link for Dataverse enables real-time analytics over Dataverse data
 ## Prerequisites
 Before you can use Azure Synapse Link for Dataverse, you need to have the following:
 
-- **Dataverse:** You must have the Dataverse system administrator security role. Additionally, tables you want to export via Synapse Link must have the Track changes property enabled. 
+| Service                   | Requirements                                                                                                                                                                                                                      |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Dataverse                 | Must have the Dataverse system administrator security role. Tables you want to export via Synapse Link must have the Track changes property enabled.                                                                            |
+| Azure Data Lake Storage Gen2 | Must have an Azure Data Lake Storage Gen2 account. Must have Owner and Storage Blob Data Contributor role access.<br>- Storage account must enable Hierarchical namespace and public network access for both initial setup and delta sync. Allow storage account key access is required only for the initial setup. |
+| Synapse workspace         | Must have a Synapse workspace. Must have the Synapse Administrator role access within the Synapse Studio.The Synapse workspace must be in the same region as your Azure Data Lake Storage Gen2 account with allowAll IP addresses access rule. The storage account must be added as a linked service within the Synapse Studio. |
 
-- **Azure Data Lake Storage Gen2:** You must have an Azure Data Lake Storage Gen2 account and Owner and Storage Blob Data Contributor role access. Your storage account must enable Hierarchical namespace and public network access for both initial setup and delta sync. Allow storage account key access is required only for the initial setup.
-
-- **Synapse workspace:** You must have a Synapse workspace and the Synapse Administrator role access within the Synapse Studio. The Synapse workspace must be in the same region as your Azure Data Lake Storage Gen2 account with allowAll IP addresses access rule. The storage account must be added as a linked service within the Synapse Studio. 
-
-- To create a Synapse workspace, [click here](https://portal.azure.com/#create/Microsoft.Synapse) **Creating a Synapse workspace** .
--  Create **Azure Synapse Link for Dataverse with managed identity.**
-
-- To enbale restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage. [click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/readme.md) to follow the instructions.
-
-When you create the link, Azure Synapse Link for Dataverse gets details about the currently linked enterprise policy under the Dataverse environment then caches the identity client secret URL to connect to Azure.
-
-- Sign into Power Apps and select your environment.
-- In your web browsers address bar, append ?athena.managedIdentity=true to the web address that ends with exporttodatalake.
-- On the left navigation pane, select Azure Synapse Link, and then select + New link. If the item isn’t in the left navigation pane, select …More and then select the item you want.
-- Select Select Enterprise Policy with Managed Service Identity, and then select Next.
-- Add the tables you want to export, and then select Save.
-
--Check here [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake), 
 
 # Getting Started
 
-## How to land desktop flow data in Azure Synapse
+## Land desktop flow data in Azure Synapse
 Dataverse includes the ability to synchronize tables to Azure Data Lake Storage (ADLS) and then connect to that data through an Azure Synapse workspace. With minimal effort, you can set up Azure Synapse Link to populate Dataverse data into Azure Synapse and enable data teams to discover deeper insights.
 
 Azure Synapse Link enables a continuous replication of the data and metadata from Dataverse into the data lake. It also provides a built-in serverless SQL pool as a convenient data source for Power BI queries.
@@ -42,6 +28,19 @@ Azure Synapse Link enables a continuous replication of the data and metadata fro
 - Select the Subscription, Resource group, Workspace name, and Storage account. Ensure that the Synapse workspace and storage account meet the requirements specified    in the Prerequisites section. Select Next.
 
 https://user-images.githubusercontent.com/29349597/232242364-6e031cf9-7572-452d-aaeb-c3deed7556c1.mp4
+
+- **To create a Synapse workspace,** [click here](https://portal.azure.com/#create/Microsoft.Synapse) .
+- **To enbale restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage.** [click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/readme.md) to follow the instructions.
+
+     * When you create the link, Azure Synapse Link for Dataverse gets details about the currently linked enterprise policy under the Dataverse environment then caches the identity client secret URL to connect to Azure.
+
+        - Sign into Power Apps and select your environment.
+        - In your web browsers address bar, append ?athena.managedIdentity=true to the web address that ends with exporttodatalake.
+        - On the left navigation pane, select Azure Synapse Link, and then select + New link. If the item isn’t in the left navigation pane, select …More and then select the item you want.
+       - Select Select Enterprise Policy with Managed Service Identity, and then select Next.
+       - Add the tables you want to export, and then select Save.
+
+- Check here [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake), 
 
 # Monitoring 
 
