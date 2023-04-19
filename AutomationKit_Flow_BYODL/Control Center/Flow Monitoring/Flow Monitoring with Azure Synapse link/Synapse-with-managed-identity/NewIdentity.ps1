@@ -1,5 +1,5 @@
 ﻿# Load thescript
-. "$PSScriptRoot\..\Common\EnvironmentEnterprisePolicyOperations.ps1"
+. "$PSScriptRoot\Common\EnvironmentEnterprisePolicyOperations.ps1"
 
 function NewIdentity 
 {
