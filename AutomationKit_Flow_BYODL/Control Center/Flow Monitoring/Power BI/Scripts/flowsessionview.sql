@@ -9,7 +9,7 @@ GO
 CREATE VIEW reports.flowsessionView AS 
 
 -- Select data from the "flowsession" table and join it with data from the "flowmachinegroup", "flowmachine", and "StatusMetadata" tables
-SELECT top 100
+SELECT 
   [flowsessionid], 
   [$flowsession].[createdon], 
   [$flowsession].[statuscode], 
