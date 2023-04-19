@@ -1,5 +1,5 @@
 ﻿# Load the environment script
-. "$PSScriptRoot\..\Common\EnterprisePolicyOperations.ps1"
+. "$PSScriptRoot\Common\EnterprisePolicyOperations.ps1"
 
 function CreateIdentityEnterprisePolicy
 {

@@ -4,7 +4,23 @@ Azure Data Lake Storage provides layered security, including the ability to limi
 # Getting strated
 
 - Create enterprise policy &rarr; [Click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/CreateIdentityEnterprisePolicy.ps1) 
-- Grant reader access to the enterprise policy &rarr; [Click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/Grant-ReaderAccess.ps1) 
+- Grant reader access to the enterprise policy 
+  - Obtain the Power Platform admin user’s ObjectID. Replace "user@example.com" with the actual user's email address. Run below command in CLI or PowerShell to get the objectid.
+  ```
+      Connect-AzAccount
+      $user = Get-AzADUser -UserPrincipalName user@example.com
+      $userId = $user.Id
+      Write-Host "User ObjectID: $userId"
+```
+ - Obtain the enterprise policies ID:
+    - Go to the Azure Resource Graph Explorer.
+    - Run this query: resources | where type == 'microsoft.powerplatform/enterprisepolicies' Run query from Azure Resource Graph Explorer
+    - Scroll to the right of the results page and select the See details link.
+    - On the Details page, copy the ID.
+- Open Azure CLI and run the following command, replacing the <objId> with the user’s ObjectID and the <EP Resource Id> with the enterprise policy ID.
+``` 
+New-AzRoleAssignment -ObjectId <objId> -RoleDefinitionName Reader -Scope <EP Resource Id>
+```
 - Connect enterprise policy to Dataverse environment
   - Obtain the Dataverse environment ID.
   - Sign into the Power Platform admin center.Select Environments, and then open your environment. In the Details section, copy the Environment ID.
