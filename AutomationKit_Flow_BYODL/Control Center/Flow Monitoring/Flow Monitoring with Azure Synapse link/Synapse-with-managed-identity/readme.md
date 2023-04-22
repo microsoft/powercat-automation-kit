@@ -11,20 +11,22 @@ Azure Data Lake Storage provides layered security, including the ability to limi
       $user = Get-AzADUser -UserPrincipalName user@example.com
       $userId = $user.Id
       Write-Host "User ObjectID: $userId"
-```
+
  - Obtain the enterprise policies ID:
     - Go to the Azure Resource Graph Explorer.
     - Run this query: resources | where type == 'microsoft.powerplatform/enterprisepolicies' Run query from Azure Resource Graph Explorer
     - Scroll to the right of the results page and select the See details link.
     - On the Details page, copy the ID.
 - Open Azure CLI and run the following command, replacing the <objId> with the user’s ObjectID and the <EP Resource Id> with the enterprise policy ID.
-``` 
+
+
 New-AzRoleAssignment -ObjectId <objId> -RoleDefinitionName Reader -Scope <EP Resource Id>
-```
+
 - Connect enterprise policy to Dataverse environment
   - Obtain the Dataverse environment ID.
   - Sign into the Power Platform admin center.Select Environments, and then open your environment. In the Details section, copy the Environment ID.
   - To link to the Dataverse environment, run this PowerShell script: ./ NewIdentity.ps1 [click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/NewIdentity.ps1)
+  
 <img src="https://user-images.githubusercontent.com/29349597/232248283-27c05d8e-4553-4771-800f-60754f3a2317.png" width="500" />
 
 ### Configure network access to the Azure Data Lake Storage Gen2
@@ -34,6 +36,7 @@ New-AzRoleAssignment -ObjectId <objId> -RoleDefinitionName Reader -Scope <EP Res
 - Enabled from selected virtual networks and IP addresses.
 - Under Resource instances, select Allow Azure services on the trusted services list to access this storage account
 - Select Save.
+
 <img src="https://user-images.githubusercontent.com/29349597/232248314-a6e3a007-c76c-420e-8eef-aaa65de924f6.png" width="500" />
 
 ### Configure network access to the Azure Synapse Workspace
