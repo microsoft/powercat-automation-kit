@@ -31,7 +31,7 @@ Azure Synapse Link enables a continuous replication of the data and metadata fro
     - Select the Connect to your Azure Synapse workspace option.
     - Select the Subscription, Resource group, Workspace name, and Storage account. Ensure that the Synapse workspace and storage account meet the requirements specified in the Prerequisites section. Select Next.
 
-- **To enbale restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage.** [click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity-azure-template/readme.md) to follow the instructions.
+- **To enbale restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage.** [click here](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Flow%20Monitoring%20with%20Azure%20Synapse%20link/Synapse-with-managed-identity/readme.md) to follow the instructions.
 
      * When you create the link, Azure Synapse Link for Dataverse gets details about the currently linked enterprise policy under the Dataverse environment then caches the identity client secret URL to connect to Azure.
         - Sign into Power Apps and select your environment.
