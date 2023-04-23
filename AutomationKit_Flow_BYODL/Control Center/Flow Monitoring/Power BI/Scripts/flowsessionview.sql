@@ -1,10 +1,6 @@
 -- Create a new schema named "reports"
 CREATE SCHEMA reports
 
--- Drop the view if it already exists
-DROP VIEW IF EXISTS reports.flowsessionview;
-GO
-
 -- Create a new view named "flowsessionView" within the "reports" schema
 CREATE VIEW reports.flowsessionView AS 
 
