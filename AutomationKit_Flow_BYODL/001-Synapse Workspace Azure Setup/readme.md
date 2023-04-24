@@ -1,18 +1,13 @@
-# Azure Synapse Link for Deskflow activities
-Azure Synapse Link for Dataverse enables real-time analytics over Dataverse data with Azure Synapse Analytics. It provides a seamless and simplified way to analyze large volumes of data in Dataverse, without the need to extract, transform, and load (ETL) data into a separate data warehouse.
+# Deploy Azure Synapse Workspace in Your Azure Environment
 
-## Prerequisites
-Before you can use Azure Synapse Link for Dataverse, you need to have the following:
+## Pre-requisites to Deploy Synapse
 
-| Service                   | Requirements                                                                                                                                                                                                                      |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dataverse                 | *Must have the Dataverse system administrator security role.<br>* Tables you want to export via Synapse Link must have the Track changes property enabled.                                                                            |
-| Azure Data Lake Storage Gen2 | *Must have an Azure Data Lake Storage Gen2 account.<br>* Must have Owner and Storage Blob Data Contributor role access.<br>* Storage account must enable Hierarchical namespace.<br>* Allow storage account key access is required only for the initial setup. |
-| Synapse workspace         | *Must have a Synapse workspace.<br>* Must have the Synapse Administrator role access within the Synapse Studio.<br>* The Synapse workspace must be in the same region as your Azure Data Lake Storage Gen2 account.<br>* The storage account must be added as a linked service within the Synapse Studio. |
+- You must have an active azure subscription
 
-# Getting Started
+## Deployment Steps
+Please follow the below steps to successfully deploy a Synapse workspace and its artifacts on your Azure subscription
 
-## Create an Azure Synapse Link for Dataverse with your Azure Synapse Workspace
+###     [![Deploy To Azure](/Images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fpowercat-automation-kit%2FFlow-byodl%2FAutomationKit_Flow_BYODL%2FARMTemplate%2Fazuredeploy.json)
 
 - [Click here](https://portal.azure.com/#create/Microsoft.Synapse) **To create a Synapse workspace** .
 
