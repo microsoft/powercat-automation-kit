@@ -11,6 +11,6 @@ Azure Synapse Link enables a continuous replication of the data and metadata fro
 
 ## Contents
 
-- [001- Setup Azure Synapse workspace]()
+- [001- Setup Azure Synapse workspace](https://github.com/microsoft/powercat-automation-kit/blob/571795ead46721fabaa562a33ef09ffb680e0cd7/AutomationKit_Flow_BYODL/001-Synapse%20Workspace%20Azure%20Setup/readme.md)
 - [002- Setup Synapse link in Power Apps]()
 - [003- Setup Power BI Dashboard]()
