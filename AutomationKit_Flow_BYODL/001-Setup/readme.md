@@ -10,20 +10,11 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 | Azure Data Lake Storage Gen2 | *Must have an Azure Data Lake Storage Gen2 account.<br>* Must have Owner and Storage Blob Data Contributor role access.<br>* Storage account must enable Hierarchical namespace.<br>* Allow storage account key access is required only for the initial setup. |
 | Synapse workspace         | *Must have a Synapse workspace.<br>* Must have the Synapse Administrator role access within the Synapse Studio.<br>* The Synapse workspace must be in the same region as your Azure Data Lake Storage Gen2 account.<br>* The storage account must be added as a linked service within the Synapse Studio. |
 
-
-
 # Getting Started
-
-## Land desktop flow data in Azure Synapse
-Dataverse includes the ability to synchronize tables to Azure Data Lake Storage (ADLS) and then connect to that data through an Azure Synapse workspace. With minimal effort, you can set up Azure Synapse Link to populate Dataverse data into Azure Synapse and enable data teams to discover deeper insights.
-
-Azure Synapse Link enables a continuous replication of the data and metadata from Dataverse into the data lake. It also provides a built-in serverless SQL pool as a convenient data source for Power BI queries.
-
-<img src="https://user-images.githubusercontent.com/29349597/232242259-599bc503-983b-4a0b-ac60-40b97b01430a.png" width="500"/>
 
 ## Create an Azure Synapse Link for Dataverse with your Azure Synapse Workspace
 
-- **To create a Synapse workspace,** [click here](https://portal.azure.com/#create/Microsoft.Synapse).
+- [Click here](https://portal.azure.com/#create/Microsoft.Synapse) **To create a Synapse workspace** .
 
     - Sign in to Power Apps and select your preferred environment.
     - On the left navigation pane, **select Azure Synapse Link**. If the item isn’t in the left navigation pane, **select …More** and then select the item you want.
