@@ -1,6 +1,6 @@
 ## How to use Power BI report
 
-- Downlaod the Power BI report.
+- Downlaod the [Power BI report](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/003-%20Power%20BI%20Dashboard%20Setup/Automation-kit-desktopflow-activity.pbix).
 Feed your Dataverse data to Power BI using Direct Query or Import mode via Azure Synapse Analytics connector in Get Data in Power BI. 
 
 **Reccomnedations :**
