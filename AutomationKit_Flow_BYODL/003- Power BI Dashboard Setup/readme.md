@@ -6,8 +6,6 @@
 
 Feed your Dataverse data to Power BI using Direct Query or Import mode via Azure Synapse Analytics connector in Get Data in Power BI. 
 
-<img src="https://user-images.githubusercontent.com/29349597/232245432-930bc4bc-a895-4b35-8ad9-d39a2b7c87a0.png" width="800"/>
-
 To connect Synapse with Power BI use the Serverless SQL endpoint and start reporting on your Dataverse data using Power BI. 
 <img src="https://user-images.githubusercontent.com/29349597/232245861-35c52a34-a89a-46c1-89bf-4bc415498505.png" width="800" />
 
@@ -39,4 +37,5 @@ By following these best practices, you can improve the performance and reliabili
 
 - [Click here](https://github.com/microsoft/powercat-automation-kit/blob/c192589e5dd795ab5ff66ac2f8d8b9304d55ddfb/AutomationKit_Flow_BYODL/Control%20Center/Flow%20Monitoring/Power%20BI/Scripts/flowsessionview.sql) to find the simplified version of custom sql view which you can create in Azure synapse lake DB under a new schema to access it on Power BI, Custom view has been much simplified for better performance to load larger datasets. This view will serve as straightforward, clean sources of data that Power BI connects.
 
+<img src="https://user-images.githubusercontent.com/29349597/232245432-930bc4bc-a895-4b35-8ad9-d39a2b7c87a0.png" width="800"/>
 
