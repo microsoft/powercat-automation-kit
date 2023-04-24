@@ -2,7 +2,7 @@
 
 - Downlaod the [Power BI report](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/003-%20Power%20BI%20Dashboard%20Setup/Automation-kit-desktopflow-activity.pbix).
 
-<img src="https://user-images.githubusercontent.com/29349597/233945148-e2697341-40d5-4678-964e-7e3bf48c8531.png" width=800" />
+<img src="https://user-images.githubusercontent.com/29349597/233945148-e2697341-40d5-4678-964e-7e3bf48c8531.png" width="800" />
 
 Feed your Dataverse data to Power BI using Direct Query or Import mode via Azure Synapse Analytics connector in Get Data in Power BI. 
 
