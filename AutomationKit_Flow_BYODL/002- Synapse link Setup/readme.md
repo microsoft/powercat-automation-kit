@@ -31,6 +31,7 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 
 Check here [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake).
 
-https://user-images.githubusercontent.com/29349597/232242364-6e031cf9-7572-452d-aaeb-c3deed7556c1.mp4
+<video src="https://github.com/microsoft/powercat-automation-kit/blob/4920beb07c183f42fb4c48b12ebfa41e5aa14745/AutomationKit_Flow_BYODL/Images/Flowsession.mp4">
+</video>
 
 #### Congratulations, now you have completed setup of synapse link in your dataverse envrionment !! As a last step, you need to configure "[Desktop flow activities monitoring](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/003-%20Power%20BI%20Dashboard%20Setup/readme.md)"
