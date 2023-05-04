@@ -1,5 +1,5 @@
 testSuite:
-  testSuiteName: Automation Kit - COE Main - Simple
+  testSuiteName: Automation Kit - COE Main - Wait
   testSuiteDescription: Simple
   persona: User1
   appLogicalName: autocoe_automationproject_f233b
@@ -9,13 +9,14 @@ testSuite:
     - testCaseName: Automation Kit - Automation Project - Simple
       testCaseDescription: Simple test
       testSteps: |
-        = Assert(True)
+        = PlaywrightAction(":has-text('AUTOMATION PROJECT')","wait");
 
 testSettings:
   headless: true
   locale: "en-US"
   recordVideo: true
   timeout: 120000
+  enableExtensionModules: true
   browserConfigurations:
     - browser: Firefox
 
