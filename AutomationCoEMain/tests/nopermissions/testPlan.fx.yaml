@@ -1,0 +1,43 @@
+testSuite:
+  testSuiteName: Automation Kit - COE Main
+  testSuiteDescription: Network Request mocks
+  persona: User1
+  appLogicalName: autocoe_automationproject_f233b
+  onTestSuiteComplete: Screenshot("automationkit_onTestSuiteComplete.png");
+  networkRequestMocks:
+    - requestURL: /invoke
+      isExtension: true
+      method: POST
+      headers:
+        x-ms-request-method: GET
+        x-ms-request-url: /apim/office365users/.*/users/me
+      responseDataFile: ./usersResponse.json
+    - requestURL: /api/data/v9.0/$batch
+      isExtension: true
+      extensionProperties:
+        batchRequestUrl: roles
+      method: POST
+      responseDataFile: ./batchResponseAdminResponse.txt
+
+  testCases:
+    - testCaseName: Automation Kit - Automation Project
+      testCaseDescription: Mock Network Requests - Reload to apply
+      testSteps: |
+        = Reload();
+          Ready();
+          Pause();
+
+testSettings:
+  headless: true
+  locale: "en-US"
+  recordVideo: true
+  timeout: 120000
+  enableExtensionModules: true
+  browserConfigurations:
+    - browser: Firefox
+
+environmentVariables:
+  users:
+    - personaName: User1
+      emailKey: user1Email
+      passwordKey: user1Password
