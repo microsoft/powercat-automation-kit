@@ -19,15 +19,9 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 - Select the Subscription, Resource group, Workspace name, and Storage account. Ensure that the Synapse workspace and storage account meet the requirements specified in the Prerequisites section. Select Next.
 - Select "Process", "Flow Session", Flow Machine" and "Flow MachineGroup" table and Save.
 
-### **To enable restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage**.
-
- When you create the link, Azure Synapse Link for Dataverse gets details about the currently linked enterprise policy under the Dataverse environment then caches the identity client secret URL to connect to Azure.
- - Sign into Power Apps and select your environment.
- - In your web browsers address bar, **append ?athena.managedIdentity=true to the web address that ends with exporttodatalake**.
- - On the left navigation pane, **select Azure Synapse Link**. If the item isn’t in the left navigation pane, **select …More** and then select the item you want.
- - On the command bar, **select + New link**.
+**To enable restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage**
  - Select Select Enterprise Policy with Managed Service Identity, and then select Next.
- - Select "Process", "Flow Session", Flow Machine" and "Flow MachineGroup" table and Save.
+
 
 Check here [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake).
 
