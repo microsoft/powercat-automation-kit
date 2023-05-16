@@ -1,0 +1,67 @@
+"Screen1 As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+
+    ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =Parent.Width
+        ZIndex: =1
+
+        ActionHeader As groupContainer.verticalAutoLayoutContainer:
+            Fill: =RGBA(243, 242, 241, 1)
+            FillPortions: =0
+            Height: =44
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            PaddingLeft: =40
+            PaddingRight: =40
+            PaddingTop: =5
+            ZIndex: =1
+
+            "CommandBar1 As 'Fluent Command Bar (1.0.14)'.pcfdataset":
+                DisplayMode: =DisplayMode.Edit
+                Height: =35
+                ItemDisplayName: =""
+                Items: |-
+                    =Table(
+                           {ItemKey:"learnMore",ItemDisplayName:"Learn more",ItemIconName:"Info"})
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                OnSelect: |-
+                    =If(Self.Selected.ItemKey="learnMore",Launch("https://microsoft.github.io/powercat-automation-kit/features/scheduler/"))
+                Theme: =AppThemeJson
+                Visible: =true
+                Width: =200
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+        HeaderContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =2
+
+        MainSectionContainer1 As groupContainer.verticalAutoLayoutContainer:
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+        FooterContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =75
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =4
+
