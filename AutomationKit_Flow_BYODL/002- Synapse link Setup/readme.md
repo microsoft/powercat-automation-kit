@@ -19,7 +19,7 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 - Select the Subscription, Resource group, Workspace name, and Storage account. Ensure that the Synapse workspace and storage account meet the requirements specified in the Prerequisites section. Select Next.
 - Select "Process", "Flow Session", Flow Machine" and "Flow MachineGroup" table and Save.
 
-**To enable restrcited network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage**
+**To enable restricted network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage**
  - Select Select Enterprise Policy with Managed Service Identity, and then select Next.
 
 
@@ -28,4 +28,6 @@ Check here [How it works](https://learn.microsoft.com/en-us/power-apps/maker/dat
 <video src="https://github.com/microsoft/powercat-automation-kit/blob/4920beb07c183f42fb4c48b12ebfa41e5aa14745/AutomationKit_Flow_BYODL/Images/Flowsession.mp4">
 </video>
 
-#### Congratulations, now you have completed setup of synapse link in your dataverse envrionment !! As a last step, you need to configure "[Desktop flow activities monitoring](https://github.com/microsoft/powercat-automation-kit/blob/Flow-byodl/AutomationKit_Flow_BYODL/003-%20Power%20BI%20Dashboard%20Setup/readme.md)"
+#### Congratulations, now you have completed setup of synapse link in your dataverse envrionment
+
+As a last step, you need to configure "[Desktop flow activities monitoring](../003-%20Power%20BI%20Dashboard%20Setup/readme.md)"
