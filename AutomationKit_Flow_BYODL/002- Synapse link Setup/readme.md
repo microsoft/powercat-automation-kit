@@ -22,12 +22,9 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 **To enable restricted network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage**
  - Select Select Enterprise Policy with Managed Service Identity, and then select Next.
 
-https://github.com/microsoft/powercat-automation-kit/assets/29349597/cd7445fe-7446-4b9f-bae3-ab0dc0048cbc
+<video src="https://github.com/microsoft/powercat-automation-kit/assets/29349597/cd7445fe-7446-4b9f-bae3-ab0dc0048cbc"></video>
 
-
-Leran more [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake).
-
-
+Learn more [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake).
 
 #### Congratulations, now you have completed setup of synapse link in your dataverse envrionment
 
