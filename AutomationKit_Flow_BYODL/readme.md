@@ -21,7 +21,7 @@ Dataverse includes the ability to synchronize tables to Azure Data Lake Storage 
 
 Azure Synapse Link enables a continuous replication of the data and metadata from Dataverse into the data lake. It also provides a built-in serverless SQL pool as a convenient data source for Power BI queries.
 
-![image](https://github.com/microsoft/powercat-automation-kit/assets/29349597/9f3d9b1d-2861-453a-9b60-928119d39f76)
+![image](https://github.com/microsoft/powercat-automation-kit/assets/29349597/8cd5df95-872d-44e0-8387-0a57756d97fb)
 
 
 ![image](https://github.com/microsoft/powercat-automation-kit/assets/29349597/0a7ac4fb-091d-4ef1-93ec-cf4ef0e924da)
