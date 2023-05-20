@@ -12,9 +12,7 @@ Please follow the below steps to successfully deploy a Synapse workspace and its
 
 ### Optional Delta Lake Deployment
 
-In case the need is to have voluminous data in Deltalake then follow steps to create Synapse with Spark-Pool.
-
-###     [![Deploy To Azure](../Images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmicrosoft%2Fpowercat-automation-kit%2FFlow-byodl%2FAutomationKit_Flow_BYODL%2FARMTemplate%2Fazuredeploy.json)
+In case the need is to have voluminous data in Deltalake then you will need to follow steps to create Synapse with Spark-Pool.
 
 ### Optional Restricted Network Setup
 
