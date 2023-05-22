@@ -26,7 +26,7 @@ https://github.com/microsoft/powercat-automation-kit/assets/29349597/cd7445fe-74
 
 Learn more [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake).
 
-## Connect Dataverse to Synapse workspace and export data in Delta Lake format
+# Connect Dataverse to Synapse workspace and export data in Delta Lake format (Preview)
 #### Sign into Power Apps and select the environment
 
 1. Open Power Apps and sign in with your credentials.
