@@ -14,7 +14,7 @@ Please follow the below steps to successfully deploy a Synapse workspace and its
 
 [Click here](./Synapse-with-managed-identity/readme.md) to follow the instructions to enable restricted network on Datalake and synapse, **Use managed identities for Azure with your Azure data lake storage**.
 
-### Optional Delta Lake Deployment
+### Optional Delta Lake Deployment (Preview)
 
 In case the need is to have voluminous data in Delta Lake then follow steps to create Synapse with Spark-Pool.
 
