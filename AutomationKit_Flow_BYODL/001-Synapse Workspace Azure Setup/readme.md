@@ -56,6 +56,7 @@ For more information [click here](https://learn.microsoft.com/en-us/power-apps/m
 To estimate the average cost of your setup, you can utilize the Azure Cost Calculator available at the following URL: [Azure Cost Calculator](https://azure.microsoft.com/en-in/pricing/calculator/). By accessing the Azure Cost Calculator, you can input your specific setup details and receive an estimate of the associated costs.
 ### DataVerse Synapse link with Delta Lake Architecture. 
 <img src="https://github.com/microsoft/powercat-automation-kit/assets/29349597/dd42eaab-2cc4-4671-85d3-2d4146823c30" width="1000"/>
-### Congratulations, Now you have completed setup of synapse workspace
 
-As a next step, you need to setup "[Synapse link in your Power Apps Environment](../002-%20Synapse%20link%20Setup/readme.md)".
+### Congratulations, Now you have completed setup of synapse workspace!
+
+As a next step, you need to setup [Synapse link in your Power Apps Environment](../002-%20Synapse%20link%20Setup/readme.md).
