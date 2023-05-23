@@ -1,6 +1,6 @@
-## How to use Power BI report
+# How to use Power BI report
 
-- Ensure that - [Flow session view](./Scripts/flowsessionview.sql) has been executed using your Azure Synape Workspace. This script is an example custom sql view which you can create in Azure synapse lake DB under a new schema to access it on Power BI. Custom view has been much simplified for better performance to load larger datasets. This view will serve as straightforward, clean sources of data that Power BI connects.
+- Ensure that - [Flow session view](./Scripts/flowsessionview.sql) has been executed using your Azure Synapse Workspace. This script is an example custom sql view which you can create in Azure synapse lake DB under a new schema to access it on Power BI. Custom view has been much simplified for better performance to load larger datasets. This view will serve as straightforward, clean sources of data that Power BI connects.
 
   ![Azure Synapse Workspace Lake Database Query](./images/232245432-930bc4bc-a895-4b35-8ad9-d39a2b7c87a0.png)
 
@@ -14,7 +14,7 @@
 
   ![Azure Portal Serverless SQL endpoint](./images/232245894-dc109c1d-af37-4ff6-b75b-1e72833bc7d6.png)
 
-- Copy the EnvironmentContainer value from the name of the Azure Storage container for the dataverse environment you wish to connect to.
+- Copy the EnvironmentContainer value from the name of the Azure Storage container for the Dataverse environment you wish to connect to.
 
 NOTES:
 
