@@ -4,6 +4,7 @@ using System;
 using Microsoft.ApplicationInsights;
 using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.ApplicationInsights.Channel;
 
 namespace AutomationkitModules.ApplicationInsightsLogger
 {
@@ -52,6 +53,7 @@ namespace AutomationkitModules.ApplicationInsightsLogger
             }
             catch (Exception e)
             {
+               
                 if (e is ActionException) throw;
 
                 throw new ActionException("LoggingActionError", e.Message, e.InnerException);
