@@ -26,6 +26,39 @@ https://github.com/microsoft/powercat-automation-kit/assets/29349597/cd7445fe-74
 
 Learn more [How it works](https://learn.microsoft.com/en-us/power-apps/maker/data-platform/export-to-data-lake).
 
-#### Congratulations, now you have completed setup of synapse link in your dataverse envrionment
+## Connect Dataverse to Synapse workspace and export data in Delta Lake format (Preview)
+
+### Sign into Power Apps and select the environment
+
+1. Open Power Apps and sign in with your credentials.
+2. Select the desired environment from the available options.
+
+### Access Azure Synapse Link
+
+1. On the left navigation pane, locate and select **Azure Synapse Link**. If you don't see it, click on the **...More** option and then select **Azure Synapse Link** from the menu.
+
+### Create a new link
+
+1. On the command bar, click on **+ New link**.
+2. In your web browser's address bar, append `?athena.deltaLake=true` to the URL that ends with `exporttodatalake`.
+
+### Connect to Azure Synapse Analytics workspace
+
+1. Select **Connect to your Azure Synapse Analytics workspace**.
+2. Choose the desired **Subscription**, **Resource group**, and **Workspace name**.
+
+### Configure Spark pool and Storage account
+
+1. Select **Use Spark pool for processing**.
+2. Choose the pre-created **Spark pool** and **Storage account** from the available options.
+
+![image](https://github.com/microsoft/powercat-automation-kit/assets/29349597/70a11c24-c449-45db-a7ea-0d5e0b4f0a3f)
+
+3. Once you have configured the Spark pool and Storage account, select **Next**.
+4. Select "Process", "Flow Session", Flow Machine" and "Flow MachineGroup" table.
+5. Select **Advanced**.Optionally, if you want to customize the incremental updates, select **Show advanced configuration settings**.
+6. Enter the desired time interval, in minutes, for capturing the incremental updates. Select **Save**.
+
+#### Congratulations, now you have completed setup of synapse link in your dataverse environment
 
 As a last step, you need to configure "[Desktop flow activities monitoring](../003-%20Power%20BI%20Dashboard%20Setup/readme.md)"
