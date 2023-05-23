@@ -10,11 +10,11 @@
 
   ![PowerBI Template Parameters](./images/powerbi-template-parameters.png)
 
-- Copy the Serverless SQL endpoint value from the overview of your Azure Synapse workspace overview from the Azure Portal
+- Copy the **Serverless SQL endpoint** value from the overview of your Azure Synapse workspace overview from the Azure Portal
 
   ![Azure Portal Serverless SQL endpoint](./images/232245894-dc109c1d-af37-4ff6-b75b-1e72833bc7d6.png)
 
-- Copy the EnvironmentContainer value from the name of the Azure Storage container for the Dataverse environment you wish to connect to.
+- Copy the **Azure Synapse Database name** from Synapse Studio that includes the environment data synchronized via Azure Synapse Link.
 
 NOTES:
 
