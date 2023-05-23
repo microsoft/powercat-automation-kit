@@ -20,6 +20,7 @@ Before you can use Azure Synapse Link for Dataverse, you need to have the follow
 - Select "Process", "Flow Session", Flow Machine" and "Flow MachineGroup" table and Save.
 
 **To enable restricted network on datalake and synapse, Use managed identities for Azure with your Azure data lake storage**
+
  - Select Select Enterprise Policy with Managed Service Identity, and then select Next.
 
 https://github.com/microsoft/powercat-automation-kit/assets/29349597/cd7445fe-7446-4b9f-bae3-ab0dc0048cbc
