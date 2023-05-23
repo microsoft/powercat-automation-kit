@@ -27,7 +27,7 @@ In case the need is to have voluminous data in Delta Lake then follow steps to c
 - Storage Container Name: [storage_container_name]
 - Workspace Name: [workspace_name]
 - Managed Resource Group Name: [managed_resource_group_name]
-- Spark Pool Name: [spark_pool_name]
+- Spark Pool Name: [spark_pool_name] (Optional)
 - Sql Administrator Login: [sql_administrator_login]
 - Sql Administrator Login Password: [sql_administrator_login_password]
 ### Azure Services being deployed
