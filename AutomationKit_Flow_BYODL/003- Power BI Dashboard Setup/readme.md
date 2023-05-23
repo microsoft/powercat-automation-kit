@@ -4,7 +4,7 @@
 
   ![Azure Synapse Workspace Lake Database Query](./images/232245432-930bc4bc-a895-4b35-8ad9-d39a2b7c87a0.png)
 
-- Download the [Power BI template](./Automation-kit-desktopflow-activity.pbit).
+- Download the [Power BI template](./Automation%20Kit%20Desktop%20Flow%20Activity.pbit).
 
 - For the Power BI Template enter the required parameter
 
