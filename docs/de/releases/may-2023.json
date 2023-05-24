@@ -1,0 +1,110 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-May-2023-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the following will be of most useful for you in this release?",
+            "de": "Welche der folgenden Optionen wird für Sie in dieser Version am nützlichsten sein?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Automation CoE Main - Project Information",
+              "text": {
+                "default": "Automation CoE Main - Project Information",
+                "de": "Automatisierung CoE Main - Projektinformationen"
+              }
+            },
+            {
+              "value": "Power BI Filters",
+              "text": {
+                "default": "Power BI Filters",
+                "de": "Power BI-Filter"
+              }
+            },
+            {
+              "value": "Bring Your Own Data Lake (BYODL)",
+              "text": {
+                "default": "Bring Your Own Data Lake (BYODL)",
+                "de": "Bring Your Own Data Lake (BYODL)"
+              }
+            },
+            {
+              "value": "Bring Your Own Data Lake (BYODL) - Restricted Network",
+              "text": {
+                "default": "Bring Your Own Data Lake (BYODL) - Restricted Network",
+                "de": "Bring Your Own Data Lake (BYODL) - Eingeschränktes Netzwerk"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "anything-else",
+          "title": {
+            "default": "Any other key features you think should be added?",
+            "de": "Gibt es noch weitere wichtige Funktionen, die Ihrer Meinung nach hinzugefügt werden sollten?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "de": "Möchten Sie das Feedback zur Veröffentlichung senden?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "de": "Wir freuen uns auf Ihr Feedback. Als Kernteam von Automation Kit nutzen wir das Feedback, um unsere Meilensteine und Leitlinien zu verbessern."
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "de": "Hatten Sie weiteres Feedback?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "de": "Jetzt Ihr Feedback senden?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "de": "Status: "
+          }
+        }
+      ]
+    }
+  ]
+}

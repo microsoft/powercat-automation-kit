@@ -4,7 +4,7 @@ description: "Automatiseringskit - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
+generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
 ---
 
 {{<toc>}}
@@ -44,7 +44,7 @@ generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
 
 ### Locatie: /backlog/
 
-- [Automatiseringskit - Process Advisor integratie](/nl/backlog/process-advisor-integration)
+- [Automation Kit - Process Advisor integratie](/nl/backlog/process-advisor-integration)
 
 
 ### Locatie: /contributie/
@@ -120,6 +120,8 @@ generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
 - [Automation Kit - februari 2023](/nl/releases/february-2023)
 
 - [Automation Kit - maart 2023](/nl/releases/march-2023)
+
+- [Automation Kit - mei 2023](/nl/releases/may-2023)
 
 - [Automation Kit - Release mijlpalen](/nl/releases/milestones)
 

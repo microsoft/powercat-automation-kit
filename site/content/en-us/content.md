@@ -120,6 +120,8 @@ include_footer: true
 
 - [Automation Kit - March 2023](/releases/march-2023)
 
+- [Automation Kit - May 2023](/releases/may-2023)
+
 - [Automation Kit - Release Milestones](/releases/milestones)
 
 - [Automation Kit - Naming](/releases/naming)

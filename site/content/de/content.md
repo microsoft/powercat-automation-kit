@@ -4,7 +4,7 @@ description: "Automation Kit - Site-Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
+generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
 ---
 
 {{<toc>}}
@@ -120,6 +120,8 @@ generated: 553CE10AE2436CF632EFC4D252AA5F07EFD94175
 - [Automation Kit - Februar 2023](/de/releases/february-2023)
 
 - [Automation Kit - März 2023](/de/releases/march-2023)
+
+- [Automatisierungs-Kit - Mai 2023](/de/releases/may-2023)
 
 - [Automation Kit - Meilensteine der Veröffentlichung](/de/releases/milestones)
 

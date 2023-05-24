@@ -1,0 +1,110 @@
+{
+  "triggers": [
+    {
+      "type": "setvalue",
+      "expression": "{send-results} = true",
+      "setToName": "code",
+      "setValue": "Feedback-May-2023-Release"
+    }
+  ],
+  "pages": [
+    {
+      "name": "welcome",
+      "elements": [
+        {
+          "type": "checkbox",
+          "name": "roles",
+          "title": {
+            "default": "Which of the following will be of most useful for you in this release?",
+            "ko": "다음 중 이 릴리스에서 가장 유용한 것은 무엇입니까?"
+          },
+          "isRequired": true,
+          "colCount": 1,
+          "hasOther": true,
+          "choices": [
+            {
+              "value": "Automation CoE Main - Project Information",
+              "text": {
+                "default": "Automation CoE Main - Project Information",
+                "ko": "자동화 CoE 메인 - 프로젝트 정보"
+              }
+            },
+            {
+              "value": "Power BI Filters",
+              "text": {
+                "default": "Power BI Filters",
+                "ko": "Power BI 필터"
+              }
+            },
+            {
+              "value": "Bring Your Own Data Lake (BYODL)",
+              "text": {
+                "default": "Bring Your Own Data Lake (BYODL)",
+                "ko": "BYODL(Bring Your Own Data Lake)"
+              }
+            },
+            {
+              "value": "Bring Your Own Data Lake (BYODL) - Restricted Network",
+              "text": {
+                "default": "Bring Your Own Data Lake (BYODL) - Restricted Network",
+                "ko": "BYODL(Bring Your Own Data Lake) - 제한된 네트워크"
+              }
+            }
+          ]
+        },
+        {
+          "type": "comment",
+          "name": "anything-else",
+          "title": {
+            "default": "Any other key features you think should be added?",
+            "ko": "추가해야 한다고 생각하는 다른 주요 기능이 있습니까?"
+          }
+        },
+        {
+          "type": "boolean",
+          "name": "send-results",
+          "label": {
+            "default": "Do you want to send the feedback on the release?",
+            "ko": "릴리스에 대한 피드백을 보내시겠습니까?"
+          },
+          "isRequired": true
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results} = true",
+          "html": {
+            "default": "We look forward to getting your feedback. As a core Automation Kit team we use the feedback to improving our milestones and guidance",
+            "ko": "여러분의 피드백을 기다리겠습니다. 핵심 자동화 키트 팀으로서 우리는 피드백을 사용하여 이정표와 지침을 개선합니다."
+          }
+        },
+        {
+          "type": "comment",
+          "name": "other-feedback",
+          "title": {
+            "default": "Did you have any other feedback?",
+            "ko": "다른 피드백이 있었나요?"
+          },
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "feedback-task",
+          "name": "send-results",
+          "title": {
+            "default": "Send your feedback now?",
+            "ko": "지금 피드백을 보내시겠습니까?"
+          },
+          "destination": "https://aka.ms/ak4pp-feedback2",
+          "visibleIf": "{send-results} = true"
+        },
+        {
+          "type": "html",
+          "visibleIf": "{send-results-status.length} > 0",
+          "html": {
+            "default": "Status: {send-results-status}",
+            "ko": "상태: "
+          }
+        }
+      ]
+    }
+  ]
+}
