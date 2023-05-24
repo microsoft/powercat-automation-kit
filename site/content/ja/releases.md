@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 91FF96BB5FB4FF2737B1A0A4DF66DAA2F4FFE122
+generated: A4DF3D5F0B88DB204D84CD4B5820FD554F55AD94
 ---
 
 このページには、{{<product-name>}}.
@@ -14,6 +14,8 @@ generated: 91FF96BB5FB4FF2737B1A0A4DF66DAA2F4FFE122
 私たちについてもっと読む[リリースマイルストーンノート](/ja/releases/milestones)
 
 ## 2023
+
+- [2023年5月号](/ja/releases/may-2023)
 
 - [2023年4月号](/ja/releases/april-2023)
 

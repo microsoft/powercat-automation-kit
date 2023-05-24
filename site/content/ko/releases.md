@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: 91FF96BB5FB4FF2737B1A0A4DF66DAA2F4FFE122
+generated: A4DF3D5F0B88DB204D84CD4B5820FD554F55AD94
 ---
 
 이 페이지에는 {{<product-name>}}.
@@ -14,6 +14,8 @@ generated: 91FF96BB5FB4FF2737B1A0A4DF66DAA2F4FFE122
 우리의 자세한 내용을 읽어보십시오 [릴리스 마일스톤 노트](/ko/releases/milestones)
 
 ## 2023
+
+- [2023년 5월](/ko/releases/may-2023)
 
 - [2023년 4월](/ko/releases/april-2023)
 
