@@ -6,6 +6,7 @@ using HtmlAgilityPack;
 using System.Data;
 using System.Text;
 using Xunit.Abstractions;
+using System;
 
 namespace ARMTemplate.Tests;
 
@@ -186,13 +187,13 @@ public class AzureSynapseTests
         var estimatedCost = await GetRetailCost(serviceName, productName, skuName, unitOfMeasure, region, meterName);
 
         // Assert
-        Assert.True(estimatedCost <= cost);
+        Assert.True(estimatedCost.RetailPrice <= cost);
     }
 
     [Theory]
-    [InlineData("flowsession", 100000, "eastus", 0.3)]
-    [InlineData("flowsession", 1000000, "eastus", 3)]
-    [InlineData("flowsession", 10000000, "eastus", 30)]
+    [InlineData("flowsession", 100000, "eastus", 0.35)]
+    [InlineData("flowsession", 1000000, "eastus", 35)]
+    [InlineData("flowsession", 10000000, "eastus", 350)]
     public async Task EstimatedFlowSessionRetailStorageCostAddedPerMonthLRS(string table, int resordsPerDay, string region, double cost)
     {
         // Arrange
@@ -202,7 +203,7 @@ public class AzureSynapseTests
        
         double totalGB = (size / BYTE_TO_GIGABYTE) * resordsPerDay;
       
-        var estimatedCost = await GetRetailCost("Storage", "Azure Data Lake Storage Gen2 Hierarchical Namespace", "Hot LRS", "1 GB/Month", region, "Hot LRS Data Stored") * totalGB;
+        var estimatedCost = (await GetRetailCost("Storage", "Azure Data Lake Storage Gen2 Hierarchical Namespace", "Hot LRS", "1 GB/Month", region, "Hot LRS Data Stored")).RetailPrice * totalGB;
         _output.WriteLine($"{resordsPerDay} = {totalGB}GB = ${estimatedCost}");
 
         // Assert
@@ -212,7 +213,7 @@ public class AzureSynapseTests
     [Theory]
     [InlineData("flowsession", 100000, "eastus", 25)]
     [InlineData("flowsession", 300000, "eastus", 75)]
-    [InlineData("flowsession", 1000000, "eastus", 225)]
+    [InlineData("flowsession", 1000000, "eastus", 240)]
     public async Task EstimatedRetailStorageCostEndOfYear1LRS(string table, int recordsperday, string region, double cost)
     {
         // Arrange
@@ -229,7 +230,7 @@ public class AzureSynapseTests
         for ( var month = 1; month <= 12; month++ )
         {
             total += totalGBPerMonth;
-            cummulativeCost += total * estimatedCost;
+            cummulativeCost += total * estimatedCost.RetailPrice;
         }
 
         _output.WriteLine($"{recordsperday} = In Month 12 = ${cummulativeCost} for {total} GB");
@@ -239,22 +240,25 @@ public class AzureSynapseTests
     }
 
     [Theory]
-    [InlineData(0.5, "eastus", 0)]
-    [InlineData(1, "eastus", 0)]
-    [InlineData(1.5, "eastus", 2.5)]
-    [InlineData(2, "eastus", 5)]
-    public async Task GetRetailAzureSynapseSQLCost(double teraBytes, string region, double expected)
+    [InlineData(0.5, 0, "eastus", 0)]
+    [InlineData(0.99, 0, "eastus", 0)]
+    [InlineData(1.5, 5.0, "eastus", 2.5)]
+    [InlineData(2, 5.0, "eastus", 5)]
+    public async Task GetRetailAzureSynapseSQLCost(double teraBytes, double expectedPrice, string region, double expected)
     {
         // Arrange
-        var initialCost = await GetRetailCost("Azure Synapse Analytics", "Azure Synapse Analytics Serverless SQL Pool", "Standard", "1 TB", region, "Standard Data Processed", greaterOrEqualMin: true);
+        var initialCost = await GetRetailCost("Azure Synapse Analytics", "Azure Synapse Analytics Serverless SQL Pool", "Standard", "1 TB", region, "Standard Data Processed", minUnits: teraBytes);
+        var nextCost = await GetRetailCost("Azure Synapse Analytics", "Azure Synapse Analytics Serverless SQL Pool", "Standard", "1 TB", region, "Standard Data Processed", 1.0);
 
-        Assert.Equal(0, initialCost);
-        if ( teraBytes > 1 )
+        Assert.Equal(expectedPrice, initialCost.RetailPrice);
+        if (teraBytes < nextCost.MinimumValue)
         {
-            var nextCost = await GetRetailCost("Azure Synapse Analytics", "Azure Synapse Analytics Serverless SQL Pool", "Standard", "1 TB", region, "Standard Data Processed", 1.0, greaterOrEqualMin: true);
-
-            var estimatedCost = (teraBytes - 1) * nextCost;
-            Assert.True(estimatedCost <= expected);
+            Assert.Equal(teraBytes * initialCost.RetailPrice, expectedPrice);
+        } 
+        else
+        { 
+            var estimatedCost = Math.Max((teraBytes - (double)initialCost.MinimumValue), 0) * nextCost.RetailPrice;
+            Assert.Equal(estimatedCost, expected);
         }
     }
 
@@ -263,31 +267,54 @@ public class AzureSynapseTests
     [InlineData("eastus", CostType.Average, 100000, 0)]
     [InlineData("eastus", CostType.Maximum, 100000, 0)]
     [InlineData("eastus", CostType.Maximum, 1000000, 0)]
-    [InlineData("eastus", CostType.Maximum, 10000000, 2)]
+    [InlineData("eastus", CostType.Maximum, 10000000, 2.5)]
     public async Task GetRetailFlowSessionAzureSynapseSQLCost(string region, CostType costType, int count, double expected)
     {
         // Arrange
         double estimatedSizeGB = (await GetRecordSize("flowsession", "csv", costType) * (double)count) / (BYTE_TO_GIGABYTE);
         double estimatedSizeTB = (estimatedSizeGB / 1024);
-        var initialCost = await GetRetailCost("Azure Synapse Analytics", "Azure Synapse Analytics Serverless SQL Pool", "Standard", "1 TB", region, "Standard Data Processed", greaterOrEqualMin: true);
+        var initialCost = await GetRetailCost("Azure Synapse Analytics", "Azure Synapse Analytics Serverless SQL Pool", "Standard", "1 TB", region, "Standard Data Processed");
+        var nextCost = await GetRetailCost("Azure Synapse Analytics", "Azure Synapse Analytics Serverless SQL Pool", "Standard", "1 TB", region, "Standard Data Processed", 1.0);
 
         _output.WriteLine($"{count} = {estimatedSizeTB} TB");
 
-        Assert.Equal(0, initialCost);
-        if (estimatedSizeTB > 1)
+        if (estimatedSizeTB < nextCost.MinimumValue)
         {
-            var nextCost = await GetRetailCost("Azure Synapse Analytics", "Azure Synapse Analytics Serverless SQL Pool", "Standard", "1 TB", region, "Standard Data Processed", 1.0, greaterOrEqualMin: true);
-
-            var estimatedCost = (estimatedSizeTB - 1) * nextCost;
+            Assert.True(estimatedSizeTB * initialCost.RetailPrice <= expected);
+        } 
+        else
+        { 
+            var estimatedCost = (estimatedSizeTB - nextCost.MinimumValue) * nextCost.RetailPrice;
 
             Assert.True(estimatedCost <= expected);
         }
     }
 
-    private async Task<double?> GetRetailCost(string serviceName, string productName, string skuName, string unitOfMeasure, string region, string meterName, double minUnits = 0.0, bool greaterOrEqualMin = false)
+    [Theory]
+    [InlineData("eastus", 2, 1, 0)]
+    public async Task CanGetSparkPoolCost(string region, int vCore, double processingTime, double expected)
+    {
+        // Arrange        
+
+        // Act
+        var costPerHour = await GetRetailCost("Azure Synapse Analytics", "*Memory Optimized", "vCore", "1 Hour", region, "vCore");
+
+        var estimatedCost = costPerHour.RetailPrice * (processingTime / 60) * vCore;
+
+        // Assert
+        Assert.True(estimatedCost > expected);
+
+    }
+
+    private async Task<RetailPriceBand> GetRetailCost(string serviceName, string productName, string skuName, string unitOfMeasure, string region, string meterName, double minUnits = 0.0)
     {
         // Arrange
-        var url = $"https://prices.azure.com/api/retail/prices?api-version=2023-01-01-preview&$filter=contains(serviceName,'{serviceName}') and skuName eq '{skuName}' and productName eq '{productName}' and armRegionName eq '{region}' and unitOfMeasure eq '{unitOfMeasure}' and tierMinimumUnits eq {minUnits} and meterName eq '{meterName}'";
+        var productNameSearch = $"and productName eq '{productName}'";
+        if (productName.StartsWith("*"))
+        {
+            productNameSearch = "";
+        }
+        var url = $"https://prices.azure.com/api/retail/prices?api-version=2023-01-01-preview&$filter=contains(serviceName,'{serviceName}') and skuName eq '{skuName}' {productNameSearch} and armRegionName eq '{region}' and unitOfMeasure eq '{unitOfMeasure}' and meterName eq '{meterName}'";
 
 
         // Act
@@ -302,13 +329,21 @@ public class AzureSynapseTests
         var prices = JObject.Parse(pricesJson);
 
         var items = prices?.Property("Items")?.Value as JArray;
-        var item = items?.Where(p => p is JObject && (
-            (!greaterOrEqualMin && ((JObject)p)?.Property("retailPrice")?.Value.Value<double>() > 0)
-            ||
-            (greaterOrEqualMin && ((JObject)p)?.Property("retailPrice")?.Value.Value<double>() >= minUnits)
-        )).FirstOrDefault() as JObject;
+        var item = items?.Where(p => 
+            p is JObject 
+            &&
+            minUnits >= ((JObject)p).Property("tierMinimumUnits").Value.Value<double>()
+            &&
+            (
+                (
+                    productName.StartsWith("*")
+                    &&
+                    ((JObject)p).Property("productName").Value.Value<string>().EndsWith(productName.Replace("*", ""))
+                ) || true
+            )
+        ).FirstOrDefault() as JObject;
 
-        return item?.Property("retailPrice")?.Value.Value<double>();
+        return new RetailPriceBand { RetailPrice = item?.Property("retailPrice")?.Value.Value<double>(), MinimumValue = item?.Property("tierMinimumUnits")?.Value.Value<double>() };
     }
 
     private async Task<int> GetRecordSize(string table, string format, CostType costType)
@@ -422,7 +457,6 @@ public class AzureSynapseTests
                         return GetSize("X") * 4000;
                     case "picklist":
                         return GetSize("1");
-                        return GetSize("X") * 1048576;
                     case "integer":
                         switch (costType)
                         {
