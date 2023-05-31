@@ -19,7 +19,7 @@ namespace AutomationkitModules.ApplicationInsightsLogger
         [InputArgument]
         public string ConnectionString { get; set; }
         [InputArgument]
-        public string ErrorMessage { get; set; }
+        public string Message { get; set; }
 
         [OutputArgument]
         public string OutPutMessage { get; set; }
@@ -43,7 +43,7 @@ namespace AutomationkitModules.ApplicationInsightsLogger
                 ExceptionTelemetry exceptionTelemetry = new ExceptionTelemetry();
 
                 // Set the exception details
-                exceptionTelemetry.Exception = new Exception(ErrorMessage);
+                exceptionTelemetry.Exception = new Exception(Message);
                 exceptionTelemetry.SeverityLevel = SeverityLevel.Error;
                 // Track the exception telemetry
                 telemetryClient.TrackException(exceptionTelemetry);

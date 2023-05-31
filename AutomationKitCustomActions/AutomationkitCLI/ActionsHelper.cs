@@ -11,7 +11,7 @@ namespace AutomationkitCLI
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        internal static string CreateCertificate(string name, SecureString password)
+        internal static X509Certificate2 CreateCertificate(string name, SecureString password)
         {
             string certificateName = name;
 
@@ -37,13 +37,13 @@ namespace AutomationkitCLI
             X509Certificate2 exportedCert = new X509Certificate2(exportedCertificate, password, X509KeyStorageFlags.Exportable);
 
             // Display the thumbprint of the created certificate
-            return $"Thumbprint: {exportedCert.Thumbprint}";
+            return exportedCert;
         }
 
         internal static void ImportCertificateToTrustRoot(X509Certificate2 certificate)
         {
             // Open the local machine certificate store
-            X509Store store = new X509Store(StoreName.Root, StoreLocation.LocalMachine);
+            X509Store store = new X509Store(StoreName.Root, StoreLocation.CurrentUser);
             store.Open(OpenFlags.ReadWrite);
 
             try

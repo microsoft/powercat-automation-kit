@@ -2,10 +2,10 @@ using Microsoft.PowerPlatform.PowerAutomate.Desktop.Actions.SDK.Tests;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace AutomationkitModules.ApplicationInsightsLogger.Tests
+namespace AutomationKit.LogError.Tests
 {
     [TestClass]
-    public class LogErrorTests
+    public class Action1Tests
     {
         [TestMethod]
         public void Action_IsValid()
@@ -20,9 +20,9 @@ namespace AutomationkitModules.ApplicationInsightsLogger.Tests
         {
             try
             {
-                LogError action = new LogError() { ConnectionString = "InstrumentationKey=cf31470d-2fc5-4ac1-97c1-a5e922138475;IngestionEndpoint=https://eastus-8.in.applicationinsights.azure.com/;LiveEndpoint=https://eastus.livediagnostics.monitor.azure.com/", Message = "Test Error using Automation Kit Custom Actions"};
+                LogError action = new LogError() { InputArgument1 = "Test Input" };
                 action.Execute(null);
-                var actionOutput = action.OutPutMessage;
+                var actionOutput = action.OutputArgument1;
             }
             catch (Exception e)
             {
