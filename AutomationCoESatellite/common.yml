@@ -12,7 +12,7 @@ stages:
     steps:
     - pwsh: |
         $envVariable = "SigningKey"
-        $filename = "$(Build.SourcesDirectory)\powercat-automation-kit\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"
+        $filename = "$(Build.SourcesDirectory)\powercat-automation-kit\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"
         if ( [System.Environment]::GetEnvironmentVariable($envVariable) -ne $NULL ) {
         $base64 = System.Environment]::GetEnvironmentVariable($envVariable)
         $bytes = [Convert]::FromBase64String($base64)
