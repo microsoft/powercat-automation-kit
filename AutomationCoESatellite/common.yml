@@ -17,5 +17,6 @@ stages:
         $base64 = System.Environment]::GetEnvironmentVariable($envVariable)
         $bytes = [Convert]::FromBase64String($base64)
         [IO.File]::WriteAllBytes($filename, $bytes)
+        displayName: 'SNK file created successfully at ' + $filename
         }
       displayName: 'Signing Key'
