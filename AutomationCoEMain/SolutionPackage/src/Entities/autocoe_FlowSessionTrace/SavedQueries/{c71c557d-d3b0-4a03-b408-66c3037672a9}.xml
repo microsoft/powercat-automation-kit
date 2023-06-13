@@ -12,6 +12,10 @@
         <row name="result" id="autocoe_flowsessiontraceid">
           <cell name="autocoe_flowname" width="300" />
           <cell name="createdon" width="125" />
+          <cell name="autocoe_exceptiondetails" width="140" />
+          <cell name="autocoe_exceptioncode" width="130" />
+          <cell name="autocoe_hostname" width="104" />
+          <cell name="autocoe_overallstatus" width="120" />
         </row>
       </grid>
     </layoutxml>
@@ -22,13 +26,20 @@
           <attribute name="autocoe_flowsessiontraceid" />
           <attribute name="autocoe_flowname" />
           <attribute name="createdon" />
-          <order attribute="autocoe_flowname" descending="false" />
           <filter type="and">
             <condition attribute="statecode" operator="eq" value="0" />
           </filter>
           <filter type="or" isquickfindfields="1">
             <condition attribute="autocoe_flowname" operator="like" value="{0}" />
+            <condition attribute="autocoe_overallstatus" operator="like" value="{0}" />
+            <condition attribute="autocoe_exceptioncode" operator="like" value="{0}" />
           </filter>
+          <attribute name="autocoe_exceptiondetails" />
+          <attribute name="autocoe_exceptioncode" />
+          <attribute name="autocoe_hostname" />
+          <attribute name="autocoe_overallstatus" />
+          <order attribute="autocoe_flowname" descending="false" />
+          <order attribute="createdon" descending="true" />
         </entity>
       </fetch>
     </fetchxml>
