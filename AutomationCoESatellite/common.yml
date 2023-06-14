@@ -13,7 +13,7 @@ stages:
     - pwsh: |
         $envVariable = "SigningKey"
         $filename = "$(Build.SourcesDirectory)\powercat-automation-kit\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"
-        $Folders = $(Build.SourcesDirectory) -Directory -Name -Recurse
+        $Folders = Get-ChildItem $(Build.SourcesDirectory) -Directory -Name -Recurse
         foreach($Folder in $Folders)
         {
             $Folder = Split-Path -Path $Folder -Leaf
