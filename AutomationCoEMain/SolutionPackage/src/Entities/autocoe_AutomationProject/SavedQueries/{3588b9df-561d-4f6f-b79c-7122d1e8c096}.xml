@@ -12,6 +12,11 @@
         <row name="result" id="autocoe_automationprojectid">
           <cell name="autocoe_automationproject" width="300" />
           <cell name="createdon" width="125" />
+          <cell name="autocoe_projectdescription" width="149" />
+          <cell name="autocoe_processcategory" width="138" />
+          <cell name="autocoe_complexityscore" width="142" />
+          <cell name="autocoe_roisavingpotential" width="160" />
+          <cell name="autocoe_automationprojectstatus" width="188" />
         </row>
       </grid>
     </layoutxml>
@@ -28,7 +33,15 @@
           </filter>
           <filter type="or" isquickfindfields="1">
             <condition attribute="autocoe_automationproject" operator="like" value="{0}" />
+            <condition attribute="statecode" operator="like" value="{0}" />
+            <condition attribute="autocoe_roisavingpotential" operator="eq" value="{2}" />
+            <condition attribute="autocoe_complexityscore" operator="eq" value="{1}" />
           </filter>
+          <attribute name="autocoe_projectdescription" />
+          <attribute name="autocoe_processcategory" />
+          <attribute name="autocoe_complexityscore" />
+          <attribute name="autocoe_roisavingpotential" />
+          <attribute name="autocoe_automationprojectstatus" />
         </entity>
       </fetch>
     </fetchxml>
