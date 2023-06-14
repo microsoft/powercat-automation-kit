@@ -14,8 +14,6 @@ stages:
         $envVariable = "SigningKey"
         Write-Host "Signing Key - "$(SigningKey)
         $filename = "$(Build.SourcesDirectory)\powercat-automation-kit\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"
-#if ( [System.Environment]::GetEnvironmentVariable($envVariable) -ne $NULL ) {        
-#      $base64 = System.Environment]::GetEnvironmentVariable($envVariable)
        if ( $(SigningKey) -ne $NULL ) {  
         $bytes = [Convert]::FromBase64String($(SigningKey))
         [IO.File]::WriteAllBytes($filename, $bytes) 
