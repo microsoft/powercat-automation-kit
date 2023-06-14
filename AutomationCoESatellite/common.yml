@@ -17,7 +17,7 @@ stages:
         $filename = "$(Build.SourcesDirectory)\AutoCoEPluginKey.snk"
         if ( $64bitData -ne $NULL ) {  
         $bytes = [Convert]::FromBase64String($64bitData)        
-        Add-Content -Path $filename -Value $bytes      
+        [IO.File]::WriteAllBytes($filename, $bytes)
         write-host "SNK file created successfully at $filename"
         }
         else
