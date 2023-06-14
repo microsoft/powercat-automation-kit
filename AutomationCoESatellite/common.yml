@@ -14,7 +14,7 @@ stages:
         $envVariable = "SigningKey"
         Write-Host "Signing Key - "$(SigningKey)
         $filename = "$(Build.SourcesDirectory)\powercat-automation-kit\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"
-       if ( $(SigningKey) -ne $NULL ) {  
+        if ( $(SigningKey) -ne $NULL ) {  
         $bytes = [Convert]::FromBase64String($(SigningKey))
         [IO.File]::WriteAllBytes($filename, $bytes) 
         write-host "SNK file created successfully at $filename"
