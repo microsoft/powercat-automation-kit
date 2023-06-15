@@ -12,7 +12,14 @@ stages:
     steps:
     - pwsh: |
         $envVariable = "SigningKey"
-        $filename = "$(Build.SourcesDirectory)\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"                                                
+        $filename = "$(Build.SourcesDirectory)\powercat-automation-kit\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk" 
+        $PluginFolderPath = "$(Build.SourcesDirectory)\powercat-automation-kit\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins"
+        $FolderExists = Test-Path $$PluginFolderPath
+        if ($FolderExists -eq $false)
+        {
+        New-Item -Path $PluginFolderPath -ItemType Directory  
+        Write-Host "Folder created"
+        } 
         Write-Host "variable group "$(SigningKey)
         Write-Host "PipeLine-"$(SigningKeyNew)        
         $Base64Data="$(SigningKey)"
