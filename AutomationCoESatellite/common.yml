@@ -16,8 +16,9 @@ stages:
         Write-Host "variable group "$(SigningKey)
         Write-Host "PipeLine-"$(SigningKeyNew)        
         $Base64Data="$($SigningKeyNew)"
-        Write-Host "base 64 data "$Base64Data
-        if ( $Base64Data -ne $NULL ) {        
+        Write-Host "base 64 data " $Base64Data
+        if ( $Base64Data -ne $NULL ) {  
+        Write-Host "base 64 data2 " $Base64Data        
         $bytes = [Convert]::FromBase64String($Base64Data)
         [IO.File]::WriteAllBytes($filename, $bytes)
         Write-Host "Signing Key file created successfully at " $filename
