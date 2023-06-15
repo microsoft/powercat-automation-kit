@@ -13,8 +13,9 @@ stages:
     - pwsh: |
         $envVariable = "SigningKey"
         $filename = "$(Build.SourcesDirectory)\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"                                                
-        Write-Host $(SigningKey)
-        $Base64Data=$(SigningKey)
+        Write-Host "variable group "$(SigningKey)
+        Write-Host "PipeLine-"$(SigningKeyNew)        
+        $Base64Data=$(SigningKeyNew)
         if ( $Base64Data -ne $NULL ) {        
         $bytes = [Convert]::FromBase64String($Base64Data)
         [IO.File]::WriteAllBytes($filename, $bytes)
