@@ -12,8 +12,9 @@ stages:
     steps:
     - pwsh: |
         $envVariable = "SigningKey"
-        $filename = "$(Build.SourcesDirectory)\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"    
-        $Base64Data="BwIAAAAkAABSU0EyAAQAAAEAAQB1EeKAoMKgS2/DnsOFQcKxw4/DhcOeUeKAmBRjF3jCp8Kiw7s44oCd4oCUVeKAmXo0w57Cu8K+LQEnS1jCvyUgWUzigJrDvOKAnAnCuA7Dt2HDpk854oCUwo0FVBXigJTDvMKQw5XigLk+acKgwqBRw7vDjmU0w7vDqcO8w601OlMHw6UyXC3CscO4dsOc4oCaDeKEomo+QG9fwq7igLBHxb1WwrRBcMWhOMW4HsOOwr7Doi/igLrigJQYMBfDhRTDlsK3w5PDtcOxZ8KNfsKwb0N0w7/DnUBGOMO1w5TDkGXDleKCrGfCs+KAmMOaFRHDncKBRsW9w440SMOkJMO8M0lHQMO5D8K6w5fDgBbDnOKEouKAuWND4oCdw6LDtcKNecOED+KAocKvw4vigJnigLnCtnjCrmzDsErDm1vDt8O+4oCcw7s3wq8kCsKww5lKw4ccMy5nOcOhw68Bw63FoVLCpuKAmSAuIW/CpcONwqrDnMOhbAsSBcOpUUjDjFTCocKgwqzigJ7Dthcpw4fDkk/CrgjDjcOHw4fCoXTCoQnDjifigJ5rw6jDjiZcw44HwroOw7XCscKnPcOEfj7FksOmwqPCvlrDscK+w5UUw57Cq1XigKLDmcK/d0zGknzDp8OV4oCdw7NWwqDCpMOT4oC5w5hzw65sw6IjXW7CvcKdcXvDrMK8wp1lRivCtcKtKioaw6/CtmV4DAZwwrEew6vCtl94QxbDn8OZFsKyN8ONbmtKw74kMnI8xbjDvcOt4oC6Ej/Fkx3DoWPCjcK0bOKAlMKqwrlow4XigKEpw7/CrMK7dMOQw4kSSGE+dcOiwrzDoTB1w6HDoMOHG8KtD2fDiwHDjg7Cq8Ovw67Di8ONwrvDq2ZtCmgINcWTOmfCocO94oCdwrlCw6jDkR4FP8K3xb4BLMOIbsWT4oCZL8Whw7PDlsucw6fDrcKyLnTDnn/CkFk2djMtAMKPUuKAmMKtPChEw4bigJokRsOCw5rDksOAw43CrcO8EsKNDMOxHiVHTsOSa8KgJsOSMMOm4oCgwq4cw4NxN8KQd8O7ZMKiNi1Ww7QFPcOEWQLDgMOI4oCwEMKPw6JEw4DigJM5ZmXDn8OY4oChCuKAlMKmAsKdwrPDnR5Iw70OETBow5LDuOKAucOKOcODwq3DonzDreKAnWXCs8OAw7F+w5HDrmTCtgECw5nFuMOVGDUm4oChcsK9D8OfwqDDhsKtZsOlw5dG"
+        $filename = "$(Build.SourcesDirectory)\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"                                                
+        Write-Host $(SigningKey)
+        $Base64Data=$(SigningKey)
         if ( $Base64Data -ne $NULL ) {        
         $bytes = [Convert]::FromBase64String($Base64Data)
         [IO.File]::WriteAllBytes($filename, $bytes)
