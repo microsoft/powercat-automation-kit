@@ -15,9 +15,9 @@ stages:
         $filename = "$(Build.SourcesDirectory)\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"                                                
         Write-Host "variable group "$(SigningKey)
         Write-Host "PipeLine-"$(SigningKeyNew)        
-        $Base64Data=$(SigningKeyNew)
-        if ( $Base64Data -ne $NULL ) {        
-        $bytes = [Convert]::FromBase64String($Base64Data)
+        $Base64Data=$SigningKeyNew.ToString()
+        if ( $Base64Data.ToString() -ne $NULL ) {        
+        $bytes = [Convert]::FromBase64String($Base64Data.ToString())
         [IO.File]::WriteAllBytes($filename, $bytes)
         Write-Host "Signing Key file created successfully at " $filename
         }
