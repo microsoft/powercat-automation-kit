@@ -15,7 +15,7 @@ stages:
         $filename = "$(Build.SourcesDirectory)\AutomationCoESatellite\Plugins\autocoe-plugins-master\Plugins\AutoCoEPluginKey.snk"                                                
         Write-Host "variable group "$(SigningKey)
         Write-Host "PipeLine-"$(SigningKeyNew)        
-        $Base64Data=$(SigningKeyNew)| Out-String        
+        $Base64Data=$($SigningKeyNew)       
         if ( $Base64Data -ne $NULL ) {        
         $bytes = [Convert]::FromBase64String($Base64Data)
         [IO.File]::WriteAllBytes($filename, $bytes)
