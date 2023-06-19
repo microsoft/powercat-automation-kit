@@ -64,29 +64,26 @@ namespace AutoCoE.Extensibility.Plugins
         /// could execute the plug-in at the same time. All per invocation state information
         /// is stored in the context. This means that you should not use global variables in plug-ins.
         /// </remarks>
-        /// 
-
         private bool v2ShemaFound = false;
 
-        protected override void ExecuteCdsPlugin(ILocalPluginContext localContext)
+        protected override void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
         {
-            if (localContext == null)
+            if (localPluginContext == null)
             {
-                throw new InvalidPluginExecutionException(nameof(localContext));
+                throw new ArgumentNullException(nameof(localPluginContext));
             }
+
+            var context = localPluginContext.PluginExecutionContext;
+            // Obtain the organization service reference for web service calls.  
+            IOrganizationService currentUserService = localPluginContext.PluginUserService;
+
             // Obtain the tracing service
-            ITracingService tracingService = localContext.TracingService;            
+            ITracingService tracingService = localPluginContext.TracingService;            
             int SchemaVersion = 0;
             string DefinitionData;
 
             try
             {
-                // Obtain the execution context from the service provider.  
-                IPluginExecutionContext context = (IPluginExecutionContext)localContext.PluginExecutionContext;
-
-                // Obtain the organization service reference for web service calls.  
-                IOrganizationService currentUserService = localContext.CurrentUserService;
-
                 // PreOperation stage
                 if (context.MessageName.ToLower().Equals("autocoe_desktopflowdefinitionanalysis") && context.Stage.Equals(30))
                 {
@@ -137,8 +134,6 @@ namespace AutoCoE.Extensibility.Plugins
                                 throw new InvalidPluginExecutionException("Unable to find schema and definition data for flow " + desktopFlowDefEntity.Id);
 
                             }
-
-
                         }
                         catch (Exception ex)
                         {
@@ -418,6 +413,5 @@ namespace AutoCoE.Extensibility.Plugins
             }
 
         }
-
     }
 }

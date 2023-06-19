@@ -59,24 +59,24 @@ namespace AutoCoE.Extensibility.Plugins
         /// is stored in the context. This means that you should not use global variables in plug-ins.
         /// </remarks>
         /// 
-        protected override void ExecuteCdsPlugin(ILocalPluginContext localPluginContext)
+        protected override void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
         {
             if (localPluginContext == null)
             {
                 throw new ArgumentNullException(nameof(localPluginContext));
             }
 
+            var context = localPluginContext.PluginExecutionContext;
+            // Obtain the organization service reference for web service calls.  
+            IOrganizationService currentUserService = localPluginContext.PluginUserService;
+
             // Obtain the tracing service
             ITracingService tracingService = localPluginContext.TracingService;
 
-            // Get the organizasion service to retrieve the environment variable for user id to impersonate
-            var organizationService = localPluginContext.CurrentUserService;
-
-            var context = localPluginContext.PluginExecutionContext;
             var solutionid = new Guid();
 
             // Getting user id to impersonate to fetch solution components
-            var systemUserIdToImpersonate = GetAzureAppUserIdToImpersonate(organizationService, tracingService);
+            var systemUserIdToImpersonate = GetAzureAppUserIdToImpersonate(currentUserService, tracingService);
 
             //if (string.IsNullOrWhiteSpace(systemUserIdToImpersonate.ToString()))
             //    tracingService.Trace("Application User id not found. Please verify respective environment variable");
