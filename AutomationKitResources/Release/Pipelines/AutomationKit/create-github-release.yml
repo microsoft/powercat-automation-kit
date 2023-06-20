@@ -57,15 +57,15 @@ steps:
     patterns: '**/AutomationCoESatellite*.zip'
   displayName: 'Download Automation CoE Satellite solution'
 
-# Download the artifacts from the latest deployment of Schedule to production.
+# Download the artifacts from the latest deployment of control Center to production.
 - task: DownloadPipelineArtifact@2
   inputs:
     source: 'specific'
     project: 'Automation-Kit'
     pipeline: '396'
     runVersion: 'latest'
-    patterns: '**/AutomationKitScheduler*.zip'
-  displayName: 'Download Automation CoE Scheduler solution'
+    patterns: '**/AutomationKitControlCenter*.zip'
+  displayName: 'Download Automation CoE Control Center solution'
 
 - powershell: |
     New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
@@ -79,7 +79,7 @@ steps:
 
     Copy-Item 'Microsoft_AutomationKIT_Main_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'Microsoft_AutomationKIT_Satellite_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
-    Copy-Item 'AutomationKitScheduler*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item 'AutomationKitControlCenter*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationCoESatellite_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item '$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKitResources\Release\Collateral\AutomationKit\*.pbit' -Destination '$(Pipeline.Workspace)\assetstaging'
