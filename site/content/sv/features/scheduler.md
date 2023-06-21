@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## Införandet
 
-Med Automation Kit Scheduler kan du visa schemat för återkommande Power Automate Cloud-flöden i lösningar som innehåller anrop till Power Automate Desktop-flöden.
+På sidan Automation Kit Automation Center Scheduler kan du visa schemat för återkommande Power Automate Cloud-flöden i lösningar som innehåller anrop till Power Automate Desktop-flöden.
 
-Den här funktionen uppdaterades som en del av [Mars 2023](/sv/releases/march-2023)kommer senare versioner att fortsätta att förbättra och utöka schemaläggarens funktionalitet.
+Den här funktionen uppdaterades som en del av [juni 2023](/sv/releases/june-2023)
 
 {{<border>}}
 ![Scheduler](/images/schedule.png)
@@ -24,7 +24,8 @@ Den här funktionen uppdaterades som en del av [Mars 2023](/sv/releases/march-20
 De viktigaste funktionerna i schemaläggaren är:
 
 - Möjligheten att visa schemat för återkommande molnflöden
-- Filtrera schema efter dator- och datorgrupper
+- Filtrera schema efter maskin- och maskingrupper och status
+- Öppna rutnätsvyn för datorflödeskörningar
 - Köra ett Power Automate Desktop-flöde
 - Visa schema efter dag-, vecko-, månads- och schemavy
 - Visa status för Schemalagda flöden (Lyckades, Misslyckades eller Schemalagd)
@@ -54,7 +55,7 @@ Status- och körningsinformationen är tillgänglig med lång tryckning eller mu
 ### Schema
 
 {{<border>}}
-![Schemaläggare - Kör nu](/images/scheduler-schedule-view.png)
+![Schemaläggare - Schemavy](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 Schemavyn innehåller en uppsättning molnflöden baserat på tid från den aktuella tiden och framtida schemalagda flöden under de kommande dagarna.
@@ -62,18 +63,19 @@ Schemavyn innehåller en uppsättning molnflöden baserat på tid från den aktu
 ## Kör nu
 
 {{<border>}}
-![Schemaläggare - Kör nu](/images/scheduler-run-now.png)
+![Schemaläggare - Kör nu](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 Den aktuella versionen av Kör nu kör Power Automate desktop. Det förutsätter att det inte krävs några parametrar för att köra datorflödet. Den ytterligare körningsinformationen finns i skrivbordsinformationen för senaste körning.
 
-### Planerade förändringar
+## Öppna rutnätsvyn
 
-I framtida versioner betraktas följande som nya funktioner:
+{{<border>}}
+![Schemaläggare - Öppna rutnätsvyn](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. Kör molnflödet i stället för datorflödet. Detta inkluderar sedan körningshistorik för molnflöde och körning av eventuella ytterligare molnflödesåtgärder och parametrar som skickas till datorflödet.
-
-2. Öppna körningssidorna för Desktop och Cloud flow.
+Användare kan navigera till sidan för datorflödeskörningar i Power Automate från vår startsida för Control Center
+Skärmbild av den nya knappen "Öppna rutnätsvy" på startsidan för att navigera till sidan för datorflöden i Power Automate-portalen.
 
 ### Skrivskyddat beteende för schemalagda flöden
 
@@ -125,12 +127,11 @@ För den aktuella versionen gäller följande information
 
 ## Installera
 
-För att installera schemaläggningslösningen kan du göra följande:
+För att installera Control Center kan du göra följande:
 
 1. Se till att Power Apps component framework är aktiverat <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Läs mer</a>
 1. Du har installerat Creator Kit i målmiljön. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installera från appkällan</a>
-1. Du har laddat ned filen AutomationKit.zip från avsnittet Tillgångar i den senaste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-versionen</a>
-1. Du har importerat den senaste AutomationKitScheduler_*_hanterad.zip fil med. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Läs mer</a>
+1. Du har importerat den senaste versionen av AutomationKitControlCenter_*_hanterad.zip fil med. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Läs mer</a>
 
 ## Färdplan
 

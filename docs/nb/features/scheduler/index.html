@@ -69,9 +69,9 @@
         <li><a href="#timeplan">Timeplan</a></li>
       </ul>
     </li>
-    <li><a href="#kjør-nå">Kjør nå</a>
+    <li><a href="#kjør-nå">Kjør nå</a></li>
+    <li><a href="#åpne-rutenettvisning">Åpne rutenettvisning</a>
       <ul>
-        <li><a href="#planlagte-endringer">Planlagte endringer</a></li>
         <li><a href="#skrivebeskyttet-virkemåte-for-planlagte-flyter">Skrivebeskyttet virkemåte for planlagte flyter</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="introduksjon">Introduksjon</h2>
-<p>Automation Kit Scheduler gjør det mulig å vise tidsplanen for regelmessige Power Automate Cloud-flyter i løsninger som inkluderer kall til Power Automate Desktop-flyter.</p>
-<p>Denne funksjonen ble oppdatert som en del av <a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/march-2023">Mars 2023</a>, Senere utgivelser vil fortsette å forbedre og utvide funksjonaliteten planleggeren.</p>
+<p>På siden Automation Kit Automation Center Scheduler kan du vise tidsplanen for regelmessige Power Automate Cloud-flyter i løsninger som inkluderer kall til Power Automate Desktop-flyter.</p>
+<p>Denne funksjonen ble oppdatert som en del av <a href="https://microsoft.github.io/powercat-automation-kit/nb/releases/june-2023">juni 2023</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -112,7 +112,8 @@
 <p>De viktigste funksjonene i planleggeren er:</p>
 <ul>
 <li>Muligheten til å vise tidsplanen for regelmessige skyflyter</li>
-<li>Filtrer tidsplan etter maskin og maskingrupper</li>
+<li>Filtrere tidsplan etter maskin- og maskingrupper og status</li>
+<li>Åpne rutenettvisning av skrivebordsflytkjøringer</li>
 <li>Kjøre en Power Automate Desktop-flyt</li>
 <li>Vise tidsplan etter dag, uke, måned og tidsplanvisning</li>
 <li>Vise statusen for Planlagte flyter (Vellykket, Feil eller Planlagt)</li>
@@ -153,7 +154,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Planlegger - Kjør nå">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Planlegger – Tidsplan-visning">
 
     </center>
 </div>
@@ -175,22 +176,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Planlegger - Kjør nå">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="Planlegger - Kjør nå">
 
     </center>
 </div>
 
 <p>Den gjeldende versjonen av Kjør nå kjører Power Automate-skrivebordet. Det antas at det ikke er noen parametere som kreves for å utføre skrivebordsflyten. Den ekstra kjøreinformasjonen er tilgjengelig i informasjonen om siste kjøring på skrivebordet.</p>
-<h3 id="planlagte-endringer">Planlagte endringer</h3>
-<p>I fremtidige utgivelser vurderes følgende som nye funksjoner:</p>
-<ol>
-<li>
-<p>Utfør skyflyten i stedet for skrivebordsflyten. Dette inkluderer deretter kjøreloggen for skyflyten og kjøring av eventuelle ekstra skyflythandlinger og parametere som sendes til skrivebordsflyten.</p>
-</li>
-<li>
-<p>Åpne sider for skrivebords- og skyflytkjøring.</p>
-</li>
-</ol>
+<h2 id="åpne-rutenettvisning">Åpne rutenettvisning</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="Planlegger – Åpne rutenettvisning">
+
+    </center>
+</div>
+
+<p>Brukere kan navigere til siden Skrivebordsflytkjøringer i Power Automate fra hjemmesiden for kontrollsenteret
+Skjermbilde av den nye knappen Åpne rutenettvisning på hjemmesiden for å navigere til siden Kjøringer av skrivebordsflyter i Power Automate-portalen.</p>
 <h3 id="skrivebeskyttet-virkemåte-for-planlagte-flyter">Skrivebeskyttet virkemåte for planlagte flyter</h3>
 <p>Når en flyt er planlagt for fremtidig kjøring, er den som standard satt til skrivebeskyttet modus og deaktivert for umiddelbar kjøring. Dette betyr at brukere ikke kan endre eller kjøre flyten før den planlagte datoen og klokkeslettet er passert. Denne virkemåten er utformet for å gi en bedre brukeropplevelse og forhindre utilsiktet kjøring av flyter før de er ment å kjøre.
 Det er flere fordeler med denne tilnærmingen, inkludert:</p>
@@ -243,12 +257,11 @@ Det er flere fordeler med denne tilnærmingen, inkludert:</p>
 <li>Minst én Power Automate Desktop er registrert og utført</li>
 </ol>
 <h2 id="installere">Installere</h2>
-<p>For å installere planleggerløsningen kan du gjøre følgende:</p>
+<p>For å installere kontrollsenteret kan du gjøre følgende:</p>
 <ol>
 <li>Sikre at Power Apps component framework er aktivert <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Les også</a></li>
 <li>Du har installert Creator Kit i målmiljøet. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer fra appkilde</a></li>
-<li>Du har lastet ned AutomationKit.zip-filen fra Aktiva-delen av den nyeste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-utgivelse</a></li>
-<li>Du har importert den nyeste AutomationKitScheduler_*_administrert.zip fil ved hjelp av. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Les også</a></li>
+<li>Du har importert den nyeste AutomationKitControlCenter_*_administrert.zip fil ved hjelp av. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Les også</a></li>
 </ol>
 <h2 id="veikart">Veikart</h2>
 <p>Du kan besøke vår <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub-problemer</a> for å se foreslåtte nye funksjoner.</p>

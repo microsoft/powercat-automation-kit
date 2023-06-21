@@ -69,9 +69,9 @@
         <li><a href="#zeitplan">Zeitplan</a></li>
       </ul>
     </li>
-    <li><a href="#jetzt-ausführen">Jetzt ausführen</a>
+    <li><a href="#jetzt-ausführen">Jetzt ausführen</a></li>
+    <li><a href="#rasteransicht-öffnen">Rasteransicht öffnen</a>
       <ul>
-        <li><a href="#geplante-änderungen">Geplante Änderungen</a></li>
         <li><a href="#schreibgeschütztes-verhalten-geplanter-flows">Schreibgeschütztes Verhalten geplanter Flows</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="einleitung">Einleitung</h2>
-<p>Der Automation Kit Scheduler ermöglicht es, den Zeitplan für wiederkehrende Power Automate Cloud-Flows innerhalb von Lösungen anzuzeigen, die Aufrufe von Power Automate Desktop-Flows enthalten.</p>
-<p>Diese Funktion wurde im Rahmen der <a href="https://microsoft.github.io/powercat-automation-kit/de/releases/march-2023">März 2023</a>, Spätere Versionen werden die Funktionalität des Schedulers weiter verbessern und erweitern.</p>
+<p>Auf der Seite Automation Kit Automation Center Scheduler können Sie den Zeitplan für wiederkehrende Power Automate Cloud-Flows in Lösungen anzeigen, die Aufrufe von Power Automate Desktop-Flows enthalten.</p>
+<p>Diese Funktion wurde im Rahmen der <a href="https://microsoft.github.io/powercat-automation-kit/de/releases/june-2023">Juni 2023</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -112,7 +112,8 @@
 <p>Die wichtigsten Funktionen des Schedulers sind:</p>
 <ul>
 <li>Die Möglichkeit, den Zeitplan wiederkehrender Cloud-Flows anzuzeigen</li>
-<li>Filterplan nach Maschine und Maschinengruppen</li>
+<li>Filtern des Zeitplans nach Maschine und Maschinengruppen und Status</li>
+<li>Öffnen Sie die Rasteransicht der Desktop-Schemaausführungen</li>
 <li>Ausführen eines Power Automate Desktop-Ablaufs</li>
 <li>Zeitplan nach Tag, Woche, Monat und Zeitplanansicht anzeigen</li>
 <li>Anzeigen des Status geplanter Flows (Erfolg, Fehler oder Geplant)</li>
@@ -153,7 +154,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Scheduler - Jetzt ausführen">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Scheduler - Zeitplanansicht">
 
     </center>
 </div>
@@ -175,22 +176,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Scheduler - Jetzt ausführen">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="Scheduler - Jetzt ausführen">
 
     </center>
 </div>
 
 <p>Die aktuelle Version von Jetzt ausführen führt den Power Automate-Desktop aus. Es wird davon ausgegangen, dass zum Ausführen des Desktopflusses keine Parameter erforderlich sind. Die zusätzlichen Ausführungsinformationen finden Sie in den Informationen zur letzten Ausführung des Desktops.</p>
-<h3 id="geplante-änderungen">Geplante Änderungen</h3>
-<p>In zukünftigen Versionen werden die folgenden Funktionen als neue Funktionen betrachtet:</p>
-<ol>
-<li>
-<p>Führen Sie den Cloud-Flow anstelle des Desktop-Flows aus. Dies umfasst dann den Verlauf der Cloud-Flow-Ausführung und die Ausführung aller zusätzlichen Cloud-Flow-Aktionen und -Parameter, die an den Desktop-Flow übergeben werden.</p>
-</li>
-<li>
-<p>Öffnen Sie Desktop- und Cloud-Flow-Ausführungsseiten.</p>
-</li>
-</ol>
+<h2 id="rasteransicht-öffnen">Rasteransicht öffnen</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="Scheduler - Rasteransicht öffnen">
+
+    </center>
+</div>
+
+<p>Benutzer können auf unserer Control Center-Startseite zur Seite &ldquo;Desktop-Flow-Ausführungen&rdquo; in Power Automate navigieren
+Screenshot der neuen Schaltfläche &ldquo;Rasteransicht öffnen&rdquo; auf der Startseite, um zur Seite &ldquo;Desktop-Flow-Ausführungen&rdquo; im Power Automate-Portal zu navigieren.</p>
 <h3 id="schreibgeschütztes-verhalten-geplanter-flows">Schreibgeschütztes Verhalten geplanter Flows</h3>
 <p>Wenn ein Flow für die zukünftige Ausführung geplant ist, wird er standardmäßig auf den schreibgeschützten Modus festgelegt und für die sofortige Ausführung deaktiviert. Dies bedeutet, dass Benutzer den Flow erst ändern oder ausführen können, wenn das geplante Datum und die geplante Uhrzeit abgelaufen sind. Dieses Verhalten wurde entwickelt, um eine bessere Benutzererfahrung zu bieten und die versehentliche Ausführung von Flows zu verhindern, bevor sie ausgeführt werden sollen.
 Dieser Ansatz bietet mehrere Vorteile, darunter:</p>
@@ -243,12 +257,11 @@ Dieser Ansatz bietet mehrere Vorteile, darunter:</p>
 <li>Mindestens ein Power Automate Desktop wurde registriert und ausgeführt</li>
 </ol>
 <h2 id="installieren">Installieren</h2>
-<p>Gehen Sie wie folgt vor, um die Scheduler-Lösung zu installieren:</p>
+<p>Um das Control Center zu installieren, können Sie Folgendes tun:</p>
 <ol>
 <li>Stellen Sie sicher, dass das Power Apps-Komponentenframework aktiviert ist <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lesen Sie mehr</a></li>
 <li>Sie haben das Creator Kit in der Zielumgebung installiert. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installieren von App-Quelle</a></li>
-<li>Sie haben die Datei AutomationKit.zip aus dem Abschnitt &ldquo;Assets&rdquo; der neuesten <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-Version</a></li>
-<li>Sie haben den aktuellen AutomationKitScheduler importiert_*_verwaltet.zip Datei mit. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lesen Sie mehr</a></li>
+<li>Sie haben das neueste AutomationKitControlCenter importiert_*_verwaltet.zip Datei mit. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lesen Sie mehr</a></li>
 </ol>
 <h2 id="fahrplan">Fahrplan</h2>
 <p>Besuchen Sie unsere <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub-Probleme</a> , um vorgeschlagene neue Funktionen anzuzeigen.</p>

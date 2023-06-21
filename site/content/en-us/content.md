@@ -118,6 +118,8 @@ include_footer: true
 
 - [Automation Kit - February 2023](/releases/february-2023)
 
+- [Automation Kit - June 2023](/releases/june-2023)
+
 - [Automation Kit - March 2023](/releases/march-2023)
 
 - [Automation Kit - May 2023](/releases/may-2023)

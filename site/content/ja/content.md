@@ -4,7 +4,7 @@ description: "オートメーションキット - サイトインデックス"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
+generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ---
 
 {{<toc>}}
@@ -118,6 +118,8 @@ generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
 - [自動化キット - 2022年12月](/ja/releases/december-2022)
 
 - [自動化キット - 2023年2月](/ja/releases/february-2023)
+
+- [オートメーションキット - 2023年6月](/ja/releases/june-2023)
 
 - [自動化キット - 2023年3月](/ja/releases/march-2023)
 

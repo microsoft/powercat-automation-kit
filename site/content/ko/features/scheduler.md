@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## 소개
 
-자동화 키트 스케줄러를 사용하면 Power Automate 데스크톱 흐름에 대한 호출을 포함하는 솔루션 내에서 반복되는 Power Automate 클라우드 흐름의 일정을 볼 수 있습니다.
+자동화 키트 자동화 센터 스케줄러 페이지에서는 Power Automate Desktop 흐름에 대한 호출을 포함하는 솔루션 내에서 반복되는 Power Automate 클라우드 흐름의 일정을 볼 수 있습니다.
 
-이 기능은 [2023년 3월](/ko/releases/march-2023)이후 릴리스에서는 스케줄러의 기능을 계속 개선하고 확장할 예정입니다.
+이 기능은 [2023년 6월](/ko/releases/june-2023)
 
 {{<border>}}
 ![스케줄러](/images/schedule.png)
@@ -24,7 +24,8 @@ generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
 스케줄러의 주요 기능은 다음과 같습니다.
 
 - 되풀이 클라우드 흐름의 일정을 볼 수 있는 기능
-- 기계 및 기계 그룹별로 일정 필터링
+- 컴퓨터 및 컴퓨터 그룹과 상태별로 일정 필터링Filter schedule by machine and machine groups and status
+- 데스크톱 흐름 실행의 그리드 보기 열기
 - 전원 자동화 데스크톱 흐름 실행
 - 일, 주, 월 및 일정 보기로 일정 보기
 - 예약된 흐름의 상태 보기(성공, 실패 또는 예약됨)
@@ -54,7 +55,7 @@ generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
 ### 일정
 
 {{<border>}}
-![스케줄러 - 지금 실행](/images/scheduler-schedule-view.png)
+![스케줄러 - 일정 보기](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 일정 보기에는 현재 시간의 시간과 다음 날의 향후 예약된 흐름을 기반으로 하는 클라우드 흐름 집합이 포함됩니다.
@@ -62,18 +63,19 @@ generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
 ## 지금 실행
 
 {{<border>}}
-![스케줄러 - 지금 실행](/images/scheduler-run-now.png)
+![스케줄러 - 지금 실행](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 지금 실행의 현재 버전은 Power Automate 데스크톱을 실행합니다. 여기서는 데스크톱 흐름을 실행하는 데 필요한 매개 변수가 없다고 가정합니다. 추가 실행 정보는 Desktop 마지막 실행 정보에서 사용할 수 있습니다.
 
-### 계획된 변경 사항
+## 그리드 보기 열기
 
-향후 릴리스에서는 다음이 새로운 기능으로 고려되고 있습니다.
+{{<border>}}
+![스케줄러 - 그리드 보기 열기](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. 데스크톱 흐름이 아닌 클라우드 흐름을 실행합니다. 그런 다음 클라우드 흐름 실행 기록과 데스크톱 흐름에 전달되는 추가 클라우드 흐름 작업 및 매개 변수 실행이 포함됩니다.
-
-2. 데스크톱 및 클라우드 흐름 실행 페이지를 엽니다.
+사용자는 제어 센터 홈페이지에서 Power Automate의 데스크톱 흐름 실행 페이지로 이동할 수 있습니다
+Power Automate 포털의 데스크톱 흐름 실행 페이지로 이동하기 위한 홈페이지의 새 단추 "그리드 보기 열기"의 스크린샷.
 
 ### 예약된 흐름의 읽기 전용 동작
 
@@ -125,12 +127,11 @@ generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
 
 ## 설치하다
 
-스케줄러 솔루션을 설치하려면 다음을 수행할 수 있습니다.
+제어 센터를 설치하려면 다음을 수행 할 수 있습니다.
 
 1. Power Apps 구성 요소 프레임워크가 사용하도록 설정되어 있는지 확인 <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">더보기</a>
 1. 크리에이터 키트를 대상 환경에 설치했습니다. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">앱 소스에서 설치</a>
-1. 최신 자산의 섹션에서 AutomationKit.zip 파일을 다운로드했습니다. <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">깃허브 릴리스</a>
-1. 최신 AutomationKitScheduler를 가져왔습니다._*_관리.zip 파일 사용. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">더보기</a>
+1. 최신 AutomationKitControlCenter를 가져왔습니다._*_관리.zip 파일 사용. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">더보기</a>
 
 ## 로드맵
 

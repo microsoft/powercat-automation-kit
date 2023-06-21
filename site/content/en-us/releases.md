@@ -14,6 +14,8 @@ Read more on our [Release Milestone Notes](/releases/milestones)
 
 ## 2023
 
+- [June 2023](/releases/june-2023)
+
 - [May 2023](/releases/may-2023)
 
 - [April 2023](/releases/april-2023)

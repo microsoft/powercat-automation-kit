@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A4DF3D5F0B88DB204D84CD4B5820FD554F55AD94
+generated: 3BDF95892FE5AA916B61E6EB960DCF1C71756DDF
 ---
 
 Die Seite enthält Links zur Versionshistorie für {{<product-name>}}.
@@ -14,6 +14,8 @@ Die Seite enthält Links zur Versionshistorie für {{<product-name>}}.
 Lesen Sie mehr auf unserer [Meilenstein-Hinweise zur Veröffentlichung](/de/releases/milestones)
 
 ## 2023
+
+- [Juni 2023](/de/releases/june-2023)
 
 - [Mai 2023](/de/releases/may-2023)
 

@@ -69,9 +69,9 @@
         <li><a href="#rooster">Rooster</a></li>
       </ul>
     </li>
-    <li><a href="#nu-uitvoeren">Nu uitvoeren</a>
+    <li><a href="#nu-uitvoeren">Nu uitvoeren</a></li>
+    <li><a href="#rasterweergave-openen">Rasterweergave openen</a>
       <ul>
-        <li><a href="#geplande-wijzigingen">Geplande wijzigingen</a></li>
         <li><a href="#alleen-lezen-gedrag-van-geplande-stromen">Alleen-lezen gedrag van geplande stromen</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="introductie">Introductie</h2>
-<p>Met de Automation Kit Scheduler kunt u de planning van terugkerende Power Automate Cloud-stromen in oplossingen bekijken die aanroepen naar Power Automate Desktop-stromen bevatten.</p>
-<p>Deze functie is bijgewerkt als onderdeel van de <a href="https://microsoft.github.io/powercat-automation-kit/nl/releases/march-2023">maart 2023</a>, Zullen latere releases de functionaliteit van de planner blijven verbeteren en uitbreiden.</p>
+<p>Op de pagina Automation Kit Automation Center Scheduler kunt u het schema bekijken van terugkerende Power Automate-cloudstromen binnen oplossingen die aanroepen naar Power Automate Desktop-stromen bevatten.</p>
+<p>Deze functie is bijgewerkt als onderdeel van de <a href="https://microsoft.github.io/powercat-automation-kit/nl/releases/june-2023">mei 2023</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -112,7 +112,8 @@
 <p>De belangrijkste kenmerken van de planner zijn:</p>
 <ul>
 <li>De mogelijkheid om het schema van terugkerende cloudstromen te bekijken</li>
-<li>Filterschema op machine- en machinegroepen</li>
+<li>Filterschema op machine- en machinegroepen en status</li>
+<li>Open Grid-weergave van bureaubladstroomuitvoeringen</li>
 <li>Een Power Automate-bureaubladstroom uitvoeren</li>
 <li>Bekijk het schema op dag, week, maand en planningsweergave</li>
 <li>De status van geplande stromen weergeven (geslaagd, mislukt of gepland)</li>
@@ -153,7 +154,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Scheduler - Nu uitvoeren">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Planner - Planningsweergave">
 
     </center>
 </div>
@@ -175,22 +176,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Scheduler - Nu uitvoeren">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="Scheduler - Nu uitvoeren">
 
     </center>
 </div>
 
 <p>De huidige versie van Nu uitvoeren voert het Power Automate-bureaublad uit. Er wordt van uitgegaan dat er geen parameters nodig zijn om de bureaubladstroom uit te voeren. De aanvullende uitvoeringsinformatie is beschikbaar in de informatie over de laatste uitvoering op het bureaublad.</p>
-<h3 id="geplande-wijzigingen">Geplande wijzigingen</h3>
-<p>In toekomstige releases wordt het volgende als nieuwe functies beschouwd:</p>
-<ol>
-<li>
-<p>Voer de cloudstroom uit in plaats van de bureaubladstroom. Dit omvat vervolgens de geschiedenis van het uitvoeren van cloudstromen en het uitvoeren van aanvullende cloudstroomacties en parameters die worden doorgegeven aan de bureaubladstroom.</p>
-</li>
-<li>
-<p>Open desktop- en cloudstroomrunpagina&rsquo;s.</p>
-</li>
-</ol>
+<h2 id="rasterweergave-openen">Rasterweergave openen</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="Planner - Rasterweergave openen">
+
+    </center>
+</div>
+
+<p>Gebruikers kunnen navigeren naar de pagina bureaubladstromen die worden uitgevoerd in power automate vanuit onze startpagina van het Control Center
+Schermafbeelding van de nieuwe knop &ldquo;Open Grid View&rdquo; op de startpagina om te navigeren naar de pagina Bureaubladstromen die worden uitgevoerd in de Power Automate-portal.</p>
 <h3 id="alleen-lezen-gedrag-van-geplande-stromen">Alleen-lezen gedrag van geplande stromen</h3>
 <p>Wanneer een stroom is gepland voor toekomstige uitvoering, wordt deze standaard ingesteld op de modus Alleen-lezen en uitgeschakeld voor onmiddellijke uitvoering. Dit betekent dat gebruikers de stroom niet kunnen wijzigen of uitvoeren totdat de geplande datum en tijd zijn verstreken. Dit gedrag is ontworpen om een betere gebruikerservaring te bieden en te voorkomen dat stromen per ongeluk worden uitgevoerd voordat ze moeten worden uitgevoerd.
 Deze aanpak heeft verschillende voordelen, waaronder:</p>
@@ -243,12 +257,11 @@ Deze aanpak heeft verschillende voordelen, waaronder:</p>
 <li>Ten minste één Power Automate Desktop is geregistreerd en uitgevoerd</li>
 </ol>
 <h2 id="installeren">Installeren</h2>
-<p>Om de scheduler-oplossing te installeren, kunt u het volgende doen:</p>
+<p>U kunt het bedieningspaneel als volgt installeren:</p>
 <ol>
 <li>Ervoor zorgen dat power apps-onderdeelframework is ingeschakeld <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lees meer</a></li>
 <li>U hebt de Creator Kit in de doelomgeving geïnstalleerd. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installeren vanuit app-bron</a></li>
-<li>U hebt het AutomationKit.zip-bestand gedownload van het gedeelte Activa van de nieuwste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-versie</a></li>
-<li>U hebt de nieuwste AutomationKitScheduler geïmporteerd_*_beheerd.zip bestand gebruiken. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lees meer</a></li>
+<li>U hebt de nieuwste versie van AutomationKitControlCenter geïmporteerd_*_beheerd.zip bestand gebruiken. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lees meer</a></li>
 </ol>
 <h2 id="routekaart">Routekaart</h2>
 <p>U kunt onze <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub-problemen</a> om voorgestelde nieuwe functies te bekijken.</p>

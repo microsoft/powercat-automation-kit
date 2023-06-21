@@ -4,7 +4,7 @@ description: "자동화 키트 - 사이트 인덱스"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
+generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ---
 
 {{<toc>}}
@@ -118,6 +118,8 @@ generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
 - [자동화 키트 - 2022년 12월](/ko/releases/december-2022)
 
 - [자동화 키트 - 2023년 2월](/ko/releases/february-2023)
+
+- [자동화 키트 - 2023년 6월](/ko/releases/june-2023)
 
 - [자동화 키트 - 2023년 3월](/ko/releases/march-2023)
 

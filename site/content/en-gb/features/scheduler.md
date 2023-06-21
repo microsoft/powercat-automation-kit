@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## Introduction
 
-The Automation Kit Scheduler allows to view the schedule of recurring Power Automate Cloud flows inside Solutions that include calls to Power Automate Desktop flows.
+The Automation Kit Automation Center Scheduler page allows you to view the schedule of recurring Power Automate Cloud flows inside Solutions that include calls to Power Automate Desktop flows.
 
-This feature was updated as part of the [March 2023](/en-gb/releases/march-2023), Later releases will continue to improve and grow the functionality the scheduler.
+This feature was updated as part of the [June 2023](/en-gb/releases/june-2023)
 
 {{<border>}}
 ![Scheduler](/images/schedule.png)
@@ -24,7 +24,8 @@ This feature was updated as part of the [March 2023](/en-gb/releases/march-2023)
 The key features of the scheduler are:
 
 - The ability to view the schedule of Recurring cloud flows
-- Filter schedule by machine and machine groups
+- Filter schedule by machine and machine groups and status
+- Open Grid view of Desktop flow runs
 - Run a Power Automate Desktop flow
 - View schedule by Day, Week, Month and Schedule view
 - View the status of Scheduled flows (Success, Failure or Scheduled)
@@ -54,7 +55,7 @@ The status and run information is available with long touch or hover mouse on th
 ### Schedule
 
 {{<border>}}
-![Scheduler - Run Now](/images/scheduler-schedule-view.png)
+![Scheduler - Schedule view](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 The schedule view includes a set of cloud flows based on time from the current time and future scheduled flows over the next days.
@@ -62,18 +63,19 @@ The schedule view includes a set of cloud flows based on time from the current t
 ## Run Now
 
 {{<border>}}
-![Scheduler - Run Now](/images/scheduler-run-now.png)
+![Scheduler - Run Now](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 The current version of Run Now will execute the the Power Automate desktop. It is assume that there is no parameters required to execute the desktop flow. The additional run information is available in the Desktop last run information.
 
-### Planned Changes
+## Open Grid View
 
-In future releases the following is being considered as new features:
+{{<border>}}
+![Scheduler - Open Grid View](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. Execute the cloud flow rather than the desktop flow. This will then include cloud flow run history and execution any additional cloud flow actions and parameters that are passed to the desktop flow.
-
-2. Open Desktop and Cloud flow run pages.
+Users can navigate to desktop flows runs page in power automate form our Control Center Home page
+Screen shot of new Button "Open Grid View" on home page to navigate to desktop flows runs page in Power Automate portal.
 
 ### Read-only behavior of scheduled flows
 
@@ -125,12 +127,11 @@ For the current release the following notes apply
 
 ## Install
 
-To install the scheduler solution you can do the following:
+To install the Control Center can do the following:
 
 1. Ensure Power Apps component framework enabled <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Read more</a>
 1. You have installed the Creator Kit into the target environment. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Install from App Source</a>
-1. You have downloaded the AutomationKit.zip file from the Assets section of the latest <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub release</a>
-1. You have imported the latest AutomationKitScheduler_*_managed.zip file using. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Read more</a>
+1. You have imported the latest AutomationKitControlCenter_*_managed.zip file using. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Read more</a>
 
 ## Roadmap
 

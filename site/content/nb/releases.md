@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A4DF3D5F0B88DB204D84CD4B5820FD554F55AD94
+generated: 3BDF95892FE5AA916B61E6EB960DCF1C71756DDF
 ---
 
 Siden inneholder lenker til utgivelseshistorikken for {{<product-name>}}.
@@ -14,6 +14,8 @@ Siden inneholder lenker til utgivelseshistorikken for {{<product-name>}}.
 Les mer på vår [Fotnoter for utgivelser](/nb/releases/milestones)
 
 ## 2023
+
+- [juni 2023](/nb/releases/june-2023)
 
 - [mai 2023](/nb/releases/may-2023)
 

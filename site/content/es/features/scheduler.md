@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## Introducción
 
-El Programador del kit de automatización permite ver la programación de flujos recurrentes de Power Automate Cloud dentro de Soluciones que incluyen llamadas a flujos de Power Automate Desktop.
+La página Programador del Centro de automatización del Kit de automatización le permite ver la programación de flujos periódicos de Power Automate Cloud dentro de Soluciones que incluyen llamadas a flujos de Power Automate Desktop.
 
-Esta característica se actualizó como parte de la [Marzo 2023](/es/releases/march-2023), las versiones posteriores continuarán mejorando y aumentando la funcionalidad del programador.
+Esta característica se actualizó como parte de la [Junio 2023](/es/releases/june-2023)
 
 {{<border>}}
 ![Programador](/images/schedule.png)
@@ -24,7 +24,8 @@ Esta característica se actualizó como parte de la [Marzo 2023](/es/releases/ma
 Las características clave del programador son:
 
 - La capacidad de ver la programación de flujos de nube recurrentes
-- Programación de filtros por máquina y grupos de máquinas
+- Programación de filtros por máquina y grupos de máquinas y estado
+- Se ejecuta la vista de cuadrícula abierta del flujo de escritorio
 - Ejecutar un flujo de Power Automate Desktop
 - Ver programación por día, semana, mes y vista de programación
 - Ver el estado de los flujos programados (correctos, fallidos o programados)
@@ -54,7 +55,7 @@ La información de estado y ejecución está disponible con un toque prolongado 
 ### Horario
 
 {{<border>}}
-![Programador - Ejecutar ahora](/images/scheduler-schedule-view.png)
+![Programador - Vista de programación](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 La vista de programación incluye un conjunto de flujos de nube basados en el tiempo de la hora actual y los flujos programados futuros en los próximos días.
@@ -62,18 +63,19 @@ La vista de programación incluye un conjunto de flujos de nube basados en el ti
 ## Ejecutar ahora
 
 {{<border>}}
-![Programador - Ejecutar ahora](/images/scheduler-run-now.png)
+![Programador - Ejecutar ahora](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 La versión actual de Ejecutar ahora ejecutará el escritorio de Power Automate. Se supone que no hay parámetros necesarios para ejecutar el flujo de escritorio. La información adicional de ejecución está disponible en la información de última ejecución del escritorio.
 
-### Cambios planificados
+## Abrir vista de cuadrícula
 
-En futuras versiones, se considerarán nuevas características las siguientes:
+{{<border>}}
+![Programador - Vista de cuadrícula abierta](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. Ejecute el flujo de nube en lugar del flujo de escritorio. Esto incluirá el historial de ejecución del flujo de nube y la ejecución de cualquier acción y parámetros adicionales de flujo de nube que se pasen al flujo de escritorio.
-
-2. Abra las páginas de ejecución de flujo de escritorio y nube.
+Los usuarios pueden navegar a la página de flujos de escritorio en Power Automate desde nuestra página principal del Centro de control
+Captura de pantalla del nuevo botón "Abrir vista de cuadrícula" en la página principal para navegar a la página de flujos de escritorio se ejecuta en el portal de Power Automate.
 
 ### Comportamiento de solo lectura de flujos programados
 
@@ -125,12 +127,11 @@ Para la versión actual, se aplican las siguientes notas
 
 ## Instalar
 
-Para instalar la solución del programador, puede hacer lo siguiente:
+Para instalar el Centro de control puede hacer lo siguiente:
 
 1. Asegúrese de que el marco de componentes de Power Apps esté habilitado <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Leer más</a>
 1. Has instalado Creator Kit en el entorno de destino. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Instalar desde el origen de la aplicación</a>
-1. Ha descargado el archivo AutomationKit.zip desde la sección Activos de la última versión <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Versión de GitHub</a>
-1. Ha importado la versión más reciente de AutomationKitScheduler_*_administrado.zip archivo usando. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Leer más</a>
+1. Ha importado la versión más reciente de AutomationKitControlCenter_*_administrado.zip archivo usando. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Leer más</a>
 
 ## Hoja de ruta
 

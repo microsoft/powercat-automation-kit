@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## 紹介
 
-Automation Kit スケジューラを使用すると、Power Automate デスクトップ フローへの呼び出しを含むソリューション内の定期的な Power Automate クラウド フローのスケジュールを表示できます。
+Automation Kit オートメーション センター スケジューラ ページでは、Power Automate デスクトップ フローへの呼び出しを含むソリューション内の定期的な Power Automate クラウド フローのスケジュールを表示できます。
 
-この機能は、[2023年3月号](/ja/releases/march-2023)、今後のリリースでは、スケジューラの機能が改善され、拡張されます。
+この機能は、[2023年6月号](/ja/releases/june-2023)
 
 {{<border>}}
 ![スケジューラ](/images/schedule.png)
@@ -24,7 +24,8 @@ Automation Kit スケジューラを使用すると、Power Automate デスク�
 スケジューラの主な機能は次のとおりです。
 
 -定期的なクラウドフローのスケジュールを表示する機能
--コンピュータとコンピュータグループによるスケジュールのフィルタ
+-コンピュータとコンピュータグループとステータスによるスケジュールのフィルタ
+-デスクトップ フロー実行のグリッド ビューを開く
 -Power Automate デスクトップ フローを実行する
 -日、週、月、スケジュールビューでスケジュールを表示
 -スケジュールされたフローの状態を表示する (成功、失敗、またはスケジュール済み)
@@ -54,7 +55,7 @@ Automation Kit スケジューラを使用すると、Power Automate デスク�
 ### 計画
 
 {{<border>}}
-![スケジューラ - 今すぐ実行](/images/scheduler-schedule-view.png)
+![スケジューラ - スケジュールビュー](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 スケジュール ビューには、現在の時刻からの時間に基づく一連のクラウド フローと、今後数日間の将来のスケジュールされたフローが含まれます。
@@ -62,18 +63,19 @@ Automation Kit スケジューラを使用すると、Power Automate デスク�
 ## 今すぐ実行
 
 {{<border>}}
-![スケジューラ - 今すぐ実行](/images/scheduler-run-now.png)
+![スケジューラ - 今すぐ実行](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 現在のバージョンの [今すぐ実行] では、Power Automate デスクトップが実行されます。デスクトップ フローの実行に必要なパラメーターがないことを前提としています。追加の実行情報は、デスクトップの最終実行情報で確認できます。
 
-### 計画変更
+## グリッドビューを開く
 
-今後のリリースでは、次の機能が新機能として検討されます。
+{{<border>}}
+![スケジューラ - グリッドビューを開く](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1.デスクトップ フローではなくクラウド フローを実行します。これには、クラウド フローの実行履歴と実行、デスクトップ フローに渡される追加のクラウド フロー アクションとパラメーターが含まれます。
-
-2.デスクトップとクラウドのフロー実行ページを開きます。
+ユーザーは、コントロールセンターのホームページからパワーオートメーションのデスクトップフロー実行ページに移動できます
+Power Automate ポータルのデスクトップ フロー実行ページに移動するためのホーム ページの新しいボタン "グリッド ビューを開く" のスクリーン ショット。
 
 ### スケジュールされたフローの読み取り専用動作
 
@@ -125,12 +127,11 @@ Automation Kit スケジューラを使用すると、Power Automate デスク�
 
 ## 取り付ける
 
-スケジューラ ソリューションをインストールするには、次の操作を行います。
+コントロールセンターをインストールするには、次のことができます。
 
 1.Power Apps コンポーネント フレームワークが有効になっていることを確認する<a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">続きを読む</a>
 1.これで、クリエイターキットがターゲット環境にインストールされました。<a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">アプリソースからインストール</a>
-1.最新のアセットセクションからAutomationKit.zipファイルをダウンロードしました<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub リリース</a>
-1.最新のオートメーションキットスケジューラをインポートしておきます。_*_管理.zipファイルを使用します。<a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">続きを読む</a>
+1.最新のオートメーションキットをインポートしましたコントロールセンター_*_管理.zipファイルを使用します。<a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">続きを読む</a>
 
 ## ロードマップ
 

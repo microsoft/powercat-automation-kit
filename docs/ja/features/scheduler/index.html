@@ -69,9 +69,9 @@
         <li><a href="#計画">計画</a></li>
       </ul>
     </li>
-    <li><a href="#今すぐ実行">今すぐ実行</a>
+    <li><a href="#今すぐ実行">今すぐ実行</a></li>
+    <li><a href="#グリッドビューを開く">グリッドビューを開く</a>
       <ul>
-        <li><a href="#計画変更">計画変更</a></li>
         <li><a href="#スケジュールされたフローの読み取り専用動作">スケジュールされたフローの読み取り専用動作</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="紹介">紹介</h2>
-<p>Automation Kit スケジューラを使用すると、Power Automate デスクトップ フローへの呼び出しを含むソリューション内の定期的な Power Automate クラウド フローのスケジュールを表示できます。</p>
-<p>この機能は、<a href="https://microsoft.github.io/powercat-automation-kit/ja/releases/march-2023">2023年3月号</a>、今後のリリースでは、スケジューラの機能が改善され、拡張されます。</p>
+<p>Automation Kit オートメーション センター スケジューラ ページでは、Power Automate デスクトップ フローへの呼び出しを含むソリューション内の定期的な Power Automate クラウド フローのスケジュールを表示できます。</p>
+<p>この機能は、<a href="https://microsoft.github.io/powercat-automation-kit/ja/releases/june-2023">2023年6月号</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -111,7 +111,8 @@
 
 <p>スケジューラの主な機能は次のとおりです。</p>
 <p>-定期的なクラウドフローのスケジュールを表示する機能
--コンピュータとコンピュータグループによるスケジュールのフィルタ
+-コンピュータとコンピュータグループとステータスによるスケジュールのフィルタ
+-デスクトップ フロー実行のグリッド ビューを開く
 -Power Automate デスクトップ フローを実行する
 -日、週、月、スケジュールビューでスケジュールを表示
 -スケジュールされたフローの状態を表示する (成功、失敗、またはスケジュール済み)
@@ -143,7 +144,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="スケジューラ - 今すぐ実行">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="スケジューラ - スケジュールビュー">
 
     </center>
 </div>
@@ -165,16 +166,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="スケジューラ - 今すぐ実行">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="スケジューラ - 今すぐ実行">
 
     </center>
 </div>
 
 <p>現在のバージョンの [今すぐ実行] では、Power Automate デスクトップが実行されます。デスクトップ フローの実行に必要なパラメーターがないことを前提としています。追加の実行情報は、デスクトップの最終実行情報で確認できます。</p>
-<h3 id="計画変更">計画変更</h3>
-<p>今後のリリースでは、次の機能が新機能として検討されます。</p>
-<p>1.デスクトップ フローではなくクラウド フローを実行します。これには、クラウド フローの実行履歴と実行、デスクトップ フローに渡される追加のクラウド フロー アクションとパラメーターが含まれます。</p>
-<p>2.デスクトップとクラウドのフロー実行ページを開きます。</p>
+<h2 id="グリッドビューを開く">グリッドビューを開く</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="スケジューラ - グリッドビューを開く">
+
+    </center>
+</div>
+
+<p>ユーザーは、コントロールセンターのホームページからパワーオートメーションのデスクトップフロー実行ページに移動できます
+Power Automate ポータルのデスクトップ フロー実行ページに移動するためのホーム ページの新しいボタン &ldquo;グリッド ビューを開く&rdquo; のスクリーン ショット。</p>
 <h3 id="スケジュールされたフローの読み取り専用動作">スケジュールされたフローの読み取り専用動作</h3>
 <p>既定では、フローが将来の実行にスケジュールされると、フローは読み取り専用モードに設定され、すぐに実行できないように無効になります。つまり、ユーザーは、スケジュールされた日時が経過するまでフローを変更または実行できません。この動作は、ユーザー エクスペリエンスを向上させ、フローが実行される前に誤って実行されるのを防ぐように設計されています。
 このアプローチには、次のようないくつかの利点があります。</p>
@@ -201,11 +221,10 @@
 <p>1.ソリューションに含まれる Power Automate デスクトップ ソリューションと Power Automate ソリューションのみが表示されます。
 1.少なくとも 1 つの Power Automate デスクトップが登録され、実行されている</p>
 <h2 id="取り付ける">取り付ける</h2>
-<p>スケジューラ ソリューションをインストールするには、次の操作を行います。</p>
+<p>コントロールセンターをインストールするには、次のことができます。</p>
 <p>1.Power Apps コンポーネント フレームワークが有効になっていることを確認する<a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">続きを読む</a>
 1.これで、クリエイターキットがターゲット環境にインストールされました。<a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">アプリソースからインストール</a>
-1.最新のアセットセクションからAutomationKit.zipファイルをダウンロードしました<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub リリース</a>
-1.最新のオートメーションキットスケジューラをインポートしておきます。_*_管理.zipファイルを使用します。<a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">続きを読む</a></p>
+1.最新のオートメーションキットをインポートしましたコントロールセンター_*_管理.zipファイルを使用します。<a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">続きを読む</a></p>
 <h2 id="ロードマップ">ロードマップ</h2>
 <p>あなたは私たちを訪問することができます<a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub の問題</a>をクリックして、提案された新機能を表示します。</p>
 <p>新しい<a href="https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Cenhancement%2Cscheduler&template=2-automation-kit-feature.yml&title=%5BAutomation+Kit+-+Feature%5D%3A+FEATURE+TITLE" target="_blank">スケジューラ機能要求</a></p>

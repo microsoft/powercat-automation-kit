@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## Introduction
 
-Le Planificateur du Kit d’automatisation permet d’afficher la planification des flux Power Automate Cloud récurrents dans les solutions qui incluent des appels aux flux Power Automate Desktop.
+La page Planificateur Automation Center du Kit d’automatisation vous permet d’afficher la planification des flux Power Automate Cloud récurrents dans les solutions qui incluent des appels aux flux Power Automate Desktop.
 
-Cette fonctionnalité a été mise à jour dans le cadre de l' [Mars 2023](/fr/releases/march-2023), les versions ultérieures continueront d’améliorer et de développer les fonctionnalités du planificateur.
+Cette fonctionnalité a été mise à jour dans le cadre de l' [Juin 2023](/fr/releases/june-2023)
 
 {{<border>}}
 ![Programmateur](/images/schedule.png)
@@ -24,7 +24,8 @@ Cette fonctionnalité a été mise à jour dans le cadre de l' [Mars 2023](/fr/r
 Les principales caractéristiques du planificateur sont les suivantes :
 
 - La possibilité de visualiser la planification des flux cloud récurrents
-- Filtrer la planification par machine et groupes de machines
+- Filtrer la planification par machine et groupes de machines et par état
+- Vue Grille ouverte des exécutions de flux Desktop
 - Exécuter un flux Power Automate Desktop
 - Voir le calendrier par jour, semaine, mois et affichage horaire
 - Afficher l’état des flux planifiés (Succès, Échec ou Planifié)
@@ -54,7 +55,7 @@ Les informations d’état et d’exécution sont disponibles avec une longue so
 ### Horaire
 
 {{<border>}}
-![Planificateur - Exécuter maintenant](/images/scheduler-schedule-view.png)
+![Planificateur - Vue planifiée](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 La vue de planification inclut un ensemble de flux de nuages basés sur l’heure actuelle et les flux planifiés futurs au cours des prochains jours.
@@ -62,18 +63,19 @@ La vue de planification inclut un ensemble de flux de nuages basés sur l’heur
 ## Exécuter maintenant
 
 {{<border>}}
-![Planificateur - Exécuter maintenant](/images/scheduler-run-now.png)
+![Planificateur - Exécuter maintenant](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 La version actuelle de l’Exécuter maintenant exécute le bureau Power Automate. Il est supposé qu’aucun paramètre n’est requis pour exécuter le flux de bureau. Les informations d’exécution supplémentaires sont disponibles dans les informations de dernière exécution du bureau.
 
-### Changements prévus
+## Vue Grille ouverte
 
-Dans les versions futures, les éléments suivants sont considérés comme de nouvelles fonctionnalités :
+{{<border>}}
+![Planificateur - Vue Grille ouverte](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. Exécutez le flux cloud plutôt que le flux de bureau. Cela inclura ensuite l’historique d’exécution du flux cloud et l’exécution de toutes les actions et paramètres de flux cloud supplémentaires transmis au flux de bureau.
-
-2. Ouvrez les pages d’exécution Desktop et Cloud Flow.
+Les utilisateurs peuvent accéder à la page des flux de bureau dans Power Automate de notre page d’accueil du centre de contrôle
+Capture d’écran du nouveau bouton « Ouvrir la vue grille » sur la page d’accueil pour accéder à la page des flux de bureau s’exécute dans le portail Power Automate.
 
 ### Comportement en lecture seule des flux planifiés
 
@@ -125,12 +127,11 @@ Pour la version actuelle, les remarques suivantes s’appliquent
 
 ## Installer
 
-Pour installer la solution de planificateur, vous pouvez effectuer les opérations suivantes :
+Pour installer le centre de contrôle peut effectuer les opérations suivantes :
 
 1. Vérifier que l’infrastructure des composants Power Apps est activée <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lire la suite</a>
 1. Vous avez installé le Creator Kit dans l’environnement cible. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer à partir de la source de l’application</a>
-1. Vous avez téléchargé le fichier AutomationKit.zip à partir de la section Actifs de la dernière version <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Version de GitHub</a>
-1. Vous avez importé la dernière version d’AutomationKitScheduler_*_géré.zip fichier à l’aide. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lire la suite</a>
+1. Vous avez importé la dernière version d’AutomationKitControlCenter_*_géré.zip fichier à l’aide. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lire la suite</a>
 
 ## Feuille de route
 

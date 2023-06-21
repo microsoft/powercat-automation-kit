@@ -4,7 +4,7 @@ description: "Automatiseringssæt - Site Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
+generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ---
 
 {{<toc>}}
@@ -118,6 +118,8 @@ generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
 - [Automatiseringssæt - december 2022](/da/releases/december-2022)
 
 - [Automatiseringssæt - februar 2023](/da/releases/february-2023)
+
+- [Automatiseringssæt - juni 2023](/da/releases/june-2023)
 
 - [Automatiseringssæt - marts 2023](/da/releases/march-2023)
 

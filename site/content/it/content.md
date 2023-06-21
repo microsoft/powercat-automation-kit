@@ -4,7 +4,7 @@ description: "Kit di automazione - Indice del sito"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
+generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ---
 
 {{<toc>}}
@@ -118,6 +118,8 @@ generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
 - [Kit di automazione - Dicembre 2022](/it/releases/december-2022)
 
 - [Kit di automazione - Febbraio 2023](/it/releases/february-2023)
+
+- [Kit di automazione - Giugno 2023](/it/releases/june-2023)
 
 - [Kit di automazione - Marzo 2023](/it/releases/march-2023)
 

@@ -6,7 +6,7 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Release']
-generated: A4DF3D5F0B88DB204D84CD4B5820FD554F55AD94
+generated: 3BDF95892FE5AA916B61E6EB960DCF1C71756DDF
 ---
 
 该页面包含指向 {{ 的发布历史记录的链接<product-name>}}.
@@ -15,8 +15,10 @@ generated: A4DF3D5F0B88DB204D84CD4B5820FD554F55AD94
 
 ## 2023
 
+- [2023 年 6 月](/zh-hans/releases/june-2023)
+
 - [2023 年 5 月](/zh-hans/releases/may-2023)
- 
+
 - [2023 年 4 月](/zh-hans/releases/april-2023)
 
 - [2023 年 3 月](/zh-hans/releases/march-2023)

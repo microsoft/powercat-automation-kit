@@ -69,9 +69,9 @@
         <li><a href="#附表">附表</a></li>
       </ul>
     </li>
-    <li><a href="#立即运行">立即运行</a>
+    <li><a href="#立即运行">立即运行</a></li>
+    <li><a href="#打开网格视图">打开网格视图</a>
       <ul>
-        <li><a href="#计划变更">计划变更</a></li>
         <li><a href="#计划流的只读行为">计划流的只读行为</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="介绍">介绍</h2>
-<p>自动化工具包计划程序允许查看解决方案中重复的 Power Automate Cloud 流的计划，其中包括对 Power Automate 桌面流的调用。</p>
-<p>此功能已作为<a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/releases/march-2023">2023 年 3 月</a>，以后的版本将继续改进和增长调度程序的功能。</p>
+<p>通过自动化工具包自动化中心计划程序页面，可以查看解决方案中重复出现的 Power Automate 云流的计划，其中包括对 Power Automate 桌面流的调用。</p>
+<p>此功能已作为<a href="https://microsoft.github.io/powercat-automation-kit/zh-hans/releases/june-2023">2023 年 6 月</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -111,7 +111,8 @@
 
 <p>调度程序的主要功能包括：</p>
 <p>-能够查看定期云端流的计划
--按计算机和计算机组筛选计划
+-按计算机和计算机组及状态筛选计划
+-打开桌面流运行的网格视图
 -运行电源自动化桌面流
 -按天、周、月和计划视图查看计划
 -查看计划流的状态（成功、失败或计划）
@@ -143,7 +144,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="调度程序 - 立即运行">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="调度程序 - 调度视图">
 
     </center>
 </div>
@@ -165,16 +166,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="调度程序 - 立即运行">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="调度程序 - 立即运行">
 
     </center>
 </div>
 
 <p>当前版本的“立即运行”将执行 Power Automate 桌面。假定执行桌面流不需要任何参数。桌面上次运行信息中提供了其他运行信息。</p>
-<h3 id="计划变更">计划变更</h3>
-<p>在将来的版本中，以下功能将被视为新功能：</p>
-<p>1.执行云端流而不是桌面流。然后，这将包括云端流运行历史记录，并执行传递给桌面流的任何其他云端流操作和参数。</p>
-<p>2.打开桌面和云端流运行页面。</p>
+<h2 id="打开网格视图">打开网格视图</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="调度程序 - 打开网格视图">
+
+    </center>
+</div>
+
+<p>用户可以从我们的控制中心主页导航到电源自动化中的桌面流运行页面
+主页上用于导航到 Power Automate 门户中的桌面流运行页面的新按钮“打开网格视图”的屏幕截图。</p>
 <h3 id="计划流的只读行为">计划流的只读行为</h3>
 <p>默认情况下，当计划将来执行流时，将其设置为只读模式并禁用以立即执行。这意味着在计划的日期和时间过去之前，用户无法修改或执行流。此行为旨在提供更好的用户体验，并防止在流打算运行之前意外执行流。
 此方法有几个好处，包括：</p>
@@ -201,11 +221,10 @@
 <p>1.仅显示解决方案中包含的电源自动化桌面和电源自动化解决方案
 1.至少注册并执行了一个 Power Automate 桌面</p>
 <h2 id="安装">安装</h2>
-<p>要安装调度程序解决方案，您可以执行以下操作：</p>
+<p>要安装控制中心，可以执行以下操作：</p>
 <p>1.确保已启用 Power Apps 组件框架<a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">阅读更多</a>
 1.您已将创建者工具包安装到目标环境中。<a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">从应用程序源安装</a>
-1.您已从最新的资产部分下载了 AutomationKit.zip 文件<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub 发布</a>
-1.您已导入最新的自动化工具包调度程序_*_托管.zip文件使用。<a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">阅读更多</a></p>
+1.您已导入最新的自动化工具包控制中心_*_托管.zip文件使用。<a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">阅读更多</a></p>
 <h2 id="路线图">路线图</h2>
 <p>您可以访问我们的<a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub 问题</a>以查看建议的新功能。</p>
 <p>您可以添加新的<a href="https://github.com/microsoft/powercat-automation-kit/issues/new?assignees=&labels=automation-kit%2Cenhancement%2Cscheduler&template=2-automation-kit-feature.yml&title=%5BAutomation+Kit+-+Feature%5D%3A+FEATURE+TITLE" target="_blank">调度程序功能请求</a></p>

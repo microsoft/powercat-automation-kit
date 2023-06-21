@@ -69,9 +69,9 @@
         <li><a href="#schema">Schema</a></li>
       </ul>
     </li>
-    <li><a href="#kör-nu">Kör nu</a>
+    <li><a href="#kör-nu">Kör nu</a></li>
+    <li><a href="#öppna-rutnätsvyn">Öppna rutnätsvyn</a>
       <ul>
-        <li><a href="#planerade-förändringar">Planerade förändringar</a></li>
         <li><a href="#skrivskyddat-beteende-för-schemalagda-flöden">Skrivskyddat beteende för schemalagda flöden</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="införandet">Införandet</h2>
-<p>Med Automation Kit Scheduler kan du visa schemat för återkommande Power Automate Cloud-flöden i lösningar som innehåller anrop till Power Automate Desktop-flöden.</p>
-<p>Den här funktionen uppdaterades som en del av <a href="https://microsoft.github.io/powercat-automation-kit/sv/releases/march-2023">Mars 2023</a>kommer senare versioner att fortsätta att förbättra och utöka schemaläggarens funktionalitet.</p>
+<p>På sidan Automation Kit Automation Center Scheduler kan du visa schemat för återkommande Power Automate Cloud-flöden i lösningar som innehåller anrop till Power Automate Desktop-flöden.</p>
+<p>Den här funktionen uppdaterades som en del av <a href="https://microsoft.github.io/powercat-automation-kit/sv/releases/june-2023">juni 2023</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -112,7 +112,8 @@
 <p>De viktigaste funktionerna i schemaläggaren är:</p>
 <ul>
 <li>Möjligheten att visa schemat för återkommande molnflöden</li>
-<li>Filtrera schema efter dator- och datorgrupper</li>
+<li>Filtrera schema efter maskin- och maskingrupper och status</li>
+<li>Öppna rutnätsvyn för datorflödeskörningar</li>
 <li>Köra ett Power Automate Desktop-flöde</li>
 <li>Visa schema efter dag-, vecko-, månads- och schemavy</li>
 <li>Visa status för Schemalagda flöden (Lyckades, Misslyckades eller Schemalagd)</li>
@@ -153,7 +154,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Schemaläggare - Kör nu">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Schemaläggare - Schemavy">
 
     </center>
 </div>
@@ -175,22 +176,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Schemaläggare - Kör nu">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="Schemaläggare - Kör nu">
 
     </center>
 </div>
 
 <p>Den aktuella versionen av Kör nu kör Power Automate desktop. Det förutsätter att det inte krävs några parametrar för att köra datorflödet. Den ytterligare körningsinformationen finns i skrivbordsinformationen för senaste körning.</p>
-<h3 id="planerade-förändringar">Planerade förändringar</h3>
-<p>I framtida versioner betraktas följande som nya funktioner:</p>
-<ol>
-<li>
-<p>Kör molnflödet i stället för datorflödet. Detta inkluderar sedan körningshistorik för molnflöde och körning av eventuella ytterligare molnflödesåtgärder och parametrar som skickas till datorflödet.</p>
-</li>
-<li>
-<p>Öppna körningssidorna för Desktop och Cloud flow.</p>
-</li>
-</ol>
+<h2 id="öppna-rutnätsvyn">Öppna rutnätsvyn</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="Schemaläggare - Öppna rutnätsvyn">
+
+    </center>
+</div>
+
+<p>Användare kan navigera till sidan för datorflödeskörningar i Power Automate från vår startsida för Control Center
+Skärmbild av den nya knappen &ldquo;Öppna rutnätsvy&rdquo; på startsidan för att navigera till sidan för datorflöden i Power Automate-portalen.</p>
 <h3 id="skrivskyddat-beteende-för-schemalagda-flöden">Skrivskyddat beteende för schemalagda flöden</h3>
 <p>När ett flöde schemaläggs för framtida körning är det som standard inställt på skrivskyddat läge och inaktiverat för omedelbar körning. Det innebär att användare inte kan ändra eller köra flödet förrän det schemalagda datumet och tiden har passerat. Det här beteendet är utformat för att ge en bättre användarupplevelse och förhindra oavsiktlig körning av flöden innan de är avsedda att köras.
 Det finns flera fördelar med den här metoden, bland annat:</p>
@@ -243,12 +257,11 @@ Det finns flera fördelar med den här metoden, bland annat:</p>
 <li>Minst en Power Automate Desktop har registrerats och körts</li>
 </ol>
 <h2 id="installera">Installera</h2>
-<p>För att installera schemaläggningslösningen kan du göra följande:</p>
+<p>För att installera Control Center kan du göra följande:</p>
 <ol>
 <li>Se till att Power Apps component framework är aktiverat <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Läs mer</a></li>
 <li>Du har installerat Creator Kit i målmiljön. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installera från appkällan</a></li>
-<li>Du har laddat ned filen AutomationKit.zip från avsnittet Tillgångar i den senaste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-versionen</a></li>
-<li>Du har importerat den senaste AutomationKitScheduler_*_hanterad.zip fil med. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Läs mer</a></li>
+<li>Du har importerat den senaste versionen av AutomationKitControlCenter_*_hanterad.zip fil med. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Läs mer</a></li>
 </ol>
 <h2 id="färdplan">Färdplan</h2>
 <p>Du kan besöka vår <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub-problem</a> för att visa föreslagna nya funktioner.</p>

@@ -69,9 +69,9 @@
         <li><a href="#horaire">Horaire</a></li>
       </ul>
     </li>
-    <li><a href="#exécuter-maintenant">Exécuter maintenant</a>
+    <li><a href="#exécuter-maintenant">Exécuter maintenant</a></li>
+    <li><a href="#vue-grille-ouverte">Vue Grille ouverte</a>
       <ul>
-        <li><a href="#changements-prévus">Changements prévus</a></li>
         <li><a href="#comportement-en-lecture-seule-des-flux-planifiés">Comportement en lecture seule des flux planifiés</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="introduction">Introduction</h2>
-<p>Le Planificateur du Kit d’automatisation permet d’afficher la planification des flux Power Automate Cloud récurrents dans les solutions qui incluent des appels aux flux Power Automate Desktop.</p>
-<p>Cette fonctionnalité a été mise à jour dans le cadre de l&rsquo; <a href="https://microsoft.github.io/powercat-automation-kit/fr/releases/march-2023">Mars 2023</a>, les versions ultérieures continueront d’améliorer et de développer les fonctionnalités du planificateur.</p>
+<p>La page Planificateur Automation Center du Kit d’automatisation vous permet d’afficher la planification des flux Power Automate Cloud récurrents dans les solutions qui incluent des appels aux flux Power Automate Desktop.</p>
+<p>Cette fonctionnalité a été mise à jour dans le cadre de l&rsquo; <a href="https://microsoft.github.io/powercat-automation-kit/fr/releases/june-2023">Juin 2023</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -112,7 +112,8 @@
 <p>Les principales caractéristiques du planificateur sont les suivantes :</p>
 <ul>
 <li>La possibilité de visualiser la planification des flux cloud récurrents</li>
-<li>Filtrer la planification par machine et groupes de machines</li>
+<li>Filtrer la planification par machine et groupes de machines et par état</li>
+<li>Vue Grille ouverte des exécutions de flux Desktop</li>
 <li>Exécuter un flux Power Automate Desktop</li>
 <li>Voir le calendrier par jour, semaine, mois et affichage horaire</li>
 <li>Afficher l’état des flux planifiés (Succès, Échec ou Planifié)</li>
@@ -153,7 +154,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Planificateur - Exécuter maintenant">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Planificateur - Vue planifiée">
 
     </center>
 </div>
@@ -175,22 +176,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Planificateur - Exécuter maintenant">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="Planificateur - Exécuter maintenant">
 
     </center>
 </div>
 
 <p>La version actuelle de l’Exécuter maintenant exécute le bureau Power Automate. Il est supposé qu’aucun paramètre n’est requis pour exécuter le flux de bureau. Les informations d’exécution supplémentaires sont disponibles dans les informations de dernière exécution du bureau.</p>
-<h3 id="changements-prévus">Changements prévus</h3>
-<p>Dans les versions futures, les éléments suivants sont considérés comme de nouvelles fonctionnalités :</p>
-<ol>
-<li>
-<p>Exécutez le flux cloud plutôt que le flux de bureau. Cela inclura ensuite l’historique d’exécution du flux cloud et l’exécution de toutes les actions et paramètres de flux cloud supplémentaires transmis au flux de bureau.</p>
-</li>
-<li>
-<p>Ouvrez les pages d’exécution Desktop et Cloud Flow.</p>
-</li>
-</ol>
+<h2 id="vue-grille-ouverte">Vue Grille ouverte</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="Planificateur - Vue Grille ouverte">
+
+    </center>
+</div>
+
+<p>Les utilisateurs peuvent accéder à la page des flux de bureau dans Power Automate de notre page d’accueil du centre de contrôle
+Capture d’écran du nouveau bouton « Ouvrir la vue grille » sur la page d’accueil pour accéder à la page des flux de bureau s’exécute dans le portail Power Automate.</p>
 <h3 id="comportement-en-lecture-seule-des-flux-planifiés">Comportement en lecture seule des flux planifiés</h3>
 <p>Par défaut, lorsqu’un flux est planifié pour une exécution future, il est défini en mode lecture seule et désactivé pour une exécution immédiate. Cela signifie que les utilisateurs ne peuvent pas modifier ou exécuter le flux tant que la date et l’heure planifiées ne sont pas écoulées. Ce comportement est conçu pour fournir une meilleure expérience utilisateur et empêcher l’exécution accidentelle des flux avant qu’ils ne soient destinés à s’exécuter.
 Cette approche présente plusieurs avantages, notamment :</p>
@@ -243,12 +257,11 @@ Cette approche présente plusieurs avantages, notamment :</p>
 <li>Au moins un Power Automate Desktop a été enregistré et exécuté</li>
 </ol>
 <h2 id="installer">Installer</h2>
-<p>Pour installer la solution de planificateur, vous pouvez effectuer les opérations suivantes :</p>
+<p>Pour installer le centre de contrôle peut effectuer les opérations suivantes :</p>
 <ol>
 <li>Vérifier que l’infrastructure des composants Power Apps est activée <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lire la suite</a></li>
 <li>Vous avez installé le Creator Kit dans l’environnement cible. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer à partir de la source de l’application</a></li>
-<li>Vous avez téléchargé le fichier AutomationKit.zip à partir de la section Actifs de la dernière version <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Version de GitHub</a></li>
-<li>Vous avez importé la dernière version d’AutomationKitScheduler_*_géré.zip fichier à l’aide. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lire la suite</a></li>
+<li>Vous avez importé la dernière version d’AutomationKitControlCenter_*_géré.zip fichier à l’aide. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lire la suite</a></li>
 </ol>
 <h2 id="feuille-de-route">Feuille de route</h2>
 <p>Vous pouvez visiter notre <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">Problèmes GitHub</a> pour afficher les nouvelles fonctionnalités proposées.</p>

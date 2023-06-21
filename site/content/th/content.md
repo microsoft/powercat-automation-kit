@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
+generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ---
 
 {{<toc>}}
@@ -118,6 +118,8 @@ generated: 5A0BFE5F1586ADDEA8DCB323D1B29A7731D17BA5
 - [ชุดระบบอัตโนมัติ - ธันวาคม 2022](/th/releases/december-2022)
 
 - [ชุดระบบอัตโนมัติ - กุมภาพันธ์ 2023](/th/releases/february-2023)
+
+- [ชุดระบบอัตโนมัติ - มิถุนายน 2023](/th/releases/june-2023)
 
 - [ชุดระบบอัตโนมัติ - มีนาคม 2023](/th/releases/march-2023)
 

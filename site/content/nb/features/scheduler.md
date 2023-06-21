@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## Introduksjon
 
-Automation Kit Scheduler gjør det mulig å vise tidsplanen for regelmessige Power Automate Cloud-flyter i løsninger som inkluderer kall til Power Automate Desktop-flyter.
+På siden Automation Kit Automation Center Scheduler kan du vise tidsplanen for regelmessige Power Automate Cloud-flyter i løsninger som inkluderer kall til Power Automate Desktop-flyter.
 
-Denne funksjonen ble oppdatert som en del av [Mars 2023](/nb/releases/march-2023), Senere utgivelser vil fortsette å forbedre og utvide funksjonaliteten planleggeren.
+Denne funksjonen ble oppdatert som en del av [juni 2023](/nb/releases/june-2023)
 
 {{<border>}}
 ![Planlegger](/images/schedule.png)
@@ -24,7 +24,8 @@ Denne funksjonen ble oppdatert som en del av [Mars 2023](/nb/releases/march-2023
 De viktigste funksjonene i planleggeren er:
 
 - Muligheten til å vise tidsplanen for regelmessige skyflyter
-- Filtrer tidsplan etter maskin og maskingrupper
+- Filtrere tidsplan etter maskin- og maskingrupper og status
+- Åpne rutenettvisning av skrivebordsflytkjøringer
 - Kjøre en Power Automate Desktop-flyt
 - Vise tidsplan etter dag, uke, måned og tidsplanvisning
 - Vise statusen for Planlagte flyter (Vellykket, Feil eller Planlagt)
@@ -54,7 +55,7 @@ Status- og kjøreinformasjonen er tilgjengelig med lang berøring eller pekerfø
 ### Timeplan
 
 {{<border>}}
-![Planlegger - Kjør nå](/images/scheduler-schedule-view.png)
+![Planlegger – Tidsplan-visning](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 Tidsplanvisningen inneholder et sett med skyflyter basert på tid fra gjeldende klokkeslett og fremtidige planlagte flyter i løpet av de neste dagene.
@@ -62,18 +63,19 @@ Tidsplanvisningen inneholder et sett med skyflyter basert på tid fra gjeldende 
 ## Kjør nå
 
 {{<border>}}
-![Planlegger - Kjør nå](/images/scheduler-run-now.png)
+![Planlegger - Kjør nå](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 Den gjeldende versjonen av Kjør nå kjører Power Automate-skrivebordet. Det antas at det ikke er noen parametere som kreves for å utføre skrivebordsflyten. Den ekstra kjøreinformasjonen er tilgjengelig i informasjonen om siste kjøring på skrivebordet.
 
-### Planlagte endringer
+## Åpne rutenettvisning
 
-I fremtidige utgivelser vurderes følgende som nye funksjoner:
+{{<border>}}
+![Planlegger – Åpne rutenettvisning](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. Utfør skyflyten i stedet for skrivebordsflyten. Dette inkluderer deretter kjøreloggen for skyflyten og kjøring av eventuelle ekstra skyflythandlinger og parametere som sendes til skrivebordsflyten.
-
-2. Åpne sider for skrivebords- og skyflytkjøring.
+Brukere kan navigere til siden Skrivebordsflytkjøringer i Power Automate fra hjemmesiden for kontrollsenteret
+Skjermbilde av den nye knappen Åpne rutenettvisning på hjemmesiden for å navigere til siden Kjøringer av skrivebordsflyter i Power Automate-portalen.
 
 ### Skrivebeskyttet virkemåte for planlagte flyter
 
@@ -125,12 +127,11 @@ For gjeldende versjon gjelder følgende merknader
 
 ## Installere
 
-For å installere planleggerløsningen kan du gjøre følgende:
+For å installere kontrollsenteret kan du gjøre følgende:
 
 1. Sikre at Power Apps component framework er aktivert <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Les også</a>
 1. Du har installert Creator Kit i målmiljøet. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer fra appkilde</a>
-1. Du har lastet ned AutomationKit.zip-filen fra Aktiva-delen av den nyeste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-utgivelse</a>
-1. Du har importert den nyeste AutomationKitScheduler_*_administrert.zip fil ved hjelp av. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Les også</a>
+1. Du har importert den nyeste AutomationKitControlCenter_*_administrert.zip fil ved hjelp av. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Les også</a>
 
 ## Veikart
 

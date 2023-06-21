@@ -69,9 +69,9 @@
         <li><a href="#horario">Horario</a></li>
       </ul>
     </li>
-    <li><a href="#ejecutar-ahora">Ejecutar ahora</a>
+    <li><a href="#ejecutar-ahora">Ejecutar ahora</a></li>
+    <li><a href="#abrir-vista-de-cuadrícula">Abrir vista de cuadrícula</a>
       <ul>
-        <li><a href="#cambios-planificados">Cambios planificados</a></li>
         <li><a href="#comportamiento-de-solo-lectura-de-flujos-programados">Comportamiento de solo lectura de flujos programados</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="introducción">Introducción</h2>
-<p>El Programador del kit de automatización permite ver la programación de flujos recurrentes de Power Automate Cloud dentro de Soluciones que incluyen llamadas a flujos de Power Automate Desktop.</p>
-<p>Esta característica se actualizó como parte de la <a href="https://microsoft.github.io/powercat-automation-kit/es/releases/march-2023">Marzo 2023</a>, las versiones posteriores continuarán mejorando y aumentando la funcionalidad del programador.</p>
+<p>La página Programador del Centro de automatización del Kit de automatización le permite ver la programación de flujos periódicos de Power Automate Cloud dentro de Soluciones que incluyen llamadas a flujos de Power Automate Desktop.</p>
+<p>Esta característica se actualizó como parte de la <a href="https://microsoft.github.io/powercat-automation-kit/es/releases/june-2023">Junio 2023</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -112,7 +112,8 @@
 <p>Las características clave del programador son:</p>
 <ul>
 <li>La capacidad de ver la programación de flujos de nube recurrentes</li>
-<li>Programación de filtros por máquina y grupos de máquinas</li>
+<li>Programación de filtros por máquina y grupos de máquinas y estado</li>
+<li>Se ejecuta la vista de cuadrícula abierta del flujo de escritorio</li>
 <li>Ejecutar un flujo de Power Automate Desktop</li>
 <li>Ver programación por día, semana, mes y vista de programación</li>
 <li>Ver el estado de los flujos programados (correctos, fallidos o programados)</li>
@@ -153,7 +154,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Programador - Ejecutar ahora">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Programador - Vista de programación">
 
     </center>
 </div>
@@ -175,22 +176,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Programador - Ejecutar ahora">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="Programador - Ejecutar ahora">
 
     </center>
 </div>
 
 <p>La versión actual de Ejecutar ahora ejecutará el escritorio de Power Automate. Se supone que no hay parámetros necesarios para ejecutar el flujo de escritorio. La información adicional de ejecución está disponible en la información de última ejecución del escritorio.</p>
-<h3 id="cambios-planificados">Cambios planificados</h3>
-<p>En futuras versiones, se considerarán nuevas características las siguientes:</p>
-<ol>
-<li>
-<p>Ejecute el flujo de nube en lugar del flujo de escritorio. Esto incluirá el historial de ejecución del flujo de nube y la ejecución de cualquier acción y parámetros adicionales de flujo de nube que se pasen al flujo de escritorio.</p>
-</li>
-<li>
-<p>Abra las páginas de ejecución de flujo de escritorio y nube.</p>
-</li>
-</ol>
+<h2 id="abrir-vista-de-cuadrícula">Abrir vista de cuadrícula</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="Programador - Vista de cuadrícula abierta">
+
+    </center>
+</div>
+
+<p>Los usuarios pueden navegar a la página de flujos de escritorio en Power Automate desde nuestra página principal del Centro de control
+Captura de pantalla del nuevo botón &ldquo;Abrir vista de cuadrícula&rdquo; en la página principal para navegar a la página de flujos de escritorio se ejecuta en el portal de Power Automate.</p>
 <h3 id="comportamiento-de-solo-lectura-de-flujos-programados">Comportamiento de solo lectura de flujos programados</h3>
 <p>De forma predeterminada, cuando un flujo se programa para su ejecución futura, se establece en modo de solo lectura y se deshabilita para su ejecución inmediata. Esto significa que los usuarios no pueden modificar o ejecutar el flujo hasta que haya pasado la fecha y hora programadas. Este comportamiento está diseñado para proporcionar una mejor experiencia de usuario y evitar la ejecución accidental de flujos antes de que se pretenda ejecutar.
 Hay varios beneficios para este enfoque, incluyendo:</p>
@@ -243,12 +257,11 @@ Hay varios beneficios para este enfoque, incluyendo:</p>
 <li>Se ha registrado y ejecutado al menos un Power Automate Desktop</li>
 </ol>
 <h2 id="instalar">Instalar</h2>
-<p>Para instalar la solución del programador, puede hacer lo siguiente:</p>
+<p>Para instalar el Centro de control puede hacer lo siguiente:</p>
 <ol>
 <li>Asegúrese de que el marco de componentes de Power Apps esté habilitado <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Leer más</a></li>
 <li>Has instalado Creator Kit en el entorno de destino. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Instalar desde el origen de la aplicación</a></li>
-<li>Ha descargado el archivo AutomationKit.zip desde la sección Activos de la última versión <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Versión de GitHub</a></li>
-<li>Ha importado la versión más reciente de AutomationKitScheduler_*_administrado.zip archivo usando. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Leer más</a></li>
+<li>Ha importado la versión más reciente de AutomationKitControlCenter_*_administrado.zip archivo usando. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Leer más</a></li>
 </ol>
 <h2 id="hoja-de-ruta">Hoja de ruta</h2>
 <p>Puedes visitar nuestro <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">Problemas de GitHub</a> para ver las nuevas características propuestas.</p>

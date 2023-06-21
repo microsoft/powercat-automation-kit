@@ -69,9 +69,9 @@
         <li><a href="#harmonogram">Harmonogram</a></li>
       </ul>
     </li>
-    <li><a href="#uruchom-teraz">Uruchom teraz</a>
+    <li><a href="#uruchom-teraz">Uruchom teraz</a></li>
+    <li><a href="#otwórz-widok-siatki">Otwórz widok siatki</a>
       <ul>
-        <li><a href="#planowane-zmiany">Planowane zmiany</a></li>
         <li><a href="#zachowanie-zaplanowanych-przepływów-tylko-do-odczytu">Zachowanie zaplanowanych przepływów tylko do odczytu</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="wprowadzenie">Wprowadzenie</h2>
-<p>Harmonogram zestawu Automation Kit umożliwia wyświetlanie harmonogramu cyklicznych przepływów Power Automate Cloud wewnątrz rozwiązań, które obejmują wywołania przepływów programu Power Automate Desktop.</p>
-<p>Ta funkcja została zaktualizowana w ramach <a href="https://microsoft.github.io/powercat-automation-kit/pl/releases/march-2023">marzec 2023</a>, Późniejsze wersje będą nadal ulepszać i rozwijać funkcjonalność harmonogramu.</p>
+<p>Strona Harmonogram usługi Automation Kit Automation Center umożliwia wyświetlenie harmonogramu cyklicznych przepływów usługi Power Automate Cloud w ramach rozwiązań, które zawierają wywołania przepływów programu Power Automate Desktop.The Automation Kit Automation Center Scheduler page allows you to view schedule of recurring Power Automate Cloud flows inside Solutions that include calls to Power Automate Desktop flows.</p>
+<p>Ta funkcja została zaktualizowana w ramach <a href="https://microsoft.github.io/powercat-automation-kit/pl/releases/june-2023">czerwiec 2023 r.</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -112,7 +112,8 @@
 <p>Kluczowe funkcje harmonogramu to:</p>
 <ul>
 <li>Możliwość przeglądania harmonogramu cyklicznych przepływów w chmurze</li>
-<li>Harmonogram filtrowania według maszyny i grup maszyn</li>
+<li>Harmonogram filtrowania według maszyn i grup maszyn oraz stanu</li>
+<li>Otwórz widok siatki przebiegów przepływu pulpitu</li>
 <li>Uruchamianie przepływu programu Power Automate Desktop</li>
 <li>Wyświetlanie harmonogramu według widoku Dzień, Tydzień, Miesiąc i Harmonogram</li>
 <li>Wyświetlanie stanu zaplanowanych przepływów (Powodzenie, Niepowodzenie lub Zaplanowane)</li>
@@ -153,7 +154,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Harmonogram — Uruchom teraz">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Harmonogram — widok harmonogramu">
 
     </center>
 </div>
@@ -175,22 +176,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Harmonogram — Uruchom teraz">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="Harmonogram — Uruchom teraz">
 
     </center>
 </div>
 
 <p>Bieżąca wersja polecenia Uruchom teraz spowoduje wykonanie pulpitu usługi Power Automate. Zakłada się, że nie ma żadnych parametrów wymaganych do wykonania przepływu pulpitu. Dodatkowe informacje o uruchomieniu są dostępne w informacjach o ostatnim uruchomieniu pulpitu.</p>
-<h3 id="planowane-zmiany">Planowane zmiany</h3>
-<p>W przyszłych wersjach następujące funkcje będą uważane za nowe:</p>
-<ol>
-<li>
-<p>Wykonuj przepływ w chmurze, a nie przepływ pulpitu. Obejmuje to następnie historię uruchamiania przepływu w chmurze i wykonanie, wszelkie dodatkowe akcje przepływu w chmurze i parametry, które są przekazywane do przepływu pulpitu.</p>
-</li>
-<li>
-<p>Otwórz strony uruchamiania przepływu pulpitu i chmury.</p>
-</li>
-</ol>
+<h2 id="otwórz-widok-siatki">Otwórz widok siatki</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="Harmonogram — widok otwartej siatki">
+
+    </center>
+</div>
+
+<p>Użytkownicy mogą przechodzić do strony uruchamiania przepływów pulpitu w usłudze Power Automate z naszej strony głównej Centrum sterowania
+Zrzut ekranu przedstawiający nowy przycisk &ldquo;Otwórz widok siatki&rdquo; na stronie głównej, aby przejść do strony przepływów pulpitu w portalu Power Automate.</p>
 <h3 id="zachowanie-zaplanowanych-przepływów-tylko-do-odczytu">Zachowanie zaplanowanych przepływów tylko do odczytu</h3>
 <p>Domyślnie, gdy przepływ jest zaplanowany do wykonania w przyszłości, jest on ustawiony na tryb tylko do odczytu i wyłączony do natychmiastowego wykonania. Oznacza to, że użytkownicy nie mogą modyfikować ani wykonywać przepływu, dopóki nie minie zaplanowana data i godzina. To zachowanie ma na celu zapewnienie lepszego środowiska użytkownika i zapobieganie przypadkowemu wykonaniu przepływów przed ich planowanym uruchomieniem.
 Takie podejście ma kilka zalet, w tym:</p>
@@ -243,12 +257,11 @@ Takie podejście ma kilka zalet, w tym:</p>
 <li>Co najmniej jeden program Power Automate Desktop został zarejestrowany i wykonany</li>
 </ol>
 <h2 id="instalować">Instalować</h2>
-<p>Aby zainstalować rozwiązanie harmonogramu, możesz wykonać następujące czynności:</p>
+<p>Aby zainstalować Centrum sterowania, można wykonać następujące czynności:</p>
 <ol>
 <li>Upewnij się, że struktura składników Power Apps jest włączona <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Czytaj całość</a></li>
 <li>Zestaw twórców został zainstalowany w środowisku docelowym. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Instalowanie ze źródła aplikacjiInstall from App Source</a></li>
-<li>Plik AutomationKit.zip został pobrany z sekcji Zasoby najnowszej wersji <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Wydanie usługi GitHub</a></li>
-<li>Zaimportowano najnowszą wersję AutomationKitScheduler_*_zarządzane.zip plik za pomocą. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Czytaj całość</a></li>
+<li>Zaimportowano najnowszą wersję AutomationKitControlCenter_*_zarządzane.zip plik za pomocą. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Czytaj całość</a></li>
 </ol>
 <h2 id="mapa-drogowa">Mapa drogowa</h2>
 <p>Możesz odwiedzić nasze <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">Problemy z usługą GitHub</a> , aby wyświetlić proponowane nowe funkcje.</p>

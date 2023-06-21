@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## Einleitung
 
-Der Automation Kit Scheduler ermöglicht es, den Zeitplan für wiederkehrende Power Automate Cloud-Flows innerhalb von Lösungen anzuzeigen, die Aufrufe von Power Automate Desktop-Flows enthalten.
+Auf der Seite Automation Kit Automation Center Scheduler können Sie den Zeitplan für wiederkehrende Power Automate Cloud-Flows in Lösungen anzeigen, die Aufrufe von Power Automate Desktop-Flows enthalten.
 
-Diese Funktion wurde im Rahmen der [März 2023](/de/releases/march-2023), Spätere Versionen werden die Funktionalität des Schedulers weiter verbessern und erweitern.
+Diese Funktion wurde im Rahmen der [Juni 2023](/de/releases/june-2023)
 
 {{<border>}}
 ![Scheduler](/images/schedule.png)
@@ -24,7 +24,8 @@ Diese Funktion wurde im Rahmen der [März 2023](/de/releases/march-2023), Späte
 Die wichtigsten Funktionen des Schedulers sind:
 
 - Die Möglichkeit, den Zeitplan wiederkehrender Cloud-Flows anzuzeigen
-- Filterplan nach Maschine und Maschinengruppen
+- Filtern des Zeitplans nach Maschine und Maschinengruppen und Status
+- Öffnen Sie die Rasteransicht der Desktop-Schemaausführungen
 - Ausführen eines Power Automate Desktop-Ablaufs
 - Zeitplan nach Tag, Woche, Monat und Zeitplanansicht anzeigen
 - Anzeigen des Status geplanter Flows (Erfolg, Fehler oder Geplant)
@@ -54,7 +55,7 @@ Die Status- und Ausführungsinformationen sind durch langes Berühren oder Beweg
 ### Zeitplan
 
 {{<border>}}
-![Scheduler - Jetzt ausführen](/images/scheduler-schedule-view.png)
+![Scheduler - Zeitplanansicht](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 Die Zeitplanansicht enthält eine Reihe von Cloud-Flows, die auf der Zeit aus der aktuellen Zeit und zukünftigen geplanten Flows in den nächsten Tagen basieren.
@@ -62,18 +63,19 @@ Die Zeitplanansicht enthält eine Reihe von Cloud-Flows, die auf der Zeit aus de
 ## Jetzt ausführen
 
 {{<border>}}
-![Scheduler - Jetzt ausführen](/images/scheduler-run-now.png)
+![Scheduler - Jetzt ausführen](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 Die aktuelle Version von Jetzt ausführen führt den Power Automate-Desktop aus. Es wird davon ausgegangen, dass zum Ausführen des Desktopflusses keine Parameter erforderlich sind. Die zusätzlichen Ausführungsinformationen finden Sie in den Informationen zur letzten Ausführung des Desktops.
 
-### Geplante Änderungen
+## Rasteransicht öffnen
 
-In zukünftigen Versionen werden die folgenden Funktionen als neue Funktionen betrachtet:
+{{<border>}}
+![Scheduler - Rasteransicht öffnen](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. Führen Sie den Cloud-Flow anstelle des Desktop-Flows aus. Dies umfasst dann den Verlauf der Cloud-Flow-Ausführung und die Ausführung aller zusätzlichen Cloud-Flow-Aktionen und -Parameter, die an den Desktop-Flow übergeben werden.
-
-2. Öffnen Sie Desktop- und Cloud-Flow-Ausführungsseiten.
+Benutzer können auf unserer Control Center-Startseite zur Seite "Desktop-Flow-Ausführungen" in Power Automate navigieren
+Screenshot der neuen Schaltfläche "Rasteransicht öffnen" auf der Startseite, um zur Seite "Desktop-Flow-Ausführungen" im Power Automate-Portal zu navigieren.
 
 ### Schreibgeschütztes Verhalten geplanter Flows
 
@@ -125,12 +127,11 @@ Für das aktuelle Release gelten folgende Hinweise
 
 ## Installieren
 
-Gehen Sie wie folgt vor, um die Scheduler-Lösung zu installieren:
+Um das Control Center zu installieren, können Sie Folgendes tun:
 
 1. Stellen Sie sicher, dass das Power Apps-Komponentenframework aktiviert ist <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lesen Sie mehr</a>
 1. Sie haben das Creator Kit in der Zielumgebung installiert. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installieren von App-Quelle</a>
-1. Sie haben die Datei AutomationKit.zip aus dem Abschnitt "Assets" der neuesten <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-Version</a>
-1. Sie haben den aktuellen AutomationKitScheduler importiert_*_verwaltet.zip Datei mit. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lesen Sie mehr</a>
+1. Sie haben das neueste AutomationKitControlCenter importiert_*_verwaltet.zip Datei mit. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lesen Sie mehr</a>
 
 ## Fahrplan
 

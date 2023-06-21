@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## 介绍
 
-自动化工具包计划程序允许查看解决方案中重复的 Power Automate Cloud 流的计划，其中包括对 Power Automate 桌面流的调用。
+通过自动化工具包自动化中心计划程序页面，可以查看解决方案中重复出现的 Power Automate 云流的计划，其中包括对 Power Automate 桌面流的调用。
 
-此功能已作为[2023 年 3 月](/zh-hans/releases/march-2023)，以后的版本将继续改进和增长调度程序的功能。
+此功能已作为[2023 年 6 月](/zh-hans/releases/june-2023)
 
 {{<border>}}
 ![调度](/images/schedule.png)
@@ -24,7 +24,8 @@ generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
 调度程序的主要功能包括：
 
 -能够查看定期云端流的计划
--按计算机和计算机组筛选计划
+-按计算机和计算机组及状态筛选计划
+-打开桌面流运行的网格视图
 -运行电源自动化桌面流
 -按天、周、月和计划视图查看计划
 -查看计划流的状态（成功、失败或计划）
@@ -54,7 +55,7 @@ generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
 ### 附表
 
 {{<border>}}
-![调度程序 - 立即运行](/images/scheduler-schedule-view.png)
+![调度程序 - 调度视图](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 计划视图包括一组基于当前时间和未来几天计划流的云端流。
@@ -62,18 +63,19 @@ generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
 ## 立即运行
 
 {{<border>}}
-![调度程序 - 立即运行](/images/scheduler-run-now.png)
+![调度程序 - 立即运行](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 当前版本的“立即运行”将执行 Power Automate 桌面。假定执行桌面流不需要任何参数。桌面上次运行信息中提供了其他运行信息。
 
-### 计划变更
+## 打开网格视图
 
-在将来的版本中，以下功能将被视为新功能：
+{{<border>}}
+![调度程序 - 打开网格视图](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1.执行云端流而不是桌面流。然后，这将包括云端流运行历史记录，并执行传递给桌面流的任何其他云端流操作和参数。
-
-2.打开桌面和云端流运行页面。
+用户可以从我们的控制中心主页导航到电源自动化中的桌面流运行页面
+主页上用于导航到 Power Automate 门户中的桌面流运行页面的新按钮“打开网格视图”的屏幕截图。
 
 ### 计划流的只读行为
 
@@ -125,12 +127,11 @@ generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
 
 ## 安装
 
-要安装调度程序解决方案，您可以执行以下操作：
+要安装控制中心，可以执行以下操作：
 
 1.确保已启用 Power Apps 组件框架<a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">阅读更多</a>
 1.您已将创建者工具包安装到目标环境中。<a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">从应用程序源安装</a>
-1.您已从最新的资产部分下载了 AutomationKit.zip 文件<a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub 发布</a>
-1.您已导入最新的自动化工具包调度程序_*_托管.zip文件使用。<a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">阅读更多</a>
+1.您已导入最新的自动化工具包控制中心_*_托管.zip文件使用。<a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">阅读更多</a>
 
 ## 路线图
 

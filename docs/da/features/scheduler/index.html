@@ -69,9 +69,9 @@
         <li><a href="#køreplan">Køreplan</a></li>
       </ul>
     </li>
-    <li><a href="#kør-nu">Kør nu</a>
+    <li><a href="#kør-nu">Kør nu</a></li>
+    <li><a href="#åbn-gittervisning">Åbn gittervisning</a>
       <ul>
-        <li><a href="#planlagte-ændringer">Planlagte ændringer</a></li>
         <li><a href="#skrivebeskyttet-funktionsmåde-for-planlagte-flows">Skrivebeskyttet funktionsmåde for planlagte flows</a></li>
       </ul>
     </li>
@@ -87,8 +87,8 @@
   </ul>
 </nav>
 <h2 id="indførelsen">Indførelsen</h2>
-<p>Automatiseringspakken Scheduler giver mulighed for at få vist tidsplanen for tilbagevendende Power Automate Cloud-flows i løsninger, der omfatter opkald til Power Automate Desktop-flows.</p>
-<p>Denne funktion blev opdateret som en del af <a href="https://microsoft.github.io/powercat-automation-kit/da/releases/march-2023">Marts 2023</a>, Senere udgivelser vil fortsætte med at forbedre og udvide funktionaliteten i planlæggeren.</p>
+<p>Siden Automation Kit Automation Center Scheduler giver dig mulighed for at få vist tidsplanen for tilbagevendende Power Automate Cloud-flow i løsninger, der omfatter kald til Power Automate Desktop-flow.</p>
+<p>Denne funktion blev opdateret som en del af <a href="https://microsoft.github.io/powercat-automation-kit/da/releases/june-2023">juni 2023</a></p>
 <style>
     .outerBorder {
         border: 1px;
@@ -112,7 +112,8 @@
 <p>De vigtigste funktioner i planlæggeren er:</p>
 <ul>
 <li>Muligheden for at få vist tidsplanen for tilbagevendende cloudflows</li>
-<li>Filtrer tidsplan efter maskin- og maskingrupper</li>
+<li>Filtrer tidsplan efter maskin- og maskingrupper og status</li>
+<li>Åbn gittervisning af skrivebordsflowkørsler</li>
 <li>Køre et Power Automate Desktop-flow</li>
 <li>Se tidsplan efter dag, uge, måned og tidsplanvisning</li>
 <li>Få vist status for planlagte flow (Fuldført, Mislykket eller Planlagt)</li>
@@ -153,7 +154,7 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Planlægger - Kør nu">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-schedule-view.png" alt="Planlægningsværktøj - Planlægningsvisning">
 
     </center>
 </div>
@@ -175,22 +176,35 @@
 <div class="outerBorder">
     <center>
 
-    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png" alt="Planlægger - Kør nu">
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-run-now.png?v=1" alt="Planlægger - Kør nu">
 
     </center>
 </div>
 
 <p>Den aktuelle version af Kør nu udfører Power Automate-skrivebordet. Det antages, at der ikke kræves nogen parametre for at udføre skrivebordsflowet. De yderligere kørselsoplysninger er tilgængelige i oplysningerne om seneste kørsel på skrivebordet.</p>
-<h3 id="planlagte-ændringer">Planlagte ændringer</h3>
-<p>I fremtidige udgivelser betragtes følgende som nye funktioner:</p>
-<ol>
-<li>
-<p>Udfør cloudflowet i stedet for skrivebordsflowet. Dette omfatter derefter historik for kørsel af cloudflow og udførelse af eventuelle yderligere cloudflowhandlinger og parametre, der overføres til skrivebordsflowet.</p>
-</li>
-<li>
-<p>Åbn desktop- og cloudflow-kørselssider.</p>
-</li>
-</ol>
+<h2 id="åbn-gittervisning">Åbn gittervisning</h2>
+<style>
+    .outerBorder {
+        border: 1px;
+        color: black;
+        border-style: solid;
+        margin-bottom: 10px;
+    }
+
+    .outerBorder > center {
+        padding: 5px;
+    }
+</style>
+<div class="outerBorder">
+    <center>
+
+    <img src="https://microsoft.github.io/powercat-automation-kit/images/scheduler-open-grid-view.png" alt="Scheduler - Åbn gittervisning">
+
+    </center>
+</div>
+
+<p>Brugere kan navigere til siden med kørsler af skrivebordsflow i Power Automate fra vores startside i Kontrolcenter
+Skærmbillede af den nye knap &ldquo;Åbn gittervisning&rdquo; på startsiden for at navigere til siden med kørsler af skrivebordsflow i Power Automate-portalen.</p>
 <h3 id="skrivebeskyttet-funktionsmåde-for-planlagte-flows">Skrivebeskyttet funktionsmåde for planlagte flows</h3>
 <p>Når et flow er planlagt til fremtidig udførelse, er det som standard indstillet til skrivebeskyttet tilstand og deaktiveret til øjeblikkelig udførelse. Det betyder, at brugerne ikke kan ændre eller udføre flowet, før den planlagte dato og det planlagte klokkeslæt er overskredet. Denne funktionsmåde er designet til at give en bedre brugeroplevelse og forhindre utilsigtet udførelse af flows, før de er beregnet til at køre.
 Der er flere fordele ved denne tilgang, herunder:</p>
@@ -243,12 +257,11 @@ Der er flere fordele ved denne tilgang, herunder:</p>
 <li>Mindst ét Power Automate Desktop er blevet registreret og udført</li>
 </ol>
 <h2 id="installere">Installere</h2>
-<p>For at installere planlægningsløsningen kan du gøre følgende:</p>
+<p>For at installere kontrolcenteret kan du gøre følgende:</p>
 <ol>
 <li>Sørg for, at Power Apps component framework er aktiveret <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Læs mere</a></li>
 <li>Du har installeret Creator Kit i destinationsmiljøet. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer fra App Source</a></li>
-<li>Du har downloadet AutomationKit.zip-filen fra afsnittet Aktiver i det seneste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-udgivelse</a></li>
-<li>Du har importeret den nyeste AutomationKitScheduler_*_administreret.zip fil ved hjælp af. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Læs mere</a></li>
+<li>Du har importeret det nyeste AutomationKitControlCenter_*_administreret.zip fil ved hjælp af. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Læs mere</a></li>
 </ol>
 <h2 id="køreplan-1">Køreplan</h2>
 <p>Du kan besøge vores <a href="https://github.com/microsoft/powercat-automation-kit/issues?q=is%3Aissue+is%3Aopen+label%3Ascheduler" target="_blank">GitHub-problemer</a> for at se foreslåede nye funktioner.</p>

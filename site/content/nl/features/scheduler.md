@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## Introductie
 
-Met de Automation Kit Scheduler kunt u de planning van terugkerende Power Automate Cloud-stromen in oplossingen bekijken die aanroepen naar Power Automate Desktop-stromen bevatten.
+Op de pagina Automation Kit Automation Center Scheduler kunt u het schema bekijken van terugkerende Power Automate-cloudstromen binnen oplossingen die aanroepen naar Power Automate Desktop-stromen bevatten.
 
-Deze functie is bijgewerkt als onderdeel van de [maart 2023](/nl/releases/march-2023), Zullen latere releases de functionaliteit van de planner blijven verbeteren en uitbreiden.
+Deze functie is bijgewerkt als onderdeel van de [mei 2023](/nl/releases/june-2023)
 
 {{<border>}}
 ![Scheduler](/images/schedule.png)
@@ -24,7 +24,8 @@ Deze functie is bijgewerkt als onderdeel van de [maart 2023](/nl/releases/march-
 De belangrijkste kenmerken van de planner zijn:
 
 - De mogelijkheid om het schema van terugkerende cloudstromen te bekijken
-- Filterschema op machine- en machinegroepen
+- Filterschema op machine- en machinegroepen en status
+- Open Grid-weergave van bureaubladstroomuitvoeringen
 - Een Power Automate-bureaubladstroom uitvoeren
 - Bekijk het schema op dag, week, maand en planningsweergave
 - De status van geplande stromen weergeven (geslaagd, mislukt of gepland)
@@ -54,7 +55,7 @@ De status- en uitvoeringsinformatie is beschikbaar met een lange aanraak- of mui
 ### Rooster
 
 {{<border>}}
-![Scheduler - Nu uitvoeren](/images/scheduler-schedule-view.png)
+![Planner - Planningsweergave](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 De planningsweergave bevat een set cloudstromen op basis van de tijd van de huidige tijd en toekomstige geplande stromen in de komende dagen.
@@ -62,18 +63,19 @@ De planningsweergave bevat een set cloudstromen op basis van de tijd van de huid
 ## Nu uitvoeren
 
 {{<border>}}
-![Scheduler - Nu uitvoeren](/images/scheduler-run-now.png)
+![Scheduler - Nu uitvoeren](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 De huidige versie van Nu uitvoeren voert het Power Automate-bureaublad uit. Er wordt van uitgegaan dat er geen parameters nodig zijn om de bureaubladstroom uit te voeren. De aanvullende uitvoeringsinformatie is beschikbaar in de informatie over de laatste uitvoering op het bureaublad.
 
-### Geplande wijzigingen
+## Rasterweergave openen
 
-In toekomstige releases wordt het volgende als nieuwe functies beschouwd:
+{{<border>}}
+![Planner - Rasterweergave openen](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. Voer de cloudstroom uit in plaats van de bureaubladstroom. Dit omvat vervolgens de geschiedenis van het uitvoeren van cloudstromen en het uitvoeren van aanvullende cloudstroomacties en parameters die worden doorgegeven aan de bureaubladstroom.
-
-2. Open desktop- en cloudstroomrunpagina's.
+Gebruikers kunnen navigeren naar de pagina bureaubladstromen die worden uitgevoerd in power automate vanuit onze startpagina van het Control Center
+Schermafbeelding van de nieuwe knop "Open Grid View" op de startpagina om te navigeren naar de pagina Bureaubladstromen die worden uitgevoerd in de Power Automate-portal.
 
 ### Alleen-lezen gedrag van geplande stromen
 
@@ -125,12 +127,11 @@ Voor de huidige release zijn de volgende opmerkingen van toepassing
 
 ## Installeren
 
-Om de scheduler-oplossing te installeren, kunt u het volgende doen:
+U kunt het bedieningspaneel als volgt installeren:
 
 1. Ervoor zorgen dat power apps-onderdeelframework is ingeschakeld <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Lees meer</a>
 1. U hebt de Creator Kit in de doelomgeving geïnstalleerd. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installeren vanuit app-bron</a>
-1. U hebt het AutomationKit.zip-bestand gedownload van het gedeelte Activa van de nieuwste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-versie</a>
-1. U hebt de nieuwste AutomationKitScheduler geïmporteerd_*_beheerd.zip bestand gebruiken. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lees meer</a>
+1. U hebt de nieuwste versie van AutomationKitControlCenter geïmporteerd_*_beheerd.zip bestand gebruiken. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Lees meer</a>
 
 ## Routekaart
 

@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## Introduzione
 
-L'Automation Kit Scheduler consente di visualizzare la pianificazione dei flussi ricorrenti di Power Automate Cloud all'interno delle soluzioni che includono chiamate ai flussi Power Automate Desktop.
+La pagina Utilità di pianificazione di Automation Kit Automation Center consente di visualizzare la pianificazione dei flussi ricorrenti di Power Automate Cloud all'interno delle soluzioni che includono chiamate ai flussi di Power Automate Desktop.
 
-Questa funzionalità è stata aggiornata come parte del [aprile 2023](/it/releases/march-2023), le versioni successive continueranno a migliorare e far crescere la funzionalità dell'utilità di pianificazione.
+Questa funzionalità è stata aggiornata come parte del [giugno 2023](/it/releases/june-2023)
 
 {{<border>}}
 ![Pianificazione](/images/schedule.png)
@@ -24,7 +24,8 @@ Questa funzionalità è stata aggiornata come parte del [aprile 2023](/it/releas
 Le caratteristiche principali dello scheduler sono:
 
 - La possibilità di visualizzare la pianificazione dei flussi cloud ricorrenti
-- Filtrare la pianificazione per macchina e gruppi di macchine
+- Filtra la pianificazione per macchina e gruppi di macchine e stato
+- La visualizzazione Apri griglia delle esecuzioni del flusso Desktop
 - Eseguire un flusso di Power Automate Desktop
 - Visualizza la pianificazione per giorno, settimana, mese e visualizzazione pianificazione
 - Visualizzare lo stato dei flussi pianificati (operazione riuscita, non riuscita o pianificata)
@@ -54,7 +55,7 @@ Le informazioni sullo stato e sull'esecuzione sono disponibili con un tocco prol
 ### Programma
 
 {{<border>}}
-![Utilità di pianificazione - Esegui ora](/images/scheduler-schedule-view.png)
+![Utilità di pianificazione - Visualizzazione pianificazione](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 La visualizzazione della pianificazione include un set di flussi cloud basati sul tempo trascorso dall'ora corrente e sui flussi pianificati futuri nei giorni successivi.
@@ -62,18 +63,19 @@ La visualizzazione della pianificazione include un set di flussi cloud basati su
 ## Esegui ora
 
 {{<border>}}
-![Utilità di pianificazione - Esegui ora](/images/scheduler-run-now.png)
+![Utilità di pianificazione - Esegui ora](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 La versione corrente di Esegui ora eseguirà il desktop Power Automate. Si presuppone che non siano necessari parametri per eseguire il flusso desktop. Le informazioni aggiuntive sull'esecuzione sono disponibili nelle informazioni sull'ultima esecuzione del desktop.
 
-### Modifiche pianificate
+## Apri vista griglia
 
-Nelle versioni future verranno prese in considerazione le seguenti nuove funzionalità:
+{{<border>}}
+![Utilità di pianificazione - Vista griglia aperta](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. Eseguire il flusso cloud anziché il flusso desktop. Ciò includerà quindi la cronologia di esecuzione del flusso cloud e l'esecuzione di eventuali azioni e parametri aggiuntivi del flusso cloud passati al flusso desktop.
-
-2. Apri le pagine di esecuzione del flusso Desktop e Cloud.
+Gli utenti possono passare alla pagina dei flussi desktop in power automate dalla nostra home page del Control Center
+Cattura di schermata del nuovo pulsante "Apri visualizzazione griglia" nella home page per passare alla pagina dei flussi desktop nel portale di Power Automate.
 
 ### Comportamento di sola lettura dei flussi pianificati
 
@@ -125,12 +127,11 @@ Per la versione corrente si applicano le seguenti note
 
 ## Installare
 
-Per installare la soluzione di pianificazione è possibile eseguire le operazioni seguenti:
+Per installare il Centro di Controllo puoi fare quanto segue:
 
 1. Assicurati che il framework dei componenti Power Apps sia abilitato <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Per saperne di più</a>
 1. Hai installato il Creator Kit nell'ambiente di destinazione. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installazione da origine app</a>
-1. Hai scaricato il file AutomationKit.zip dalla sezione Risorse dell'ultima <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">Versione di GitHub</a>
-1. Hai importato l'ultima versione di AutomationKitScheduler_*_gestito.zip file utilizzando. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Per saperne di più</a>
+1. Hai importato l'ultimo AutomationKitControlCenter_*_gestito.zip file utilizzando. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Per saperne di più</a>
 
 ## Cartina stradale
 

@@ -6,16 +6,16 @@ sidebarlogo: fresh-white
 include_footer: true
 author: Grant-Archibald-MS
 tags: ['Schedule', 'Automation', 'Features']
-generated: A257DB85B9CCBEB0A26E89E92CF1F5F94E0D7F07
+generated: 3191EC35273FDF75E031467EB6C5BF37F2883B67
 ---
 
 {{<toc>}}
 
 ## Indførelsen
 
-Automatiseringspakken Scheduler giver mulighed for at få vist tidsplanen for tilbagevendende Power Automate Cloud-flows i løsninger, der omfatter opkald til Power Automate Desktop-flows.
+Siden Automation Kit Automation Center Scheduler giver dig mulighed for at få vist tidsplanen for tilbagevendende Power Automate Cloud-flow i løsninger, der omfatter kald til Power Automate Desktop-flow.
 
-Denne funktion blev opdateret som en del af [Marts 2023](/da/releases/march-2023), Senere udgivelser vil fortsætte med at forbedre og udvide funktionaliteten i planlæggeren.
+Denne funktion blev opdateret som en del af [juni 2023](/da/releases/june-2023)
 
 {{<border>}}
 ![Planlægger](/images/schedule.png)
@@ -24,7 +24,8 @@ Denne funktion blev opdateret som en del af [Marts 2023](/da/releases/march-2023
 De vigtigste funktioner i planlæggeren er:
 
 - Muligheden for at få vist tidsplanen for tilbagevendende cloudflows
-- Filtrer tidsplan efter maskin- og maskingrupper
+- Filtrer tidsplan efter maskin- og maskingrupper og status
+- Åbn gittervisning af skrivebordsflowkørsler
 - Køre et Power Automate Desktop-flow
 - Se tidsplan efter dag, uge, måned og tidsplanvisning
 - Få vist status for planlagte flow (Fuldført, Mislykket eller Planlagt)
@@ -54,7 +55,7 @@ Status- og kørselsoplysningerne er tilgængelige med lang berøring eller svæv
 ### Køreplan
 
 {{<border>}}
-![Planlægger - Kør nu](/images/scheduler-schedule-view.png)
+![Planlægningsværktøj - Planlægningsvisning](/images/scheduler-schedule-view.png)
 {{</border>}}
 
 Tidsplanvisningen indeholder et sæt cloudflow baseret på tid fra det aktuelle tidspunkt og fremtidige planlagte flow i løbet af de næste dage.
@@ -62,18 +63,19 @@ Tidsplanvisningen indeholder et sæt cloudflow baseret på tid fra det aktuelle 
 ## Kør nu
 
 {{<border>}}
-![Planlægger - Kør nu](/images/scheduler-run-now.png)
+![Planlægger - Kør nu](/images/scheduler-run-now.png?v=1)
 {{</border>}}
 
 Den aktuelle version af Kør nu udfører Power Automate-skrivebordet. Det antages, at der ikke kræves nogen parametre for at udføre skrivebordsflowet. De yderligere kørselsoplysninger er tilgængelige i oplysningerne om seneste kørsel på skrivebordet.
 
-### Planlagte ændringer
+## Åbn gittervisning
 
-I fremtidige udgivelser betragtes følgende som nye funktioner:
+{{<border>}}
+![Scheduler - Åbn gittervisning](/images/scheduler-open-grid-view.png)
+{{</border>}}
 
-1. Udfør cloudflowet i stedet for skrivebordsflowet. Dette omfatter derefter historik for kørsel af cloudflow og udførelse af eventuelle yderligere cloudflowhandlinger og parametre, der overføres til skrivebordsflowet.
-
-2. Åbn desktop- og cloudflow-kørselssider.
+Brugere kan navigere til siden med kørsler af skrivebordsflow i Power Automate fra vores startside i Kontrolcenter
+Skærmbillede af den nye knap "Åbn gittervisning" på startsiden for at navigere til siden med kørsler af skrivebordsflow i Power Automate-portalen.
 
 ### Skrivebeskyttet funktionsmåde for planlagte flows
 
@@ -125,12 +127,11 @@ For den aktuelle version gælder følgende bemærkninger
 
 ## Installere
 
-For at installere planlægningsløsningen kan du gøre følgende:
+For at installere kontrolcenteret kan du gøre følgende:
 
 1. Sørg for, at Power Apps component framework er aktiveret <a href="https://learn.microsoft.com/power-apps/developer/component-framework/component-framework-for-canvas-apps#enable-the-power-apps-component-framework-feature" target="_blank">Læs mere</a>
 1. Du har installeret Creator Kit i destinationsmiljøet. <a href="https://appsource.microsoft.com/product/dynamics-365/microsoftpowercatarch.creatorkit1" target="_blank">Installer fra App Source</a>
-1. Du har downloadet AutomationKit.zip-filen fra afsnittet Aktiver i det seneste <a href="https://github.com/microsoft/powercat-automation-kit/releases" target="_blank">GitHub-udgivelse</a>
-1. Du har importeret den nyeste AutomationKitScheduler_*_administreret.zip fil ved hjælp af. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Læs mere</a>
+1. Du har importeret det nyeste AutomationKitControlCenter_*_administreret.zip fil ved hjælp af. <a href='https://learn.microsoft.com/power-apps/maker/data-platform/import-update-export-solutions' target="_blank">Læs mere</a>
 
 ## Køreplan
 
