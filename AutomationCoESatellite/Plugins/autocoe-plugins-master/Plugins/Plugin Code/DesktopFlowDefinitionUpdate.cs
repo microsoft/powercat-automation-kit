@@ -166,7 +166,6 @@ namespace AutoCoE.Extensibility.Plugins
                                             desktopFlowDefEntity.Attributes["autocoe_script"] = desktopFlowScript;
 
                                         currentUserService.Update(desktopFlowDefEntity);
-
                                     }
                                     else
                                     {
@@ -268,6 +267,14 @@ namespace AutoCoE.Extensibility.Plugins
             }
         }
 
+        /// <summary>
+        /// Generate Desktop Flow DLP Profile
+        /// </summary>
+        /// <param name="currentUserService">Dataverse Service</param>
+        /// <param name="desktopFlowScript">Desktop Flow Script</param>
+        /// <param name="desktopFlowDefId">Desktop Flow DefId</param>
+        /// <param name="tracingService">Tracing Service</param>
+        /// <exception cref="InvalidPluginExecutionException"></exception>
         private void GenerateDesktopFlowDLPProfile(IOrganizationService currentUserService, string desktopFlowScript, Guid desktopFlowDefId, ITracingService tracingService)
         {
             //Creating / updateing current selectors to DLP Profiles table
