@@ -141,7 +141,7 @@ namespace AutoCoE.Extensibility.Plugins
                         }
                         // end of getting details
 
-                        string desktopFlowScript = string.Empty;
+                        var desktopFlowScript = string.Empty;
 
                         if (desktopFlowDefEntity.autocoe_DesktopFlow != null)
                         {
