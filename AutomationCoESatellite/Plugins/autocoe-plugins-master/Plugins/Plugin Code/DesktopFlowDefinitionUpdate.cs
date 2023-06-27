@@ -84,7 +84,7 @@ namespace AutoCoE.Extensibility.Plugins
 
             try
             {
-                // PreOperation stage
+                // Checking for WebAPI name
                 if (context.MessageName.ToLower().Equals("autocoe_desktopflowdefinitionanalysis") && context.Stage.Equals(30))
                 {
                     try
