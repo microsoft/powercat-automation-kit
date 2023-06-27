@@ -64,30 +64,27 @@ namespace AutoCoE.Extensibility.Plugins
         /// could execute the plug-in at the same time. All per invocation state information
         /// is stored in the context. This means that you should not use global variables in plug-ins.
         /// </remarks>
-        /// 
-
         private bool v2ShemaFound = false;
 
-        protected override void ExecuteCdsPlugin(ILocalPluginContext localContext)
+        protected override void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
         {
-            if (localContext == null)
+            if (localPluginContext == null)
             {
-                throw new InvalidPluginExecutionException(nameof(localContext));
+                throw new ArgumentNullException(nameof(localPluginContext));
             }
+
+            var context = localPluginContext.PluginExecutionContext;
+            // Obtain the organization service reference for web service calls.  
+            IOrganizationService currentUserService = localPluginContext.PluginUserService;
+
             // Obtain the tracing service
-            ITracingService tracingService = localContext.TracingService;            
+            ITracingService tracingService = localPluginContext.TracingService;            
             int SchemaVersion = 0;
             string DefinitionData;
 
             try
             {
-                // Obtain the execution context from the service provider.  
-                IPluginExecutionContext context = (IPluginExecutionContext)localContext.PluginExecutionContext;
-
-                // Obtain the organization service reference for web service calls.  
-                IOrganizationService currentUserService = localContext.CurrentUserService;
-
-                // PreOperation stage
+                // Checking for WebAPI name
                 if (context.MessageName.ToLower().Equals("autocoe_desktopflowdefinitionanalysis") && context.Stage.Equals(30))
                 {
                     try
@@ -137,8 +134,6 @@ namespace AutoCoE.Extensibility.Plugins
                                 throw new InvalidPluginExecutionException("Unable to find schema and definition data for flow " + desktopFlowDefEntity.Id);
 
                             }
-
-
                         }
                         catch (Exception ex)
                         {
@@ -146,7 +141,7 @@ namespace AutoCoE.Extensibility.Plugins
                         }
                         // end of getting details
 
-                        string desktopFlowScript = string.Empty;
+                        var desktopFlowScript = string.Empty;
 
                         if (desktopFlowDefEntity.autocoe_DesktopFlow != null)
                         {
@@ -171,7 +166,6 @@ namespace AutoCoE.Extensibility.Plugins
                                             desktopFlowDefEntity.Attributes["autocoe_script"] = desktopFlowScript;
 
                                         currentUserService.Update(desktopFlowDefEntity);
-
                                     }
                                     else
                                     {
@@ -273,6 +267,14 @@ namespace AutoCoE.Extensibility.Plugins
             }
         }
 
+        /// <summary>
+        /// Generate Desktop Flow DLP Profile
+        /// </summary>
+        /// <param name="currentUserService">Dataverse Service</param>
+        /// <param name="desktopFlowScript">Desktop Flow Script</param>
+        /// <param name="desktopFlowDefId">Desktop Flow DefId</param>
+        /// <param name="tracingService">Tracing Service</param>
+        /// <exception cref="InvalidPluginExecutionException"></exception>
         private void GenerateDesktopFlowDLPProfile(IOrganizationService currentUserService, string desktopFlowScript, Guid desktopFlowDefId, ITracingService tracingService)
         {
             //Creating / updateing current selectors to DLP Profiles table
@@ -418,6 +420,5 @@ namespace AutoCoE.Extensibility.Plugins
             }
 
         }
-
     }
 }

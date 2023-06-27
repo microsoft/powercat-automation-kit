@@ -48,7 +48,7 @@ namespace AutoCoE.Extensibility.Plugins
         /// <summary>
         /// Main entry point for he business logic that the plug-in is to execute.
         /// </summary>
-        /// <param name="localContext">The <see cref="LocalPluginContext"/> which contains the
+        /// <param name="localPluginContext">The <see cref="LocalPluginContext"/> which contains the
         /// <see cref="IPluginExecutionContext"/>,
         /// <see cref="IOrganizationService"/>
         /// and <see cref="ITracingService"/>
@@ -60,22 +60,23 @@ namespace AutoCoE.Extensibility.Plugins
         /// could execute the plug-in at the same time. All per invocation state information
         /// is stored in the context. This means that you should not use global variables in plug-ins.
         /// </remarks>
-        protected override void ExecuteCdsPlugin(ILocalPluginContext localContext)
+        protected override void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
         {
-            if (localContext == null)
+            if (localPluginContext == null)
             {
-                throw new InvalidPluginExecutionException(nameof(localContext));
+                throw new ArgumentNullException(nameof(localPluginContext));
             }
+
             // Obtain the tracing service
-            ITracingService tracingService = localContext.TracingService;
+            ITracingService tracingService = localPluginContext.TracingService;
 
             try
             {
                 // Obtain the execution context from the service provider.  
-                IPluginExecutionContext context = localContext.PluginExecutionContext;
+                IPluginExecutionContext context = localPluginContext.PluginExecutionContext;
 
                 // Obtain the organization service reference for web service calls.  
-                IOrganizationService currentUserService = localContext.CurrentUserService;
+                IOrganizationService currentUserService = localPluginContext.PluginUserService;
 
                 // Check that we are in the right plugin and pipeline execution stage
                 if (context.MessageName.Equals("AutoCoE_UpdateDesktopFlowMachineStatusLogs") && context.Stage.Equals(30))
@@ -215,8 +216,8 @@ namespace AutoCoE.Extensibility.Plugins
                             newOrUpdatedMachineStatus.autocoe_OnlineStatus = onlineStatus;
                             newOrUpdatedMachineStatus.autocoe_LastStatusUpdateTime = currenUtcDT;
                             newOrUpdatedMachineStatus.autocoe_ErrorInfo = liveMachineStatus.errorInfo != null ? PluginUtility.Serialize(liveMachineStatus.errorInfo) : "";
-                            newOrUpdatedMachineStatus.autocoe_EnvironmentUniqueName = localContext.PluginExecutionContext.OrganizationName;
-                            newOrUpdatedMachineStatus.autocoe_InitiatingUserId = localContext.PluginExecutionContext.InitiatingUserId.ToString();
+                            newOrUpdatedMachineStatus.autocoe_EnvironmentUniqueName = localPluginContext.PluginExecutionContext.OrganizationName;
+                            newOrUpdatedMachineStatus.autocoe_InitiatingUserId = localPluginContext.PluginExecutionContext.InitiatingUserId.ToString();
 
                             if (lastMachineStatus != null)
                             {
@@ -347,7 +348,7 @@ namespace AutoCoE.Extensibility.Plugins
 
                         // Custom API Response Parameters that are returned back to the calling cloud flow 
                         context.OutputParameters["ProcessingTimeInSeconds"] = (int)watch.Elapsed.TotalSeconds;
-                        context.OutputParameters["EnvironmentUniqueName"] = localContext.PluginExecutionContext.OrganizationName;
+                        context.OutputParameters["EnvironmentUniqueName"] = localPluginContext.PluginExecutionContext.OrganizationName;
                         context.OutputParameters["MachineInsertCount"] = insertCount;
                         context.OutputParameters["MachineUpdateCount"] = updateCount;
                         context.OutputParameters["MachineOrphanCount"] = orphanCount;

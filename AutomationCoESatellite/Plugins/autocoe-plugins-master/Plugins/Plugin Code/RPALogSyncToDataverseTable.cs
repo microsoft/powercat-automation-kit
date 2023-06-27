@@ -41,26 +41,24 @@ namespace AutoCoE.Extensibility.Plugins
         /// could execute the plug-in at the same time. All per invocation state information
         /// is stored in the context. This means that you should not use global variables in plug-ins.
         /// </remarks>
-        protected override void ExecuteCdsPlugin(ILocalPluginContext localContext)
+        protected override void ExecuteDataversePlugin(ILocalPluginContext localPluginContext)
         {
-            if (localContext == null)
+            if (localPluginContext == null)
             {
-                throw new InvalidPluginExecutionException(nameof(localContext));
+                throw new ArgumentNullException(nameof(localPluginContext));
             }
 
+            var context = localPluginContext.PluginExecutionContext;
+            // Obtain the organization service reference for web service calls.  
+            IOrganizationService currentUserService = localPluginContext.PluginUserService;
+
             // Obtain the tracing service
-            ITracingService tracingService = localContext.TracingService;
+            ITracingService tracingService = localPluginContext.TracingService;
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
             try
             {
-                // Obtain the execution context from the service provider.  
-                IPluginExecutionContext context = (IPluginExecutionContext)localContext.PluginExecutionContext;
-
-                // Obtain the organization service reference for web service calls.  
-                IOrganizationService currentUserService = localContext.CurrentUserService;
-
                 // PostOperation stage                    
                 if (context.MessageName.ToLower().Equals("autocoe_rpalogsynctodataversetable") && context.Stage.Equals(30))
                 {

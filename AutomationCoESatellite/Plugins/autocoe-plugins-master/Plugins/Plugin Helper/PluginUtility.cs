@@ -114,6 +114,7 @@ namespace AutoCoE.Extensibility.Plugins.PluginHelper
             else
                 return string.Empty;
         }
+
         public static string ExtractDesktopFlowScript(string clientData, bool formatScript)
         {
             if (!string.IsNullOrEmpty(clientData))
