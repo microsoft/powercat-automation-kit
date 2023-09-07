@@ -1,0 +1,27 @@
+Screen1 As screen:
+    LoadingSpinnerColor: =RGBA(105, 121, 126, 1)
+    OnVisible: |
+        =ClearCollect(
+            col_MainNav,
+            {
+                Label: "Solutions",
+                Icon: Icon.Items,
+                Screen: scr_SolutionDashboard,
+                Notifications: 0,
+                NotificationColor: Color.Red,
+                ChildScreens: [
+                    scr_SolutionDashboard,
+                    scr_SolutionDetails,
+                    scr_SolutionMeteringAdd
+                ]
+            },
+            {
+                Label: "Run Logs",
+                Icon: Icon.History,
+                Screen: scr_SolutionRunLogs,
+                Notifications: 0,
+                NotificationColor: Color.Red,
+                ChildScreens: [scr_SolutionRunLogs]
+            }
+        );
+
