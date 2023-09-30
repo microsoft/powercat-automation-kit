@@ -4,7 +4,7 @@ description: "Automation Kit - Site-Index"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
+generated: C17F3EC05F0CA44B3AB9EE2707529E972D59AEBA
 ---
 
 {{<toc>}}
@@ -44,7 +44,7 @@ generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 
 ### Ort: /backlog/
 
-- [Automation Kit - Process Advisor Integration](/de/backlog/process-advisor-integration)
+- [Automatisierungs-Kit - Process Advisor-Integration](/de/backlog/process-advisor-integration)
 
 
 ### Ort: /contribution/
@@ -109,6 +109,8 @@ generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ### Ort: /posts/
 
 - [Automation Kit - Ende 2022](/de/posts/december-2022)
+
+- [Automatisierungs-Kit - MPPC 2023](/de/posts/mppc-2023)
 
 
 ### Ort: /releases/

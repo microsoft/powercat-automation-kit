@@ -4,7 +4,7 @@ description: "自动化套件 - 站点索引"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
+generated: C17F3EC05F0CA44B3AB9EE2707529E972D59AEBA
 ---
 
 {{<toc>}}
@@ -109,6 +109,8 @@ generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ### 当前位置： /帖子/
 
 - [自动化套件 - 2022 年底](/zh-hans/posts/december-2022)
+
+- [自动化套件 - MPPC 2023](/zh-hans/posts/mppc-2023)
 
 
 ### 当前位置： /发布/

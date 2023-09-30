@@ -4,7 +4,7 @@ description: "Automation Kit - Webbplatsindex"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
+generated: C17F3EC05F0CA44B3AB9EE2707529E972D59AEBA
 ---
 
 {{<toc>}}
@@ -109,6 +109,8 @@ generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ### Plats: /inlägg/
 
 - [Automation Kit - Slutet av 2022](/sv/posts/december-2022)
+
+- [Automationssats - MPPC 2023](/sv/posts/mppc-2023)
 
 
 ### Plats: /releaser/

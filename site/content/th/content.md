@@ -4,7 +4,7 @@ description: "ชุดระบบอัตโนมัติ - ดัชนี
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
+generated: C17F3EC05F0CA44B3AB9EE2707529E972D59AEBA
 ---
 
 {{<toc>}}
@@ -109,6 +109,8 @@ generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ### สถานที่: /โพสต์/
 
 - [ชุดระบบอัตโนมัติ - สิ้นปี 2022](/th/posts/december-2022)
+
+- [ชุดระบบอัตโนมัติ - MPPC 2023](/th/posts/mppc-2023)
 
 
 ### สถานที่: /รีลีส/

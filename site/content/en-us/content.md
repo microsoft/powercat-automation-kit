@@ -109,6 +109,8 @@ include_footer: true
 
 - [Automation Kit - End of 2022](/posts/december-2022)
 
+- [Automation Kit - MPPC 2023](/posts/mppc-2023)
+
 
 ### Location: /releases/
 

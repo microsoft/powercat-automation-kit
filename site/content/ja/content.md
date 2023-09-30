@@ -4,7 +4,7 @@ description: "オートメーションキット - サイトインデックス"
 sidebar: false
 sidebarlogo: fresh-white
 include_footer: true
-generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
+generated: C17F3EC05F0CA44B3AB9EE2707529E972D59AEBA
 ---
 
 {{<toc>}}
@@ -44,7 +44,7 @@ generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 
 ### 場所: /バックログ/
 
-- [オートメーションキット - Process Advisor統合](/ja/backlog/process-advisor-integration)
+- [自動化キット - Process Advisor統合](/ja/backlog/process-advisor-integration)
 
 
 ### 場所: /寄稿/
@@ -109,6 +109,8 @@ generated: 15DE1A712F072B0C74AE16EC92C7DF89B944944B
 ### 場所: /投稿/
 
 - [自動化キット - 2022年末](/ja/posts/december-2022)
+
+- [オートメーションキット - MPPC 2023](/ja/posts/mppc-2023)
 
 
 ### 場所: /リリース/
