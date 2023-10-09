@@ -9,7 +9,26 @@ on:
 
 jobs:
   alert:
-    if: ${{ !github.event.issue.pull_request }}
+    if: github.event.label.name == 'enhancement'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: danhellem/github-actions-issue-to-work-item@master
+        env:
+          ado_token: "${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}"
+          github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
+          ado_organization: "cattools"
+          ado_project: "OneCatTools"
+          ado_area_path: "OneCatTools\\AutomationKit\\Develop"
+          ado_iteration_path: "OneCatTools\\October Release"                    
+          ado_wit: "User Story"
+          ado_new_state: "New"
+          ado_active_state: "Active"
+          ado_close_state: "Closed"
+          ado_bypassrules: true
+          log_level: 100
+          
+  alert2:
+    if: github.event.label.name == 'bug'
     runs-on: ubuntu-latest
     steps:
       - uses: danhellem/github-actions-issue-to-work-item@master
