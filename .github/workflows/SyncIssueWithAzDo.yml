@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       ITERATION: ${{ steps.set-iteration.outputs.ITERATION }}
+      AREA: ${{ steps.set-iteration.outputs.AREA }}
     steps:
       - name: Set Milestone
         id: set-milestone
@@ -158,7 +159,17 @@ jobs:
             echo "Invalid month or year. Using default Iteration Path."
             echo "Iteration Path - OneCatTools"
             echo "ITERATION=OneCatTools" >> $GITHUB_OUTPUT
-          fi   
+          fi
+
+      - name: Set Area Path
+        id: set-area
+        run: |
+          # Check if $MILESTONE in lowercase contains 'backlog'
+          if [[ "$(echo "${MILESTONE,,}" | grep 'backlog')" ]]; then
+            echo "AREA=OneCatTools\\AutomationKit\\Backlog" >> $GITHUB_OUTPUT
+          else
+            echo "AREA=OneCatTools\\AutomationKit" >> $GITHUB_OUTPUT
+          fi          
 
   alertEnhancementAK:
     if: |
@@ -173,7 +184,7 @@ jobs:
           github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
           ado_organization: "cattools"
           ado_project: "OneCatTools"
-          ado_area_path: "OneCatTools\\AutomationKit\\Develop"
+          ado_area_path: "${{ needs.prepareIterationPathJob.outputs.AREA }}"
           ado_iteration_path: "${{ needs.prepareIterationPathJob.outputs.ITERATION }}"  
           ado_wit: "User Story"
           ado_new_state: "New"
@@ -195,7 +206,7 @@ jobs:
           github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
           ado_organization: "cattools"
           ado_project: "OneCatTools"
-          ado_area_path: "OneCatTools\\AutomationKit\\Develop"
+          ado_area_path: "${{ needs.prepareIterationPathJob.outputs.AREA }}"
           ado_iteration_path: "${{ needs.prepareIterationPathJob.outputs.ITERATION }}"  
           ado_wit: "Bug"
           ado_new_state: "New"
@@ -217,7 +228,7 @@ jobs:
           github_token: "${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}"
           ado_organization: "cattools"
           ado_project: "OneCatTools"
-          ado_area_path: "OneCatTools\\AutomationKit\\Develop"
+          ado_area_path: "${{ needs.prepareIterationPathJob.outputs.AREA }}"
           ado_iteration_path: "${{ needs.prepareIterationPathJob.outputs.ITERATION }}"  
           ado_wit: "Question"
           ado_new_state: "New"
