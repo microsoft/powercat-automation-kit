@@ -81,6 +81,9 @@ jobs:
             YEAR=$(echo $MILESTONE_PART | cut -d' ' -f2)
             echo "YEAR=$YEAR" >> $GITHUB_ENV
 
+      - name: Print Milestone Year
+        run: echo "Year ${{ env.YEAR }}"            
+
       - name: Validate Month and Year
         id: validate-month-and-year
         run: |
@@ -125,9 +128,9 @@ jobs:
         if: ${{ env.MONTH_VALID == 'true' && env.YEAR_VALID == 'true' }}        
         run: echo "QUARTER is $QUARTER"
 
-      - name: Increment Year if Q1 or Q2
+      - name: Increment Year if applicable
         id: increment-year
-        if: ${{ env.QUARTER == 'Q1' || env.QUARTER == 'Q2' }}
+        if: ${{ env.MONTH == 'July' || env.MONTH == 'August' || env.MONTH == 'September' || env.MONTH == 'October' || env.MONTH == 'November' }}
         run: |
           YEAR=$(($YEAR + 1))
           echo "YEAR=$YEAR" >> $GITHUB_ENV
