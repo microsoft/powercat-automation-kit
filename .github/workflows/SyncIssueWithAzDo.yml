@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       ITERATION: ${{ steps.set-iteration.outputs.ITERATION }}
-      AREA: ${{ steps.set-iteration.outputs.AREA }}
+      AREA: ${{ steps.set-area.outputs.AREA }}
     steps:
       - name: Set Milestone
         id: set-milestone
@@ -166,8 +166,10 @@ jobs:
         run: |
           # Check if $MILESTONE in lowercase contains 'backlog'
           if [[ "$(echo "${MILESTONE,,}" | grep 'backlog')" ]]; then
+            echo "Area - OneCatTools\\AutomationKit\\Backlog"
             echo "AREA=OneCatTools\\AutomationKit\\Backlog" >> $GITHUB_OUTPUT
           else
+            echo "Area - OneCatTools\\AutomationKit"
             echo "AREA=OneCatTools\\AutomationKit" >> $GITHUB_OUTPUT
           fi          
 
