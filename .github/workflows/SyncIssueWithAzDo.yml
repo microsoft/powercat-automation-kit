@@ -164,14 +164,14 @@ jobs:
       - name: Set Area Path
         id: set-area
         run: |
-          # Check if $MILESTONE in lowercase contains 'backlog'
-          if [[ "$(echo "${MILESTONE,,}" | grep 'backlog')" ]]; then
+          # Check if $MILESTONE is not blank and contains 'backlog' (case-insensitive)
+          if [ -n "$MILESTONE" ] && [[ "${MILESTONE,,}" == *"backlog"* ]]; then
             echo "Area - OneCatTools\\AutomationKit\\Backlog"
             echo "AREA=OneCatTools\\AutomationKit\\Backlog" >> $GITHUB_OUTPUT
           else
             echo "Area - OneCatTools\\AutomationKit"
             echo "AREA=OneCatTools\\AutomationKit" >> $GITHUB_OUTPUT
-          fi          
+          fi           
 
   alertEnhancementAK:
     if: |
