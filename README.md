@@ -24,7 +24,7 @@ Use the [Walkthrough guide videos](./docs/walkthrough.md) that cover prerequisit
 
 ## Office Hours
 
-:calendar: Register for our [office hours session](https://microsoft.github.io/powercat-automation-kit/office-hours/)
+:calendar: Visit [office hours](./OFFICEHOURS.md)
 
 This meeting is a regular forum for customers and partners to learn and ask questions about the Automation Kit for Power Platform. Come prepared to ask questions about existing features, learn how something works and new features you'd like to see. Please note: This session will be attended by multiple customers and partners and will be recorded. Please state any questions with the appropriate level of detail for this broader audience.
 
