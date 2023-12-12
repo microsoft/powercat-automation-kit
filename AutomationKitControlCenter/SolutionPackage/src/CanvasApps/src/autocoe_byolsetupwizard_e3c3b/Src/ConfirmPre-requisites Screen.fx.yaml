@@ -1,0 +1,508 @@
+"'ConfirmPre-requisites Screen' As screen":
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |
+        =
+        ClearCollect(ColPreRequisites,        AddColumns(
+                Table(
+                    
+                    {
+                         id:"0",
+                        Value: "Synapse Link Configured",
+                        Status: If(First(SynapseDetailsList.SelectedItems).RecordSelected = true, "Success", "Fail"),
+                        URL: "https://make.powerapps.com/environments/"&  CurrentEnvironmentID &"/exporttodatalake"
+                    },
+                    {
+                        id:"1",
+                        Value: "Azure Synpase SQL Serverless View Setup",
+                        Status: "Verify manually",
+                        URL: "https://web.azuresynapse.net/en/authoring/explore/workspace?workspace=/subscriptions/" & 
+                       First(SynapseDetailsList.SelectedItems).Azuresubscription & 
+                        "/resourceGroups/" & 
+                        First(SynapseDetailsList.SelectedItems).AzureRG & 
+                        "/providers/Microsoft.Synapse/workspaces/" & 
+                        First(SynapseDetailsList.SelectedItems).AzureWorkspace &"" 
+                    },
+                    {
+                         id:"2",
+                        Value: "Dataverse Administrator",
+                        Status: If(IsSysadmin,"Success","Fail"),
+                        URL: "https://make.powerapps.com/environments/"&  CurrentEnvironmentID &"/exporttodatalake"
+                    }
+                ),
+                "StatusIcon",
+                Switch(
+                    Status,
+                    "Success",
+                    
+                    "data:image/svg+xml," &
+                    EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4096 4096'>
+          <path d='M1491 595l90 90-749 749-365-365 90-90 275 275 659-659zM1024 0q141 0 272 36t245 103 207 160 160 208 103 245 37 272q0 141-36 272t-103 245-160 207-208 160-245 103-272 37q-141 0-272-36t-245-103-207-160-160-208-103-244-37-273q0-141 36-272t103-245 160-207 208-160T751 37t273-37zm0 1920q123 0 237-32t214-90 182-141 140-181 91-214 32-238q0-123-32-237t-90-214-141-182-181-140-214-91-238-32q-123 0-237 32t-214 90-182 141-140 181-91 214-32 238q0 123 32 237t90 214 141 182 181 140 214 91 238 32z' fill='#107c10'/>
+        </svg>"),
+                    "Fail",
+                    //"icon:Error",
+                    "data:image/svg+xml," &
+                    EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4096 4096'>
+          <path d='M960 0q133 0 255 34t230 96 194 150 150 195 97 229 34 256q0 133-34 255t-96 230-150 194-195 150-229 97-256 34q-133 0-255-34t-230-96-194-150-150-195-97-229T0 960q0-133 34-255t96-230 150-194 195-150 229-97T960 0zm0 1792q114 0 220-30t199-84 169-130 130-168 84-199 30-221q0-114-30-220t-84-199-130-169-168-130-199-84-221-30q-115 0-221 30t-198 84-169 130-130 168-84 199-30 221q0 114 30 220t84 199 130 169 168 130 199 84 221 30zM896 512h128v640H896V512zm0 768h128v128H896v-128z' />
+        </svg>"),
+                    "Verify manually", 
+                    //"icon:Warning",
+                    "data:image/svg+xml," &
+                    EncodeUrl("<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4096 4096'>
+          <path d='M1920 1920H0L960 0l960 1920zM207 1792h1506L960 286 207 1792zm817-1024v640H896V768h128zm-128 768h128v128H896v-128z' fill='#a80000'/>
+        </svg>")
+                )
+            )
+        );
+
+    MainContainer_2 As groupContainer.verticalAutoLayoutContainer:
+        Height: =App.Height
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutMode: =LayoutMode.Auto
+        Width: =App.Width
+        ZIndex: =1
+
+        HeaderContainer_7 As groupContainer.horizontalAutoLayoutContainer:
+            FillPortions: =0
+            Height: =72
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutMinHeight: =72
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =32
+            Width: =App.Width
+            ZIndex: =1
+
+            Container2_3 As groupContainer.verticalAutoLayoutContainer:
+                BorderColor: =RGBA(255, 255, 255, 1)
+                LayoutAlignItems: =LayoutAlignItems.Center
+                LayoutMinHeight: =50
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                ZIndex: =1
+
+                "AutoWidthLabel1_7 As 'Auto Width Label (1.0.22)'":
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =14
+                    FontWeight: ="600"
+                    Height: =28
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    Text: ="Automation Kit - Desktop Flow / Bot Monitoring Setup"
+                    Width: =Self.AutoWidth + 16
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                "PreviewIcon_7 As 'Fluent Icon (1.0.22)'":
+                    BorderColor: =AppTheme.palette.neutralPrimaryAlt
+                    BorderRadius: =2
+                    DisplayMode: =DisplayMode.Edit
+                    FontSize: =14
+                    Height: =30
+                    IconName: ="ConstructionCone"
+                    IconSize: =16
+                    IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    Text: ="Preview"
+                    Width: =94
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+            "FluentIcon_7 As 'Fluent Icon (1.0.22)'":
+                AlignInContainer: =AlignInContainer.Center
+                DisplayMode: =DisplayMode.Edit
+                FontColor: =AppTheme.palette.themePrimary
+                FontSize: =12
+                Height: =48
+                HoverFontColor: =AppTheme.palette.themePrimary
+                HoverIconColor: =AppTheme.palette.themePrimary
+                IconColor: =AppTheme.palette.themePrimary
+                IconName: ="Unknown"
+                IconType: ='PowerCAT.Icon.IconType'.ActionButton
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                OnChange: |-
+                    =UpdateContext({showHelp: true})
+                Text: ="Help"
+                TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                Tooltip: ="Help and Documentation"
+                Width: =100
+                X: =40
+                Y: =40
+                ZIndex: =4
+
+        SepH_4 As rectangle:
+            AlignInContainer: =AlignInContainer.Stretch
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(225, 223, 221, 1)
+            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+            Height: =1
+            Width: =1
+            X: =412
+            Y: =184
+            ZIndex: =2
+
+        BodyContainer_2 As groupContainer.horizontalAutoLayoutContainer:
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            ZIndex: =3
+
+            NavStepContainer_2 As groupContainer.verticalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                LayoutOverflowY: =LayoutOverflow.Scroll
+                PaddingLeft: =32
+                PaddingTop: =16
+                Width: =250
+                ZIndex: =1
+
+                "SubwayNav2_2 As 'SubwayNav (1.0.22) Preview'.pcfdataset":
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =200
+                    Items: =If(!myDataSource.isSelected,DisplayedByodlWizardItems,DisplayedTDSWizardItems)
+                    LayoutMinHeight: =200
+                    LayoutMinWidth: =200
+                    Theme: =AppThemeJson
+                    Width: =200
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+            SepV_2 As rectangle:
+                AlignInContainer: =AlignInContainer.Stretch
+                BorderColor: =RGBA(166, 166, 166, 1)
+                BorderStyle: =BorderStyle.None
+                Fill: =RGBA(225, 223, 221, 1)
+                FocusedBorderColor: =RGBA(0, 120, 212, 1)
+                Height: =Parent.Height
+                Width: =1
+                X: =412
+                Y: =184
+                ZIndex: =2
+
+            WizardBodyContainer_2 As groupContainer.verticalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.Start
+                Height: =Parent.Height - Self.Y
+                LayoutDirection: =LayoutDirection.Vertical
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                Width: =Parent.Width - Self.X
+                ZIndex: =3
+
+                WizardStepContainer_27 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.Start
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    LayoutOverflowX: =LayoutOverflow.Scroll
+                    LayoutOverflowY: =LayoutOverflow.Scroll
+                    PaddingLeft: =AppFormat.MainContentContainer.PaddingLeft
+                    PaddingTop: =AppFormat.MainContentContainer.PaddingTop
+                    Width: =Parent.Width
+                    ZIndex: =1
+
+                    FieldLabelContainer1_4 As groupContainer.verticalAutoLayoutContainer:
+                        FillPortions: =0
+                        Height: =AppFormat.FieldContainer.Height
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =AppFormat.FieldContainer.Width
+                        ZIndex: =1
+
+                        Label1_2 As Label:
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            FontSize: =15
+                            FontWeight: =FontWeight.Semibold
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Text: ="Confirm Pre-requisites"
+                            Width: =500
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        subtext_2 As Label:
+                            AutoHeight: =true
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =32
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            Text: ="Please confirm your account meets the prerequisites before continuing."
+                            Width: =500
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                    SynapseContainer_1 As groupContainer.horizontalAutoLayoutContainer:
+                        Height: =400
+                        LayoutAlignItems: =LayoutAlignItems.Stretch
+                        LayoutDirection: =LayoutDirection.Vertical
+                        LayoutMinHeight: =100
+                        LayoutMinWidth: =250
+                        LayoutMode: =LayoutMode.Auto
+                        LayoutWrap: =true
+                        PaddingBottom: =10
+                        PaddingLeft: =2
+                        PaddingRight: =300
+                        PaddingTop: =2
+                        Width: =Parent.Width - Self.X * 2
+                        ZIndex: =2
+
+                        Container5 As groupContainer.horizontalAutoLayoutContainer:
+                            BorderColor: =RGBA(255, 191, 0, 1)
+                            DropShadow: =DropShadow.Light
+                            Fill: =RGBA(253, 247, 223, 1)
+                            FillPortions: =0
+                            Height: =45
+                            LayoutMinHeight: =100
+                            LayoutMinWidth: =250
+                            LayoutMode: =LayoutMode.Auto
+                            PaddingLeft: =5
+                            PaddingRight: =5
+                            RadiusBottomLeft: =4
+                            RadiusBottomRight: =4
+                            RadiusTopLeft: =4
+                            RadiusTopRight: =4
+                            Width: =Parent.Width
+                            ZIndex: =1
+
+                            Icon3 As icon.Warning:
+                                AlignInContainer: =AlignInContainer.Start
+                                AutoDisableOnSelect: =false
+                                BorderColor: =RGBA(0, 0, 0, 0)
+                                Color: =RGBA(201, 151, 28, 1)
+                                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                                DisabledColor: =RGBA(220, 220, 220, 1)
+                                DisabledFill: =RGBA(0, 0, 0, 0)
+                                DisplayMode: =DisplayMode.View
+                                Height: =32
+                                HoverBorderColor: =RGBA(0, 0, 0, 0)
+                                HoverColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                HoverFill: =RGBA(0, 0, 0, 0)
+                                Icon: =Icon.Warning
+                                PaddingBottom: =3
+                                PaddingLeft: =5
+                                PaddingRight: =3
+                                PaddingTop: =5
+                                PressedBorderColor: =RGBA(0, 0, 0, 0)
+                                PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                                PressedFill: =RGBA(0, 0, 0, 0)
+                                Width: =25
+                                ZIndex: =1
+
+                            HtmlText2 As htmlViewer:
+                                AlignInContainer: =AlignInContainer.Center
+                                AutoHeight: =true
+                                FillPortions: =1
+                                Height: =35
+                                HtmlText: |-
+                                    ="Please set up the synapse serverless SQL view in order to efficiently load reports. This step is mandatory <a href='https://aka.ms/Automationkitdownload'>Download here</a>, and <b>Verify manually</b>. "
+                                LayoutMinWidth: =210
+                                Size: =9
+                                ZIndex: =2
+
+                        "FluentDetailsList2 As 'Fluent Details List (1.0.22)'.pcfdataset":
+                            columns_Items: |-
+                                =Table(
+                                    {
+                                        ColName: "Value",
+                                        ColDisplayName: "Requirement",
+                                        ColCellType:"text",
+                                        ColWidth: 512,
+                                        ColImageWidth: 60,
+                                        ColImagePadding: 8,
+                                        ColVerticalAlign: "Top"
+                                    },
+                                    {
+                                        ColName: "StatusIcon",
+                                        ColDisplayName: "",
+                                        ColCellType:"clickableimage",
+                                        ColWidth: 36
+                                    },
+                                    {
+                                        ColName: "Status",
+                                        ColDisplayName: "Status",
+                                        ColCellType:"text",
+                                        ColWidth: 100,
+                                        ColImageWidth: 60,
+                                        ColImagePadding: 8,
+                                        ColVerticalAlign: "Top"
+                                    }
+                                )
+                            DisplayMode: =DisplayMode.Edit
+                            FillPortions: =1
+                            Height: =200
+                            Items: =ColPreRequisites
+                            LayoutMinHeight: =200
+                            LayoutMinWidth: =200
+                            OnChange: =If(Self.EventName="CellAction" && Self.EventColumn="StatusIcon",Launch(LookUp(ColPreRequisites,id=Self.EventRowKey,URL)) )
+                            RecordKey: ="id"
+                            RecordSelected: =""
+                            SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.None
+                            Theme: =AppThemeJson
+                            Width: =Parent.Width
+                            X: =0
+                            Y: =0
+                            ZIndex: =2
+
+                            Status1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="Status"
+                                FieldName: ="Status"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =1
+                                ZIndex: =6
+
+                            StatusIcon1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="StatusIcon"
+                                FieldName: ="StatusIcon"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =2
+                                ZIndex: =7
+
+                            Value1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="Value"
+                                FieldName: ="Value"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =3
+                                ZIndex: =8
+
+                            URL1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="URL"
+                                FieldName: ="URL"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =4
+                                ZIndex: =9
+
+                            IconText1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="IconText"
+                                FieldName: ="IconText"
+                                FieldType: ="s"
+                                FieldVariantName: ="textualColumn"
+                                Order: =5
+                                ZIndex: =10
+
+                            id1 As pcfDataField.textualColumn:
+                                FieldDisplayName: ="id"
+                                FieldName: ="id"
+                                FieldType: ="n"
+                                FieldVariantName: ="textualColumn"
+                                Order: =6
+                                ZIndex: =11
+
+        SepH_5 As rectangle:
+            AlignInContainer: =AlignInContainer.Stretch
+            BorderColor: =RGBA(166, 166, 166, 1)
+            BorderStyle: =BorderStyle.None
+            Fill: =RGBA(225, 223, 221, 1)
+            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+            Height: =1
+            Width: =1
+            X: =412
+            Y: =184
+            ZIndex: =4
+
+        FooterContainer_2 As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.Start
+            FillPortions: =0
+            Height: =AppFormat.FooterContainer.Height
+            LayoutAlignItems: =LayoutAlignItems.Center
+            LayoutGap: =8
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            PaddingLeft: =24
+            Width: =App.Width
+            ZIndex: =5
+
+            BackButton_2 As Button:
+                BorderColor: =ColorValue(AppTheme.palette.neutralLight)
+                BorderRadius: =2
+                BorderStyle: =BorderStyle.Solid
+                BorderThickness: =1
+                ButtonType: ='Button.ButtonType'.Standard
+                DisplayMode: =DisplayMode.Edit
+                FontWeight: =FontWeight.Semibold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: =Back();
+                Text: ="Back"
+                Width: =96
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            NextButton_2 As Button:
+                BorderRadius: =2
+                ButtonType: ='Button.ButtonType'.Primary
+                DisplayMode: =
+                FontWeight: =FontWeight.Bold
+                Height: =32
+                LayoutMinHeight: =32
+                LayoutMinWidth: =96
+                OnSelect: |-
+                    =Set(
+                        isRecordExist,
+                        !IsBlank(
+                            LookUp(AutomationDataSetupWizards, Name = App.ActiveScreen.Name)
+                        )
+                    );
+                    If(
+                        isRecordExist,
+                            Patch(
+                                AutomationDataSetupWizards,
+                                LookUp(AutomationDataSetupWizards, Name = App.ActiveScreen.Name),
+                                {
+                                    Name: App.ActiveScreen.Name,
+                                    isBYODL: myDataSource.isBYODL,
+                                    ReportEndpoint: First(SynapseDetailsList.SelectedItems).SqlEndPoint,
+                                    IsSyanpseLinkConfigured:First(SynapseDetailsList.SelectedItems).RecordSelected,
+                                    isDeltaLake: If(
+                                        !IsBlank(First(SynapseDetailsList.SelectedItems).SparkPool),
+                                        true,
+                                        false),
+                                        IsSqlViewConfigured:true
+                    
+                                }
+                            ), Patch(
+                                AutomationDataSetupWizards,
+                                Defaults(AutomationDataSetupWizards),
+                                {
+                                    Name: App.ActiveScreen.Name,
+                                    isBYODL: myDataSource.isBYODL,
+                                    ReportEndpoint: First(SynapseDetailsList.SelectedItems).SqlEndPoint,
+                                    IsSyanpseLinkConfigured:First(SynapseDetailsList.SelectedItems).RecordSelected,
+                                    isDeltaLake: If(
+                                        !IsBlank(First(SynapseDetailsList.SelectedItems).SparkPool),
+                                        true,
+                                        false),
+                                        IsSqlViewConfigured:true
+                    
+                                }
+                            )
+                        );
+                    
+                    Navigate('Powerbi Screen');
+                Text: ="Next"
+                Width: =96
+                X: =0
+                Y: =0
+                ZIndex: =2
+
