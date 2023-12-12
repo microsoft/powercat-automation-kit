@@ -1,0 +1,586 @@
+"'Auditlogs Screen' As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =Set(
+            fromdate,
+            Text(
+                DateAdd(
+                    Today(),
+                    -7
+                ),
+                "m/d/yyyy"
+            )
+        );
+        Set(
+            todate,
+            Text(
+                Today(),
+                "m/d/yyyy"
+            )
+        );
+        Set(isLoading,true);
+        Set(
+            DeskFlowlogs,
+            Environment.cat_auditfetchapi(
+                {
+                    cat_tablename: varTables,
+                    cat_fromdatestring: fromdate,
+                    cat_todatestring: todate,
+                    cat_userid: User().Email
+                }
+            )
+        );
+        ClearCollect(
+            FlowSessionAuditCol,
+            ForAll(
+                Table(ParseJSON(DeskFlowlogs.cat_auditrecords)),
+                {
+                    Action: Text(Value.Action),
+                    AuditId: Text(Value.AuditId),
+                    CallingUserId: Text(Value.CallingUserId),
+                    CallingUserIdName: Text(Value.CallingUserIdName),
+                    CreatedOn: Text(Value.CreatedOn),
+                    ObjectId: Text(Value.ObjectId),
+                    ObjectName: Text(Value.ObjectName),
+                    Operation: Text(Value.Operation),
+                    Objecttypecode: Text(Value.Objecttypecode),
+                    UserAdditionalInfo: Text(Value.UserAdditionalInfo),
+                    UserId: Text(Value.UserId),
+                    UserName: Text(Value.UserName),
+                    HostName: Text(Value.HostName),
+                    AgentVersion: Text(Value.AgentVersion),
+                    MachineId: Text(Value.MachineId),
+                    MachineGroupId: Text(Value.MachineGroupId),
+                    RegardingObjectId: Text(Value.RegardingObjectId),
+                    Workflow: LookUp(varProcesses, Text(workflowid) = Value.RegardingObjectId).name,
+                    ChangedAttributes: ForAll(
+                        Table(Value.ChangedAttributes),
+                        {
+                            LogicalName: Text(Value.LogicalName),
+                            OldValue: Text(Value.OldValue),
+                            NewValue: Text(Value.NewValue)/*,
+                            
+                            NewValueDictionary: ForAll(
+                                Table(ParseJSON(Text(Value.NewValueDictionary))),
+                                {
+                                    hostName: Text(Value.hostName),
+                                    parentWorkflowId: Text(Value.parentWorkflowId),
+                                    parentWorkflowRunId: Text(Value.parentWorkflowRunId),
+                                    attendedMode: Text(Value.attendedMode),
+                                    agentVersion: Text(Value.agentVersion),
+                                    parentWorkflowType: Text(Value.parentWorkflowType)
+                                }
+                            )*/
+                        }
+                    )
+                }
+            )
+        );
+        Set(isLoading,false);
+
+    MainContainer As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer As groupContainer.horizontalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =52
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            LayoutWrap: =true
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =1
+
+            SSFilterContainer As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                Height: =52
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutGap: =10
+                LayoutMinHeight: =52
+                LayoutMinWidth: =350
+                LayoutMode: =LayoutMode.Auto
+                LayoutWrap: =true
+                PaddingLeft: =10
+                PaddingTop: =10
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =1
+
+                FromDateContainer As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    Height: =52
+                    LayoutMinHeight: =52
+                    LayoutMinWidth: =125
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =1
+
+                    lblFrom As Label:
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinWidth: =25
+                        Text: =" From"
+                        Width: =25
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    "DatePickerFrom As 'Date picker'":
+                        AllowTextInput: =false
+                        DisplayMode: =DisplayMode.Edit
+                        FillColor: =
+                        FillPortions: =3
+                        Height: =32
+                        IconFill: =
+                        InitialPickerDate: =Today()
+                        LayoutMinWidth: =100
+                        MinDate: =
+                        OnChange: |
+                            =If(DatePickerFrom.Value > DatePickerTo.Value,
+                                Notify("From date can't be greater than To date.", NotificationType.Warning);
+                                Reset(DatePickerFrom)
+                                ,
+                                Set(fromdate, Text(DatePickerFrom.Value, "m/d/yyyy"));
+                                Select(btnFetch);
+                            )
+                        TextColor: =
+                        Value: =Today()-7
+                        Width: =200
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                ToDateContainer As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    LayoutMinHeight: =52
+                    LayoutMinWidth: =125
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =125
+                    ZIndex: =2
+
+                    lblTo As Label:
+                        Alignment: =Align.Center
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        FillPortions: =1
+                        Height: =32
+                        LayoutMinWidth: =25
+                        Text: ="To"
+                        Width: =75
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    "DatePickerTo As 'Date picker'":
+                        AllowTextInput: =false
+                        DisplayMode: =DisplayMode.Edit
+                        FillColor: =
+                        FillPortions: =3
+                        Height: =32
+                        IconFill: =
+                        LayoutMinWidth: =100
+                        MaxDate: =Today()
+                        MinDate: =
+                        OnChange: |+
+                            =If(DatePickerTo.Value < DatePickerFrom.Value,
+                                Notify("To date can't be smaller than From date.", NotificationType.Warning);
+                                Reset(DatePickerTo)
+                                ,
+                                Set(todate,Text(Self.Value,"m/d/yyyy"));
+                                Select(btnFetch);
+                            )
+                            
+                        ShowWeekNumbers: =false
+                        TextColor: =
+                        Value: =Today()
+                        Width: =200
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                OpFilterContainer As groupContainer.horizontalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    BorderStyle: =BorderStyle.None
+                    LayoutMinHeight: =52
+                    LayoutMinWidth: =100
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Width: =250
+                    ZIndex: =3
+
+                    "ContextMenu As 'Fluent Context Menu (1.0.22)'.pcfdataset":
+                        BorderRadius: =5
+                        Chevron: =true
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =
+                        Height: =32
+                        ItemChecked: =""
+                        ItemKey: =""
+                        Items: |-
+                            =Table(
+                                {ItemKey:"root", ItemDisplayName:"Filter", ItemIconName:"Filter"},
+                                {ItemKey:"operation", ItemDisplayName:"Operation"},
+                                {ItemKey: "Create", ItemDisplayName: "Create", ItemParentKey:"operation", Value:"1"},
+                                {ItemKey: "Update", ItemDisplayName: "Update", ItemParentKey:"operation", Value: "2"},
+                                {ItemKey: "Delete", ItemDisplayName: "Delete", ItemParentKey:"operation", Value: "3"},
+                                {ItemKey: "divider", ItemDivider:true, ItemParentKey:"operation"},
+                                {ItemKey: "Access", ItemDisplayName: "Access",  ItemParentKey:"operation", Value: "4"},
+                                {ItemKey: "Upsert", ItemDisplayName: "Upsert", ItemParentKey:"operation", Value: "5"},
+                                {ItemKey: "Archive", ItemDisplayName: "Archive", ItemParentKey:"operation", Value: "114"},
+                                {ItemKey: "Retain", ItemDisplayName: "Retain", ItemParentKey:"operation", Value: "115"},
+                                {ItemKey: "RollbackRetain", ItemDisplayName: "RollbackRetain", ItemParentKey:"operation", Value: "117", ItemEnabled:false},
+                                {ItemKey: "CustomOperation", ItemDisplayName: "CustomOperation", ItemParentKey:"operation",Value: "200", ItemEnabled:false},
+                                {ItemKey: "divider", ItemDivider:true, ItemParentKey:"operation"},
+                                {ItemKey:"table", ItemDisplayName:"Table"},
+                                {ItemKey: "flowsession", ItemDisplayName: "flowsession", ItemParentKey:"table"},
+                                {ItemKey: "flowmachine", ItemDisplayName: "flowmachine", ItemParentKey:"table"},
+                                {ItemKey: "flowmachinegroup", ItemDisplayName: "flowmachinegroup", ItemParentKey:"table"},
+                                {ItemKey: "workqueue", ItemDisplayName: "workqueue", ItemParentKey:"table"},
+                                {ItemKey: "workqueueitem", ItemDisplayName: "workqueueitem", ItemParentKey:"table"},
+                                {ItemKey: "desktopflowmodule", ItemDisplayName: "desktopflowmodule", ItemParentKey:"table"},
+                                {ItemKey: "desktopflowbinary", ItemDisplayName: "desktopflowbinary", ItemParentKey:"table"},
+                                {ItemKey: "flowmachineimage", ItemDisplayName: "flowmachineimage", ItemParentKey:"table"},
+                                {ItemKey: "flowmachineimageversion", ItemDisplayName: "flowmachineimageversion", ItemParentKey:"table"},
+                                {ItemKey: "flowmachinenetwork", ItemDisplayName: "flowmachinenetwork", ItemParentKey:"table"}
+                            )
+                        OnChange: =false
+                        OnSelect: |
+                            =
+                            Set(varSelectedTable, If(First(ContextMenu.SelectedItems).ItemParentKey = "table", First(ContextMenu.SelectedItems).ItemKey,Blank()));
+                            Set(varSelectedOperation, If(First(ContextMenu.SelectedItems).ItemParentKey = "operation", First(ContextMenu.SelectedItems).ItemKey,Blank()));
+                        TextAlignment: ="0"
+                        Width: =100
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                        ItemDisplayName1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="ItemDisplayName"
+                            FieldName: ="ItemDisplayName"
+                            FieldType: ="s"
+                            FieldVariantName: ="textualColumn"
+                            Order: =1
+                            ZIndex: =28
+
+                        ItemDivider1 As pcfDataField.textualColumn:
+                            FieldDisplayName: ="ItemDivider"
+                            FieldName: ="ItemDivider"
+                            FieldType: ="b"
+                            FieldVariantName: ="textualColumn"
+                            Order: =2
+                            ZIndex: =29
+
+            CSFilterContainer As groupContainer.horizontalAutoLayoutContainer:
+                AlignInContainer: =AlignInContainer.SetByContainer
+                BorderStyle: =BorderStyle.None
+                LayoutAlignItems: =LayoutAlignItems.End
+                LayoutMinHeight: =52
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingLeft: =10
+                PaddingTop: =10
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+                TempContainer As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    Height: =52
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =52
+                    LayoutMinWidth: =125
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =1
+
+                    lblName As Label:
+                        Alignment: =Align.Left
+                        Color: =
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        Text: ="Name"
+                        Visible: =false
+                        Width: =80
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                    btnFetch As Button:
+                        BorderColor: =
+                        ButtonType: ='Button.ButtonType'.Primary
+                        DisabledBorderColor: =
+                        DisabledFillColor: =
+                        DisabledTextColor: =
+                        DisplayMode: =DisplayMode.Edit
+                        FillColor: =
+                        Height: =32
+                        HoverBorderColor: =
+                        HoverFillColor: =
+                        HoverTextColor: =
+                        OnSelect: |-
+                            =Set(isLoading,true);
+                            
+                            Set(varSelectedTable, "");
+                            Set(varSelectedOperation, "");
+                            
+                            Set(
+                                DeskFlowlogs,
+                                Environment.cat_auditfetchapi(
+                                    {
+                                        cat_tablename: varTables,
+                                        //cat_operation: varSelectedOperation,
+                                        cat_fromdatestring: fromdate,
+                                        cat_todatestring: todate,
+                                        cat_userid: User().Email
+                                    }
+                                )
+                            );
+                            ClearCollect(
+                                FlowSessionAuditCol,
+                                ForAll(
+                                    Table(ParseJSON(DeskFlowlogs.cat_auditrecords)),
+                                    {
+                                        Action: Text(Value.Action),
+                                        AuditId: Text(Value.AuditId),
+                                        CallingUserId: Text(Value.CallingUserId),
+                                        CallingUserIdName: Text(Value.CallingUserIdName),
+                                        CreatedOn: Text(Value.CreatedOn),
+                                        ObjectId: Text(Value.ObjectId),
+                                        ObjectName: Text(Value.ObjectName),
+                                        Operation: Text(Value.Operation),
+                                        Objecttypecode: Text(Value.Objecttypecode),
+                                        UserAdditionalInfo: Text(Value.UserAdditionalInfo),
+                                        UserId: Text(Value.UserId),
+                                        UserName: Text(Value.UserName),
+                                        HostName: Text(Value.HostName),
+                                        AgentVersion: Text(Value.AgentVersion),
+                                        MachineId: Text(Value.MachineId),
+                                        MachineGroupId: Text(Value.MachineGroupId),
+                                        RegardingObjectId: Text(Value.RegardingObjectId),
+                                        Workflow: LookUp(varProcesses, Text(workflowid) = Value.RegardingObjectId).name,
+                                        ChangedAttributes: ForAll(
+                                            Table(Value.ChangedAttributes),
+                                            {
+                                                LogicalName: Text(Value.LogicalName),
+                                                OldValue: Text(Value.OldValue),
+                                                NewValue: Text(Value.NewValue)/*,
+                                                
+                                                NewValueDictionary: ForAll(
+                                                    Table(ParseJSON(Text(Value.NewValueDictionary))),
+                                                    {
+                                                        hostName: Text(Value.hostName),
+                                                        parentWorkflowId: Text(Value.parentWorkflowId),
+                                                        parentWorkflowRunId: Text(Value.parentWorkflowRunId),
+                                                        attendedMode: Text(Value.attendedMode),
+                                                        agentVersion: Text(Value.agentVersion),
+                                                        parentWorkflowType: Text(Value.parentWorkflowType)
+                                                    }
+                                                )*/
+                                            }
+                                        )
+                                    }
+                                )
+                            );
+                            Set(isLoading,false);
+                        PressedBorderColor: =
+                        PressedFillColor: =
+                        PressedTextColor: =
+                        Text: ="Fetch"
+                        TextColor: =
+                        Visible: =false
+                        Width: =100
+                        X: =0
+                        Y: =0
+                        ZIndex: =2
+
+                SearchBoxContainer As groupContainer.horizontalAutoLayoutContainer:
+                    BorderStyle: =BorderStyle.None
+                    Height: =52
+                    LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinWidth: =125
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    ZIndex: =2
+
+                    "txtSearchBox As 'Fluent SearchBox (1.0.22) Preview'":
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =32
+                        PlaceHolderText: ="Search by name"
+                        Tooltip: ="Search by entering user name, host name or Workflow name"
+                        Width: =250
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+        MainSectionContainer As groupContainer.verticalAutoLayoutContainer:
+            AlignInContainer: =AlignInContainer.SetByContainer
+            DropShadow: =DropShadow.Light
+            LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =200
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =2
+
+            "AuditDataOneGrid As 'Table (Dataverse only)'.pcfdataset":
+                AlignInContainer: =AlignInContainer.Stretch
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =Parent.Height
+                Items: |-
+                    =Filter(Search(
+                            SortByColumns(
+                                FlowSessionAuditCol,
+                                "CreatedOn",
+                                SortOrder.Descending
+                            ),
+                            txtSearchBox.SearchText,
+                            "UserName",
+                            "HostName",
+                            "Workflow"
+                        ), 
+                        IsBlank(varSelectedOperation) || Action = varSelectedOperation,
+                        IsBlank(varSelectedTable) || Objecttypecode = varSelectedTable
+                    )
+                LayoutMinHeight: =If(Self.Y + 500 > Parent.Height, Parent.Height - Self.Y, 850000)
+                LayoutMinWidth: =If(Self.X + 800 > Parent.Width, Parent.Width - Self.X, 800)
+                ReflowBehavior: ='PowerAppsOneGrid.ReflowBehavior'.Reflow
+                ShowAvatar: ="yes"
+                ShowColumnHeaders: ="yes"
+                ShowFooter: ="yes"
+                Visible: =true
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                Action As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Action"
+                    FieldName: ="Action"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =2
+                    ZIndex: =24
+
+                CreatedOn As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Event Date"
+                    FieldName: ="CreatedOn"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =25
+
+                Objecttypecode As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Table"
+                    FieldName: ="Objecttypecode"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =4
+                    ZIndex: =26
+
+                UserName As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Created By"
+                    FieldName: ="UserName"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =3
+                    ZIndex: =30
+
+                HostName As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Host Name"
+                    FieldName: ="HostName"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =5
+                    ZIndex: =31
+
+                AgentVersion As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Agent Version"
+                    FieldName: ="AgentVersion"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =6
+                    ZIndex: =32
+
+                Workflow As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Workflow"
+                    FieldName: ="Workflow"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =7
+                    ZIndex: =33
+
+    RightPanel As Panel:
+        Buttons: =
+        Fill: =RightPanel.OverlayColor
+        OnCloseSelect: |-
+            =UpdateContext({showHidePanel:false})
+        Subtitle: =""
+        Title: ="Changed Parameters"
+        Visible: =showHidePanel
+        Width: =App.Width
+        ZIndex: =2
+
+    "Spinner As 'Fluent Spinner (1.0.22) Preview'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =MainSectionContainer.Height
+        Label: ="Loading.."
+        Theme: =AppThemeJson
+        Tooltip: =""
+        Visible: =isLoading
+        Width: =MainSectionContainer.Width
+        X: =MainSectionContainer.X
+        Y: =MainSectionContainer.Y
+        ZIndex: =3
+

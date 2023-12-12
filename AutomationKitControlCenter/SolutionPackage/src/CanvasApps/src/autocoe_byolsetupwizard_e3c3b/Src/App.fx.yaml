@@ -1,0 +1,386 @@
+App As appinfo:
+    BackEnabled: =false
+    Formulas: |
+        =// THEME
+        AppTheme = {
+            palette: {
+                themePrimary: "#0078d4",
+                themeLighterAlt: "#eff6fc",
+                themeLighter: "#deecf9",
+                themeLight: "#c7e0f4",
+                themeTertiary: "#71afe5",
+                themeSecondary: "#2b88d8",
+                themeDarkAlt: "#106ebe",
+                themeDark: "#005a9e",
+                themeDarker: "#004578",
+                neutralLighterAlt: "#faf9f8",
+                neutralLighter: "#f3f2f1",
+                neutralLight: "#edebe9",
+                neutralQuaternaryAlt: "#e1dfdd",
+                neutralQuaternary: "#d0d0d0",
+                neutralTertiaryAlt: "#c8c6c4",
+                neutralTertiary: "#a19f9d",
+                neutralSecondary: "#605e5c",
+                neutralPrimaryAlt: "#3b3a39",
+                neutralPrimary: "#323130",
+                neutralDark: "#201f1e",
+                black: "#000000",
+                white: "#ffffff"
+            }
+        };
+        // APP FORMAT
+        AppFormat = {
+            HeaderContainer: {
+                PaddingLeft: 32,
+                Height: 72
+            },
+            FooterContainer: {
+                PaddingLeft: 32,
+                Height: 72
+            },
+            HeaderLabel: {
+                Height: 55,
+                Width: 300
+            },
+            CommandBar: {
+                Height: 44,
+                Width: 700
+            },
+            SubwayNav: {
+                Width: 200,
+                MinHeight: 300
+            },
+            SubwayNavContainer: {
+                PaddingTop: 16,
+                PaddingLeft: 32,
+                Width: 250
+            },
+            MainContainer: {
+                PaddingLeft: 16,
+                Gap: 0
+            },
+            MainContentContainer: {
+                PaddingTop: 16,
+                PaddingLeft: 32
+            },
+            StepTitleContainer: {
+                Height: 70,
+                Width: 500
+            },
+            FieldContainer: {
+                Height: 66,
+                Width: 500
+            },
+            AlignInContainer:{
+                Left: AlignInContainer.SetByContainer,
+                Stretch: AlignInContainer.Stretch
+            },
+            FlexibleWidth:{
+                Off: 0,
+                On:1
+            }
+        };
+        
+        x =1;
+        
+        // WIZARD
+        WizardItems = Table(
+            {
+                Index: 0,
+                ItemKey: "setup",
+                ItemLabel: "New Setup",
+                Screen: 'Setup Wizard Screen'
+            },    
+            {
+                Index: 1,
+                ItemKey: "synapselink",
+                ItemLabel: "Configure Synapse Link",
+                Screen: 'ConfigureSynapse Screen'
+            },
+            {
+                Index: 2,
+                ItemKey: "prerequisites",
+                ItemLabel: "Confirm Pre-requisites",
+                Screen: 'ConfirmPre-requisites Screen'
+            },
+            {
+                Index: 3,
+                ItemKey: "powerbi",
+                ItemLabel: "Publish Power BI",
+                Screen: 'Powerbi Screen'
+            },
+             {
+                Index: 4,
+                ItemKey: "finish",
+                ItemLabel: "Finish",
+                Screen: 'Finish Screen'
+            }
+            
+        );
+        // WIZARD
+        TDSWizardItems = Table(
+            {
+                Index: 0,
+                ItemKey: "setup",
+                ItemLabel: "New Setup",
+                Screen: 'Setup Wizard Screen'
+            },    
+            
+            {
+                Index: 1,
+                ItemKey: "powerbi",
+                ItemLabel: "Publish Power BI",
+                Screen: 'Powerbi Screen'
+            },
+             {
+                Index: 2,
+                ItemKey: "finish",
+                ItemLabel: "Finish",
+                Screen: 'Finish Screen'
+            }
+            
+        );
+        // Current wizard step
+        CurrentTDSWizardStep = LookUp(TDSWizardItems, Screen = App.ActiveScreen).Index;
+        CurrentByodlWizardStep = LookUp(WizardItems, Screen = App.ActiveScreen).Index;
+        //
+        DisplayedByodlWizardItems = AddColumns(WizardItems,    
+            "ItemState",
+            If(
+                CurrentByodlWizardStep = ThisRecord.Index || (IsBlank(CurrentByodlWizardStep) && ThisRecord.Index = 0),
+                "Current",
+                If(
+                    CurrentByodlWizardStep > ThisRecord.Index,
+                    "Completed",
+                    "NotStarted"
+                )
+            )
+        );
+        DisplayedTDSWizardItems = AddColumns(TDSWizardItems,    
+            "ItemState",
+            If(
+                CurrentTDSWizardStep = ThisRecord.Index || (IsBlank(CurrentTDSWizardStep) && ThisRecord.Index = 0),
+                "Current",
+                If(
+                    CurrentTDSWizardStep > ThisRecord.Index,
+                    "Completed",
+                    "NotStarted"
+                )
+            )
+        );
+    OnStart: |+
+        =Set(AppThemeJson,JSON(AppTheme));
+        //Get Current users buisness unit
+        
+        //Check currentuser has sys admin role
+        Set(
+            IsSysadmin,
+            If(
+                LookUp(
+                    'Security Roles',
+                    Name = "System Administrator",
+                    Role
+                ) in Concat(
+                    LookUp(
+                        Users,
+                        'Primary Email' = User().Email
+                    ).'Security Roles (systemuserroles_association)',
+                    Role & ";"
+                ),
+                true,
+                false
+            )
+        );
+        
+         // Get a list of the data sources for inventory.
+            ClearCollect(
+                colDataSources,
+                {
+                    value: "Near Real-time Monitoring (TDS EndPoint)",
+                    recommended: false,
+                    descripton: "<p>The Real-time Monitoring feature specifically focuses on monitoring Desktop Flow / bot activities. This method is suitable for smaller dataset and can cause performance issues in voluminiuos data. If you have more than 80 MB data consider using Data Warehouse instead.</p><p>Prerequisites <br />
+        <ul><li>Ensure the TDS endpoint is enabled in the selected environment.</li><ul></p>",
+                    setupStep: 1,
+                    isBYODL: false,  
+                    isAzure: false,
+                     isSelected: true,
+                    endpointURL: ""
+                },
+                {
+                    value: "Historical Analytics Dashboard(Datawarehouse using Synapse)",
+                    recommended: true,
+                    descripton: "Azure Synapse Link for Dataverse provides near real-time insights on your data in Microsoft Dataverse. Azure Synapse Analytics combines data integration, data warehousing, and big data analytics, enabling flexible querying and serverless scalability. <br><br>Prerequisites<br><ul><li>Synpase workspace with <b>Synapse Administrator</b></li><li>Azure Data Lake Storage Gen2 with <b> Owner and Storage Blob Data Contributor role </b></li> <li>Dataverse <b>system administrator </b> security role.</li></ul><br>Note, Proceed with the following steps only if you have already configured the Azure Synapse workspace in your Azure subscription and it is in the same region. If you haven't done so, please click on <b>Configure Azure Resources</b> and select the optional adavanced option of DeltaLake format.",
+                    setupStep: 1,
+                    isBYODL: true,
+                     isSelected: false,
+                    isAzure: true,
+                    endpointURL:""
+                }
+            );
+         Set(
+                myDataSource,
+                First(Filter(
+                    colDataSources,
+                   isSelected=true
+                ))
+            );
+        ClearCollect(
+            SynapseLink,
+            AddColumns(
+                'Synapse Link Profiles',
+                "ProfileLinkName",
+                Name, "UniqName",'Unique Name'
+            )
+        );
+        
+        
+        ClearCollect(
+            SynapseLinkEntity,
+            AddColumns(
+                'Synapse Link Profile Entities',
+                "isDesktopTableconfigured",false,
+               "entityUnqName",'Unique Name',
+               "ProfileName",Profile.Name
+            )
+        );
+        
+        
+        ClearCollect(
+            SynapseLinkEntitycol,
+            UpdateIf(
+                SynapseLinkEntity,
+                'Entity Name' in ["flowsession", "flowmachinegroup", "flowmachine"],
+                { isDesktopTableconfigured: true }
+            )
+        );
+        
+        
+        ClearCollect(DesktopFlowSynapsecol,Filter(SynapseLinkEntitycol,isDesktopTableconfigured=true));
+        ClearCollect(
+            SynapseDB,
+            Filter('Synapse Databases', Status ='Status (Synapse Databases)'.Active)
+        );
+        
+        ClearCollect(
+            SynapseDetailListCol,
+            AddColumns(
+                SynapseDB,
+                "Link Name",
+                LookUp(SynapseLink As tempCol1, 'Data Lake Folder'.'Data Lake Folder' = tempCol1.'Data Lake Folder'.'Data Lake Folder').ProfileLinkName,
+                "AzureWorkspace",
+                'Workspace Name',
+                "Azuresubscription",
+                'Data Lake Folder'.Subscription,
+                "AzureRG",
+                'Data Lake Folder'.ResourceGroup,
+                "isSynapseLake",
+                'Data Lake Folder'.'Is External Lake',
+                "SqlEndPoint",'Serverless Sql Endpoint'     
+            )
+        );
+        
+        ClearCollect(
+            Sparkpool,
+            AddColumns(
+                SynapseDetailListCol,
+                "PoolName",
+               ForAll( Table( ParseJSON( 'Spark Pool Configuration' ) ), { pname: Text(ThisRecord.Value.sparkPoolName) } )
+            )
+        );
+        
+        ClearCollect(
+            FinalSynapseLink,
+            AddColumns(
+                Sparkpool,
+                "isDesktopFlowEnabled",
+                If(
+                    IsBlank(LookUp(DesktopFlowSynapsecol, 'Link Name' = ProfileName).isDesktopTableconfigured),
+                    "No",
+                    IfError(
+                        If(
+                            LookUp(DesktopFlowSynapsecol, 'Link Name' = ProfileName).isDesktopTableconfigured,
+                            "Yes",
+                            "No"
+                        ),
+                        "No"
+                    )
+                ),
+                "TagColor",
+                If(
+                    IsBlank(LookUp(DesktopFlowSynapsecol, 'Link Name' = ProfileName).isDesktopTableconfigured),
+                    "rgb(255, 140, 0)",
+                    IfError(
+                        If(
+                            LookUp(DesktopFlowSynapsecol, 'Link Name' = ProfileName).isDesktopTableconfigured,
+                            "rgb(0, 183, 195)",
+                            "rgb(255, 140, 0)"
+                        ),
+                        "rgb(255, 140, 0)"
+                    )
+                ),
+                "SparkPool",Last(FirstN(PoolName, 1)).pname,//First(First(Sparkpool).PoolName).pname
+                "RecordSelected",LookUp(DesktopFlowSynapsecol, 'Link Name' = ProfileName).isDesktopTableconfigured
+             )
+        );
+        Set(varPreselectRecords,"SetSelection"&Text(Rand()));
+         // Get current environment details.
+            /*Set(
+                CurrentEnvironmentID,
+                'GetCurrentEnvironment'.Run().curenv
+            );
+        
+        Set(envid,LookUp('Environment Variable Values','Environment Variable Definition'.'Display Name'="Environment Id").Value);*/
+        Set(
+            CurrentAppUri,
+            First('Canvas Apps').AppOpenUri
+        );
+        Set(
+            CurrentEnvironmentID,
+            Right(
+                Match(
+                    CurrentAppUri,
+                    "/e/.*(?=/a)"
+                ).FullMatch,
+                36
+            )
+        );
+        //Get Current Env Url
+        ClearCollect(
+                AllEnvironments,
+                AddColumns(
+                    Sort(
+                        PowerAppsforMakers.GetEnvironments().value,
+                        DataSourceInfo.DisplayName
+                    ),
+                    "DisplayName",
+                    properties.linkedEnvironmentMetadata.friendlyName,
+                    "Url",
+                    properties.linkedEnvironmentMetadata.instanceUrl
+                )
+            );
+            Set(
+            TDSEnvironmentURL,
+            First(
+                Filter(
+                    AllEnvironments,
+                    CurrentEnvironmentID in id
+                )
+            ).Url
+        );
+        Set(
+            ExtractedEnvUrl,
+            If(
+                StartsWith(TDSEnvironmentURL, "https://"),
+                Left(Mid(TDSEnvironmentURL, 9, Len(TDSEnvironmentURL)), Len(Mid(TDSEnvironmentURL, 9, Len(TDSEnvironmentURL))) - 1),
+                TDSEnvironmentURL
+            )
+        );
+        
+
+    Host As hostControl.DefaultHostControlVariant:
+        OnCancel: =false
+        OnEdit: =false
+        OnNew: =false
+        OnSave: =false
+        OnView: =false
+
