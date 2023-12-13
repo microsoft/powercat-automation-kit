@@ -73,17 +73,24 @@ To clean up from a previous run do to the following
 
 ### Analyze
 
-Read the analyze [README](./analyze/README.md) on how to analyze the video and generate possible edit information for ClipChamp editing stage.
+Read the analyze [README](./analyze/README.md) on how to analyze the video and generate possible edit information for ClipChamp editing stage. At the end of this stage of editing you should have a times.txt in the edit folder that will be used to edit the source video in Clipchamp.
 
-As the end of this stage of editing you should have a times.txt in the edit folder that will be used to edit the source video in Clipchamp.
+Inputs: mp4 from Team Recording and pptx
+Outputs: times.txt
 
 ### Edit
 
 Upload, edit and export video in Clipchamp using the edit [README](./edit/README.md). Once complete download the exported video to your PC.
 
+Inputs: mp4 file from analyze folder
+Outputs: Download the edited mp4, clipchamp
+
 ### Captions
 
 Generate trimmed captions for the exported video from your Microsoft Teams transcript file using the captions [README](./captions/README.md). Once complete upload the captions.srt file with your video.
+
+Inputs: *.clipchamp file from Sharepoint, *.vtt from Teams Recording
+Outputs: caption.srt
 
 ## Video Publish
 

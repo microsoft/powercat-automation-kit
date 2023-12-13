@@ -33,13 +33,15 @@ if ( clipChamp != null ) {
 
     await CropVideo(clipChamp, videoName, times.FirstOrDefault());
 
-    if ( File.Exists(timesFile)) {
-        foreach ( var line in File.ReadAllLines(timesFile)) {
-            if ( ! String.IsNullOrEmpty(line) ) {
-                await SplitAtTime(clipChamp, videoName, line);
-            }
-        }
-    }
+    // To review moving to changing the clipchamp json file to add edits
+    // 
+    // if ( File.Exists(timesFile)) {
+    //     foreach ( var line in File.ReadAllLines(timesFile)) {
+    //         if ( ! String.IsNullOrEmpty(line) ) {
+    //             await SplitAtTime(clipChamp, videoName, line);
+    //         }
+    //     }
+    // }
 
     Console.WriteLine("Edits made review changes, remove sections not needed and export video.");
     Console.WriteLine(page.Url);

@@ -127,23 +127,26 @@ while True:
                     kpts1, desc1 = akaze.detectAndCompute(gray, None)
                     kpts2, desc2 = akaze.detectAndCompute(template, None)
                     matcher = cv2.DescriptorMatcher_create(cv2.DescriptorMatcher_BRUTEFORCE_HAMMING)
-                    nn_matches = matcher.knnMatch(desc1, desc2, 2)
-                    matched1 = []
-                    matched2 = []
-                    nn_match_ratio = 0.8 # Nearest neighbor matching ratio
-                    for m, n in nn_matches:
-                        if m.distance < nn_match_ratio * n.distance:
-                            matched1.append(kpts1[m.queryIdx])
-                            matched2.append(kpts2[m.trainIdx])
-                    if ( len(matched1) > 250 ):
-                        if ( first_match ):
-                            append_cut_time(cutTimesFile, frame_number / fps)
-                            matches = matches + 1
-                            last_match = frame_number
-                            print(f'Match {filename}')
-                            first_match = False
-                        frame_matched = True
-                        break
+                    try:
+                        nn_matches = matcher.knnMatch(desc1, desc2, 2)
+                        matched1 = []
+                        matched2 = []
+                        nn_match_ratio = 0.8 # Nearest neighbor matching ratio
+                        for m, n in nn_matches:
+                            if m.distance < nn_match_ratio * n.distance:
+                                matched1.append(kpts1[m.queryIdx])
+                                matched2.append(kpts2[m.trainIdx])
+                        if ( len(matched1) > 250 ):
+                            if ( first_match ):
+                                append_cut_time(cutTimesFile, frame_number / fps)
+                                matches = matches + 1
+                                last_match = frame_number
+                                print(f'Match {filename}')
+                                first_match = False
+                            frame_matched = True
+                            break
+                    except:
+                        print(frame_number)
 
             if not frame_matched:
                 if non_matching_frame_start is None:

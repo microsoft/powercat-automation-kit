@@ -1,6 +1,7 @@
 Set-Location $PSScriptRoot
-Write-Host Remove Videos
+Write-Host Remove Videos and Slides
 Get-ChildItem * -Include *.mp4 -Recurse | Remove-Item
+Get-ChildItem * -Include *.PNG -Recurse | Remove-Item
 Write-Host Remove PPTX
 Get-ChildItem * -Include *.pptx -Recurse | Remove-Item
 Write-Host Remove Captions
