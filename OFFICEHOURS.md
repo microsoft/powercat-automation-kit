@@ -10,7 +10,7 @@ Join the Automation Kit Office hours held on the second Tuesday of each month be
 
 ## Description
 
-This meeting is a regular open forum for customers and partners to learn and ask questions about the Business Approvals Kit for Power Platform. Come prepared to ask questions about existing features, learn how something works and new features you'd like to see.
+This meeting is a regular open forum for customers and partners to learn and ask questions about the Automation Kit for Power Platform. Come prepared to ask questions about existing features, learn how something works and new features you'd like to see.
 
 Please note:
 
