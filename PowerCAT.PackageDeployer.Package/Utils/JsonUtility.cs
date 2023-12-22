@@ -95,16 +95,31 @@ public class JsonUtility
             JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
 
             // Find the Project node with the specified name
-            JsonElement projectNode = FindProjectNode(jsonDocument.RootElement.GetProperty("Projects"), projectName);
+            JsonElement projectNode = FindProjectNode(jsonDocument.RootElement.GetProperty("Project"), projectName);
 
             // Check if the Project node exists and contains the 'Packages' property
-            if (projectNode.ValueKind != JsonValueKind.Null && projectNode.TryGetProperty("Packages", out JsonElement packagesElement))
+            if (projectNode.ValueKind != JsonValueKind.Null)
             {
-                return packagesElement.EnumerateArray().Select(package => package.GetString()).ToList();
+                JsonElement packagesElement;
+
+                // Check if the 'Packages' property exists
+                if (projectNode.TryGetProperty("Packages", out packagesElement) && packagesElement.ValueKind == JsonValueKind.Array)
+                {
+                    // Retrieve package names
+                    return packagesElement.EnumerateArray().Select(package => package.GetString()).ToList();
+                }
+                else
+                {
+                    Console.WriteLine("Packages property not found or is not an array.");
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Project with name '{projectName}' not found.");
             }
 
-            // Return null if the project or 'Packages' node is not found
-            return null;
+            // Return an empty list if the project or 'Packages' node is not found or is not an array
+            return new List<string>();
         }
         catch (Exception ex)
         {
@@ -130,7 +145,7 @@ public class JsonUtility
             JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
 
             // Find the Project node with the specified name
-            JsonElement projectNode = FindProjectNode(jsonDocument.RootElement.GetProperty("Projects"), projectName);
+            JsonElement projectNode = FindProjectNode(jsonDocument.RootElement.GetProperty("Project"), projectName);
 
             // Check if the Project node exists and contains the 'environmentid' property
             if (projectNode.ValueKind != JsonValueKind.Null && projectNode.TryGetProperty("environmentid", out JsonElement environmentIdElement))

@@ -75,58 +75,18 @@ namespace PowerCAT.PackageDeployer.Package
 
             if (string.IsNullOrEmpty(FilePath) || string.IsNullOrEmpty(ProjectName))
             {
-                PackageLog.Log("Missing required parameters.  Skipping PreDeploymentSettings and PostDeploymentSettings import.");
+                Console.WriteLine("Missing 'projectname' and 'filepath' parameters. Skipping PreDeploymentSettings.");
+                PackageLog.Log("Missing 'projectname' and 'filepath' parameters. Skipping PreDeploymentSettings.");
                 return;
             }
 
             Console.WriteLine($"Project Name : {ProjectName}");
             Console.WriteLine($"File Path : {FilePath}");
 
-            // Install Packages, if any
-            var packageNames = JsonUtility.ReadPackages(FilePath, ProjectName);
-            if (packageNames != null)
-            {
-                var environmentId = JsonUtility.ReadEnvironmentId(FilePath, ProjectName);
-                if (!string.IsNullOrEmpty(environmentId))
-                {
-                    var installer = new PacPackagesInstaller(environmentId, PackageLog);
-                    foreach (var packageName in packageNames)
-                    {
-                        installer.InstallPackage(packageName);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("EnvironmentId is null. Skipping package installation.");
-                    PackageLog.Log("EnvironmentId is null. Skipping package installation.");
-                }
-            }
-            else
-            {
-                Console.WriteLine("No packages to install");
-                PackageLog.Log("No packages to install");
-            }
-
-            var preDeploymentSettings = JsonUtility.ReadPreDeploymentSettings(FilePath, ProjectName);
-
-            if (preDeploymentSettings != null)
-            {
-                // Process the PreDeploymentSettings dictionary
-                Console.WriteLine($"PreDeploymentSettings for {ProjectName}:");
-
-                var organizationSettingsUpdater = new OrganizationSettingsUpdater(CrmSvc);
-
-                foreach (var setting in preDeploymentSettings)
-                {
-                    Console.WriteLine($"Updating Key : {setting.Key} Value: {setting.Value}");
-                    // Call UpdateOrganizationSettings with setting.Key and setting.Value
-                    organizationSettingsUpdater.UpdateOrganizationSettings(setting.Key, setting.Value);
-                }
-            }
-            else
-            {
-                Console.WriteLine($"Project with name '{ProjectName}' or PreDeploymentSettings not found.");
-            }
+            Console.WriteLine("Installing packages, if specified any...");
+            InstallPreReqPackages();
+            Console.WriteLine("Updating pre deployment settings, if specified any...");
+            ProcessPreDeploymentSettings();
         }
 
         /// <summary>
@@ -182,6 +142,67 @@ namespace PowerCAT.PackageDeployer.Package
             Console.WriteLine($"Project Name : {ProjectName}");
             Console.WriteLine($"File Path : {FilePath}");
             return true;
+        }
+
+        /// <summary>
+        /// Installs packages using the Power Platform CLI (pac) for the specified environment and package names.
+        /// </summary>
+        private void InstallPreReqPackages()
+        {
+            var packageNames = JsonUtility.ReadPackages(FilePath, ProjectName);
+
+            if (packageNames != null)
+            {
+                var environmentId = JsonUtility.ReadEnvironmentId(FilePath, ProjectName);
+
+                Console.WriteLine($"environmentId - {environmentId}");
+
+                if (!string.IsNullOrEmpty(environmentId))
+                {
+                    var installer = new PacPackagesInstaller(environmentId, PackageLog);
+
+                    foreach (var packageName in packageNames)
+                    {
+                        Console.WriteLine($"Installing package - {packageName}");
+                        installer.InstallPackage(packageName);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("EnvironmentId is null. Skipping package installation.");
+                    PackageLog.Log("EnvironmentId is null. Skipping package installation.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No packages to install");
+                PackageLog.Log("No packages to install");
+            }
+        }
+
+        /// <summary>
+        /// Processes PreDeploymentSettings from a JSON file for a given project and updates organization settings.
+        /// </summary>
+        private void ProcessPreDeploymentSettings()
+        {
+            var preDeploymentSettings = JsonUtility.ReadPreDeploymentSettings(FilePath, ProjectName);
+
+            if (preDeploymentSettings != null)
+            {
+                Console.WriteLine($"PreDeploymentSettings for {ProjectName}:");
+
+                var organizationSettingsUpdater = new OrganizationSettingsUpdater(CrmSvc);
+
+                foreach (var setting in preDeploymentSettings)
+                {
+                    Console.WriteLine($"Updating Key : {setting.Key} Value: {setting.Value}");
+                    organizationSettingsUpdater.UpdateOrganizationSettings(setting.Key, setting.Value);
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Project with name '{ProjectName}' or PreDeploymentSettings not found.");
+            }
         }
     }
 }
