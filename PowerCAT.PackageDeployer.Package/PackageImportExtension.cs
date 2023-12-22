@@ -82,6 +82,31 @@ namespace PowerCAT.PackageDeployer.Package
             Console.WriteLine($"Project Name : {ProjectName}");
             Console.WriteLine($"File Path : {FilePath}");
 
+            // Install Packages, if any
+            var packageNames = JsonUtility.ReadPackages(FilePath, ProjectName);
+            if (packageNames != null)
+            {
+                var environmentId = JsonUtility.ReadEnvironmentId(FilePath, ProjectName);
+                if (!string.IsNullOrEmpty(environmentId))
+                {
+                    var installer = new PacPackagesInstaller(environmentId, PackageLog);
+                    foreach (var packageName in packageNames)
+                    {
+                        installer.InstallPackage(packageName);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("EnvironmentId is null. Skipping package installation.");
+                    PackageLog.Log("EnvironmentId is null. Skipping package installation.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("No packages to install");
+                PackageLog.Log("No packages to install");
+            }
+
             var preDeploymentSettings = JsonUtility.ReadPreDeploymentSettings(FilePath, ProjectName);
 
             if (preDeploymentSettings != null)

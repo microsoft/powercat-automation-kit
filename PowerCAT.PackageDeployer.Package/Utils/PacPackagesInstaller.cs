@@ -22,6 +22,10 @@ public class PacPackagesInstaller
         Logger = packageLog;
     }
 
+    /// <summary>
+    /// Installs a package using the Power Platform CLI (pac) for the specified environment and package name.
+    /// </summary>
+    /// <param name="packageName">The name of the package to install.</param>
     public void InstallPackage(string packageName)
     {
         string pacCommand = $"pac application install --environment {EnvironmentId} --application-name {packageName}";
@@ -30,6 +34,10 @@ public class PacPackagesInstaller
         RunPowerShellCommand(pacCommand);
     }
 
+    /// <summary>
+    /// Executes a PowerShell command and logs the output or errors.
+    /// </summary>
+    /// <param name="command">The PowerShell command to execute.</param>
     public void RunPowerShellCommand(string command)
     {
         try
@@ -76,5 +84,4 @@ public class PacPackagesInstaller
             Logger.Log($"PowerShell Error while executing command : {command} Error : {ex.Message}");
         }
     }
-
 }

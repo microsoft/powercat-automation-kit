@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 
 /// <summary>
@@ -68,6 +69,76 @@ public class JsonUtility
                 return ExtractSettings(projectNode, "PostDeploymentSettings");
             }
 
+            return null;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading or processing JSON data: {ex.Message}");
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Reads the 'Packages' node from the specified JSON file for a given project name.
+    /// </summary>
+    /// <param name="filePath">The path to the JSON file.</param>
+    /// <param name="projectName">The name of the project to retrieve 'Packages' for.</param>
+    /// <returns>A list of package names, or null if the project or 'Packages' node is not found.</returns>
+    public static List<string> ReadPackages(string filePath, string projectName)
+    {
+        try
+        {
+            // Read the entire file content
+            string jsonContent = File.ReadAllText(filePath);
+
+            // Parse the JSON data
+            JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
+
+            // Find the Project node with the specified name
+            JsonElement projectNode = FindProjectNode(jsonDocument.RootElement.GetProperty("Projects"), projectName);
+
+            // Check if the Project node exists and contains the 'Packages' property
+            if (projectNode.ValueKind != JsonValueKind.Null && projectNode.TryGetProperty("Packages", out JsonElement packagesElement))
+            {
+                return packagesElement.EnumerateArray().Select(package => package.GetString()).ToList();
+            }
+
+            // Return null if the project or 'Packages' node is not found
+            return null;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading or processing JSON data: {ex.Message}");
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Reads the 'environmentid' from the specified JSON file for a given project name.
+    /// </summary>
+    /// <param name="filePath">The path to the JSON file.</param>
+    /// <param name="projectName">The name of the project to retrieve 'environmentid' for.</param>
+    /// <returns>The 'environmentid' string, or null if the project or 'environmentid' is not found.</returns>
+    public static string ReadEnvironmentId(string filePath, string projectName)
+    {
+        try
+        {
+            // Read the entire file content
+            string jsonContent = File.ReadAllText(filePath);
+
+            // Parse the JSON data
+            JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
+
+            // Find the Project node with the specified name
+            JsonElement projectNode = FindProjectNode(jsonDocument.RootElement.GetProperty("Projects"), projectName);
+
+            // Check if the Project node exists and contains the 'environmentid' property
+            if (projectNode.ValueKind != JsonValueKind.Null && projectNode.TryGetProperty("environmentid", out JsonElement environmentIdElement))
+            {
+                return environmentIdElement.GetString();
+            }
+
+            // Return null if the project or 'environmentid' is not found
             return null;
         }
         catch (Exception ex)
