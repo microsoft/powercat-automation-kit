@@ -141,6 +141,8 @@ namespace PowerCAT.PackageDeployer.Package
             Console.WriteLine("AfterPrimaryImport");
             Console.WriteLine($"Project Name : {ProjectName}");
             Console.WriteLine($"File Path : {FilePath}");
+            Console.WriteLine("Updating post deployment settings, if specified any...");
+            ProcessPostDeploymentSettings();
             return true;
         }
 
@@ -153,7 +155,7 @@ namespace PowerCAT.PackageDeployer.Package
 
             if (packageNames != null)
             {
-                var environmentId = JsonUtility.ReadEnvironmentId(FilePath, ProjectName);
+                var environmentId = CrmSvc.EnvironmentId; //JsonUtility.ReadEnvironmentId(FilePath, ProjectName);
 
                 Console.WriteLine($"environmentId - {environmentId}");
 
@@ -177,6 +179,31 @@ namespace PowerCAT.PackageDeployer.Package
             {
                 Console.WriteLine("No packages to install");
                 PackageLog.Log("No packages to install");
+            }
+        }
+
+        /// <summary>
+        /// Processes PostDeploymentSettings from a JSON file for a given project and updates organization settings.
+        /// </summary>
+        private void ProcessPostDeploymentSettings()
+        {
+            var preDeploymentSettings = JsonUtility.ReadPostDeploymentSettings(FilePath, ProjectName);
+
+            if (preDeploymentSettings != null)
+            {
+                Console.WriteLine($"PostDeploymentSettings for {ProjectName}:");
+
+                var organizationSettingsUpdater = new OrganizationSettingsUpdater(CrmSvc);
+
+                foreach (var setting in preDeploymentSettings)
+                {
+                    Console.WriteLine($"Updating Key : {setting.Key} Value: {setting.Value}");
+                    organizationSettingsUpdater.UpdateOrganizationSettings(setting.Key, setting.Value);
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Project with name '{ProjectName}' or PostDeploymentSettings not found.");
             }
         }
 

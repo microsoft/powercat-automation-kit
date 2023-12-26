@@ -264,7 +264,7 @@ public class JsonUtility
             // Cache the JSON content for future use
             jsonCache[filePathOrUrl] = jsonContent;
 
-            Console.WriteLine($"JSON content: {jsonContent}");
+            //Console.WriteLine($"JSON content: {jsonContent}");
             return jsonContent;
         }
         catch (Exception ex)
