@@ -10,6 +10,9 @@ using System.Text.Json;
 /// </summary>
 public class JsonUtility
 {
+
+    private static Dictionary<string, string> jsonCache = new Dictionary<string, string>();
+
     /// <summary>
     /// Reads the PreDeploymentSettings from the specified JSON file for a given project name.
     /// </summary>
@@ -214,43 +217,6 @@ public class JsonUtility
     }
 
     /// <summary>
-    /// Helper function to read JSON content from either a local path or a URL.
-    /// </summary>
-    /// <param name="filePathOrUrl">The path to the JSON file or a publicly accessible URL.</param>
-    /// <returns>The JSON content as a string, or null if an error occurs.</returns>
-    private static string ReadJsonContent(string filePathOrUrl)
-    {
-        try
-        {
-            string jsonContent;
-
-            if (IsUrl(filePathOrUrl))
-            {
-                Console.WriteLine($"Reading json file form web : {filePathOrUrl}");
-                // Read JSON content from a URL
-                using (WebClient webClient = new WebClient())
-                {
-                    jsonContent = webClient.DownloadString(filePathOrUrl);
-                }
-            }
-            else
-            {
-                Console.WriteLine($"Reading json file form local folder : {filePathOrUrl}");
-                // Read JSON content from a local file path
-                jsonContent = File.ReadAllText(filePathOrUrl);
-            }
-
-            Console.WriteLine($"json content : {jsonContent}");
-            return jsonContent;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error reading JSON content: {ex.Message}");
-            return null;
-        }
-    }
-
-    /// <summary>
     /// Helper function to check if a string is a URL.
     /// </summary>
     /// <param name="path">The string to check.</param>
@@ -261,4 +227,51 @@ public class JsonUtility
         return Uri.TryCreate(path, UriKind.Absolute, out uriResult) &&
                (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
     }
+
+    /// <summary>
+    /// Reads the JSON content from the specified file path or URL, caching the content for future use.
+    /// </summary>
+    /// <param name="filePathOrUrl">The path to the JSON file or a publicly accessible URL.</param>
+    /// <returns>The JSON content as a string, or null if an error occurs.</returns>
+    private static string ReadJsonContent(string filePathOrUrl)
+    {
+        // Check if JSON content is already cached
+        if (jsonCache.TryGetValue(filePathOrUrl, out string cachedJsonContent))
+        {
+            return cachedJsonContent;
+        }
+
+        try
+        {
+            string jsonContent;
+
+            if (IsUrl(filePathOrUrl))
+            {
+                Console.WriteLine($"Reading JSON file from the web: {filePathOrUrl}");
+                // Read JSON content from a URL
+                using (WebClient webClient = new WebClient())
+                {
+                    jsonContent = webClient.DownloadString(filePathOrUrl);
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Reading JSON file from the local folder: {filePathOrUrl}");
+                // Read JSON content from a local file path
+                jsonContent = File.ReadAllText(filePathOrUrl);
+            }
+
+            // Cache the JSON content for future use
+            jsonCache[filePathOrUrl] = jsonContent;
+
+            Console.WriteLine($"JSON content: {jsonContent}");
+            return jsonContent;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading JSON content: {ex.Message}");
+            return null;
+        }
+    }
+
 }
