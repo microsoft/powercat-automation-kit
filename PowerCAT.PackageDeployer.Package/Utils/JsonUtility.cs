@@ -1,8 +1,8 @@
-﻿using Microsoft.Xrm.Tooling.Connector;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text.Json;
 
 /// <summary>
@@ -13,15 +13,15 @@ public class JsonUtility
     /// <summary>
     /// Reads the PreDeploymentSettings from the specified JSON file for a given project name.
     /// </summary>
-    /// <param name="filePath">The path to the JSON file.</param>
+    /// <param name="filePathOrUrl">The path to the JSON file.</param>
     /// <param name="projectName">The name of the project to retrieve PreDeploymentSettings for.</param>
     /// <returns>A dictionary containing the PreDeploymentSettings, or null if the project or settings are not found.</returns>
-    public static Dictionary<string, string> ReadPreDeploymentSettings(string filePath, string projectName)
+    public static Dictionary<string, string> ReadPreDeploymentSettings(string filePathOrUrl, string projectName)
     {
         try
         {
-            // Read the entire file content
-            string jsonContent = File.ReadAllText(filePath);
+            // Read the entire file content from either local path or URL
+            string jsonContent = ReadJsonContent(filePathOrUrl);
 
             // Parse the JSON data
             JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
@@ -47,15 +47,15 @@ public class JsonUtility
     /// <summary>
     /// Reads the PostDeploymentSettings from the specified JSON file for a given project name.
     /// </summary>
-    /// <param name="filePath">The path to the JSON file.</param>
+    /// <param name="filePathOrUrl">The path to the JSON file.</param>
     /// <param name="projectName">The name of the project to retrieve PostDeploymentSettings for.</param>
     /// <returns>A dictionary containing the PostDeploymentSettings, or null if the project or settings are not found.</returns>
-    public static Dictionary<string, string> ReadPostDeploymentSettings(string filePath, string projectName)
+    public static Dictionary<string, string> ReadPostDeploymentSettings(string filePathOrUrl, string projectName)
     {
         try
         {
-            // Read the entire file content
-            string jsonContent = File.ReadAllText(filePath);
+            // Read the entire file content from either local path or URL
+            string jsonContent = ReadJsonContent(filePathOrUrl);
 
             // Parse the JSON data
             JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
@@ -79,17 +79,23 @@ public class JsonUtility
     }
 
     /// <summary>
-    /// Reads the 'Packages' node from the specified JSON file for a given project name.
+    /// Reads the list of package names from the specified JSON file or URL for a given project name.
     /// </summary>
-    /// <param name="filePath">The path to the JSON file.</param>
-    /// <param name="projectName">The name of the project to retrieve 'Packages' for.</param>
-    /// <returns>A list of package names, or null if the project or 'Packages' node is not found.</returns>
-    public static List<string> ReadPackages(string filePath, string projectName)
+    /// <param name="filePathOrUrl">The path to the JSON file or a publicly accessible URL.</param>
+    /// <param name="projectName">The name of the project to retrieve package names for.</param>
+    /// <returns>A list containing the package names, or an empty list if the project or 'Packages' node is not found or is not an array.</returns>
+    public static List<string> ReadPackages(string filePathOrUrl, string projectName)
     {
         try
         {
-            // Read the entire file content
-            string jsonContent = File.ReadAllText(filePath);
+            // Read the entire file content from either local path or URL
+            string jsonContent = ReadJsonContent(filePathOrUrl);
+
+            if (jsonContent == null)
+            {
+                Console.WriteLine("Error reading JSON content.");
+                return new List<string>();
+            }
 
             // Parse the JSON data
             JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
@@ -131,15 +137,15 @@ public class JsonUtility
     /// <summary>
     /// Reads the 'environmentid' from the specified JSON file for a given project name.
     /// </summary>
-    /// <param name="filePath">The path to the JSON file.</param>
+    /// <param name="filePathOrUrl">The path to the JSON file.</param>
     /// <param name="projectName">The name of the project to retrieve 'environmentid' for.</param>
     /// <returns>The 'environmentid' string, or null if the project or 'environmentid' is not found.</returns>
-    public static string ReadEnvironmentId(string filePath, string projectName)
+    public static string ReadEnvironmentId(string filePathOrUrl, string projectName)
     {
         try
         {
-            // Read the entire file content
-            string jsonContent = File.ReadAllText(filePath);
+            // Read the entire file content from either local path or URL
+            string jsonContent = ReadJsonContent(filePathOrUrl);
 
             // Parse the JSON data
             JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
@@ -205,5 +211,54 @@ public class JsonUtility
         }
 
         return settings;
+    }
+
+    /// <summary>
+    /// Helper function to read JSON content from either a local path or a URL.
+    /// </summary>
+    /// <param name="filePathOrUrl">The path to the JSON file or a publicly accessible URL.</param>
+    /// <returns>The JSON content as a string, or null if an error occurs.</returns>
+    private static string ReadJsonContent(string filePathOrUrl)
+    {
+        try
+        {
+            string jsonContent;
+
+            if (IsUrl(filePathOrUrl))
+            {
+                Console.WriteLine($"Reading json file form web : {filePathOrUrl}");
+                // Read JSON content from a URL
+                using (WebClient webClient = new WebClient())
+                {
+                    jsonContent = webClient.DownloadString(filePathOrUrl);
+                }
+            }
+            else
+            {
+                Console.WriteLine($"Reading json file form local folder : {filePathOrUrl}");
+                // Read JSON content from a local file path
+                jsonContent = File.ReadAllText(filePathOrUrl);
+            }
+
+            Console.WriteLine($"json content : {jsonContent}");
+            return jsonContent;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading JSON content: {ex.Message}");
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Helper function to check if a string is a URL.
+    /// </summary>
+    /// <param name="path">The string to check.</param>
+    /// <returns>True if the string is a URL, false otherwise.</returns>
+    private static bool IsUrl(string path)
+    {
+        Uri uriResult;
+        return Uri.TryCreate(path, UriKind.Absolute, out uriResult) &&
+               (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
     }
 }
