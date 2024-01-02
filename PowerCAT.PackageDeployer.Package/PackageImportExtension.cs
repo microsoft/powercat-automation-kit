@@ -155,7 +155,7 @@ namespace PowerCAT.PackageDeployer.Package
 
             if (packageNames != null)
             {
-                var environmentId = CrmSvc.EnvironmentId; //JsonUtility.ReadEnvironmentId(FilePath, ProjectName);
+                var environmentId = CrmSvc.EnvironmentId;
 
                 Console.WriteLine($"environmentId - {environmentId}");
 
