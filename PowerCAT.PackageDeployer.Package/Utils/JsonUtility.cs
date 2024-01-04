@@ -47,6 +47,56 @@ public class JsonUtility
         }
     }
 
+    public static Dictionary<string, string> ReadPreDeploymentSettings(string projectConfiguration)
+    {
+        try
+        {
+            // Parse the JSON data
+            JsonDocument jsonDocument = JsonDocument.Parse(projectConfiguration);
+
+            // Read the Project node
+            JsonElement projectNode = jsonDocument.RootElement;
+
+            if (projectNode.ValueKind != JsonValueKind.Null)
+            {
+                // Extract PreDeploymentSettings into a dictionary
+                return ExtractSettings(projectNode, "PreDeploymentSettings");
+            }
+
+            return null;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading or processing JSON data: {ex.Message}");
+            return null;
+        }
+    }
+
+    public static Dictionary<string, string> ReadPostDeploymentSettings(string projectConfiguration)
+    {
+        try
+        {
+            // Parse the JSON data
+            JsonDocument jsonDocument = JsonDocument.Parse(projectConfiguration);
+
+            // Read the Project node
+            JsonElement projectNode = jsonDocument.RootElement;
+
+            if (projectNode.ValueKind != JsonValueKind.Null)
+            {
+                // Extract PostDeploymentSettings into a dictionary
+                return ExtractSettings(projectNode, "PostDeploymentSettings");
+            }
+
+            return null;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading or processing JSON data: {ex.Message}");
+            return null;
+        }
+    }
+
     /// <summary>
     /// Reads the PostDeploymentSettings from the specified JSON file for a given project name.
     /// </summary>
@@ -125,6 +175,49 @@ public class JsonUtility
             else
             {
                 Console.WriteLine($"Project with name '{projectName}' not found.");
+            }
+
+            // Return an empty list if the project or 'Packages' node is not found or is not an array
+            return new List<string>();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error reading or processing JSON data: {ex.Message}");
+            return null;
+        }
+    }
+
+    /// <summary>
+    /// Reads the list of package names from the specified JSON file or URL for a given project name.
+    /// </summary>
+    /// <param name="filePathOrUrl">The path to the JSON file or a publicly accessible URL.</param>
+    /// <param name="projectName">The name of the project to retrieve package names for.</param>
+    /// <returns>A list containing the package names, or an empty list if the project or 'Packages' node is not found or is not an array.</returns>
+    public static List<string> ReadPackages(string projectConfiguration)
+    {
+        try
+        {
+            // Parse the JSON data
+            JsonDocument jsonDocument = JsonDocument.Parse(projectConfiguration);
+
+            // Read the Project node
+            JsonElement projectNode = jsonDocument.RootElement;
+
+            // Check if the Project node exists and contains the 'Packages' property
+            if (projectNode.ValueKind != JsonValueKind.Null)
+            {
+                JsonElement packagesElement;
+
+                // Check if the 'Packages' property exists
+                if (projectNode.TryGetProperty("Packages", out packagesElement) && packagesElement.ValueKind == JsonValueKind.Array)
+                {
+                    // Retrieve package names
+                    return packagesElement.EnumerateArray().Select(package => package.GetString()).ToList();
+                }
+                else
+                {
+                    Console.WriteLine("Packages property not found or is not an array.");
+                }
             }
 
             // Return an empty list if the project or 'Packages' node is not found or is not an array
@@ -273,5 +366,4 @@ public class JsonUtility
             return null;
         }
     }
-
 }

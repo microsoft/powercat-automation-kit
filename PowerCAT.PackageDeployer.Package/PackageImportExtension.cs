@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
-using System.IO;
-using System.Management.Automation;
-using Microsoft.Xrm.Sdk.Query;
 using Microsoft.Xrm.Tooling.PackageDeployment.CrmPackageExtentionBase;
+using PowerCAT.PackageDeployer.Package.Resources;
 
 namespace PowerCAT.PackageDeployer.Package
 {
@@ -25,7 +22,7 @@ namespace PowerCAT.PackageDeployer.Package
         /// Name of the Import Package to Use
         /// </summary>
         /// <param name="plural">if true, return plural version</param>
-        public override string GetNameOfImport(bool plural) => "PowerCATPackage";
+        public override string GetNameOfImport(bool plural) => "powercat-automation-kit";
 
         /// <summary>
         /// Long name of the Import Package.
@@ -41,6 +38,7 @@ namespace PowerCAT.PackageDeployer.Package
 
         public string FilePath { get; set; }
         public string ProjectName { get; set; }
+        public string ProjectConfigsettings { get; set; }
 
         /// <summary>
         /// Called to Initialize any functions in the Custom Extension.
@@ -48,40 +46,55 @@ namespace PowerCAT.PackageDeployer.Package
         /// <see cref="ImportExtension.InitializeCustomExtension"/>
         public override void InitializeCustomExtension()
         {
-            // Validate the state of the runtime settings object.  
-            if (RuntimeSettings != null)
+            //// Validate the state of the runtime settings object.  
+            //if (RuntimeSettings != null)
+            //{
+            //    PackageLog.Log(string.Format("Runtime Settings populated.  Count = {0}", RuntimeSettings.Count));
+            //    foreach (var setting in RuntimeSettings)
+            //    {
+            //        PackageLog.Log(string.Format("Key={0} | Value={1}", setting.Key, setting.Value.ToString()));
+            //    }
+
+            //    // Check to file path provided.  
+            //    if (RuntimeSettings.ContainsKey("filepath"))
+            //    {
+            //        FilePath = RuntimeSettings["filepath"].ToString();
+            //    }
+
+            //    if (RuntimeSettings.ContainsKey("projectname"))
+            //    {
+            //        ProjectName = RuntimeSettings["projectname"].ToString();
+            //    }
+            //}
+            //else
+            //{
+            //    PackageLog.Log("Runtime Settings not populated");
+            //}
+
+            //if (string.IsNullOrEmpty(FilePath) || string.IsNullOrEmpty(ProjectName))
+            //{
+            //    Console.WriteLine("Missing 'projectname' and 'filepath' parameters. Skipping PreDeploymentSettings.");
+            //    PackageLog.Log("Missing 'projectname' and 'filepath' parameters. Skipping PreDeploymentSettings.");
+            //    return;
+            //}
+
+            //Console.WriteLine($"Project Name : {ProjectName}");
+            //Console.WriteLine($"File Path : {FilePath}");
+            
+            ProjectName = GetImportName(false);
+            Console.WriteLine($"Current Package Name : {ProjectName}");
+            Console.WriteLine($"Reading project settings from resx file");
+            ProjectConfigsettings = ConfigSettings.ResourceManager.GetString(ProjectName);
+
+            if (string.IsNullOrEmpty(ProjectConfigsettings))
             {
-                PackageLog.Log(string.Format("Runtime Settings populated.  Count = {0}", RuntimeSettings.Count));
-                foreach (var setting in RuntimeSettings)
-                {
-                    PackageLog.Log(string.Format("Key={0} | Value={1}", setting.Key, setting.Value.ToString()));
-                }
-
-                // Check to file path provided.  
-                if (RuntimeSettings.ContainsKey("filepath"))
-                {
-                    FilePath = RuntimeSettings["filepath"].ToString();
-                }
-
-                if (RuntimeSettings.ContainsKey("projectname"))
-                {
-                    ProjectName = RuntimeSettings["projectname"].ToString();
-                }
+                Console.WriteLine($"Project Config settings not found for {ProjectName}");
+                return;
             }
             else
             {
-                PackageLog.Log("Runtime Settings not populated");
+                Console.WriteLine($"Project Config settings found for {ProjectName}");
             }
-
-            if (string.IsNullOrEmpty(FilePath) || string.IsNullOrEmpty(ProjectName))
-            {
-                Console.WriteLine("Missing 'projectname' and 'filepath' parameters. Skipping PreDeploymentSettings.");
-                PackageLog.Log("Missing 'projectname' and 'filepath' parameters. Skipping PreDeploymentSettings.");
-                return;
-            }
-
-            Console.WriteLine($"Project Name : {ProjectName}");
-            Console.WriteLine($"File Path : {FilePath}");
 
             Console.WriteLine("Installing packages, if specified any...");
             InstallPreReqPackages();
@@ -151,7 +164,7 @@ namespace PowerCAT.PackageDeployer.Package
         /// </summary>
         private void InstallPreReqPackages()
         {
-            var packageNames = JsonUtility.ReadPackages(FilePath, ProjectName);
+            var packageNames = JsonUtility.ReadPackages(ProjectConfigsettings);
 
             if (packageNames != null)
             {
@@ -187,7 +200,7 @@ namespace PowerCAT.PackageDeployer.Package
         /// </summary>
         private void ProcessPostDeploymentSettings()
         {
-            var preDeploymentSettings = JsonUtility.ReadPostDeploymentSettings(FilePath, ProjectName);
+            var preDeploymentSettings = JsonUtility.ReadPostDeploymentSettings(ProjectConfigsettings);
 
             if (preDeploymentSettings != null)
             {
@@ -212,7 +225,7 @@ namespace PowerCAT.PackageDeployer.Package
         /// </summary>
         private void ProcessPreDeploymentSettings()
         {
-            var preDeploymentSettings = JsonUtility.ReadPreDeploymentSettings(FilePath, ProjectName);
+            var preDeploymentSettings = JsonUtility.ReadPreDeploymentSettings(ProjectConfigsettings);
 
             if (preDeploymentSettings != null)
             {
