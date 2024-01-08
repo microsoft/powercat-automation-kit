@@ -1,16 +1,24 @@
-﻿using System;
+﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+using Microsoft.Xrm.Sdk.Workflow.Activities;
+using PowerCAT.PackageDeployer.Package.Models;
+using System;
+using System.Activities.Statements;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text.Json;
+using System.Web.Services.Description;
 
 /// <summary>
 /// Utility class for working with JSON data.
 /// </summary>
 public class JsonUtility
 {
-
+    /// <summary>
+    /// Deserializes JSON data into a list of <see cref="FlowConfigurationItem"/> objects.
+    /// </summary>
     private static Dictionary<string, string> jsonCache = new Dictionary<string, string>();
 
     /// <summary>
@@ -230,38 +238,92 @@ public class JsonUtility
         }
     }
 
-    /// <summary>
-    /// Reads the 'environmentid' from the specified JSON file for a given project name.
-    /// </summary>
-    /// <param name="filePathOrUrl">The path to the JSON file.</param>
-    /// <param name="projectName">The name of the project to retrieve 'environmentid' for.</param>
-    /// <returns>The 'environmentid' string, or null if the project or 'environmentid' is not found.</returns>
-    public static string ReadEnvironmentId(string filePathOrUrl, string projectName)
+    public static List<FlowConfigurationItem> ReadFlowConfigurations(string projectConfiguration)
     {
         try
         {
-            // Read the entire file content from either local path or URL
-            string jsonContent = ReadJsonContent(filePathOrUrl);
-
             // Parse the JSON data
-            JsonDocument jsonDocument = JsonDocument.Parse(jsonContent);
+            JsonDocument jsonDocument = JsonDocument.Parse(projectConfiguration);
 
-            // Find the Project node with the specified name
-            JsonElement projectNode = FindProjectNode(jsonDocument.RootElement.GetProperty("Project"), projectName);
+            // Read the Project node
+            JsonElement projectNode = jsonDocument.RootElement;
 
-            // Check if the Project node exists and contains the 'environmentid' property
-            if (projectNode.ValueKind != JsonValueKind.Null && projectNode.TryGetProperty("environmentid", out JsonElement environmentIdElement))
+            // Check if the Project node exists and contains the 'FlowConfiguration' property
+            if (projectNode.ValueKind != JsonValueKind.Null)
             {
-                return environmentIdElement.GetString();
+                JsonElement flowConfigurationsElement;
+
+                // Check if the 'FlowConfiguration' property exists
+                if (projectNode.TryGetProperty("FlowConfiguration", out flowConfigurationsElement) && flowConfigurationsElement.ValueKind == JsonValueKind.Array)
+                {
+                    // Retrieve FlowConfiguration items
+                    return flowConfigurationsElement.EnumerateArray()
+                        .Select(item => new FlowConfigurationItem
+                        {
+                            Name = item.GetProperty("Name").GetString(),
+                            ActivationCode = item.GetProperty("ActivationCode").GetBoolean()
+                        })
+                        .ToList();
+                }
+                else
+                {
+                    Console.WriteLine("FlowConfiguration property not found or is not an array.");
+                }
             }
 
-            // Return null if the project or 'environmentid' is not found
-            return null;
+            // Return an empty list if the project or 'FlowConfiguration' node is not found or is not an array
+            return new List<FlowConfigurationItem>();
         }
         catch (Exception ex)
         {
             Console.WriteLine($"Error reading or processing JSON data: {ex.Message}");
             return null;
+        }
+    }
+
+    public static void UpdateFlowConfigurations(string projectConfiguration, IOrganizationService CrmSvc)
+    {
+        var flowConfigurations = ReadFlowConfigurations(projectConfiguration);
+
+        if (flowConfigurations != null)
+        {
+            foreach (var item in flowConfigurations)
+            {
+                Console.WriteLine($"Flow Name: {item.Name}, ActivationCode: {item.ActivationCode}");
+                // Read the flow by name
+                // Query for the workflow based on the provided flow name
+                QueryExpression query = new QueryExpression("workflow");
+                query.ColumnSet.AddColumns("workflowid", "statecode");
+                query.Criteria.AddCondition("name", ConditionOperator.Equal, item.Name);
+
+                var resCloudFlow = CrmSvc.RetrieveMultiple(query);
+
+                if (resCloudFlow.Entities.Count > 0)
+                {
+                    var cloudFlow = resCloudFlow.Entities[0];
+
+                    // Check if the flow is already in the desired state
+                    if (((OptionSetValue)cloudFlow["statecode"]).Value != ((item.ActivationCode) ? 1 : 0))
+                    {
+                        Console.WriteLine($"Updating flow Name: {item.Name}, ActivationCode: {item.ActivationCode}");
+                        // Activate or deactivate the workflow based on the flag
+                        cloudFlow["statecode"] = new OptionSetValue(item.ActivationCode ? 1 : 0);
+                        CrmSvc.Update(cloudFlow);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Flow {item.Name} is already in the desired state.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"Flow with name {item.Name} not found.");
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("FlowConfiguration property not found or is not an array.");
         }
     }
 

@@ -46,41 +46,6 @@ namespace PowerCAT.PackageDeployer.Package
         /// <see cref="ImportExtension.InitializeCustomExtension"/>
         public override void InitializeCustomExtension()
         {
-            //// Validate the state of the runtime settings object.  
-            //if (RuntimeSettings != null)
-            //{
-            //    PackageLog.Log(string.Format("Runtime Settings populated.  Count = {0}", RuntimeSettings.Count));
-            //    foreach (var setting in RuntimeSettings)
-            //    {
-            //        PackageLog.Log(string.Format("Key={0} | Value={1}", setting.Key, setting.Value.ToString()));
-            //    }
-
-            //    // Check to file path provided.  
-            //    if (RuntimeSettings.ContainsKey("filepath"))
-            //    {
-            //        FilePath = RuntimeSettings["filepath"].ToString();
-            //    }
-
-            //    if (RuntimeSettings.ContainsKey("projectname"))
-            //    {
-            //        ProjectName = RuntimeSettings["projectname"].ToString();
-            //    }
-            //}
-            //else
-            //{
-            //    PackageLog.Log("Runtime Settings not populated");
-            //}
-
-            //if (string.IsNullOrEmpty(FilePath) || string.IsNullOrEmpty(ProjectName))
-            //{
-            //    Console.WriteLine("Missing 'projectname' and 'filepath' parameters. Skipping PreDeploymentSettings.");
-            //    PackageLog.Log("Missing 'projectname' and 'filepath' parameters. Skipping PreDeploymentSettings.");
-            //    return;
-            //}
-
-            //Console.WriteLine($"Project Name : {ProjectName}");
-            //Console.WriteLine($"File Path : {FilePath}");
-            
             ProjectName = GetImportName(false);
             Console.WriteLine($"Current Package Name : {ProjectName}");
             Console.WriteLine($"Reading project settings from resx file");
@@ -152,10 +117,10 @@ namespace PowerCAT.PackageDeployer.Package
         public override bool AfterPrimaryImport()
         {
             Console.WriteLine("AfterPrimaryImport");
-            Console.WriteLine($"Project Name : {ProjectName}");
-            Console.WriteLine($"File Path : {FilePath}");
             Console.WriteLine("Updating post deployment settings, if specified any...");
             ProcessPostDeploymentSettings();
+            Console.WriteLine("Updating flow settings, if specified any...");
+            ProcessFlows();
             return true;
         }
 
@@ -217,6 +182,21 @@ namespace PowerCAT.PackageDeployer.Package
             else
             {
                 Console.WriteLine($"Project with name '{ProjectName}' or PostDeploymentSettings not found.");
+            }
+        }
+
+        /// <summary>
+        /// Processes PostDeploymentSettings from a JSON file for a given project and updates organization settings.
+        /// </summary>
+        private void ProcessFlows()
+        {
+            try
+            {
+                JsonUtility.UpdateFlowConfigurations(ProjectConfigsettings, CrmSvc);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error while processing flows: {ex.Message}");
             }
         }
 
