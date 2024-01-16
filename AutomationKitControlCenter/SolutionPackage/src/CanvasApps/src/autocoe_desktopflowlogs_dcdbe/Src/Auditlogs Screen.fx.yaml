@@ -102,8 +102,10 @@
             AlignInContainer: =AlignInContainer.SetByContainer
             DropShadow: =DropShadow.Light
             Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
             Height: =52
             LayoutAlignItems: =LayoutAlignItems.Stretch
+            LayoutMinHeight: =52
             LayoutMinWidth: =250
             LayoutMode: =LayoutMode.Auto
             LayoutWrap: =true
@@ -149,7 +151,9 @@
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
                         Height: =32
+                        LayoutMinHeight: =32
                         LayoutMinWidth: =25
+                        OnChange: =false
                         Text: =" From"
                         Width: =25
                         X: =0
@@ -164,6 +168,7 @@
                         Height: =32
                         IconFill: =
                         InitialPickerDate: =Today()
+                        LayoutMinHeight: =32
                         LayoutMinWidth: =100
                         MinDate: =
                         OnChange: |
@@ -200,7 +205,9 @@
                         DisplayMode: =DisplayMode.Edit
                         FillPortions: =1
                         Height: =32
+                        LayoutMinHeight: =32
                         LayoutMinWidth: =25
+                        OnChange: =false
                         Text: ="To"
                         Width: =75
                         X: =0
@@ -214,6 +221,7 @@
                         FillPortions: =3
                         Height: =32
                         IconFill: =
+                        LayoutMinHeight: =32
                         LayoutMinWidth: =100
                         MaxDate: =Today()
                         MinDate: =
@@ -282,6 +290,8 @@
                                 {ItemKey: "flowmachineimageversion", ItemDisplayName: "flowmachineimageversion", ItemParentKey:"table"},
                                 {ItemKey: "flowmachinenetwork", ItemDisplayName: "flowmachinenetwork", ItemParentKey:"table"}
                             )
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
                         OnChange: =false
                         OnSelect: |
                             =
@@ -342,6 +352,9 @@
                         Color: =
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =320
+                        OnChange: =false
                         Text: ="Name"
                         Visible: =false
                         Width: =80
@@ -361,6 +374,9 @@
                         HoverBorderColor: =
                         HoverFillColor: =
                         HoverTextColor: =
+                        LayoutMinHeight: =32
+                        LayoutMinWidth: =96
+                        OnChange: =false
                         OnSelect: |-
                             =Set(isLoading,true);
                             
@@ -441,6 +457,7 @@
                     BorderStyle: =BorderStyle.None
                     Height: =52
                     LayoutJustifyContent: =LayoutJustifyContent.Center
+                    LayoutMinHeight: =100
                     LayoutMinWidth: =125
                     LayoutMode: =LayoutMode.Auto
                     RadiusBottomLeft: =4
@@ -452,6 +469,8 @@
                     "txtSearchBox As 'Fluent SearchBox (1.0.22) Preview'":
                         DisplayMode: =DisplayMode.Edit
                         Height: =32
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
                         PlaceHolderText: ="Search by name"
                         Tooltip: ="Search by entering user name, host name or Workflow name"
                         Width: =250
@@ -473,10 +492,11 @@
             RadiusTopRight: =8
             ZIndex: =2
 
-            "AuditDataOneGrid As 'Table (Dataverse only)'.pcfdataset":
+            AuditDataOneGrid As Table.pcfdataset:
                 AlignInContainer: =AlignInContainer.Stretch
                 DisplayMode: =DisplayMode.Edit
-                FillPortions: =1
+                FontSize: =0
+                HeaderFontSize: =0
                 Height: =Parent.Height
                 Items: |-
                     =Filter(Search(
@@ -495,6 +515,7 @@
                     )
                 LayoutMinHeight: =If(Self.Y + 500 > Parent.Height, Parent.Height - Self.Y, 850000)
                 LayoutMinWidth: =If(Self.X + 800 > Parent.Width, Parent.Width - Self.X, 800)
+                NoDataText: =""
                 ReflowBehavior: ='PowerAppsOneGrid.ReflowBehavior'.Reflow
                 ShowAvatar: ="yes"
                 ShowColumnHeaders: ="yes"

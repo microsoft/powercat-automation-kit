@@ -1,0 +1,785 @@
+"'Auditlogs Screen' As screen.'tabletAutoLayout_HeaderMainFooter_ver1.0'":
+    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    OnVisible: |-
+        =Set(
+            fromdate,
+            Text(
+                DateAdd(
+                    Today(),
+                    -7
+                ),
+                "m/d/yyyy"
+            )
+        );
+        Set(
+            todate,
+            Text(
+                Today(),
+                "m/d/yyyy"
+            )
+        );
+        Set(isLoading,true);
+        Set(
+            DeskFlowlogs,
+            Environment.cat_auditfetchapi(
+                {
+                    cat_tablename: "flowsession,flowmachine,flowmachinegroup,workqueue,workqueueitem,desktopflowmodule,desktopflowbinary,flowmachineimage,flowmachineimageversion,flowmachinenetwork",
+                    cat_fromdatestring: fromdate,
+                    cat_todatestring: todate,
+                    cat_userid: User().Email
+                }
+            )
+        );
+        ClearCollect(
+            FlowSessionAuditCol,
+            ForAll(
+                Table(ParseJSON(DeskFlowlogs.cat_auditrecords)),
+                {
+                    Action: Text(Value.Action),
+                    AuditId: Text(Value.AuditId),
+                    CallingUserId: Text(Value.CallingUserId),
+                    CallingUserIdName: Text(Value.CallingUserIdName),
+                    CreatedOn: Text(Value.CreatedOn),
+                    ObjectId: Text(Value.ObjectId),
+                    ObjectName: Text(Value.ObjectName),
+                    Operation: Text(Value.Operation),
+                    Objecttypecode: Text(Value.Objecttypecode),
+                    UserAdditionalInfo: Text(Value.UserAdditionalInfo),
+                    UserId: Text(Value.UserId),
+                    UserName: Text(Value.UserName),
+                    HostName: Text(Value.HostName),
+                    AgentVersion: Text(Value.AgentVersion),
+                    MachineId: Text(Value.MachineId),
+                    MachineGroupId: Text(Value.MachineGroupId),
+                    RegardingObjectId: Text(Value.RegardingObjectId),
+                    Workflow: LookUp(varProcesses, Text(workflowid) = Value.RegardingObjectId).name,
+                    ChangedAttributes: ForAll(
+                        Table(Value.ChangedAttributes),
+                        {
+                            LogicalName: Text(Value.LogicalName),
+                            OldValue: Text(Value.OldValue),
+                            NewValue: Text(Value.NewValue)/*,
+                            
+                            NewValueDictionary: ForAll(
+                                Table(ParseJSON(Text(Value.NewValueDictionary))),
+                                {
+                                    hostName: Text(Value.hostName),
+                                    parentWorkflowId: Text(Value.parentWorkflowId),
+                                    parentWorkflowRunId: Text(Value.parentWorkflowRunId),
+                                    attendedMode: Text(Value.attendedMode),
+                                    agentVersion: Text(Value.agentVersion),
+                                    parentWorkflowType: Text(Value.parentWorkflowType)
+                                }
+                            )*/
+                        }
+                    )
+                }
+            )
+        );
+        Set(isLoading,false);
+
+    ScreenContainer1 As groupContainer.verticalAutoLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Fill: =RGBA(245, 245, 245, 1)
+        Height: =Parent.Height
+        LayoutAlignItems: =LayoutAlignItems.Stretch
+        LayoutDirection: =LayoutDirection.Vertical
+        LayoutGap: =16
+        LayoutMode: =LayoutMode.Auto
+        LayoutOverflowY: =LayoutOverflow.Scroll
+        PaddingBottom: =16
+        PaddingLeft: =16
+        PaddingRight: =16
+        PaddingTop: =16
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        HeaderContainer1 As groupContainer.horizontalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            FillPortions: =0
+            Height: =50
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =2
+
+            Container2 As groupContainer.horizontalAutoLayoutContainer:
+                LayoutMinHeight: =50
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =10
+                PaddingLeft: =10
+                PaddingTop: =10
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =2
+
+                Label1 As Label:
+                    AlignInContainer: =AlignInContainer.Start
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    Text: =" From"
+                    Width: =50
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                "DatePickerFrom As 'Date picker'":
+                    AllowTextInput: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    IconFill: =
+                    InitialPickerDate: =Today()
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =210
+                    MinDate: =
+                    OnChange: |
+                        =If(DatePickerFrom.Value > DatePickerTo.Value,
+                            Notify("From date can't be greater than To date.", NotificationType.Warning);
+                            Reset(DatePickerFrom)
+                            ,
+                            Set(fromdate, Text(DatePickerFrom.Value, "m/d/yyyy"))
+                        )
+                    TextColor: =
+                    Value: =Today()-7
+                    Width: =210
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                Label1_1 As Label:
+                    AlignInContainer: =AlignInContainer.Start
+                    Alignment: =Align.Center
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    Text: ="To"
+                    Width: =80
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
+
+                "DatePickerTo As 'Date picker'":
+                    AllowTextInput: =false
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    IconFill: =
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =210
+                    MaxDate: =Today()
+                    MinDate: =
+                    OnChange: |+
+                        =
+                        If(DatePickerTo.Value < DatePickerFrom.Value,
+                            Notify("To date can't be smaller than From date.", NotificationType.Warning);
+                            Reset(DatePickerTo)
+                            ,
+                            Set(todate,Text(Self.Value,"m/d/yyyy"))
+                        )
+                        
+                    ShowWeekNumbers: =false
+                    TextColor: =
+                    Value: =Today()
+                    Width: =210
+                    X: =0
+                    Y: =0
+                    ZIndex: =4
+
+                Icon2 As icon.VerticalLine:
+                    BorderColor: =RGBA(0, 0, 0, 0)
+                    Color: =RGBA(255, 255, 255, 1)
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(220, 220, 220, 1)
+                    DisabledFill: =RGBA(0, 0, 0, 0)
+                    Height: =32
+                    HoverBorderColor: =RGBA(0, 0, 0, 0)
+                    HoverColor: =
+                    HoverFill: =RGBA(0, 0, 0, 0)
+                    Icon: =Icon.VerticalLine
+                    PaddingBottom: =3
+                    PaddingLeft: =3
+                    PaddingRight: =3
+                    PaddingTop: =3
+                    PressedBorderColor: =RGBA(0, 0, 0, 0)
+                    PressedColor: =ColorFade(RGBA(0, 120, 212, 1), -30%)
+                    PressedFill: =RGBA(0, 0, 0, 0)
+                    Width: =10
+                    ZIndex: =5
+
+                Button2 As Button:
+                    BorderColor: =
+                    ButtonType: ='Button.ButtonType'.Primary
+                    DisabledBorderColor: =
+                    DisabledFillColor: =
+                    DisabledTextColor: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillColor: =
+                    Height: =32
+                    HoverBorderColor: =
+                    HoverFillColor: =
+                    HoverTextColor: =
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =96
+                    OnChange: =false
+                    OnSelect: |
+                        =Set(isLoading,true);
+                        Set(
+                            DeskFlowlogs,
+                            Environment.cat_auditfetchapi(
+                                {
+                                    cat_tablename: "flowsession,flowmachine,flowmachinegroup,workqueue,workqueueitem,desktopflowmodule,desktopflowbinary,flowmachineimage,flowmachineimageversion,flowmachinenetwork",
+                                    cat_fromdatestring: fromdate,
+                                    cat_todatestring: todate,
+                                    cat_userid: User().Email
+                                }
+                            )
+                        );
+                        ClearCollect(
+                            FlowSessionAuditCol,
+                            ForAll(
+                                Table(ParseJSON(DeskFlowlogs.cat_auditrecords)),
+                                {
+                                    Action: Text(Value.Action),
+                                    AuditId: Text(Value.AuditId),
+                                    CallingUserId: Text(Value.CallingUserId),
+                                    CallingUserIdName: Text(Value.CallingUserIdName),
+                                    CreatedOn: Text(Value.CreatedOn),
+                                    ObjectId: Text(Value.ObjectId),
+                                    ObjectName: Text(Value.ObjectName),
+                                    Operation: Text(Value.Operation),
+                                    Objecttypecode: Text(Value.Objecttypecode),
+                                    UserAdditionalInfo: Text(Value.UserAdditionalInfo),
+                                    UserId: Text(Value.UserId),
+                                    UserName: Text(Value.UserName),
+                                    ChangedAttributes: ForAll(
+                                        Table(Value.ChangedAttributes),
+                                        {
+                                            LogicalName: Text(Value.LogicalName),
+                                            OldValue: Text(Value.OldValue),
+                                            NewValue: Text(Value.NewValue)
+                                            
+                                           /* NewValueDictionary: ForAll(
+                                                Table(ParseJSON(Text(Value.NewValueDictionary))),
+                                                {
+                                                    hostName: Text(Value.hostName),
+                                                    parentWorkflowId: Text(Value.parentWorkflowId),
+                                                    parentWorkflowRunId: Text(Value.parentWorkflowRunId),
+                                                    attendedMode: Text(Value.attendedMode),
+                                                    agentVersion: Text(Value.agentVersion),
+                                                    parentWorkflowType: Text(Value.parentWorkflowType)
+                                                }
+                                            )*/
+                                        }
+                                    )
+                                }
+                            )
+                        );
+                        Set(isLoading,false);
+                    PressedBorderColor: =
+                    PressedFillColor: =
+                    PressedTextColor: =
+                    Text: ="Fetch"
+                    TextColor: =
+                    Width: =96
+                    X: =0
+                    Y: =0
+                    ZIndex: =6
+
+            Container3 As groupContainer.horizontalAutoLayoutContainer:
+                FillPortions: =0
+                LayoutMinHeight: =50
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingBottom: =10
+                PaddingRight: =20
+                PaddingTop: =10
+                ZIndex: =3
+
+                "SearchBox1 As 'Fluent SearchBox (1.0.22) Preview'":
+                    AlignInContainer: =AlignInContainer.Stretch
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Height: =200
+                    LayoutMinHeight: =45
+                    LayoutMinWidth: =200
+                    PlaceHolderText: ="Search by name"
+                    SearchText: =""
+                    Tooltip: =""
+                    Width: =200
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+        MainSectionContainer1 As groupContainer.verticalAutoLayoutContainer:
+            DropShadow: =DropShadow.Light
+            Fill: =RGBA(255, 255, 255, 1)
+            LayoutDirection: =LayoutDirection.Vertical
+            LayoutMinHeight: =100
+            LayoutMinWidth: =250
+            LayoutMode: =LayoutMode.Auto
+            RadiusBottomLeft: =8
+            RadiusBottomRight: =8
+            RadiusTopLeft: =8
+            RadiusTopRight: =8
+            ZIndex: =3
+
+            "AuditDetailsList As 'Fluent Details List (1.0.22)'.pcfdataset":
+                AlignInContainer: =AlignInContainer.Stretch
+                columns_Items: |
+                    =Table(
+                        {
+                            ColName: "CreatedOn",
+                            ColDisplayName: "Event Date",
+                            ColWidth: 200,
+                            ColSortable: true,
+                            ColIsBold: true,
+                            ColResizable: true
+                        },
+                        {
+                            ColName: "Action",
+                            ColDisplayName: "Action",
+                            ColWidth: 200,
+                            ColSortable: true,
+                            ColIsBold: true,
+                            ColResizable: true,
+                            ColCellType: "link"
+                        },
+                        {
+                            ColName: "UserName",
+                            ColDisplayName: "Changed By",
+                            ColWidth: 200,
+                            ColSortable: true,
+                            ColIsBold: true,
+                            ColResizable: true
+                        },
+                        {
+                            ColName: "Objecttypecode",
+                            ColDisplayName: "Table",
+                            ColWidth: 150,
+                            ColSortable: true,
+                            ColIsBold: true,
+                            ColResizable: true
+                        },
+                        {
+                            ColName: "HostName",
+                            ColDisplayName: "Host Name",
+                            ColWidth: 100,
+                            ColSortable: true,
+                            ColIsBold: true,
+                            ColResizable: true
+                        },
+                        {
+                            ColName: "AgentVersion",
+                            ColDisplayName: "Agent Version",
+                            ColWidth: 100,
+                            ColSortable: true,
+                            ColIsBold: true,
+                            ColResizable: true
+                        },
+                        {
+                            ColName: "Workflow",
+                            ColDisplayName: "Workflow",
+                            ColWidth: 100,
+                            ColSortable: true,
+                            ColIsBold: true,
+                            ColResizable: true
+                        }
+                        
+                        
+                    )
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =200
+                InputEvent: =varGridEvent
+                Items: =Search(SortByColumns(FlowSessionAuditCol,"CreatedOn",SortOrder.Descending),SearchBox1.SearchText,"UserName")
+                LargeDatasetPaging: =false
+                LayoutMinHeight: =200
+                LayoutMinWidth: =200
+                OnChange: |+
+                    =If(Self.EventName="CellAction" && Self.EventColumn="Action",
+                    //Notify(Self.EventRowKey);
+                    
+                    // Notify with concatenated message
+                    //Notify("hhh" & LookUp(FlowSessionAuditCol, AuditId = Self.EventRowKey).AuditId);
+                    ClearCollect(
+                        Collection_LookupResult,
+                        LookUp(
+                            FlowSessionAuditCol,
+                            AuditId = LookUp(FlowSessionAuditCol, AuditId = Self.EventRowKey).AuditId
+                        ).ChangedAttributes
+                        
+                    );
+                    // Update context variable
+                    UpdateContext({ showHidePanel: true });
+                    );
+                    
+                PageSize: =20
+                RecordKey: ="AuditId"
+                SelectionType: ='PowerCAT.FluentDetailsList.SelectionType'.None
+                SelectRowsOnFocus: =true
+                Theme: =AppThemeJson
+                Visible: =true
+                Width: =200
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+                Action1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Action"
+                    FieldName: ="Action"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =1
+                    ZIndex: =5
+
+                AuditId1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="AuditId"
+                    FieldName: ="AuditId"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =2
+                    ZIndex: =6
+
+                ChangedData1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ChangedData"
+                    FieldName: ="ChangedData"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =3
+                    ZIndex: =7
+
+                CreatedOn1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="CreatedOn"
+                    FieldName: ="CreatedOn"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =4
+                    ZIndex: =8
+
+                ObjectId1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ObjectId"
+                    FieldName: ="ObjectId"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =5
+                    ZIndex: =9
+
+                ObjectName1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="ObjectName"
+                    FieldName: ="ObjectName"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =6
+                    ZIndex: =10
+
+                Objecttypecode1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Objecttypecode"
+                    FieldName: ="Objecttypecode"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =7
+                    ZIndex: =11
+
+                UserId1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="UserId"
+                    FieldName: ="UserId"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =9
+                    ZIndex: =13
+
+                UserName1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="UserName"
+                    FieldName: ="UserName"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =10
+                    ZIndex: =14
+
+                HostName1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="HostName"
+                    FieldName: ="HostName"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =11
+                    ZIndex: =15
+
+                Workflow1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="Workflow"
+                    FieldName: ="Workflow"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =13
+                    ZIndex: =17
+
+                AgentVersion1 As pcfDataField.textualColumn:
+                    FieldDisplayName: ="AgentVersion"
+                    FieldName: ="AgentVersion"
+                    FieldType: ="s"
+                    FieldVariantName: ="textualColumn"
+                    Order: =12
+                    ZIndex: =18
+
+            Container4 As groupContainer.verticalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                FillPortions: =0
+                Height: =50
+                LayoutMinHeight: =100
+                LayoutMinWidth: =250
+                LayoutMode: =LayoutMode.Auto
+                PaddingRight: =20
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                ZIndex: =3
+
+                Container5 As groupContainer.horizontalAutoLayoutContainer:
+                    FillPortions: =0
+                    Height: =35
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    PaddingLeft: =15
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    X: =40
+                    ZIndex: =1
+
+                    lblRecordCount As label:
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =RGBA(149, 149, 149, 1)
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =32
+                        Size: =
+                        Text: ="Total " &If(AuditDetailsList.TotalRecords>-1, AuditDetailsList.TotalRecords & " record(s)  ") 
+                        Width: =183
+                        Y: =AuditDetailsList.Y+AuditDetailsList.Height
+                        ZIndex: =1
+
+                HorizontalconPagingControls As groupContainer.horizontalAutoLayoutContainer:
+                    Height: =32
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutJustifyContent: =LayoutJustifyContent.End
+                    LayoutMinHeight: =50
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    ZIndex: =2
+
+                    "icoFirst As 'Fluent Icon (1.0.22)'":
+                        DisplayMode: =If(AuditDetailsList.HasPreviousPage,DisplayMode.Edit,DisplayMode.Disabled)
+                        FontSize: =0
+                        Height: =32
+                        IconName: ="Previous"
+                        IconSize: =0
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: =Set(varGridEvent,"LoadFirstPage" & Text(Rand()));
+                        Theme: =AppThemeJson
+                        Tooltip: ="Go to First"
+                        Width: =32
+                        X: =32
+                        Y: =32
+                        ZIndex: =1
+
+                    "icoBack As 'Fluent Icon (1.0.22)'":
+                        DisplayMode: =If(AuditDetailsList.HasPreviousPage,DisplayMode.Edit,DisplayMode.Disabled)
+                        FontSize: =0
+                        Height: =32
+                        IconName: ="Back"
+                        IconSize: =0
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: =Set(varGridEvent,"LoadPreviousPage" & Text(Rand()));
+                        Theme: =AppThemeJson
+                        Tooltip: ="Previous"
+                        Width: =32
+                        X: =32
+                        Y: =32
+                        ZIndex: =2
+
+                    lblPageCount As label:
+                        Align: =Align.Center
+                        BorderColor: =RGBA(0, 18, 107, 1)
+                        Color: =
+                        DisabledColor: =RGBA(166, 166, 166, 1)
+                        Font: =Font.'Segoe UI'
+                        Height: =31
+                        Size: =10
+                        Text: ="Page " & AuditDetailsList.PageNumber
+                        Width: =84
+                        X: =64
+                        ZIndex: =4
+
+                    "icoNext As 'Fluent Icon (1.0.22)'":
+                        DisplayMode: =If(AuditDetailsList.HasNextPage,DisplayMode.Edit,DisplayMode.Disabled)
+                        FontSize: =0
+                        Height: =32
+                        IconName: ="Forward"
+                        IconSize: =0
+                        LayoutMinHeight: =200
+                        LayoutMinWidth: =200
+                        OnChange: =Set(varGridEvent,"LoadNextPage" & Text(Rand()));
+                        Theme: =AppThemeJson
+                        Tooltip: ="Next"
+                        Width: =32
+                        X: =32
+                        Y: =32
+                        ZIndex: =5
+
+    Panel_1 As Panel:
+        Buttons: =
+        Fill: =Panel_1.OverlayColor
+        OnCloseSelect: |-
+            =UpdateContext({showHidePanel:false})
+        Subtitle: =""
+        Title: ="Changed Parameters"
+        Visible: =showHidePanel
+        Width: =App.Width
+        ZIndex: =2
+
+    Container9 As groupContainer.manualLayoutContainer:
+        Height: =Panel_1.ContentHeight
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =showHidePanel
+        Width: =Panel_1.ContentWidth
+        X: =Panel_1.ContentX
+        Y: =Panel_1.ContentY+20
+        ZIndex: =4
+
+        GalAttributes As gallery.BrowseLayout_Vertical_OneTextVariant_pcfCore:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            DelayItemLoading: =true
+            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+            FocusedBorderThickness: =2
+            Height: =Parent.Height
+            Items: |-
+                =Collection_LookupResult
+                
+                /*LookUp(
+                        FlowSessionAuditCol,
+                        AuditId = "a30e3714-622c-ee11-b8f0-002248318dda"
+                    ).ChangedAttributes*/
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =100
+            Width: =Parent.Width
+            ZIndex: =1
+
+            Container7 As groupContainer.horizontalAutoLayoutContainer:
+                BorderColor: =RGBA(255, 255, 255, 1)
+                DropShadow: =DropShadow.Light
+                Height: =GalAttributes.TemplateHeight
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMode: =LayoutMode.Auto
+                LayoutWrap: =true
+                Width: =GalAttributes.TemplateWidth
+                ZIndex: =1
+
+                Label2 As Label:
+                    AlignInContainer: =AlignInContainer.Start
+                    AutoHeight: =true
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Height: =32
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    Text: |-
+                        ="Name: " & ThisItem.LogicalName
+                    Width: =320
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                Label2_1 As Label:
+                    AlignInContainer: =AlignInContainer.Start
+                    AutoHeight: =true
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Height: =32
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    Text: |-
+                        ="Old Value: " & ThisItem.OldValue
+                    Width: =320
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                Label2_2 As Label:
+                    AlignInContainer: =AlignInContainer.Start
+                    Alignment: =Align.Left
+                    AutoHeight: =true
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    Height: =32
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    Text: |-
+                        ="New Value: " & ThisItem.NewValue
+                    Width: =320
+                    Wrap: =true
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
+
+                Container8 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    DropShadow: =DropShadow.Light
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Visible: =false
+                    ZIndex: =5
+
+    "Spinner1 As 'Fluent Spinner (1.0.22) Preview'":
+        DisplayMode: =DisplayMode.Edit
+        Height: =MainSectionContainer1.Height
+        Label: ="Loading.."
+        Theme: =AppThemeJson
+        Tooltip: =""
+        Visible: =isLoading
+        Width: =MainSectionContainer1.Width
+        X: =MainSectionContainer1.X
+        Y: =MainSectionContainer1.Y
+        ZIndex: =5
+
