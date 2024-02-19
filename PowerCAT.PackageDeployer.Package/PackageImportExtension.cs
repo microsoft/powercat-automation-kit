@@ -22,7 +22,7 @@ namespace PowerCAT.PackageDeployer.Package
         /// Name of the Import Package to Use
         /// </summary>
         /// <param name="plural">if true, return plural version</param>
-        public override string GetNameOfImport(bool plural) => "PowerCATPackage";
+        public override string GetNameOfImport(bool plural) => "powercat-automation-kit";
 
         /// <summary>
         /// Long name of the Import Package.
@@ -36,9 +36,10 @@ namespace PowerCAT.PackageDeployer.Package
 
         #endregion
 
-        public string FilePath { get; set; }
+        #region Props
         public string ProjectName { get; set; }
         public string ProjectConfigsettings { get; set; }
+        #endregion Props
 
         /// <summary>
         /// Called to Initialize any functions in the Custom Extension.
@@ -90,7 +91,6 @@ namespace PowerCAT.PackageDeployer.Package
         {
             Console.WriteLine($"PreSolutionImport : {solutionName}");
             Console.WriteLine($"Project Name : {ProjectName}");
-            Console.WriteLine($"File Path : {FilePath}");
             base.PreSolutionImport(solutionName, solutionOverwriteUnmanagedCustomizations, solutionPublishWorkflowsAndActivatePlugins, out overwriteUnmanagedCustomizations, out publishWorkflowsAndActivatePlugins);
         }
 
