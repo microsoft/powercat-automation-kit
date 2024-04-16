@@ -76,6 +76,7 @@
                 }
             )
         );
+        
         Set(isLoading,false);
 
     MainContainer As groupContainer.verticalAutoLayoutContainer:
@@ -441,6 +442,89 @@
                                     }
                                 )
                             );
+                            
+                            ClearCollect(FlowSessionAuditCol,
+                              {
+                                Action: "Update",
+                                AuditId: "a50e3714-622c-ee11-b8f0-002248318dda",
+                                CallingUserId: "00000000-0000-0000-0000-000000000000",
+                                CallingUserIdName: Blank(),
+                                CreatedOn: "2023-07-27T09:43:47Z",
+                                ObjectId: "ce4d672c-672f-4acf-bc28-5cbee4cfa0bf",
+                                ObjectName: Blank(),
+                                Operation: "Update",
+                                Objecttypecode: "flowsession",
+                                UserAdditionalInfo: Blank(),
+                                UserId: "b6d412a8-48db-ed11-a7c7-0022482db9c1",
+                                UserName: "Nestor Wilke",
+                                ChangedAttributes: [
+                                  {
+                                    LogicalName: "outputs",
+                                    OldValue: Blank(),
+                                    NewValue: "1bdbb513-622c-ee11-bdf4-0022482b6e98",
+                                    NewValueDictionary: Blank()
+                                  }
+                                ]
+                              },
+                              {
+                                Action: "Update",
+                                AuditId: "a40e3714-622c-ee11-b8f0-002248318dda",
+                                CallingUserId: "00000000-0000-0000-0000-000000000000",
+                                CallingUserIdName: Blank(),
+                                CreatedOn: "2023-07-27T09:43:47Z",
+                                ObjectId: "ce4d672c-672f-4acf-bc28-5cbee4cfa0bf",
+                                ObjectName: Blank(),
+                                Operation: "Update",
+                                Objecttypecode: "flowsession",
+                                UserAdditionalInfo: Blank(),
+                                UserId: "b6d412a8-48db-ed11-a7c7-0022482db9c1",
+                                UserName: "Nestor Wilke",
+                                ChangedAttributes: [
+                                  {
+                                    LogicalName: "additionalcontext",
+                                    OldValue: Blank(),
+                                    NewValue: "15dbb513-622c-ee11-bdf4-0022482b6e98",
+                                    NewValueDictionary: Blank()
+                                  }
+                                ]
+                              },
+                              {
+                                Action: "Create",
+                                AuditId: "a30e3714-622c-ee11-b8f0-002248318dda",
+                                CallingUserId: "00000000-0000-0000-0000-000000000000",
+                                CallingUserIdName: Blank(),
+                                CreatedOn: "2023-07-27T09:43:46Z",
+                                ObjectId: "ce4d672c-672f-4acf-bc28-5cbee4cfa0bf",
+                                ObjectName: Blank(),
+                                Operation: "Create",
+                                Objecttypecode: "flowsession",
+                                UserAdditionalInfo: Blank(),
+                                UserId: "b6d412a8-48db-ed11-a7c7-0022482db9c1",
+                                UserName: "Nestor Wilke",
+                                ChangedAttributes: [
+                                  {
+                                    LogicalName: "startedon",
+                                    OldValue: Blank(),
+                                    NewValue: "07/27/2023 08:38:09",
+                                    NewValueDictionary: Blank()
+                                  },
+                                  {
+                                    LogicalName: "context",
+                                    OldValue: Blank(),
+                                    NewValue: "",
+                                    NewValueDictionary: {
+                                      hostName: "LAPTOP-8ISP9EBU",
+                                      parentWorkflowId: Blank(),
+                                      parentWorkflowRunId: Blank(),
+                                      attendedMode: "Local attended",
+                                      agentVersion: "2.34.181.23193",
+                                      parentWorkflowType: "DesktopFlow"
+                                    }
+                                  }
+                                ]
+                              }
+                            );
+                            
                             Set(isLoading,false);
                         PressedBorderColor: =
                         PressedFillColor: =
@@ -495,8 +579,13 @@
             AuditDataOneGrid As Table.pcfdataset:
                 AlignInContainer: =AlignInContainer.Stretch
                 DisplayMode: =DisplayMode.Edit
+                EnableAggregation: ="no"
+                Font: =""
                 FontSize: =0
+                FontWeight: =""
+                HeaderFont: =""
                 HeaderFontSize: =0
+                HeaderFontWeight: =""
                 Height: =Parent.Height
                 Items: |-
                     =Filter(Search(
@@ -516,6 +605,24 @@
                 LayoutMinHeight: =If(Self.Y + 500 > Parent.Height, Parent.Height - Self.Y, 850000)
                 LayoutMinWidth: =If(Self.X + 800 > Parent.Width, Parent.Width - Self.X, 800)
                 NoDataText: =""
+                OnSelect: |
+                    =//If(Self.EventName="CellAction" && Self.EventColumn="Action",
+                    If(
+                        !IsBlank(Self.Selected),
+                        //Notify(Self.EventRowKey);
+                        //Notify with concatenated message
+                        //Notify("hhh" & LookUp(FlowSessionAuditCol, AuditId = Self.EventRowKey).AuditId);
+                        ClearCollect(
+                            Collection_LookupResult,
+                            LookUp(
+                                FlowSessionAuditCol,
+                                AuditId = AuditDataOneGrid.Selected.AuditId
+                            ).ChangedAttributes
+                        );
+                        
+                        // Update context variable
+                        UpdateContext({showHidePanel: true});
+                    );
                 ReflowBehavior: ='PowerAppsOneGrid.ReflowBehavior'.Reflow
                 ShowAvatar: ="yes"
                 ShowColumnHeaders: ="yes"
@@ -593,6 +700,123 @@
         Width: =App.Width
         ZIndex: =2
 
+    ActionItemsContainer As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =RightPanel.ContentHeight
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =showHidePanel
+        Width: =RightPanel.ContentWidth
+        X: =RightPanel.ContentX
+        Y: =RightPanel.ContentY+20
+        ZIndex: =3
+
+        GalAttributes As gallery.BrowseLayout_Vertical_OneTextVariant_pcfCore:
+            BorderColor: =RGBA(166, 166, 166, 1)
+            DelayItemLoading: =true
+            FocusedBorderColor: =RGBA(0, 120, 212, 1)
+            FocusedBorderThickness: =2
+            Height: =Parent.Height
+            Items: =Collection_LookupResult
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplateSize: =100
+            Width: =Parent.Width
+            ZIndex: =1
+
+            AttributesContainer As groupContainer.horizontalAutoLayoutContainer:
+                DropShadow: =DropShadow.Light
+                Height: =GalAttributes.TemplateHeight
+                LayoutAlignItems: =LayoutAlignItems.Stretch
+                LayoutJustifyContent: =LayoutJustifyContent.SpaceBetween
+                LayoutMode: =LayoutMode.Auto
+                LayoutWrap: =true
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Width: =GalAttributes.TemplateWidth
+                ZIndex: =3
+
+                lblLogicalName As Label:
+                    AutoHeight: =true
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    FontSize: =10.5
+                    FontWeight: =FontWeight.Normal
+                    Height: =32
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    OnSelect: =false
+                    TabIndex: =-1
+                    Text: |-
+                        ="Name: " & ThisItem.LogicalName
+                    VerticalAlignment: =VerticalAlign.Top
+                    Width: =320
+                    X: =0
+                    Y: =0
+                    ZIndex: =1
+
+                lblOldValue As Label:
+                    AutoHeight: =true
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    FontSize: =10.5
+                    FontWeight: =FontWeight.Normal
+                    Height: =32
+                    LayoutMinHeight: =30
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    OnSelect: =false
+                    TabIndex: =-1
+                    Text: |-
+                        ="Old Value: " & ThisItem.OldValue
+                    VerticalAlignment: =VerticalAlign.Top
+                    Width: =320
+                    X: =0
+                    Y: =0
+                    ZIndex: =2
+
+                lblNewValue As Label:
+                    AutoHeight: =true
+                    Color: =
+                    DisplayMode: =DisplayMode.Edit
+                    FillPortions: =1
+                    FontSize: =10.5
+                    FontWeight: =FontWeight.Normal
+                    Height: =32
+                    LayoutMinHeight: =32
+                    LayoutMinWidth: =320
+                    OnChange: =false
+                    OnSelect: =false
+                    TabIndex: =-1
+                    Text: |-
+                        ="New Value: " & ThisItem.NewValue
+                    VerticalAlignment: =VerticalAlign.Top
+                    Width: =320
+                    X: =0
+                    Y: =0
+                    ZIndex: =3
+
+                Container4 As groupContainer.verticalAutoLayoutContainer:
+                    AlignInContainer: =AlignInContainer.SetByContainer
+                    DropShadow: =DropShadow.Light
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutMinHeight: =100
+                    LayoutMinWidth: =250
+                    LayoutMode: =LayoutMode.Auto
+                    RadiusBottomLeft: =4
+                    RadiusBottomRight: =4
+                    RadiusTopLeft: =4
+                    RadiusTopRight: =4
+                    Visible: =false
+                    ZIndex: =4
+
     "Spinner As 'Fluent Spinner (1.0.22) Preview'":
         DisplayMode: =DisplayMode.Edit
         Height: =MainSectionContainer.Height
@@ -603,5 +827,5 @@
         Width: =MainSectionContainer.Width
         X: =MainSectionContainer.X
         Y: =MainSectionContainer.Y
-        ZIndex: =3
+        ZIndex: =4
 

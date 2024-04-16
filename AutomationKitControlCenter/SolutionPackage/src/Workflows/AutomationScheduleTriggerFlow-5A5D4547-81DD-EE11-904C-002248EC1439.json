@@ -1,0 +1,428 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_4b001"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "0bda2496-3c44-4537-aaed-a2a0b7c050ce"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "autocoe_automationscheduleitem",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filteringattributes": "autocoe_automationschedule, autocoe_automationscheduleitemid, autocoe_startdate, autocoe_enddate, autocoe_cronexpression, autocoe_recalculate, autocoe_nextrun, autocoe_runnow, statecode, autocoe_inputparameters",
+              "subscriptionRequest/runas": 1
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "conditions": [
+            {
+              "expression": "@equals(triggerOutputs()?['body/autocoe_recalculate'],false)"
+            }
+          ]
+        }
+      },
+      "actions": {
+        "Check_whether_today_is_in_between_StartDate_and_EndDate": {
+          "actions": {
+            "Check_for_flow_type": {
+              "actions": {
+                "Scope_try": {
+                  "actions": {
+                    "Perform_a_bound_action": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "63c7a2c3-099f-4b7f-92b0-33ef2d4637b2"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "PerformBoundAction",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "workflows",
+                          "actionName": "Microsoft.Dynamics.CRM.RunDesktopFlow",
+                          "recordId": "@outputs('Get_a_row_by_ID')?['body/autocoe_automationschedule/_autocoe_regardingobjectid_value']",
+                          "item/inputs": "@triggerOutputs()?['body/autocoe_inputparameters']",
+                          "item/connectionType": 2,
+                          "item/connectionName": "@outputs('Get_a_row_by_ID_Automation_Schedule')?['body/autocoe_connectionreference/connectionreferencelogicalname']",
+                          "item/runMode": "unattended",
+                          "item/runPriority": "@outputs('Get_a_row_by_ID')?['body/autocoe_priority@OData.Community.Display.V1.FormattedValue']"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Update_a_row_in_Automation_Schedule_Items": {
+                      "runAfter": {
+                        "Perform_a_bound_action": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "4306feb6-b944-4eff-bd9b-793f87b16e5a"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "autocoe_automationscheduleitems",
+                          "recordId": "@outputs('Get_a_row_by_ID')?['body/autocoe_automationscheduleitemid']",
+                          "item/autocoe_recalculate": true
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Update_a_row_in_Automation_Schedule_Flow_Sessions": {
+                      "runAfter": {
+                        "Update_a_row_in_Automation_Schedule_Items": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "85c9a054-3e88-4785-829a-90bc74b76fc9"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "UpdateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "autocoe_automationscheduleflowsessions",
+                          "recordId": "@outputs('Add_a_new_row_Automation_Schedule_Flow_Session')?['body/autocoe_automationscheduleflowsessionid']",
+                          "item/autocoe_FlowSessionId@odata.bind": "/flowsessions(@{outputs('Perform_a_bound_action')?['body/flowsessionId']})"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  },
+                  "runAfter": {},
+                  "metadata": {
+                    "operationMetadataId": "3c538168-dc59-435d-86ee-47e9130241bd"
+                  },
+                  "type": "Scope"
+                },
+                "Scope_catch": {
+                  "actions": {},
+                  "runAfter": {
+                    "Scope_try": [
+                      "Failed",
+                      "Skipped",
+                      "TimedOut"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "74267e0b-a3bf-447f-b1ee-8cae65de6898"
+                  },
+                  "type": "Scope"
+                }
+              },
+              "runAfter": {
+                "Delay_until": [
+                  "Succeeded"
+                ]
+              },
+              "expression": {
+                "equals": [
+                  "@outputs('Get_a_row_by_ID')?['body/autocoe_automationschedule/autocoe_type']",
+                  6
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "fd0ed327-a275-4b1c-96bb-f9f6103c766e"
+              },
+              "type": "If"
+            },
+            "Compose_Workflow_Info": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "8abbd29d-9f21-46b1-b53d-f85f9c8b6925"
+              },
+              "type": "Compose",
+              "inputs": "@workflow()"
+            },
+            "Delay_until": {
+              "runAfter": {
+                "Add_a_new_row_Automation_Schedule_Flow_Session": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "09a694ac-7509-423b-b331-5ae5d1fbc456"
+              },
+              "type": "Wait",
+              "inputs": {
+                "until": {
+                  "timestamp": "@triggerOutputs()?['body/autocoe_nextrun']"
+                }
+              }
+            },
+            "Set_variable_RunSequenceId": {
+              "runAfter": {
+                "Compose_Workflow_Info": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "e81b12db-6b65-46e4-988e-7429006d56d9"
+              },
+              "type": "SetVariable",
+              "inputs": {
+                "name": "varRunSequenceId",
+                "value": "@{outputs('Compose_Workflow_Info')?['run/name']}"
+              }
+            },
+            "Add_a_new_row_Automation_Schedule_Flow_Session": {
+              "runAfter": {
+                "Get_a_row_by_ID_Automation_Schedule": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "273b416a-31fc-4ebc-a52c-8283d9b616ab"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "CreateRecord",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "autocoe_automationscheduleflowsessions",
+                  "item/autocoe_name": "@outputs('Get_a_row_by_ID')?['body/autocoe_automationschedule/autocoe_name']",
+                  "item/autocoe_AutomationScheduleItemId@odata.bind": "/autocoe_automationscheduleitems(@{outputs('Get_a_row_by_ID')?['body/autocoe_automationscheduleitemid']})",
+                  "item/autocoe_ConnectionReference@odata.bind": "/connectionreferences(@{outputs('Get_a_row_by_ID_Automation_Schedule')?['body/autocoe_connectionreference/connectionreferenceid']})",
+                  "item/autocoe_cronexpression": "@triggerOutputs()?['body/autocoe_cronexpression']",
+                  "item/autocoe_runsequenceid": "@variables('varRunSequenceId')"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_a_row_by_ID": {
+              "runAfter": {
+                "Set_variable_RunSequenceId": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "282febf4-a3b4-4117-a04a-b76c8b0f43ce"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "autocoe_automationscheduleitems",
+                  "recordId": "@triggerOutputs()?['body/autocoe_automationscheduleitemid']",
+                  "$select": "autocoe_automationscheduleitemid, autocoe_startdate, autocoe_enddate, autocoe_recalculate, autocoe_nextrun, autocoe_runnow, statecode, autocoe_inputparameters, autocoe_priority,_autocoe_automationschedule_value",
+                  "$expand": "autocoe_AutomationSchedule($select=autocoe_automationscheduleid, autocoe_name, _autocoe_regardingobjectid_value, _autocoe_connectionreference_value, autocoe_type)"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Get_a_row_by_ID_Automation_Schedule": {
+              "runAfter": {
+                "Get_a_row_by_ID": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "7e034e17-ac16-49da-b524-e9965c29cb68"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps",
+                  "operationId": "GetItem",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "autocoe_automationschedules",
+                  "recordId": "@outputs('Get_a_row_by_ID')?['body/_autocoe_automationschedule_value']",
+                  "$select": "autocoe_automationscheduleid, autocoe_name, _autocoe_regardingobjectid_value, autocoe_type",
+                  "$expand": "autocoe_ConnectionReference($select=connectionreferencelogicalname)"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_variable_varNextRun": [
+              "Succeeded"
+            ]
+          },
+          "expression": {
+            "and": [
+              {
+                "equals": [
+                  "@variables('varStateCode')",
+                  "@true"
+                ]
+              },
+              {
+                "equals": [
+                  "@variables('varStartDateTime')",
+                  "@true"
+                ]
+              },
+              {
+                "equals": [
+                  "@variables('varEndDateTime')",
+                  "@true"
+                ]
+              },
+              {
+                "equals": [
+                  "@variables('varNextRun')",
+                  "@true"
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c6e2115a-5e4c-44da-99e7-f493c0454234"
+          },
+          "type": "If"
+        },
+        "Initialize_variable_varStateCode": {
+          "runAfter": {
+            "Initialize_variable_RunSequenceId": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "c0cd0992-dbf1-41b4-a66f-60c3249e0e2b"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varStateCode",
+                "type": "boolean",
+                "value": "@equals(triggerOutputs()?['body/statecode'],0)"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_varStartDate": {
+          "runAfter": {
+            "Initialize_variable_varStateCode": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "04d66d70-b767-4999-8b75-4230fb42b3d6"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varStartDateTime",
+                "type": "boolean",
+                "value": "@lessOrEquals(triggerOutputs()?['body/autocoe_startdate'],utcNow())"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_varNextRun": {
+          "runAfter": {
+            "Initialize_variable_varEndDate": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a8e005a1-aae0-460a-9e05-b50e99243e9d"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varNextRun",
+                "type": "boolean",
+                "value": "@if(equals(triggerOutputs()?['body/autocoe_nextrun'],null),false,greaterOrEquals(triggerOutputs()?['body/autocoe_nextrun'],utcNow()))"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_varEndDate": {
+          "runAfter": {
+            "Initialize_variable_varStartDate": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "371b74a1-0155-44ea-8949-477f91e224f6"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varEndDateTime",
+                "type": "boolean",
+                "value": "@if(equals(triggerOutputs()?['body/autocoe_enddate'],null),true,greaterOrEquals(triggerOutputs()?['body/autocoe_enddate'],utcNow()))"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_RunSequenceId": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "fa02121a-ee0c-4766-b533-8fa215fc3239"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varRunSequenceId",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
