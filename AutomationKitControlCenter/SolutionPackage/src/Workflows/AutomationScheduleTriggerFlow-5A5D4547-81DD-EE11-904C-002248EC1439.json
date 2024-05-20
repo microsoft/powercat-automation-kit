@@ -59,37 +59,8 @@
               "actions": {
                 "Scope_try": {
                   "actions": {
-                    "Perform_a_bound_action": {
-                      "runAfter": {},
-                      "metadata": {
-                        "operationMetadataId": "63c7a2c3-099f-4b7f-92b0-33ef2d4637b2"
-                      },
-                      "type": "OpenApiConnection",
-                      "inputs": {
-                        "host": {
-                          "connectionName": "shared_commondataserviceforapps",
-                          "operationId": "PerformBoundAction",
-                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
-                        },
-                        "parameters": {
-                          "entityName": "workflows",
-                          "actionName": "Microsoft.Dynamics.CRM.RunDesktopFlow",
-                          "recordId": "@outputs('Get_a_row_by_ID')?['body/autocoe_automationschedule/_autocoe_regardingobjectid_value']",
-                          "item/inputs": "@triggerOutputs()?['body/autocoe_inputparameters']",
-                          "item/connectionType": 2,
-                          "item/connectionName": "@outputs('Get_a_row_by_ID_Automation_Schedule')?['body/autocoe_connectionreference/connectionreferencelogicalname']",
-                          "item/runMode": "unattended",
-                          "item/runPriority": "@outputs('Get_a_row_by_ID')?['body/autocoe_priority@OData.Community.Display.V1.FormattedValue']"
-                        },
-                        "authentication": "@parameters('$authentication')"
-                      }
-                    },
                     "Update_a_row_in_Automation_Schedule_Items": {
-                      "runAfter": {
-                        "Perform_a_bound_action": [
-                          "Succeeded"
-                        ]
-                      },
+                      "runAfter": {},
                       "metadata": {
                         "operationMetadataId": "4306feb6-b944-4eff-bd9b-793f87b16e5a"
                       },
@@ -110,7 +81,7 @@
                     },
                     "Update_a_row_in_Automation_Schedule_Flow_Sessions": {
                       "runAfter": {
-                        "Update_a_row_in_Automation_Schedule_Items": [
+                        "Perform_a_bound_action": [
                           "Succeeded"
                         ]
                       },
@@ -128,6 +99,35 @@
                           "entityName": "autocoe_automationscheduleflowsessions",
                           "recordId": "@outputs('Add_a_new_row_Automation_Schedule_Flow_Session')?['body/autocoe_automationscheduleflowsessionid']",
                           "item/autocoe_FlowSessionId@odata.bind": "/flowsessions(@{outputs('Perform_a_bound_action')?['body/flowsessionId']})"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Perform_a_bound_action": {
+                      "runAfter": {
+                        "Update_a_row_in_Automation_Schedule_Items": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "63c7a2c3-099f-4b7f-92b0-33ef2d4637b2"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps",
+                          "operationId": "PerformBoundAction",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "workflows",
+                          "actionName": "Microsoft.Dynamics.CRM.RunDesktopFlow",
+                          "recordId": "@outputs('Get_a_row_by_ID')?['body/autocoe_automationschedule/_autocoe_regardingobjectid_value']",
+                          "item/inputs": "@triggerOutputs()?['body/autocoe_inputparameters']",
+                          "item/connectionType": 2,
+                          "item/connectionName": "@outputs('Get_a_row_by_ID_Automation_Schedule')?['body/autocoe_connectionreference/connectionreferencelogicalname']",
+                          "item/runMode": "unattended",
+                          "item/runPriority": "@outputs('Get_a_row_by_ID')?['body/autocoe_priority@OData.Community.Display.V1.FormattedValue']"
                         },
                         "authentication": "@parameters('$authentication')"
                       }
