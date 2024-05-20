@@ -24,14 +24,22 @@
             PaddingRight: =40
             ZIndex: =1
 
-            "CommandBar1 As 'Fluent Command Bar (1.0.22)'.pcfdataset":
+            "CommandBar As 'Fluent Command Bar (1.0.22)'.pcfdataset":
                 DisplayMode: =DisplayMode.Edit
                 Height: =Parent.Height
                 Items: |-
-                    =Table({ItemKey:"environmentName",ItemDisplayName:CurrentEnvironmentName,ItemIconName:"Globe"}, {ItemKey:"gridView",ItemDisplayName:"Desktop Flow Runs",ItemIconName:"OpenInNewTab"},{ItemKey:"learnMore",ItemDisplayName:"Learn more",ItemIconName:"Info"}) 
+                    =Table(
+                        {ItemKey: "environmentName",ItemDisplayName: CurrentEnvironmentName,ItemIconName: "Globe"},
+                        {ItemKey: "gridView",ItemDisplayName: "Desktop Flow Runs",ItemIconName: "OpenInNewTab"},
+                        {ItemKey: "learnMore",ItemDisplayName: "Learn more",ItemIconName: "Info"}
+                    )             
                 OnSelect: |-
-                    =Switch(Self.Selected.ItemKey,"learnMore",Launch("https://microsoft.github.io/powercat-automation-kit/features/scheduler/"),"gridView",
-                    Launch("https://make.powerautomate.com/environments/"&  CurrentEnvironmentID &"/monitor/runs"))
+                    =Switch(
+                        Self.Selected.ItemKey,
+                        "learnMore",Launch("https://microsoft.github.io/powercat-automation-kit/features/scheduler/"),
+                        "gridView",Launch("https://make.powerautomate.com/environments/" & CurrentEnvironmentID & "/monitor/runs"),
+                        "refresh",Navigate('Flow Scheduler Screen')
+                    )
                 Theme: =AppThemeJson
                 Width: =Parent.Width - Self.X
                 X: =0
@@ -81,27 +89,29 @@
                     Y: =15
                     ZIndex: =1
 
-                Container2 As groupContainer.horizontalAutoLayoutContainer:
+                LegendLabelsContainer As groupContainer.horizontalAutoLayoutContainer:
                     FillPortions: =0
                     LayoutMinHeight: =40
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
-                    Width: =330
+                    Width: =450
                     ZIndex: =2
 
-                    Container3 As groupContainer.horizontalAutoLayoutContainer:
+                    SucceededLabelContainer As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
-                        LayoutMinHeight: =50
+                        Height: =40
+                        LayoutMinHeight: =40
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         Width: =120
                         ZIndex: =1
 
-                        "icoStatus_5 As 'Fluent Icon (1.0.22)'":
+                        "icoSuccessStatus As 'Fluent Icon (1.0.22)'":
                             DisplayMode: =DisplayMode.Edit
                             Height: =40
-                            IconColor: =Last(FirstN(EventStatusIdentifiers,1)).color
-                            IconName: =Last(FirstN(EventStatusIdentifiers,1)).iconName
+                            IconColor: =First(Filter(EventStatusIdentifiers,key="Succeeded")).color
+                            IconName: =First(Filter(EventStatusIdentifiers,key="Succeeded")).iconName
                             IconType: ='PowerCAT.Icon.IconType'.Icon
                             Text: =Last(FirstN(EventStatusIdentifiers,1)).title
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
@@ -112,7 +122,7 @@
                             Y: =0
                             ZIndex: =1
 
-                        lblStatus_1 As Label:
+                        lblSuccessStatus As Label:
                             AlignInContainer: =AlignInContainer.Center
                             AutoHeight: =true
                             Color: =    
@@ -124,7 +134,7 @@
                             LayoutMinWidth: =320
                             OnChange: =false
                             PaddingTop: =0.00
-                            Text: =Last(FirstN(EventStatusIdentifiers,1)).title
+                            Text: =First(Filter(EventStatusIdentifiers,key="Succeeded")).title
                             VerticalAlignment: =VerticalAlign.Top
                             Width: =80
                             Wrap: =true
@@ -132,19 +142,21 @@
                             Y: =0
                             ZIndex: =2
 
-                    Container3_1 As groupContainer.horizontalAutoLayoutContainer:
+                    InProgressLabelContainer As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
-                        LayoutMinHeight: =50
+                        Height: =40
+                        LayoutMinHeight: =40
                         LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
                         Width: =120
                         ZIndex: =2
 
-                        "icoStatus_4 As 'Fluent Icon (1.0.22)'":
+                        "icoInProgressStatus As 'Fluent Icon (1.0.22)'":
                             DisplayMode: =DisplayMode.Edit
                             Height: =40
-                            IconColor: =Last(FirstN(EventStatusIdentifiers,2)).color
-                            IconName: =Last(FirstN(EventStatusIdentifiers,2)).iconName
+                            IconColor: =First(Filter(EventStatusIdentifiers,key="InProgress")).color
+                            IconName: =First(Filter(EventStatusIdentifiers,key="InProgress")).iconName
                             IconType: ='PowerCAT.Icon.IconType'.Icon
                             Text: =Last(FirstN(EventStatusIdentifiers,1)).title
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
@@ -155,7 +167,7 @@
                             Y: =0
                             ZIndex: =1
 
-                        lblStatus_2 As Label:
+                        lblInProgressStatus As Label:
                             AlignInContainer: =AlignInContainer.Center
                             AutoHeight: =true
                             Color: =    
@@ -167,7 +179,7 @@
                             LayoutMinWidth: =320
                             OnChange: =false
                             PaddingTop: =0.00
-                            Text: =Last(FirstN(EventStatusIdentifiers,2)).title
+                            Text: =First(Filter(EventStatusIdentifiers,key="InProgress")).title
                             VerticalAlignment: =VerticalAlign.Top
                             Width: =80
                             Wrap: =true
@@ -175,21 +187,23 @@
                             Y: =0
                             ZIndex: =2
 
-                    Container3_2 As groupContainer.horizontalAutoLayoutContainer:
+                    NotStartedLabelContainer As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
                         FillPortions: =0
-                        LayoutMinHeight: =50
-                        LayoutMinWidth: =100
+                        Height: =40
+                        LayoutMinHeight: =40
+                        LayoutMinWidth: =250
                         LayoutMode: =LayoutMode.Auto
-                        Width: =100
+                        Width: =120
                         ZIndex: =3
 
-                        "icoStatus_3 As 'Fluent Icon (1.0.22)'":
+                        "icoNotStartedStatus As 'Fluent Icon (1.0.22)'":
                             DisplayMode: =DisplayMode.Edit
                             Height: =40
-                            IconColor: =Last(FirstN(EventStatusIdentifiers,3)).color
-                            IconName: =Last(FirstN(EventStatusIdentifiers,1)).iconName
+                            IconColor: =First(Filter(EventStatusIdentifiers,key="NotStarted")).color
+                            IconName: =First(Filter(EventStatusIdentifiers,key="NotStarted")).iconName
                             IconType: ='PowerCAT.Icon.IconType'.Icon
-                            Text: =Last(FirstN(EventStatusIdentifiers,1)).title
+                            Text: =First(Filter(EventStatusIdentifiers,key="NotStarted")).iconName
                             TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
                             Theme: =AppThemeJson
                             Tooltip: =Last(FirstN(EventStatusIdentifiers,1)).title
@@ -198,7 +212,7 @@
                             Y: =0
                             ZIndex: =1
 
-                        lblStatus_3 As Label:
+                        lblNotStartedStatus As Label:
                             AlignInContainer: =AlignInContainer.Center
                             AutoHeight: =true
                             Color: =    
@@ -210,7 +224,52 @@
                             LayoutMinWidth: =320
                             OnChange: =false
                             PaddingTop: =0.00
-                            Text: =Last(FirstN(EventStatusIdentifiers,3)).title
+                            Text: =First(Filter(EventStatusIdentifiers,key="NotStarted")).title
+                            VerticalAlignment: =VerticalAlign.Top
+                            Width: =80
+                            Wrap: =true
+                            X: =0.00
+                            Y: =0
+                            ZIndex: =2
+
+                    FailedLabelContainer As groupContainer.horizontalAutoLayoutContainer:
+                        AlignInContainer: =AlignInContainer.SetByContainer
+                        FillPortions: =0
+                        Height: =40
+                        LayoutMinHeight: =40
+                        LayoutMinWidth: =100
+                        LayoutMode: =LayoutMode.Auto
+                        Width: =100
+                        ZIndex: =4
+
+                        "icoFailedStatus As 'Fluent Icon (1.0.22)'":
+                            DisplayMode: =DisplayMode.Edit
+                            Height: =40
+                            IconColor: =First(Filter(EventStatusIdentifiers,key="Failed")).color
+                            IconName: =First(Filter(EventStatusIdentifiers,key="Failed")).iconName
+                            IconType: ='PowerCAT.Icon.IconType'.Icon
+                            Text: =Last(FirstN(EventStatusIdentifiers,1)).title
+                            TextAlignment: ='PowerCAT.Icon.TextAlignment'.Center
+                            Theme: =AppThemeJson
+                            Tooltip: =Last(FirstN(EventStatusIdentifiers,1)).title
+                            Width: =40
+                            X: =0
+                            Y: =0
+                            ZIndex: =1
+
+                        lblFailedStatus As Label:
+                            AlignInContainer: =AlignInContainer.Center
+                            AutoHeight: =true
+                            Color: =    
+                            DisplayMode: =DisplayMode.View
+                            FontSize: =11
+                            FontWeight: =FontWeight.Normal
+                            Height: =35
+                            LayoutMinHeight: =32
+                            LayoutMinWidth: =320
+                            OnChange: =false
+                            PaddingTop: =0.00
+                            Text: =First(Filter(EventStatusIdentifiers,key="Failed")).title
                             VerticalAlignment: =VerticalAlign.Top
                             Width: =80
                             Wrap: =true

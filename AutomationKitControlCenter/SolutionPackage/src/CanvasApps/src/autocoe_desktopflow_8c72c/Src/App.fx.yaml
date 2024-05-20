@@ -36,36 +36,50 @@ App As appinfo:
             JSON(AppTheme)
         );
         
-        ClearCollect(FlowsessionData,Filter(
-                        'Flow Sessions',
-                        'Completed On' >= DateValue(Today() - 1)
-                    ));
+        
+        //bind Desktop flow list
+        ClearCollect(
+            FlowsData,
+            AddColumns(
+                Filter(
+                    Processes,
+                    Category = 'Category (Processes)'.'Desktop Flow'
+                ),
+                icon,
+                "icon:MicrosoftFlowLogo",
+                IconColor,
+                AppTheme.palette.themePrimary
+            )
+        );
+        
+        ClearCollect(FlowsessionData,Filter('Flow Sessions', 'Completed On' >= DateValue(Today() - 1)));
+        
         //Bind to Flow session transaction
         ClearCollect(
             FlowsessionDataWithTags,
             AddColumns(
                 FlowsessionData,
-                "TagColor",
+                TagColor,
                 If(
-                    'Status Reason' in [8, 9, 10],
+                    Value('Status Reason') in [8, 9, 10],
                     "rgb(255, 0, 0)",
                     If(
-                        'Status Reason' =4 ,
+                        Value('Status Reason') = 4 ,
                         "rgb(0, 100, 0)",
                         "rgb(211, 211, 211)" // You can set a default value here if needed
                     )
                 ),
-                "TagBorderColor",
+                TagBorderColor,
                 If(
-                    'Status Reason' in [8, 9, 10],
+                    Value('Status Reason') in [8, 9, 10],
                     "rgb(255, 107, 0)",
                     If(
-                        'Status Reason' =4 ,
+                        Value('Status Reason') = 4 ,
                         "rgb(187, 221, 140)",
                         "rgb(211, 211, 211)" // You can set a default value here if needed
                     )
                 ),
-                 "Runmode",
+                Runmode,
                 If(
                     IsBlank(Context), // Check if the "Context" column is blank
                     "", 
@@ -79,22 +93,20 @@ App As appinfo:
             )
         );
         
-        //bind Desktop flow list
         ClearCollect(
-            FlowsData,
+            FlowsessionDatabyRunMode,
             AddColumns(
-                Filter(
-                    Processes,
-                    Category = 'Category (Processes)'.'Desktop Flow'
+                GroupBy(FlowsessionDataWithTags
+                    ,
+                    Runmode,  
+                    Name
                 ),
-                "icon",
-                "icon:MicrosoftFlowLogo",
-                "IconColor",
-                AppTheme.palette.themePrimary
+                Count,
+                CountRows(Name),
+                Mode,
+                Runmode
             )
         );
-        
-        
         /*ClearCollect(
             FlowsessionDatabyStatus,
             AddColumns(
@@ -110,21 +122,6 @@ App As appinfo:
                 statuscode
             )
         );*/
-        ClearCollect(
-            FlowsessionDatabyRunMode,
-            AddColumns(
-                GroupBy(FlowsessionDataWithTags
-                    ,
-                    "Runmode",  
-                    "name"
-                    
-                ),
-                "Count",
-                CountRows(name),
-                "Mode",
-                Runmode
-            )
-        );
         /*
         Set(
             TotalCountSuccess,
@@ -214,6 +211,7 @@ App As appinfo:
         );
         
         */
+    Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false

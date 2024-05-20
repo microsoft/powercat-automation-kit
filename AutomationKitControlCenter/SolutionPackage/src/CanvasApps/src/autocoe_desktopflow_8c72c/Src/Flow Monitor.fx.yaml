@@ -58,10 +58,12 @@
                 Label1 As Label:
                     AlignInContainer: =AlignInContainer.Center
                     Alignment: =Align.Justify
+                    Color: =
                     DisplayMode: =DisplayMode.Edit
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =320
+                    OnChange: =false
                     Text: ="Auto Refresh"
                     Width: =100
                     Wrap: =false
@@ -73,9 +75,13 @@
                     AlignInContainer: =AlignInContainer.Stretch
                     Checked: =false
                     DisplayMode: =DisplayMode.Edit
+                    HandleOffFillColor: =
+                    HandleOnFillColor: =
                     Height: =32
                     LayoutMinHeight: =32
                     LayoutMinWidth: =160
+                    OffFillColor: =
+                    OffHoverFillColor: =
                     OnChange: |-
                         =UpdateContext({startTimer1:Self.Checked});
                         
@@ -83,9 +89,12 @@
                     OnCheck: |-
                         =//UpdateContext({startTimer1:Self.Checked})
                         //Timer1.Start=true;
+                    OnFillColor: =
+                    OnHoverFillColor: =
                     OnUncheck: |-
                         =
                         //Timer1.Start=true;
+                    TextColor: =
                     Width: =100
                     X: =0
                     Y: =0
@@ -108,7 +117,6 @@
                         =Refresh('Flow Sessions');
                         Refresh(Processes);
                         
-                        
                         ClearCollect(FlowsessionData,Filter(
                                         'Flow Sessions',
                                         'Completed On' >= DateValue(Today() - 1)
@@ -118,27 +126,27 @@
                             FlowsessionDataWithTags,
                             AddColumns(
                                 FlowsessionData,
-                                "TagColor",
+                                TagColor,
                                 If(
-                                    'Status Reason' in [8, 9, 10],
+                                    Value('Status Reason') in [8, 9, 10],
                                     "rgb(255, 0, 0)",
                                     If(
-                                        'Status Reason' =4 ,
+                                        Value('Status Reason') =4 ,
                                         "rgb(0, 100, 0)",
                                         "rgb(211, 211, 211)" // You can set a default value here if needed
                                     )
                                 ),
-                                "TagBorderColor",
+                                TagBorderColor,
                                 If(
-                                    'Status Reason' in [8, 9, 10],
+                                    Value('Status Reason') in [8, 9, 10],
                                     "rgb(255, 107, 0)",
                                     If(
-                                        'Status Reason' =4 ,
+                                        Value('Status Reason') = 4 ,
                                         "rgb(187, 221, 140)",
                                         "rgb(211, 211, 211)" // You can set a default value here if needed
                                     )
                                 ),
-                                 "Runmode",
+                                 Runmode,
                                 If(
                                     IsBlank(Context), // Check if the "Context" column is blank
                                     "", 
@@ -160,9 +168,9 @@
                                     Processes,
                                     Category = 'Category (Processes)'.'Desktop Flow'
                                 ),
-                                "icon",
+                                icon,
                                 "icon:MicrosoftFlowLogo",
-                                "IconColor",
+                                IconColor,
                                 AppTheme.palette.themePrimary
                             )
                         );
@@ -172,13 +180,13 @@
                             AddColumns(
                                 GroupBy(FlowsessionDataWithTags
                                     ,
-                                    "Runmode",  
-                                    "name"
+                                    Runmode,  
+                                    Name
                                     
                                 ),
-                                "Count",
-                                CountRows(name),
-                                "Mode",
+                                Count,
+                                CountRows(Name),
+                                Mode,
                                 Runmode
                             )
                         );
@@ -268,6 +276,7 @@
                         Height: =30
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
+                        OnChange: =false
                         Text: ="Completed"
                         VerticalAlignment: =VerticalAlign.Top
                         Width: =Parent.Width
@@ -287,11 +296,25 @@
                         Height: =25
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.LayoutMinWidth
-                        Text: |
+                        OnChange: =false
+                        Text: |-
                             =//TotalCompleted
-                            If(!IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
-                            CountRows(Filter(FlowsessionDataWithTags,Not(IsBlank(Regarding.'Process Name')), Regarding.'Process Name'
-                                    = DesktopFlowList.Selected.'Process Name')),CountRows(Filter(FlowsessionDataWithTags,Not(IsBlank(Regarding.'Process Name')))))
+                            If(
+                                !IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        Not(IsBlank(Regarding.'Process Name')),
+                                        Regarding.'Process Name' = DesktopFlowList.Selected.'Process Name'
+                                    )
+                                ),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        Not(IsBlank(Regarding.'Process Name'))
+                                    )
+                                )
+                            )
                         Width: =40
                         X: =0
                         Y: =0
@@ -362,6 +385,7 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
+                        OnChange: =false
                         Text: ="Succeeded"
                         Width: =Parent.Width
                         X: =0
@@ -379,11 +403,25 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.LayoutMinWidth
+                        OnChange: =false
                         Text: |-
                             =//TotalCountSuccess
-                            If(!IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
-                            CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Succeeded, Regarding.'Process Name'
-                                    = DesktopFlowList.Selected.'Process Name')),CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Succeeded)))
+                            If(
+                                !IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Succeeded,
+                                        Regarding.'Process Name' = DesktopFlowList.Selected.'Process Name'
+                                    )
+                                ),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Succeeded
+                                    )
+                                )
+                            )
                         Width: =40
                         X: =0
                         Y: =0
@@ -455,6 +493,7 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
+                        OnChange: =false
                         Text: ="Failed"
                         Width: =Parent.Width
                         X: =0
@@ -472,11 +511,25 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.LayoutMinWidth
+                        OnChange: =false
                         Text: |-
                             =//TotalCountFail
-                            If(!IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
-                            CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Failed, Regarding.'Process Name'
-                                    = DesktopFlowList.Selected.'Process Name')),CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Failed)))
+                            If(
+                                !IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Failed,
+                                        Regarding.'Process Name' = DesktopFlowList.Selected.'Process Name'
+                                    )
+                                ),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Failed
+                                    )
+                                )
+                            )
                         Width: =40
                         X: =0
                         Y: =0
@@ -548,6 +601,7 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
+                        OnChange: =false
                         Text: ="Queued"
                         Width: =Parent.Width
                         X: =0
@@ -565,11 +619,25 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.LayoutMinWidth
-                        Text: |
+                        OnChange: =false
+                        Text: |-
                             =//TotalCountQueued
-                            If(!IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
-                            CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Waiting, Regarding.'Process Name'
-                                    = DesktopFlowList.Selected.'Process Name')),CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Waiting)))
+                            If(
+                                !IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Waiting,
+                                        Regarding.'Process Name' = DesktopFlowList.Selected.'Process Name'
+                                    )
+                                ),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Waiting
+                                    )
+                                )
+                            )
                         Width: =40
                         X: =0
                         Y: =0
@@ -641,6 +709,7 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
+                        OnChange: =false
                         Text: ="Cancelled"
                         Width: =Parent.Width
                         X: =0
@@ -658,11 +727,25 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.LayoutMinWidth
+                        OnChange: =false
                         Text: |-
                             =//TotalCountCancelled
-                            If(!IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
-                            CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Cancelled, Regarding.'Process Name'
-                                    = DesktopFlowList.Selected.'Process Name')),CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Cancelled)))
+                            If(
+                                !IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Cancelled,
+                                        Regarding.'Process Name' = DesktopFlowList.Selected.'Process Name'
+                                    )
+                                ),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Cancelled
+                                    )
+                                )
+                            )
                         Width: =40
                         X: =0
                         Y: =0
@@ -734,6 +817,7 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =320
+                        OnChange: =false
                         Text: ="Skipped"
                         Width: =Parent.Width
                         X: =0
@@ -751,13 +835,25 @@
                         Height: =32
                         LayoutMinHeight: =32
                         LayoutMinWidth: =Parent.LayoutMinWidth
-                        Text: |
+                        OnChange: =false
+                        Text: |-
                             =//TotalCountSkipped
-                            
-                            //TotalCountQueued
-                            If(!IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
-                            CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Skipped, Regarding.'Process Name'
-                                    = DesktopFlowList.Selected.'Process Name')),CountRows(Filter(FlowsessionDataWithTags,'Status Reason'= 'Status Reason (Flow Sessions)'.Skipped)))
+                            If(
+                                !IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Skipped,
+                                        Regarding.'Process Name' = DesktopFlowList.Selected.'Process Name'
+                                    )
+                                ),
+                                CountRows(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        'Status Reason' = 'Status Reason (Flow Sessions)'.Skipped
+                                    )
+                                )
+                            )
                         Width: =40
                         X: =0
                         Y: =0
@@ -907,7 +1003,7 @@
                         FillPortions: =1
                         Height: =600
                         InputEvent: =varflowEvent
-                        Items: =Search(FlowsData,SearchBox1.SearchText,"name")
+                        Items: =Search(FlowsData,SearchBox1.SearchText,name)
                         LargeDatasetPaging: =true
                         LayoutMinHeight: =200
                         LayoutMinWidth: =200
@@ -1058,7 +1154,7 @@
                 Fill: =RGBA(255, 255, 255, 1)
                 LayoutAlignItems: =LayoutAlignItems.Stretch
                 LayoutDirection: =LayoutDirection.Vertical
-                LayoutMinHeight: =
+                LayoutMinHeight: =600
                 LayoutMinWidth: =250
                 LayoutMode: =LayoutMode.Auto
                 RadiusBottomLeft: =8
@@ -1163,11 +1259,22 @@
                         Height: =
                         InputEvent: =varGridEvent
                         Items: |-
-                            =If(!IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
-                            SortByColumns(Filter(
-                                    FlowsessionDataWithTags, Regarding.'Process Name'
-                                    = DesktopFlowList.Selected.'Process Name'),"completedon",SortOrder.Descending
-                                ),SortByColumns(FlowsessionDataWithTags,"completedon",SortOrder.Descending))
+                            =If(
+                                !IsBlankOrError(DesktopFlowList.Selected.'Process Name'),
+                                SortByColumns(
+                                    Filter(
+                                        FlowsessionDataWithTags,
+                                        Regarding.'Process Name' = DesktopFlowList.Selected.'Process Name'
+                                    ),
+                                    "completedon",
+                                    SortOrder.Descending
+                                ),
+                                SortByColumns(
+                                    FlowsessionDataWithTags,
+                                    "completedon",
+                                    SortOrder.Descending
+                                )
+                            )
                         LargeDatasetPaging: =true
                         LayoutMinHeight: =320
                         LayoutMinWidth: =200
@@ -1357,7 +1464,7 @@
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =220
                     LayoutDirection: =LayoutDirection.Vertical
-                    LayoutMinHeight: =
+                    LayoutMinHeight: =200
                     LayoutMinWidth: =250
                     LayoutMode: =LayoutMode.Auto
                     PaddingTop: =5
@@ -1497,11 +1604,13 @@
                                 AlignInContainer: =AlignInContainer.Center
                                 Alignment: =Align.Center
                                 AutoHeight: =true
+                                Color: =
                                 DisplayMode: =DisplayMode.Edit
                                 FontWeight: =FontWeight.Semibold
                                 Height: =32
                                 LayoutMinHeight: =2
                                 LayoutMinWidth: =320
+                                OnChange: =false
                                 Text: =lblSucceeded.Text &" / " & lblCompleted.Text &" Succeeded" 
                                 VerticalAlignment: =VerticalAlign.Top
                                 Width: =320
