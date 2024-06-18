@@ -1,0 +1,528 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_4b001"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "82cf7729-94f4-4d5b-9308-44225c30ba7a"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps_1",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 7,
+              "subscriptionRequest/entityname": "workflow",
+              "subscriptionRequest/scope": 4
+            },
+            "authentication": "@parameters('$authentication')"
+          }
+        }
+      },
+      "actions": {
+        "Check_for_Automated_Flow": {
+          "actions": {
+            "Switch": {
+              "runAfter": {},
+              "cases": {
+                "Case:_Create": {
+                  "case": "Create",
+                  "actions": {
+                    "Add_a_new_row": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "f57e2b58-e160-408e-9602-4d1165e3a4ad"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "CreateRecord",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "autocoe_automationscheduletriggerses",
+                          "item/autocoe_name": "@triggerOutputs()?['body/name']",
+                          "item/autocoe_ProcessId@odata.bind": "/workflows(@{triggerOutputs()?['body/workflowid']})",
+                          "item/autocoe_trigger": false
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  }
+                },
+                "Case:_Update": {
+                  "case": "Update",
+                  "actions": {
+                    "List_rows": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "2ae6d30f-faf5-496c-a860-a2b6fc567364"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "autocoe_automationscheduletriggerses",
+                          "$filter": "_autocoe_processid_value eq '@{triggerOutputs()?['body/workflowid']}'"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    },
+                    "Check_if_record_already_exists": {
+                      "actions": {
+                        "Add_a_new_row_2": {
+                          "runAfter": {},
+                          "metadata": {
+                            "operationMetadataId": "c5b62711-f496-4fc0-8e9e-1d7793bcb40b"
+                          },
+                          "type": "OpenApiConnection",
+                          "inputs": {
+                            "host": {
+                              "connectionName": "shared_commondataserviceforapps_1",
+                              "operationId": "CreateRecord",
+                              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                            },
+                            "parameters": {
+                              "entityName": "autocoe_automationscheduletriggerses",
+                              "item/autocoe_name": "@triggerOutputs()?['body/name']",
+                              "item/autocoe_ProcessId@odata.bind": "/workflows(@{triggerOutputs()?['body/workflowid']})",
+                              "item/autocoe_trigger": false
+                            },
+                            "authentication": "@parameters('$authentication')"
+                          }
+                        }
+                      },
+                      "runAfter": {
+                        "List_rows": [
+                          "Succeeded"
+                        ]
+                      },
+                      "expression": {
+                        "equals": [
+                          "@empty(body('List_rows')?['value'])",
+                          "@true"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "21f40f45-85ca-4a0a-8756-aab298a41191"
+                      },
+                      "type": "If"
+                    }
+                  }
+                },
+                "Case:_Delete": {
+                  "case": "Delete",
+                  "actions": {
+                    "List_rows_2": {
+                      "runAfter": {},
+                      "metadata": {
+                        "operationMetadataId": "bd94f08c-3828-40ab-863d-c4ff8e56024a"
+                      },
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "host": {
+                          "connectionName": "shared_commondataserviceforapps_1",
+                          "operationId": "ListRecords",
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                        },
+                        "parameters": {
+                          "entityName": "autocoe_automationscheduletriggerses",
+                          "$filter": "_autocoe_processid_value eq '@{triggerOutputs()?['body/workflowid']}'"
+                        },
+                        "authentication": "@parameters('$authentication')"
+                      }
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {}
+              },
+              "expression": "@triggerOutputs()['body/SdkMessage']",
+              "metadata": {
+                "operationMetadataId": "120680c9-5085-4ca9-b614-962ca21ab2f5"
+              },
+              "type": "Switch"
+            }
+          },
+          "runAfter": {},
+          "expression": {
+            "and": [
+              {
+                "equals": [
+                  "@triggerOutputs()['body/category']",
+                  5
+                ]
+              },
+              {
+                "contains": [
+                  "@triggerOutputs()['body/clientdata']",
+                  "\"subscriptionRequest/entityname\":\"autocoe_automationscheduletriggers\""
+                ]
+              }
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "6fe730e9-9690-47cf-acc0-3e8991a9458d"
+          },
+          "type": "If"
+        },
+        "Parse_JSON": {
+          "runAfter": {
+            "Check_for_Automated_Flow": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "b75d655d-b7e2-4440-a203-2fe2132b49bb"
+          },
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@triggerOutputs()?['body/clientdata']",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "properties": {
+                  "type": "object",
+                  "properties": {
+                    "connectionReferences": {
+                      "type": "object",
+                      "properties": {
+                        "shared_commondataserviceforapps": {
+                          "type": "object",
+                          "properties": {
+                            "runtimeSource": {
+                              "type": "string"
+                            },
+                            "connection": {
+                              "type": "object",
+                              "properties": {
+                                "connectionReferenceLogicalName": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "api": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "definition": {
+                      "type": "object",
+                      "properties": {
+                        "$schema": {
+                          "type": "string"
+                        },
+                        "contentVersion": {
+                          "type": "string"
+                        },
+                        "parameters": {
+                          "type": "object",
+                          "properties": {
+                            "$connections": {
+                              "type": "object",
+                              "properties": {
+                                "defaultValue": {
+                                  "type": "object",
+                                  "properties": {}
+                                },
+                                "type": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "$authentication": {
+                              "type": "object",
+                              "properties": {
+                                "defaultValue": {
+                                  "type": "object",
+                                  "properties": {}
+                                },
+                                "type": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "triggers": {
+                          "type": "object",
+                          "properties": {
+                            "When_a_row_is_added,_modified_or_deleted": {
+                              "type": "object",
+                              "properties": {
+                                "metadata": {
+                                  "type": "object",
+                                  "properties": {
+                                    "operationMetadataId": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "inputs": {
+                                  "type": "object",
+                                  "properties": {
+                                    "host": {
+                                      "type": "object",
+                                      "properties": {
+                                        "connectionName": {
+                                          "type": "string"
+                                        },
+                                        "operationId": {
+                                          "type": "string"
+                                        },
+                                        "apiId": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "parameters": {
+                                      "type": "object",
+                                      "properties": {
+                                        "subscriptionRequest/message": {
+                                          "type": "integer"
+                                        },
+                                        "subscriptionRequest/entityname": {
+                                          "type": "string"
+                                        },
+                                        "subscriptionRequest/scope": {
+                                          "type": "integer"
+                                        },
+                                        "subscriptionRequest/filterexpression": {
+                                          "type": "string"
+                                        }
+                                      }
+                                    },
+                                    "authentication": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "conditions": {
+                                  "type": "array"
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "actions": {
+                          "type": "object",
+                          "properties": {
+                            "Initialize_variable_environmentid": {
+                              "type": "object",
+                              "properties": {
+                                "runAfter": {
+                                  "type": "object",
+                                  "properties": {}
+                                },
+                                "metadata": {
+                                  "type": "object",
+                                  "properties": {
+                                    "operationMetadataId": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "inputs": {
+                                  "type": "object",
+                                  "properties": {
+                                    "variables": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "name": {
+                                            "type": "string"
+                                          },
+                                          "type": {
+                                            "type": "string"
+                                          },
+                                          "value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "name",
+                                          "type",
+                                          "value"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Initialize_variable_flowid": {
+                              "type": "object",
+                              "properties": {
+                                "runAfter": {
+                                  "type": "object",
+                                  "properties": {
+                                    "Initialize_variable_environmentid": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "metadata": {
+                                  "type": "object",
+                                  "properties": {
+                                    "operationMetadataId": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "inputs": {
+                                  "type": "object",
+                                  "properties": {
+                                    "variables": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "name": {
+                                            "type": "string"
+                                          },
+                                          "type": {
+                                            "type": "string"
+                                          },
+                                          "value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "name",
+                                          "type",
+                                          "value"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            },
+                            "Initialize_variable_flowrunid": {
+                              "type": "object",
+                              "properties": {
+                                "runAfter": {
+                                  "type": "object",
+                                  "properties": {
+                                    "Initialize_variable_flowid": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "string"
+                                      }
+                                    }
+                                  }
+                                },
+                                "metadata": {
+                                  "type": "object",
+                                  "properties": {
+                                    "operationMetadataId": {
+                                      "type": "string"
+                                    }
+                                  }
+                                },
+                                "type": {
+                                  "type": "string"
+                                },
+                                "inputs": {
+                                  "type": "object",
+                                  "properties": {
+                                    "variables": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "name": {
+                                            "type": "string"
+                                          },
+                                          "type": {
+                                            "type": "string"
+                                          },
+                                          "value": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "name",
+                                          "type",
+                                          "value"
+                                        ]
+                                      }
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "templateName": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "schemaVersion": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}

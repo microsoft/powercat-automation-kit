@@ -1,0 +1,112 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_4b001"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "When_a_row_is_added,_modified_or_deleted": {
+          "metadata": {
+            "operationMetadataId": "7b2c0ca4-6fe5-4c93-a3af-e7aec7426cfe"
+          },
+          "type": "OpenApiConnectionWebhook",
+          "inputs": {
+            "host": {
+              "connectionName": "shared_commondataserviceforapps",
+              "operationId": "SubscribeWebhookTrigger",
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+            },
+            "parameters": {
+              "subscriptionRequest/message": 3,
+              "subscriptionRequest/entityname": "autocoe_automationscheduletriggers",
+              "subscriptionRequest/scope": 4,
+              "subscriptionRequest/filterexpression": "_autocoe_processid_value eq ad5dd172-ae21-ef11-840a-6045bd579533"
+            },
+            "authentication": "@parameters('$authentication')"
+          },
+          "conditions": []
+        }
+      },
+      "actions": {
+        "Initialize_variable_environmentid": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "0b005621-6d8f-46b3-bd7f-70f92956717e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varEnvironmentId",
+                "type": "string",
+                "value": "@{workflow()['tags']['environmentName']}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_flowid": {
+          "runAfter": {
+            "Initialize_variable_environmentid": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0b005621-6d8f-46b3-bd7f-70f92956717e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "flowid",
+                "type": "string",
+                "value": "@{workflow()['tags']['logicAppName']}"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_flowrunid": {
+          "runAfter": {
+            "Initialize_variable_flowid": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "0b005621-6d8f-46b3-bd7f-70f92956717e"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "flowrunId",
+                "type": "string",
+                "value": "@{workflow()['run']['name']}"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
