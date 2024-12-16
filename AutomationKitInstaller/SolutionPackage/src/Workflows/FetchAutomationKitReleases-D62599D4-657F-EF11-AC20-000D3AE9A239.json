@@ -1,0 +1,424 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_powerappsforappmakers_1": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedpowerappsforappmakers_83f7e"
+        },
+        "api": {
+          "name": "shared_powerappsforappmakers"
+        }
+      },
+      "shared_powerplatformforadmins_1": {
+        "runtimeSource": "invoker",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedpowerplatformforadmins_496f4"
+        },
+        "api": {
+          "name": "shared_powerplatformforadmins"
+        }
+      },
+      "shared_commondataserviceforapps_1": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_005d3"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        },
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "metadata": {
+            "operationMetadataId": "f76e52f0-2d00-41e7-8917-87867940b8a1"
+          },
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "varCurrentEnvironment": {
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "efefccf0-3d5d-4bd3-abb7-59d6d996ac54"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varCurrentEnvironment",
+                "type": "string",
+                "value": "@workflow()['tags']['environmentName']"
+              }
+            ]
+          }
+        },
+        "varReleaseURL": {
+          "runAfter": {
+            "varCurrentEnvironment": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "894bd64a-48e6-4609-8b3c-d0ce22629751"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varReleaseURL",
+                "type": "string"
+              }
+            ]
+          }
+        },
+        "Respond_to_a_Power_App_or_flow": {
+          "runAfter": {
+            "Scope_Environments_Catch_": [
+              "TimedOut",
+              "Skipped",
+              "Failed"
+            ],
+            "Scope_Connections_Catch_": [
+              "Failed",
+              "Skipped",
+              "TimedOut"
+            ],
+            "Scope_Releases_Catch_": [
+              "Failed",
+              "Skipped",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "63f927a1-ad7c-46d3-b57b-b64412a12451"
+          },
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "statusCode": 200,
+            "body": {
+              "environments": "@{body('Select_Environments')}",
+              "connections": "@{body('Select_Connections')}",
+              "githubreleases": "@{body('HTTP_Fetch_Releases')}",
+              "iscustomcontrolsincanvasappsenabled": "@{first(outputs('List_Organization_Settings')?['body/value'])?['iscustomcontrolsincanvasappsenabled']}"
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "environments": {
+                  "title": "Environments",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "connections": {
+                  "title": "Connections",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "githubreleases": {
+                  "title": "GithubReleases",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "iscustomcontrolsincanvasappsenabled": {
+                  "title": "IsCustomControlsInCanvasAppsEnabled",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              }
+            }
+          }
+        },
+        "Scope_Environments": {
+          "actions": {
+            "Get_Environments": {
+              "runAfter": {
+                "Get_Environment_as_Admin": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "f590dfca-2e93-4312-a926-8c776b81d99b"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_powerappsforappmakers_1",
+                  "operationId": "Get-Environments",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforappmakers"
+                },
+                "parameters": {
+                  "api-version": "2022-11-01",
+                  "$top": 100
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Select_Environments": {
+              "runAfter": {
+                "Get_Environments": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "cee5800b-a1e6-41c1-9276-5f9b0e85daa0"
+              },
+              "type": "Select",
+              "inputs": {
+                "from": "@outputs('Get_Environments')?['body/value']",
+                "select": {
+                  "name": "@item()?['name']",
+                  "friendlyName": "@item()?['properties/linkedEnvironmentMetadata/friendlyName']",
+                  "uniqueName": "@item()?['properties/linkedEnvironmentMetadata/uniqueName']",
+                  "domainName": "@item()?['properties/linkedEnvironmentMetadata/domainName']",
+                  "instanceUrl": "@item()?['properties/linkedEnvironmentMetadata/instanceUrl']",
+                  "location": "@item()?['location']",
+                  "IsCurrentEnvironment": "@equals(item()?['name'],variables('varCurrentEnvironment'))"
+                }
+              }
+            },
+            "Get_Environment_as_Admin": {
+              "runAfter": {
+                "List_Organization_Settings": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "a630029f-ea98-46a1-be4a-18fba15d6f2f"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_powerplatformforadmins_1",
+                  "operationId": "GetSingleEnvironment",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerplatformforadmins"
+                },
+                "parameters": {
+                  "environment": "@variables('varCurrentEnvironment')",
+                  "api-version": "2018-10-01"
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "List_Organization_Settings": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "e2d575ba-365d-4774-860a-3a5fe0eaac40"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_commondataserviceforapps_1",
+                  "operationId": "ListRecords",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps"
+                },
+                "parameters": {
+                  "entityName": "organizations",
+                  "$select": "iscustomcontrolsincanvasappsenabled",
+                  "$top": 1
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_varReleases": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "a0d17005-480a-4129-8c1b-b6b41f8774cd"
+          },
+          "type": "Scope"
+        },
+        "Initialize_varReleases": {
+          "runAfter": {
+            "varReleaseURL": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "2306871b-72cf-4b4e-b87a-5f3e4f5e64af"
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varReleases",
+                "type": "array"
+              }
+            ]
+          }
+        },
+        "Scope_Connections": {
+          "actions": {
+            "Get_Connections": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "f388214f-6f23-4833-8cf2-61f87f974886"
+              },
+              "type": "OpenApiConnection",
+              "inputs": {
+                "host": {
+                  "connectionName": "shared_powerappsforappmakers_1",
+                  "operationId": "Get-Connections",
+                  "apiId": "/providers/Microsoft.PowerApps/apis/shared_powerappsforappmakers"
+                },
+                "parameters": {
+                  "api-version": "2016-11-01",
+                  "$filter": "environment eq '@{variables('varCurrentEnvironment')}' and ApiId not in ('shared_logicflows','shared_powerflows','shared_pqogenericconnector')",
+                  "$top": 250
+                },
+                "authentication": "@parameters('$authentication')"
+              }
+            },
+            "Select_Connections": {
+              "runAfter": {
+                "Get_Connections": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "42b3b980-e90a-490e-92ea-f899503dea86"
+              },
+              "type": "Select",
+              "inputs": {
+                "from": "@outputs('Get_Connections')?['body/value']",
+                "select": {
+                  "name": "@item()?['name']",
+                  "apiId": "@item()?['properties/apiId']",
+                  "displayName": "@item()?['properties/displayName']",
+                  "iconUri": "@item()?['properties/iconUri']",
+                  "accountName": "@item()?['properties/accountName']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_varReleases": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "8710171e-c87f-42f1-b67f-2d8165bdc8da"
+          },
+          "type": "Scope"
+        },
+        "Scope_Releases": {
+          "actions": {
+            "HTTP_Fetch_Releases": {
+              "runAfter": {},
+              "metadata": {
+                "operationMetadataId": "a4ad344c-52a3-4468-95f4-edfea4a6eab0"
+              },
+              "type": "Http",
+              "inputs": {
+                "method": "GET",
+                "uri": "https://api.github.com/repos/microsoft/powercat-automation-kit/releases?page=1&per_page=5",
+                "headers": {
+                  "X-GitHub-Api-Version": "2022-11-28"
+                }
+              }
+            },
+            "Select_Releases": {
+              "runAfter": {
+                "HTTP_Fetch_Releases": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "08a99537-fb5b-440f-bbca-34bfe08dfbd9"
+              },
+              "type": "Select",
+              "inputs": {
+                "from": "@body('HTTP_Fetch_Releases')",
+                "select": {
+                  "id": "@item()?['id']",
+                  "name": "@item()?['name']",
+                  "tag_name": "@item()?['tag_name']",
+                  "url": "@item()?['url']"
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Initialize_varReleases": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "fec6740f-990a-4f07-bec4-ae03d6e5491a"
+          },
+          "type": "Scope"
+        },
+        "Scope_Environments_Catch_": {
+          "actions": {},
+          "runAfter": {
+            "Scope_Environments": [
+              "TimedOut",
+              "Skipped",
+              "Failed"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "31a4cefd-5ba9-4602-b5e0-be36271603e6"
+          },
+          "type": "Scope"
+        },
+        "Scope_Connections_Catch_": {
+          "actions": {},
+          "runAfter": {
+            "Scope_Connections": [
+              "Skipped",
+              "Failed",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "46da968b-5193-4eed-9132-d754689ce2fc"
+          },
+          "type": "Scope"
+        },
+        "Scope_Releases_Catch_": {
+          "actions": {},
+          "runAfter": {
+            "Scope_Releases": [
+              "Failed",
+              "Skipped",
+              "TimedOut"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "e8fd89b0-2266-4a75-936a-a137868dc3e7"
+          },
+          "type": "Scope"
+        }
+      }
+    },
+    "templateName": ""
+  },
+  "schemaVersion": "1.0.0.0"
+}
