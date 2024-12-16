@@ -70,6 +70,16 @@ steps:
     patterns: '**/AutomationKitControlCenter*.zip'
   displayName: 'Download Automation CoE Control Center solution'
 
+# Download the artifacts from the latest deployment of AutomationKitInstaller to production.
+- task: DownloadPipelineArtifact@2
+  inputs:
+    source: 'specific'
+    project: 'Automation-Kit'
+    pipeline: '2453'
+    runVersion: 'latest'
+    patterns: '**/AutomationKitInstaller*.zip'
+  displayName: 'Download Automation CoE Control Center solution'
+
 - powershell: |
     New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
 
@@ -83,8 +93,10 @@ steps:
     Copy-Item 'Microsoft_AutomationKIT_Main_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'Microsoft_AutomationKIT_Satellite_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationKitControlCenter*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item 'AutomationKitInstaller*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item 'AutomationCoESatellite_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item 'AutomationKitInstaller_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item '$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKitResources\Release\Collateral\AutomationKit\*.pbit' -Destination '$(Pipeline.Workspace)\assetstaging'
 
     [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression')
@@ -140,6 +152,7 @@ steps:
 
     Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoEMain*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
     Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoESatellite*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
+    Copy-Item '$(Pipeline.Workspace)/drop/AutomationKitInstaller*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
 
     $compress = @{
       Path = '$(Pipeline.Workspace)\assetstaging\*.*'
