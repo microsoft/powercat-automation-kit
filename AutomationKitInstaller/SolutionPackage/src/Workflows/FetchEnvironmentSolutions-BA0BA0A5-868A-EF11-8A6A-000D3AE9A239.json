@@ -1,0 +1,153 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_005d3"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "Environment ID",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_1": {
+                  "title": "Solution Unique Name",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text",
+                "text_1"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "fdcfc7fa-7916-4703-9bc2-4e38281e84eb"
+          }
+        }
+      },
+      "actions": {
+        "List_rows_Environment_Solutions": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "organization": "@triggerBody()['text']",
+              "entityName": "solutions",
+              "$select": "solutionid,uniquename,ismanaged,isvisible,friendlyname,description",
+              "$filter": "uniquename eq '@{triggerBody()?['text_1']}'"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecordsWithOrganization",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "43124d0a-2a48-42e3-af9b-e0f1503e73f7"
+          }
+        },
+        "Respond_to_a_Power_App_or_flow": {
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "solutions": {
+                  "title": "Solutions",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "applications": {
+                  "title": "Applications",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "automationprojectappid": {
+                  "title": "AutomationProjectAppId",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                }
+              },
+              "additionalProperties": {}
+            },
+            "statusCode": 200,
+            "body": {
+              "solutions": "@{body('List_rows_Environment_Solutions')}",
+              "applications": "@{body('List_rows_Environment_Applications')}",
+              "automationprojectappid": "@{first(outputs('List_rows_Environment_Applications')?['body/value'])['canvasappid']}"
+            }
+          },
+          "runAfter": {
+            "List_rows_Environment_Applications": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "33227f38-45fd-44ff-aeb2-159495879f51"
+          }
+        },
+        "List_rows_Environment_Applications": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "organization": "@triggerBody()['text']",
+              "entityName": "canvasapps",
+              "$select": "description,solutionid,uniquecanvasappid,name,canvasappid,displayname,canvasapptype,canvasapprowid\n",
+              "$filter": "solutionid eq '@{first(outputs('List_rows_Environment_Solutions')?['body/value'])['solutionid']}' and name eq 'autocoe_automationproject_f233b'"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecordsWithOrganization",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          },
+          "runAfter": {
+            "List_rows_Environment_Solutions": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "64e6ed0d-8983-41f4-bfbe-eeaca63a56cb"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

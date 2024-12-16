@@ -1,0 +1,361 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_webcontents_1": {
+        "api": {
+          "name": "shared_webcontents"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedwebcontents_a4eee"
+        },
+        "runtimeSource": "invoker"
+      },
+      "shared_commondataserviceforapps-1": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_005d3"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "description": "https://api.github.com/repos/microsoft/powercat-automation-kit/contents/AutomationKitResources/Release/Collateral/AutomationKit/autocoe_desktopflowactions.csv",
+                  "title": "csvFileURL",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text_1": {
+                  "title": "CurrentEnvironmentInstanceURL",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                }
+              },
+              "required": [
+                "text",
+                "text_1"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "ec54fed5-51a0-4482-a718-8af4b0c83036"
+          }
+        }
+      },
+      "actions": {
+        "Condition": {
+          "type": "If",
+          "expression": {
+            "and": [
+              {
+                "equals": [
+                  "@length(outputs('List_rows_from_selected_environment')?['body/value'])",
+                  0
+                ]
+              }
+            ]
+          },
+          "actions": {
+            "HTTP": {
+              "type": "Http",
+              "inputs": {
+                "uri": "@triggerBody()?['text']",
+                "method": "GET"
+              },
+              "metadata": {
+                "operationMetadataId": "3514537c-63df-4113-bbcf-48c59744cea2"
+              }
+            },
+            "decodeBase64": {
+              "type": "Compose",
+              "inputs": "@decodebase64(outputs('HTTP')?['body']['content'])",
+              "runAfter": {
+                "HTTP": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "bdca5108-4333-4407-b979-3eafb5b193ed"
+              }
+            },
+            "splitNewLine": {
+              "type": "Compose",
+              "inputs": "@split(outputs('decodeBase64'), decodeUriComponent('%0A'))",
+              "runAfter": {
+                "decodeBase64": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "87a67d3f-dc53-4205-bc11-6a1c298b63d1"
+              }
+            },
+            "Select_JSON_Data": {
+              "type": "Select",
+              "inputs": {
+                "from": "@take(skip(outputs('splitNewLine'),1), sub(length(skip(outputs('splitNewLine'),1)),1))",
+                "select": {
+                  "autocoe_actionname": "@{split(item(), ',')?[0]}",
+                  "autocoe_desktopflowactionid": "@{split(item(), ',')?[1]}",
+                  "autocoe_dlpsupport": "@{split(item(), ',')?[2]}",
+                  "importsequencenumber": "@{split(item(), ',')?[3]}",
+                  "autocoe_moduledisplayname": "@{split(item(), ',')?[4]}",
+                  "autocoe_modulename": "@{split(item(), ',')?[5]}",
+                  "autocoe_modulesource": "@{split(item(), ',')?[6]}",
+                  "autocoe_selectorid": "@{split(item(), ',')?[7]}",
+                  "statuscode": "@{split(item(), ',')?[8]}",
+                  "statecode": "@{split(item(), ',')?[9]}",
+                  "timezoneruleversionnumber": "@{split(item(), ',')?[10]}",
+                  "utcconversiontimezonecode": "@{split(item(), ',')?[11]}",
+                  "versionnumber": "@{split(item(), ',')?[12]}",
+                  "owningbusinessunit": "@{split(item(), ',')?[13]}"
+                }
+              },
+              "runAfter": {
+                "splitNewLine": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2d880740-2cf1-4e2a-b1ce-5449f5696185"
+              }
+            },
+            "Select_JSON_Filtered": {
+              "type": "Select",
+              "inputs": {
+                "from": "@body('Select_JSON_Data')",
+                "select": {
+                  "autocoe_actionname": "@{item()?['autocoe_actionname']}",
+                  "autocoe_desktopflowactionid": "@{item()?['autocoe_desktopflowactionid']}",
+                  "autocoe_dlpsupport": "@if(equals(item()?['autocoe_dlpsupport'],'true'),true,false)",
+                  "autocoe_moduledisplayname": "@{item()?['autocoe_moduledisplayname']}",
+                  "autocoe_modulename": "@{item()?['autocoe_modulename']}",
+                  "autocoe_modulesource": "@{item()?['autocoe_modulesource']}",
+                  "autocoe_selectorid": "@{item()?['autocoe_selectorid']}",
+                  "statuscode": "@if(equals(item()?['statuscode'],'Active'),1,0)"
+                }
+              },
+              "runAfter": {
+                "Select_JSON_Data": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "2791d530-5288-4372-b87b-94cd2d1957ba"
+              }
+            },
+            "Dataverse_Batch_Create": {
+              "type": "Scope",
+              "actions": {
+                "settings": {
+                  "type": "Compose",
+                  "description": "Settings for the batch actions. MUST USE THE PLURAL OF THE LOGICAL TABLE NAME.",
+                  "inputs": {
+                    "TableLogicalName": "autocoe_desktopflowactions",
+                    "BatchSize": 1000
+                  },
+                  "trackedProperties": {
+                    "batchGUID": "@{guid()}",
+                    "changeSetGUID": "@{guid()}"
+                  },
+                  "metadata": {
+                    "operationMetadataId": "9070737a-20ad-44ee-995b-9a9c71c1883d"
+                  }
+                },
+                "Template": {
+                  "type": "Compose",
+                  "inputs": "--changeset_@{actions('settings')?['trackedProperties']['changeSetGUID']}\nContent-Type: application/http\nContent-Transfer-Encoding: binary\nContent-ID: |ID|\n\nPOST /api/data/v9.2/@{outputs('settings')['TableLogicalName']} HTTP/1.1\nContent-Type: application/json;type=entry\n\n|RowData|\n",
+                  "runAfter": {
+                    "settings": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6d8a7a3b-2002-428c-b686-dffa33e63b32"
+                  }
+                },
+                "Apply_to_each": {
+                  "type": "Foreach",
+                  "foreach": "@chunk(outputs('Select_JSON_Filtered')?['body'], outputs('settings')['BatchSize'])",
+                  "actions": {
+                    "Select": {
+                      "type": "Select",
+                      "inputs": {
+                        "from": "@range(0, length(items('Apply_to_each')))",
+                        "select": "@replace(replace(outputs('Template'), '|RowData|', string(items('Apply_to_each')[item()])), '|ID|', string(add(item(), 1)))"
+                      },
+                      "metadata": {
+                        "operationMetadataId": "a137eeeb-941c-4d75-9d06-84eaf76bee86"
+                      }
+                    },
+                    "SendBatch": {
+                      "type": "OpenApiConnection",
+                      "inputs": {
+                        "parameters": {
+                          "request/method": "POST",
+                          "request/url": "/api/data/v9.2/$batch",
+                          "request/headers": {
+                            "OData-MaxVersion": "4.0",
+                            "OData-Version": "4.0",
+                            "If-None-Match": "null",
+                            "Accept": "application/json",
+                            "Content-Type": "multipart/mixed;boundary=batch_@{actions('settings')?['trackedProperties']['batchGUID']}"
+                          },
+                          "request/body": "--batch_@{actions('settings')?['trackedProperties']['batchGUID']}\nContent-Type: multipart/mixed; boundary=changeset_@{actions('settings')?['trackedProperties']['changeSetGUID']}\n\n@{join(body('Select'), decodeUriComponent('%0A'))}\n--changeset_@{actions('settings')?['trackedProperties']['changeSetGUID']}--\n--batch_@{actions('settings')?['trackedProperties']['batchGUID']}--"
+                        },
+                        "host": {
+                          "apiId": "/providers/Microsoft.PowerApps/apis/shared_webcontents",
+                          "operationId": "InvokeHttp",
+                          "connectionName": "shared_webcontents_1"
+                        }
+                      },
+                      "runAfter": {
+                        "Select": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "ce66789c-1571-450c-b6a1-bfdd03e88866"
+                      }
+                    },
+                    "Results": {
+                      "type": "Compose",
+                      "inputs": "@base64ToString(body('SendBatch')['$content'])",
+                      "runAfter": {
+                        "SendBatch": [
+                          "Succeeded"
+                        ]
+                      },
+                      "metadata": {
+                        "operationMetadataId": "97211a81-04c9-4b3f-b039-6bf962cbc1c3"
+                      }
+                    }
+                  },
+                  "runAfter": {
+                    "Template": [
+                      "Succeeded"
+                    ]
+                  },
+                  "metadata": {
+                    "operationMetadataId": "6cc19636-6289-44a4-a3d0-25d03e29f3a6"
+                  }
+                }
+              },
+              "runAfter": {
+                "Select_JSON_Filtered": [
+                  "Succeeded"
+                ]
+              },
+              "metadata": {
+                "operationMetadataId": "5057579a-602f-4f39-b2da-852900007900"
+              }
+            }
+          },
+          "else": {
+            "actions": {}
+          },
+          "runAfter": {
+            "List_rows_from_selected_environment": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "54237cee-225e-49e4-a077-3e3df7cef3c1"
+          }
+        },
+        "Respond_to_a_Power_App_or_flow": {
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "title": "status",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              },
+              "additionalProperties": {}
+            },
+            "statusCode": 200,
+            "body": {
+              "status": "imported"
+            }
+          },
+          "runAfter": {
+            "Condition": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "89c5b110-045b-4e89-9db1-daea863a989e"
+          }
+        },
+        "List_rows_from_selected_environment": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "organization": "@triggerBody()['text_1']",
+              "entityName": "@variables('varDesktopFlowActionsTableName')",
+              "$select": "autocoe_desktopflowactionid,autocoe_actionname"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecordsWithOrganization",
+              "connectionName": "shared_commondataserviceforapps-1"
+            }
+          },
+          "runAfter": {
+            "Initialize_variable_varDesktopFlowActionsTableName": [
+              "SUCCEEDED"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "4a9a1f39-1636-4a1e-9785-e775c4bb9f34"
+          }
+        },
+        "Initialize_variable_varDesktopFlowActionsTableName": {
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "varDesktopFlowActionsTableName",
+                "type": "string",
+                "value": "autocoe_desktopflowactions"
+              }
+            ]
+          },
+          "runAfter": {}
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

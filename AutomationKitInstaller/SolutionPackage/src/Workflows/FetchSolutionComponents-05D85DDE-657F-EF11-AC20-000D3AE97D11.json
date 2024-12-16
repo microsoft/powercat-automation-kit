@@ -1,0 +1,235 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps-2": {
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        },
+        "connection": {
+          "connectionReferenceLogicalName": "autocoe_sharedcommondataserviceforapps_005d3"
+        },
+        "runtimeSource": "embedded"
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "1.0.0.0",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "PowerAppV2",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "title": "solutiontype",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_1": {
+                  "title": "githubreponame",
+                  "type": "string",
+                  "x-ms-dynamically-added": true,
+                  "description": "Please enter your input",
+                  "x-ms-content-hint": "TEXT"
+                },
+                "text_2": {
+                  "description": "Please enter your input",
+                  "title": "githubreleaseid",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text_4": {
+                  "description": "Please enter your input",
+                  "title": "userid",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                }
+              },
+              "required": [
+                "text",
+                "text_1",
+                "text_2",
+                "text_4"
+              ]
+            }
+          },
+          "metadata": {
+            "operationMetadataId": "5629e32b-8413-4d24-a0e6-e77b48eae08a"
+          }
+        }
+      },
+      "actions": {
+        "Perform_an_unbound_action": {
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "actionName": "autocoe_SolutionExtractorAPI",
+              "item/autocoe_userid": "@triggerBody()?['text_4']",
+              "item/autocoe_githubreleaseid": "@triggerBody()?['text_2']",
+              "item/autocoe_githubreponame": "@triggerBody()?['text_1']",
+              "item/autocoe_solutiontype": "@triggerBody()?['text']"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "PerformUnboundAction",
+              "connectionName": "shared_commondataserviceforapps-2"
+            }
+          },
+          "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "ca854f1d-5231-4278-b3e7-d01ea0039744"
+          }
+        },
+        "Respond_to_a_Power_App_or_flow": {
+          "type": "Response",
+          "kind": "PowerApp",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "solutioncomponents": {
+                  "title": "solutioncomponents",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "environmentvariables": {
+                  "title": "environmentvariables",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "connectionreferences": {
+                  "title": "connectionreferences",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                },
+                "packagedetails": {
+                  "title": "packagedetails",
+                  "x-ms-dynamically-added": true,
+                  "type": "string"
+                }
+              },
+              "additionalProperties": {}
+            },
+            "statusCode": 200,
+            "body": {
+              "solutioncomponents": "@outputs('Perform_an_unbound_action')?['body/cat_records']",
+              "environmentvariables": "@{body('Parse_JSON')?['environmentvariables']}",
+              "connectionreferences": "@{body('Parse_JSON')?['connectionreferences']}",
+              "packagedetails": "@{body('Parse_JSON')?['packagedetails']}"
+            }
+          },
+          "runAfter": {
+            "Parse_JSON": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "da89cc5b-27ff-4a84-a7fd-1cbcced6ba8f"
+          }
+        },
+        "Parse_JSON": {
+          "type": "ParseJson",
+          "inputs": {
+            "content": "@outputs('Perform_an_unbound_action')?['body/autocoe_records']",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "environmentvariables": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "schemaname": {
+                        "type": "string"
+                      },
+                      "displayname": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      },
+                      "value": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "schemaname",
+                      "displayname",
+                      "description",
+                      "value"
+                    ]
+                  }
+                },
+                "connectionreferences": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "logicalname": {
+                        "type": "string"
+                      },
+                      "displayname": {
+                        "type": "string"
+                      },
+                      "connectorid": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "logicalname",
+                      "displayname",
+                      "connectorid"
+                    ]
+                  }
+                },
+                "packagedetails": {
+                  "type": "object",
+                  "properties": {
+                    "Version": {
+                      "type": "string"
+                    },
+                    "UniqueName": {
+                      "type": "string"
+                    },
+                    "Publisher": {
+                      "type": "string"
+                    },
+                    "Managed": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "runAfter": {
+            "Perform_an_unbound_action": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "fcde970f-8315-42de-bda0-c6d75f8ce373"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
