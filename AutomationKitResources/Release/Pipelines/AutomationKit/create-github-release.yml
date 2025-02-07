@@ -1,4 +1,5 @@
 # Pipeline to create a Github release for the CoE Starter Kit solution
+
 parameters:
   - name: ReleaseMonthNumber
     type: number
@@ -19,28 +20,30 @@ parameters:
   - name: PreparePackageDeployerPackage
     type: boolean
     default: false
-    
-  trigger: none
-  pr: none
-  resources:
-    repositories:
-    - repository: PipelineRepo  # repository name (DO NOT CHANGE THIS VALUE) 
+
+trigger: none
+pr: none
+
+resources:
+  repositories:
+    - repository: PipelineRepo  # Repository name (DO NOT CHANGE THIS VALUE)
       type: github
-      ref: Rajeev-ts-release #main # If your pipeline templates are in a branch other than the default branch specify the branch here. Otherwise the default branch will be used by default.
-      endpoint: powercat-alm # Specifies the GitHub service connection for this setup.
-      name: Microsoft/coe-alm-accelerator-templates  #This is the name of the repo in the current project in Azure Devops that has the pipeline templates. If the repo is in a different project you can specify the project and repo using the format ProjectContainingTheBuildTemplates/RepositoryContainingTheBuildTemplates (https://docs.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=schema%2Cparameter-schema#type)
-  pool:
-    vmImage: 'windows-2019'
-  
-  variables:
+      ref: Rajeev-ts-release  # Specify the branch if it's different from the default
+      endpoint: powercat-alm  # GitHub service connection
+      name: Microsoft/coe-alm-accelerator-templates  # Repo name in Azure DevOps
+
+pool:
+  vmImage: 'windows-2019'
+
+variables:
   - group: alm-accelerator-variable-group
-  
-  steps:
+
+steps:
   # Checkout our GitHub Branch
   - checkout: self
     displayName: 'Checkout Source Branch'
-  
-  # Download the artifacts from the latest deployment of Main to production.
+
+  # Download artifacts from various pipelines
   - task: DownloadPipelineArtifact@2
     inputs:
       source: 'specific'
@@ -49,8 +52,7 @@ parameters:
       runVersion: 'latest'
       patterns: '**/AutomationCoEMain*.zip'
     displayName: 'Download Automation Kit Main solution'
-  
-  # Download the artifacts from the latest deployment of Satellite to production.
+
   - task: DownloadPipelineArtifact@2
     inputs:
       source: 'specific'
@@ -59,8 +61,7 @@ parameters:
       runVersion: 'latest'
       patterns: '**/AutomationCoESatellite*.zip'
     displayName: 'Download Automation CoE Satellite solution'
-  
-  # Download the artifacts from the latest deployment of control Center to production.
+
   - task: DownloadPipelineArtifact@2
     inputs:
       source: 'specific'
@@ -69,78 +70,77 @@ parameters:
       runVersion: 'latest'
       patterns: '**/AutomationKitControlCenter*.zip'
     displayName: 'Download Automation CoE Control Center solution'
-  
+
+  # Prepare release assets using PowerShell
   - powershell: |
       New-Item -Path $(Pipeline.Workspace)\releaseassets -ItemType Directory
-  
       New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
-  
+
       Set-Location "$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKIT_Packages\Source\PowershellScripts"
       . .\build.ps1 "$(Pipeline.Workspace)"
-  
+
       Copy-Item 'Install_AutomationKit.ps1' -Destination '$(Pipeline.Workspace)\assetstaging'
-  
       Copy-Item 'Microsoft_AutomationKIT_Main_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
       Copy-Item 'Microsoft_AutomationKIT_Satellite_Package.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
       Copy-Item 'AutomationKitControlCenter*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
       Copy-Item 'AutomationCoEMain_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
       Copy-Item 'AutomationCoESatellite_manifest.ppkg.json' -Destination '$(Pipeline.Workspace)\assetstaging'
       Copy-Item '$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKitResources\Release\Collateral\AutomationKit\*.pbit' -Destination '$(Pipeline.Workspace)\assetstaging'
-  
+
       [Reflection.Assembly]::LoadWithPartialName('System.IO.Compression')
       $zipfile = '$(Pipeline.Workspace)\assetstaging\Microsoft_AutomationKIT_Main_Package.zip'
       $files   = '[Content_Types].xml'
-  
+
       $stream = New-Object IO.FileStream($zipfile, [IO.FileMode]::Open)
       $mode   = [IO.Compression.ZipArchiveMode]::Update
       $zip    = New-Object IO.Compression.ZipArchive($stream, $mode)
-  
+
       ($zip.Entries | ? { $files -contains $_.Name }) | Select-Object -First 1 | % { $_.Delete() }
-  
+
       $zip.Dispose()
       $stream.Close()
       $stream.Dispose()
-  
+
       $zipfile = '$(Pipeline.Workspace)\assetstaging\Microsoft_AutomationKIT_Satellite_Package.zip'
-  
+
       $stream = New-Object IO.FileStream($zipfile, [IO.FileMode]::Open)
       $mode   = [IO.Compression.ZipArchiveMode]::Update
       $zip    = New-Object IO.Compression.ZipArchive($stream, $mode)
-  
+
       ($zip.Entries | ? { $files -contains $_.Name }) | Select-Object -First 1 | % { $_.Delete() }
-  
+
       $zip.Dispose()
       $stream.Close()
       $stream.Dispose()
-      
+
       $compress = @{
         Path = '$(Pipeline.Workspace)\assetstaging\*.*'
         CompressionLevel = 'Fastest'
         DestinationPath = '$(Pipeline.Workspace)\releaseassets\AutomationKitInstall.zip'
       }
       Compress-Archive @compress
-  
+
       Remove-Item $(Pipeline.Workspace)\assetstaging -Recurse -Force -Confirm:$false
       New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
-  
+
       Copy-Item '$(Pipeline.Workspace)\drop\*managed.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
       Copy-Item '$(Build.SourcesDirectory)\powercat-automation-kit\AutomationKitResources\Release\Collateral\AutomationKit\*.*' -Destination '$(Pipeline.Workspace)\assetstaging'
-  
+
       $compress = @{
         Path = '$(Pipeline.Workspace)\assetstaging\*.*'
         CompressionLevel = 'Fastest'
         DestinationPath = '$(Pipeline.Workspace)\releaseassets\AutomationKit.zip'
       }
       Compress-Archive @compress
-  
+
       Copy-Item '$(Pipeline.Workspace)\drop\*managed.zip' -Destination '$(Pipeline.Workspace)\releaseassets'
       Remove-Item $(Pipeline.Workspace)\drop\*managed.zip -Recurse -Force -Confirm:$false
       Remove-Item $(Pipeline.Workspace)\assetstaging -Recurse -Force -Confirm:$false
       New-Item -Path $(Pipeline.Workspace)\assetstaging -ItemType Directory
-  
+
       Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoEMain*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
       Copy-Item '$(Pipeline.Workspace)/drop/AutomationCoESatellite*.zip' -Destination '$(Pipeline.Workspace)\assetstaging'
-  
+
       $compress = @{
         Path = '$(Pipeline.Workspace)\assetstaging\*.*'
         CompressionLevel = 'Fastest'
@@ -148,22 +148,23 @@ parameters:
       }
       Compress-Archive @compress
     displayName: 'Prepare release assets'
-  
-  - template: Pipelines\Templates\create-release-github.yml@PipelineRepo
+
+  # Create GitHub Release
+  - template: Pipelines/Templates/create-release-github.yml@PipelineRepo
     parameters:
       gitHubApiUrl: 'microsoft/powercat-automation-kit'
       solutionName: 'AutomationKit'
       solutionDisplayName: 'Automation Kit'
-      releaseMonth: ${{parameters.ReleaseMonthNumber}}
-      releaseYear: ${{parameters.ReleaseYearNumber}}
+      releaseMonth: ${{ parameters.ReleaseMonthNumber }}
+      releaseYear: ${{ parameters.ReleaseYearNumber }}
       connectionName: 'powercat-alm'
       releaseNotesPath: 'powercat-automation-kit/AutomationKitResources/Release/Notes/'
       issueClosingComment: 'This has been fixed in the latest release.'
-      closeIssues: ${{parameters.CloseMilestoneIssues}}
-      isDraft: ${{parameters.DraftRelease}}
+      closeIssues: ${{ parameters.CloseMilestoneIssues }}
+      isDraft: ${{ parameters.DraftRelease }}
       isPreRelease: false
-      hotfixReleaseNumber: ${{parameters.HotfixReleaseNumber}}
-      queryHeadingDelimited: "label:bug|### 🐛 Automation Kit - *BUGS*|label:enhancement|### 🎉 Automation Kit - *FEATURES*|-label:enhancement -label:bug|### ✨ Automation Kit - *OTHER*"
-      prepareAppSourcePackage: ${{parameters.PrepareAppSourcePackage}}
-      preparePackageDeployerPackage: ${{parameters.PreparePackageDeployerPackage}}
+      hotfixReleaseNumber: ${{ parameters.HotfixReleaseNumber }}
+      queryHeadingDelimited: 'label:bug|### 🐛 Automation Kit - *BUGS*|label:enhancement|### 🎉 Automation Kit - *FEATURES*|-label:enhancement -label:bug|### ✨ Automation Kit - *OTHER*'
+      prepareAppSourcePackage: ${{ parameters.PrepareAppSourcePackage }}
+      preparePackageDeployerPackage: ${{ parameters.PreparePackageDeployerPackage }}
       projectName: "powercat-automation-kit"
